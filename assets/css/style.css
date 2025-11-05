@@ -1,0 +1,310 @@
+/* Basic Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html:focus-within {
+  scroll-behavior: smooth; /* smooth scrolling for in-page links (respecting reduced-motion below) */
+}
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  /* Use of CSS custom properties allows theme switching based on prefers-color-scheme */
+}
+
+/* Define color themes using CSS custom properties */
+:root {
+  --color-bg: #ffffff;
+  --color-text: #111111;
+  --color-accent: #0066cc;        /* accent color for links, etc. */
+  --color-bg-alt: #f5f5f5;        /* lighter background for cards/sections */
+  --color-text-alt: #333333;
+  --color-bg-invert: #111111;
+  --color-text-invert: #ffffff;
+  /* Indicate support for light and dark color schemes to user-agent (for form controls, scrollbars, etc.) */
+  color-scheme: light dark;
+}
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121212;
+    --color-text: #f0f0f0;
+    --color-accent: #66ccff;
+    --color-bg-alt: #1e1e1e;
+    --color-text-alt: #cccccc;
+  }
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+p {
+  margin-bottom: 1em;
+}
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover, a:focus {
+  text-decoration: underline;
+}
+a:focus {
+  outline: 2px dashed var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Fluid typography for headings: clamp(min, preferred, max) */
+h1 {
+  font-size: clamp(2rem, 5vw + 1rem, 3rem);  /* Scales between 2rem and 3rem based on viewport width */
+}
+h2 {
+  font-size: clamp(1.5rem, 4vw + 0.5rem, 2.25rem);
+}
+h3 {
+  font-size: clamp(1.25rem, 3vw + 0.5rem, 1.75rem);
+}
+body, p, li {
+  font-size: 1rem; /* Base body text remains at a comfortable default size */
+}
+
+/* Layout & Responsiveness */
+
+/* Global container widths */
+main {
+  max-width: 80ch;
+  margin: 0 auto;
+  padding: 1rem;
+}
+header, footer {
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+/* Flex utility for layout */
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Header and Navigation */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-bg-alt);
+  border-bottom: 2px solid var(--color-bg-alt);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+}
+/* Nav menu – default (mobile) hidden, toggled via script */
+.nav-menu {
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--color-bg-alt);
+  padding: 0.5rem;
+  position: absolute;
+  top: 100%; /* just below the header */
+  right: 1rem;
+  border: 1px solid var(--color-text-alt);
+  border-radius: 4px;
+}
+/* Nav items */
+.nav-menu li {
+  margin: 0;
+}
+.nav-menu a {
+  font-size: 1rem;
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+}
+.nav-menu a:hover, .nav-menu a:focus {
+  background: var(--color-bg);
+}
+/* Menu toggle button */
+.menu-toggle {
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+  border: 2px solid var(--color-text-alt);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font: inherit;
+  cursor: pointer;
+}
+.menu-toggle:focus {
+  outline: 2px dashed var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Show nav menu when the 'open' class is added (controlled by JS) */
+.nav-menu.open {
+  display: flex;
+}
+
+/* Larger screens: horizontal menu */
+@media (min-width: 600px) {
+  .nav-menu {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+  .nav-menu a:hover, .nav-menu a:focus {
+    background: transparent;
+    text-decoration: underline;
+  }
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Hero section */
+.hero {
+  padding: 2rem 1rem;
+  background: var(--color-bg-alt);
+  /* container-type for potential container query if needed */
+  container-type: inline-size;
+  text-align: center;
+}
+.hero h1 {
+  margin-bottom: 0.5rem;
+}
+.hero .tagline {
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+  color: var(--color-text-alt);
+}
+/* Hero image: full width, responsive */
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 1rem;
+}
+/* (Optional container query could be used here to adjust hero layout if the container is very large) */
+
+/* About section */
+.about {
+  padding: 2rem 1rem;
+  background: var(--color-bg);
+}
+.about p {
+  max-width: 70ch;
+}
+
+/* Features section */
+.features {
+  padding: 2rem 1rem;
+  background: var(--color-bg-alt);
+  /* Establish a container for container queries */
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.features .card {
+  background: var(--color-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.features .card h3 {
+  margin: 0.5rem 0;
+}
+.features .card p {
+  font-size: 0.95rem;
+  color: var(--color-text-alt);
+}
+/* Feature icon images */
+.feature-icon {
+  max-width: 80px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+/* Use a container query to make the feature cards layout responsive based on container width */
+@container (min-width: 700px) {
+  .features {
+    /* When the .features container is wide, arrange cards in two columns */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+/* If even wider, three columns (progressive enhancement) */
+@container (min-width: 1100px) {
+  .features {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Contact section */
+.contact {
+  padding: 2rem 1rem;
+  background: var(--color-bg-alt);
+}
+.contact p {
+  max-width: 70ch;
+}
+.contact a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Footer */
+.site-footer {
+  padding: 1rem;
+  text-align: center;
+  background: var(--color-bg);
+  color: var(--color-text-alt);
+  border-top: 2px solid var(--color-bg-alt);
+}
+.site-footer p {
+  font-size: 0.875rem;
+}
+
+/* Accessibility: Skip link styling */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 12px;
+  z-index: 100;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto; /* disable smooth scrolling if user prefers no motion */
+  }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
