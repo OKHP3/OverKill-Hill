@@ -794,3 +794,84 @@ button {
   color: #2e2b29;
   border-color: #3c8ea1;
 }
+/* ===================================================================== */
+/* 🌈 GLEE-FULLY PERSONALIZABLE TOOLS – RETRO JOYFUL OVERLAY             */
+/* ===================================================================== */
+
+.glee-main {
+  --color-bg: #fffaf6;
+  --color-surface: #fffdfa;
+  --color-surface-soft: #fff7f1;
+  --color-fg: #2e2b29;
+  --color-muted: #6b5e57;
+  --color-accent: #ff7a85;
+  --color-accent-2: #2d6f7e;
+  font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--color-fg);
+  background: var(--color-bg);
+}
+
+/* Headers */
+.glee-main h1,
+.glee-main h2,
+.glee-main h3 {
+  font-family: "Fredoka", "Poppins", sans-serif;
+  color: var(--color-accent-2);
+}
+
+/* Buttons */
+.glee-main .btn-primary {
+  background: linear-gradient(135deg, #ff7a85, #ffb1a7);
+  color: #2e2b29;
+  box-shadow: 0 10px 22px rgba(255, 122, 133, 0.4);
+}
+.glee-main .btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgba(255, 122, 133, 0.55);
+}
+.glee-main .btn-quiet {
+  border-color: #ffd8d2;
+  color: var(--color-accent);
+}
+
+/* Glee Glow animation */
+.glee-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 195, 160, 0.25),
+    rgba(255, 230, 200, 0.35),
+    rgba(160, 240, 255, 0.25)
+  );
+  background-size: 200% 200%;
+  animation: gleeSweep 18s linear infinite;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+@keyframes gleeSweep {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Cards */
+.glee-main .card {
+  background: #ffffff;
+  border-color: #ffe7e0;
+  box-shadow: 0 8px 20px rgba(255, 195, 160, 0.25);
+}
+
+/* Footer */
+.glee-main .site-footer {
+  background: #fff7f1;
+  color: var(--color-muted);
+  border-top: 1px solid #ffdcd2;
+}
