@@ -5,15 +5,19 @@
 /* ===== ROOT TOKENS ======================================================= */
 
 :root {
-  /* Core palette */
-  --okh-carbon: #0f141a;
-  --okh-steel: #1b2127;
-  --okh-orange: #ff7a00;
-  --okh-paper: #f5f5f4;
+  /* Core palette – OverKill Hill P³ industrial stripe family */
+  --okh-teal: #1c3a34;
+  --okh-olive: #676a2c;
+  --okh-ochre: #a06e28;
+  --okh-rust: #5b3a27;
+  --okh-espresso: #2a2320;
+  --okh-orange: #c46a2c; /* rust-orange text accent */
+  --okh-amber: #e6a03c;
+  --okh-paper: #f6f2ee;
   --okh-gray: #6b7280;
 
-  /* Mapped design tokens */
-  --color-bg: var(--okh-carbon);
+  /* Mapped design tokens (OKH default) */
+  --color-bg: var(--okh-espresso);
   --color-surface: #111827;
   --color-surface-soft: #181f26;
   --color-fg: #e5e7eb;
@@ -21,11 +25,11 @@
   --color-accent: var(--okh-orange);
   --color-border-subtle: rgba(249, 250, 251, 0.08);
 
-  /* Typography */
-  --font-heading: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+  /* Typography – OverKill Hill default */
+  --font-heading: "Alfa Slab One", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
-  --font-body: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-body: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
 
   /* Layout */
   --max-width: 1120px;
@@ -44,6 +48,7 @@
   --color-fg: #0f172a;
   --color-muted: #4b5563;
   --color-border-subtle: rgba(15, 23, 42, 0.08);
+  --color-accent: var(--okh-orange);
 }
 
 /* ===== RESET & BASE ====================================================== */
@@ -61,7 +66,7 @@ body {
 }
 
 body {
-  background: radial-gradient(circle at top, #1f2933, #020617);
+  background: radial-gradient(circle at top, #1c3a34, #020617);
   color: var(--color-fg);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -165,7 +170,19 @@ button {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #ff7a00, #ffb347);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease, border-color 0.15s ease;
+  text-decoration: none;
+  background: linear-gradient(135deg, #c46a2c, #e6a03c);
   color: #0f172a;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
@@ -263,6 +280,49 @@ button {
 .primary-nav a:hover::after {
   width: 100%;
 }
+
+/* ===== BRAND HEADER VARIANTS ============================================ */
+
+/* Ask Jamie + Glee share the light, paper header instead of OKH blueprint */
+
+.askjamie-main .site-header,
+.glee-main .site-header {
+  background: #f6f2ee;
+  border-bottom: 1px solid #d7d7d7;
+  box-shadow: none;
+}
+
+.glee-main .site-header {
+  border-bottom-color: #ffdcd2;
+}
+
+.askjamie-main .site-header .primary-nav a,
+.glee-main .site-header .primary-nav a {
+  color: #6b6b6b;
+}
+
+.glee-main .site-header .primary-nav a {
+  color: #6b5e57;
+}
+
+.askjamie-main .site-header .primary-nav a::after {
+  background: linear-gradient(90deg, #2d6f7e, #3c8ea1);
+}
+
+.glee-main .site-header .primary-nav a::after {
+  background: linear-gradient(90deg, #d35b2d, #f3b932);
+}
+
+.askjamie-main .nav-toggle .bar,
+.glee-main .nav-toggle .bar {
+  background: #2e2b29;
+}
+
+.askjamie-main .site-header.scrolled,
+.glee-main .site-header.scrolled {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+}
+
 
 /* Mobile nav toggle */
 .nav-toggle {
@@ -443,6 +503,29 @@ button {
   }
 }
 
+.hero-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-visual {
+  max-width: 320px;
+  margin-left: auto;
+}
+
+.hero-illustration {
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 899px) {
+  .hero-visual {
+    max-width: 260px;
+    margin: 0 auto 1.5rem;
+  }
+}
+
 /* ===== SECTION STYLES ==================================================== */
 
 .section-header {
@@ -584,11 +667,12 @@ button {
   transform: translateY(0);
 }
 
-/* ===== ASK JAMIE SUBSITE OVERRIDES ====================================== */
-/* (from your style guide; can tweak later) */
+/* ===================================================================== */
+/* ASK JAMIE SUBSITE – MID-CENTURY PAPER + TEAL                          */
+/* ===================================================================== */
 
 .askjamie-main {
-  --color-bg: #f6f2ee;
+  --color-bg: #f6f2ee; /* Paper base */
   --color-surface: #fdfbf7;
   --color-surface-soft: #f6f2ee;
   --color-fg: #2e2b29;
@@ -599,68 +683,10 @@ button {
     "Segoe UI", sans-serif;
   --font-body: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
-}
 
-/* Paper hero */
-.askjamie-hero .hero {
-  background: none;
-}
-
-.askjamie-hero .hero-blueprint-bg {
-  display: none;
-}
-
-.askjamie-paper {
-  width: 120%;
-  height: 140%;
-  background: #f6f2ee;
-  background-image: radial-gradient(
-      circle at 0 0,
-      rgba(0, 0, 0, 0.05),
-      transparent 55%
-    ),
-    radial-gradient(
-      circle at 100% 100%,
-      rgba(0, 0, 0, 0.04),
-      transparent 55%
-    );
-  transform: rotate(-2deg) translateY(-5%);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-}
-
-.askjamie-avatar {
-  max-width: 260px;
-  margin: 0 auto;
-}
-
-.askjamie-hero-grid {
-  display: grid;
-  gap: 2.5rem;
-}
-
-@media (min-width: 900px) {
-  .askjamie-hero-grid {
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-    align-items: center;
-  }
-}
-/* ===================================================================== */
-/* ASK JAMIE SUBSITE – MID-CENTURY PAPER + TEAL                          */
-/* ===================================================================== */
-
-.askjamie-main {
-  background: #f6f2ee; /* Paper base */
-  color: #2e2b29;
-  font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
-}
-
-/* Heading font */
-.askjamie-main h1,
-.askjamie-main h2,
-.askjamie-main h3 {
-  font-family: "Baloo 2", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
 }
 
 /* Neutralize dark blueprint vibe inside Ask Jamie */
@@ -728,6 +754,8 @@ button {
 
 .askjamie-hero-copy h1 {
   font-size: clamp(2.2rem, 4vw, 2.8rem);
+  font-family: "Baloo 2", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
 }
 
 .askjamie-hero-copy .hero-subtitle {
@@ -758,7 +786,6 @@ button {
 }
 
 .askjamie-main .btn-primary {
-  background: #2d6f7e;
   background: linear-gradient(135deg, #2d6f7e, #3c8ea1);
   color: #f9fafb;
   box-shadow: 0 10px 24px rgba(45, 111, 126, 0.45);
@@ -778,7 +805,7 @@ button {
   color: #2d6f7e;
 }
 
-/* Chat bubbles reuse Glee-style but adjust colors slightly for the mid-century palette */
+/* Chat bubbles */
 .askjamie-main .chat-bubble.user {
   background: #ffffff;
   border-color: #d7d7d7;
@@ -794,21 +821,34 @@ button {
   color: #2e2b29;
   border-color: #3c8ea1;
 }
+
 /* ===================================================================== */
 /* 🌈 GLEE-FULLY PERSONALIZABLE TOOLS – RETRO JOYFUL OVERLAY             */
 /* ===================================================================== */
 
 .glee-main {
-  --color-bg: #fffaf6;
+  --color-bg: #f6f2ee;        /* Cream */
   --color-surface: #fffdfa;
   --color-surface-soft: #fff7f1;
-  --color-fg: #2e2b29;
+  --color-fg: #2e2b29;        /* Charcoal */
   --color-muted: #6b5e57;
-  --color-accent: #ff7a85;
-  --color-accent-2: #2d6f7e;
-  font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --color-accent: #d94f63;    /* Coral */
+  --color-accent-2: #2d6f7e;  /* Teal */
+
+  font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
   color: var(--color-fg);
   background: var(--color-bg);
+}
+
+/* Glee hero sits on light, not blueprint */
+.glee-main .hero {
+  background: none;
+  color: var(--color-fg);
+}
+
+.glee-main .hero-tagline {
+  color: var(--color-muted);
 }
 
 /* Headers */
@@ -821,28 +861,30 @@ button {
 
 /* Buttons */
 .glee-main .btn-primary {
-  background: linear-gradient(135deg, #ff7a85, #ffb1a7);
+  background: linear-gradient(135deg, #d94f63, #d35b2d); /* coral → orange */
   color: #2e2b29;
-  box-shadow: 0 10px 22px rgba(255, 122, 133, 0.4);
+  box-shadow: 0 10px 22px rgba(217, 79, 99, 0.4);
 }
+
 .glee-main .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 16px 34px rgba(255, 122, 133, 0.55);
+  box-shadow: 0 16px 34px rgba(217, 79, 99, 0.55);
 }
+
 .glee-main .btn-quiet {
   border-color: #ffd8d2;
   color: var(--color-accent);
 }
 
-/* Glee Glow animation */
+/* Glee Glow animation (kept, but tuned warmer) */
 .glee-glow {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     120deg,
-    rgba(255, 195, 160, 0.25),
-    rgba(255, 230, 200, 0.35),
-    rgba(160, 240, 255, 0.25)
+    rgba(243, 185, 50, 0.3),
+    rgba(211, 91, 45, 0.25),
+    rgba(60, 142, 161, 0.28)
   );
   background-size: 200% 200%;
   animation: gleeSweep 18s linear infinite;
