@@ -51,6 +51,15 @@
   --color-accent: var(--okh-orange);
 }
 
+body[data-theme="dark"] {
+  background: radial-gradient(circle at top, #1f2933, #020617);
+}
+
+body[data-theme="light"] {
+  background: radial-gradient(circle at top, #f6f2ee, #fff7f1);
+}
+
+
 /* ===== RESET & BASE ====================================================== */
 
 *,
@@ -280,6 +289,45 @@ button {
 .primary-nav a:hover::after {
   width: 100%;
 }
+
+/* Global OKH headings: adjust weight and letter-spacing */
+body:not(.glee-main):not(.askjamie-main) h1,
+body:not(.glee-main):not(.askjamie-main) h2,
+body:not(.glee-main):not(.askjamie-main) h3 {
+  font-family: "Alfa Slab One", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-weight: 400;            /* Reduce weight from 700 to 400 */
+  letter-spacing: 0.05em;      /* Increase letter-spacing for clarity */
+}
+
+/* For Home hero title (“Precision · Protocol · Promptcraft”) */
+body:not(.glee-main):not(.askjamie-main) .hero h1 {
+  font-size: clamp(2.4rem, 3.6vw, 3.0rem);  /* Slightly smaller for readability */
+  letter-spacing: 0.08em;     /* Further breathing room between letters */
+  line-height: 1.08;          /* Reduce line height slightly */
+}
+
+/* For the “What happens at the Hill?” section */
+body:not(.glee-main):not(.askjamie-main) .hero-forge-card h3 {
+  font-size: clamp(1.2rem, 2.1vw, 1.6rem);  /* Size tuned for this secondary heading */
+  font-weight: 600;
+  letter-spacing: 0.06em;      /* Consistent letter-spacing */
+}
+
+/* Projects page header */
+body:not(.glee-main):not(.askjamie-main) .projects-hero h1 {
+  font-size: clamp(2.2rem, 3.2vw, 2.7rem);  /* Smaller than hero but still impactful */
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+/* Card titles (in Projects section) */
+body:not(.glee-main):not(.askjamie-main) .project-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;   /* Lighter weight */
+}
+
 
 /* ===== BRAND HEADER VARIANTS ============================================ */
 

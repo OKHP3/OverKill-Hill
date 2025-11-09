@@ -1,6 +1,23 @@
 // Shared scripts for OverKill Hill P³ + subsites
 
 document.addEventListener("DOMContentLoaded", () => {
+  const themeToggle = document.querySelector(".theme-toggle");
+  const savedTheme = localStorage.getItem("okh-theme");
+  if (savedTheme) {
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("okh-theme", newTheme);
+    });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".site-header");
   const navToggle = document.querySelector(".nav-toggle");
   const yearSpans = document.querySelectorAll(
