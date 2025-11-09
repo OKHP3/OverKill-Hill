@@ -526,6 +526,95 @@ button {
   }
 }
 
+/* ===================================================================== */
+/* BRAND SIGNATURE STRIPES – HORIZONTAL DRIFT                            */
+/* ===================================================================== */
+
+.brand-stripes {
+  position: absolute;
+  inset: -12% 0;              /* bleed a bit above/below */
+  z-index: -2;                /* behind glow/paper + content */
+  pointer-events: none;
+  opacity: 0.75;
+  background-size: 200% 100%; /* wider than screen so we can pan horizontally */
+  animation: stripeDrift 60s linear infinite;
+}
+
+/* OverKill Hill P³ – industrial stripe stack */
+.brand-stripes--okh {
+  background-image: linear-gradient(
+    to bottom,
+    #1c3a34 0%,
+    #1c3a34 20%,
+    #676a2c 20%,
+    #676a2c 40%,
+    #a06e28 40%,
+    #a06e28 60%,
+    #5b3a27 60%,
+    #5b3a27 80%,
+    #2a2320 80%,
+    #2a2320 100%
+  );
+}
+
+/* Glee-fully – retro rainbow spectrum */
+.brand-stripes--glee {
+  background-image: linear-gradient(
+    to bottom,
+    #f6f2ee 0%,
+    #f6f2ee 14%,
+    #f3b932 14%,
+    #f3b932 28%,
+    #d35b2d 28%,
+    #d35b2d 42%,
+    #9e3b2e 42%,
+    #9e3b2e 56%,
+    #2d6f7e 56%,
+    #2d6f7e 70%,
+    #0d2b3a 70%,
+    #0d2b3a 100%
+  );
+}
+
+/* (Optional) Ask Jamie – light, subtle echo of OverKill stripes */
+.brand-stripes--jamie {
+  background-image: linear-gradient(
+    to bottom,
+    #f6f2ee 0%,
+    #f6f2ee 20%,
+    #e1ecef 20%,
+    #e1ecef 40%,
+    #d9dfd1 40%,
+    #d9dfd1 60%,
+    #f2d7b1 60%,
+    #f2d7b1 80%,
+    #f6f2ee 80%,
+    #f6f2ee 100%
+  );
+  opacity: 0.6;
+}
+
+/* Slow horizontal drift */
+@keyframes stripeDrift {
+  0% {
+    background-position: 0% 0;
+  }
+  50% {
+    background-position: -50% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .brand-stripes {
+    animation: none;
+    background-position: 0 0;
+  }
+}
+
 /* ===== SECTION STYLES ==================================================== */
 
 .section-header {

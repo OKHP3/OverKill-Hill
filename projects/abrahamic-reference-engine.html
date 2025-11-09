@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abrahamic Reference Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=Fredoka:wght@700&family=Open+Sans:wght@400;600&family=Baloo+2:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner container">
+      <a href="index.html" class="logo">OverKill&nbsp;Hill&nbsp;P³</a>
+      <nav class="primary-nav">
+        <a href="index.html#forge">The Forge</a>
+        <a href="projects.html">Our Projects</a>
+        <a href="manifesto.html">The Manifesto</a>
+        <a href="about.html">About&nbsp;OKH&nbsp;P³</a>
+        <a href="universe.html">Universe</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="brand-stripes okh" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>Abrahamic Reference Engine</h1>
+          <p>
+            A semantic index across the texts and traditions of Judaism,
+            Christianity and Islam.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="content">
+      <div class="container">
+        <div class="section-header"><h2>Work in Progress</h2></div>
+        <p>
+          The Abrahamic Reference Engine is an early experiment in building a
+          multi‑faith concordance. It aims to link names, places, concepts and
+          narratives across the Torah, Bible and Quran, highlighting common
+          ground and respectful distinctions.
+        </p>
+        <p>
+          Once complete, users will be able to ask comparative questions and
+          receive responses that are sensitive to context, tradition and
+          audience.
+        </p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> OverKill Hill P³. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

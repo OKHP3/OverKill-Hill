@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homestead‑R</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=Fredoka:wght@700&family=Open+Sans:wght@400;600&family=Baloo+2:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner container">
+      <a href="index.html" class="logo">OverKill&nbsp;Hill&nbsp;P³</a>
+      <nav class="primary-nav">
+        <a href="index.html#forge">The Forge</a>
+        <a href="projects.html">Our Projects</a>
+        <a href="manifesto.html">The Manifesto</a>
+        <a href="about.html">About&nbsp;OKH&nbsp;P³</a>
+        <a href="universe.html">Universe</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="brand-stripes okh" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>Homestead‑R</h1>
+          <p>
+            Sustainable living meets AI: tools for gardening, animal care and
+            household resilience.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="content">
+      <div class="container">
+        <div class="section-header"><h2>About Homestead‑R</h2></div>
+        <p>
+          Homestead‑R supports modern homesteaders and small farmers with
+          AI‑powered planning and advice. Whether you’re managing a backyard
+          garden or a regenerative farm, these GPTs can help you plan crop
+          rotations, monitor soil health and keep your animals healthy.
+        </p>
+        <h3>Underlying GPTs</h3>
+        <ul>
+          <li><strong>Crop Planner:</strong> Suggests what to plant, when and
+            where based on your climate zone and goals.</li>
+          <li><strong>Soil Analyst:</strong> Interprets soil test results and
+            recommends amendments.</li>
+          <li><strong>Livestock Tracker:</strong> Keeps records of feeding,
+            health and breeding for your animals.</li>
+          <li><strong>Disaster Prep Coach:</strong> Helps you prepare for
+            weather events and supply disruptions with checklists and guides.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> OverKill Hill P³. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

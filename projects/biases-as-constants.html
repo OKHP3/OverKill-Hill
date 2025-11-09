@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biases as Constants</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=Fredoka:wght@700&family=Open+Sans:wght@400;600&family=Baloo+2:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner container">
+      <a href="index.html" class="logo">OverKill&nbsp;Hill&nbsp;P³</a>
+      <nav class="primary-nav">
+        <a href="index.html#forge">The Forge</a>
+        <a href="projects.html">Our Projects</a>
+        <a href="manifesto.html">The Manifesto</a>
+        <a href="about.html">About&nbsp;OKH&nbsp;P³</a>
+        <a href="universe.html">Universe</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="brand-stripes okh" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>Biases as Constants</h1>
+          <p>
+            A research project investigating the persistent patterns of bias
+            in AI and human systems.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="content">
+      <div class="container">
+        <div class="section-header"><h2>About the Project</h2></div>
+        <p>
+          Biases as Constants seeks to formalise how biases manifest and
+          propagate across different contexts. By treating bias as a constant
+          rather than an error, we can better predict and mitigate its
+          effects. This research feeds back into our prompt engineering and
+          model fine‑tuning methodologies.
+        </p>
+        <p>
+          Draft essays, data visualisations and interactive explorations will
+          appear here as the project evolves.
+        </p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> OverKill Hill P³. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

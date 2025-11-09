@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Found‑Rᵧ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=Fredoka:wght@700&family=Open+Sans:wght@400;600&family=Baloo+2:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner container">
+      <a href="index.html" class="logo">OverKill&nbsp;Hill&nbsp;P³</a>
+      <nav class="primary-nav">
+        <a href="index.html#forge">The Forge</a>
+        <a href="projects.html">Our Projects</a>
+        <a href="manifesto.html">The Manifesto</a>
+        <a href="about.html">About&nbsp;OKH&nbsp;P³</a>
+        <a href="universe.html">Universe</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="brand-stripes okh" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>Found‑Rᵧ</h1>
+          <p>
+            GPTs that build GPTs: the recursive heart of our ecosystem.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="content">
+      <div class="container">
+        <div class="section-header"><h2>About Found‑Rᵧ</h2></div>
+        <p>
+          Found‑Rᵧ is a meta‑framework dedicated to creating tools that can
+          assemble and evolve other GPTs. By treating each agent as a
+          component with inputs and outputs, we can chain behaviours,
+          coordinate tasks and generate new capabilities on demand.
+        </p>
+        <h3>Underlying GPTs</h3>
+        <ul>
+          <li><strong>Protocol Compiler:</strong> Turns structured
+            specifications into working prompt protocols.</li>
+          <li><strong>Agent Builder:</strong> Wraps multiple GPTs into a
+            single orchestrated agent with memory and context management.</li>
+          <li><strong>Recursion Monitor:</strong> Watches chains of GPT
+            calls and suggests optimisation or termination strategies.</li>
+          <li><strong>Emergent Designer:</strong> Experiments with novel
+            configurations and reports on their behaviours.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> OverKill Hill P³. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrandGuard &amp; BFS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=Fredoka:wght@700&family=Open+Sans:wght@400;600&family=Baloo+2:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="brandguard-main">
+  <header class="site-header">
+    <div class="inner container">
+      <a href="index.html" class="logo">OverKill&nbsp;Hill&nbsp;P³</a>
+      <nav class="primary-nav">
+        <a href="index.html#forge">The Forge</a>
+        <a href="projects.html">Our Projects</a>
+        <a href="manifesto.html">The Manifesto</a>
+        <a href="about.html">About&nbsp;OKH&nbsp;P³</a>
+        <a href="universe.html">Universe</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <!-- We reuse OKH stripes for BrandGuard; you can define your own colours via class -->
+      <div class="brand-stripes okh" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>BrandGuard &amp; BFS</h1>
+          <p>
+            Guardian GPTs for tone, ethics and identity. Includes BFS:
+            Framing Intelligent Futures.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="content">
+      <div class="container">
+        <div class="section-header"><h2>About BrandGuard</h2></div>
+        <p>
+          BrandGuard is a suite of AI companions designed to watch over
+          language, style and moral framing. When you’re writing prompts,
+          guidelines or marketing copy, BrandGuard makes sure you stay on
+          message and within your ethical commitments.
+        </p>
+        <p>
+          The BFS (Framing Intelligent Futures) component extends this to
+          strategic planning. It helps enterprises chart a course through
+          digital transformation while maintaining cultural integrity.
+        </p>
+        <h3>Underlying GPTs</h3>
+        <ul>
+          <li><strong>Tone Keeper:</strong> Analyses outputs and suggests
+            adjustments to align with your house style.</li>
+          <li><strong>Ethics Sentinel:</strong> Flags potentially harmful or
+            exclusionary language and provides alternative framings.</li>
+          <li><strong>Framing Navigator:</strong> Guides long‑term planning by
+            mapping goals against values and stakeholder impact.</li>
+          <li><strong>BFS Dashboard:</strong> A control centre for reviewing
+            alignment metrics across all your GPTs.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> OverKill Hill P³. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

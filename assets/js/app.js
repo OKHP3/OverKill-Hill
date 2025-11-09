@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearSpans = document.querySelectorAll(
     "#current-year, #current-year-about, #current-year-manifesto, #current-year-projects, #current-year-glee"
   );
+  const body = document.body;
 
   // Mobile nav
   if (navToggle && header) {
@@ -33,27 +34,37 @@ document.addEventListener("DOMContentLoaded", () => {
     if (el) el.textContent = year;
   });
 
-  // Theme toggle
-  const themeToggle = document.createElement("button");
-  themeToggle.classList.add("theme-toggle");
-  themeToggle.setAttribute("aria-label", "Toggle theme");
-  themeToggle.textContent = "🌓";
+  // Theme toggle – only for core OverKill Hill pages
+  const brandLocked =
+    body.classList.contains("glee-main") ||
+    body.classList.contains("askjamie-main");
 
-  if (header && header.querySelector(".container")) {
-    header.querySelector(".container").appendChild(themeToggle);
+  if (!brandLocked) {
+    const themeToggle = document.createElement("button");
+    themeToggle.classList.add("theme-toggle");
+    themeToggle.setAttribute("aria-label", "Toggle theme");
+    themeToggle.textContent = "🌓";
+
+    if (header && header.querySelector(".container")) {
+      header.querySelector(".container").appendChild(themeToggle);
+    }
+
+    const savedTheme = localStorage.getItem("okh-theme");
+    if (savedTheme === "light" || savedTheme === "dark") {
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const current =
+        document.documentElement.getAttribute("data-theme") || "dark";
+      const next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("okh-theme", next);
+    });
+  } else {
+    // Subsites stay on their brand "light" look
+    document.documentElement.setAttribute("data-theme", "light");
   }
-
-  const savedTheme = localStorage.getItem("okh-theme");
-  if (savedTheme === "light" || savedTheme === "dark") {
-    document.documentElement.setAttribute("data-theme", savedTheme);
-  }
-
-  themeToggle.addEventListener("click", () => {
-    const current = document.documentElement.getAttribute("data-theme") || "dark";
-    const next = current === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("okh-theme", next);
-  });
 
   // Scroll reveal
   const prefersReducedMotion = window.matchMedia(

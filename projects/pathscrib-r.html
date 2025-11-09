@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PathScrib‑R</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=Fredoka:wght@700&family=Open+Sans:wght@400;600&family=Baloo+2:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner container">
+      <a href="index.html" class="logo">OverKill&nbsp;Hill&nbsp;P³</a>
+      <nav class="primary-nav">
+        <a href="index.html#forge">The Forge</a>
+        <a href="projects.html">Our Projects</a>
+        <a href="manifesto.html">The Manifesto</a>
+        <a href="about.html">About&nbsp;OKH&nbsp;P³</a>
+        <a href="universe.html">Universe</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="brand-stripes okh" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>PathScrib‑R</h1>
+          <p>
+            A narrative copilot and generative writing suite. Explore, draft
+            and iterate on your stories with AI assistance.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="content">
+      <div class="container">
+        <div class="section-header"><h2>About PathScrib‑R</h2></div>
+        <p>
+          PathScrib‑R is built for authors, game masters and world builders. It
+          helps you brainstorm plot points, refine characters and experiment
+          with narrative structure. With a flexible Copilot Agent you can
+          delegate tasks like outlining, summarising and even converting text
+          into storyboards.
+        </p>
+        <h3>Copilot &amp; GPT Components</h3>
+        <ul>
+          <li><strong>Plot Weaver:</strong> Suggests possible turns and twists
+            based on your genre and themes.</li>
+          <li><strong>Character Smith:</strong> Generates nuanced character
+            sheets and backstories.</li>
+          <li><strong>Arc Visualiser:</strong> Converts a synopsis into a
+            simple plot arc diagram.</li>
+          <li><strong>Copilot Agent:</strong> A multi‑step agent that takes
+            user instructions and executes them across the PathScrib‑R suite.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> OverKill Hill P³. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
