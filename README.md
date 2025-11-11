@@ -27,7 +27,7 @@ Our solutions are built with scalability in mind, ensuring that they grow with y
 
 ### **Explore More**:
 
-[Visit OverKill Hill P³ on Ko-fi](https://ko-fi.com/overkillhillp3?source=GPT%20Found‑Rᵧ%20–%20TellEPrompt‑Rᵧ) to learn more and explore the full suite of tools we offer. From project ideation to the final execution, we provide the necessary resources to help you take your systems and automation to the next level.
+[Visit OverKill Hill P³ on Ko-fi](https://ko-fi.com/overkillhillp3) to learn more and explore the full suite of tools we offer. From project ideation to the final execution, we provide the necessary resources to help you take your systems and automation to the next level.
 
 ---
 
@@ -35,10 +35,9 @@ Our solutions are built with scalability in mind, ensuring that they grow with y
 
 For inquiries, collaborations, or support, feel free to reach out to us at:
 
-* **Email**: [OverKillHillP3@outlook.com](mailto:OverKillHillP3@outlook.com)
-* **Ko-fi**: [OverKill Hill P³ on Ko-fi](https://ko-fi.com/overkillhillp3?source=GPT%20Found‑Rᵧ%20–%20TellEPrompt‑Rᵧ)
+* **Email**: [contact@overkillhill.com](mailto:contact@overkillhill.com)
+* **Ko-fi**: [OverKill Hill P³ on Ko-fi](https://ko-fi.com/overkillhillp3)
 
 ---
 
-
-If you'd like any further adjustments or need additional sections, let me know!
+Thank you for choosing **OverKill Hill P³**—let’s build smarter systems together!
