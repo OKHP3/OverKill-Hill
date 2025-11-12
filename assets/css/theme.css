@@ -959,6 +959,64 @@ body:not(.glee-main):not(.askjamie-main) .project-card h3 {
   border-color: #3c8ea1;
 }
 
+/* === AskJamie: add Kalam 400 as secondary accent ======================= */
+/* Import (or use a <link> in HTML; @import is fine for now) */
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400&display=swap');
+
+/* Wire up a dedicated accent token */
+.askjamie-main {
+  --font-accent: "Kalam", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* Keep Baloo 2 for H1–H3; use Kalam for secondary voice elements */
+.askjamie-main .eyebrow,
+.askjamie-main .hero-subtitle,
+.askjamie-main .manifesto-blockquote,
+.askjamie-main .note,
+.askjamie-main .h-accent {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  letter-spacing: 0.01em;          /* Kalam reads better with minimal tracking */
+}
+
+/* Eyebrow: shift from full uppercase to natural case (cleaner in Kalam) */
+.askjamie-main .eyebrow {
+  text-transform: none;             /* was uppercase */
+  font-size: 0.95rem;
+  color: #3c8ea1;                   /* existing teal */
+}
+
+/* Hero subtitle: keep hierarchy under Baloo 2 title */
+.askjamie-main .hero-subtitle {
+  font-size: 1.05rem;               /* slight bump for readability */
+  color: #4b5563;
+}
+
+/* Manifesto/blockquote: give Kalam the spotlight */
+.askjamie-main .manifesto-blockquote {
+  font-size: 1.08rem;
+  font-style: normal;               /* Kalam has no true italics; keep upright */
+}
+
+/* Utility classes you can drop anywhere */
+.askjamie-main .h-accent {          /* small accent header under a Baloo header */
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+  line-height: 1.2;
+  color: #2d6f7e;
+}
+
+.askjamie-main .note {              /* captions, asides, chat meta, etc. */
+  font-size: 0.95rem;
+  color: #6b6b6b;
+}
+
+/* Optional: a Kalam variant for buttons or chips (use sparingly) */
+.askjamie-main .btn--hand {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
 /* ===================================================================== */
 /* 🌈 GLEE-FULLY PERSONALIZABLE TOOLS – RETRO JOYFUL OVERLAY             */
 /* ===================================================================== */
