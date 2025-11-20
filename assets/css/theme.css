@@ -353,6 +353,10 @@ body:not(.glee-main):not(.askjamie-main) .project-card h3 {
   color: #6b5e57;
 }
 
+.askjamie-main .primary-nav a {
+  color: #2e2b29;
+}
+
 .askjamie-main .site-header .primary-nav a::after {
   background: linear-gradient(90deg, #2d6f7e, #3c8ea1);
 }
@@ -804,6 +808,30 @@ body:not(.glee-main):not(.askjamie-main) .project-card h3 {
   transform: translateY(0);
 }
 
+/* Chat mock layout – shared structure, brand-specific colors layered on top */
+.chat-mock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.chat-bubble {
+  max-width: 34rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.9rem;
+  border: 1px solid var(--color-border-subtle);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.chat-bubble.user {
+  align-self: flex-start;
+}
+
+.chat-bubble.assistant {
+  align-self: flex-end;
+}
+
 /* ===================================================================== */
 /* ASK JAMIE SUBSITE – MID-CENTURY PAPER + TEAL                          */
 /* ===================================================================== */
@@ -842,6 +870,17 @@ body:not(.glee-main):not(.askjamie-main) .project-card h3 {
 .askjamie-hero {
   position: relative;
   padding: 4rem 0 3.25rem;
+}
+
+.askjamie-hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .askjamie-hero-visual {
+    justify-content: flex-end;
+  }
 }
 
 .askjamie-paper {
@@ -1111,4 +1150,92 @@ body:not(.glee-main):not(.askjamie-main) .project-card h3 {
   background: #fff7f1;
   color: var(--color-muted);
   border-top: 1px solid #ffdcd2;
+}
+
+/* -----------------------------------------------------------------------
+   AskJamie palette and layout tweaks
+
+   The default styles were borrowed heavily from OverKill Hill, which led to
+   elements like the stripe backgrounds and the footer feeling out of place on
+   the AskJamie site. These overrides apply a richer mid‑century palette and
+   lighten structural elements to better match the brand imagery provided.
+*/
+
+/* Brand stripes: replace the pastel blues/greens with the bright mid‑century
+   palette seen in the provided reference images. Each stripe is 20% of the
+   container height. */
+.askjamie-main .brand-stripes--jamie {
+  background-image: linear-gradient(
+    to bottom,
+    /* deep teal */ #007c84 0%,
+    #007c84 20%,
+    /* aqua */ #76b2ba 20%,
+    #76b2ba 40%,
+    /* cream */ #f5ead9 40%,
+    #f5ead9 60%,
+    /* warm beige */ #d5ba9a 60%,
+    #d5ba9a 80%,
+    /* mocha */ #69584c 80%,
+    #69584c 100%
+  );
+  opacity: 0.8;
+}
+
+/* Lighten stripe backgrounds used for secondary sections (e.g., where Jamie fits).
+   Without this override they inherit OverKill’s dark radial gradient. */
+.askjamie-main .stripe-bg {
+  background: #f7f3ee;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* AskJamie footer: soften the dark OverKill footer into a warm cream base.
+   Headings and links pick up the accent colour for readability. */
+.askjamie-main .site-footer {
+  background: #f7f3ee;
+  color: var(--color-muted);
+  border-top: 1px solid #e0d9d2;
+  padding-top: 2.5rem;
+}
+.askjamie-main .footer-column h3,
+.askjamie-main .footer-column h4 {
+  color: var(--color-heading);
+}
+.askjamie-main .site-footer a {
+  color: var(--color-accent);
+}
+/* Ensure the footer bottom section inherits the same background and colour. */
+.askjamie-main .footer-bottom {
+  background: #f7f3ee;
+  color: var(--color-muted);
+}
+
+/* Expand the hero paper card edge-to-edge on AskJamie. Without this override
+   a 5% horizontal inset exposes the colourful stripes on either side of the
+   paper, which is distracting. Setting the inset to zero on the left and
+   right allows the paper to fully cover the stripes. */
+.askjamie-main .askjamie-paper {
+  /* Provide lateral margins so the paper fills ~80% of the width. This reveals
+     a small amount of the stripe background while keeping the new colours. */
+  inset: 6% 10% 0 10%;
+}
+
+/* Smaller AskJamie headings (h4–h6): use the brand headline font and accent colour */
+.askjamie-main h4,
+.askjamie-main h5,
+.askjamie-main h6 {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* AskJamie logo in hero: constrain width and add breathing room below the logo. */
+.askjamie-main .askjamie-logo {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.askjamie-main .askjamie-logo img {
+  max-width: 12rem;
+  height: auto;
 }
