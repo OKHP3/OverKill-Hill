@@ -831,39 +831,60 @@ body:not(.glee-main):not(.askjamie-main) .project-card h3 {
 .chat-bubble.assistant {
   align-self: flex-end;
 }
-
 /* ===================================================================== */
 /* ASK JAMIE SUBSITE – MID-CENTURY PAPER + TEAL                          */
 /* ===================================================================== */
 
 .askjamie-main {
-  --color-bg: #f6f2ee; /* Paper base */
+  /* Palette + tokens */
+  --color-bg: #f6f2ee;           /* paper base */
   --color-surface: #fdfbf7;
   --color-surface-soft: #f6f2ee;
   --color-fg: #2e2b29;
   --color-muted: #6b6b6b;
   --color-accent: #2d6f7e;
   --color-border-subtle: #d7d7d7;
+
   --font-heading: "Baloo 2", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
   --font-body: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
+  --font-accent: "Kalam", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   background: var(--color-bg);
   color: var(--color-fg);
   font-family: var(--font-body);
 }
 
-/* Neutralize dark blueprint vibe inside Ask Jamie */
+/* Neutralize dark blueprint vibe inside AskJamie */
 .askjamie-main .hero {
   background: none;
   color: #2e2b29;
 }
 
+/* Brand stripes behind the hero */
+.askjamie-main .brand-stripes--jamie {
+  background-image: linear-gradient(
+    to bottom,
+    /* deep teal */ #007c84 0%,
+    #007c84 20%,
+    /* aqua */ #76b2ba 20%,
+    #76b2ba 40%,
+    /* cream */ #f5ead9 40%,
+    #f5ead9 60%,
+    /* warm beige */ #d5ba9a 60%,
+    #d5ba9a 80%,
+    /* mocha */ #69584c 80%,
+    #69584c 100%
+  );
+  opacity: 0.8;
+}
+
+/* Stripe background sections (e.g. “Where Jamie fits”) */
 .askjamie-main .stripe-bg {
-  background: #f2e9e4;
-  border-top: 1px solid #d7d7d7;
-  border-bottom: 1px solid #d7d7d7;
+  background: #f7f3ee;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* Hero paper card */
@@ -885,7 +906,7 @@ body:not(.glee-main):not(.askjamie-main) .project-card h3 {
 
 .askjamie-paper {
   position: absolute;
-  inset: 8% 5% 0 5%;
+  inset: 6% 10% 0 10%; /* ~80% width, reveals a little stripe on each side */
   background: #f6f2ee;
   background-image: radial-gradient(
       circle at 0 0,
@@ -920,10 +941,56 @@ body:not(.glee-main):not(.askjamie-main) .project-card h3 {
   }
 }
 
+/* === AskJamie system pages (404, under-construction, etc.) ============ */
+
+/* Stacked hero variant with one big illustration */
+.askjamie-hero.askjamie-hero--system .askjamie-hero-inner {
+  text-align: center;
+}
+
+.askjamie-hero-visual--full {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Wide illustration (404 / error) */
+.askjamie-system-hero-img {
+  display: block;
+  max-width: min(100%, 1120px);
+  height: auto;
+}
+
+/* Under-construction layout: single-column with large art */
+.askjamie-hero--under-construction .askjamie-hero-grid {
+  grid-template-columns: minmax(0, 1fr);
+  text-align: center;
+  justify-items: center;
+}
+
+.askjamie-hero--under-construction .askjamie-hero-copy {
+  max-width: 40rem;
+  margin: 0 auto 2rem;
+}
+
+.askjamie-hero--under-construction .askjamie-hero-visual {
+  justify-content: center;
+}
+
+/* Large hero image inside the angled paper card */
+.askjamie-under-image {
+  display: block;
+  max-width: min(100%, 960px);
+  height: auto;
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* Hero copy */
 .askjamie-hero-copy .eyebrow {
   font-size: 0.85rem;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
+  text-transform: uppercase; /* overridden by .askjamie-main .eyebrow below */
   color: #3c8ea1;
   margin-bottom: 0.5rem;
 }
@@ -998,16 +1065,7 @@ body:not(.glee-main):not(.askjamie-main) .project-card h3 {
   border-color: #3c8ea1;
 }
 
-/* === AskJamie: add Kalam 400 as secondary accent ======================= */
-/* Import (or use a <link> in HTML; @import is fine for now) */
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400&display=swap');
-
-/* Wire up a dedicated accent token */
-.askjamie-main {
-  --font-accent: "Kalam", system-ui, -apple-system, "Segoe UI", sans-serif;
-}
-
-/* Keep Baloo 2 for H1–H3; use Kalam for secondary voice elements */
+/* Accent typography (Kalam) */
 .askjamie-main .eyebrow,
 .askjamie-main .hero-subtitle,
 .askjamie-main .manifesto-blockquote,
@@ -1015,45 +1073,163 @@ body:not(.glee-main):not(.askjamie-main) .project-card h3 {
 .askjamie-main .h-accent {
   font-family: var(--font-accent);
   font-weight: 400;
-  letter-spacing: 0.01em;          /* Kalam reads better with minimal tracking */
+  letter-spacing: 0.01em;
 }
 
-/* Eyebrow: shift from full uppercase to natural case (cleaner in Kalam) */
+/* Eyebrow: mid‑century, non‑shouty */
 .askjamie-main .eyebrow {
-  text-transform: none;             /* was uppercase */
+  text-transform: none;      /* overrides the uppercase version above */
   font-size: 0.95rem;
-  color: #3c8ea1;                   /* existing teal */
+  color: #3c8ea1;
+}
+/* AskJamie: logo + text breadcrumb for inner-page heroes */
+.askjamie-main .askjamie-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #3c8ea1; /* same teal accent */
+  margin-bottom: 0.75rem;
 }
 
-/* Hero subtitle: keep hierarchy under Baloo 2 title */
-.askjamie-main .hero-subtitle {
-  font-size: 1.05rem;               /* slight bump for readability */
-  color: #4b5563;
+.askjamie-main .askjamie-breadcrumb .breadcrumb-separator {
+  opacity: 0.8;
 }
 
-/* Manifesto/blockquote: give Kalam the spotlight */
-.askjamie-main .manifesto-blockquote {
-  font-size: 1.08rem;
-  font-style: normal;               /* Kalam has no true italics; keep upright */
+.askjamie-main .askjamie-breadcrumb .breadcrumb-label {
+  white-space: nowrap;
 }
 
-/* Utility classes you can drop anywhere */
-.askjamie-main .h-accent {          /* small accent header under a Baloo header */
-  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
-  line-height: 1.2;
-  color: #2d6f7e;
+/* Smaller, inline logo for breadcrumb (doesn't affect main hero logo) */
+.askjamie-main .askjamie-logo--crumb {
+  margin-bottom: 0; /* override hero logo spacing */
 }
 
-.askjamie-main .note {              /* captions, asides, chat meta, etc. */
-  font-size: 0.95rem;
-  color: #6b6b6b;
+.askjamie-main .askjamie-logo--crumb img {
+  max-width: 7.5rem; /* ~120px – scaled-down mark */
+  height: auto;
+  display: block;
 }
 
-/* Optional: a Kalam variant for buttons or chips (use sparingly) */
-.askjamie-main .btn--hand {
-  font-family: var(--font-accent);
-  font-weight: 400;
-  letter-spacing: 0.02em;
+/* Smaller headings (h4–h6) */
+.askjamie-main h4,
+.askjamie-main h5,
+.askjamie-main h6 {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Footer – soften OverKill’s dark footer just for AskJamie */
+.askjamie-main .site-footer {
+  background: #f7f3ee;
+  color: var(--color-muted);
+  border-top: 1px solid #e0d9d2;
+  padding-top: 2.5rem;
+}
+
+.askjamie-main .footer-column h3,
+.askjamie-main .footer-column h4 {
+  color: var(--color-heading);
+}
+
+.askjamie-main .site-footer a {
+  color: var(--color-accent);
+}
+
+.askjamie-main .footer-bottom {
+  background: #f7f3ee;
+  color: var(--color-muted);
+}
+
+/* -----------------------------------------------------------------------
+   AskJamie palette and layout tweaks
+
+   The default styles were borrowed heavily from OverKill Hill, which led to
+   elements like the stripe backgrounds and the footer feeling out of place on
+   the AskJamie site. These overrides apply a richer mid‑century palette and
+   lighten structural elements to better match the brand imagery provided.
+*/
+
+/* Brand stripes: replace the pastel blues/greens with the bright mid‑century
+   palette seen in the provided reference images. Each stripe is 20% of the
+   container height. */
+.askjamie-main .brand-stripes--jamie {
+  background-image: linear-gradient(
+    to bottom,
+    /* deep teal */ #007c84 0%,
+    #007c84 20%,
+    /* aqua */ #76b2ba 20%,
+    #76b2ba 40%,
+    /* cream */ #f5ead9 40%,
+    #f5ead9 60%,
+    /* warm beige */ #d5ba9a 60%,
+    #d5ba9a 80%,
+    /* mocha */ #69584c 80%,
+    #69584c 100%
+  );
+  opacity: 0.8;
+}
+
+/* Lighten stripe backgrounds used for secondary sections (e.g., where Jamie fits).
+   Without this override they inherit OverKill’s dark radial gradient. */
+.askjamie-main .stripe-bg {
+  background: #f7f3ee;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* AskJamie footer: soften the dark OverKill footer into a warm cream base.
+   Headings and links pick up the accent color for readability. */
+.askjamie-main .site-footer {
+  background: #f7f3ee;
+  color: var(--color-muted);
+  border-top: 1px solid #e0d9d2;
+  padding-top: 2.5rem;
+}
+.askjamie-main .footer-column h3,
+.askjamie-main .footer-column h4 {
+  color: var(--color-heading);
+}
+.askjamie-main .site-footer a {
+  color: var(--color-accent);
+}
+/* Ensure the footer bottom section inherits the same background and color. */
+.askjamie-main .footer-bottom {
+  background: #f7f3ee;
+  color: var(--color-muted);
+}
+
+/* Expand the hero paper card edge-to-edge on AskJamie. Without this override
+   a 5% horizontal inset exposes the colorful stripes on either side of the
+   paper, which is distracting. Setting the inset to zero on the left and
+   right allows the paper to fully cover the stripes. */
+.askjamie-main .askjamie-paper {
+  /* Provide lateral margins so the paper fills ~80% of the width. This reveals
+     a small amount of the stripe background while keeping the new colors. */
+  inset: 6% 10% 0 10%;
+}
+
+/* Smaller AskJamie headings (h4–h6): use the brand headline font and accent color */
+.askjamie-main h4,
+.askjamie-main h5,
+.askjamie-main h6 {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* AskJamie logo in hero: constrain width and add breathing room below the logo. */
+.askjamie-main .askjamie-logo {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.askjamie-main .askjamie-logo img {
+  max-width: 12rem;
+  height: auto;
 }
 
 /* ===================================================================== */
@@ -1150,92 +1326,4 @@ body:not(.glee-main):not(.askjamie-main) .project-card h3 {
   background: #fff7f1;
   color: var(--color-muted);
   border-top: 1px solid #ffdcd2;
-}
-
-/* -----------------------------------------------------------------------
-   AskJamie palette and layout tweaks
-
-   The default styles were borrowed heavily from OverKill Hill, which led to
-   elements like the stripe backgrounds and the footer feeling out of place on
-   the AskJamie site. These overrides apply a richer mid‑century palette and
-   lighten structural elements to better match the brand imagery provided.
-*/
-
-/* Brand stripes: replace the pastel blues/greens with the bright mid‑century
-   palette seen in the provided reference images. Each stripe is 20% of the
-   container height. */
-.askjamie-main .brand-stripes--jamie {
-  background-image: linear-gradient(
-    to bottom,
-    /* deep teal */ #007c84 0%,
-    #007c84 20%,
-    /* aqua */ #76b2ba 20%,
-    #76b2ba 40%,
-    /* cream */ #f5ead9 40%,
-    #f5ead9 60%,
-    /* warm beige */ #d5ba9a 60%,
-    #d5ba9a 80%,
-    /* mocha */ #69584c 80%,
-    #69584c 100%
-  );
-  opacity: 0.8;
-}
-
-/* Lighten stripe backgrounds used for secondary sections (e.g., where Jamie fits).
-   Without this override they inherit OverKill’s dark radial gradient. */
-.askjamie-main .stripe-bg {
-  background: #f7f3ee;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-/* AskJamie footer: soften the dark OverKill footer into a warm cream base.
-   Headings and links pick up the accent colour for readability. */
-.askjamie-main .site-footer {
-  background: #f7f3ee;
-  color: var(--color-muted);
-  border-top: 1px solid #e0d9d2;
-  padding-top: 2.5rem;
-}
-.askjamie-main .footer-column h3,
-.askjamie-main .footer-column h4 {
-  color: var(--color-heading);
-}
-.askjamie-main .site-footer a {
-  color: var(--color-accent);
-}
-/* Ensure the footer bottom section inherits the same background and colour. */
-.askjamie-main .footer-bottom {
-  background: #f7f3ee;
-  color: var(--color-muted);
-}
-
-/* Expand the hero paper card edge-to-edge on AskJamie. Without this override
-   a 5% horizontal inset exposes the colourful stripes on either side of the
-   paper, which is distracting. Setting the inset to zero on the left and
-   right allows the paper to fully cover the stripes. */
-.askjamie-main .askjamie-paper {
-  /* Provide lateral margins so the paper fills ~80% of the width. This reveals
-     a small amount of the stripe background while keeping the new colours. */
-  inset: 6% 10% 0 10%;
-}
-
-/* Smaller AskJamie headings (h4–h6): use the brand headline font and accent colour */
-.askjamie-main h4,
-.askjamie-main h5,
-.askjamie-main h6 {
-  font-family: var(--font-heading);
-  color: var(--color-accent);
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
-/* AskJamie logo in hero: constrain width and add breathing room below the logo. */
-.askjamie-main .askjamie-logo {
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-.askjamie-main .askjamie-logo img {
-  max-width: 12rem;
-  height: auto;
 }
