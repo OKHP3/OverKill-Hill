@@ -1021,6 +1021,48 @@ body:not(.glee-main):not(.askjamie-main) .project-card h3 {
   filter: none;
 }
 
+/* Large under‑construction hero art */
+.askjamie-under-img {
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  height: auto;
+}
+
+/* Universe hero: make the Mermaid diagram fill the paper card */
+.askjamie-hero--universe .askjamie-hero-visual {
+  align-items: stretch;
+}
+
+.askjamie-mermaid-shell {
+  margin: 0;
+  width: 100%;
+  max-width: 960px;
+}
+
+.askjamie-mermaid-shell .mermaid {
+  width: 100%;
+  min-height: 22rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 18px;
+  background: #fdfbf7;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Match Mermaid text to the AskJamie palette */
+.askjamie-main .mermaid {
+  font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: #2e2b29;
+}
+
+@media (max-width: 640px) {
+  .askjamie-mermaid-shell .mermaid {
+    min-height: 18rem;
+    padding: 1rem;
+  }
+}
+
 /* Cards and buttons tuned for Jamie palette */
 .askjamie-main .card {
   background: #fdfbf7;
