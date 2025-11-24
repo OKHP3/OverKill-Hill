@@ -468,9 +468,22 @@ body:not(.glee-main):not(.askjamie-main) .project-card h3 {
   .primary-nav {
     position: fixed;
     inset: 3.75rem 0 auto 0;
-    background: #020617;
+    background: #020617; /* default: OverKill blueprint */
     transform: translateY(-120%);
     transition: transform 0.2s ease;
+  }
+
+  /* Brand-specific mobile menu backgrounds */
+  body.askjamie-main .primary-nav,
+  body.glee-main .primary-nav {
+    background: #f6f2ee;                 /* paper tone */
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  /* Make sure link color stays readable on the light background */
+  body.askjamie-main .primary-nav a,
+  body.glee-main .primary-nav a {
+    color: #2e2b29;
   }
 
   .site-header.nav-open .primary-nav {
