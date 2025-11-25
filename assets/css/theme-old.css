@@ -924,67 +924,6 @@ body:not(.glee-main):not(.askjamie-main) .project-card h3 {
 .chat-bubble.assistant {
   align-self: flex-end;
 }
-
-/* ===================================================================== */
-/* GLOBAL MERMAID – DEFAULT OVERKILL HILL P³                             */
-/* ===================================================================== */
-
-/* Base container; used everywhere unless a subsite override applies */
-.mermaid {
-  max-width: 100%;
-  display: block;
-}
-
-/* Default OKH P³ look (body without askjamie-main / glee-main) */
-body:not(.askjamie-main):not(.glee-main) .mermaid svg {
-  width: 100%;
-  height: auto;
-}
-
-/* Nodes */
-body:not(.askjamie-main):not(.glee-main) .mermaid .node rect,
-body:not(.askjamie-main):not(.glee-main) .mermaid .node circle {
-  rx: 6px;
-  ry: 6px;
-  fill: var(--color-surface-soft);
-  stroke: var(--color-accent);
-  stroke-width: 1.5px;
-}
-
-/* Labels */
-body:not(.askjamie-main):not(.glee-main) .mermaid .label text {
-  fill: var(--color-fg);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-}
-
-/* Edges */
-body:not(.askjamie-main):not(.glee-main) .mermaid .edgePath path {
-  stroke: rgba(148, 163, 184, 0.85);  /* slate rail */
-  stroke-width: 1.5px;
-}
-
-/* Clusters / grouped sections */
-body:not(.askjamie-main):not(.glee-main) .mermaid .cluster rect {
-  fill: #020617;
-  stroke: rgba(148, 163, 184, 0.75);
-}
-
-/* Clickable affordance – applies to all brands */
-.mermaid a {
-  cursor: pointer;
-}
-
-/* Default OKH tooltip styling */
-body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
-  background-color: #020617;
-  color: #e5e7eb;
-  border-radius: 999px;
-  padding: 0.25rem 0.6rem;
-  font-size: 0.75rem;
-  border: 1px solid rgba(148, 163, 184, 0.8);
-}
-
 /* ===================================================================== */
 /* ASK JAMIE SUBSITE – MID-CENTURY PAPER + TEAL                          */
 /* ===================================================================== */
@@ -1196,6 +1135,40 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
   height: auto;
 }
 
+/* Universe hero: make the Mermaid diagram fill the paper card */
+.askjamie-hero--universe .askjamie-hero-visual {
+  align-items: stretch;
+}
+
+.askjamie-mermaid-shell {
+  margin: 0;
+  width: 100%;
+  max-width: 960px;
+}
+
+.askjamie-mermaid-shell .mermaid {
+  width: 100%;
+  min-height: 22rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 18px;
+  background: #fdfbf7;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Match Mermaid text to the AskJamie palette */
+.askjamie-main .mermaid {
+  font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: #2e2b29;
+}
+
+@media (max-width: 640px) {
+  .askjamie-mermaid-shell .mermaid {
+    min-height: 18rem;
+    padding: 1rem;
+  }
+}
+
 /* Cards and buttons tuned for Jamie palette */
 .askjamie-main .card {
   background: #fdfbf7;
@@ -1319,6 +1292,64 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
   color: var(--color-muted);
 }
 
+/* -----------------------------------------------------------------------
+   AskJamie palette and layout tweaks
+
+   The default styles were borrowed heavily from OverKill Hill, which led to
+   elements like the stripe backgrounds and the footer feeling out of place on
+   the AskJamie site. These overrides apply a richer mid‑century palette and
+   lighten structural elements to better match the brand imagery provided.
+*/
+
+/* Brand stripes: replace the pastel blues/greens with the bright mid‑century
+   palette seen in the provided reference images. Each stripe is 20% of the
+   container height. */
+.askjamie-main .brand-stripes--jamie {
+  background-image: linear-gradient(
+    to bottom,
+    /* deep teal */ #007c84 0%,
+    #007c84 20%,
+    /* aqua */ #76b2ba 20%,
+    #76b2ba 40%,
+    /* cream */ #f5ead9 40%,
+    #f5ead9 60%,
+    /* warm beige */ #d5ba9a 60%,
+    #d5ba9a 80%,
+    /* mocha */ #69584c 80%,
+    #69584c 100%
+  );
+  opacity: 0.8;
+}
+
+/* Lighten stripe backgrounds used for secondary sections (e.g., where Jamie fits).
+   Without this override they inherit OverKill’s dark radial gradient. */
+.askjamie-main .stripe-bg {
+  background: #f7f3ee;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* AskJamie footer: soften the dark OverKill footer into a warm cream base.
+   Headings and links pick up the accent color for readability. */
+.askjamie-main .site-footer {
+  background: #f7f3ee;
+  color: var(--color-muted);
+  border-top: 1px solid #e0d9d2;
+  padding-top: 2.5rem;
+}
+.askjamie-main .footer-column h3,
+.askjamie-main .footer-column h4 {
+  color: var(--color-heading);
+}
+.askjamie-main .site-footer a {
+  color: var(--color-accent);
+}
+/* Ensure the footer bottom section inherits the same background and color. */
+.askjamie-main .footer-bottom {
+  background: #f7f3ee;
+  color: var(--color-muted);
+}
+
 /* Expand the hero paper card edge-to-edge on AskJamie. Without this override
    a 5% horizontal inset exposes the colorful stripes on either side of the
    paper, which is distracting. Setting the inset to zero on the left and
@@ -1327,6 +1358,16 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
   /* Provide lateral margins so the paper fills ~80% of the width. This reveals
      a small amount of the stripe background while keeping the new colors. */
   inset: 6% 10% 0 10%;
+}
+
+/* Smaller AskJamie headings (h4–h6): use the brand headline font and accent color */
+.askjamie-main h4,
+.askjamie-main h5,
+.askjamie-main h6 {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 /* AskJamie logo in hero: constrain width and add breathing room below the logo. */
@@ -1338,90 +1379,6 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
   max-width: 12rem;
   height: auto;
 }
-
-/* ===================================================================== */
-/* AskJamie – Mermaid layout + mid‑century teal skin                     */
-/* ===================================================================== */
-
-/* Universe hero: make the Mermaid diagram fill the angled paper card */
-.askjamie-hero--universe .askjamie-hero-visual {
-  align-items: stretch;
-}
-
-.askjamie-mermaid-shell {
-  margin: 0;
-  width: 100%;
-  max-width: 960px;
-}
-
-/* The block Mermaid replaces with an SVG in the hero */
-.askjamie-mermaid-shell .mermaid {
-  width: 100%;
-  min-height: 22rem;
-  padding: 1.25rem 1.5rem;
-  border-radius: 18px;
-  background: var(--color-surface);         /* uses AskJamie surface token */
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-}
-
-@media (max-width: 640px) {
-  .askjamie-mermaid-shell .mermaid {
-    min-height: 18rem;
-    padding: 1rem;
-  }
-}
-
-/* Text + base styles for ANY Mermaid diagram on AskJamie pages */
-.askjamie-main .mermaid {
-  font-family: var(--font-body);
-  color: var(--color-fg);
-}
-
-/* SVG sizing */
-.askjamie-main .mermaid svg {
-  width: 100%;
-  height: auto;
-}
-
-/* Nodes – rounded paper cards with teal borders */
-.askjamie-main .mermaid .node rect,
-.askjamie-main .mermaid .node circle {
-  rx: 14px;
-  ry: 14px;
-  fill: var(--color-surface);          /* #fdfbf7 */
-  stroke: var(--color-accent);         /* #2d6f7e */
-  stroke-width: 1.5px;
-}
-
-/* Labels */
-.askjamie-main .mermaid .label text {
-  fill: var(--color-fg);               /* #2e2b29 */
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-}
-
-/* Edges – warm beige connectors */
-.askjamie-main .mermaid .edgePath path {
-  stroke: #d5ba9a;
-  stroke-width: 1.5px;
-}
-
-/* Clusters / groups – pale paper panels */
-.askjamie-main .mermaid .cluster rect {
-  fill: #f5ead9;
-  stroke: #d5ba9a;
-}
-
-/* Tooltips – teal pills */
-.askjamie-main .mermaidTooltip {
-  background-color: #2d6f7e;
-  color: #fdfbf7;
-  border-radius: 999px;
-  padding: 0.25rem 0.6rem;
-  font-size: 0.75rem;
-  border: 1px solid #1c4d59;
-}
-
 
 /* ===================================================================== */
 /* 🌈 GLEE-FULLY PERSONALIZABLE TOOLS – RETRO JOYFUL OVERLAY             */
@@ -1556,6 +1513,12 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
   color: var(--color-muted);
 }
 
+/* Glee-fully hero card – rotated paper sheet like AskJamie */
+.glee-hero {
+  position: relative;
+  overflow: hidden;
+}
+
 /* container padding can stay as-is, but ensure a bit of top space */
 .glee-hero .hero-inner {
   padding-top: 3.5rem;
@@ -1584,6 +1547,14 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
 .glee-hero-card p,
 .glee-hero-card h1 {
   position: relative;
+}
+
+/* Keep hero grid 2-column on desktop, stack on tablet/mobile */
+.glee-hero .hero-grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
 }
 
 @media (max-width: 1024px) {
@@ -1707,81 +1678,4 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
   background: #fff7f1;
   color: var(--color-muted);
   border-top: 1px solid #ffdcd2;
-}
-
-/* ===================================================================== */
-/* Shared secondary button variant + Glee-specific accent styling        */
-/* ===================================================================== */
-
-/* Secondary button – quiet, low-contrast CTA aligned with .btn-quiet */
-.btn-secondary {
-  background: transparent;
-  border-color: var(--color-border-subtle);
-  color: var(--color-muted);
-}
-
-.btn-secondary:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-}
-
-/* Glee: secondary button picks up coral accent and soft border */
-.glee-main .btn-secondary {
-  border-color: #ffd8d2;
-  color: var(--color-accent);
-}
-
-/* ===================================================================== */
-/* Glee‑fully – Mermaid layout + retro‑joyful skin                      */
-/* ===================================================================== */
-
-/* Base typography for Mermaid on Glee pages */
-.glee-main .mermaid {
-  font-family: var(--font-body);
-  color: var(--color-fg);
-}
-
-/* SVG sizing */
-.glee-main .mermaid svg {
-  width: 100%;
-  height: auto;
-}
-
-/* Nodes – pill‑like cards on warm paper */
-.glee-main .mermaid .node rect,
-.glee-main .mermaid .node circle {
-  rx: 18px;
-  ry: 18px;
-  fill: var(--color-surface);        /* #fffdfa */
-  stroke: var(--color-accent);       /* coral */
-  stroke-width: 1.6px;
-}
-
-/* Labels */
-.glee-main .mermaid .label text {
-  fill: var(--color-fg);             /* charcoal */
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-}
-
-/* Edges – soft coral connectors */
-.glee-main .mermaid .edgePath path {
-  stroke: rgba(217, 79, 99, 0.85);
-  stroke-width: 1.6px;
-}
-
-/* Clusters – pale peach group boxes */
-.glee-main .mermaid .cluster rect {
-  fill: #fff0ea;
-  stroke: #ffd1c4;
-}
-
-/* Tooltips – coral pills */
-.glee-main .mermaidTooltip {
-  background-color: #d94f63;
-  color: #fffdfa;
-  border-radius: 999px;
-  padding: 0.25rem 0.6rem;
-  font-size: 0.75rem;
-  border: 1px solid #b83f50;
 }
