@@ -2,128 +2,315 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>The OverKill Hill P³™ Universe</title>
+    <title>OverKill Hill P³™ — OKHP³™ Universe Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="The OverKill Hill P³™ Universe is a network of systems, stories and experimental GPT ecosystems." />
-    <meta property="og:title" content="The OverKill Hill P³™ Universe" />
-    <meta property="og:description" content="The OverKill Hill P³™ Universe is a network of systems, stories and experimental GPT ecosystems." />
+    <meta
+      name="description"
+      content="A visual systems map of the OverKill Hill P³™ universe — how the forge, experiments, and sibling brands like AskJamie™ and Glee‑fully Personalizable Tools™ connect."
+    />
+    <meta property="og:title" content="OverKill Hill P³™ — OKHP³™ Universe Map" />
+    <meta
+      property="og:description"
+      content="A visual map of the OverKill Hill P³™ universe, showing how OverKill Hill, Glee‑fully Tools, AskJamie™, BrandGuard™, BFS, and narrative experiments connect."
+    />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://overkillhill.com/" />
-    <meta property="og:image" content="https://overkillhill.com/assets/img/OverKill%20Hill%20P³%20Sentinel%20Waiting%20Square%201024.png" />
+    <meta property="og:url" content="https://overkillhill.com/universe/" />
+    <meta
+      property="og:image"
+      content="https://overkillhill.com/assets/img/OverKill%20Hill%20P³%20Sentinel%20Waiting%20Square%201024.png"
+    />
     <link rel="stylesheet" href="../assets/css/theme.css" />
-    <link rel="icon" href="../favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link
+      rel="icon"
+      href="../favicon-32x32.png"
+      sizes="32x32"
+      type="image/png"
+    />
     <link rel="manifest" href="../site.webmanifest" />
     <!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&display=swap"
+    />
   </head>
-  
+
   <body>
-    <a href="../index.html#main" class="skip-link">Skip to content</a>
+    <a href="#main" class="skip-link">Skip to content</a>
     <header class="site-header" id="top">
       <div class="container">
         <div class="logo">
           <a href="../index.html#top">
-            <img src="../assets/img/OverKill%20Hill%20P³%20Sentinel%20Warning%20Square%201024.png" alt="OverKill Hill P³ logo" width="40" height="40" />
+            <img
+              src="../assets/img/OverKill%20Hill%20P³%20Sentinel%20Warning%20Square%201024.png"
+              alt="OverKill Hill P³ logo"
+              width="40"
+              height="40"
+            />
             <span class="sr-only">OverKill Hill P³™ Home</span>
           </a>
         </div>
-        <nav class="primary-nav" id="navigation">
+        <nav class="primary-nav" id="navigation" aria-label="Primary">
           <ul>
             <li><a href="../index.html#forge">The Forge</a></li>
-            <li><a href="../universe/index.html" aria-current="page">P³ Universe</a></li>
-            <li><a href="../manifesto/index.html">The Manifesto</a></li>
             <li><a href="../projects/index.html">Our Projects</a></li>
-            <li><a href="../about/index.html">About OKH P³</a></li>
+            <li>
+              <a href="../universe/index.html" aria-current="page"
+                >OKHP³™ Universe</a
+              >
+            </li>
+            <li><a href="../manifesto/index.html">The Manifesto</a></li>
+            <li><a href="../about/index.html">About OKHP³™</a></li>
+            <li><a href="../contact/index.html">Contact</a></li>
           </ul>
         </nav>
-        <button class="nav-toggle" aria-controls="navigation" aria-expanded="false">
+        <button
+          class="nav-toggle"
+          aria-controls="navigation"
+          aria-expanded="false"
+        >
           <span class="sr-only">Toggle navigation</span>
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+          <span class="bar"></span><span class="bar"></span
+          ><span class="bar"></span>
         </button>
       </div>
     </header>
 
-    <main>
-      <section class="hero">
-        <div class="brand-stripes okh" aria-hidden="true"></div>
-        <div class="container">
-          <div class="hero-content">
-            <h1>The OverKill Hill P³™ Universe</h1>
-            <p>
-              A network of systems, stories and experimental GPT ecosystems.
-              This page provides a high‑level view of how everything fits
-              together.
-            </p>
+    <main id="main">
+      <!-- HERO: blueprint background + mermaid universe diagram -->
+      <section
+        class="hero"
+        id="universe"
+        aria-labelledby="hero-title"
+      >
+        <div class="hero-blueprint-bg"></div>
+        <div
+          class="brand-stripes brand-stripes--okh"
+          aria-hidden="true"
+        ></div>
+
+        <div class="container hero-inner reveal-on-scroll">
+          <div class="hero-grid">
+            <div>
+              <p class="hero-eyebrow">OKHP³™ Universe</p>
+              <h1 id="hero-title">
+                Systems, stories &amp; GPT ecosystems on one map.
+              </h1>
+              <p class="hero-subline">Blueprint of the Hill</p>
+              <p class="hero-tagline">
+                OverKill Hill P³™ sits at the center of a network of sibling
+                brands, experimental GPT stacks and narrative worlds. This map
+                shows how those layers are wired together — the forge, the
+                friendly faces and the deliberately weird experiments.
+              </p>
+              <div class="hero-actions">
+                <a href="../projects/index.html" class="btn btn-primary">
+                  Explore the projects
+                </a>
+                <a href="../index.html#forge" class="btn btn-quiet">
+                  Back to the forge
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <figure class="askjamie-mermaid-shell">
+                <pre class="mermaid">
+                  graph LR
+                    OKH[OverKill Hill P³]
+                    OKH --> Glee[Glee‑fully Tools]
+                    OKH --> AJ[AskJamie]
+                    AJ --> BG[BrandGuard]
+                    BG --> BFS[Framing Intelligent Futures]
+                    OKH --> UT[Un‑NOCKed Truth]
+                    OKH --> PS[PathScrib‑R]
+                    OKH --> HR[Homestead‑R]
+                    OKH --> FR[Found‑Rᵧ]
+                    FR --> Meta[GPTs that build GPTs]
+                    OKH --> WIP[Work in Progress]
+                    WIP --> ARE[Abrahamic Reference Engine]
+                    WIP --> MS[Magnus Progenitor Saga]
+                    WIP --> BC[Biases as Constants]
+
+                    %% Clickable links
+                      click Glee "https://glee-fully.tools/" "Open Glee‑fully Personalizable Tools™"
+                      click AJ "https://askjamie.bot/" "Open AskJamie™"
+                      click BG "https://askjamie.bot/lens-system/okhp3-brandguard/index.html" "View OKH P³ BrandGuard™"
+                      click UT "../projects/un-nocked-truth/index.html" "Open Un‑NOCKed Truth"
+                      click PS "../projects/pathscrib-r/index.html" "Open PathScrib‑R"
+                      click HR "../projects/homestead-r/index.html" "Open Homestead‑R"
+                      click FR "../found-ry/index.html" "Open Found‑Rᵧ"
+                      click ARE "../projects/abrahamic-reference-engine/index.html" "Open Abrahamic Reference Engine"
+                      click MS "../writings/magnus-saga/index.html" "Open Magnus Progenitor Saga"
+                      click BC "../writings/biases-as-constants/index.html" "Open Biases as Constants"
+                </pre>
+                <figcaption class="sr-only">
+                  Diagram of the OverKill Hill P³™ universe, showing
+                  connections between OverKill Hill, AskJamie™, Glee‑fully
+                  Personalizable Tools™, BrandGuard™, BFS, and narrative
+                  experiments like Magnus Progenitor Saga.
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="content">
-        <div class="container">
-          <div class="section-header"><h2>Universe Diagram</h2></div>
-          <pre class="mermaid">
-            graph LR
-              OKH[OverKill Hill P³]
-              OKH --> Glee[Glee‑fully Tools]
-              OKH --> AJ[AskJamie]
-              AJ --> BG[BrandGuard]
-              BG --> BFS[Framing Intelligent Futures]
-              OKH --> UT[Un‑NOCKed Truth]
-              OKH --> PS[PathScrib‑R]
-              OKH --> HR[Homestead‑R]
-              OKH --> FR[Found‑Rᵧ]
-              FR --> Meta[GPTs that build GPTs]
-              OKH --> WIP[Work&nbsp;in&nbsp;Progress]
-              WIP --> ARE[Abrahamic Reference Engine]
-              WIP --> MS[Magnus&nbsp;Progenitor&nbsp;Saga]
-              WIP --> BC[Biases as Constants]
-          </pre>
+      <!-- HOW TO READ THIS MAP -->
+      <section class="content-section container reveal-on-scroll">
+        <header class="section-header">
+          <h2>How to read this map</h2>
+          <p>
+            Each node is a pillar in the OverKill Hill P³™ stack. Some pieces
+            are production‑ready, others are active experiments. From an OKH
+            perspective, this is the governance layer: what’s live, what’s in
+            R&amp;D and how the sibling brands plug into the spine.
+          </p>
+        </header>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>OverKill Hill P³™</h3>
+            <p>
+              The engineering spine. This is where protocol patterns, canon and
+              governance for GPT ecosystems live — the place we define how tools
+              behave under ambiguity, load and real‑world constraints.
+            </p>
+          </article>
+          <article class="card">
+            <h3>AskJamie™</h3>
+            <p>
+              The voice layer. A mid‑century helpdesk persona and its spin‑offs
+              (BrandGuard™, BFS, and more) that narrate, clarify and walk
+              people through decisions across the wider system.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Glee‑fully Tools™</h3>
+            <p>
+              The joy layer. A retro‑bright ecosystem of personalizable GPTs
+              for everyday life — career, food, travel, health and identity —
+              all built on OverKill Hill P³™ architecture.
+            </p>
+          </article>
         </div>
       </section>
 
-      <section class="content">
-        <div class="container">
-          <div class="section-header"><h2>Systems &amp; Ecosystems</h2></div>
-          <ul>
-            <li><strong><a href="https://glee-fully.tools/">Glee‑fully Personalizable Tools™</a>:</strong>
-              A retro‑modern toolbox of GPTs built for joy, organization and creative play.
+      <!-- SYSTEMS & ECOSYSTEMS -->
+      <section class="stripe-bg">
+        <div class="container content-section reveal-on-scroll">
+          <header class="section-header">
+            <h2>Systems &amp; ecosystems</h2>
+            <p>
+              Most of the universe starts at the Hill, then branches into
+              branded experiences or narrative sandboxes. Here’s what’s live
+              now, and what’s explicitly in “work in progress” territory.
+            </p>
+          </header>
+
+          <ul class="feature-list">
+            <li>
+              <strong
+                ><a href="https://glee-fully.tools/"
+                  >Glee‑fully Personalizable Tools™</a
+                >:</strong
+              >
+              A retro‑modern toolbox of GPTs built for joy, organization and
+              creative play.
             </li>
-            <li><strong><a href="https://askjamie.bot/">AskJamie</a>:</strong>
-              A mid‑century helpdesk persona with several specialist spin‑offs for documentation, technical coaching and more.
+            <li>
+              <strong
+                ><a href="https://askjamie.bot/">AskJamie™</a>:</strong
+              >
+              A mid‑century helpdesk persona with several specialist spin‑offs
+              for documentation, technical coaching and more.
             </li>
-            <li><strong><a href="https://askjamie.bot/lens-system/okhp3-brandguard/index.html">OKH P³ BrandGuard</a>:</strong>
-              Guardian GPTs to enforce tone, consistency and ethical framing, including the BFS: Framing Intelligent Futures strategic tool.
+            <li>
+              <strong
+                ><a
+                  href="https://askjamie.bot/lens-system/okhp3-brandguard/index.html"
+                  >OKH P³ BrandGuard™</a
+                >:</strong
+              >
+              Guardian GPTs to enforce tone, consistency and ethical framing,
+              including the BFS: Framing Intelligent Futures strategic tool.
             </li>
-            <li><strong><a href="/projects/un-nocked-truth/index.html">Un‑NOCKed Truth</a>:</strong>
-              Archery for anyone: a beginner‑friendly archery learning suite built on AI.
+            <li>
+              <strong
+                ><a href="../projects/un-nocked-truth/index.html"
+                  >Un‑NOCKed Truth</a
+                >:</strong
+              >
+              Archery for anyone: a beginner‑friendly archery learning suite
+              built on AI.
             </li>
-            <li><strong><a href="/projects/pathscrib-r/index.html">PathScrib‑R</a>:</strong>
-              A narrative copilot and generative writing assistant that explores plot and character arcs.
+            <li>
+              <strong
+                ><a href="../projects/pathscrib-r/index.html"
+                  >PathScrib‑R</a
+                >:</strong
+              >
+              A narrative copilot and generative writing assistant that explores
+              plot and character arcs.
             </li>
-            <li><strong><a href="/projects/homestead-r/index.html">Homestead‑R</a>:</strong>
-              Homestead‑oriented GPTs for sustainable living, from seed planning to livestock care.
+            <li>
+              <strong
+                ><a href="../projects/homestead-r/index.html"
+                  >Homestead‑R</a
+                >:</strong
+              >
+              Homestead‑oriented GPTs for sustainable living, from seed planning
+              to livestock care.
             </li>
-            <li><strong><a href="/found-ry/index.html">Found‑Rᵧ</a>:</strong>
-              GPTs that build GPTs. This meta‑ecosystem explores recursive design and emergent behavior.
+            <li>
+              <strong
+                ><a href="../found-ry/index.html">Found‑Rᵧ</a>:</strong
+              >
+              GPTs that build GPTs. This meta‑ecosystem explores recursive
+              design and emergent behavior.
             </li>
-            <li><strong><a href="/projects/index.html"></a>Work in progress:</strong>
+            <li>
+              <strong>Work in progress:</strong>
               <ul>
-                <li><strong><a href="/projects/abrahamic-reference-engine/index.html">Abrahamic Reference Engine</a>:</strong> A semantic engine for interfaith textual exploration.</li>
-                <li><strong><a href="/writings/magnus-saga/index.html">Magnus Progenitor Saga</a>:</strong> An epic fiction project exploring origin and destiny.</li>
-                <li><strong><a href="/writings/biases-as-constants/index.html">Biases as Constants</a>:</strong> A project interrogating how bias manifests across AI systems.</li>
+                <li>
+                  <strong
+                    ><a
+                      href="../projects/abrahamic-reference-engine/index.html"
+                      >Abrahamic Reference Engine</a
+                    >:</strong
+                  >
+                  A semantic engine for interfaith textual exploration.
+                </li>
+                <li>
+                  <strong
+                    ><a href="../writings/magnus-saga/index.html"
+                      >Magnus Progenitor Saga</a
+                    >:</strong
+                  >
+                  An epic fiction project exploring origin and destiny.
+                </li>
+                <li>
+                  <strong
+                    ><a href="../writings/biases-as-constants/index.html"
+                      >Biases as Constants</a
+                    >:</strong
+                  >
+                  A project interrogating how bias manifests across AI systems.
+                </li>
               </ul>
             </li>
           </ul>
         </div>
       </section>
-
     </main>
 
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-column">
-          <h3>OverKill Hill P³</h3>
-          <p>The digital forge for protocol-driven power prompts and custom GPT systems that can withstand real-world complexity.</p>
+          <h3>OverKill Hill P³™</h3>
+          <p>
+            The digital forge for protocol‑driven power prompts and custom GPT
+            systems that can withstand real‑world complexity.
+          </p>
         </div>
         <div class="footer-column">
           <h4>Navigation</h4>
@@ -132,23 +319,65 @@
             <li><a href="../universe/index.html">P³ Universe</a></li>
             <li><a href="../manifesto/index.html">The Manifesto</a></li>
             <li><a href="../projects/index.html">Our Projects</a></li>
-            <li><a href="../about/index.html">About OKH P³</a></li>
+            <li><a href="../about/index.html">About OKHP³™</a></li>
           </ul>
         </div>
         <div class="footer-column">
           <h4>Connect</h4>
           <ul>
-            <li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
-            <li><a href="https://ko-fi.com/overkillhillp3" target="_blank" rel="noopener">Ko-fi</a></li>
-            <li><a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener">Fiverr</a></li>
-            <li><a href="https://www.linkedin.com/company/overkillhillp3" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://facebook.com/OverKillHillP3/" target="_blank" rel="noopener">Facebook</a></li>
-            <li><a href="https://youtube.com/@overkillhillp3?si=KLt692sCKssFa5Oh" target="_blank" rel="noopener">YouTube</a></li>
+            <li>
+              <a href="mailto:contact@overkillhill.com"
+                >contact@overkillhill.com</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://ko-fi.com/overkillhillp3"
+                target="_blank"
+                rel="noopener"
+                >Ko-fi</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://pro.fiverr.com/s/VYKPpoB"
+                target="_blank"
+                rel="noopener"
+                >Fiverr</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/company/overkillhillp3"
+                target="_blank"
+                rel="noopener"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://facebook.com/OverKillHillP3/"
+                target="_blank"
+                rel="noopener"
+                >Facebook</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://youtube.com/@overkillhillp3?si=KLt692sCKssFa5Oh"
+                target="_blank"
+                rel="noopener"
+                >YouTube</a
+              >
+            </li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© <span id="current-year"></span> OverKill Hill P³. All rights reserved.</p>
+        <p>
+          © <span id="current-year"></span> OverKill Hill P³. All rights
+          reserved.
+        </p>
       </div>
     </footer>
 
@@ -160,36 +389,40 @@
       // Pull final, brand-specific tokens (OKH / AskJamie / Glee) from computed styles
       const styles = getComputedStyle(document.body);
 
-      const surface = styles.getPropertyValue("--color-surface").trim() || "#111827";
-      const surfaceSoft = styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
+      const surface =
+        styles.getPropertyValue("--color-surface").trim() || "#111827";
+      const surfaceSoft =
+        styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
       const fg = styles.getPropertyValue("--color-fg").trim() || "#e5e7eb";
-      const accent = styles.getPropertyValue("--color-accent").trim() || "#c46a2c";
-      const muted = styles.getPropertyValue("--color-muted").trim() || "#6b7280";
+      const accent =
+        styles.getPropertyValue("--color-accent").trim() || "#c46a2c";
+      const muted =
+        styles.getPropertyValue("--color-muted").trim() || "#6b7280";
       const fontBody =
         styles.getPropertyValue("--font-body").trim() ||
         '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
 
       mermaid.initialize({
         startOnLoad: true,
-        securityLevel: "loose",   // required for clickable links in diagrams
-        theme: "base",            // modifiable theme
+        securityLevel: "loose", // required for clickable links in diagrams
+        theme: "base", // modifiable theme
         themeVariables: {
-          primaryColor: surface,        // node background
+          primaryColor: surface, // node background
           primaryTextColor: fg,
           primaryBorderColor: accent,
           lineColor: accent,
-          secondaryColor: surfaceSoft,  // secondary fills / highlights
+          secondaryColor: surfaceSoft, // secondary fills / highlights
           tertiaryColor: surfaceSoft,
           textColor: fg,
           fontFamily: fontBody,
           noteBkgColor: surface,
-          noteTextColor: muted
+          noteTextColor: muted,
         },
         flowchart: {
           curve: "basis",
           nodeSpacing: 60,
-          rankSpacing: 70
-        }
+          rankSpacing: 70,
+        },
       });
     </script>
   </body>
