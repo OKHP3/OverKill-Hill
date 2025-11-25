@@ -1442,6 +1442,13 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
   background: var(--color-bg);
 }
 
+/* Glee-fully: lighten striped sections so they feel like paper, not blueprint */
+.glee-main .stripe-bg {
+  background: #fff7f1; /* warm paper */
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
 /* ===== Glee-fully hero layering ===================================== */
 
 /* Base hero */
