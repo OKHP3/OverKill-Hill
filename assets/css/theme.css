@@ -1649,6 +1649,71 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
   }
 }
 
+/* ===== ABOUT PAGE HERO – PAPER EFFECT ============================== */
+/* Target only the About page by looking at the nav state.
+   Requires modern browsers that support :has(), which all current
+   evergreen browsers do. */
+
+body.glee-main:has(.primary-nav a[aria-current="page"][href*="about"]) 
+  .hero.glee-hero {
+  padding-block: clamp(3.5rem, 6vw, 4.75rem) clamp(3rem, 4vw, 4rem);
+}
+
+/* Make sure the inner container can host the card */
+body.glee-main:has(.primary-nav a[aria-current="page"][href*="about"]) 
+  .hero.glee-hero .hero-inner {
+  position: relative;
+}
+
+/* Align the hero layout */
+body.glee-main:has(.primary-nav a[aria-current="page"][href*="about"]) 
+  .hero.glee-hero .hero-grid {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  body.glee-main:has(.primary-nav a[aria-current="page"][href*="about"]) 
+    .hero.glee-hero .hero-grid {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  }
+}
+
+/* Turn the first column (the copy) into a “paper” card */
+body.glee-main:has(.primary-nav a[aria-current="page"][href*="about"]) 
+  .hero.glee-hero .hero-grid > div:first-child {
+  position: relative;
+  max-width: 40rem;
+  padding: clamp(2rem, 3vw, 2.6rem);
+  border-radius: 1.6rem;
+}
+
+/* The angled paper behind the text */
+body.glee-main:has(.primary-nav a[aria-current="page"][href*="about"]) 
+  .hero.glee-hero .hero-grid > div:first-child::before {
+  content: "";
+  position: absolute;
+  inset: -0.6rem -0.9rem -1.0rem -1.2rem;
+  background: #fff7f1;              /* same warm paper tone */
+  border-radius: 1.6rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.26);
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+  z-index: -1;
+}
+
+/* Keep the text nicely readable on the card */
+body.glee-main:has(.primary-nav a[aria-current="page"][href*="about"]) 
+  .hero.glee-hero h1 {
+  margin-bottom: 0.75rem;
+}
+
+body.glee-main:has(.primary-nav a[aria-current="page"][href*="about"]) 
+  .hero.glee-hero .hero-tagline {
+  color: #6b5e57; /* softer Glee body color */
+}
+
 /* Headers */
 .glee-main h1,
 .glee-main h2,
