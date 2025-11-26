@@ -1461,13 +1461,9 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
 .glee-hero-stripes {
   position: absolute;
   inset: 0;
-  background: url("images/banner-stripes.png") center/cover no-repeat;
+  background: url("/assets/img/Glee-fullyTools%20Background%20Wide%201536.png") center/cover no-repeat;
   z-index: -2;
 }
-
-/* Replace "images/banner-stripes.png" with your actual stripes asset:
-   e.g. "images/Glee-fully Banner Tools 4.png" or "images/banner.png".
-*/
 
 .glee-hero .hero-inner {
   position: relative;
@@ -1725,6 +1721,12 @@ body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
   overflow: hidden;
 }
 
+/* Use only the contact-specific paper stripes, not the extra brand-stripes div */
+body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
+  main > .content-section:first-of-type .brand-stripes {
+  display: none;
+}
+
 /* Retro stripe backdrop behind the paper card */
 body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
   main > .content-section:first-of-type::before {
@@ -1748,6 +1750,9 @@ body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
     #0d2b3a 70%,
     #0d2b3a 100%
   );
+  opacity: 0.75;                 /* match other Glee stripe sections */
+  background-size: 200% 100%;    /* enable gentle horizontal drift */
+  animation: stripeDrift 60s linear infinite;
 }
 
 /* Angled paper layer behind the header + lane cards */
@@ -1765,7 +1770,7 @@ body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
   transform-origin: center center;
 }
 
-/* Extra breathing room under the intro text */
+/* Extra breathing room at the bottom of the hero copy */
 body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
   main > .content-section:first-of-type .section-header {
   margin-bottom: 2.25rem;
@@ -1802,12 +1807,6 @@ body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
     border-radius: 1.2rem;
     transform: rotate(-1.6deg);
   }
-}
-
-/* Extra breathing room at the bottom of the hero copy */
-body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
-  main > .content-section:first-of-type .section-header {
-  margin-bottom: 2.25rem;
 }
 
 /* Headers */
