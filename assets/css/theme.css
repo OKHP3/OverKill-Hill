@@ -1714,11 +1714,8 @@ body.glee-main:has(.primary-nav a[aria-current="page"][href*="about"])
   color: #6b5e57; /* softer Glee body color */
 }
 
-
 /* ===== CONTACT PAGE HERO – PAPER EFFECT ============================== */
-/* Reuse the Glee-fully paper hero treatment on the Contact page without
-   changing the HTML structure. Targets the first content section only
-   when the Contact nav item is current. */
+/* Contact hero: tilted paper + retro stripes */
 
 body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
   main > .content-section:first-of-type {
@@ -1753,12 +1750,12 @@ body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
   );
 }
 
-/* Angled paper layer that sits behind the header + lane cards */
+/* Angled paper layer behind the header + lane cards */
 body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
   main > .content-section:first-of-type::after {
   content: "";
   position: absolute;
-  inset: 1.5rem 1rem 2.25rem 1rem;
+  inset: 1.5rem 1rem 2.25rem 1rem; /* mobile / tablet: nearly full width */
   z-index: -2;
   pointer-events: none;
   background: #fff7f1;
@@ -1768,7 +1765,36 @@ body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
   transform-origin: center center;
 }
 
-/* Soften the paper angle + radius on smaller screens */
+/* Extra breathing room under the intro text */
+body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
+  main > .content-section:first-of-type .section-header {
+  margin-bottom: 2.25rem;
+}
+
+/* Desktop tweaks: paper at ~80% width + content centered on top of it,
+   and the two “lanes” side‑by‑side as columns. */
+@media (min-width: 900px) {
+  body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
+    main > .content-section:first-of-type::after {
+    inset: 1.5rem 10% 2.5rem 10%; /* ~80% width, centered */
+  }
+
+  body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
+    main > .content-section:first-of-type .section-header,
+  body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
+    main > .content-section:first-of-type .grid {
+    max-width: 80%;
+    margin-inline: auto;          /* keep content sitting on the paper */
+  }
+
+  body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
+    main > .content-section:first-of-type .grid.grid-2 {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;         /* both cards grow to same height */
+  }
+}
+
+/* Small screens: soften the tilt & keep it edge‑to‑edge */
 @media (max-width: 768px) {
   body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
     main > .content-section:first-of-type::after {
