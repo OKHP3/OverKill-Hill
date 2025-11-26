@@ -1809,6 +1809,115 @@ body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
   }
 }
 
+/* ===== LEGAL PAGE HERO – PAPER EFFECT ============================== */
+/* Target the Legal page by its meta description so we don't need
+   to touch the HTML or nav. */
+
+html:has(
+  head > meta[name="description"][content^="Legal notice and usage disclaimer"]
+)
+  body.glee-main
+  main
+  > .content-section:first-of-type {
+  position: relative;
+  padding-block: clamp(3.5rem, 6vw, 4.75rem) clamp(3rem, 4vw, 4rem);
+  margin-top: 0;
+  overflow: hidden;
+}
+
+/* Retro stripe backdrop (same spectrum as Contact) */
+html:has(
+  head > meta[name="description"][content^="Legal notice and usage disclaimer"]
+)
+  body.glee-main
+  main
+  > .content-section:first-of-type::before {
+  content: "";
+  position: absolute;
+  inset: -12% 0;
+  z-index: -3;
+  pointer-events: none;
+  background-image: linear-gradient(
+    to bottom,
+    #f6f2ee 0%,
+    #f6f2ee 14%,
+    #f3b932 14%,
+    #f3b932 28%,
+    #d35b2d 28%,
+    #d35b2d 42%,
+    #9e3b2e 42%,
+    #9e3b2e 56%,
+    #2d6f7e 56%,
+    #2d6f7e 70%,
+    #0d2b3a 70%,
+    #0d2b3a 100%
+  );
+}
+
+/* Tilted paper card behind the full legal section */
+html:has(
+  head > meta[name="description"][content^="Legal notice and usage disclaimer"]
+)
+  body.glee-main
+  main
+  > .content-section:first-of-type::after {
+  content: "";
+  position: absolute;
+  inset: 1.5rem 1rem 2.25rem 1rem; /* mobile/tablet */
+  z-index: -2;
+  pointer-events: none;
+  background: #fff7f1;
+  border-radius: 1.6rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.26);
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+}
+
+/* Keep the content sitting nicely inside the paper on desktop */
+@media (min-width: 900px) {
+  html:has(
+    head > meta[name="description"][content^="Legal notice and usage disclaimer"]
+  )
+    body.glee-main
+    main
+    > .content-section:first-of-type::after {
+    inset: 1.5rem 10% 2.5rem 10%; /* ~80% width, centered */
+  }
+
+  html:has(
+    head > meta[name="description"][content^="Legal notice and usage disclaimer"]
+  )
+    body.glee-main
+    main
+    > .content-section:first-of-type
+    .section-header,
+  html:has(
+    head > meta[name="description"][content^="Legal notice and usage disclaimer"]
+  )
+    body.glee-main
+    main
+    > .content-section:first-of-type
+    > section {
+    max-width: 80%;
+    margin-inline: auto;
+  }
+}
+
+/* Softer tilt + tighter paper on small screens */
+@media (max-width: 768px) {
+  html:has(
+    head > meta[name="description"][content^="Legal notice and usage disclaimer"]
+  )
+    body.glee-main
+    main
+    > .content-section:first-of-type::after {
+    inset: 1.25rem 0.5rem 2rem 0.5rem;
+    border-radius: 1.2rem;
+    transform: rotate(-1.6deg);
+  }
+}
+
+/* ===== Glee-fully general styles =================================== */
 /* Headers */
 .glee-main h1,
 .glee-main h2,
