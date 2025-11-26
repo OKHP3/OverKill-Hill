@@ -1714,6 +1714,76 @@ body.glee-main:has(.primary-nav a[aria-current="page"][href*="about"])
   color: #6b5e57; /* softer Glee body color */
 }
 
+
+/* ===== CONTACT PAGE HERO – PAPER EFFECT ============================== */
+/* Reuse the Glee-fully paper hero treatment on the Contact page without
+   changing the HTML structure. Targets the first content section only
+   when the Contact nav item is current. */
+
+body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
+  main > .content-section:first-of-type {
+  position: relative;
+  padding-block: clamp(3.5rem, 6vw, 4.75rem) clamp(3rem, 4vw, 4rem);
+  margin-top: 0;
+  overflow: hidden;
+}
+
+/* Retro stripe backdrop behind the paper card */
+body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
+  main > .content-section:first-of-type::before {
+  content: "";
+  position: absolute;
+  inset: -12% 0;
+  z-index: -3;
+  pointer-events: none;
+  background-image: linear-gradient(
+    to bottom,
+    #f6f2ee 0%,
+    #f6f2ee 14%,
+    #f3b932 14%,
+    #f3b932 28%,
+    #d35b2d 28%,
+    #d35b2d 42%,
+    #9e3b2e 42%,
+    #9e3b2e 56%,
+    #2d6f7e 56%,
+    #2d6f7e 70%,
+    #0d2b3a 70%,
+    #0d2b3a 100%
+  );
+}
+
+/* Angled paper layer that sits behind the header + lane cards */
+body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
+  main > .content-section:first-of-type::after {
+  content: "";
+  position: absolute;
+  inset: 1.5rem 1rem 2.25rem 1rem;
+  z-index: -2;
+  pointer-events: none;
+  background: #fff7f1;
+  border-radius: 1.6rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.26);
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
+}
+
+/* Soften the paper angle + radius on smaller screens */
+@media (max-width: 768px) {
+  body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
+    main > .content-section:first-of-type::after {
+    inset: 1.25rem 0.5rem 2rem 0.5rem;
+    border-radius: 1.2rem;
+    transform: rotate(-1.6deg);
+  }
+}
+
+/* Extra breathing room at the bottom of the hero copy */
+body.glee-main:has(.primary-nav a[aria-current="page"][href*="contact"])
+  main > .content-section:first-of-type .section-header {
+  margin-bottom: 2.25rem;
+}
+
 /* Headers */
 .glee-main h1,
 .glee-main h2,
@@ -1856,4 +1926,40 @@ body.glee-main:has(.primary-nav a[aria-current="page"][href*="about"])
   padding: 0.25rem 0.6rem;
   font-size: 0.75rem;
   border: 1px solid #b83f50;
+}
+
+/* ===== Ko‑fi support section ========================================= */
+
+.ko-fi-section {
+  background: #fffdfa;
+}
+
+.ko-fi-section .two-column {
+  align-items: stretch;
+  gap: 2.25rem;
+}
+
+.ko-fi-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.ko-fi-highlight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.9rem;
+}
+
+.ko-fi-highlight p {
+  margin-bottom: 0.25rem;
+}
+
+.ko-fi-highlight .btn-primary {
+  align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+  .ko-fi-highlight {
+    margin-top: 1.5rem;
+  }
 }
