@@ -358,10 +358,69 @@ button {
   width: 100%;
 }
 
-/* --- Primary nav: dropdown support --- */
+/* ========== Primary nav: About submenu (shared pattern) ========== */
 
+/* Parent list item for dropdown */
 .primary-nav .has-submenu {
   position: relative;
+}
+
+/* Base (mobile / stacked) submenu styles */
+.primary-nav .has-submenu > .submenu {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding-left: 1.25rem; /* indent under About on mobile */
+  display: block;        /* visible when nav is stacked */
+}
+
+/* Ensure nested UL doesn't inherit flex row layout */
+.primary-nav .has-submenu > .submenu {
+  display: block;
+}
+
+.primary-nav .has-submenu > .submenu li {
+  margin: 0; /* rely on link padding for touch targets */
+}
+
+.primary-nav .has-submenu > .submenu a {
+  display: block;
+  padding: 0.25rem 0;
+}
+
+/* Desktop dropdown behaviour */
+@media (min-width: 768px) {
+  .primary-nav .has-submenu > .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0;
+    padding: 0.5rem 0.75rem;
+    min-width: 12rem;
+    border-radius: 0 0 4px 4px;
+
+    /* Adjust these to match each site's header bg/shadow */
+    background-color: #ffffff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+    display: none;  /* hidden by default on larger screens */
+    z-index: 20;
+  }
+
+  .primary-nav .has-submenu:hover > .submenu,
+  .primary-nav .has-submenu:focus-within > .submenu {
+    display: block;
+  }
+
+  /* Simple caret on the About parent */
+  .primary-nav .has-submenu > a::after {
+    content: "▾";
+    font-size: 0.7em;
+    margin-left: 0.25em;
+  }
+
+  .primary-nav .has-submenu > .submenu li + li a {
+    margin-top: 0.15rem;
+  }
 }
 
 /* Submenu (desktop default: hidden, appears on hover/focus) */

@@ -27,16 +27,26 @@
             <span class="sr-only">OverKill Hill P³™ Home</span>
           </a>
         </div>
-        <nav class="primary-nav" id="navigation">
+
+        <nav class="primary-nav" id="navigation" aria-label="Primary">
           <ul>
             <li><a href="index.html#forge" aria-current="page">The Forge</a></li>
-            <li><a href="projects/index.html">Our Projects</a></li><li>
-              <a href="universe/index.html">OKHP³™ Universe</a></li>
-              <li><a href="manifesto/index.html">The Manifesto</a></li>
-            <li><a href="about/index.html">About OKHP³™</a></li>
-            <li><a href="contact/index.html">Contact</a></li>
+            <li><a href="projects/index.html">Our Projects</a></li>
+            <li><a href="manifesto/index.html">The Manifesto</a></li>
+
+            <!-- About cluster: Universe / About / Contact / Legal -->
+            <li class="has-submenu">
+              <a href="about/index.html">About</a>
+              <ul class="submenu">
+                <li><a href="universe/index.html">OKHP³™ Universe</a></li>
+                <li><a href="about/index.html">About OKHP³™</a></li>
+                <li><a href="contact/index.html">Contact</a></li>
+                <li><a href="legal/index.html">Legal</a></li>
+              </ul>
+            </li>
           </ul>
         </nav>
+
         <button class="nav-toggle" aria-controls="navigation" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="bar"></span><span class="bar"></span><span class="bar"></span>
