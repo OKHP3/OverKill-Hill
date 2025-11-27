@@ -358,6 +358,67 @@ button {
   width: 100%;
 }
 
+/* --- Primary nav: dropdown support --- */
+
+.primary-nav .has-submenu {
+  position: relative;
+}
+
+/* Submenu (desktop default: hidden, appears on hover/focus) */
+.primary-nav .submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 11rem;
+  background-color: var(--color-surface, #ffffff);
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  display: none;
+  z-index: 1000;
+}
+
+.primary-nav .submenu li {
+  margin: 0;
+}
+
+.primary-nav .submenu a {
+  display: block;
+  padding: 0.35rem 1rem;
+  white-space: nowrap;
+}
+
+/* Show submenu when the parent is hovered or focused (desktop / keyboard) */
+.primary-nav .has-submenu:hover > .submenu,
+.primary-nav .has-submenu:focus-within > .submenu {
+  display: block;
+}
+
+/* --- Mobile: keep submenu expanded & inline --- */
+/* Adjust breakpoint to match your existing nav breakpoint if needed */
+@media (max-width: 768px) {
+  .primary-nav .has-submenu {
+    position: static;
+  }
+
+  .primary-nav .submenu {
+    position: static;
+    display: block;           /* always visible when the main nav is open */
+    box-shadow: none;
+    background: transparent;
+    padding: 0.25rem 0 0.5rem 0;
+  }
+
+  .primary-nav .submenu a {
+    padding-left: 1.5rem;     /* simple visual indent under "About" */
+    font-size: 0.95em;        /* optional: slightly smaller to read as secondary */
+  }
+}
+
+/* ===== HEADINGS VARIANTS ================================================= */
+
 /* Global OKH headings: adjust weight and letter-spacing */
 body:not(.glee-main):not(.askjamie-main) h1,
 body:not(.glee-main):not(.askjamie-main) h2,
