@@ -516,6 +516,81 @@ body:not(.glee-main):not(.askjamie-main) .project-card h3 {
   letter-spacing: 0.03em;   /* Lighter weight */
 }
 
+/* ===== PRE‑OPENING / ACTIVE BUILD NOTE =============================== */
+
+.site-status {
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.9rem;
+  border: 1px dashed var(--color-border-subtle);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.site-status-eyebrow {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin: 0 0 0.25rem;
+  opacity: 0.9;
+}
+
+.site-status-body {
+  margin: 0;
+}
+
+/* Brand-specific tints */
+.askjamie-main .site-status {
+  background: #fdfbf7;
+  border-color: #d7d7d7;
+}
+
+.glee-main .site-status {
+  background: #fffafa;
+  border-color: #ffd8d2;
+}
+
+body:not(.glee-main):not(.askjamie-main) .site-status {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(148, 163, 184, 0.6);
+}
+
+/* ===== "LATEST MILESTONE" HIGHLIGHT SECTION ========================= */
+
+.latest-block .section-header p {
+  max-width: 40rem;
+}
+
+.latest-card {
+  max-width: 38rem;
+}
+
+.latest-pill {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+/* Brand-specific pills */
+.askjamie-main .latest-pill {
+  background: #e1ecef;
+  color: #2d6f7e;
+}
+
+.glee-main .latest-pill {
+  background: #ffe7e0;
+  color: #d94f63;
+}
+
+body:not(.glee-main):not(.askjamie-main) .latest-pill {
+  background: #111827;
+  color: #f9fafb;
+}
 
 /* ===== BRAND HEADER VARIANTS ============================================ */
 
