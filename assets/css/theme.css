@@ -2231,3 +2231,106 @@ html:has(
     margin-top: 1.5rem;
   }
 }
+
+/* ----------------------------------------
+   BFS Framing Intelligent Futures hero
+   ---------------------------------------- */
+
+.bfs-hero {
+  padding: 3.5rem 0 2.5rem;
+}
+
+.bfs-hero-card {
+  border-radius: 18px;
+  border: 3px solid #f58f24;           /* OKH-ish orange accent */
+  background: #04291f;                 /* deep green; adjust if needed */
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  padding: 2.5rem 2.75rem;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+  gap: 2.75rem;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .bfs-hero-card {
+    grid-template-columns: 1fr;
+    padding: 1.75rem 1.75rem 2rem;
+  }
+}
+
+.bfs-hero-main {
+  max-width: 48rem;
+}
+
+.bfs-hero-eyebrow {
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+  opacity: 0.9;
+}
+
+.bfs-hero-title {
+  font-size: clamp(2.4rem, 2.9vw, 3.1rem);
+  line-height: 1.1;
+  margin: 0 0 1rem;
+}
+
+.bfs-hero-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+.bfs-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.75rem 0 0.75rem;
+}
+
+.bfs-hero-note {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-top: 0.25rem;
+}
+
+.bfs-hero-side {
+  display: flex;
+  justify-content: center;
+}
+
+.bfs-hero-badge {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #00345a;                 /* dark BFS blue behind icon */
+  max-width: 260px;
+  width: 100%;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+}
+
+.bfs-hero-badge img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.bfs-hero-badge-cta {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 0.7rem 0.9rem;
+  background: #f58f24;
+  color: #111;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.bfs-hero-badge-cta:hover,
+.bfs-hero-badge-cta:focus-visible {
+  background: #ffac3d;
+}
