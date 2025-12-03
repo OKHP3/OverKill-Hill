@@ -625,6 +625,39 @@ body:not(.glee-main):not(.askjamie-main) .latest-pill {
   color: #f9fafb;
 }
 
+/* === Newest Addition Image Zone ======================= */
+.latest-image {
+  margin: 1rem 0 1.25rem;
+  text-align: center;
+}
+
+.latest-image img {
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.latest-image img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+}
+
+@media (min-width: 768px) {
+  .latest-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 1fr);
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .latest-image {
+    margin: 0;
+  }
+}
+
+
 /* ===== BRAND HEADER VARIANTS ============================================ */
 
 /* Ask Jamie + Glee share the light, paper header instead of OKH blueprint */
