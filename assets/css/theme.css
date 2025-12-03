@@ -596,7 +596,7 @@ body:not(.glee-main):not(.askjamie-main) .site-status {
 }
 
 .latest-card {
-  max-width: 38rem;
+  max-width: none;
 }
 
 /* Let the 'Newest addition' card stretch to the full container width on Glee */
