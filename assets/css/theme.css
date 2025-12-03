@@ -556,6 +556,39 @@ body:not(.glee-main):not(.askjamie-main) .site-status {
   border-color: rgba(148, 163, 184, 0.6);
 }
 
+.site-specials {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  padding: 0.5rem 1rem;
+  margin-block: 0.75rem;
+  border-radius: 999px; /* or small radius if you prefer */
+  font-size: 0.9rem;
+}
+
+.site-specials-label {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.site-specials-link {
+  text-decoration: underline;
+}
+
+.site-specials--jamie { /* muted, mid-century */
+  background: #e4f0ee;
+}
+
+.site-specials--glee { /* bright & playful */
+  background: #ffe8a8;
+}
+
+.site-specials--okh { /* forge / industrial */
+  background: #1c2127;
+  color: #f4f7fa;
+}
+
 /* ===== "LATEST MILESTONE" HIGHLIGHT SECTION ========================= */
 
 .latest-block .section-header p {
@@ -2409,3 +2442,10 @@ html:has(
 .bfs-hero-badge-cta:focus-visible {
   background: #ffac3d;
 }
+.bfs-hero-badge-cta:active {
+  background: #e67e1f;
+}
+
+/* ----------------------------------------
+   End of BFS Framing Intelligent Futures
+   ---------------------------------------- */
