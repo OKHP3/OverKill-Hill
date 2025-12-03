@@ -2340,6 +2340,132 @@ html:has(
   }
 }
 
+/* =========================================================
+   GPT Hero Card (reusable pattern)
+   - Base: .gpt-hero + .gpt-hero__card + slots
+   - Brand theme via modifier, e.g. .gpt-hero--bfs
+   ========================================================= */
+
+.gpt-hero {
+  padding: clamp(2.75rem, 5vw, 3.75rem) 0 2.5rem;
+}
+
+/* Card layout: text on left, image/badge on right */
+.gpt-hero__card {
+  --gpt-hero-border: #f58f24;
+  --gpt-hero-bg: #04291f;
+  --gpt-hero-badge-bg: #00345a;
+  --gpt-hero-cta-bg: #f58f24;
+  --gpt-hero-cta-bg-hover: #ffac3d;
+
+  border-radius: 18px;
+  border: 3px solid var(--gpt-hero-border);
+  background: var(--gpt-hero-bg);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(240px, 1fr);
+  gap: clamp(1.75rem, 4vw, 3rem);
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .gpt-hero__card {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gpt-hero__main {
+  max-width: 48rem;
+}
+
+.gpt-hero__eyebrow {
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+  opacity: 0.9;
+}
+
+.gpt-hero__title {
+  font-size: clamp(2.4rem, 3vw, 3.1rem);
+  line-height: 1.1;
+  margin: 0 0 1rem;
+}
+
+.gpt-hero__subtitle {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+.gpt-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.75rem 0 0.75rem;
+}
+
+.gpt-hero__note {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-top: 0.25rem;
+}
+
+/* Right-hand badge (icon + orange strip) */
+
+.gpt-hero__side {
+  display: flex;
+  justify-content: center;
+}
+
+.gpt-hero__badge {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--gpt-hero-badge-bg);
+  max-width: 260px;
+  width: 100%;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+}
+
+.gpt-hero__badge img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Orange strip CTA over the bottom of the icon */
+.gpt-hero__badge-cta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.7rem 0.9rem;
+  background: var(--gpt-hero-cta-bg);
+  color: #111;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.gpt-hero__badge-cta:hover,
+.gpt-hero__badge-cta:focus-visible {
+  background: var(--gpt-hero-cta-bg-hover);
+}
+
+/* Brand-specific tuning: BFS variant */
+
+.gpt-hero--bfs .gpt-hero__card {
+  --gpt-hero-border: #f7a236;       /* BFS/OKH orange */
+  --gpt-hero-bg: #02241b;           /* dark green background */
+  --gpt-hero-badge-bg: #003b66;     /* deep BFS blue */
+  --gpt-hero-cta-bg: #f7a236;
+  --gpt-hero-cta-bg-hover: #ffb955;
+}
+
+
 /* ----------------------------------------
    BFS Framing Intelligent Futures hero
    ---------------------------------------- */
