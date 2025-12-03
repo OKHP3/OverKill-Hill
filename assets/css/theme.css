@@ -599,6 +599,13 @@ body:not(.glee-main):not(.askjamie-main) .site-status {
   max-width: 38rem;
 }
 
+/* Let the 'Newest addition' card stretch to the full container width on Glee */
+.glee-main .latest-block .latest-card {
+  max-width: none;   /* remove the 38rem cap */
+  width: 100%;       /* occupy the full width of the container */
+}
+
+/* Pill label for newest addition */
 .latest-pill {
   display: inline-block;
   margin-bottom: 0.4rem;
@@ -657,6 +664,26 @@ body:not(.glee-main):not(.askjamie-main) .latest-pill {
   }
 }
 
+/* Make the image link and submenu feel like one unit */
+.latest-image-link {
+  display: inline-block;
+}
+
+.latest-submenu {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.latest-submenu-link {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.latest-submenu-link:hover,
+.latest-submenu-link:focus-visible {
+  text-decoration: none;
+}
 
 /* ===== BRAND HEADER VARIANTS ============================================ */
 
