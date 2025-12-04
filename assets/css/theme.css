@@ -1667,7 +1667,8 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
   border-radius: 1.5rem;
   background: var(--color-surface);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
-}
+  overflow-x: auto;  /* allows wide diagrams to scroll on mobile */
+} 
 
 .glee-mermaid-shell--mini .mermaid {
   width: 100%;
@@ -1676,7 +1677,7 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
   border-radius: 1rem;
   background: var(--color-surface);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
-  overflow-x: auto;  /* allows wide diagrams to scroll on mobile */
+  overflow-x: auto; /* scroll on mobile if needed */
 }
 
 @media (max-width: 640px) {
@@ -1684,14 +1685,13 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
     min-height: 18rem;
     padding: 1rem;
   }
-}
 
-@media (max-width: 640px) {
   .glee-mermaid-shell--mini .mermaid {
     min-height: 10rem;
     padding: 0.6rem 0.75rem;
   }
 }
+
 /* Text + base styles for ANY Mermaid diagram on Glee-Fully pages */
 .glee-main .mermaid {
   font-family: var(--font-body);
@@ -1736,7 +1736,6 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
   font-size: 0.75rem;
   border: 1px solid #a63749;
 }
-
 
 /* ===================================================================== */
 /* AskJamie – Mermaid layout + mid‑century teal skin                     */
