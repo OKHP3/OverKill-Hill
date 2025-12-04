@@ -1642,6 +1642,103 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
 }
 
 /* ===================================================================== */
+/* GLEE-FULLY PERSONALIZABLE TOOLS – RETRO JOYFUL MERMAID                */
+/* ===================================================================== */ 
+.glee-mermaid-shell {
+  margin: 0;
+  width: 100%;
+  max-width: 620px;
+  background: var(--color-surface);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+  overflow: hidden;
+}
+
+.glee-mermaid-shell--mini {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.glee-mermaid-shell .mermaid {
+  width: 100%;
+  min-height: 22rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 1.5rem;
+  background: var(--color-surface);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+.glee-mermaid-shell--mini .mermaid {
+  width: 100%;
+  min-height: 12rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 1rem;
+  background: var(--color-surface);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+  overflow-x: auto;  /* allows wide diagrams to scroll on mobile */
+}
+
+@media (max-width: 640px) {
+  .glee-mermaid-shell .mermaid {
+    min-height: 18rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .glee-mermaid-shell--mini .mermaid {
+    min-height: 10rem;
+    padding: 0.6rem 0.75rem;
+  }
+}
+/* Text + base styles for ANY Mermaid diagram on Glee-Fully pages */
+.glee-main .mermaid {
+  font-family: var(--font-body);
+  color: var(--color-fg);
+}
+/* SVG sizing */
+.glee-main .mermaid svg {
+  width: 100%;
+  height: auto;
+} 
+/* Nodes – rounded joyful shapes with coral borders */
+.glee-main .mermaid .node rect,
+.glee-main .mermaid .node circle {
+  rx: 14px;
+  ry: 14px;
+  fill: var(--color-surface);          /* #fffdfa */
+  stroke: var(--color-accent);         /* #d94f63 */
+  stroke-width: 1.5px;
+} 
+/* Labels */
+.glee-main .mermaid .label text {
+  fill: var(--color-fg);               /* #2e2b29 */
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+/* Edges – playful coral connectors */
+.glee-main .mermaid .edgePath path {
+  stroke: #f3a6b0;
+  stroke-width: 1.5px;
+} 
+/* Clusters / groups – pale joyful panels */
+.glee-main .mermaid .cluster rect {
+  fill: #fff7f1;
+  stroke: #f3a6b0;
+}   
+/* Tooltips – coral pills */
+.glee-main .mermaidTooltip {
+  background-color: #d94f63;
+  color: #fffdfa;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  border: 1px solid #a63749;
+}
+
+
+/* ===================================================================== */
 /* AskJamie – Mermaid layout + mid‑century teal skin                     */
 /* ===================================================================== */
 
