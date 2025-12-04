@@ -120,4 +120,48 @@ document.addEventListener("DOMContentLoaded", () => {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
+
+    // -----------------------------------------
+  // Under-construction overlay gate (Glee, etc.)
+  // -----------------------------------------
+  const constructionOverlay = document.querySelector(".construction-overlay");
+
+  if (constructionOverlay) {
+    const body = document.body;
+    const wipKey =
+      constructionOverlay.getAttribute("data-wip-key") ||
+      window.location.pathname;
+
+    const storageKey = `glee-wip-dismissed:${wipKey}`;
+
+    // If user already dismissed this specific WIP page, hide overlay
+    if (localStorage.getItem(storageKey) === "true") {
+      body.classList.add("construction-dismissed");
+      constructionOverlay.setAttribute("hidden", "true");
+    } else {
+      // Wire up dismiss buttons
+      const dismissButtons = constructionOverlay.querySelectorAll(
+        "[data-wip-dismiss]"
+      );
+
+      dismissButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          body.classList.add("construction-dismissed");
+          constructionOverlay.setAttribute("aria-hidden", "true");
+          localStorage.setItem(storageKey, "true");
+        });
+      });
+
+      // Optional: clicking the dark scrim (outside the card) also dismisses
+      constructionOverlay.addEventListener("click", (event) => {
+        if (event.target === constructionOverlay) {
+          const primaryDismiss = constructionOverlay.querySelector(
+            "[data-wip-dismiss]"
+          );
+          if (primaryDismiss) primaryDismiss.click();
+        }
+      });
+    }
+  }
+
 });

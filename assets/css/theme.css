@@ -2309,6 +2309,98 @@ html:has(
   color: var(--color-accent);
 }
 
+/* ============================================================
+   Glee-fully under-construction overlay
+   - Used on toolbox pages that are live-but-not-finished
+   ============================================================ */
+
+.construction-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(46, 43, 41, 0.78);          /* warm Glee-tinted scrim */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+/* When dismissed (class added by JS), fade it out and kill interactivity */
+body.construction-dismissed .construction-overlay,
+.construction-overlay[hidden] {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Card that holds the art + copy */
+.construction-overlay__card {
+  max-width: min(960px, 100%);
+  width: 100%;
+  text-align: center;
+  background: #fff7f1;                  /* Glee paper */
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  padding: 1.75rem 1.75rem 1.5rem;
+  pointer-events: auto;                 /* let the button be clickable */
+}
+
+/* Hero art */
+.construction-overlay__image {
+  display: block;
+  width: min(100%, 720px);
+  margin: 0 auto 1.1rem;
+}
+
+/* Text under the image */
+.construction-overlay__copy {
+  margin: 0 0 1.3rem;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+}
+
+/* Button row */
+.construction-overlay__actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* Non-blocking "ghost" mode: overlay is visual only, clicks go through */
+.construction-overlay--ghost {
+  pointer-events: none;
+  background: rgba(46, 43, 41, 0.45);
+}
+
+.construction-overlay--ghost .construction-overlay__card {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  pointer-events: none; /* make sure the image doesn't capture clicks either */
+}
+
+/* Tighten things on small screens */
+@media (max-width: 640px) {
+  .construction-overlay {
+    padding: 1rem;
+  }
+
+  .construction-overlay__card {
+    padding: 1.25rem 1.1rem 1.1rem;
+    border-radius: 1.1rem;
+  }
+
+  .construction-overlay__copy {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+}
+
+
 /* ===================================================================== */
 /* Glee‑fully – Mermaid layout + retro‑joyful skin                      */
 /* ===================================================================== */
