@@ -183,8 +183,21 @@
         <p>© <span id="current-year"></span> OverKill Hill P³. All rights reserved.</p>
       </div>
     </footer>
-
     <script src="assets/js/app.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "OverKill Hill P³™",
+        "url": "https://overkillhill.com",
+        "description": "OverKill Hill P³™ is the digital forge where custom GPT systems are architected, tempered and polished for real-world performance.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://overkillhill.com/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
 
     <script type="module">
       import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
@@ -223,6 +236,15 @@
           rankSpacing: 70
         }
       });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VJ1BKXS27H');
     </script>
   </body>
 </html>
