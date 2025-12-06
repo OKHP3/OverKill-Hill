@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180" type="image/png" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OverKill Hill P³™ — Precision · Protocol · Promptcraft" />
+    <meta name="twitter:title" content="OverKill Hill P³ — About OKH P³" />
     <meta name="robots" content="index, follow" />
     <link rel="manifest" href="/site.webmanifest" />
 
@@ -34,88 +34,147 @@
 
   <body>
     <a href="#main" class="skip-link">Skip to content</a>
-
+    
     <header class="site-header" id="top">
       <div class="container">
         <div class="logo">
-          <a href="/#top">
-            <img src="/assets/img/OverKill%20Hill%20P³%20Sentinel%20Warning%20Square%201024.png" alt="OverKill Hill P³ logo" width="40" height="40" />
-            <span class="sr-only">OverKill Hill P³ Home</span>
+          <a href="#top">
+            <img src="assets/img/OverKill%20Hill%20P³%20Sentinel%20Warning%20Square%201024.png" alt="OverKill Hill P³ logo" width="40" height="40" />
+            <span class="sr-only">OverKill Hill P³™ Home</span>
           </a>
         </div>
-        <nav class="primary-nav" id="navigation">
+
+        <nav class="primary-nav" id="navigation" aria-label="Primary">
           <ul>
             <li><a href="/#forge">The Forge</a></li>
-            <li><a href="/universe/">P³ Universe</a></li>
-            <li><a href="/manifesto/">The Manifesto</a></li>
             <li><a href="/projects/">Our Projects</a></li>
-            <li><a href="/about/" aria-current="page">About OKH P³</a></li>
+            <li><a href="/manifesto/">The Manifesto</a></li>
+
+            <!-- About cluster: Universe / About / Contact / Legal -->
+            <li class="has-submenu">
+              <a href="/about/">About</a>
+              <ul class="submenu">
+                <li><a href="/universe/">OKHP³™ Universe</a></li>
+                <li><a href="/about/" aria-current="page">About OKHP³™</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/legal/">Legal</a></li>
+              </ul>
+            </li>
           </ul>
         </nav>
+
         <button class="nav-toggle" aria-controls="navigation" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="bar"></span><span class="bar"></span><span class="bar"></span>
         </button>
       </div>
+
+      <section class="site-specials site-specials--okh" aria-label="Forge update">
+        <span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
+        <a class="site-specials-link" href="/projects/bfs-framing-intelligent-futures/">
+          See what OKH P³ was able to accomplish in one ☕caffeine-fueled⛽night!  →
+        </a>
+      </section>
+
     </header>
 
-    <main>
-      <section class="hero">
-        <div class="brand-stripes okh" aria-hidden="true"></div>
-        <div class="container">
-          <div class="hero-content">
-            <h1>About OverKill Hill P³</h1>
-          <p>
-            OverKill Hill P³ is the bridge between lumber yards and language models,
-            between spreadsheets and storyboards, between “we should automate this”
-            and “we trust what we’ve built.”
-          </p>
-        </header>
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero" id="about" aria-labelledby="hero-title">
+        <div class="hero-blueprint-bg"></div>
+        <div class="brand-stripes brand-stripes--okh" aria-hidden="true"></div>
 
-        <div class="about-grid">
-          <div>
-            <h2>Who’s on the Hill</h2>
-            <p>
-              OverKill Hill P³ is led by Jamie — a lumber and building products
-              veteran who spent years with boots on actual concrete and sawdust on
-              actual floors before stepping into AI prompt architecture.
-            </p>
-            <p>
-              That means the work here is grounded in the realities of physical
-              business: margins, logistics, human constraints and the way decisions
-              actually get made when the clock is ticking.
-            </p>
-
-            <h2>Why the Hill exists</h2>
-            <p>
-              This is the place for people who don’t want “just a bot,” but a system
-              that can carry part of the load without adding more chaos. The work is
-              part engineering, part storytelling, part quietly protecting your future
-              self from avoidable headaches.
-            </p>
+        <div class="container hero-inner reveal-on-scroll">
+          <div class="hero-grid">
+            <div>
+              <p class="hero-eyebrow">About OKHP³™</p>
+              <h1 id="hero-title">About OverKill Hill P³</h1>
+              <p class="hero-tagline">
+                OverKill Hill P³ is the bridge between lumber yards and language models, between spreadsheets
+                and storyboards, between “we should automate this” and “we trust what we’ve built together.”
+              </p>
+              <div class="hero-actions">
+                <a href="/projects/" class="btn btn-primary">
+                  Explore the projects
+                </a>
+                <a href="/#forge" class="btn btn-quiet">
+                  Back to the forge
+                </a>
+              </div>
+            </div>
           </div>
-          <div>
-            <h2>How we work with you</h2>
-            <p>
-              Projects usually start with a conversation — context, constraints, the
-              actual stakes. From there we sketch out the protocols, build a
-              prototype, and then iterate until it behaves the way your world needs it
-              to.
+        </div>
+      </section>
+
+      <!-- ABOUT CONTENT -->
+      <section class="content-section container reveal-on-scroll">
+        <header class="section-header">
+          <h2 id="who">Who’s on the Hill</h2>
+        </header>
+        <article class="card">
+          <p>
+            At OverKill Hill P³™, we specialize in crafting custom GPT systems designed to tackle
+            complex, real-world challenges. Our approach combines deep industry knowledge with cutting-edge
+            AI technology to deliver solutions that are not only innovative but also practical and reliable.
+          </p>
+          <p>
+            Founded by Jamie, a seasoned professional with extensive experience in the lumber and building
+            products industry, OverKill Hill P³™ brings a unique perspective to AI development. Jamie's hands-on
+            experience in various facets of the industry—from logistics to design—ensures that our solutions are
+            grounded in reality and tailored to meet the specific needs of our clients.
+          </p>
+          <p>
+            We understand that every business is unique, and we pride ourselves on our ability to listen, learn,
+            and adapt our solutions to fit the distinct challenges faced by each client. Whether you're looking
+            to streamline operations, enhance decision-making, or create entirely new workflows, OverKill Hill P³™
+            is here to help you harness the power of AI in a way that makes sense for your business.
+          </p>
+          
+        </article>
+        
+        <header class="section-header">
+          <h2 id="why">Why the Hill exists</h2>
+        </header>
+          <div class="about-grid">
+            <article class="card">
+              <p>
+                OverKill Hill P³™ exists to build AI systems that can shoulder real responsibility in complex
+                environments. Too often, AI tools are more about flashy features than practical impact. We
+                believe that AI should be a dependable partner that helps you get things done — not another
+                source of uncertainty.
+              </p>
+              <p>
+                This is the place for people who don’t want “just a bot,” but a system that can carry part of
+                he load without adding more chaos. The work is part engineering, part storytelling, part quietly
+                protecting your future self from avoidable headaches. It’s about going beyond surface-level
+                solutions to create tools that are robust, reliable, and ready for the real world.
+              </p>
+            </article>
+
+        <header class="section-header">
+          <h2 id="how">How we work with you</h2>
+        </header>
+        <div class="about-grid">
+          <article class="card">
+            <p>   
+              Projects usually start with a conversation — context, constraints, the actual stakes. From there
+              we sketch out the protocols, build a prototype, and then iterate until it behaves the way your world
+              needs it to.
             </p>
             <p>
-              Sometimes that looks like a single, sharp-edged tool. Sometimes it’s a
-              whole stack that touches multiple roles or departments. Either way, it’s
-              built to last.
+              Sometimes that looks like a single, sharp-edged tool. Sometimes it’s a whole stack that touches
+              multiple roles or departments. Either way, it’s built to last. We document everything, test for
+              edge cases, and make sure you have what you need to maintain and evolve the system over time.
             </p>
             <p>
               <strong>Ready to talk?</strong> Reach out at
               <a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a>
-              and we’ll start sketching.
+              and we’ll start sketching. No pressure, no hard sells — just a conversation about what you’re
+              building and how we might help.
             </p>
-          </div>
+          </article>
         </div>
       </section>
-      
     </main>
 
     <footer class="site-footer">
