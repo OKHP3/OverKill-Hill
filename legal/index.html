@@ -5,36 +5,61 @@
     <title>The OverKill Hill P³™ — Legal Notice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Legal notice and usage disclaimer for OverKill Hill P³™ and its derivative modules." />
+    <meta name="keywords" content=""/>
+    <meta name="author" content="OverKill Hill P³™" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="" />
     <meta property="og:title" content="The OverKill Hill P³™ — Legal Notice" />
     <meta property="og:description" content="Legal notice and usage disclaimer for OverKill Hill P³™ and its derivative modules." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://overkillhill.com/" />
     <meta property="og:image" content="https://overkillhill.com/assets/img/OverKill%20Hill%20P³%20Sentinel%20Waiting%20Square%201024.png" />
+    <link rel="canonical" href="https://overkillhill.com/" />
     <link rel="stylesheet" href="/assets/css/theme.css" />
-    <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180" type="image/png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="OverKill Hill P³ — About OKH P³" />
+    <meta name="robots" content="index, follow" />
     <link rel="manifest" href="/site.webmanifest" />
-    <!-- The OverKill Hill P³™ typography: Alfa Slab One (headings), DM Sans (body) -->
+
+    <!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body) -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&display=swap" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   </head>
 
   <body>
-    <a href="/#main" class="skip-link">Skip to content</a>
-
+    <a href="#main" class="skip-link">Skip to content</a>
+    
     <header class="site-header" id="top">
       <div class="container">
         <div class="logo">
-          <a href="/#top">
-            <img src="/assets/img/OverKill%20Hill%20P³%20Sentinel%20Warning%20Square%201024.png" alt="The OverKill Hill P³™ logo" width="40" height="40" />
-            <span class="sr-only">The OverKill Hill P³™ Home</span>
+          <a href="#top">
+            <img src="assets/img/OverKill%20Hill%20P³%20Sentinel%20Warning%20Square%201024.png" alt="OverKill Hill P³ logo" width="40" height="40" />
+            <span class="sr-only">OverKill Hill P³™ Home</span>
           </a>
         </div>
-        <nav class="primary-nav" id="navigation">
+
+        <nav class="primary-nav" id="navigation" aria-label="Primary">
           <ul>
             <li><a href="/#forge">The Forge</a></li>
-            <li><a href="/universe/">P³ Universe</a></li>
-            <li><a href="/manifesto/">The Manifesto</a></li>
             <li><a href="/projects/">Our Projects</a></li>
-            <li><a href="/about/">About OKH P³</a></li>
+            <li><a href="/manifesto/">The Manifesto</a></li>
+
+            <!-- About cluster: Universe / About / Contact / Legal -->
+            <li class="has-submenu">
+              <a href="/about/">About</a>
+              <ul class="submenu">
+                <li><a href="/universe/">OKHP³™ Universe</a></li>
+                <li><a href="/about/">About OKHP³™</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/legal/" aria-current="page">Legal</a></li>
+              </ul>
+            </li>
           </ul>
         </nav>
 
