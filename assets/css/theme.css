@@ -163,6 +163,27 @@ button {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
+/* Fix collapsing grid: ensure at least one track is created */
+.grid-3 {
+  /* Use auto-fill instead of auto-fit so the browser never reduces the column count to zero */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+/* Mobile overrides for the Branches & Twigs section */
+@media (max-width: 800px) {
+  /* Force the branches & twigs grid into a single column so each card spans full width */
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Disable the scroll-reveal animation on narrow screens
+     so cards don't remain hidden if IntersectionObserver doesn't fire */
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* Cards */
 .card {
   background: var(--color-surface-soft);
