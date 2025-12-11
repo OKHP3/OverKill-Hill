@@ -159,28 +159,36 @@ button {
   gap: 1.75rem;
 }
 
-.grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+/* ===== UTILS & LAYOUT ==================================================== */
+
+.grid {
+  display: grid;
+  gap: 1.75rem;
 }
 
-/* Fix collapsing grid: ensure at least one track is created */
+/* Define .grid-3 once.  Use a smaller minimum size so a column can shrink on phones. */
 .grid-3 {
-  /* Use auto-fill instead of auto-fit so the browser never reduces the column count to zero */
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
 }
 
-/* Mobile overrides for the Branches & Twigs section */
-@media (max-width: 800px) {
-  /* Force the branches & twigs grid into a single column so each card spans full width */
+/* Collapse to a single column sooner (tablet + phone). */
+@media (max-width: 1024px) {
   .grid-3 {
     grid-template-columns: 1fr;
   }
 
-  /* Disable the scroll-reveal animation on narrow screens
-     so cards don't remain hidden if IntersectionObserver doesn't fire */
+  /* Disable reveal-on-scroll on smaller widths so content isn’t hidden */
   .reveal-on-scroll {
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+/* Make mini diagrams more flexible on narrow screens */
+@media (max-width: 768px) {
+  .glee-mermaid-shell--mini .mermaid {
+    min-height: 8rem;
+    overflow-x: auto;
   }
 }
 
