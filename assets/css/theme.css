@@ -1256,6 +1256,74 @@ body:not(.glee-main):not(.askjamie-main) .latest-pill {
   align-self: flex-end;
 }
 
+
+/* 
+Custom styles for the under‑construction page
+We copy the grid and layout from the AskJamie system pages but namespace
+them with our own classes. This avoids carrying over AskJamie names while
+preserving the same responsive hero structure and alignment. The classes
+defined here work together with the shared theme to create a two‑column
+hero on desktop that stacks neatly on smaller screens.  Visual alignment
+for the image and copy mirrors the original design while using the
+OverKill Hill industrial stripes.
+*/
+.under-construction-hero {
+  position: relative;
+  padding: 4rem 0 3.25rem;
+}
+.under-construction-hero-grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .under-construction-hero-grid {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  }
+}
+.under-construction-hero-copy {
+  max-width: 38rem;
+  padding: 0 2rem 0 2.75rem;
+}
+@media (max-width: 768px) {
+  .under-construction-hero-copy {
+    padding: 0 1.75rem;
+  }
+}
+.under-construction-hero-visual {
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 900px) {
+  .under-construction-hero-visual {
+    justify-content: flex-end;
+  }
+}
+
+
+/*     Custom 404 styling
+
+The generic hero styles in the base theme assume a relatively small
+illustration on the right. To properly showcase the wide mechanical
+sentinel artwork used on this error page, we override two rules:
+
+- `.hero-visual` on the #404 section gets centered with a top margin.
+- `.hero-illustration` within that section can grow up to 1120px wide on
+  large screens while still scaling responsively.
+*/
+/* Increase the width of the hero illustration on the 404 page and center it */
+
+#404 .hero-visual {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+#404 .hero-illustration {
+  display: block;
+  max-width: min(100%, 1120px);
+  height: auto;
+}
+
 /* ===================================================================== */
 /* GLOBAL MERMAID – DEFAULT OVERKILL HILL P³                             */
 /* ===================================================================== */

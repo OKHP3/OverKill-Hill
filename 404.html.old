@@ -134,24 +134,22 @@
               quite made it out of the diagram stage.
             </p>
             <p class="hero-tagline">
-              Our sentinel is on the case. In the meantime, use the options below to
+              Jamie is on the case. In the meantime, use the options below to
               get back to stable ground.
             </p>
             <div class="hero-actions">
-              <!-- Updated button to point back to the main OverKill Hill homepage and use the correct brand name -->
-              <a href="/" class="btn btn-primary">Return to OverKill Hill™ home</a>
+              <a href="/" class="btn btn-primary">Return to AskJamie™ home</a>
               <a href="mailto:contact@overkillhill.com" class="btn btn-quiet">
                 Report this issue
               </a>
             </div>
           </div>
 
-          <!-- Use generic hero-visual/illustration classes instead of AskJamie-specific ones -->
-          <div class="hero-visual">
+          <div class="askjamie-hero-visual askjamie-hero-visual--full">
             <img
               src="assets/img/OverKillHillP³-BirdPatrolCompLeft-ErrorExplosion-Wide-1536.png"
-              alt="Mechanical raven experiencing a literal burst of gears and smoke, representing a technical error"
-              class="hero-illustration"
+              alt="”."
+              class="askjamie-system-hero-img"
               loading="lazy"
               width="1536"
               height="768"

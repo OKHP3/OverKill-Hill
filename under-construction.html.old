@@ -6,61 +6,59 @@
          ======================================== -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#111827" />
+    
     <!-- ========================================
          METADATA: Primary Title & Description
          ======================================== -->
-    <title>OverKill Hill P³™ — 404 Page Not Found</title>
-    <meta name="description" content="The page you're looking for doesn't exist, moved, or never made it out of the diagram stage. Return to OverKill Hill P³™ home or report the issue." />
-    <meta name="keywords" content="OverKill Hill, OverKill Hill P3, OKH P3, 404, page not found, error" />
+    <title>OverKill Hill P³™ — Under Construction</title>
+    <meta name="description" content="This part of the OverKill Hill P³™ forge is under construction while the broader ecosystem comes together." />
+    <meta name="keywords" content="OverKill Hill, OverKill Hill P3, OKH P3, AskJamie, under construction, coming soon, work in progress" />
     <meta name="author" content="OverKill Hill P³™" />
-    <meta name="creator" content="OverKill Hill P³™" />
-    <meta name="publisher" content="OverKill Hill P³™" />
-    <meta name="theme-color" content="#111827" />
-    <meta name="color-scheme" content="dark light" />
-
+    
     <!-- ========================================
          METADATA: Search & Crawling
          ======================================== -->
     <meta name="robots" content="noindex, nofollow" />
     <meta name="googlebot" content="noindex, nofollow" />
-    <link rel="canonical" href="https://overkillhill.com/404.html" />
-
+    
     <!-- ========================================
          METADATA: Open Graph (Social Sharing)
          ======================================== -->
-    <meta property="og:title" content="OverKill Hill P³™ — 404 Page Not Found" />
-    <meta property="og:description" content="The page you're looking for doesn't exist, moved, or never made it out of the diagram stage." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://overkillhill.com/404.html" />
-    <meta property="og:image" content="https://overkillhill.com/assets/img/OverKillHillP³-Sentinel-Warning-Square-256.png" />
-    <meta property="og:image:width" content="256" />
-    <meta property="og:image:height" content="256" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:site_name" content="OverKill Hill P³™" />
+    <meta property="og:url" content="https://overkillhill.com/under-construction.html" />
+    <meta property="og:title" content="OverKill Hill P³™ — Under Construction" />
+    <meta property="og:description" content="This part of the OverKill Hill P³™ forge is under construction while the broader ecosystem comes together." />
+    <meta property="og:image" content="https://overkillhill.com/assets/img/OverKillHillP³-Sentinel-Waiting-Square-1024.png" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="OverKill Hill P³ Sentinel logo waiting" />
     <meta property="og:locale" content="en_US" />
-
+    
     <!-- ========================================
          METADATA: Twitter Card (X Social)
          ======================================== -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OverKill Hill P³™ — 404 Page Not Found" />
-    <meta name="twitter:description" content="The page you're looking for doesn't exist or has moved." />
-    <meta name="twitter:image" content="https://overkillhill.com/assets/img/OverKillHillP³-Sentinel-Warning-Square-256.png" />
-    <meta name="twitter:image:alt" content="OverKill Hill P³ Sentinel Warning logo" />
-    <meta name="twitter:site" content="@overkillhillp3" />
-    <meta name="twitter:creator" content="@overkillhillp3" />
-
+    <meta name="twitter:title" content="OverKill Hill P³™ — Under Construction" />
+    <meta name="twitter:description" content="This part of the OverKill Hill P³™ forge is under construction while the broader ecosystem comes together." />
+    <meta name="twitter:image" content="https://overkillhill.com/assets/img/OverKillHillP³-Sentinel-Waiting-Square-1024.png" />
+    <meta name="twitter:image:alt" content="OverKill Hill P³ Sentinel logo waiting" />
+    
+    <!-- ========================================
+         METADATA: Color Scheme & Theme
+         ======================================== -->
+    <link rel="canonical" href="https://overkillhill.com/under-construction.html" />
+    <link rel="manifest" href="site.webmanifest" />
+    
     <!-- ========================================
          FAVICONS: Multi-Format Icon Support
          ======================================== -->
     <link rel="icon" href="assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
     <link rel="icon" href="assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
-    <link rel="icon" href="favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="assets/img/favicons/apple-touch-icon.png" sizes="180x180" type="image/png" />
-    <link rel="manifest" href="site.webmanifest" />
-
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    
     <!-- ========================================
          STYLESHEETS & FONTS
          ======================================== -->
@@ -117,79 +115,85 @@
     </header>
 
     <main id="main">
-      <!-- HERO -->
-      <section class="hero" id="404" aria-labelledby="hero-title">
-        <div class="hero-blueprint-bg"></div>
-        <div class="brand-stripes brand-stripes--okh" aria-hidden="true"></div>
+      <!-- HERO: angled paper + big construction image -->
+      <section
+        class="hero askjamie-hero askjamie-hero--under-construction"
+        aria-labelledby="hero-title"
+      >
+        <div class="brand-stripes brand-stripes--jamie" aria-hidden="true"></div>
+        <div class="askjamie-paper" aria-hidden="true"></div>
 
-        <div class="container hero-inner reveal-on-scroll">
-          <div class="hero-grid">
-            <div>
-              <p class="hero-eyebrow">
-                <a href="/#forge">The Forge</a>
-              </p>
-              <h1 id="hero-title">Experiencing technical difficulties.</h1>
-            <p class="hero-subtitle">
-              The page you’re looking for doesn’t exist yet, moved, or never
-              quite made it out of the diagram stage.
-            </p>
-            <p class="hero-tagline">
-              Our sentinel is on the case. In the meantime, use the options below to
-              get back to stable ground.
-            </p>
-            <div class="hero-actions">
-              <!-- Updated button to point back to the main OverKill Hill homepage and use the correct brand name -->
-              <a href="/" class="btn btn-primary">Return to OverKill Hill™ home</a>
-              <a href="mailto:contact@overkillhill.com" class="btn btn-quiet">
-                Report this issue
-              </a>
+        <div class="container askjamie-hero-inner reveal-on-scroll">
+          <div class="askjamie-hero-grid">
+            <div class="askjamie-hero-visual">
+              <img
+                src="assets/img/OverKillHillP³-BirdPatrolCompLeft-UnderConstruction-Wide-1536.png"
+                alt="Under construction image"
+                class="lazyload"
+                loading="lazy"
+                width="1536"
+                height="768"
+              />
             </div>
-          </div>
 
-          <!-- Use generic hero-visual/illustration classes instead of AskJamie-specific ones -->
-          <div class="hero-visual">
-            <img
-              src="assets/img/OverKillHillP³-BirdPatrolCompLeft-ErrorExplosion-Wide-1536.png"
-              alt="Mechanical raven experiencing a literal burst of gears and smoke, representing a technical error"
-              class="hero-illustration"
-              loading="lazy"
-              width="1536"
-              height="768"
-            />
+            <div class="askjamie-hero-copy">
+              <p class="eyebrow h-accent">AskJamie™</p>
+              <h1 id="hero-title">This corner of the helpdesk is under construction.</h1>
+              <p class="hero-subtitle">
+                We’re wiring up the rest of the AskJamie™ ecosystem — pages, patterns,
+                and examples that show how Jamie works across modules AJ01–AJ04.
+              </p>
+              <p class="hero-tagline">
+                In the meantime, the main AskJamie™ page and GPT are fully available
+                for real conversation, tradeoff‑mapping, and decision support.
+              </p>
+
+              <div class="hero-actions">
+                <a href="index.html" class="btn btn-quiet">Back to the main page</a>
+                <a
+                  href="https://chatgpt.com/g/ASK-JAMIE-GPT-ID-HERE"
+                  class="btn btn-primary"
+                  target="_blank"
+                  rel="noopener"
+                  >Open AskJamie™</a
+                >
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- EXPLANATION / NEXT STEPS -->
-      <section class="content-section container">
+      <!-- Simple body content so the page isn’t just a hero -->
+      <section class="content-section container reveal-on-scroll">
         <header class="section-header">
-          <h2>What might have gone wrong?</h2>
+          <h2>What’s being built here?</h2>
           <p class="note">
-            Links change, pages move, and some sections of the OverKill Hill P³™
-            forge are still under construction. A few possibilities:
+            Think of this page as the construction gate for everything still in flux:
+            deeper docs, playbooks, and connective tissue between AskJamie™ and the
+            rest of the OverKill Hill P³™ universe.
           </p>
         </header>
 
         <div class="grid grid-3">
           <article class="card">
-            <h3>Work in progress</h3>
+            <h3>Module documentation</h3>
             <p>
-              You may have followed a link to a future module or write‑up that
-              doesn’t have a public page yet.
+              Clear walkthroughs for AJ01–AJ04 — what each module does, how to
+              prompt it, and where it fits in your stack.
             </p>
           </article>
           <article class="card">
-            <h3>Typo in the URL</h3>
+            <h3>Conversation patterns</h3>
             <p>
-              A small typo can send you off into the weeds. Double‑check the
-              address bar if you typed the URL manually.
+              Saved flows, diagrams, and example scripts that show how Jamie handles
+              ambiguity, tradeoffs, and long‑running decisions.
             </p>
           </article>
           <article class="card">
-            <h3>Old bookmark</h3>
+            <h3>System maps</h3>
             <p>
-              Some earlier paths may have been reorganized. Use the navigation
-              above to jump back into the current map.
+              Visual maps of how AskJamie™, OverKill Hill P³™, and Glee‑fully fit
+              together so you can see the whole ecosystem at a glance.
             </p>
           </article>
         </div>
