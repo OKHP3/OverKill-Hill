@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".site-header");
   const navToggle = document.querySelector(".nav-toggle");
   const yearSpans = document.querySelectorAll(
-    "#current-year, #current-year-about, #current-year-manifesto, #current-year-projects, #current-year-glee"
+    "#current-year, #current-year-about, #current-year-manifesto, #current-year-projects, #current-year-glee, #current-year-askjamie"
   );
   const body = document.body;
 
