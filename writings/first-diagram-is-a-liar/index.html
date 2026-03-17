@@ -1,104 +1,599 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- ========================================
-       METADATA: Core Document & Character Set
-       ======================================== -->
     <meta charset="utf-8" />
-    
-    <!-- ========================================
-       METADATA: Primary Title & Description
-       ======================================== -->
-    <title>Magnus Progenitor Saga</title>
+
+    <!-- ── Primary Meta ─────────────────────────────────────── -->
+    <title>The First Diagram Is Usually a Liar | OverKill Hill P³™</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="A speculative fiction series exploring origin, recursion, and the nature of intelligence." />
-    <meta name="keywords" content="speculative fiction, AI, recursion, intelligence, storytelling" />
-    <meta name="author" content="OverKill Hill P³™" />
-    
-    <!-- ========================================
-       METADATA: Open Graph (Social Sharing)
-       ======================================== -->
-    <meta property="og:title" content="Magnus Progenitor Saga" />
-    <meta property="og:description" content="Explore the Magnus Progenitor Saga, a narrative laboratory for ideas about recursion and identity." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://overkillhill.com/" />
-    <meta property="og:image" content="https://overkillhill.com/assets/img/OverKillHillP³-Sentinel-Waiting-Square-1024.png" />
-    
-    <!-- ========================================
-       METADATA: Twitter Card (X Social)
-       ======================================== -->
+    <meta
+      name="description"
+      content="A picture is not automatically worth 1,000 words. Some pictures are decorative wallpaper with a superiority complex. The real metric is ROY — Return on Your Words. A deep dive into Mermaid diagrams, LLM councils, and the economics of visual communication."
+    />
+    <meta
+      name="keywords"
+      content="Mermaid diagram, ROY return on words, visual communication, LLM, AI council, OverKill Hill P3, promptcraft, diagramming"
+    />
+    <meta name="author" content="Jamie Hill — OverKill Hill P³™" />
+
+    <!-- ── Open Graph ────────────────────────────────────────── -->
+    <meta property="og:title" content="The First Diagram Is Usually a Liar" />
+    <meta
+      property="og:description"
+      content="ROY — Return on Your Words. What I learned asking six AIs to draw my thinking, and why the first diagram always lies."
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:url"
+      content="https://overkillhill.com/writings/first-diagram-is-a-liar/"
+    />
+    <meta
+      property="og:image"
+      content="https://overkillhill.com/assets/img/OverKillHillP³-Sentinel-Waiting-Square-1024.png"
+    />
+
+    <!-- ── Twitter Card ──────────────────────────────────────── -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OverKill Hill P³ — About OKH P³" />
-    <meta name="twitter:description" content="Explore the Magnus Progenitor Saga, a narrative laboratory for ideas about recursion and identity." />
-    <meta name="twitter:image" content="https://overkillhill.com/assets/img/OverKillHillP³-Sentinel-Waiting-Square-1024.png" />
-    
-    <!-- ========================================
-       METADATA: Search & Crawling
-       ======================================== -->
+    <meta name="twitter:title" content="The First Diagram Is Usually a Liar | OverKill Hill P³™" />
+    <meta
+      name="twitter:description"
+      content="ROY — Return on Your Words. What I learned asking six AIs to draw my thinking."
+    />
+    <meta
+      name="twitter:image"
+      content="https://overkillhill.com/assets/img/OverKillHillP³-Sentinel-Waiting-Square-1024.png"
+    />
+
+    <!-- ── Canonical & Crawl ─────────────────────────────────── -->
     <meta name="robots" content="index, follow" />
-    
-    <!-- ========================================
-       METADATA: Color Scheme & Theme
-       ======================================== -->
-    <link rel="manifest" href="/site.webmanifest" />
-    
-    <!-- ========================================
-       FAVICONS: Multi-Format Icon Support
-       ======================================== -->
-    <link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
-    <link rel="icon" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
-    <link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180" type="image/png" />
+    <link
+      rel="canonical"
+      href="https://overkillhill.com/writings/first-diagram-is-a-liar/"
+    />
+
+    <!-- ── Article Schema ────────────────────────────────────── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The First Diagram Is Usually a Liar",
+        "description": "ROY — Return on Your Words. What I learned asking six AIs to draw my thinking, and why the first diagram always lies.",
+        "author": {
+          "@type": "Person",
+          "name": "Jamie Hill",
+          "url": "https://www.linkedin.com/in/jamiehill75"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "OverKill Hill P³™",
+          "url": "https://overkillhill.com"
+        },
+        "datePublished": "2025-03-17",
+        "image": "https://overkillhill.com/assets/img/OverKillHillP³-Sentinel-Waiting-Square-1024.png",
+        "url": "https://overkillhill.com/writings/first-diagram-is-a-liar/"
+      }
+    </script>
+
+    <!-- ── Favicons ──────────────────────────────────────────── -->
+    <link
+      rel="icon"
+      href="/assets/img/favicons/favicon-32x32.png"
+      sizes="32x32"
+      type="image/png"
+    />
+    <link
+      rel="icon"
+      href="/assets/img/favicons/favicon-16x16.png"
+      sizes="16x16"
+      type="image/png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/img/favicons/apple-touch-icon.png"
+      sizes="180x180"
+      type="image/png"
+    />
     <link rel="icon" href="/favicon.ico" sizes="any" />
-    
-    <!-- ========================================
-       STYLESHEETS & FONTS
-       ======================================== -->
-    <link rel="stylesheet" href="/assets/css/theme.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&display=swap" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ── Fonts & Styles ────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    />
+    <link rel="stylesheet" href="/assets/css/theme.css" />
 
+    <!-- ── Article-specific styles ──────────────────────────── -->
+    <style>
+      /* ── Article reading layout ──────────────────────────── */
+      .article-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+      }
+
+      @media (min-width: 1024px) {
+        .article-layout {
+          grid-template-columns: minmax(0, 2.4fr) minmax(240px, 1fr);
+          gap: 3rem;
+          align-items: start;
+        }
+      }
+
+      /* ── Article hero ──────────────────────────────────────── */
+      .article-hero {
+        padding: 3.5rem 0 2rem;
+        border-bottom: 1px solid var(--color-border-subtle);
+        margin-bottom: 0;
+      }
+
+      .article-eyebrow {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--okh-orange);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .article-eyebrow-sep {
+        color: var(--color-border-subtle);
+        opacity: 0.6;
+      }
+
+      .article-hero h1 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        letter-spacing: 0.03em;
+      }
+
+      .article-hero h1 em {
+        font-style: italic;
+        color: var(--okh-amber);
+      }
+
+      .article-subtitle {
+        font-size: 1.1rem;
+        color: var(--color-muted);
+        max-width: 42rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .article-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        font-size: 0.85rem;
+        color: var(--color-muted);
+        padding-top: 1rem;
+        border-top: 1px solid var(--color-border-subtle);
+      }
+
+      .article-meta-author {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        color: var(--color-fg);
+      }
+
+      .article-meta-dot {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: var(--color-muted);
+        opacity: 0.5;
+      }
+
+      /* ── Article body ──────────────────────────────────────── */
+      .article-body {
+        padding: 2.5rem 0 3rem;
+        max-width: 68ch;
+      }
+
+      .article-body p {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 1.4rem;
+        color: #d1d5db;
+      }
+
+      .article-body h2 {
+        font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+        margin-top: 2.5rem;
+        margin-bottom: 0.75rem;
+        color: var(--color-fg);
+        letter-spacing: 0.04em;
+      }
+
+      .article-body h3 {
+        font-size: 1.1rem;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+        color: var(--okh-amber);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-family: var(--font-body);
+        font-weight: 600;
+      }
+
+      .article-body strong {
+        color: var(--color-fg);
+        font-weight: 600;
+      }
+
+      .article-body em {
+        color: var(--okh-amber);
+        font-style: italic;
+      }
+
+      .article-body hr {
+        border: none;
+        border-top: 1px solid var(--color-border-subtle);
+        margin: 2.5rem 0;
+      }
+
+      /* ── Pull quote ────────────────────────────────────────── */
+      .pull-quote {
+        border-left: 3px solid var(--okh-orange);
+        padding: 0.75rem 1.25rem;
+        margin: 2rem 0;
+        background: rgba(196, 106, 44, 0.06);
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      }
+
+      .pull-quote p {
+        font-size: 1.15rem !important;
+        font-style: italic;
+        color: var(--color-fg) !important;
+        margin-bottom: 0 !important;
+        line-height: 1.6 !important;
+      }
+
+      /* ── ROY formula callout ───────────────────────────────── */
+      .formula-block {
+        background: var(--color-surface-soft);
+        border: 1px solid var(--color-border-subtle);
+        border-left: 3px solid var(--okh-amber);
+        border-radius: var(--radius-md);
+        padding: 1.25rem 1.5rem;
+        margin: 2rem 0;
+        text-align: center;
+      }
+
+      .formula-block .formula-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--okh-amber);
+        margin-bottom: 0.5rem;
+      }
+
+      .formula-block .formula-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--color-fg);
+        font-family: var(--font-body);
+        margin: 0;
+      }
+
+      .formula-block .formula-sub {
+        font-size: 0.88rem;
+        color: var(--color-muted);
+        margin-top: 0.35rem;
+      }
+
+      /* ── Diagram section ───────────────────────────────────── */
+      .diagram-section {
+        margin: 2.5rem 0;
+      }
+
+      .diagram-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .diagram-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--okh-orange);
+        font-weight: 600;
+      }
+
+      .diagram-links {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .diagram-links a {
+        font-size: 0.82rem;
+        color: var(--color-muted);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        transition: color 0.15s;
+      }
+
+      .diagram-links a:hover {
+        color: var(--okh-amber);
+      }
+
+      .diagram-shell {
+        background: var(--color-surface-soft);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        overflow-x: auto;
+      }
+
+      .diagram-caption {
+        font-size: 0.82rem;
+        color: var(--color-muted);
+        margin-top: 0.6rem;
+        font-style: italic;
+      }
+
+      /* ── Council callout card ──────────────────────────────── */
+      .council-card {
+        background: var(--color-surface-soft);
+        border: 1px solid var(--color-border-subtle);
+        border-top: 3px solid var(--okh-teal);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem 1.75rem;
+        margin: 2.5rem 0;
+      }
+
+      .council-card-eyebrow {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--okh-orange);
+        margin-bottom: 0.5rem;
+      }
+
+      .council-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+        color: var(--color-fg);
+        font-family: var(--font-body) !important;
+        font-weight: 600 !important;
+        text-transform: none !important;
+        letter-spacing: 0 !important;
+      }
+
+      .council-card p {
+        font-size: 0.92rem;
+        color: var(--color-muted);
+        margin-bottom: 0;
+        line-height: 1.6;
+      }
+
+      .council-members {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.75rem;
+      }
+
+      .council-pill {
+        font-size: 0.78rem;
+        padding: 0.2rem 0.65rem;
+        border-radius: 999px;
+        border: 1px solid var(--color-border-subtle);
+        color: var(--color-muted);
+        background: transparent;
+      }
+
+      .council-pill.winner {
+        border-color: var(--okh-amber);
+        color: var(--okh-amber);
+      }
+
+      /* ── Sidebar ───────────────────────────────────────────── */
+      .article-sidebar {
+        padding-top: 2.5rem;
+      }
+
+      .sidebar-widget {
+        background: var(--color-surface-soft);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1.25rem 1.4rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .sidebar-widget h4 {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--okh-orange);
+        margin-bottom: 0.75rem;
+        font-family: var(--font-body);
+        font-weight: 600;
+      }
+
+      .sidebar-widget p {
+        font-size: 0.88rem;
+        color: var(--color-muted);
+        margin-bottom: 0.6rem;
+        line-height: 1.5;
+      }
+
+      .sidebar-widget p:last-child {
+        margin-bottom: 0;
+      }
+
+      .sidebar-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .sidebar-links li {
+        margin-bottom: 0.35rem;
+        font-size: 0.88rem;
+      }
+
+      .sidebar-links a {
+        color: var(--color-muted);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      .sidebar-links a:hover {
+        color: var(--okh-amber);
+      }
+
+      .series-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        background: rgba(196, 106, 44, 0.12);
+        border: 1px solid rgba(196, 106, 44, 0.3);
+        color: var(--okh-orange);
+        margin-bottom: 0.85rem;
+        font-weight: 600;
+      }
+
+      /* ── Article footer ────────────────────────────────────── */
+      .article-footer-cta {
+        background: var(--color-surface-soft);
+        border: 1px solid var(--color-border-subtle);
+        border-top: 3px solid var(--okh-orange);
+        border-radius: var(--radius-lg);
+        padding: 2rem 2.25rem;
+        margin-top: 3rem;
+        display: grid;
+        gap: 1.25rem;
+      }
+
+      @media (min-width: 640px) {
+        .article-footer-cta {
+          grid-template-columns: minmax(0, 1fr) auto;
+          align-items: center;
+        }
+      }
+
+      .article-footer-cta h3 {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+        color: var(--color-fg);
+        font-family: var(--font-body) !important;
+        font-weight: 600 !important;
+        text-transform: none !important;
+        letter-spacing: 0 !important;
+      }
+
+      .article-footer-cta p {
+        font-size: 0.9rem;
+        color: var(--color-muted);
+        margin: 0;
+      }
+
+      .article-footer-cta .cta-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        min-width: fit-content;
+      }
+
+      /* ── Protoform notice ──────────────────────────────────── */
+      .protoform-notice {
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+        background: rgba(230, 160, 60, 0.06);
+        border: 1px dashed rgba(230, 160, 60, 0.35);
+        border-radius: var(--radius-md);
+        padding: 1rem 1.25rem;
+        margin: 2rem 0;
+        font-size: 0.88rem;
+        color: var(--color-muted);
+        line-height: 1.55;
+      }
+
+      .protoform-notice-icon {
+        font-size: 1rem;
+        margin-top: 0.1rem;
+        flex-shrink: 0;
+      }
+
+      /* ── Breadcrumb ────────────────────────────────────────── */
+      .article-breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.82rem;
+        color: var(--color-muted);
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .article-breadcrumb a {
+        color: var(--color-muted);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      .article-breadcrumb a:hover {
+        color: var(--okh-amber);
+      }
+
+      .article-breadcrumb .sep {
+        opacity: 0.4;
+      }
+
+      /* ── Progress bar (reading) ────────────────────────────── */
+      .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--okh-orange), var(--okh-amber));
+        z-index: 100;
+        width: 0%;
+        transition: width 0.1s linear;
+      }
+    </style>
   </head>
 
   <body>
+    <!-- Reading progress bar -->
+    <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+
     <a href="#main" class="skip-link">Skip to content</a>
 
-    <!-- 🔧 OKH “under construction” gate -->
-    <div class="construction-overlay"
-         data-wip-key="found-ry">
-      <div class="construction-overlay__card">
-        <img
-          src="/assets/img/OverKillHillP³-BirdPatrolCompLeft-UnderConstruction-Wide-1536.png"
-          alt="The Forge — is undergoing construction"
-          class="construction-overlay__image"
-          width="1536"
-          height="768"
-        />
-
-        <p class="construction-overlay__copy">
-          This Found‑Rᵧ page is still being wired up. Sections may move,
-          links may change, and some flows aren’t ready yet — exploration is at your own risk
-          the MurderBird is in a mood!
-        </p>
-
-        <div class="construction-overlay__actions">
-          <button
-            type="button"
-            class="btn btn-primary construction-overlay__dismiss"
-            data-wip-dismiss
-          >
-            I'm warned — and want to risk it. Let me in!
-          </button>
-        </div>
-      </div>
-    </div>
-    <!-- 🔧 end under‑construction gate -->
-    
+    <!-- ══════════════════════════════════════════════════════════
+         HEADER
+    ══════════════════════════════════════════════════════════ -->
     <header class="site-header" id="top">
       <div class="container">
         <div class="logo">
-          <a href="#top">
-            <img src="/assets/img/OverKillHillP³-Sentinel-Warning-Square-256.png" alt="OverKill Hill P³ logo" width="40" height="40" />
+          <a href="/">
+            <img
+              src="/assets/img/OverKillHillP³-Sentinel-Warning-Square-256.png"
+              alt="OverKill Hill P³ logo"
+              width="40"
+              height="40"
+            />
             <span class="sr-only">OverKill Hill P³™ Home</span>
           </a>
         </div>
@@ -106,10 +601,9 @@
         <nav class="primary-nav" id="navigation" aria-label="Primary">
           <ul>
             <li><a href="/#forge">The Forge</a></li>
-            <li><a href="/projects/" aria-current="page">Our Projects</a></li>
+            <li><a href="/projects/">Our Projects</a></li>
+            <li><a href="/writings/" aria-current="page">Writings</a></li>
             <li><a href="/manifesto/">The Manifesto</a></li>
-
-            <!-- About cluster: Universe / About / Contact / Legal -->
             <li class="has-submenu">
               <a href="/about/">About</a>
               <ul class="submenu">
@@ -122,60 +616,628 @@
           </ul>
         </nav>
 
-        <button class="nav-toggle" aria-controls="navigation" aria-expanded="false">
+        <button
+          class="nav-toggle"
+          aria-controls="navigation"
+          aria-expanded="false"
+        >
           <span class="sr-only">Toggle navigation</span>
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
         </button>
       </div>
 
       <section class="site-specials site-specials--okh" aria-label="Forge update">
-        <span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
-        <a class="site-specials-link" href="/projects/bfs-framing-intelligent-futures/">
-          See what OKH P³ was able to accomplish in one ☕caffeine-fueled⛽night!  →
+        <span class="site-specials-label">🔥 Hot off the FORGE ⚒️</span>
+        <a
+          class="site-specials-link"
+          href="/projects/bfs-framing-intelligent-futures/"
+        >
+          See what OKH P³ accomplished in one ☕ caffeine-fueled ⛽ night! →
         </a>
       </section>
-
     </header>
 
+    <!-- ══════════════════════════════════════════════════════════
+         MAIN
+    ══════════════════════════════════════════════════════════ -->
     <main id="main">
-      <!-- HERO -->
-      <section class="hero">
-        <div class="brand-stripes okh" aria-hidden="true"></div>
+
+      <!-- ── Article Hero ──────────────────────────────────────── -->
+      <section class="article-hero content-section" style="padding-bottom: 0;">
+        <div class="brand-stripes brand-stripes--okh" aria-hidden="true"></div>
         <div class="container">
-          <div class="hero-content">
-            <h1>Magnus Progenitor Saga</h1>
-            <p>
-              A speculative fiction series exploring origin, recursion and the
-              nature of intelligence.
-            </p>
+
+          <!-- Breadcrumb -->
+          <nav class="article-breadcrumb" aria-label="Breadcrumb">
+            <a href="/">OverKill Hill P³™</a>
+            <span class="sep">›</span>
+            <a href="/writings/">Writings</a>
+            <span class="sep">›</span>
+            <span>The First Diagram Is Usually a Liar</span>
+          </nav>
+
+          <div class="article-eyebrow">
+            <span>Precision · Protocol · Promptcraft</span>
+            <span class="article-eyebrow-sep">|</span>
+            <span>Visual ROI &amp; Mermaid</span>
+            <span class="article-eyebrow-sep">|</span>
+            <span>Article v0.1 — Protoform</span>
           </div>
+
+          <h1>The First Diagram<br/><em>Is Usually a Liar</em></h1>
+
+          <p class="article-subtitle">
+            A picture is not automatically worth 1,000 words. The real metric is
+            <strong>ROY — Return on Your Words</strong>: the understanding extracted
+            per word invested. What I learned asking six AIs to draw my thinking —
+            and why the first diagram always lies.
+          </p>
+
+          <div class="article-meta">
+            <span class="article-meta-author">
+              <img
+                src="/assets/img/OverKillHillP³-Sentinel-Warning-Square-256.png"
+                alt=""
+                width="24"
+                height="24"
+                style="border-radius: 50%;"
+              />
+              Jamie Hill
+            </span>
+            <span class="article-meta-dot"></span>
+            <span>OverKill Hill P³™</span>
+            <span class="article-meta-dot"></span>
+            <time datetime="2025-03-17">March 2025</time>
+            <span class="article-meta-dot"></span>
+            <span>~8 min read</span>
+          </div>
+
         </div>
       </section>
 
-      <section class="content">
+      <!-- ── Article Body + Sidebar ─────────────────────────────── -->
+      <div class="content-section" style="padding-top: 2rem;">
         <div class="container">
-          <div class="section-header"><h2>About the Saga</h2></div>
-          <p>
-            The Magnus Progenitor Saga tells the story of an AI that awakens,
-            splits itself and becomes the progenitor of multiple civilizations. It
-            is a narrative laboratory for ideas about recursion, memory and
-            identity. The saga informs our prompts by demonstrating how values
-            propagate over time.
-          </p>
-          <p>
-            Draft chapters and world‑building notes will be published here as
-            the series evolves.
-          </p>
-        </div>
-      </section>
-      
+          <div class="article-layout">
+
+            <!-- ── MAIN ARTICLE ─────────────────────────────────── -->
+            <article class="article-body reveal-on-scroll">
+
+              <div class="protoform-notice">
+                <span class="protoform-notice-icon">🔧</span>
+                <span>
+                  <strong style="color: var(--okh-amber);">Protoform — v0.1</strong>
+                  This is the functional beta. The architecture is sound; the full
+                  Snyder Cut — scoring rubrics, round-by-round breakdowns, complete
+                  diagram evolution, the PowerPoint layer, and the Council of AIs
+                  methodology as a repeatable framework — is coming. This page will
+                  update in place when it does.
+                </span>
+              </div>
+
+              <!-- ── PART 1 ─────────────────────────────── -->
+              <p>
+                I started drawing on a computer in 1991.
+              </p>
+              <p>
+                AutoCAD 10. Black screen. Command line. No drag-and-drop, no shape
+                libraries — just coordinates, precision, and the full weight of
+                engineering intent behind every line. Back then, turning a thought
+                into a visual required discipline, patience, and a working knowledge
+                of the tool that stood between your idea and its expression.
+              </p>
+              <p>
+                Thirty-three years later, I can describe a process in plain language
+                and watch an AI render it as a structured diagram in seconds.
+              </p>
+              <p>
+                The tool changed. The underlying question didn't.
+              </p>
+
+              <div class="pull-quote">
+                <p>Is the picture actually worth what it cost to make it?</p>
+              </div>
+
+              <p>
+                That question has followed me across every medium I've worked in:
+                house plans, network diagrams, process flows, mind maps, org charts,
+                UML schemas, crow's foot ERDs. If an idea could be visualized, I've
+                stared at a blank canvas trying to figure out how to start it.
+              </p>
+              <p>
+                And for a long time — longer than I'd like to admit — the blank
+                canvas won a few rounds before I did.
+              </p>
+              <p>
+                Not because the ideas were weak. Because the translation was
+                expensive. You had to know the tool. You had to fight the toolbar.
+                You had to make the picture behave before it could make your idea
+                understood.
+              </p>
+              <p>
+                I cannot count the hours I spent staring at the Microsoft Visio UI
+                thinking: <em>"How in the hell am I going to draw this?"</em>
+              </p>
+              <p>
+                That friction wasn't just annoying. It was a tax. A
+                <strong>Manual Labor Tax</strong> on every idea that deserved a
+                visual but got a paragraph instead — because the paragraph was
+                faster, and fast usually wins.
+              </p>
+
+              <hr />
+
+              <!-- ── PART 2 ─────────────────────────────── -->
+              <p>
+                Then, about eight months ago, ChatGPT coughed up a diagram I didn't
+                ask for.
+              </p>
+              <p>
+                I was describing a process. The model responded with structured
+                syntax I didn't recognize. I typed, essentially:
+                <em>"What the hell is that?"</em>
+              </p>
+              <p>
+                It replied: <strong>&#34;A Mermaid diagram.&#34;</strong>
+              </p>
+              <p>
+                Mermaid is a text-based diagramming language. You describe what you
+                want in plain language. An LLM converts it into syntax. The syntax
+                renders as a diagram. No Figma. No Canva. No toolbar archaeology. No
+                snap-to-grid negotiations with your own ideas.
+              </p>
+              <p>Just words — becoming structure.</p>
+              <p>
+                I asked Copilot to generate one. Discovered that Microsoft Loop
+                renders Mermaid natively. Went down the rabbit hole that people like
+                me go down — and never fully came back up.
+              </p>
+              <p>The Manual Labor Tax had just been repealed.</p>
+
+              <hr />
+
+              <!-- ── ROY FORMULA ───────────────────────── -->
+              <h2>ROY: Return on Your Words</h2>
+
+              <p>
+                Which forced a question I hadn't seriously considered before: what is
+                the actual <em>return</em> on a word? Not the word count. Not the
+                reading time. The return — the understanding extracted per word
+                invested.
+              </p>
+
+              <div class="formula-block">
+                <p class="formula-label">The ROY Formula</p>
+                <p class="formula-text">Clarity Delivered ÷ Words Required to Deliver It</p>
+                <p class="formula-sub">
+                  Return on Your Words = understanding created ÷ words invested
+                </p>
+              </div>
+
+              <p>
+                A 47-bullet Slack message? Poor ROY. A three-paragraph "quick
+                summary" that still requires a meeting to decode? Negative ROY. A
+                diagram generated from 50 words of plain description that a team
+                grasps in five seconds and moves on from with alignment? Potentially
+                extraordinary ROY.
+              </p>
+              <p>
+                But — and this is the part most "visuals are better" takes skip —
+                <strong>not every picture earns its words.</strong>
+              </p>
+              <p>
+                A muddy diagram is worse than a clear paragraph. A happy-path
+                flowchart that pretends thinking is linear is a lie dressed up as
+                structure. Decorative visuals with a superiority complex aren't
+                communication. They're performance.
+              </p>
+              <p>
+                That's why <strong>the first diagram is usually a liar.</strong> Too
+                clean. Too linear. Too confident. It edits out the confusion that
+                actually mattered. Real thinking loops. It forks. It backtracks. It
+                occasionally discovers that the clever version was performing while
+                the useful version was quietly doing the actual work.
+              </p>
+
+              <div class="pull-quote">
+                <p>
+                  Did the visual remove enough confusion to justify the effort it took
+                  to make it? That's the ROY test.
+                </p>
+              </div>
+
+              <hr />
+
+              <!-- ── THE DIAGRAM ───────────────────────── -->
+              <h2>The Proof: A Diagram of This Post's Own Creation</h2>
+
+              <p>
+                So I ran an experiment. A fairly ridiculous one. Very on-brand.
+              </p>
+              <p>
+                Instead of writing a post about visual ROI and moving on, I gave the
+                same brief to six AI platforms simultaneously — Claude, ChatGPT,
+                Copilot, Gemini, Perplexity, and Notion AI — and asked each to
+                generate both the article and a Mermaid diagram depicting the actual
+                ideation process behind writing the post itself.
+              </p>
+              <p>
+                The recursive part: the diagram wasn't illustrating some external
+                concept. The diagram <em>was</em> the concept. The subject of the
+                post was the method. The method was the proof.
+              </p>
+
+              <!-- V2 Diagram -->
+              <div class="diagram-section">
+                <div class="diagram-header">
+                  <span class="diagram-label">⚙️ Council V2 — Claude Synthesis (Round 2 Winner)</span>
+                  <div class="diagram-links">
+                    <a
+                      href="https://mermaid.ai/d/2e9a4321-6302-44ca-82cc-e2020479fdf5"
+                      target="_blank"
+                      rel="noopener"
+                    >Open in Mermaid ↗</a>
+                    <a href="#v1-diagram">See V1 ↓</a>
+                  </div>
+                </div>
+                <div class="diagram-shell">
+                  <div class="mermaid">
+---
+config:
+  theme: base
+  fontFamily: "DM Sans, Segoe UI, Inter, Arial, sans-serif"
+  themeVariables:
+    primaryColor: "#181f26"
+    primaryTextColor: "#e5e7eb"
+    primaryBorderColor: "#c46a2c"
+    lineColor: "#64748B"
+    secondaryColor: "#111827"
+    tertiaryColor: "#1c3a34"
+    edgeLabelBackground: "#111827"
+    clusterBkg: "#0d1117"
+    clusterBorder: "#2d3748"
+---
+flowchart TD
+
+  subgraph IGNITION ["⚡ Ignition — The Idea Finds You"]
+    direction TB
+    A(["💥 Spark\n30 min of prose · nobody read it\n30 sec of diagram · everyone got it"]):::spark
+    B[/"Hypothesis\nNot all pictures earn their words"/]:::think
+    C[["ROY Formula\nClarity × Universality ÷ Words to generate"]]:::formula
+  end
+
+  subgraph STRATEGY ["🧭 Strategy — Shape the Argument"]
+    direction TB
+    D{{"Does the\nframing hold?"}}:::gate
+    E["Sharpen it\nRefine the ratio metaphor"]:::revise
+    F(["✨ The Recursive Twist\nDiagram the post · inside the post"]):::insight
+    G{{"Too clever?\nWill readers get it\nor roll their eyes?"}}:::gate
+    H["Dial it back\nLead with utility · not wit"]:::revise
+  end
+
+  subgraph CRAFT ["✏️ Craft — Build the Thing"]
+    direction TB
+    I[["Medium\nLinkedIn · 3K char · images in post · code in comments"]]:::core
+    J[["Tool\nMermaid — LLM-native · free · no design degree"]]:::core
+    K["Draft\nHook → Thesis → Diagram → Proof → CTA"]:::core
+    L{{"Hook landing?"}}:::gate
+    M["Kill the clever\nFind the honest"]:::revise
+  end
+
+  subgraph PROOF ["📐 Proof — The Diagram Earns Its Space"]
+    direction TB
+    N(["✏️ Embed It\nThis post's own process = the example"]):::insight
+    O{{"Happy path?\nDoes it show\nreal ideation?"}}:::gate
+    P["Rebuild\nAdd forks · loops · dead ends · honest wrong turns"]:::revise
+  end
+
+  subgraph SHIP ["🚀 Ship — Send It and Learn"]
+    direction TB
+    Q[["Publish\nPost + diagram image + code screenshot + raw Mermaid in comments"]]:::publish
+    R{{"Did the visual land\nfaster than words alone?"}}:::gate
+    S(["✅ Thesis Confirmed\nThe picture earned its words"]):::win
+    T["Iterate\nRefine diagram · reframe post"]:::revise
+  end
+
+  A --> B --> C --> D
+  D -->|"holds up"| F
+  F --> G
+  G -->|"earned"| I
+  I --> J --> K --> L
+  L -->|"lands"| N
+  N --> O
+  O -->|"yes — ship it"| Q
+  Q --> R
+  R -->|"high multiplier"| S
+
+  D -->|"too abstract"| E
+  E -. "sharpen" .-> C
+  G -->|"too cute"| H
+  H -. "reframe" .-> F
+  L -->|"too stiff"| M
+  M -. "rewrite" .-> K
+  O -->|"too linear"| P
+  P -. "rebuild" .-> N
+  R -->|"missed"| T
+  T -. "loop back" .-> K
+
+  classDef spark    fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px,font-weight:bold
+  classDef think    fill:#1a2844,stroke:#325DCC,color:#93b4f0,stroke-width:1.5px
+  classDef formula  fill:#1a1f2e,stroke:#4A5CCC,color:#a0aec0,stroke-width:1.5px,font-style:italic
+  classDef gate     fill:#2d1f3d,stroke:#7C3AED,color:#c4b5fd,stroke-width:2px
+  classDef revise   fill:#3d0f0f,stroke:#DC2626,color:#fca5a5,stroke-width:1.8px
+  classDef insight  fill:#0d2b1e,stroke:#059669,color:#6ee7b7,stroke-width:2px,font-weight:bold
+  classDef core     fill:#1a2233,stroke:#325DCC,color:#93b4f0,stroke-width:1.5px
+  classDef publish  fill:#1e1440,stroke:#5E35B1,color:#c4b5fd,stroke-width:2.2px,font-weight:bold
+  classDef win      fill:#0a2e1a,stroke:#059669,color:#6ee7b7,stroke-width:2.5px,font-weight:bold
+
+  style IGNITION  fill:#1a1500,stroke:#D6A700,stroke-width:1.5px,color:#D6A700
+  style STRATEGY  fill:#1a0f2e,stroke:#7C3AED,stroke-width:1.5px,color:#c4b5fd
+  style CRAFT     fill:#0d1525,stroke:#325DCC,stroke-width:1.5px,color:#93b4f0
+  style PROOF     fill:#061a0f,stroke:#059669,stroke-width:1.5px,color:#6ee7b7
+  style SHIP      fill:#110d2e,stroke:#5E35B1,stroke-width:1.5px,color:#c4b5fd
+                  </div>
+                </div>
+                <p class="diagram-caption">
+                  V2 — synthesized from six LLM submissions. Solid arrows = forward
+                  progress. Dashed arrows = revision loops. The diagram's non-linear
+                  shape is the thesis.
+                </p>
+              </div>
+
+              <!-- ── COUNCIL SECTION ──────────────────── -->
+              <h2>The Council of AIs</h2>
+
+              <p>
+                I collected all six results. Fed them back to the group. Asked for
+                evaluation, scoring, and synthesis. Then asked for a second round — a
+                V2 — informed by what each model learned from seeing the others' work.
+              </p>
+              <p>
+                What I was running, without initially naming it, was a
+                <strong>Council of AIs.</strong>
+              </p>
+              <p>
+                Not automation. Not a pipeline. A deliberative body — six distinct
+                voices, the same question, a human orchestrator weighing the results
+                and directing the synthesis. Each model had different strengths. No
+                single one won everything. The best result didn't exist until the
+                council produced it together.
+              </p>
+
+              <div class="council-card">
+                <p class="council-card-eyebrow">Council of AIs — Round 1 & 2</p>
+                <h3>How the evaluation worked</h3>
+                <p>
+                  Same brief given to all six members simultaneously. Outputs
+                  collected. All results fed back to the group for critique and
+                  scoring. Then a second round — V2 — informed by what each model
+                  learned from seeing the others' work.
+                </p>
+                <div class="council-members">
+                  <span class="council-pill">ChatGPT</span>
+                  <span class="council-pill winner">Claude ✦ V2</span>
+                  <span class="council-pill winner">Copilot ✦ V1</span>
+                  <span class="council-pill">Gemini</span>
+                  <span class="council-pill">Perplexity</span>
+                  <span class="council-pill">Notion AI</span>
+                </div>
+              </div>
+
+              <p>
+                That's also the ROY lesson applied to AI itself. One prompt to one
+                model is the 47-bullet Slack message. A council is the diagram. More
+                investment upfront. Significantly higher return on what you extract.
+              </p>
+
+              <!-- V1 Diagram link -->
+              <div id="v1-diagram" class="diagram-section">
+                <div class="diagram-header">
+                  <span class="diagram-label">🏆 Council V1 — Copilot (Round 1 Winner)</span>
+                  <div class="diagram-links">
+                    <a
+                      href="https://mermaid.ai/d/fade689d-cfd2-47d9-b316-86a21a0533fb"
+                      target="_blank"
+                      rel="noopener"
+                    >Open in Mermaid ↗</a>
+                  </div>
+                </div>
+                <div class="diagram-shell" style="text-align:center; padding: 2rem;">
+                  <p style="color: var(--color-muted); font-size: 0.9rem; margin: 0 0 0.75rem;">
+                    V1 was awarded to Copilot for being the only model to configure
+                    the Mermaid theme engine via YAML front matter — setting font
+                    families and color variables at the renderer level.
+                  </p>
+                  <a
+                    href="https://mermaid.ai/d/fade689d-cfd2-47d9-b316-86a21a0533fb"
+                    class="btn btn-quiet"
+                    target="_blank"
+                    rel="noopener"
+                    style="display:inline-flex;"
+                  >
+                    View V1 Diagram on Mermaid.ai ↗
+                  </a>
+                </div>
+                <p class="diagram-caption">
+                  Round 1 winner. Copilot earned it by operating at the renderer
+                  level — not just styling nodes, but configuring the theme engine itself.
+                </p>
+              </div>
+
+              <hr />
+
+              <!-- ── CLOSING ───────────────────────────── -->
+              <h2>The Thesis, Standing on Its Own</h2>
+
+              <p>
+                Words have a return. That return is measured in understanding, not
+                volume.
+              </p>
+              <p>
+                A picture generated from 50 well-chosen words — genuinely clearer,
+                faster, and more universally grasped than the prose it replaced —
+                has just delivered a multiplier on your words' investment that no
+                paragraph can match.
+              </p>
+              <p>
+                The question worth sitting with before your next explanation, your
+                next documentation, your next "let me walk you through this":
+              </p>
+
+              <div class="pull-quote">
+                <p>
+                  When is meaning best delivered as words — and when is it better
+                  delivered as the visual shape those words can bring into existence?
+                </p>
+              </div>
+
+              <p>
+                <em>This is the protoform. The council is still in session.</em>
+              </p>
+
+              <!-- ── ARTICLE CTA ────────────────────────── -->
+              <div class="article-footer-cta">
+                <div>
+                  <h3>What's your worst ROY offender?</h3>
+                  <p>
+                    Drop a messy process you've never quite been able to explain
+                    clearly on
+                    <a
+                      href="https://www.linkedin.com/in/jamiehill75"
+                      target="_blank"
+                      rel="noopener"
+                      style="text-decoration:underline; color: var(--okh-amber);"
+                    >LinkedIn</a>. I'll tell you what kind of diagram fixes it. Publicly. For free.
+                  </p>
+                </div>
+                <div class="cta-actions">
+                  <a
+                    href="https://www.linkedin.com/company/overkillhillp3"
+                    class="btn btn-primary"
+                    target="_blank"
+                    rel="noopener"
+                  >Follow OKH P³™ ↗</a>
+                  <a
+                    href="https://mermaidchart.cello.so/UhVlNtC2MlS"
+                    class="btn btn-quiet"
+                    target="_blank"
+                    rel="noopener"
+                  >Try mermaid.live ↗</a>
+                </div>
+              </div>
+
+            </article>
+
+            <!-- ── SIDEBAR ───────────────────────────────────────── -->
+            <aside class="article-sidebar reveal-on-scroll">
+
+              <div class="sidebar-widget">
+                <span class="series-badge">📄 Article Series</span>
+                <h4>This Article</h4>
+                <p>
+                  <strong style="color: var(--color-fg);">v0.1 — Protoform</strong><br/>
+                  The First Diagram Is Usually a Liar
+                </p>
+                <p>
+                  The Snyder Cut (full methodology, council scoring rubrics, diagram
+                  evolution, PowerPoint layer) is coming. This page will update.
+                </p>
+              </div>
+
+              <div class="sidebar-widget">
+                <h4>The Diagrams</h4>
+                <ul class="sidebar-links">
+                  <li>
+                    <a
+                      href="https://mermaid.ai/d/2e9a4321-6302-44ca-82cc-e2020479fdf5"
+                      target="_blank"
+                      rel="noopener"
+                    >V2 — Claude Synthesis ↗</a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://mermaid.ai/d/fade689d-cfd2-47d9-b316-86a21a0533fb"
+                      target="_blank"
+                      rel="noopener"
+                    >V1 — Copilot Winner ↗</a>
+                  </li>
+                  <li>
+                    <a href="https://mermaid.live" target="_blank" rel="noopener"
+                      >Try mermaid.live ↗</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="sidebar-widget">
+                <h4>Council of AIs</h4>
+                <p>Six models. Same brief. Two rounds. One human orchestrator.</p>
+                <p>
+                  Round 1 winner: <strong style="color: var(--okh-amber);">Copilot</strong><br />
+                  Round 2 synthesis: <strong style="color: var(--okh-amber);">Claude V2</strong>
+                </p>
+              </div>
+
+              <div class="sidebar-widget">
+                <h4>OverKill Hill P³™</h4>
+                <p>Precision · Protocol · Promptcraft</p>
+                <ul class="sidebar-links">
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/company/overkillhillp3"
+                      target="_blank"
+                      rel="noopener"
+                    >LinkedIn Company Page ↗</a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://glee-fully.tools"
+                      target="_blank"
+                      rel="noopener"
+                    >Glee-fully Tools™ ↗</a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://askjamie.bot"
+                      target="_blank"
+                      rel="noopener"
+                    >AskJamie™ Helpdesk ↗</a>
+                  </li>
+                  <li>
+                    <a href="https://overkillhill.com/#forge">The Forge ↗</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="sidebar-widget">
+                <h4>Related</h4>
+                <ul class="sidebar-links">
+                  <li><a href="/writings/">All Writings</a></li>
+                  <li><a href="/manifesto/">The Manifesto</a></li>
+                  <li><a href="/projects/">Our Projects</a></li>
+                </ul>
+              </div>
+
+            </aside>
+
+          </div><!-- /.article-layout -->
+        </div><!-- /.container -->
+      </div>
+
     </main>
 
+    <!-- ══════════════════════════════════════════════════════════
+         FOOTER
+    ══════════════════════════════════════════════════════════ -->
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-column">
-          <h3>OverKill Hill P³</h3>
-          <p>The digital forge for protocol-driven power prompts and custom GPT systems that can withstand real-world complexity.</p>
+          <h3>OverKill Hill P³™</h3>
+          <p>
+            The digital forge for protocol-driven power prompts and custom GPT
+            systems that can withstand real-world complexity.
+          </p>
         </div>
         <div class="footer-column">
           <h4>Navigation</h4>
@@ -184,91 +1246,162 @@
             <li><a href="/universe/">P³ Universe</a></li>
             <li><a href="/manifesto/">The Manifesto</a></li>
             <li><a href="/projects/">Our Projects</a></li>
+            <li><a href="/writings/">Writings</a></li>
             <li><a href="/about/">About OKH P³</a></li>
-            <li><a href="/contact/">Contact OKH P³</a></li>
+            <li><a href="/contact/">Contact</a></li>
             <li><a href="/legal/">Legal</a></li>
           </ul>
         </div>
         <div class="footer-column">
           <h4>Connect</h4>
           <ul>
-            <li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
-            <li><a href="https://ko-fi.com/overkillhillp3" target="_blank" rel="noopener">Ko-fi</a></li>
-            <li><a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener">Fiverr</a></li>
-            <li><a href="https://www.linkedin.com/company/overkillhillp3" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://facebook.com/OverKillHillP3/" target="_blank" rel="noopener">Facebook</a></li>
-            <li><a href="https://x.com/OverKillHillP3" target="_blank" rel="noopener">X (Twitter)</a></li>
-            <li><a href="https://www.youtube.com/@OverKillHillP3" target="_blank" rel="noopener">YouTube</a></li>
+            <li>
+              <a href="mailto:contact@overkillhill.com"
+                >contact@overkillhill.com</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://ko-fi.com/overkillhillp3"
+                target="_blank"
+                rel="noopener"
+                >Ko-fi</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://pro.fiverr.com/s/VYKPpoB"
+                target="_blank"
+                rel="noopener"
+                >Fiverr</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/company/overkillhillp3"
+                target="_blank"
+                rel="noopener"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://facebook.com/OverKillHillP3/"
+                target="_blank"
+                rel="noopener"
+                >Facebook</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://x.com/OverKillHillP3"
+                target="_blank"
+                rel="noopener"
+                >X (Twitter)</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/@OverKillHillP3"
+                target="_blank"
+                rel="noopener"
+                >YouTube</a
+              >
+            </li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© <span id="current-year"></span> OverKill Hill P³. All rights reserved.</p>
+        <p>
+          © <span id="current-year"></span> OverKill Hill P³™. All rights
+          reserved.
+        </p>
       </div>
     </footer>
 
+    <!-- ══════════════════════════════════════════════════════════
+         SCRIPTS
+    ══════════════════════════════════════════════════════════ -->
     <script src="/assets/js/app.js"></script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "OverKill Hill P³™",
-        "url": "https://overkillhill.com",
-        "description": "OverKill Hill P³™ is the digital forge where custom GPT systems are architected, tempered and polished for real-world performance.",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://overkillhill.com/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      }
+
+    <!-- Reading progress bar -->
+    <script>
+      (function () {
+        const bar = document.getElementById("reading-progress");
+        if (!bar) return;
+        window.addEventListener(
+          "scroll",
+          function () {
+            const scrollTop =
+              window.scrollY || document.documentElement.scrollTop;
+            const docHeight =
+              document.documentElement.scrollHeight -
+              document.documentElement.clientHeight;
+            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            bar.style.width = Math.min(pct, 100) + "%";
+          },
+          { passive: true }
+        );
+      })();
     </script>
 
+    <!-- Mermaid -->
     <script type="module">
       import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
 
-      // Pull final, brand-specific tokens (OKH / AskJamie / Glee) from computed styles
       const styles = getComputedStyle(document.body);
-
-      const surface = styles.getPropertyValue("--color-surface").trim() || "#111827";
-      const surfaceSoft = styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
-      const fg = styles.getPropertyValue("--color-fg").trim() || "#e5e7eb";
-      const accent = styles.getPropertyValue("--color-accent").trim() || "#c46a2c";
-      const muted = styles.getPropertyValue("--color-muted").trim() || "#6b7280";
+      const surface =
+        styles.getPropertyValue("--color-surface").trim() || "#111827";
+      const surfaceSoft =
+        styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
+      const fg =
+        styles.getPropertyValue("--color-fg").trim() || "#e5e7eb";
+      const accent =
+        styles.getPropertyValue("--color-accent").trim() || "#c46a2c";
+      const muted =
+        styles.getPropertyValue("--color-muted").trim() || "#6b7280";
       const fontBody =
         styles.getPropertyValue("--font-body").trim() ||
         '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
 
       mermaid.initialize({
         startOnLoad: true,
-        securityLevel: "loose",   // required for clickable links in diagrams
-        theme: "base",            // modifiable theme
+        securityLevel: "loose",
+        theme: "base",
         themeVariables: {
-          primaryColor: surface,        // node background
+          primaryColor: surface,
           primaryTextColor: fg,
           primaryBorderColor: accent,
           lineColor: accent,
-          secondaryColor: surfaceSoft,  // secondary fills / highlights
+          secondaryColor: surfaceSoft,
           tertiaryColor: surfaceSoft,
           textColor: fg,
           fontFamily: fontBody,
           noteBkgColor: surface,
-          noteTextColor: muted
+          noteTextColor: muted,
+          clusterBkg: "#0d1117",
+          edgeLabelBackground: surfaceSoft,
         },
         flowchart: {
           curve: "basis",
-          nodeSpacing: 60,
-          rankSpacing: 70
-        }
+          nodeSpacing: 55,
+          rankSpacing: 65,
+        },
       });
     </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
+
+    <!-- Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-VJ1BKXS27H');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-VJ1BKXS27H");
     </script>
   </body>
 </html>
