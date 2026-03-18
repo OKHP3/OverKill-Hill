@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="A picture is not automatically worth 1,000 words. Some pictures are decorative wallpaper with a superiority complex. The real metric is ROY — Return on Your Words. A deep dive into Mermaid diagrams, LLM councils, and the economics of visual communication."
+      content="The v1.0 launch cut of The First Diagram Is Usually a Liar: from AutoCAD 10 and Visio trauma to Mermaid, ROY — Return on Your Words, a Council of AIs, and the two winning diagrams that made the thesis visible."
     />
     <meta
       name="keywords"
-      content="Mermaid diagram, ROY return on words, visual communication, LLM, AI council, OverKill Hill P3, promptcraft, diagramming"
+      content="Mermaid diagram, ROY return on words, visual communication, Council of AIs, Claude V2, Copilot V1, OverKill Hill P3, promptcraft, diagramming, LinkedIn article"
     />
     <meta name="author" content="Jamie Hill — OverKill Hill P³™" />
 
@@ -20,7 +20,7 @@
     <meta property="og:title" content="The First Diagram Is Usually a Liar" />
     <meta
       property="og:description"
-      content="ROY — Return on Your Words. What I learned asking six AIs to draw my thinking, and why the first diagram always lies."
+      content="From AutoCAD 10 and Visio trauma to Mermaid, ROY, and a Council of AIs. The v1.0 launch cut of The First Diagram Is Usually a Liar."
     />
     <meta property="og:type" content="article" />
     <meta
@@ -37,7 +37,7 @@
     <meta name="twitter:title" content="The First Diagram Is Usually a Liar | OverKill Hill P³™" />
     <meta
       name="twitter:description"
-      content="ROY — Return on Your Words. What I learned asking six AIs to draw my thinking."
+      content="From AutoCAD 10 and Visio trauma to Mermaid, ROY, and a Council of AIs. The v1.0 launch cut of The First Diagram Is Usually a Liar."
     />
     <meta
       name="twitter:image"
@@ -57,7 +57,7 @@
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "The First Diagram Is Usually a Liar",
-        "description": "ROY — Return on Your Words. What I learned asking six AIs to draw my thinking, and why the first diagram always lies.",
+        "description": "From AutoCAD 10 and Visio trauma to Mermaid, ROY, and a Council of AIs. The v1.0 launch cut of The First Diagram Is Usually a Liar.",
         "author": {
           "@type": "Person",
           "name": "Jamie Hill",
@@ -68,7 +68,8 @@
           "name": "OverKill Hill P³™",
           "url": "https://overkillhill.com"
         },
-        "datePublished": "2025-03-17",
+        "datePublished": "2026-03-17",
+        "dateModified": "2026-03-17",
         "image": "https://overkillhill.com/assets/img/OverKillHillP³-Sentinel-Waiting-Square-1024.png",
         "url": "https://overkillhill.com/writings/first-diagram-is-a-liar/"
       }
@@ -572,6 +573,143 @@
         width: 0%;
         transition: width 0.1s linear;
       }
+
+
+      /* ── v1.0 additions ───────────────────────────────────── */
+      .bullet-list {
+        padding-left: 1.2rem;
+        margin: 0 0 1.4rem;
+      }
+
+      .bullet-list li {
+        margin-bottom: 0.45rem;
+        color: #d1d5db;
+      }
+
+      .artifact-stack {
+        display: grid;
+        gap: 1rem;
+        margin: 1.5rem 0 0;
+      }
+
+      .artifact-card {
+        background: var(--color-surface-soft);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1.15rem 1.25rem;
+      }
+
+      .artifact-card h3 {
+        font-size: 1rem;
+        margin-top: 0;
+        margin-bottom: 0.35rem;
+        color: var(--color-fg);
+        font-family: var(--font-body);
+        font-weight: 600;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .artifact-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      .code-drop {
+        margin-top: 0.9rem;
+        background: rgba(2, 6, 23, 0.42);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+      }
+
+      .code-drop summary {
+        cursor: pointer;
+        padding: 0.8rem 1rem;
+        font-size: 0.83rem;
+        font-weight: 600;
+        color: var(--okh-amber);
+        list-style: none;
+      }
+
+      .code-drop summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .code-drop pre {
+        margin: 0;
+        padding: 1rem 1.1rem 1.15rem;
+        overflow-x: auto;
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: #d1d5db;
+      }
+
+      .code-drop code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace;
+      }
+
+      .artifact-copy {
+        white-space: pre-wrap;
+        font-size: 0.92rem;
+        line-height: 1.65;
+        color: #d1d5db;
+        margin: 0;
+      }
+
+      .small-note {
+        font-size: 0.84rem;
+        color: var(--color-muted);
+        font-style: italic;
+      }
+
+      .scorecard {
+        display: grid;
+        gap: 0.75rem;
+        margin: 1.5rem 0;
+      }
+
+      .scorecard-item {
+        border-left: 3px solid var(--okh-orange);
+        padding-left: 0.9rem;
+      }
+
+      .scorecard-item strong {
+        display: block;
+        margin-bottom: 0.15rem;
+      }
+
+      .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .toc-list li {
+        margin-bottom: 0.35rem;
+        font-size: 0.88rem;
+      }
+
+      .toc-list a {
+        color: var(--color-muted);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      .toc-list a:hover {
+        color: var(--okh-amber);
+      }
+
+      :root[data-theme="light"] .artifact-card,
+      :root[data-theme="light"] .code-drop {
+        background: #f8fafc;
+      }
+
+      :root[data-theme="light"] .artifact-copy,
+      :root[data-theme="light"] .code-drop pre,
+      :root[data-theme="light"] .bullet-list li {
+        color: #0f172a;
+      }
+
     </style>
   </head>
 
@@ -663,16 +801,17 @@
             <span class="article-eyebrow-sep">|</span>
             <span>Visual ROI &amp; Mermaid</span>
             <span class="article-eyebrow-sep">|</span>
-            <span>Article v0.1 — Protoform</span>
+            <span>Article v1.0 — Launch Cut</span>
           </div>
 
           <h1>The First Diagram<br/><em>Is Usually a Liar</em></h1>
 
           <p class="article-subtitle">
             A picture is not automatically worth 1,000 words. The real metric is
-            <strong>ROY — Return on Your Words</strong>: the understanding extracted
-            per word invested. What I learned asking six AIs to draw my thinking —
-            and why the first diagram always lies.
+            <strong>ROY — Return on Your Words</strong>: the clarity, compression, and
+            shared understanding extracted per word invested. This is the v1.0
+            launch cut — what happened when one LinkedIn post became a Mermaid
+            competition, a Council of AIs, and a better theory of visual communication.
           </p>
 
           <div class="article-meta">
@@ -689,9 +828,9 @@
             <span class="article-meta-dot"></span>
             <span>OverKill Hill P³™</span>
             <span class="article-meta-dot"></span>
-            <time datetime="2025-03-17">March 2025</time>
+            <time datetime="2026-03-17">March 2026</time>
             <span class="article-meta-dot"></span>
-            <span>~8 min read</span>
+            <span>~11 min read</span>
           </div>
 
         </div>
@@ -703,183 +842,327 @@
           <div class="article-layout">
 
             <!-- ── MAIN ARTICLE ─────────────────────────────────── -->
+            
             <article class="article-body reveal-on-scroll">
 
               <div class="protoform-notice">
-                <span class="protoform-notice-icon">🔧</span>
+                <span class="protoform-notice-icon">🚀</span>
                 <span>
-                  <strong style="color: var(--okh-amber);">Protoform — v0.1</strong>
-                  This is the functional beta. The architecture is sound; the full
-                  Snyder Cut — scoring rubrics, round-by-round breakdowns, complete
-                  diagram evolution, the PowerPoint layer, and the Council of AIs
-                  methodology as a repeatable framework — is coming. This page will
-                  update in place when it does.
+                  <strong style="color: var(--okh-amber);">Launch Cut — v1.0</strong>
+                  What began as the protoform is now the first stable build: article,
+                  post, comment, competition archive, and the two winning diagrams.
+                  The full director’s-cut expansion can still grow from here, but this
+                  page now reflects the launch version that actually went public.
                 </span>
               </div>
 
-              <!-- ── PART 1 ─────────────────────────────── -->
               <p>
-                I started drawing on a computer in 1991.
+                I started drawing on a computer in the early 1990s with <strong>AutoCAD 10</strong>.
               </p>
               <p>
-                AutoCAD 10. Black screen. Command line. No drag-and-drop, no shape
-                libraries — just coordinates, precision, and the full weight of
-                engineering intent behind every line. Back then, turning a thought
-                into a visual required discipline, patience, and a working knowledge
-                of the tool that stood between your idea and its expression.
+                Since then, I’ve used just about every tool you can imagine to force ideas into visible form:
+                house plans, network diagrams, process flows, mind maps, org charts, UML, crow’s-foot schemas,
+                and enough hours in Visio to qualify for a minor emotional settlement.
               </p>
               <p>
-                Thirty-three years later, I can describe a process in plain language
-                and watch an AI render it as a structured diagram in seconds.
-              </p>
-              <p>
-                The tool changed. The underlying question didn't.
+                For most of that time, the friction was not in the thinking. It was in the translation.
               </p>
 
               <div class="pull-quote">
-                <p>Is the picture actually worth what it cost to make it?</p>
+                <p>The hardest part was rarely understanding the idea. It was making the picture behave.</p>
               </div>
 
               <p>
-                That question has followed me across every medium I've worked in:
-                house plans, network diagrams, process flows, mind maps, org charts,
-                UML schemas, crow's foot ERDs. If an idea could be visualized, I've
-                stared at a blank canvas trying to figure out how to start it.
+                You had to pick the tool. Pick the shapes. Route the lines. Fight the canvas. And hope the final
+                result looked enough like the thing in your head that someone else could understand it without a
+                guided tour.
               </p>
               <p>
-                And for a long time — longer than I'd like to admit — the blank
-                canvas won a few rounds before I did.
+                That worked. Sometimes. But it was expensive — not just in money, but in attention, effort, and
+                delay. It was a <strong>Manual Labor Tax</strong> on every idea that deserved a visual but got a paragraph instead.
               </p>
               <p>
-                Not because the ideas were weak. Because the translation was
-                expensive. You had to know the tool. You had to fight the toolbar.
-                You had to make the picture behave before it could make your idea
-                understood.
-              </p>
-              <p>
-                I cannot count the hours I spent staring at the Microsoft Visio UI
-                thinking: <em>"How in the hell am I going to draw this?"</em>
-              </p>
-              <p>
-                That friction wasn't just annoying. It was a tax. A
-                <strong>Manual Labor Tax</strong> on every idea that deserved a
-                visual but got a paragraph instead — because the paragraph was
-                faster, and fast usually wins.
+                If you’ve ever opened Visio with a fully formed thought in your head and still wondered,
+                <em>How in the hell am I supposed to draw this thing?</em> — you already know the tax.
               </p>
 
               <hr />
 
-              <!-- ── PART 2 ─────────────────────────────── -->
+              <h2 id="pivot">From Drawing to Modeling</h2>
               <p>
-                Then, about eight months ago, ChatGPT coughed up a diagram I didn't
-                ask for.
+                About eight months ago, ChatGPT coughed up a visual I didn’t ask for. It wasn’t an image. It wasn’t a screenshot.
+                It was code.
               </p>
               <p>
-                I was describing a process. The model responded with structured
-                syntax I didn't recognize. I typed, essentially:
-                <em>"What the hell is that?"</em>
+                I asked the only reasonable question: <strong>What the hell is that?</strong>
               </p>
               <p>
-                It replied: <strong>&#34;A Mermaid diagram.&#34;</strong>
+                It replied: <strong>A Mermaid diagram.</strong>
               </p>
               <p>
-                Mermaid is a text-based diagramming language. You describe what you
-                want in plain language. An LLM converts it into syntax. The syntax
-                renders as a diagram. No Figma. No Canva. No toolbar archaeology. No
-                snap-to-grid negotiations with your own ideas.
+                I asked Copilot to generate one too. Then I discovered Microsoft Loop could render Mermaid natively.
+                Suddenly I wasn’t “drawing” in the old sense anymore. I was describing structure in words and letting the rendering happen downstream.
               </p>
-              <p>Just words — becoming structure.</p>
               <p>
-                I asked Copilot to generate one. Discovered that Microsoft Loop
-                renders Mermaid natively. Went down the rabbit hole that people like
-                me go down — and never fully came back up.
+                That changed the economics. Mermaid plus LLMs turned diagramming from click-drag labor into text-native iteration.
+                I could throw spaghetti against the wall at high velocity and minimal drag, then tighten the structure after the fact.
               </p>
-              <p>The Manual Labor Tax had just been repealed.</p>
 
               <hr />
 
-              <!-- ── ROY FORMULA ───────────────────────── -->
-              <h2>ROY: Return on Your Words</h2>
-
+              <h2 id="roy">ROY: Return on Your Words</h2>
               <p>
-                Which forced a question I hadn't seriously considered before: what is
-                the actual <em>return</em> on a word? Not the word count. Not the
-                reading time. The return — the understanding extracted per word
-                invested.
+                Once the rendering cost collapsed, the real question became unavoidable:
+                <strong>What did the words actually buy?</strong>
               </p>
-
               <div class="formula-block">
                 <p class="formula-label">The ROY Formula</p>
                 <p class="formula-text">Clarity Delivered ÷ Words Required to Deliver It</p>
-                <p class="formula-sub">
-                  Return on Your Words = understanding created ÷ words invested
-                </p>
+                <p class="formula-sub">Return on Your Words = understanding extracted ÷ words invested</p>
               </div>
-
               <p>
-                A 47-bullet Slack message? Poor ROY. A three-paragraph "quick
-                summary" that still requires a meeting to decode? Negative ROY. A
-                diagram generated from 50 words of plain description that a team
-                grasps in five seconds and moves on from with alignment? Potentially
-                extraordinary ROY.
+                A 47-bullet Slack message? Poor ROY. A “quick summary” that still requires a meeting to decode?
+                Negative ROY. A diagram generated from 50 well-chosen words that a team grasps in five seconds and uses correctly?
+                Potentially extraordinary ROY.
               </p>
               <p>
-                But — and this is the part most "visuals are better" takes skip —
-                <strong>not every picture earns its words.</strong>
+                That is why I don’t believe a picture is automatically worth 1,000 words. Some pictures are decorative wallpaper with a superiority complex.
+                Some diagrams are just confusion with borders and connector lines.
               </p>
               <p>
-                A muddy diagram is worse than a clear paragraph. A happy-path
-                flowchart that pretends thinking is linear is a lie dressed up as
-                structure. Decorative visuals with a superiority complex aren't
-                communication. They're performance.
-              </p>
-              <p>
-                That's why <strong>the first diagram is usually a liar.</strong> Too
-                clean. Too linear. Too confident. It edits out the confusion that
-                actually mattered. Real thinking loops. It forks. It backtracks. It
-                occasionally discovers that the clever version was performing while
-                the useful version was quietly doing the actual work.
+                The real test is simpler: <strong>Did the visual remove enough confusion to justify the effort it took to make it?</strong>
               </p>
 
               <div class="pull-quote">
-                <p>
-                  Did the visual remove enough confusion to justify the effort it took
-                  to make it? That's the ROY test.
-                </p>
+                <p>A picture is only worth the words it saves, the ambiguity it kills, and the momentum it creates.</p>
               </div>
+
+              <p>
+                The first diagram usually fails that test. It wants to look finished. It wants to reassure you that the path is known, the thinking is done,
+                and the complexity has been tamed. Real thinking is uglier than that.
+              </p>
+              <p>
+                Real thinking loops. It forks. It backtracks. It trims its own nonsense. It discovers, usually late, that the clever version and the useful version are not the same thing.
+              </p>
 
               <hr />
 
-              <!-- ── THE DIAGRAM ───────────────────────── -->
-              <h2>The Proof: A Diagram of This Post's Own Creation</h2>
-
+              <h2 id="round1">Round 1 — The Clean Lie</h2>
               <p>
-                So I ran an experiment. A fairly ridiculous one. Very on-brand.
+                To test the thesis, I ran the same brief through a <strong>Council of AIs</strong>: ChatGPT, Claude, Copilot, Gemini, Perplexity, and Notion.
+                Same question. Same deliverables. Same demand: write the post, write the article, and diagram the actual ideation process behind them.
               </p>
               <p>
-                Instead of writing a post about visual ROI and moving on, I gave the
-                same brief to six AI platforms simultaneously — Claude, ChatGPT,
-                Copilot, Gemini, Perplexity, and Notion AI — and asked each to
-                generate both the article and a Mermaid diagram depicting the actual
-                ideation process behind writing the post itself.
-              </p>
-              <p>
-                The recursive part: the diagram wasn't illustrating some external
-                concept. The diagram <em>was</em> the concept. The subject of the
-                post was the method. The method was the proof.
+                The first round showed exactly what I suspected. Most V1 diagrams were too tidy. Too linear. Too willing to perform certainty.
+                The best of that first wave came from <strong>Copilot</strong> because it was the cleanest architecturally and the only one configuring Mermaid at the renderer level with YAML front matter.
               </p>
 
-              <!-- V2 Diagram -->
+              <div class="diagram-section">
+                <div class="diagram-header">
+                  <span class="diagram-label">🏆 Council V1 — Copilot (Round 1 Winner)</span>
+                  <div class="diagram-links">
+                    <a href="https://mermaid.ai/d/fade689d-cfd2-47d9-b316-86a21a0533fb" target="_blank" rel="noopener">Open in Mermaid ↗</a>
+                    <a href="#round2">See V2 ↓</a>
+                  </div>
+                </div>
+                <div class="diagram-shell">
+                  <div class="mermaid">
+---
+config:
+  theme: base
+  fontFamily: "Aptos, Segoe UI, Inter, Arial, sans-serif"
+  themeVariables:
+    primaryColor: "#EAF2FF"
+    primaryTextColor: "#14213D"
+    primaryBorderColor: "#325DCC"
+    lineColor: "#64748B"
+    secondaryColor: "#FFF7E8"
+    tertiaryColor: "#EEFDF3"
+---
+flowchart TD
+S(("Spark ✨")):::spark --> T["👀 Notice text fatigue"]:::core
+T --> U{"Text alone enough?"}:::gate
+U -->|Yes| P0["Stay in prose"]:::low
+U -->|No| A["Define the clarity we are buying"]:::core
+
+subgraph I1["Ideation / wording"]
+direction TD
+A --> B["Brain-dump angles"]:::core
+B --> C["Draft ugly first post"]:::draft
+C --> D{"Hook lands?"}:::gate
+D -->|No| B
+D -->|Yes| E["Ask LLM for Mermaid skeleton"]:::core
+end
+
+subgraph I2["Modeling / diagramming"]
+direction TD
+E --> F["Render V1 🧭"]:::draft
+F --> G{"Too tidy / too fake?"}:::gate
+G -->|Yes| H["Add forks, loops, dead ends"]:::risk
+H --> I["Trim labels · reorder flow · kill clutter ✂️"]:::risk
+I --> F
+G -->|No| J["Diagram earns its space"]:::publish
+end
+
+subgraph I3["Post assembly / shipping"]
+direction TD
+J --> P["Write around diagram:
+Hook · thesis · proof · CTA"]:::core
+P --> Q{"Clear and scannable?"}:::gate
+Q -->|No| I
+Q -->|Yes| R["Ship post + code + image set 🚀"]:::publish
+R --> W["Watch comments for confusion"]:::low
+W -. feedback loop .-> B
+end
+
+classDef spark fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px;
+classDef core fill:#EAF2FF,stroke:#325DCC,color:#102A43,stroke-width:1.6px;
+classDef draft fill:#F3F4F6,stroke:#6B7280,color:#334155,stroke-width:1.4px,stroke-dasharray: 5 3;
+classDef gate fill:#F3E8FF,stroke:#7C3AED,color:#3B0764,stroke-width:2px;
+classDef risk fill:#FFF1F2,stroke:#DC2626,color:#7F1D1D,stroke-width:1.8px;
+classDef publish fill:#ECFDF5,stroke:#059669,color:#064E3B,stroke-width:2.2px;
+classDef low fill:#F8FAFC,stroke:#94A3B8,color:#64748B,stroke-width:1.2px,stroke-dasharray: 3 3;
+
+linkStyle 0 stroke:#325DCC,stroke-width:2.4px
+linkStyle 3 stroke:#325DCC,stroke-width:2.2px
+linkStyle 8 stroke:#DC2626,stroke-width:2px,stroke-dasharray: 6 4
+linkStyle 12 stroke:#DC2626,stroke-width:2.2px
+linkStyle 13 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4
+linkStyle 14 stroke:#059669,stroke-width:2.8px
+linkStyle 17 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4
+linkStyle 18 stroke:#059669,stroke-width:2.8px
+linkStyle 20 stroke:#7C3AED,stroke-width:2px,stroke-dasharray: 2 4
+                  </div>
+                  <details class="code-drop">
+                    <summary>View V1 Mermaid code</summary>
+                    <pre><code>---
+config:
+  theme: base
+  fontFamily: &quot;Aptos, Segoe UI, Inter, Arial, sans-serif&quot;
+  themeVariables:
+    primaryColor: &quot;#EAF2FF&quot;
+    primaryTextColor: &quot;#14213D&quot;
+    primaryBorderColor: &quot;#325DCC&quot;
+    lineColor: &quot;#64748B&quot;
+    secondaryColor: &quot;#FFF7E8&quot;
+    tertiaryColor: &quot;#EEFDF3&quot;
+---
+flowchart TD
+S((&quot;Spark ✨&quot;)):::spark --&gt; T[&quot;👀 Notice text fatigue&quot;]:::core
+T --&gt; U{&quot;Text alone enough?&quot;}:::gate
+U --&gt;|Yes| P0[&quot;Stay in prose&quot;]:::low
+U --&gt;|No| A[&quot;Define the clarity we are buying&quot;]:::core
+
+subgraph I1[&quot;Ideation / wording&quot;]
+direction TD
+A --&gt; B[&quot;Brain-dump angles&quot;]:::core
+B --&gt; C[&quot;Draft ugly first post&quot;]:::draft
+C --&gt; D{&quot;Hook lands?&quot;}:::gate
+D --&gt;|No| B
+D --&gt;|Yes| E[&quot;Ask LLM for Mermaid skeleton&quot;]:::core
+end
+
+subgraph I2[&quot;Modeling / diagramming&quot;]
+direction TD
+E --&gt; F[&quot;Render V1 🧭&quot;]:::draft
+F --&gt; G{&quot;Too tidy / too fake?&quot;}:::gate
+G --&gt;|Yes| H[&quot;Add forks, loops, dead ends&quot;]:::risk
+H --&gt; I[&quot;Trim labels · reorder flow · kill clutter ✂️&quot;]:::risk
+I --&gt; F
+G --&gt;|No| J[&quot;Diagram earns its space&quot;]:::publish
+end
+
+subgraph I3[&quot;Post assembly / shipping&quot;]
+direction TD
+J --&gt; P[&quot;Write around diagram:
+Hook · thesis · proof · CTA&quot;]:::core
+P --&gt; Q{&quot;Clear and scannable?&quot;}:::gate
+Q --&gt;|No| I
+Q --&gt;|Yes| R[&quot;Ship post + code + image set 🚀&quot;]:::publish
+R --&gt; W[&quot;Watch comments for confusion&quot;]:::low
+W -. feedback loop .-&gt; B
+end
+
+classDef spark fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px;
+classDef core fill:#EAF2FF,stroke:#325DCC,color:#102A43,stroke-width:1.6px;
+classDef draft fill:#F3F4F6,stroke:#6B7280,color:#334155,stroke-width:1.4px,stroke-dasharray: 5 3;
+classDef gate fill:#F3E8FF,stroke:#7C3AED,color:#3B0764,stroke-width:2px;
+classDef risk fill:#FFF1F2,stroke:#DC2626,color:#7F1D1D,stroke-width:1.8px;
+classDef publish fill:#ECFDF5,stroke:#059669,color:#064E3B,stroke-width:2.2px;
+classDef low fill:#F8FAFC,stroke:#94A3B8,color:#64748B,stroke-width:1.2px,stroke-dasharray: 3 3;
+
+linkStyle 0 stroke:#325DCC,stroke-width:2.4px
+linkStyle 3 stroke:#325DCC,stroke-width:2.2px
+linkStyle 8 stroke:#DC2626,stroke-width:2px,stroke-dasharray: 6 4
+linkStyle 12 stroke:#DC2626,stroke-width:2.2px
+linkStyle 13 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4
+linkStyle 14 stroke:#059669,stroke-width:2.8px
+linkStyle 17 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4
+linkStyle 18 stroke:#059669,stroke-width:2.8px
+linkStyle 20 stroke:#7C3AED,stroke-width:2px,stroke-dasharray: 2 4</code></pre>
+                  </details>
+                </div>
+                <p class="diagram-caption">
+                  Round 1 winner. Copilot earned it by operating at the renderer level — not just styling nodes,
+                  but configuring the theme engine itself.
+                </p>
+              </div>
+
+              <p>
+                V1 is important because it shows the temptation. Even when the structure is strong, the diagram still wants to sand off the confusion.
+                That makes it easier to consume — and slightly less honest.
+              </p>
+
+              <hr />
+
+              <h2 id="council">The Council of AIs</h2>
+              <p>
+                What I was running, without naming it at first, was not automation and not a pipeline. It was a deliberative body.
+                A <strong>council</strong> is the body. The <strong>counsel</strong> is what it produces.
+              </p>
+              <p>
+                That distinction mattered because the value was never going to come from one model saying one brilliant thing once.
+                The value came from parallel generation, comparative judgment, and hybrid synthesis.
+              </p>
+
+              <div class="council-card">
+                <p class="council-card-eyebrow">Council roles that emerged in practice</p>
+                <h3>Same brief. Different strengths. Better synthesis.</h3>
+                <div class="scorecard">
+                  <div class="scorecard-item"><strong>ChatGPT</strong> Strongest all-around scaffolding for article, post, and comment synthesis.</div>
+                  <div class="scorecard-item"><strong>Claude</strong> Best narrative architecture and the most honest second-round diagram.</div>
+                  <div class="scorecard-item"><strong>Copilot</strong> Cleanest renderer-level Mermaid configuration and strongest V1 discipline.</div>
+                  <div class="scorecard-item"><strong>Perplexity</strong> Tightest ROY framing and disciplined explanation of the visual ROI thesis.</div>
+                  <div class="scorecard-item"><strong>Gemini</strong> Maximalist energy, memorable coinage, and sharp theatrical framing.</div>
+                  <div class="scorecard-item"><strong>Notion</strong> By the end, effectively the synthesizer, archivist, and court reporter.</div>
+                </div>
+                <p>
+                  The best result did not exist at the start. It emerged only after the council saw itself, scored itself, and tightened the work.
+                </p>
+              </div>
+
+              <p>
+                That, incidentally, is also the ROY lesson applied to AI itself. One prompt to one model is the 47-bullet Slack message.
+                A council is the diagram.
+              </p>
+
+              <hr />
+
+              <h2 id="round2">Round 2 — The More Honest Drawing</h2>
+              <p>
+                Once every model had seen the others, the second round got better fast. The diagrams became less eager to perform certainty and more willing to show recursion.
+                That is why <strong>Claude’s V2</strong> won the second round: it made the loops visible.
+              </p>
+              <p>
+                Ignition. Strategy. Craft. Proof. Ship. Revision arrows threading back through all of them. That shape is the thesis.
+              </p>
+
               <div class="diagram-section">
                 <div class="diagram-header">
                   <span class="diagram-label">⚙️ Council V2 — Claude Synthesis (Round 2 Winner)</span>
                   <div class="diagram-links">
-                    <a
-                      href="https://mermaid.ai/d/2e9a4321-6302-44ca-82cc-e2020479fdf5"
-                      target="_blank"
-                      rel="noopener"
-                    >Open in Mermaid ↗</a>
-                    <a href="#v1-diagram">See V1 ↓</a>
+                    <a href="https://mermaid.ai/d/2e9a4321-6302-44ca-82cc-e2020479fdf5" target="_blank" rel="noopener">Open in Mermaid ↗</a>
+                    <a href="#artifacts">See launch artifacts ↓</a>
                   </div>
                 </div>
                 <div class="diagram-shell">
@@ -903,42 +1186,64 @@ flowchart TD
 
   subgraph IGNITION ["⚡ Ignition — The Idea Finds You"]
     direction TB
-    A(["💥 Spark\n30 min of prose · nobody read it\n30 sec of diagram · everyone got it"]):::spark
-    B[/"Hypothesis\nNot all pictures earn their words"/]:::think
-    C[["ROY Formula\nClarity × Universality ÷ Words to generate"]]:::formula
+    A(["💥 Spark
+30 min of prose · nobody read it
+30 sec of diagram · everyone got it"]):::spark
+    B[/"Hypothesis
+Not all pictures earn their words"/]:::think
+    C[["ROY Formula
+Clarity × Universality ÷ Words to generate"]]:::formula
   end
 
   subgraph STRATEGY ["🧭 Strategy — Shape the Argument"]
     direction TB
-    D{{"Does the\nframing hold?"}}:::gate
-    E["Sharpen it\nRefine the ratio metaphor"]:::revise
-    F(["✨ The Recursive Twist\nDiagram the post · inside the post"]):::insight
-    G{{"Too clever?\nWill readers get it\nor roll their eyes?"}}:::gate
-    H["Dial it back\nLead with utility · not wit"]:::revise
+    D{{"Does the
+framing hold?"}}:::gate
+    E["Sharpen it
+Refine the ratio metaphor"]:::revise
+    F(["✨ The Recursive Twist
+Diagram the post · inside the post"]):::insight
+    G{{"Too clever?
+Will readers get it
+or roll their eyes?"}}:::gate
+    H["Dial it back
+Lead with utility · not wit"]:::revise
   end
 
   subgraph CRAFT ["✏️ Craft — Build the Thing"]
     direction TB
-    I[["Medium\nLinkedIn · 3K char · images in post · code in comments"]]:::core
-    J[["Tool\nMermaid — LLM-native · free · no design degree"]]:::core
-    K["Draft\nHook → Thesis → Diagram → Proof → CTA"]:::core
+    I[["Medium
+LinkedIn · 3K char · images in post · code in comments"]]:::core
+    J[["Tool
+Mermaid — LLM-native · free · no design degree"]]:::core
+    K["Draft
+Hook → Thesis → Diagram → Proof → CTA"]:::core
     L{{"Hook landing?"}}:::gate
-    M["Kill the clever\nFind the honest"]:::revise
+    M["Kill the clever
+Find the honest"]:::revise
   end
 
   subgraph PROOF ["📐 Proof — The Diagram Earns Its Space"]
     direction TB
-    N(["✏️ Embed It\nThis post's own process = the example"]):::insight
-    O{{"Happy path?\nDoes it show\nreal ideation?"}}:::gate
-    P["Rebuild\nAdd forks · loops · dead ends · honest wrong turns"]:::revise
+    N(["✏️ Embed It
+This post's own process = the example"]):::insight
+    O{{"Happy path?
+Does it show
+real ideation?"}}:::gate
+    P["Rebuild
+Add forks · loops · dead ends · honest wrong turns"]:::revise
   end
 
   subgraph SHIP ["🚀 Ship — Send It and Learn"]
     direction TB
-    Q[["Publish\nPost + diagram image + code screenshot + raw Mermaid in comments"]]:::publish
-    R{{"Did the visual land\nfaster than words alone?"}}:::gate
-    S(["✅ Thesis Confirmed\nThe picture earned its words"]):::win
-    T["Iterate\nRefine diagram · reframe post"]:::revise
+    Q[["Publish
+Post + diagram image + code screenshot + raw Mermaid in comments"]]:::publish
+    R{{"Did the visual land
+faster than words alone?"}}:::gate
+    S(["✅ Thesis Confirmed
+The picture earned its words"]):::win
+    T["Iterate
+Refine diagram · reframe post"]:::revise
   end
 
   A --> B --> C --> D
@@ -979,203 +1284,365 @@ flowchart TD
   style PROOF     fill:#061a0f,stroke:#059669,stroke-width:1.5px,color:#6ee7b7
   style SHIP      fill:#110d2e,stroke:#5E35B1,stroke-width:1.5px,color:#c4b5fd
                   </div>
+                  <details class="code-drop">
+                    <summary>View V2 Mermaid code</summary>
+                    <pre><code>---
+config:
+  theme: base
+  fontFamily: &quot;DM Sans, Segoe UI, Inter, Arial, sans-serif&quot;
+  themeVariables:
+    primaryColor: &quot;#181f26&quot;
+    primaryTextColor: &quot;#e5e7eb&quot;
+    primaryBorderColor: &quot;#c46a2c&quot;
+    lineColor: &quot;#64748B&quot;
+    secondaryColor: &quot;#111827&quot;
+    tertiaryColor: &quot;#1c3a34&quot;
+    edgeLabelBackground: &quot;#111827&quot;
+    clusterBkg: &quot;#0d1117&quot;
+    clusterBorder: &quot;#2d3748&quot;
+---
+flowchart TD
+
+  subgraph IGNITION [&quot;⚡ Ignition — The Idea Finds You&quot;]
+    direction TB
+    A([&quot;💥 Spark
+30 min of prose · nobody read it
+30 sec of diagram · everyone got it&quot;]):::spark
+    B[/&quot;Hypothesis
+Not all pictures earn their words&quot;/]:::think
+    C[[&quot;ROY Formula
+Clarity × Universality ÷ Words to generate&quot;]]:::formula
+  end
+
+  subgraph STRATEGY [&quot;🧭 Strategy — Shape the Argument&quot;]
+    direction TB
+    D{{&quot;Does the
+framing hold?&quot;}}:::gate
+    E[&quot;Sharpen it
+Refine the ratio metaphor&quot;]:::revise
+    F([&quot;✨ The Recursive Twist
+Diagram the post · inside the post&quot;]):::insight
+    G{{&quot;Too clever?
+Will readers get it
+or roll their eyes?&quot;}}:::gate
+    H[&quot;Dial it back
+Lead with utility · not wit&quot;]:::revise
+  end
+
+  subgraph CRAFT [&quot;✏️ Craft — Build the Thing&quot;]
+    direction TB
+    I[[&quot;Medium
+LinkedIn · 3K char · images in post · code in comments&quot;]]:::core
+    J[[&quot;Tool
+Mermaid — LLM-native · free · no design degree&quot;]]:::core
+    K[&quot;Draft
+Hook → Thesis → Diagram → Proof → CTA&quot;]:::core
+    L{{&quot;Hook landing?&quot;}}:::gate
+    M[&quot;Kill the clever
+Find the honest&quot;]:::revise
+  end
+
+  subgraph PROOF [&quot;📐 Proof — The Diagram Earns Its Space&quot;]
+    direction TB
+    N([&quot;✏️ Embed It
+This post&#x27;s own process = the example&quot;]):::insight
+    O{{&quot;Happy path?
+Does it show
+real ideation?&quot;}}:::gate
+    P[&quot;Rebuild
+Add forks · loops · dead ends · honest wrong turns&quot;]:::revise
+  end
+
+  subgraph SHIP [&quot;🚀 Ship — Send It and Learn&quot;]
+    direction TB
+    Q[[&quot;Publish
+Post + diagram image + code screenshot + raw Mermaid in comments&quot;]]:::publish
+    R{{&quot;Did the visual land
+faster than words alone?&quot;}}:::gate
+    S([&quot;✅ Thesis Confirmed
+The picture earned its words&quot;]):::win
+    T[&quot;Iterate
+Refine diagram · reframe post&quot;]:::revise
+  end
+
+  A --&gt; B --&gt; C --&gt; D
+  D --&gt;|&quot;holds up&quot;| F
+  F --&gt; G
+  G --&gt;|&quot;earned&quot;| I
+  I --&gt; J --&gt; K --&gt; L
+  L --&gt;|&quot;lands&quot;| N
+  N --&gt; O
+  O --&gt;|&quot;yes — ship it&quot;| Q
+  Q --&gt; R
+  R --&gt;|&quot;high multiplier&quot;| S
+
+  D --&gt;|&quot;too abstract&quot;| E
+  E -. &quot;sharpen&quot; .-&gt; C
+  G --&gt;|&quot;too cute&quot;| H
+  H -. &quot;reframe&quot; .-&gt; F
+  L --&gt;|&quot;too stiff&quot;| M
+  M -. &quot;rewrite&quot; .-&gt; K
+  O --&gt;|&quot;too linear&quot;| P
+  P -. &quot;rebuild&quot; .-&gt; N
+  R --&gt;|&quot;missed&quot;| T
+  T -. &quot;loop back&quot; .-&gt; K
+
+  classDef spark    fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px,font-weight:bold
+  classDef think    fill:#1a2844,stroke:#325DCC,color:#93b4f0,stroke-width:1.5px
+  classDef formula  fill:#1a1f2e,stroke:#4A5CCC,color:#a0aec0,stroke-width:1.5px,font-style:italic
+  classDef gate     fill:#2d1f3d,stroke:#7C3AED,color:#c4b5fd,stroke-width:2px
+  classDef revise   fill:#3d0f0f,stroke:#DC2626,color:#fca5a5,stroke-width:1.8px
+  classDef insight  fill:#0d2b1e,stroke:#059669,color:#6ee7b7,stroke-width:2px,font-weight:bold
+  classDef core     fill:#1a2233,stroke:#325DCC,color:#93b4f0,stroke-width:1.5px
+  classDef publish  fill:#1e1440,stroke:#5E35B1,color:#c4b5fd,stroke-width:2.2px,font-weight:bold
+  classDef win      fill:#0a2e1a,stroke:#059669,color:#6ee7b7,stroke-width:2.5px,font-weight:bold
+
+  style IGNITION  fill:#1a1500,stroke:#D6A700,stroke-width:1.5px,color:#D6A700
+  style STRATEGY  fill:#1a0f2e,stroke:#7C3AED,stroke-width:1.5px,color:#c4b5fd
+  style CRAFT     fill:#0d1525,stroke:#325DCC,stroke-width:1.5px,color:#93b4f0
+  style PROOF     fill:#061a0f,stroke:#059669,stroke-width:1.5px,color:#6ee7b7
+  style SHIP      fill:#110d2e,stroke:#5E35B1,stroke-width:1.5px,color:#c4b5fd</code></pre>
+                  </details>
                 </div>
                 <p class="diagram-caption">
-                  V2 — synthesized from six LLM submissions. Solid arrows = forward
-                  progress. Dashed arrows = revision loops. The diagram's non-linear
-                  shape is the thesis.
+                  Round 2 winner. Solid arrows = forward motion. Dashed arrows = the revision loops everyone always wants to hide.
                 </p>
               </div>
 
-              <!-- ── COUNCIL SECTION ──────────────────── -->
-              <h2>The Council of AIs</h2>
-
               <p>
-                I collected all six results. Fed them back to the group. Asked for
-                evaluation, scoring, and synthesis. Then asked for a second round — a
-                V2 — informed by what each model learned from seeing the others' work.
-              </p>
-              <p>
-                What I was running, without initially naming it, was a
-                <strong>Council of AIs.</strong>
-              </p>
-              <p>
-                Not automation. Not a pipeline. A deliberative body — six distinct
-                voices, the same question, a human orchestrator weighing the results
-                and directing the synthesis. Each model had different strengths. No
-                single one won everything. The best result didn't exist until the
-                council produced it together.
+                This was the moment the experiment stopped being a gimmick and started behaving like a method.
+                The diagrams were no longer just illustrating the argument. They were auditing it.
               </p>
 
-              <div class="council-card">
-                <p class="council-card-eyebrow">Council of AIs — Round 1 & 2</p>
-                <h3>How the evaluation worked</h3>
-                <p>
-                  Same brief given to all six members simultaneously. Outputs
-                  collected. All results fed back to the group for critique and
-                  scoring. Then a second round — V2 — informed by what each model
-                  learned from seeing the others' work.
-                </p>
-                <div class="council-members">
-                  <span class="council-pill">ChatGPT</span>
-                  <span class="council-pill winner">Claude ✦ V2</span>
-                  <span class="council-pill winner">Copilot ✦ V1</span>
-                  <span class="council-pill">Gemini</span>
-                  <span class="council-pill">Perplexity</span>
-                  <span class="council-pill">Notion AI</span>
+              <hr />
+
+              <h2 id="artifacts">Launch Artifacts &amp; Archive Trail</h2>
+              <p>
+                Because this began as a LinkedIn experiment, the launch assets matter. The article is the canonical home.
+                The post is the spear. The first comment is the afterburner. The archive is the receipt stack.
+              </p>
+
+              <div class="artifact-stack">
+                <div class="artifact-card">
+                  <h3>LinkedIn Post — Return on Your Words (ROY)</h3>
+                  <p class="small-note">The feed-native cut. Short enough to move, sharp enough to stop the scroll.</p>
+                  <details class="code-drop">
+                    <summary>View launch post copy</summary>
+                    <pre class="artifact-copy">I don’t trust the first diagram.
+
+It’s usually a liar.
+
+Too clean.
+Too linear.
+Too eager to pretend thinking moved from A to B without doubling back through confusion, revision, and one or two bad ideas wearing professional clothes.
+
+I started drawing on computers with AutoCAD 10 in the early ’90s.
+
+Since then: house plans, network diagrams, process flows, mind maps, UML, crow’s-foot schemas, and a truly unnecessary number of hours staring at Visio wondering:
+
+How in the hell am I supposed to draw this thing?
+
+Then about eight months ago, ChatGPT coughed up something I didn’t ask for.
+
+I asked what the hell it was.
+
+It answered: a Mermaid diagram.
+
+That sent me down the rabbit hole.
+
+What hooked me wasn’t the syntax.
+It was the economics.
+
+Not: is a picture worth 1,000 words?
+
+Better question:
+
+What’s the ROY — Return on Your Words?
+
+What did the words buy?
+
+Another wall of text people skim and forget?
+
+Or a diagram, model, or structure that makes the same idea easier to understand, faster to absorb, and harder to misread?
+
+That’s the real test.
+
+So I did the most OverKill Hill thing possible.
+
+I ran the same challenge through ChatGPT, Claude, Copilot, Gemini, Perplexity, and Notion. Same brief. Same goal. Then I fed the outputs back into the group and made them critique one another.
+
+A council of AIs.
+
+The first diagrams were mostly too tidy. Too fake-happy-path.
+The better ones showed what thinking actually looks like:
+
+loops
+forks
+dead ends
+cleanup
+revision
+and “this sounded smarter in my head” moments
+
+That’s what the attached Mermaid diagrams are really about.
+
+Not just making a visual.
+
+Making a visual that earns its space.
+
+Because a picture is not valuable because an old proverb said so.
+
+It’s valuable if it kills ambiguity, reduces reading drag, and creates more understanding than the words it took to bring it into existence.
+
+That zone — words → structure → systems → leverage — is basically my home field.</pre>
+                  </details>
                 </div>
-              </div>
 
-              <p>
-                That's also the ROY lesson applied to AI itself. One prompt to one
-                model is the 47-bullet Slack message. A council is the diagram. More
-                investment upfront. Significantly higher return on what you extract.
-              </p>
+                <div class="artifact-card">
+                  <h3>LinkedIn Comment 1 — Diagramming Trauma (Visio Survivors Group)</h3>
+                  <p class="small-note">The personal addendum: AutoCAD 10, Visio paralysis, and the moment Mermaid repealed the click-drag tax.</p>
+                  <details class="code-drop">
+                    <summary>View first comment copy</summary>
+                    <pre class="artifact-copy">AutoCAD 10. Around 1991.
 
-              <!-- V1 Diagram link -->
-              <div id="v1-diagram" class="diagram-section">
-                <div class="diagram-header">
-                  <span class="diagram-label">🏆 Council V1 — Copilot (Round 1 Winner)</span>
-                  <div class="diagram-links">
-                    <a
-                      href="https://mermaid.ai/d/fade689d-cfd2-47d9-b316-86a21a0533fb"
-                      target="_blank"
-                      rel="noopener"
-                    >Open in Mermaid ↗</a>
-                  </div>
+That’s where this story really starts.
+
+I’ve spent three decades turning thought into house plans, network diagrams, process flows, UML, crow’s-foot schemas, and more than a few Visio therapy sessions.
+
+The surprising breakthrough was not a prettier canvas.
+
+It was realizing the canvas could just be text.
+
+When ChatGPT first dropped Mermaid syntax on me, I had the exact reaction you’d expect:
+
+“What the hell is that?”
+
+Then Copilot rendered it.
+Then Loop rendered it natively.
+Then the old click-drag-connector tax suddenly started looking optional.
+
+That’s the shift for me:
+
+less time drawing boxes
+more time shaping meaning
+
+If you’ve ever stared at a blank Visio page wondering how to force the thing in your head onto the screen, welcome to the support group.</pre>
+                  </details>
                 </div>
-                <div class="diagram-shell" style="text-align:center; padding: 2rem;">
-                  <p style="color: var(--color-muted); font-size: 0.9rem; margin: 0 0 0.75rem;">
-                    V1 was awarded to Copilot for being the only model to configure
-                    the Mermaid theme engine via YAML front matter — setting font
-                    families and color variables at the renderer level.
+
+                <div class="artifact-card">
+                  <h3>The Archive Layer</h3>
+                  <p>
+                    The two Notion pages track the article build and the competition thread archive. The GitHub source keeps the canonical file history,
+                    while this webpage acts as the stable public build.
                   </p>
-                  <a
-                    href="https://mermaid.ai/d/fade689d-cfd2-47d9-b316-86a21a0533fb"
-                    class="btn btn-quiet"
-                    target="_blank"
-                    rel="noopener"
-                    style="display:inline-flex;"
-                  >
-                    View V1 Diagram on Mermaid.ai ↗
-                  </a>
+                  <ul class="bullet-list">
+                    <li><a href="https://www.notion.so/overkillhill/LinkedIn-Article-v1-0-The-First-Diagram-Is-Usually-a-Liar-1b54c13a418048ec899a5ad0e71f9f2b?source=copy_link" target="_blank" rel="noopener">Notion — Article v1.0 notes ↗</a></li>
+                    <li><a href="https://www.notion.so/overkillhill/ROY-Mermaid-LinkedIn-Post-Diagram-Competition-Thread-Archive-a2d6183ab6824104951649004ba5e97e?source=copy_link" target="_blank" rel="noopener">Notion — Diagram competition archive ↗</a></li>
+                    <li><a href="https://github.com/OKHP3/OverKill-Hill/tree/main/writings/first-diagram-is-a-liar/index.html" target="_blank" rel="noopener">GitHub — Page source ↗</a></li>
+                  </ul>
                 </div>
-                <p class="diagram-caption">
-                  Round 1 winner. Copilot earned it by operating at the renderer
-                  level — not just styling nodes, but configuring the theme engine itself.
-                </p>
               </div>
 
               <hr />
 
-              <!-- ── CLOSING ───────────────────────────── -->
-              <h2>The Thesis, Standing on Its Own</h2>
-
+              <h2 id="thesis">The Thesis, Standing on Its Own</h2>
               <p>
-                Words have a return. That return is measured in understanding, not
-                volume.
+                A picture can absolutely be worth more than the words that prompted it into existence.
               </p>
               <p>
-                A picture generated from 50 well-chosen words — genuinely clearer,
-                faster, and more universally grasped than the prose it replaced —
-                has just delivered a multiplier on your words' investment that no
-                paragraph can match.
+                Not because the words disappeared. Not because reading stopped mattering. But because the words were invested in a form that improved assimilation.
               </p>
               <p>
-                The question worth sitting with before your next explanation, your
-                next documentation, your next "let me walk you through this":
+                That is the work I keep circling back to at <strong>OverKill Hill P³™</strong>:
+                <strong>words → structure → systems → leverage</strong>.
+              </p>
+              <p>
+                The tools will keep changing. The interfaces will keep changing. The models will keep changing.
+                The question underneath them is not going away.
               </p>
 
               <div class="pull-quote">
-                <p>
-                  When is meaning best delivered as words — and when is it better
-                  delivered as the visual shape those words can bring into existence?
-                </p>
+                <p>When is meaning best delivered as words — and when is it better delivered as the visual shape those words can bring into existence?</p>
               </div>
 
               <p>
-                <em>This is the protoform. The council is still in session.</em>
+                This page is not the last version. It is the first version that has earned its permanence.
               </p>
 
-              <!-- ── ARTICLE CTA ────────────────────────── -->
               <div class="article-footer-cta">
                 <div>
-                  <h3>What's your worst ROY offender?</h3>
+                  <h3>Bring me your lowest-ROY artifact</h3>
                   <p>
-                    Drop a messy process you've never quite been able to explain
-                    clearly on
-                    <a
-                      href="https://www.linkedin.com/in/jamiehill75"
-                      target="_blank"
-                      rel="noopener"
-                      style="text-decoration:underline; color: var(--okh-amber);"
-                    >LinkedIn</a>. I'll tell you what kind of diagram fixes it. Publicly. For free.
+                    The process, deck, or explanation that takes the most words and lands the least understanding.
+                    Bring it to <a href="https://www.linkedin.com/in/jamiehill75" target="_blank" rel="noopener" style="text-decoration:underline; color: var(--okh-amber);">LinkedIn</a>.
+                    I’ll tell you what kind of diagram fixes it.
                   </p>
                 </div>
                 <div class="cta-actions">
-                  <a
-                    href="https://www.linkedin.com/company/overkillhillp3"
-                    class="btn btn-primary"
-                    target="_blank"
-                    rel="noopener"
-                  >Follow OKH P³™ ↗</a>
-                  <a
-                    href="https://mermaidchart.cello.so/UhVlNtC2MlS"
-                    class="btn btn-quiet"
-                    target="_blank"
-                    rel="noopener"
-                  >Try mermaid.live ↗</a>
+                  <a href="https://www.linkedin.com/company/overkillhillp3" class="btn btn-primary" target="_blank" rel="noopener">Follow OKH P³™ ↗</a>
+                  <a href="https://mermaid.live/" class="btn btn-quiet" target="_blank" rel="noopener">Try Mermaid Live ↗</a>
                 </div>
               </div>
 
             </article>
 
+
             <!-- ── SIDEBAR ───────────────────────────────────────── -->
+            
             <aside class="article-sidebar reveal-on-scroll">
 
               <div class="sidebar-widget">
-                <span class="series-badge">📄 Article Series</span>
-                <h4>This Article</h4>
+                <span class="series-badge">📄 Article Build</span>
+                <h4>This Page</h4>
                 <p>
-                  <strong style="color: var(--color-fg);">v0.1 — Protoform</strong><br/>
+                  <strong style="color: var(--color-fg);">v1.0 — Launch Cut</strong><br/>
                   The First Diagram Is Usually a Liar
                 </p>
                 <p>
-                  The Snyder Cut (full methodology, council scoring rubrics, diagram
-                  evolution, PowerPoint layer) is coming. This page will update.
+                  The protoform has been promoted into a public build: article,
+                  post, comment, archive links, and both winning diagrams.
                 </p>
+              </div>
+
+              <div class="sidebar-widget">
+                <h4>On This Page</h4>
+                <ul class="toc-list">
+                  <li><a href="#pivot">From Drawing to Modeling</a></li>
+                  <li><a href="#roy">ROY</a></li>
+                  <li><a href="#round1">Round 1 — Copilot</a></li>
+                  <li><a href="#council">Council of AIs</a></li>
+                  <li><a href="#round2">Round 2 — Claude</a></li>
+                  <li><a href="#artifacts">Launch Artifacts</a></li>
+                  <li><a href="#thesis">Thesis</a></li>
+                </ul>
               </div>
 
               <div class="sidebar-widget">
                 <h4>The Diagrams</h4>
                 <ul class="sidebar-links">
-                  <li>
-                    <a
-                      href="https://mermaid.ai/d/2e9a4321-6302-44ca-82cc-e2020479fdf5"
-                      target="_blank"
-                      rel="noopener"
-                    >V2 — Claude Synthesis ↗</a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://mermaid.ai/d/fade689d-cfd2-47d9-b316-86a21a0533fb"
-                      target="_blank"
-                      rel="noopener"
-                    >V1 — Copilot Winner ↗</a>
-                  </li>
-                  <li>
-                    <a href="https://mermaid.live" target="_blank" rel="noopener"
-                      >Try mermaid.live ↗</a>
-                  </li>
+                  <li><a href="https://mermaid.ai/d/fade689d-cfd2-47d9-b316-86a21a0533fb" target="_blank" rel="noopener">V1 — Copilot Winner ↗</a></li>
+                  <li><a href="https://mermaid.ai/d/2e9a4321-6302-44ca-82cc-e2020479fdf5" target="_blank" rel="noopener">V2 — Claude Synthesis ↗</a></li>
+                  <li><a href="https://mermaid.live/" target="_blank" rel="noopener">Mermaid Live ↗</a></li>
                 </ul>
               </div>
 
               <div class="sidebar-widget">
-                <h4>Council of AIs</h4>
+                <h4>Archive & Sources</h4>
+                <ul class="sidebar-links">
+                  <li><a href="https://www.notion.so/overkillhill/LinkedIn-Article-v1-0-The-First-Diagram-Is-Usually-a-Liar-1b54c13a418048ec899a5ad0e71f9f2b?source=copy_link" target="_blank" rel="noopener">Notion — Article v1.0 ↗</a></li>
+                  <li><a href="https://www.notion.so/overkillhill/ROY-Mermaid-LinkedIn-Post-Diagram-Competition-Thread-Archive-a2d6183ab6824104951649004ba5e97e?source=copy_link" target="_blank" rel="noopener">Notion — Competition archive ↗</a></li>
+                  <li><a href="https://github.com/OKHP3/OverKill-Hill/tree/main/writings/first-diagram-is-a-liar/index.html" target="_blank" rel="noopener">GitHub — Source file ↗</a></li>
+                  <li><a href="https://overkillhill.com/writings/first-diagram-is-a-liar/index.html" target="_blank" rel="noopener">Live page ↗</a></li>
+                </ul>
+              </div>
+
+              <div class="sidebar-widget">
+                <h4>Council Snapshot</h4>
                 <p>Six models. Same brief. Two rounds. One human orchestrator.</p>
                 <p>
                   Round 1 winner: <strong style="color: var(--okh-amber);">Copilot</strong><br />
-                  Round 2 synthesis: <strong style="color: var(--okh-amber);">Claude V2</strong>
+                  Round 2 winner: <strong style="color: var(--okh-amber);">Claude</strong><br />
+                  Synthesizer / archivist: <strong style="color: var(--okh-amber);">Notion</strong>
                 </p>
               </div>
 
@@ -1183,43 +1650,15 @@ flowchart TD
                 <h4>OverKill Hill P³™</h4>
                 <p>Precision · Protocol · Promptcraft</p>
                 <ul class="sidebar-links">
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/company/overkillhillp3"
-                      target="_blank"
-                      rel="noopener"
-                    >LinkedIn Company Page ↗</a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://glee-fully.tools"
-                      target="_blank"
-                      rel="noopener"
-                    >Glee-fully Tools™ ↗</a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://askjamie.bot"
-                      target="_blank"
-                      rel="noopener"
-                    >AskJamie™ Helpdesk ↗</a>
-                  </li>
-                  <li>
-                    <a href="https://overkillhill.com/#forge">The Forge ↗</a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="sidebar-widget">
-                <h4>Related</h4>
-                <ul class="sidebar-links">
-                  <li><a href="/writings/">All Writings</a></li>
-                  <li><a href="/manifesto/">The Manifesto</a></li>
-                  <li><a href="/projects/">Our Projects</a></li>
+                  <li><a href="https://www.linkedin.com/company/overkillhillp3" target="_blank" rel="noopener">LinkedIn Company Page ↗</a></li>
+                  <li><a href="https://glee-fully.tools" target="_blank" rel="noopener">Glee-fully Tools™ ↗</a></li>
+                  <li><a href="https://askjamie.bot" target="_blank" rel="noopener">AskJamie™ Helpdesk ↗</a></li>
+                  <li><a href="https://overkillhill.com/#forge" target="_blank" rel="noopener">The Forge ↗</a></li>
                 </ul>
               </div>
 
             </aside>
+
 
           </div><!-- /.article-layout -->
         </div><!-- /.container -->
