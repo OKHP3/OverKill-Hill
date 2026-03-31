@@ -2502,6 +2502,611 @@ html:has(
   color: var(--color-accent);
 }
 
+/* ===== ARTICLE-SPECIFIC STYLES ========================================== */
+/* "The First Diagram Is Usually a Liar" article layout and components */
+
+/* ── Article reading layout ──────────────────────────────────────────── */
+.article-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+@media (min-width: 1024px) {
+  .article-layout {
+    grid-template-columns: minmax(0, 2.4fr) minmax(240px, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+}
+
+/* ── Article hero ────────────────────────────────────────────────────── */
+.article-hero {
+  padding: 3.5rem 0 2rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+  margin-bottom: 0;
+}
+
+.article-eyebrow {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--okh-orange);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.article-eyebrow-sep {
+  color: var(--color-border-subtle);
+  opacity: 0.6;
+}
+
+.article-hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+
+.article-hero h1 em {
+  font-style: italic;
+  color: var(--okh-amber);
+}
+
+.article-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  max-width: 42rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.article-meta-author {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--color-fg);
+}
+
+.article-meta-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--color-muted);
+  opacity: 0.5;
+}
+
+/* ── Article body ────────────────────────────────────────────────────── */
+.article-body {
+  padding: 2.5rem 0 3rem;
+  max-width: 68ch;
+}
+
+.article-body p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.4rem;
+  color: #d1d5db;
+}
+
+.article-body h2 {
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-fg);
+  letter-spacing: 0.04em;
+}
+
+.article-body h3 {
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--okh-amber);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.article-body strong {
+  color: var(--color-fg);
+  font-weight: 600;
+}
+
+.article-body em {
+  color: var(--okh-amber);
+  font-style: italic;
+}
+
+.article-body hr {
+  border: none;
+  border-top: 1px solid var(--color-border-subtle);
+  margin: 2.5rem 0;
+}
+
+/* ── Pull quote ────────────────────────────────────────────────────── */
+.pull-quote {
+  border-left: 3px solid var(--okh-orange);
+  padding: 0.75rem 1.25rem;
+  margin: 2rem 0;
+  background: rgba(196, 106, 44, 0.06);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.pull-quote p {
+  font-size: 1.15rem !important;
+  font-style: italic;
+  color: var(--color-fg) !important;
+  margin-bottom: 0 !important;
+  line-height: 1.6 !important;
+}
+
+/* ── ROY formula callout ────────────────────────────────────────────── */
+.formula-block {
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border-subtle);
+  border-left: 3px solid var(--okh-amber);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.formula-block .formula-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--okh-amber);
+  margin-bottom: 0.5rem;
+}
+
+.formula-block .formula-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  margin: 0;
+}
+
+.formula-block .formula-sub {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  margin-top: 0.35rem;
+}
+
+/* ── Diagram section ────────────────────────────────────────────────── */
+.diagram-section {
+  margin: 2.5rem 0;
+}
+
+.diagram-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.diagram-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--okh-orange);
+  font-weight: 600;
+}
+
+.diagram-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.diagram-links a {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s;
+}
+
+.diagram-links a:hover {
+  color: var(--okh-amber);
+}
+
+.diagram-shell {
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+.diagram-caption {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin-top: 0.6rem;
+  font-style: italic;
+}
+
+/* ── Council callout card ────────────────────────────────────────────── */
+.council-card {
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border-subtle);
+  border-top: 3px solid var(--okh-teal);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  margin: 2.5rem 0;
+}
+
+.council-card-eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--okh-orange);
+  margin-bottom: 0.5rem;
+}
+
+.council-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  color: var(--color-fg);
+  font-family: var(--font-body) !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+
+.council-card p {
+  font-size: 0.92rem;
+  color: var(--color-muted);
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.council-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.council-pill {
+  font-size: 0.78rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-muted);
+  background: transparent;
+}
+
+.council-pill.winner {
+  border-color: var(--okh-amber);
+  color: var(--okh-amber);
+}
+
+/* ── Sidebar ────────────────────────────────────────────────────────── */
+.article-sidebar {
+  padding-top: 2.5rem;
+}
+
+.sidebar-widget {
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.sidebar-widget h4 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--okh-orange);
+  margin-bottom: 0.75rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.sidebar-widget p {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+}
+
+.sidebar-widget p:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-links li {
+  margin-bottom: 0.35rem;
+  font-size: 0.88rem;
+}
+
+.sidebar-links a {
+  color: var(--color-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.sidebar-links a:hover {
+  color: var(--okh-amber);
+}
+
+.series-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(196, 106, 44, 0.12);
+  border: 1px solid rgba(196, 106, 44, 0.3);
+  color: var(--okh-orange);
+  margin-bottom: 0.85rem;
+  font-weight: 600;
+}
+
+/* ── Article footer ────────────────────────────────────────────────── */
+.article-footer-cta {
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border-subtle);
+  border-top: 3px solid var(--okh-orange);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem;
+  margin-top: 3rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .article-footer-cta {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+}
+
+.article-footer-cta h3 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  color: var(--color-fg);
+  font-family: var(--font-body) !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+
+.article-footer-cta p {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.article-footer-cta .cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: fit-content;
+}
+
+/* ── Protoform notice ────────────────────────────────────────────────── */
+.protoform-notice {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  background: rgba(230, 160, 60, 0.06);
+  border: 1px dashed rgba(230, 160, 60, 0.35);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin: 2rem 0;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+.protoform-notice-icon {
+  font-size: 1rem;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+/* ── Breadcrumb ────────────────────────────────────────────────────── */
+.article-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.article-breadcrumb a {
+  color: var(--color-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-breadcrumb a:hover {
+  color: var(--okh-amber);
+}
+
+.article-breadcrumb .sep {
+  opacity: 0.4;
+}
+
+/* ── Progress bar (reading) ────────────────────────────────────────── */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--okh-orange), var(--okh-amber));
+  z-index: 100;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ── v1.0 additions ──────────────────────────────────────────────────– */
+.bullet-list {
+  padding-left: 1.2rem;
+  margin: 0 0 1.4rem;
+}
+
+.bullet-list li {
+  margin-bottom: 0.45rem;
+  color: #d1d5db;
+}
+
+.artifact-stack {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+}
+
+.artifact-card {
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.25rem;
+}
+
+.artifact-card h3 {
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 0.35rem;
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.artifact-card p:last-child {
+  margin-bottom: 0;
+}
+
+.code-drop {
+  margin-top: 0.9rem;
+  background: rgba(2, 6, 23, 0.42);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.code-drop summary {
+  cursor: pointer;
+  padding: 0.8rem 1rem;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--okh-amber);
+  list-style: none;
+}
+
+.code-drop summary::-webkit-details-marker {
+  display: none;
+}
+
+.code-drop pre {
+  margin: 0;
+  padding: 1rem 1.1rem 1.15rem;
+  overflow-x: auto;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #d1d5db;
+}
+
+.code-drop code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace;
+}
+
+.artifact-copy {
+  white-space: pre-wrap;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #d1d5db;
+  margin: 0;
+}
+
+.small-note {
+  font-size: 0.84rem;
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+.scorecard {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.scorecard-item {
+  border-left: 3px solid var(--okh-orange);
+  padding-left: 0.9rem;
+}
+
+.scorecard-item strong {
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-list li {
+  margin-bottom: 0.35rem;
+  font-size: 0.88rem;
+}
+
+.toc-list a {
+  color: var(--color-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.toc-list a:hover {
+  color: var(--okh-amber);
+}
+
+:root[data-theme="light"] .artifact-card,
+:root[data-theme="light"] .code-drop {
+  background: #f8fafc;
+}
+
+:root[data-theme="light"] .artifact-copy,
+:root[data-theme="light"] .code-drop pre,
+:root[data-theme="light"] .bullet-list li {
+  color: #0f172a;
+}
+}
+
 /* ============================================================
    Glee-fully under-construction overlay
    - Used on toolbox pages that are live-but-not-finished
