@@ -24,6 +24,15 @@
   --color-muted: var(--okh-gray);
   --color-accent: var(--okh-orange);
   --color-border-subtle: rgba(249, 250, 251, 0.08);
+  /* Mermaid theming – OverKill Hill (default) */
+  --mermaid-primary-color: #111827;
+  --mermaid-primary-text-color: #e5e7eb;
+  --mermaid-primary-border-color: #c46a2c;
+  --mermaid-line-color: #c46a2c;
+  --mermaid-secondary-color: #181f26;
+  --mermaid-tertiary-color: #1c3a34;
+  --mermaid-cluster-bg: #0d1117;
+  --mermaid-edge-label-bg: #181f26;
 
   /* Typography – OverKill Hill default */
   --font-heading: "Alfa Slab One", system-ui, -apple-system, BlinkMacSystemFont,
@@ -1397,6 +1406,16 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
   --color-muted: #6b6b6b;
   --color-accent: #2d6f7e;
   --color-border-subtle: #d7d7d7;
+  
+  /* Mermaid theming – AskJamie (teal + paper) */
+  --mermaid-primary-color: #fdfbf7;
+  --mermaid-primary-text-color: #2e2b29;
+  --mermaid-primary-border-color: #2d6f7e;
+  --mermaid-line-color: #2d6f7e;
+  --mermaid-secondary-color: #f6f2ee;
+  --mermaid-tertiary-color: #e1ecef;
+  --mermaid-cluster-bg: #f9f7f3;
+  --mermaid-edge-label-bg: #f6f2ee;
 
   --font-heading: "Baloo 2", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
@@ -1930,6 +1949,16 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
   --color-muted: #6b5e57;
   --color-accent: #d94f63;    /* Coral */
   --color-accent-2: #2d6f7e;  /* Teal */
+
+  /* Mermaid theming – Glee-fully (coral + cream) */
+  --mermaid-primary-color: #fffdfa;
+  --mermaid-primary-text-color: #2e2b29;
+  --mermaid-primary-border-color: #d94f63;
+  --mermaid-line-color: #d94f63;
+  --mermaid-secondary-color: #f6f2ee;
+  --mermaid-tertiary-color: #e5d9ce;
+  --mermaid-cluster-bg: #fffcf9;
+  --mermaid-edge-label-bg: #fff7f1;
 
   font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont,
     sans-serif;

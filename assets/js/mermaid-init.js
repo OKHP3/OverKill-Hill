@@ -2,16 +2,24 @@
 import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
 
 const styles = getComputedStyle(document.body);
-const surface =
-  styles.getPropertyValue("--color-surface").trim() || "#111827";
-const surfaceSoft =
-  styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
-const fg =
-  styles.getPropertyValue("--color-fg").trim() || "#e5e7eb";
-const accent =
-  styles.getPropertyValue("--color-accent").trim() || "#c46a2c";
-const muted =
-  styles.getPropertyValue("--color-muted").trim() || "#6b7280";
+
+// Read brand-specific Mermaid theming variables
+const mermaidPrimary =
+  styles.getPropertyValue("--mermaid-primary-color").trim() || "#111827";
+const mermaidPrimaryText =
+  styles.getPropertyValue("--mermaid-primary-text-color").trim() || "#e5e7eb";
+const mermaidBorder =
+  styles.getPropertyValue("--mermaid-primary-border-color").trim() || "#c46a2c";
+const mermaidLine =
+  styles.getPropertyValue("--mermaid-line-color").trim() || "#c46a2c";
+const mermaidSecondary =
+  styles.getPropertyValue("--mermaid-secondary-color").trim() || "#181f26";
+const mermaidTertiary =
+  styles.getPropertyValue("--mermaid-tertiary-color").trim() || "#1c3a34";
+const mermaidCluster =
+  styles.getPropertyValue("--mermaid-cluster-bg").trim() || "#0d1117";
+const mermaidEdgeLabel =
+  styles.getPropertyValue("--mermaid-edge-label-bg").trim() || "#181f26";
 const fontBody =
   styles.getPropertyValue("--font-body").trim() ||
   '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
@@ -21,18 +29,18 @@ mermaid.initialize({
   securityLevel: "loose",
   theme: "base",
   themeVariables: {
-    primaryColor: surface,
-    primaryTextColor: fg,
-    primaryBorderColor: accent,
-    lineColor: accent,
-    secondaryColor: surfaceSoft,
-    tertiaryColor: surfaceSoft,
-    textColor: fg,
+    primaryColor: mermaidPrimary,
+    primaryTextColor: mermaidPrimaryText,
+    primaryBorderColor: mermaidBorder,
+    lineColor: mermaidLine,
+    secondaryColor: mermaidSecondary,
+    tertiaryColor: mermaidTertiary,
+    textColor: mermaidPrimaryText,
     fontFamily: fontBody,
-    noteBkgColor: surface,
-    noteTextColor: muted,
-    clusterBkg: "#0d1117",
-    edgeLabelBackground: surfaceSoft,
+    noteBkgColor: mermaidSecondary,
+    noteTextColor: mermaidPrimaryText,
+    clusterBkg: mermaidCluster,
+    edgeLabelBackground: mermaidEdgeLabel,
   },
   flowchart: {
     curve: "basis",
