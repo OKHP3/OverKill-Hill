@@ -464,8 +464,7 @@ linkStyle 20 stroke:#7C3AED,stroke-width:2px,stroke-dasharray: 2 4</code></pre>
                   </details>
                 </div>
                 <p class="diagram-caption">
-                  Round 1 winner. Copilot earned it by operating at the renderer level — not just styling nodes,
-                  but configuring the theme engine itself.
+                  <em>Round 1 winner. Copilot earned it by operating at the renderer level — not just styling nodes, but configuring the theme engine itself.</em>
                 </p>
               </div>
 
@@ -724,7 +723,7 @@ Refine diagram · reframe post&quot;]:::revise
                   </details>
                 </div>
                 <p class="diagram-caption">
-                  Round 2 winner. Solid arrows = forward motion. Dashed arrows = the revision loops everyone always wants to hide.
+                  <em>Round 2 winner. Solid arrows = forward motion. Dashed arrows = the revision loops everyone always wants to hide.</em>
                 </p>
               </div>
 
@@ -1056,7 +1055,7 @@ If you’ve ever stared at a blank Visio page wondering how to force the thing i
         '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
 
       mermaid.initialize({
-        startOnLoad: true,
+        startOnLoad: false,
         securityLevel: "loose",
         theme: "base",
         themeVariables: {
@@ -1079,6 +1078,7 @@ If you’ve ever stared at a blank Visio page wondering how to force the thing i
           rankSpacing: 65
         }
       });
+      mermaid.run({ querySelector: ".mermaid" });
     </script>
 
     <!-- Analytics -->
