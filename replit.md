@@ -32,6 +32,32 @@ A pure static HTML/CSS/JS portfolio and documentation site for a "digital forge"
 └── CNAME               # Custom domain: overkillhill.com
 ```
 
+## SEO Status
+A comprehensive SEO audit and remediation pass has been completed across all pages.
+
+### robots.txt & sitemap.xml
+- `robots.txt`: Added at root, allows all crawlers, disallows `/under-construction.html`, references sitemap
+- `sitemap.xml`: Created with 9 indexable URLs only (home, about, contact, legal, manifesto, universe, projects/, bfs project, first-diagram article)
+
+### Canonical URLs
+All pages now have correct self-referencing canonical tags (no page points to the homepage incorrectly).
+
+### Under-Construction Pages (noindex)
+All incomplete pages carry `noindex, nofollow`:
+- `found-ry/`, `projects/abrahamic-reference-engine/`, `projects/hometools/`, `projects/pathscrib-r/`, `projects/un-nocked-truth/`, `writings/magnus-saga/`, `writings/biases-as-constants/`, `writings/index.html`, `prompt-forge/`, `404.html`, `under-construction.html`
+
+### OG Image URL Encoding
+All OG image URLs now use percent-encoded `%C2%B3` instead of raw Unicode `³` for maximum compatibility. Fixed across all HTML files.
+
+### Open Graph & Twitter Card Completeness
+All pages now carry: `og:site_name`, `og:locale`, `og:url`, `og:image` (encoded), `twitter:site`.
+
+### prompt-forge
+Rebuilt as a branded "coming soon" placeholder with proper header/footer/nav rather than a bare "Hello, World!".
+
+### writings/index.html
+Fixed to be a proper hub page (title "Writings & Essays", H1 "Writings from the Hill") — no longer a duplicate of the magnus-saga page.
+
 ## Running Locally
 The workflow "Start application" serves the site on port 5000:
 ```
