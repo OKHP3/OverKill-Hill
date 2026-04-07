@@ -219,7 +219,7 @@
 
             <!-- ── MAIN ARTICLE ─────────────────────────────────── -->
             
-            <article class="article-body reveal-on-scroll">
+            <article class="article-body">
 
               <div class="protoform-notice">
                 <span class="protoform-notice-icon">🚀</span>
@@ -343,18 +343,6 @@
                 </div>
                 <div class="diagram-shell">
                   <div class="mermaid">
----
-config:
-  theme: base
-  fontFamily: "Aptos, Segoe UI, Inter, Arial, sans-serif"
-  themeVariables:
-    primaryColor: "#EAF2FF"
-    primaryTextColor: "#14213D"
-    primaryBorderColor: "#325DCC"
-    lineColor: "#64748B"
-    secondaryColor: "#FFF7E8"
-    tertiaryColor: "#EEFDF3"
----
 flowchart TD
 S(("Spark ✨")):::spark --> T["👀 Notice text fatigue"]:::core
 T --> U{"Text alone enough?"}:::gate
@@ -362,7 +350,6 @@ U -->|Yes| P0["Stay in prose"]:::low
 U -->|No| A["Define the clarity we are buying"]:::core
 
 subgraph I1["Ideation / wording"]
-direction TD
 A --> B["Brain-dump angles"]:::core
 B --> C["Draft ugly first post"]:::draft
 C --> D{"Hook lands?"}:::gate
@@ -371,7 +358,6 @@ D -->|Yes| E["Ask LLM for Mermaid skeleton"]:::core
 end
 
 subgraph I2["Modeling / diagramming"]
-direction TD
 E --> F["Render V1 🧭"]:::draft
 F --> G{"Too tidy / too fake?"}:::gate
 G -->|Yes| H["Add forks, loops, dead ends"]:::risk
@@ -381,9 +367,7 @@ G -->|No| J["Diagram earns its space"]:::publish
 end
 
 subgraph I3["Post assembly / shipping"]
-direction TD
-J --> P["Write around diagram:
-Hook · thesis · proof · CTA"]:::core
+J --> P["Write around diagram:<br/>Hook · thesis · proof · CTA"]:::core
 P --> Q{"Clear and scannable?"}:::gate
 Q -->|No| I
 Q -->|Yes| R["Ship post + code + image set 🚀"]:::publish
@@ -543,83 +527,41 @@ linkStyle 20 stroke:#7C3AED,stroke-width:2px,stroke-dasharray: 2 4</code></pre>
                 </div>
                 <div class="diagram-shell">
                   <div class="mermaid">
----
-config:
-  theme: base
-  fontFamily: "DM Sans, Segoe UI, Inter, Arial, sans-serif"
-  themeVariables:
-    primaryColor: "#181f26"
-    primaryTextColor: "#e5e7eb"
-    primaryBorderColor: "#c46a2c"
-    lineColor: "#64748B"
-    secondaryColor: "#111827"
-    tertiaryColor: "#1c3a34"
-    edgeLabelBackground: "#111827"
-    clusterBkg: "#0d1117"
-    clusterBorder: "#2d3748"
----
 flowchart TD
 
   subgraph IGNITION ["⚡ Ignition — The Idea Finds You"]
-    direction TB
-    A(["💥 Spark
-30 min of prose · nobody read it
-30 sec of diagram · everyone got it"]):::spark
-    B[/"Hypothesis
-Not all pictures earn their words"/]:::think
-    C[["ROY Formula
-Clarity × Universality ÷ Words to generate"]]:::formula
+    A(["💥 Spark<br/>30 min of prose · nobody read it<br/>30 sec of diagram · everyone got it"]):::spark
+    B[/"Hypothesis<br/>Not all pictures earn their words"/]:::think
+    C[["ROY Formula<br/>Clarity × Universality ÷ Words to generate"]]:::formula
   end
 
   subgraph STRATEGY ["🧭 Strategy — Shape the Argument"]
-    direction TB
-    D{{"Does the
-framing hold?"}}:::gate
-    E["Sharpen it
-Refine the ratio metaphor"]:::revise
-    F(["✨ The Recursive Twist
-Diagram the post · inside the post"]):::insight
-    G{{"Too clever?
-Will readers get it
-or roll their eyes?"}}:::gate
-    H["Dial it back
-Lead with utility · not wit"]:::revise
+    D{{"Does the<br/>framing hold?"}}:::gate
+    E["Sharpen it<br/>Refine the ratio metaphor"]:::revise
+    F(["✨ The Recursive Twist<br/>Diagram the post · inside the post"]):::insight
+    G{{"Too clever?<br/>Will readers get it<br/>or roll their eyes?"}}:::gate
+    H["Dial it back<br/>Lead with utility · not wit"]:::revise
   end
 
   subgraph CRAFT ["✏️ Craft — Build the Thing"]
-    direction TB
-    I[["Medium
-LinkedIn · 3K char · images in post · code in comments"]]:::core
-    J[["Tool
-Mermaid — LLM-native · free · no design degree"]]:::core
-    K["Draft
-Hook → Thesis → Diagram → Proof → CTA"]:::core
+    I[["Medium<br/>LinkedIn · 3K char · images in post · code in comments"]]:::core
+    J[["Tool<br/>Mermaid — LLM-native · free · no design degree"]]:::core
+    K["Draft<br/>Hook → Thesis → Diagram → Proof → CTA"]:::core
     L{{"Hook landing?"}}:::gate
-    M["Kill the clever
-Find the honest"]:::revise
+    M["Kill the clever<br/>Find the honest"]:::revise
   end
 
   subgraph PROOF ["📐 Proof — The Diagram Earns Its Space"]
-    direction TB
-    N(["✏️ Embed It
-This post's own process = the example"]):::insight
-    O{{"Happy path?
-Does it show
-real ideation?"}}:::gate
-    P["Rebuild
-Add forks · loops · dead ends · honest wrong turns"]:::revise
+    N(["✏️ Embed It<br/>This post's own process = the example"]):::insight
+    O{{"Happy path?<br/>Does it show<br/>real ideation?"}}:::gate
+    P["Rebuild<br/>Add forks · loops · dead ends · honest wrong turns"]:::revise
   end
 
   subgraph SHIP ["🚀 Ship — Send It and Learn"]
-    direction TB
-    Q[["Publish
-Post + diagram image + code screenshot + raw Mermaid in comments"]]:::publish
-    R{{"Did the visual land
-faster than words alone?"}}:::gate
-    S(["✅ Thesis Confirmed
-The picture earned its words"]):::win
-    T["Iterate
-Refine diagram · reframe post"]:::revise
+    Q[["Publish<br/>Post + diagram image + code screenshot + raw Mermaid in comments"]]:::publish
+    R{{"Did the visual land<br/>faster than words alone?"}}:::gate
+    S(["✅ Thesis Confirmed<br/>The picture earned its words"]):::win
+    T["Iterate<br/>Refine diagram · reframe post"]:::revise
   end
 
   A --> B --> C --> D
@@ -965,7 +907,7 @@ If you’ve ever stared at a blank Visio page wondering how to force the thing i
 
             <!-- ── SIDEBAR ───────────────────────────────────────── -->
             
-            <aside class="article-sidebar reveal-on-scroll">
+            <aside class="article-sidebar">
 
               <div class="sidebar-widget">
                 <span class="series-badge">📄 Article Build</span>
@@ -1102,7 +1044,7 @@ If you’ve ever stared at a blank Visio page wondering how to force the thing i
         },
         "datePublished": "2026-03-17",
         "dateModified": "2026-03-17",
-        "image": "https://overkillhill.com/assets/img/OverKillHillP³-Sentinel-Waiting-Square-1024.png",
+        "image": "https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png",
         "url": "https://overkillhill.com/writings/first-diagram-is-a-liar/"
       }
     </script>

@@ -1341,6 +1341,20 @@ sentinel artwork used on this error page, we override two rules:
 .mermaid {
   max-width: 100%;
   display: block;
+  overflow: hidden;
+}
+
+/* Hide raw Mermaid code while the library processes it — prevents
+   long un-wrapped text lines from blowing out page width on load */
+.mermaid:not([data-processed="true"]) {
+  visibility: hidden;
+  min-height: 6rem;
+}
+
+/* Once processed, SVG is safe to show */
+.mermaid[data-processed="true"] {
+  visibility: visible;
+  overflow: visible;
 }
 
 /* Default OKH P³ look (body without askjamie-main / glee-main) */
@@ -2630,7 +2644,11 @@ html:has(
   font-size: 1.05rem;
   line-height: 1.8;
   margin-bottom: 1.4rem;
-  color: #d1d5db;
+  color: var(--color-fg);
+}
+
+:root[data-theme="light"] .article-body p {
+  color: #334155;
 }
 
 .article-body h2 {

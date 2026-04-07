@@ -1,5 +1,5 @@
 // Mermaid diagram initialization with theme variables
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.esm.min.mjs";
 
 const styles = getComputedStyle(document.body);
 
@@ -25,7 +25,7 @@ const fontBody =
   '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
 
 mermaid.initialize({
-  startOnLoad: true,
+  startOnLoad: false,
   securityLevel: "loose",
   theme: "base",
   themeVariables: {
@@ -46,5 +46,14 @@ mermaid.initialize({
     curve: "basis",
     nodeSpacing: 55,
     rankSpacing: 65,
+    htmlLabels: true,
   },
+});
+
+// Explicitly render all .mermaid elements — more reliable than startOnLoad
+// when loaded as an ES module at end-of-body
+mermaid.run({
+  querySelector: ".mermaid",
+}).catch((err) => {
+  console.warn("[mermaid-init] render error:", err);
 });
