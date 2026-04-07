@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block utility/template pages that are not content
+Disallow: /under-construction.html
+
+Sitemap: https://overkillhill.com/sitemap.xml
