@@ -1,0 +1,301 @@
+
+
+## Replit handoff prompt
+
+Update the page for:
+
+`/writings/first-diagram-is-a-liar/`
+
+Goal:
+Add a new section titled **“Prompts in the Wild”** that proves this project was driven by a **lightweight, high-velocity, natural-language prompting process** rather than heavy, overproduced “lab-grade” prompts.
+
+### Why this change matters
+
+The page already explains:
+
+* the thesis about ROY and visual compression
+* the Council of AIs
+* the Round 1 and Round 2 Mermaid winners
+* the launch artifacts
+
+What it does **not** yet show is the actual prompting process that initiated the work. Add a section that demonstrates:
+
+* the prompts were **real**
+* the prompts were **fairly consistent across the council**
+* the prompts were **lightly cleaned for readability only**
+* the prompts were **fast, spoken, iterative, and low-friction**
+* the process prioritized **velocity over premature prompt perfection**
+
+### Placement
+
+Insert the new section **after the Round 2 / Claude V2 discussion** and **before the “Launch Artifacts” section**.
+
+### New section title
+
+`## Prompts in the Wild`
+
+### Optional kicker / subtitle
+
+`### Velocity, iteration, and vibe over premature prompt perfection`
+
+### Tone requirements
+
+Match the existing page voice:
+
+* sharp
+* builder-minded
+* practical
+* slightly snarky
+* not academic
+* not apologetic
+
+### Structural requirements
+
+Add:
+
+1. A short intro explaining that the prompts were **not highly polished**, were **spoken/live-dictated**, and were **lightly edited only for readability**.
+2. A short block explaining that **prompt precision has a cost**, and that over-polishing prompts too early creates the same friction this workflow was meant to escape.
+3. A compact **fairness / caveats note**:
+
+   * core council members received materially similar direction
+   * Notion acted primarily as synthesizer / archivist / court reporter
+   * Replit arrived later and was not part of the initial apples-to-apples round
+   * Gemini was used on the free tier, while most others were running in paid environments
+4. Five prompt exhibits, each with:
+
+   * a short label
+   * one-sentence context
+   * the lightly cleaned prompt text in a code block or styled prompt blockquote
+   * one short sentence on why that prompt mattered
+
+### Use these five prompt exhibits
+
+Use lightly cleaned versions of these prompt stages:
+
+1. **The Seed** — the original ROI / picture-worth-words question
+2. **The Meta Turn** — the LinkedIn post/article becomes the subject of its own Mermaid diagram
+3. **The Happy-Path Lie** — add forks, loopbacks, conservative flair, and non-linear honesty
+4. **Voice and Brand Lock-In** — ask for tone-matched LinkedIn copy aligned to OverKill Hill / Glee-fully / AskJamie
+5. **The Council Becomes Formal** — the diagram contest and V2 challenge
+
+### Formatting requirements
+
+* Keep the section visually consistent with the rest of the page
+* Use existing article heading hierarchy
+* Use existing code / expandable styles if available
+* Make prompt blocks easy to scan on mobile
+* Avoid dumping all 8 prompts in full
+* Keep the section tight enough that it strengthens the page instead of bloating it
+
+### Exact intro copy to include or closely adapt
+
+**Prompts in the Wild**
+
+One of the points of this experiment is that the prompts were **not** highly polished.
+
+They were not lab-grade.
+They were not deeply pre-scripted.
+They were not engineered like final-form production assets.
+
+Most of them started as live dictation — quick, directional, natural-language prompts spoken in the moment while the idea was still moving.
+
+That matters.
+
+If every prompt had to be honed, polished, and weaponized before I could use it, the process would lose much of what made it valuable in the first place. The friction would rise. The mental cost would rise. The velocity would drop. And at some point I may as well go back to a traditional tool and manually draw the thing in Visio.
+
+That is part of the thesis here:
+
+**prompt precision has a cost.**
+
+Sometimes that cost is worth paying.
+Sometimes it is not.
+
+In exploratory work — especially when using Mermaid to sketch, iterate, and surface structure — I care less about crafting the perfect prompt and more about maintaining forward motion.
+
+These prompts were lightly edited for readability only. I corrected grammar, removed duplicate phrasing from live dictation, and trimmed some word overhead — but I intentionally preserved their original shape and intent.
+
+That is the point.
+
+**Prompting in practice is often fast, natural, and iterative.**
+
+### Exact fairness note to include or closely adapt
+
+**A note on fairness**
+
+The core council members received materially similar direction and deliverable expectations.
+
+A few caveats matter:
+
+* **Notion** acted primarily as synthesizer, archivist, and court reporter rather than as a voting peer.
+* **Replit** arrived later and was not part of the initial apples-to-apples round.
+* **Gemini** was run on the free tier, while most of the other council members were operating in paid environments.
+
+The point of the exercise was not laboratory perfection. It was **high-velocity comparative ideation with enough consistency to make the results useful**.
+
+### Prompt exhibit copy to insert
+
+Use these cleaned versions:
+
+#### Prompt 01 — The Seed
+
+**Context:** The idea started as a business-style ROI question, then bent toward pictures, words, and meaning.
+
+```text
+Thinking like a professor of business and investment, what is a realistic but attractive return on investment?
+
+There is an old adage that a picture is worth 1,000 words. If a diagram can be generated from words, what would be a good ROY — return on your words? If it takes more words to generate the picture than the picture returns in meaning, understanding, or compression, the investment may be poor. But if a picture created from words lands with more meaning than the words it took to create it, that seems valuable.
+
+What ratio of words to meaning, understanding, and structure makes this a good investment?
+```
+
+**Why it matters:** This prompt did not start with a deliverable. It started by finding the governing idea.
+
+#### Prompt 02 — The Meta Turn
+
+**Context:** The project becomes recursive: the post is about diagrams, and the diagram explains the making of the post.
+
+```text
+I’m considering a LinkedIn post/article about the visual value of pictures and understanding — specifically the value of Mermaid diagrams, Mermaid tooling, and the ability to create Mermaid diagrams with most LLMs.
+
+I want the post itself to include a Mermaid diagram showing the ideation process of creating the post. So the post would talk about the value of using words to generate pictures, and the picture would be the steps involved in writing the post itself.
+
+What are the steps in creating a LinkedIn post about visual value, visual ROI, and the way a picture can sometimes be worth less — or much more — than a thousand words?
+```
+
+**Why it matters:** This is where the work stopped being abstract and started becoming self-demonstrating.
+
+#### Prompt 03 — The Happy-Path Lie
+
+**Context:** The first diagram was too clean, so the prompt had to force honesty back into the structure.
+
+```text
+Ideation, thought, and writing are not perfectly linear. This initial Mermaid diagram shows a straight happy path from start to finish, but that is not honest.
+
+Generating a diagram from words involves revision. Revision involves forks and loopbacks — a non-happy path. So it would be better if the diagram showed a non-ideal path rather than a straight one, with slight visual flair: restrained color variation, selective arrow styling, subtle hierarchy, and conservative emoji use.
+
+Enough to add clarity and pizzazz, but not enough to become noise.
+```
+
+**Why it matters:** This is the moment the diagram stops being decorative and starts becoming truthful.
+
+#### Prompt 04 — Voice and Brand Lock-In
+
+**Context:** Once the structure was right, the output needed to sound like it belonged to the same builder and brand ecosystem.
+
+```text
+Create a tone-matched LinkedIn post that carries the same professional snark, swagger, and practical voice I tend to use. It should use strong hooks, good CTA structure, reinforce my brand, and drive interest toward OverKill Hill P³™, Glee-fully Personalizable Tools™, and AskJamie™.
+
+Here is a sample of my recent LinkedIn style and article voice…
+```
+
+**Why it matters:** The work had to be structurally sound and recognizably mine.
+
+#### Prompt 05 — The Council Becomes Formal
+
+**Context:** The process evolves from drafting into comparative judgment and synthesis.
+
+```text
+This is the final competition, an art contest where you judge your design against your peers.
+
+First: identify the winner that best depicts the theme and best uses the current features available within Mermaid to showcase the art of the possible.
+
+Second: learn from your self-evaluation and from your peers, then create a V2 that is more awe-inspiring for a LinkedIn audience.
+```
+
+**Why it matters:** This is where prompting stops being single-model generation and becomes council orchestration.
+
+### Implementation notes
+
+* Preserve existing spacing rhythm with `* * *` separators if that is how the page is structured
+* Add “Prompts in the Wild” to the “On This Page” list
+* Add anchors so the new section appears in internal page navigation
+* Keep the section above “Launch Artifacts” so the narrative flow becomes:
+
+  * thesis
+  * council
+  * V2 winner
+  * prompts behind the council
+  * launch assets
+  * thesis / CTA
+
+---
+
+## Diff / patch directions
+
+### 1. Insert new section between existing sections
+
+Find:
+
+* end of Round 2 wrap-up paragraph:
+
+  * “Round 2 winner. Solid arrows = forward motion. Dashed arrows = the revision loops everyone always wants to hide.”
+  * “This was the moment the experiment stopped being a gimmick and started behaving like a method. The diagrams were no longer just illustrating the argument. They were auditing it.”
+* then the next heading:
+
+  * `## Launch Artifacts`
+
+Insert the entire new `## Prompts in the Wild` section **before** `## Launch Artifacts`. This matches the page’s current structure, where “Launch Artifacts” starts immediately after the V2 wrap-up. ([OverKill Hill P³™][1])
+
+### 2. Update page table of contents / “On This Page”
+
+Add a new TOC item:
+
+* `Prompts in the Wild`
+
+Place it between:
+
+* `Round 2 — Claude`
+* and
+* `Thesis`
+
+because that is where the new section will live in the page hierarchy. The current TOC jumps directly from Round 2 to Thesis. ([OverKill Hill P³™][1])
+
+### 3. Add one short fairness note block
+
+Style it like a callout / aside / muted note if the site already has such a pattern. If not, use a bold lead-in paragraph:
+
+* `A note on fairness`
+
+### 4. Render prompt exhibits in a visually distinct style
+
+Preferred order:
+
+* short context line
+* prompt in a code block or stylized quote block
+* short “Why it matters” line
+
+If the page already uses collapsible “View code” sections for Mermaid, mirror that behavior with:
+
+* `View prompt`
+  or
+* `View cleaned prompt`
+
+### 5. Do not add all 8 prompts
+
+Only include the 5 prompt stages above. Keep the page readable.
+
+### 6. Preserve the article’s thesis
+
+Do not make the new section sound like a critique of the original prompts.
+It should reinforce:
+
+* speed
+* momentum
+* low-friction ideation
+* natural language
+* selective refinement
+* velocity over premature polish
+
+### 7. Optional visual enhancement
+
+If easy, add a small inline pull quote after the intro:
+
+> “A perfect prompt is not always a high-ROI prompt.”
+
+or
+
+> “I’m not optimizing every prompt for perfection. I’m optimizing the process for momentum.”
+
+---
+
+
