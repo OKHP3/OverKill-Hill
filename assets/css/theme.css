@@ -120,6 +120,18 @@ html[data-theme="light"] .stripe-bg {
   border-bottom: none;
 }
 
+/* Projects page: hero has no dark-band background, so restore readable text in light mode */
+html[data-theme="light"] .projects-main .hero {
+  color: var(--color-fg);
+}
+
+/* ── Card link hover: orange in both light and dark mode ──────────────── */
+.card a:hover,
+.card a:focus-visible {
+  color: var(--okh-orange);
+  text-decoration-color: var(--okh-orange);
+}
+
 /* Footer — hardcoded #020617 bg; keep all footer text readable */
 html[data-theme="light"] .site-footer {
   color: rgba(229, 231, 235, 0.75);
