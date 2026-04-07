@@ -1,0 +1,87 @@
+You are updating the public website for overkillhill.com. Your job is to make every affected OverKill Hill page feel public-facing, trustworthy, and launch-ready, while preserving the brand voice: sharp, crafted, systems-minded, and intentionally in-progress without looking sloppy.
+
+PRIMARY OBJECTIVE
+Bring the OverKill Hill site to a “safe to drive traffic to” state, with special focus on:
+1. homepage
+2. writings landing page
+3. writings/first-diagram-is-a-liar/index.html
+
+CRITICAL ISSUES TO FIX
+
+A) HOMEPAGE
+The “Fresh from the Forge” section still contains placeholder content:
+- “Example: Protocol Library outline published”
+- “Use this slot to call out whatever just shipped”
+This must be removed immediately.
+
+Replace that entire milestone block with a real current milestone tied to live work. Use “The First Diagram Is Usually a Liar is live” as the featured milestone, with a short real description and a CTA linking to the article page.
+
+Keep the existing “Active build zone” concept, but ensure the page reads like intentional transparency, not unfinished scaffolding.
+
+B) FIRST-DIAGRAM ARTICLE PAGE
+The live article page is still showing an older protoform draft and stale date metadata. Replace the entire article body with the latest approved v0.1 article content. Update the date and metadata so they are current and intentional.
+
+Use only TWO featured diagrams in v0.1:
+1. Copilot V1 as the first-round featured proof
+2. Claude V2 as the second-round featured proof
+
+Do not include extra gallery clutter in the main body for now.
+
+Add short italic captions beneath each image explaining why each diagram earned its place in the article.
+
+C) RENDERING BUG
+The current article page is dumping raw Mermaid/config text directly into the public article body. This must be eliminated completely.
+
+Do one of the following:
+- replace public Mermaid source blocks with static PNG/WebP images, OR
+- render Mermaid properly if stable and visually clean, but do not expose raw config/source inline
+
+If you want to preserve source access, move it to a secondary “View source / Open in Mermaid” link or collapsible code area outside the main reading flow.
+
+D) WRITINGS LANDING PAGE
+Audit and clean the writings index page so it no longer feels like a recycled or placeholder page.
+It should feel like a real archive / index for essays and field notes.
+Feature “The First Diagram Is Usually a Liar” clearly as the lead article.
+
+E) SITE-WIDE HYGIENE
+Search all OverKill Hill pages for:
+- “Example:”
+- “Use this slot”
+- placeholder copy
+- internal production notes
+- stale protoform scaffolding
+- stale dates
+- anything that reads like workshop-only text
+Remove or replace all of it.
+
+CONTENT / VOICE RULES
+- Keep the voice crisp, architectural, and thoughtful
+- Do not make the site sound generic or corporate
+- Do not over-explain
+- It is okay to signal that the site is actively being built, but it must still feel intentional and credible
+- Preserve the OverKill Hill brand identity: Precision · Protocol · Promptcraft
+
+ARTICLE-SPECIFIC CONTENT RULES
+The article page should reflect the final public v0.1 framing:
+- first diagram is usually a liar
+- ROY = Return on Your Words
+- diagrams earn their place when they reduce ambiguity
+- Mermaid made diagrams cheap enough to draft, test, and revise
+- the Council of AIs surfaced structure by comparing disagreement
+- the article is a protoform that will evolve in public, but that future-facing language should stay concise and editorial, not messy or overly self-referential
+
+DESIGN / UX RULES
+- no raw config dumps
+- no placeholder sections
+- no trust-breaking template residue
+- no internal notes visible in right-side panels or helper regions
+- homepage CTA buttons must point to meaningful destinations
+- article pages should look finished enough to share publicly right now
+
+DELIVERABLES
+1. Update homepage content and milestone section
+2. Update writings landing page
+3. Replace and clean the first-diagram article page
+4. Remove raw Mermaid rendering issues
+5. Audit all overkillhill.com pages for placeholder/scaffold leakage
+6. Return a concise summary of exactly what was changed, page by page

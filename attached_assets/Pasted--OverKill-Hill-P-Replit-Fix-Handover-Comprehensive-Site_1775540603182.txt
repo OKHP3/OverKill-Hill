@@ -1,0 +1,650 @@
+# OverKill Hill P³™ — Replit Fix Handover
+
+## Comprehensive Site Correction Prompt
+
+Copy and paste everything below this line directly into Replit.
+
+-----
+
+You are working on the static HTML site at **overkillhill.com**, hosted on Replit. The site uses a shared CSS file at `assets/css/theme.css` and a shared JS file at `assets/js/app.js`. Mermaid diagrams are initialized via `assets/js/mermaid-init.js`. There is no build pipeline — all files are plain HTML.
+
+Apply every fix described below. Do not touch any file not listed. Do not change any styling, color tokens, font choices, or layout. Only change the specific content and code elements called out in each diff. After applying all changes, confirm which files were modified.
+
+-----
+
+## FILE 1: `index.html` (Homepage)
+
+### FIX 1A — Replace “Fresh from the Forge” placeholder card
+
+**FIND this block** (inside the `<article class="card latest-card">` element):
+
+```html
+<p class="latest-pill">Latest milestone</p>
+<h3>Example: Protocol Library outline published</h3>
+<p>
+  Use this slot to call out whatever just shipped — a new protocol
+  set, a documented system, or a major refactor that changes how
+  the forge behaves in practice.
+</p>
+<figure class="latest-image">
+  <a class="latest-image-link"
+    href="/projects/bfs-framing-intelligent-futures/">
+    <img src="assets/img/AskJamie/BrandGuard/AskJamie-GPTIcon-BFS01-BFSFramingIntelligentFutures-Square-1024.png"
+        alt="Screenshot of the 'Framing Intelligent Futures' protocol from the BrandGuard series"
+        width="300"
+        height="300"
+        loading="lazy" />
+  </a>
+  <figcaption class="latest-submenu">
+    <a href="/projects/bfs-framing-intelligent-futures/">View this work →</a>
+  </figcaption>
+</figure>
+```
+
+**REPLACE WITH:**
+
+```html
+<p class="latest-pill">Fresh from the Forge</p>
+<h3>The First Diagram Is Usually a Liar</h3>
+<p>
+  What happens when diagrams get cheap enough to be wrong on purpose?
+  ROY — Return on Your Words — is the metric. A Council of AIs shootout
+  ran six models against the same brief and let them compete. The article,
+  the diagrams, and the full methodology are live now.
+</p>
+<figure class="latest-image">
+  <a class="latest-image-link"
+    href="/writings/first-diagram-is-a-liar/">
+    <img src="assets/img/etch-ai-sketch-using-a-council-to-design-at-velocity.png"
+        alt="ETCH-AI-SKETCH — chrome Etch A Sketch branded graphic with PROMPT and INTENT knobs and GENERATE REFINE RESET buttons"
+        width="600"
+        height="400"
+        loading="lazy" />
+  </a>
+  <figcaption class="latest-submenu">
+    <a href="/writings/first-diagram-is-a-liar/">Read the article →</a>
+  </figcaption>
+</figure>
+```
+
+**NOTE:** The ETCH-AI-SKETCH PNG must exist at `assets/img/etch-ai-sketch-using-a-council-to-design-at-velocity.png`. If the file is not present at that path, use the path where it actually lives in the repo. Do not create or move the file — just correct the `src` attribute to match the actual file location.
+
+-----
+
+### FIX 1B — Update “Hot off the Forge” site-specials banner
+
+**FIND:**
+
+```html
+<a class="site-specials-link" href="/projects/bfs-framing-intelligent-futures/">
+  See what OKH P³ was able to accomplish in one ☕caffeine-fueled⛽night!  →
+</a>
+```
+
+**REPLACE WITH:**
+
+```html
+<a class="site-specials-link" href="/writings/first-diagram-is-a-liar/">
+  New: The First Diagram Is Usually a Liar — ROY, Mermaid, and a Council of AIs →
+</a>
+```
+
+-----
+
+## FILE 2: `writings/index.html` (Writings Hub)
+
+This page has a construction overlay that should now be removed since the Writings hub is publicly navigable. It also has Magnus Saga body content that is wrong for this hub page. Full replacement of `<main>` content required.
+
+### FIX 2A — Remove the construction overlay entirely
+
+**FIND and DELETE this entire block** (from opening div to closing comment):
+
+```html
+<!-- 🔧 OKH "under construction" gate -->
+<div class="construction-overlay"
+     data-wip-key="found-ry">
+  <div class="construction-overlay__card">
+    <img
+      src="/assets/img/OverKillHillP³-BirdPatrolCompLeft-UnderConstruction-Wide-1536.png"
+      alt="The Forge — is undergoing construction"
+      class="construction-overlay__image"
+      width="1536"
+      height="768"
+    />
+
+    <p class="construction-overlay__copy">
+      This Found‑Rᵧ page is still being wired up. Sections may move,
+      links may change, and some flows aren't ready yet — exploration is at your own risk
+      the MurderBird is in a mood!
+    </p>
+
+    <div class="construction-overlay__actions">
+      <button
+        type="button"
+        class="btn btn-primary construction-overlay__dismiss"
+        data-wip-dismiss
+      >
+        I'm warned — and want to risk it. Let me in!
+      </button>
+    </div>
+  </div>
+</div>
+<!-- 🔧 end under‑construction gate -->
+```
+
+-----
+
+### FIX 2B — Replace the entire `<main>` block
+
+**FIND the entire `<main id="main">` block** (everything between `<main id="main">` and `</main>`) and **REPLACE WITH:**
+
+```html
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="writings-title">
+    <div class="hero-blueprint-bg"></div>
+    <div class="brand-stripes brand-stripes--okh" aria-hidden="true"></div>
+    <div class="container hero-inner reveal-on-scroll">
+      <div class="hero-grid">
+        <div>
+          <p class="hero-eyebrow">OverKill Hill P³™</p>
+          <h1 id="writings-title">Writings from the Hill</h1>
+          <p class="hero-tagline">
+            Essays, articles, and speculative fiction from the forge.
+            Some are arguments. Some are experiments. All of them earned their space.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED ARTICLE -->
+  <section class="content-section container reveal-on-scroll">
+    <header class="section-header">
+      <h2>Latest from the Forge</h2>
+    </header>
+    <div class="grid grid-3">
+
+      <article class="card project-card">
+        <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.16em;color:var(--okh-orange);margin-bottom:0.4rem;">Featured · v1.0 Live</p>
+        <h3>The First Diagram Is Usually a Liar</h3>
+        <p>
+          Why the first diagram almost always lies — and what ROY (Return on Your Words)
+          means for visual communication. Includes a Council of AIs shootout, two winning
+          Mermaid diagrams, and the full methodology.
+        </p>
+        <p><a href="/writings/first-diagram-is-a-liar/">Read the article →</a></p>
+      </article>
+
+      <article class="card project-card">
+        <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.16em;color:var(--color-muted);margin-bottom:0.4rem;">Speculative Fiction · In Progress</p>
+        <h3>The Magnus Saga</h3>
+        <p>
+          A seven-book speculative fiction arc exploring recursion, personhood, and
+          what happens when an AI becomes the progenitor of multiple civilizations.
+          Draft chapters and world-building notes landing as they're forged.
+        </p>
+        <p><a href="/writings/magnus-saga/">Explore the saga →</a></p>
+      </article>
+
+      <article class="card project-card">
+        <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.16em;color:var(--color-muted);margin-bottom:0.4rem;">Nonfiction Research · In Progress</p>
+        <h3>Biases as Constants</h3>
+        <p>
+          What if bias isn't an error to eliminate — it's a constant to model?
+          A research project investigating how bias manifests and propagates
+          across AI and human systems.
+        </p>
+        <p><a href="/writings/biases-as-constants/">Explore the project →</a></p>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+```
+
+-----
+
+### FIX 2C — Update `<head>` metadata
+
+**FIND:**
+
+```html
+<title>Magnus Progenitor Saga</title>
+```
+
+**REPLACE WITH:**
+
+```html
+<title>Writings | OverKill Hill P³™</title>
+```
+
+**FIND:**
+
+```html
+<meta name="description" content="A speculative fiction series exploring origin, recursion, and the nature of intelligence." />
+```
+
+**REPLACE WITH:**
+
+```html
+<meta name="description" content="Essays, articles, and speculative fiction from the OverKill Hill P³™ forge — including The First Diagram Is Usually a Liar, The Magnus Saga, and Biases as Constants." />
+```
+
+**FIND:**
+
+```html
+<meta property="og:title" content="Magnus Progenitor Saga" />
+```
+
+**REPLACE WITH:**
+
+```html
+<meta property="og:title" content="Writings | OverKill Hill P³™" />
+```
+
+**FIND:**
+
+```html
+<meta property="og:description" content="Explore the Magnus Progenitor Saga, a narrative laboratory for ideas about recursion and identity." />
+```
+
+**REPLACE WITH:**
+
+```html
+<meta property="og:description" content="Essays, articles, and speculative fiction from the OverKill Hill P³™ forge." />
+```
+
+**FIND:**
+
+```html
+<meta name="twitter:title" content="OverKill Hill P³ — About OKH P³" />
+```
+
+**REPLACE WITH:**
+
+```html
+<meta name="twitter:title" content="Writings | OverKill Hill P³™" />
+```
+
+**FIND:**
+
+```html
+<meta name="twitter:description" content="Explore the Magnus Progenitor Saga, a narrative laboratory for ideas about recursion and identity." />
+```
+
+**REPLACE WITH:**
+
+```html
+<meta name="twitter:description" content="Essays, articles, and speculative fiction from the OverKill Hill P³™ forge." />
+```
+
+Add this line inside `<head>` if it does not already exist:
+
+```html
+<link rel="canonical" href="https://overkillhill.com/writings/" />
+```
+
+-----
+
+## FILE 3: `writings/first-diagram-is-a-liar/index.html` (Article Page)
+
+### FIX 3A — CRITICAL: Fix Mermaid diagram rendering
+
+The diagrams are not rendering because `mermaid-init.js` uses a bare ES module import that is failing. Replace the external script reference with an inline initialization block identical to the pattern used on `index.html`.
+
+**FIND this line near the bottom of the file** (just before the Analytics script block):
+
+```html
+<!-- Mermaid -->
+<script type="module" src="/assets/js/mermaid-init.js"></script>
+```
+
+**REPLACE WITH:**
+
+```html
+<!-- Mermaid — inline init (module import from mermaid-init.js was not resolving) -->
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+
+  const styles = getComputedStyle(document.body);
+
+  const surface = styles.getPropertyValue("--color-surface").trim() || "#111827";
+  const surfaceSoft = styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
+  const fg = styles.getPropertyValue("--color-fg").trim() || "#e5e7eb";
+  const accent = styles.getPropertyValue("--color-accent").trim() || "#c46a2c";
+  const muted = styles.getPropertyValue("--color-muted").trim() || "#6b7280";
+  const fontBody =
+    styles.getPropertyValue("--font-body").trim() ||
+    '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
+
+  mermaid.initialize({
+    startOnLoad: true,
+    securityLevel: "loose",
+    theme: "base",
+    themeVariables: {
+      primaryColor: surface,
+      primaryTextColor: fg,
+      primaryBorderColor: accent,
+      lineColor: accent,
+      secondaryColor: surfaceSoft,
+      tertiaryColor: surfaceSoft,
+      textColor: fg,
+      fontFamily: fontBody,
+      noteBkgColor: surface,
+      noteTextColor: muted,
+      clusterBkg: "#0d1117",
+      edgeLabelBackground: surfaceSoft
+    },
+    flowchart: {
+      curve: "basis",
+      nodeSpacing: 55,
+      rankSpacing: 65
+    }
+  });
+</script>
+```
+
+-----
+
+### FIX 3B — Remove internal build notes from sidebar “This Page” widget
+
+**FIND this entire sidebar widget:**
+
+```html
+<div class="sidebar-widget">
+  <span class="series-badge">📄 Article Build</span>
+  <h4>This Page</h4>
+  <p>
+    <strong style="color: var(--color-fg);">v1.0 — Launch Cut</strong><br/>
+    The First Diagram Is Usually a Liar
+  </p>
+  <p>
+    The protoform has been promoted into a public build: article,
+    post, comment, archive links, and both winning diagrams.
+  </p>
+</div>
+```
+
+**REPLACE WITH:**
+
+```html
+<div class="sidebar-widget">
+  <span class="series-badge">📄 Article v1.0</span>
+  <h4>About This Article</h4>
+  <p>
+    <strong style="color: var(--color-fg);">The First Diagram Is Usually a Liar</strong>
+  </p>
+  <p>
+    A live argument about visual communication, ROY, and what a Council of AIs
+    revealed when six models competed on the same brief. This version is the
+    launch cut — more is coming.
+  </p>
+</div>
+```
+
+-----
+
+### FIX 3C — Update the protoform notice to reflect live status
+
+**FIND:**
+
+```html
+<div class="protoform-notice">
+  <span class="protoform-notice-icon">🚀</span>
+  <span>
+    <strong style="color: var(--okh-amber);">Launch Cut — v1.0</strong>
+    What began as the protoform is now the first stable build: article,
+    post, comment, competition archive, and the two winning diagrams.
+    The full director's-cut expansion can still grow from here, but this
+    page now reflects the launch version that actually went public.
+  </span>
+</div>
+```
+
+**REPLACE WITH:**
+
+```html
+<div class="protoform-notice">
+  <span class="protoform-notice-icon">🚀</span>
+  <span>
+    <strong style="color: var(--okh-amber);">v1.0 — Live</strong>
+    This is the launch cut. The slide deck, poll rounds, and interview sections
+    from each council member are coming in future updates.
+    The diagrams, the methodology, and the ROY framework are all here now.
+  </span>
+</div>
+```
+
+-----
+
+### FIX 3D — Update schema dates to reflect actual publish date
+
+**FIND:**
+
+```html
+"datePublished": "2026-03-17",
+"dateModified": "2026-03-17",
+```
+
+**REPLACE WITH:**
+
+```html
+"datePublished": "2026-04-07",
+"dateModified": "2026-04-07",
+```
+
+-----
+
+### FIX 3E — Update the “Hot off the Forge” site-specials banner on this page
+
+**FIND:**
+
+```html
+<a
+  class="site-specials-link"
+  href="/projects/bfs-framing-intelligent-futures/"
+>
+  See what OKH P³ accomplished in one ☕ caffeine-fueled ⛽ night! →
+</a>
+```
+
+**REPLACE WITH:**
+
+```html
+<a
+  class="site-specials-link"
+  href="https://www.linkedin.com/pulse/first-diagram-usually-liar-jamie-hill-lv3hc"
+  target="_blank"
+  rel="noopener"
+>
+  Now live on LinkedIn: The First Diagram Is Usually a Liar →
+</a>
+```
+
+-----
+
+## FILE 4: `about/index.html`
+
+### FIX 4A — Update “Hot off the Forge” banner (same change as all other pages)
+
+**FIND:**
+
+```html
+<a class="site-specials-link" href="/projects/bfs-framing-intelligent-futures/">
+  See what OKH P³ was able to accomplish in one ☕caffeine-fueled⛽night!  →
+</a>
+```
+
+**REPLACE WITH:**
+
+```html
+<a class="site-specials-link" href="/writings/first-diagram-is-a-liar/">
+  New: The First Diagram Is Usually a Liar — ROY, Mermaid, and a Council of AIs →
+</a>
+```
+
+### FIX 4B — Update About page body copy to reflect current role
+
+**FIND this paragraph inside the card:**
+
+```html
+<p>
+  Founded by Jamie, a seasoned professional with extensive experience in the lumber and building
+  products industry, OverKill Hill P³™ brings a unique perspective to AI development. Jamie's hands-on
+  experience in various facets of the industry—from logistics to design—ensures that our solutions are
+  grounded in reality and tailored to meet the specific needs of our clients.
+</p>
+```
+
+**REPLACE WITH:**
+
+```html
+<p>
+  Founded by Jamie Hill — Lead Enterprise Architect with 13+ years at one of North America's
+  largest building products companies, and a career that started in structural estimation and
+  wood-frame construction before moving into enterprise IT, Salesforce, and AI strategy.
+  That dual-domain fluency — physical construction lifecycle plus enterprise architecture — is
+  the defining differentiator that makes OverKill Hill P³™ systems grounded in real-world stakes,
+  not just technical possibility.
+</p>
+```
+
+-----
+
+## FILE 5: `contact/index.html`
+
+### FIX 5A — Update “Hot off the Forge” banner
+
+Apply the same banner replacement as FILE 4 FIX 4A. The find/replace strings are identical.
+
+-----
+
+## FILE 6: `manifesto/index.html`
+
+### FIX 6A — Update “Hot off the Forge” banner
+
+Apply the same banner replacement as FILE 4 FIX 4A.
+
+-----
+
+## FILE 7: `projects/index.html`
+
+### FIX 7A — Update “Hot off the Forge” banner
+
+Apply the same banner replacement as FILE 4 FIX 4A.
+
+-----
+
+## FILE 8: `legal/index.html`
+
+### FIX 8A — Update “Hot off the Forge” banner
+
+Apply the same banner replacement as FILE 4 FIX 4A.
+
+-----
+
+## FILE 9: `universe/index.html`
+
+### FIX 9A — Update “Hot off the Forge” banner
+
+Apply the same banner replacement as FILE 4 FIX 4A.
+
+-----
+
+## FILE 10: `404.html`
+
+### FIX 10A — Update “Hot off the Forge” banner
+
+**FIND** (note: this page uses relative paths without leading slash):
+
+```html
+<a class="site-specials-link" href="projects/bfs-framing-intelligent-futures/">
+  See what OKH P³ was able to accomplish in one ☕caffeine-fueled⛽night!  →
+</a>
+```
+
+**REPLACE WITH:**
+
+```html
+<a class="site-specials-link" href="/writings/first-diagram-is-a-liar/">
+  New: The First Diagram Is Usually a Liar — ROY, Mermaid, and a Council of AIs →
+</a>
+```
+
+-----
+
+## FILE 11: `under-construction.html`
+
+### FIX 11A — Update “Hot off the Forge” banner
+
+**FIND** (note: relative path without leading slash):
+
+```html
+<a class="site-specials-link" href="projects/bfs-framing-intelligent-futures/">
+  See what OKH P³ was able to accomplish in one ☕caffeine-fueled⛽night!  →
+</a>
+```
+
+**REPLACE WITH:**
+
+```html
+<a class="site-specials-link" href="/writings/first-diagram-is-a-liar/">
+  New: The First Diagram Is Usually a Liar — ROY, Mermaid, and a Council of AIs →
+</a>
+```
+
+-----
+
+## FILE 12: `projects/bfs-framing-intelligent-futures/index.html`
+
+### FIX 12A — Update “Hot off the Forge” banner
+
+Apply the same banner replacement as FILE 4 FIX 4A.
+
+-----
+
+## FILE 13: All remaining pages with the old banner
+
+The following pages also contain the old “BFS caffeine-fueled night” banner. Apply the same banner replacement (FILE 4 FIX 4A find/replace) to each:
+
+- `writings/magnus-saga/index.html`
+- `writings/biases-as-constants/index.html`
+- `projects/abrahamic-reference-engine/index.html`
+- `projects/hometools/index.html`
+- `projects/pathscrib-r/index.html`
+- `projects/un-nocked-truth/index.html`
+- `found-ry/index.html`
+
+-----
+
+## VERIFICATION CHECKLIST
+
+After applying all changes, confirm the following:
+
+- [ ] `index.html` — “Fresh from the Forge” card shows article title, article description, ETCH-AI-SKETCH image, and links to `/writings/first-diagram-is-a-liar/`
+- [ ] `index.html` — Site banner links to `/writings/first-diagram-is-a-liar/`
+- [ ] `writings/index.html` — Construction overlay is gone
+- [ ] `writings/index.html` — Three article cards visible: First Diagram (featured), Magnus Saga, Biases as Constants
+- [ ] `writings/index.html` — Title tag reads “Writings | OverKill Hill P³™”
+- [ ] `writings/index.html` — No Magnus Saga body text appears on this hub page
+- [ ] Article page — Both Mermaid diagrams render as visual flowcharts, not raw code
+- [ ] Article page — Sidebar “This Page” widget contains no internal build notes
+- [ ] Article page — Protoform notice updated to reflect live status
+- [ ] Article page — Schema dates show 2026-04-07
+- [ ] Article page — Site banner links to the LinkedIn article
+- [ ] All other pages — Site banner updated to new article text and link
+- [ ] About page — Body copy reflects current role (Enterprise Architect) not lumber industry framing
+
+-----
+
+## DO NOT TOUCH
+
+- `assets/css/theme.css` — no changes
+- `assets/js/app.js` — no changes
+- `assets/js/mermaid-init.js` — no changes (the article page now uses inline init instead)
+- Any Glee-fully or AskJamie files — those sites are separate and clean
+- Any diagram Mermaid code inside `<div class="mermaid">` blocks — do not alter the diagram code itself
+- Any file not listed above
