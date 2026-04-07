@@ -113,6 +113,13 @@ html[data-theme="light"] .hero-forge-card {
   color: #e5e7eb;
 }
 
+/* "Projects from the forge" dark strip — remove separation in light mode */
+html[data-theme="light"] .stripe-bg {
+  background: none;
+  border-top: none;
+  border-bottom: none;
+}
+
 /* Footer — hardcoded #020617 bg; keep all footer text readable */
 html[data-theme="light"] .site-footer {
   color: rgba(229, 231, 235, 0.75);
