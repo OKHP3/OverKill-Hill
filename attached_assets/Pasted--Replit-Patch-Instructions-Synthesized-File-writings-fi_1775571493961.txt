@@ -1,0 +1,324 @@
+# Replit Patch Instructions — Synthesized
+## File: `writings/first-diagram-is-a-liar/index.html`
+## Change: Add "Prompts in the Wild" section
+
+Synthesized from two independent instruction sets (Claude + ChatGPT).
+Claude's technical implementation pattern. ChatGPT's intro copy and
+five-prompt curation. Best of both.
+
+---
+
+## ONE FILE ONLY
+
+`writings/first-diagram-is-a-liar/index.html`
+
+Do not touch any other file. Do not change any CSS, JS, nav, header,
+footer, sidebar, or existing article sections. Only make the two changes
+described below: (1) insert the new section, and (2) update the sidebar TOC.
+
+---
+
+## CHANGE 1 — INSERT NEW SECTION
+
+### Exact anchor — find this string in the HTML:
+
+```html
+<h2 id="artifacts">Launch Artifacts &amp; Archive Trail</h2>
+```
+
+Insert the entire block below IMMEDIATELY BEFORE that `<h2>` tag.
+The result should read:
+
+```
+[NEW SECTION]
+<hr />
+<h2 id="artifacts">Launch Artifacts &amp; Archive Trail</h2>
+```
+
+---
+
+### THE BLOCK TO INSERT — copy exactly as written:
+
+```html
+<hr />
+
+<h2 id="prompts">Prompts in the Wild</h2>
+<h3 style="font-family: var(--font-body); font-weight: 600; font-size: 1rem; text-transform: none; letter-spacing: 0; color: var(--color-muted); margin-top: -0.5rem; margin-bottom: 1.5rem;">Velocity, iteration, and vibe over premature prompt perfection</h3>
+
+<p>
+  One of the points of this experiment is that the prompts were <strong>not</strong> highly polished.
+</p>
+<p>
+  They were not lab-grade.<br />
+  They were not deeply pre-scripted.<br />
+  They were not engineered like final-form production assets.
+</p>
+<p>
+  Most of them started as live dictation — quick, directional, natural-language prompts
+  spoken in the moment while the idea was still moving.
+</p>
+<p>That matters.</p>
+<p>
+  If every prompt had to be honed, polished, and weaponized before use, the process would
+  lose much of what made it valuable. The friction would rise. The mental cost would rise.
+  The velocity would drop. At some point the tooling tax is back — just wearing a different
+  costume. May as well open Visio.
+</p>
+
+<div class="pull-quote">
+  <p>Prompt precision has a cost. Sometimes that cost is worth paying. Sometimes it is not.</p>
+</div>
+
+<p>
+  In exploratory work — especially when using Mermaid to sketch, iterate, and surface
+  structure — the priority is forward motion, not perfect inputs.
+</p>
+<p>
+  These prompts were lightly edited for readability only. Grammar corrected, duplicate
+  phrasing from live dictation removed, word overhead trimmed. The original shape and
+  intent were preserved intentionally.
+</p>
+<p>
+  That is the point.
+</p>
+<p>
+  <strong>Prompting in practice is often fast, natural, and iterative.</strong>
+</p>
+
+<!-- Fairness note -->
+<div class="council-card" style="margin: 2rem 0;">
+  <p class="council-card-eyebrow">A note on fairness</p>
+  <h3>The brief was consistent. The conditions were not.</h3>
+  <p>
+    The core council members received materially similar direction and deliverable
+    expectations. A few caveats matter:
+  </p>
+  <div class="council-members" style="margin-top: 0.75rem; margin-bottom: 1rem;">
+    <span class="council-pill winner">ChatGPT</span>
+    <span class="council-pill winner">Claude</span>
+    <span class="council-pill winner">Copilot</span>
+    <span class="council-pill winner">Perplexity</span>
+    <span class="council-pill">Gemini — free tier</span>
+    <span class="council-pill">Notion — archivist role</span>
+    <span class="council-pill">Replit — late entry</span>
+  </div>
+  <p style="font-size: 0.9rem; color: var(--color-muted); margin-bottom: 0;">
+    <strong style="color: var(--color-fg);">Gemini</strong> ran on the free tier —
+    the only council member with a capability ceiling imposed by tooling cost rather
+    than the brief. Noted here. Not hidden.
+    <strong style="color: var(--color-fg);">Notion</strong> acted primarily as
+    synthesizer, archivist, and court reporter rather than a voting peer.
+    <strong style="color: var(--color-fg);">Replit</strong> arrived later and was not
+    part of the initial apples-to-apples round. The point of the exercise was not
+    laboratory perfection — it was high-velocity comparative ideation with enough
+    consistency to make the results useful.
+  </p>
+</div>
+
+<!-- Prompt 01 -->
+<div class="artifact-card" style="margin-bottom: 1.5rem;">
+  <h3>Prompt 01 — The Seed</h3>
+  <p class="small-note">
+    The idea started as a business-style ROI question, then bent toward pictures,
+    words, and meaning. No deliverable yet. Just finding the governing idea.
+  </p>
+  <details class="code-drop">
+    <summary>View prompt</summary>
+    <pre class="artifact-copy">Thinking like a professor of business and investment, what is a realistic
+but attractive return on investment?
+
+There is an old adage that a picture is worth 1,000 words. If a diagram
+can be generated from words, what would be a good ROY — return on your
+words? If it takes more words to generate the picture than the picture
+returns in meaning, understanding, or compression, the investment may be
+poor. But if a picture created from words lands with more meaning than the
+words it took to create it, that seems valuable.
+
+What ratio of words to meaning, understanding, and structure makes this a
+good investment?</pre>
+  </details>
+  <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
+    This prompt did not start with a deliverable. It started by finding the frame.
+  </p>
+</div>
+
+<!-- Prompt 02 -->
+<div class="artifact-card" style="margin-bottom: 1.5rem;">
+  <h3>Prompt 02 — The Meta Turn</h3>
+  <p class="small-note">
+    The project becomes recursive: the post is about diagrams, and the diagram
+    explains the making of the post. Abstract stops here. Self-demonstrating begins.
+  </p>
+  <details class="code-drop">
+    <summary>View prompt</summary>
+    <pre class="artifact-copy">I'm considering a LinkedIn post about the visual value of pictures and
+understanding — specifically the value of Mermaid diagrams, Mermaid tooling,
+and the ability to create Mermaid diagrams with most LLMs.
+
+I want the post itself to include a Mermaid diagram showing the ideation
+process of creating the post. The post would talk about the value of using
+words to generate pictures, and the picture would be the steps involved in
+writing the post itself.
+
+What are the steps in creating a LinkedIn post about visual value, visual
+ROI, and the way a picture can sometimes be worth less — or much more —
+than a thousand words?</pre>
+  </details>
+  <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
+    This is where the work stopped being abstract and started becoming self-demonstrating.
+  </p>
+</div>
+
+<!-- Prompt 03 -->
+<div class="artifact-card" style="margin-bottom: 1.5rem;">
+  <h3>Prompt 03 — The Happy-Path Lie</h3>
+  <p class="small-note">
+    The first diagram was too clean. This prompt forced honesty back into the
+    structure — the shortest prompt in the sequence and arguably the most important.
+  </p>
+  <details class="code-drop">
+    <summary>View prompt</summary>
+    <pre class="artifact-copy">Ideation, thought, and writing are not perfectly linear. This initial
+Mermaid diagram shows a straight happy path from start to finish, but
+that is not honest.
+
+Generating a diagram from words involves revision. Revision involves forks
+and loopbacks — a non-happy path. The diagram should show a non-ideal path
+rather than a straight one, with slight visual flair: restrained color
+variation, selective arrow styling, subtle hierarchy, and conservative
+emoji use.
+
+Enough to add clarity and character. Not enough to become noise.</pre>
+  </details>
+  <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
+    This is the moment the diagram stops being decorative and starts being truthful.
+  </p>
+</div>
+
+<!-- Prompt 04 -->
+<div class="artifact-card" style="margin-bottom: 1.5rem;">
+  <h3>Prompt 04 — Voice and Brand Lock-In</h3>
+  <p class="small-note">
+    Once the structure was right, the output needed to sound like it belonged
+    to the same builder and brand. Style calibration through example, not description.
+  </p>
+  <details class="code-drop">
+    <summary>View prompt</summary>
+    <pre class="artifact-copy">Create a tone-matched LinkedIn post that carries the same professional
+snark, swagger, and practical voice I tend to use. Strong hooks, good CTA
+structure, reinforcing my brand, driving interest toward OverKill Hill P³™,
+Glee-fully Personalizable Tools™, and AskJamie™.
+
+Here is a sample of my recent LinkedIn style and article voice: [reference
+material pasted in full]</pre>
+  </details>
+  <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
+    The work had to be structurally sound and recognizably mine.
+  </p>
+</div>
+
+<!-- Prompt 05 -->
+<div class="artifact-card" style="margin-bottom: 1.5rem;">
+  <h3>Prompt 05 — The Council Becomes Formal</h3>
+  <p class="small-note">
+    Single-model generation becomes council orchestration. One sentence ran a
+    competitive evaluation. It only worked because four prompts had already
+    loaded the context it needed.
+  </p>
+  <details class="code-drop">
+    <summary>View prompt</summary>
+    <pre class="artifact-copy">This is the final competition — an art contest where you judge your design
+against your peers.
+
+First: identify the winner that best depicts the theme and makes the most
+of Mermaid's current feature set. Showcase the art of the possible
+(pun intended).
+
+Second: learn from your self-evaluation and from your peers, then create
+a V2 that raises the bar for what a Mermaid diagram can do for a LinkedIn
+audience.</pre>
+  </details>
+  <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
+    This is where prompting stops being generation and becomes orchestration.
+  </p>
+</div>
+
+<!-- Closing -->
+<p>
+  Five prompts. One session. No template. No prompt framework. No pre-scripted
+  structure.
+</p>
+<p>
+  Prompt 01 didn't mention LinkedIn or Mermaid. Prompt 03 corrected a structural
+  lie in a single paragraph. Prompt 05 ran a five-model art competition with a
+  pun in the brief. None of them were polished before sending. All of them worked.
+</p>
+<p>
+  That's not an argument against precision. It's an argument for knowing when
+  velocity is the right tool — and when the diagram you need is cheap enough
+  to draft twice rather than plan once.
+</p>
+```
+
+---
+
+## CHANGE 2 — UPDATE SIDEBAR TOC
+
+### Find this exact block inside `<aside class="article-sidebar">`:
+
+```html
+<div class="sidebar-widget">
+  <h4>On This Page</h4>
+  <ul class="toc-list">
+    <li><a href="#pivot">From Drawing to Modeling</a></li>
+    <li><a href="#roy">ROY</a></li>
+    <li><a href="#round1">Round 1 — Copilot</a></li>
+    <li><a href="#council">Council of AIs</a></li>
+    <li><a href="#round2">Round 2 — Claude</a></li>
+    <li><a href="#artifacts">Launch Artifacts</a></li>
+    <li><a href="#thesis">Thesis</a></li>
+  </ul>
+</div>
+```
+
+### Replace with:
+
+```html
+<div class="sidebar-widget">
+  <h4>On This Page</h4>
+  <ul class="toc-list">
+    <li><a href="#pivot">From Drawing to Modeling</a></li>
+    <li><a href="#roy">ROY</a></li>
+    <li><a href="#round1">Round 1 — Copilot</a></li>
+    <li><a href="#council">Council of AIs</a></li>
+    <li><a href="#round2">Round 2 — Claude</a></li>
+    <li><a href="#prompts">Prompts in the Wild</a></li>
+    <li><a href="#artifacts">Launch Artifacts</a></li>
+    <li><a href="#thesis">Thesis</a></li>
+  </ul>
+</div>
+```
+
+---
+
+## VERIFICATION CHECKLIST
+
+- [ ] `<h2 id="prompts">` appears in the article BEFORE `<h2 id="artifacts">`
+- [ ] Sidebar TOC contains `Prompts in the Wild` between Round 2 and Launch Artifacts
+- [ ] The `pull-quote` block renders with the amber left border (uses existing CSS class)
+- [ ] The `council-card` block renders with the teal top border (uses existing CSS class)
+- [ ] All 5 prompt `<details>` blocks are collapsed by default (default browser behavior)
+- [ ] `council-pill winner` pills render in amber; plain `council-pill` pills render muted
+- [ ] No existing section has been moved, altered, or removed
+- [ ] The article still ends on the thesis section
+
+---
+
+## DO NOT TOUCH
+
+- Any existing `<h2>` sections: pivot, roy, round1, council, round2, artifacts, thesis
+- The Mermaid diagram code blocks (Copilot V1 and Claude V2)
+- The artifact-stack section and its existing cards
+- The article-footer-cta block
+- The sidebar widgets other than the TOC list
+- Any CSS, JS, nav, header, footer, or any other file in the project
