@@ -60,12 +60,71 @@
   --color-accent: var(--okh-orange);
 }
 
-body[data-theme="dark"] {
+/* ── Body background: JS sets data-theme on <html>, not <body> ────────── */
+html[data-theme="dark"] body {
   background: radial-gradient(circle at top, #1f2933, #020617);
 }
 
-body[data-theme="light"] {
+html[data-theme="light"] body {
   background: radial-gradient(circle at top, #f6f2ee, #fff7f1);
+}
+
+/* ── Light mode: elements with hardcoded dark backgrounds ──────────────
+   The nav, footer, hero cards, and a few other components are intentionally
+   dark at all times (brand identity). In light mode their var(--color-*)
+   text tokens switch to dark values, which would make them illegible.
+   These overrides keep those surfaces readable without altering the layout.
+   ─────────────────────────────────────────────────────────────────────── */
+
+/* Nav links — nav header stays dark; restore light text */
+html[data-theme="light"] .primary-nav a {
+  color: rgba(229, 231, 235, 0.68);
+}
+html[data-theme="light"] .primary-nav a[aria-current="page"],
+html[data-theme="light"] .primary-nav a.is-current {
+  color: var(--okh-orange);
+}
+
+/* Desktop dropdown — gets var(--color-surface) bg (white in light mode);
+   ensure the link text is dark enough to read on white */
+html[data-theme="light"] .primary-nav .submenu a {
+  color: #1c3a34;
+}
+
+/* Mobile nav — hardcoded dark; restore readable link color */
+@media (max-width: 768px) {
+  html[data-theme="light"] body:not(.glee-main):not(.askjamie-main) .primary-nav a {
+    color: rgba(229, 231, 235, 0.75);
+  }
+}
+
+/* Hero eyebrow — uses var(--color-muted) inside the always-dark hero stripe area */
+html[data-theme="light"] .hero-eyebrow {
+  color: rgba(229, 231, 235, 0.6);
+}
+
+/* "Active Build Zone" card — dark bg, keep text light */
+html[data-theme="light"] body:not(.glee-main):not(.askjamie-main) .site-status {
+  color: #e5e7eb;
+}
+
+/* Hero-forge-card ("What happens at the Hill?") — hardcoded dark gradient bg */
+html[data-theme="light"] .hero-forge-card {
+  color: #e5e7eb;
+}
+
+/* Footer — hardcoded #020617 bg; keep all footer text readable */
+html[data-theme="light"] .site-footer {
+  color: rgba(229, 231, 235, 0.75);
+}
+html[data-theme="light"] .footer-column a {
+  color: rgba(229, 231, 235, 0.6);
+}
+html[data-theme="light"] .footer-column a:hover {
+  color: var(--okh-orange);
+}
+html[data-theme="light"] .footer-bottom {
+  color: rgba(229, 231, 235, 0.45);
 }
 
 
