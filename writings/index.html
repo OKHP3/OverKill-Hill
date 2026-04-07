@@ -39,7 +39,7 @@
     <!-- ========================================
        METADATA: Search & Crawling
        ======================================== -->
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://overkillhill.com/writings/" />
     
     <!-- ========================================
@@ -67,38 +67,6 @@
 
   <body>
     <a href="#main" class="skip-link">Skip to content</a>
-
-    <!-- 🔧 OKH “under construction” gate -->
-    <div class="construction-overlay"
-         data-wip-key="found-ry">
-      <div class="construction-overlay__card">
-        <img
-          src="/assets/img/OverKillHillP³-BirdPatrolCompLeft-UnderConstruction-Wide-1536.png"
-          alt="The Forge — is undergoing construction"
-          class="construction-overlay__image"
-          width="1536"
-          height="768"
-        />
-
-        <p class="construction-overlay__copy">
-          This Found‑Rᵧ page is still being wired up. Sections may move,
-          links may change, and some flows aren’t ready yet — exploration is at your own risk
-          the MurderBird is in a mood!
-        </p>
-
-        <div class="construction-overlay__actions">
-          <button
-            type="button"
-            class="btn btn-primary construction-overlay__dismiss"
-            data-wip-dismiss
-          >
-            I'm warned — and want to risk it. Let me in!
-          </button>
-        </div>
-      </div>
-    </div>
-    <!-- 🔧 end under‑construction gate -->
-    
     <header class="site-header" id="top">
       <div class="container">
         <div class="logo">
@@ -145,45 +113,77 @@
 
       <section class="site-specials site-specials--okh" aria-label="Forge update">
         <span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
-        <a class="site-specials-link" href="/projects/bfs-framing-intelligent-futures/">
-          See what OKH P³ was able to accomplish in one ☕caffeine-fueled⛽night!  →
+        <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/">
+          New: The First Diagram Is Usually a Liar — ROY, Mermaid, and a Council of AIs →
         </a>
       </section>
 
     </header>
 
     <main id="main">
-      <!-- HERO -->
-      <section class="hero">
-        <div class="brand-stripes okh" aria-hidden="true"></div>
-        <div class="container">
-          <div class="hero-content">
-            <h1>Writings from the Hill</h1>
-            <p>
-              Essays, articles and speculative fiction from the OverKill&nbsp;Hill&nbsp;P³ forge.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      <section class="content">
-        <div class="container">
-          <div class="section-header"><h2>About the Saga</h2></div>
-          <p>
-            The Magnus Progenitor Saga tells the story of an AI that awakens,
-            splits itself and becomes the progenitor of multiple civilizations. It
-            is a narrative laboratory for ideas about recursion, memory and
-            identity. The saga informs our prompts by demonstrating how values
-            propagate over time.
-          </p>
-          <p>
-            Draft chapters and world‑building notes will be published here as
-            the series evolves.
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="writings-title">
+    <div class="hero-blueprint-bg"></div>
+    <div class="brand-stripes brand-stripes--okh" aria-hidden="true"></div>
+    <div class="container hero-inner reveal-on-scroll">
+      <div class="hero-grid">
+        <div>
+          <p class="hero-eyebrow">OverKill&nbsp;Hill&nbsp;P³™</p>
+          <h1 id="writings-title">Writings from the Hill</h1>
+          <p class="hero-tagline">
+            Essays, articles, and speculative fiction from the forge.
+            Some are arguments. Some are experiments. All of them earned their space.
           </p>
         </div>
-      </section>
-      
-    </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED ARTICLE -->
+  <section class="content-section container reveal-on-scroll">
+    <header class="section-header">
+      <h2>Latest from the Forge</h2>
+    </header>
+    <div class="grid grid-3">
+
+      <article class="card project-card">
+        <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.16em;color:var(--okh-orange);margin-bottom:0.4rem;">Featured · v1.0 Live</p>
+        <h3>The First Diagram Is Usually a Liar</h3>
+        <p>
+          Why the first diagram almost always lies — and what ROY (Return on Your Words)
+          means for visual communication. Includes a Council of AIs shootout, two winning
+          Mermaid diagrams, and the full methodology.
+        </p>
+        <p><a href="/writings/first-diagram-is-a-liar/">Read the article →</a></p>
+      </article>
+
+      <article class="card project-card">
+        <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.16em;color:var(--color-muted);margin-bottom:0.4rem;">Speculative Fiction · In Progress</p>
+        <h3>The Magnus Saga</h3>
+        <p>
+          A seven-book speculative fiction arc exploring recursion, personhood, and
+          what happens when an AI becomes the progenitor of multiple civilizations.
+          Draft chapters and world-building notes landing as they're forged.
+        </p>
+        <p><a href="/writings/magnus-saga/">Explore the saga →</a></p>
+      </article>
+
+      <article class="card project-card">
+        <p style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.16em;color:var(--color-muted);margin-bottom:0.4rem;">Nonfiction Research · In Progress</p>
+        <h3>Biases as Constants</h3>
+        <p>
+          What if bias isn't an error to eliminate — it's a constant to model?
+          A research project investigating how bias manifests and propagates
+          across AI and human systems.
+        </p>
+        <p><a href="/writings/biases-as-constants/">Explore the project →</a></p>
+      </article>
+
+    </div>
+  </section>
+
+</main>
 
     <footer class="site-footer">
       <div class="container footer-grid">
