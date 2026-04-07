@@ -51,9 +51,9 @@
 
 /* Optional light theme toggle */
 :root[data-theme="light"] {
-  --color-bg: #f9fafb;
-  --color-surface: #ffffff;
-  --color-surface-soft: #f3f4f6;
+  --color-bg: #eff2f5;
+  --color-surface: #f6f2ee;       /* warm paper — cards/panels */
+  --color-surface-soft: #f0ebe5;  /* slightly richer paper for soft insets */
   --color-fg: #0f172a;
   --color-muted: #4b5563;
   --color-border-subtle: rgba(15, 23, 42, 0.08);
@@ -66,7 +66,7 @@ html[data-theme="dark"] body {
 }
 
 html[data-theme="light"] body {
-  background: radial-gradient(circle at top, #f6f2ee, #fff7f1);
+  background: radial-gradient(circle at top, #e5e8ed, #eff2f5);
 }
 
 /* ── Light mode: elements with hardcoded dark backgrounds ──────────────
