@@ -3698,3 +3698,69 @@ body.construction-dismissed .construction-overlay,
 /* ----------------------------------------
    End of BFS Framing Intelligent Futures
    ---------------------------------------- */
+
+/* ----------------------------------------
+   Sidebar: Council Snapshot table
+   Reusable for any multi-member council widget.
+   ---------------------------------------- */
+.council-table {
+  width: 100%;
+  font-size: 0.82rem;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+.council-table td {
+  padding: 0.2rem 0;
+  vertical-align: top;
+}
+
+.council-table td:first-child {
+  color: var(--color-fg);
+  font-weight: 600;
+  white-space: nowrap;
+  padding-right: 0.5rem;
+}
+
+.council-table td:last-child {
+  color: var(--color-muted);
+  text-align: right;
+}
+
+/* ----------------------------------------
+   Sidebar: Diagram section labels
+   Reusable sub-heading for grouped sidebar link lists.
+   ---------------------------------------- */
+.sidebar-section-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--okh-orange);
+  margin: 0.6rem 0 0.3rem;
+}
+
+/* ----------------------------------------
+   Sidebar: Diagram link group spacing
+   Adds bottom gap between grouped sidebar-links lists.
+   ---------------------------------------- */
+.sidebar-links.sidebar-links--group {
+  margin-bottom: 0.75rem;
+}
+
+/* ----------------------------------------
+   Sidebar: Round-winner diagram entry
+   Amber left border + amber text — marks the selected
+   diagram without using the word "winner".
+   ---------------------------------------- */
+.sidebar-diagram-selected {
+  border-left: 2px solid var(--okh-amber);
+  padding-left: 0.5rem;
+}
+
+.sidebar-diagram-selected a {
+  color: var(--okh-amber);
+}
+
+/* ----------------------------------------
+   End of Council / Diagram sidebar utilities
+   ---------------------------------------- */
