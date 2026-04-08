@@ -3260,8 +3260,7 @@ html:has(
 
 .toc-list a {
   color: var(--color-muted);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  text-decoration: none;
 }
 
 .toc-list a:hover {
