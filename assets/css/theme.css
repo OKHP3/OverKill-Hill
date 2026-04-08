@@ -3765,6 +3765,26 @@ body.construction-dismissed .construction-overlay,
 }
 
 /* ----------------------------------------
+   Sidebar: Non-winner diagram entry link
+   Muted gray — sits below the amber winner entries.
+   ---------------------------------------- */
+.sidebar-diagram-entry {
+  font-size: 14px;
+  color: #6b7280;
+  border: 1px solid #6b7280;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.sidebar-diagram-entry:hover,
+.sidebar-diagram-entry:focus-visible {
+  color: #9ca3af;
+  border-color: #9ca3af;
+}
+
+/* ----------------------------------------
    Sidebar: Tool link
    Muted gray link with border — for utility/tool entries
    below the main diagram lists.
