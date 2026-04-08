@@ -3725,15 +3725,16 @@ body.construction-dismissed .construction-overlay,
   vertical-align: top;
 }
 
-.council-name {
-  color: var(--color-fg);
+.council-table .council-name {
+  color: #e5e7eb;
   font-weight: 600;
   white-space: nowrap;
   padding-right: 0.5rem;
 }
 
-.council-role {
-  color: var(--color-muted);
+.council-table .council-role {
+  color: #6b7280;
+  font-size: 0.8rem;
   text-align: right;
 }
 
