@@ -86,9 +86,8 @@
         color: #0f172a;
       }
       @media (min-width: 1024px) {
-        .article-sidebar {
+        #toc-widget {
           will-change: transform;
-          transition: opacity 0.3s ease;
         }
       }
     </style>
@@ -1231,8 +1230,8 @@ What&#x27;s the one process in your world you&#x27;ve avoided diagramming becaus
                 </ul>
               </div>
 
-              <!-- On This Page — central sticky focus -->
-              <div class="sidebar-widget">
+              <!-- On This Page — sticky follow -->
+              <div class="sidebar-widget" id="toc-widget">
                 <h4>On This Page</h4>
                 <ul class="toc-list">
                   <li><a href="#pivot">From Drawing to Modeling</a></li>
@@ -1377,50 +1376,61 @@ What&#x27;s the one process in your world you&#x27;ve avoided diagramming becaus
       gtag("js", new Date());
       gtag("config", "G-VJ1BKXS27H");
     </script>
-    <!-- Sticky sidebar: smooth lerp scroll-follow, bounded by hero + footer -->
+    <!-- Sticky TOC: only #toc-widget follows the reader; top-3 cards scroll normally -->
     <script>
       (function () {
         if (window.innerWidth < 1024) return;
 
-        var sidebar  = document.querySelector('.article-sidebar');
-        var hero     = document.querySelector('.article-hero');
-        var footer   = document.querySelector('.site-footer');
-        if (!sidebar || !hero || !footer) return;
+        var toc    = document.getElementById('toc-widget');
+        var footer = document.querySelector('.site-footer');
+        if (!toc || !footer) return;
 
-        var lerpedY  = 0;
-        var targetY  = 0;
-        var SPEED    = 0.08;   /* lower = lazier follow */
-        var NAV_H    = 96;     /* px: clearance from viewport top (below sticky nav) */
-        var PAD      = 32;     /* px: breathing room above footer */
+        var lerpedY = 0;
+        var targetY = 0;
+        var SPEED   = 0.08;   /* 0 = no movement, 1 = instant */
+        var NAV_H   = 104;    /* px from viewport top — clears the sticky nav */
+        var PAD     = 32;     /* px breathing room above the footer */
 
         function lerp(a, b, t) { return a + (b - a) * t; }
 
+        /* Natural document position of the TOC widget, unaffected by any transform */
+        function getNaturalTop(el) {
+          var top = 0;
+          while (el) { top += el.offsetTop; el = el.offsetParent; }
+          return top;
+        }
+
+        /* Capture once at load (before any scroll or transform) */
+        var tocNaturalTop = getNaturalTop(toc);
+        var tocH          = toc.offsetHeight;
+
         function tick() {
-          var scrollY    = window.scrollY;
-          var heroBottom = hero.offsetTop + hero.offsetHeight;
-          var footerTop  = footer.offsetTop;
-          var sidebarH   = sidebar.offsetHeight;
+          var scrollY   = window.scrollY;
+          var footerTop = footer.offsetTop;
 
-          /* How far the sidebar needs to travel to feel "fixed" below the nav */
-          var raw = Math.max(0, scrollY - heroBottom + NAV_H);
+          /* Target Y: how far down from its natural slot the TOC needs to translate */
+          var raw = Math.max(0, scrollY + NAV_H - tocNaturalTop);
 
-          /* Clamp: sidebar bottom must not cross the footer */
-          var max = Math.max(0, footerTop - PAD - heroBottom - sidebarH);
+          /* Hard ceiling: keep the TOC bottom above the footer */
+          var max = Math.max(0, footerTop - PAD - tocNaturalTop - tocH);
           targetY = Math.min(raw, max);
 
-          /* Smooth lag */
           lerpedY = lerp(lerpedY, targetY, SPEED);
-          sidebar.style.transform = 'translateY(' + lerpedY.toFixed(2) + 'px)';
+          toc.style.transform = 'translateY(' + lerpedY.toFixed(2) + 'px)';
 
           requestAnimationFrame(tick);
         }
 
         requestAnimationFrame(tick);
 
-        /* Reset on resize below breakpoint */
         window.addEventListener('resize', function () {
           if (window.innerWidth < 1024) {
-            sidebar.style.transform = '';
+            toc.style.transform = '';
+          } else {
+            /* Recapture after layout reflow */
+            toc.style.transform = '';
+            tocNaturalTop = getNaturalTop(toc);
+            tocH = toc.offsetHeight;
           }
         });
       }());
