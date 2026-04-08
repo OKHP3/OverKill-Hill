@@ -3814,3 +3814,12 @@ body.construction-dismissed .construction-overlay,
 /* ----------------------------------------
    End of Council / Diagram sidebar utilities
    ---------------------------------------- */
+
+/* ----------------------------------------
+   Mermaid: isolate diagram labels from page colour inheritance.
+   Prevents --color-fg (near-white) leaking into HTML foreignObject
+   labels on light-themed diagrams.
+   ---------------------------------------- */
+.mermaid foreignObject {
+  color: initial;
+}
