@@ -1388,7 +1388,7 @@ What&#x27;s the one process in your world you&#x27;ve avoided diagramming becaus
         var lerpedY = 0;
         var targetY = 0;
         var SPEED   = 0.08;   /* 0 = no movement, 1 = instant */
-        var NAV_H   = 104;    /* px from viewport top — clears the sticky nav */
+        var NAV_H   = 112;    /* minimum px from viewport top — clears the sticky nav */
         var PAD     = 32;     /* px breathing room above the footer */
 
         function lerp(a, b, t) { return a + (b - a) * t; }
@@ -1408,8 +1408,11 @@ What&#x27;s the one process in your world you&#x27;ve avoided diagramming becaus
           var scrollY   = window.scrollY;
           var footerTop = footer.offsetTop;
 
+          /* Center the card in the viewport, but never above the nav */
+          var centeredOffset = Math.max(NAV_H, (window.innerHeight - tocH) / 2);
+
           /* Target Y: how far down from its natural slot the TOC needs to translate */
-          var raw = Math.max(0, scrollY + NAV_H - tocNaturalTop);
+          var raw = Math.max(0, scrollY + centeredOffset - tocNaturalTop);
 
           /* Hard ceiling: keep the TOC bottom above the footer */
           var max = Math.max(0, footerTop - PAD - tocNaturalTop - tocH);
