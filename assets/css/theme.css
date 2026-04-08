@@ -3769,6 +3769,7 @@ body.construction-dismissed .construction-overlay,
 
 .sidebar-diagram-selected a {
   color: var(--okh-amber);
+  text-decoration: none;
 }
 
 /* ----------------------------------------
