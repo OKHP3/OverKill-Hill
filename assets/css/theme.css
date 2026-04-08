@@ -3777,19 +3777,19 @@ body.construction-dismissed .construction-overlay,
    Sidebar: Non-winner diagram entry link
    Muted gray — sits below the amber winner entries.
    ---------------------------------------- */
-.sidebar-diagram-entry {
+.sidebar-links .sidebar-diagram-entry {
   font-size: 14px;
   color: #6b7280;
   border: 1px solid #6b7280;
-  padding: 0.1rem 0.3rem;
-  padding-left: 1.1rem;
+  padding: 0.1rem 0.4rem;
+  margin-left: 1rem;
   border-radius: 3px;
   text-decoration: none;
   display: inline-block;
 }
 
-.sidebar-diagram-entry:hover,
-.sidebar-diagram-entry:focus-visible {
+.sidebar-links .sidebar-diagram-entry:hover,
+.sidebar-links .sidebar-diagram-entry:focus-visible {
   color: #9ca3af;
   border-color: #9ca3af;
 }
