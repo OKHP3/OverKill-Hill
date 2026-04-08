@@ -367,123 +367,197 @@
                 </div>
                 <div class="diagram-shell">
                   <div class="mermaid">
-flowchart TD
-S(("Spark ✨")):::spark --> T["👀 Notice text fatigue"]:::core
-T --> U{"Text alone enough?"}:::gate
-U -->|Yes| P0["Stay in prose"]:::low
-U -->|No| A["Define the clarity we are buying"]:::core
+---
+config:
+  theme: neutral
+  fontFamily: Aptos, Segoe UI, Inter, Arial, sans-serif
+  themeVariables:
+    primaryColor: '#EAF2FF'
+    primaryTextColor: '#14213D'
+    primaryBorderColor: '#325DCC'
+    lineColor: '#64748B'
+    secondaryColor: '#FFF7E8'
+    tertiaryColor: '#EEFDF3'
+    fontFamily: Aptos, Segoe UI, Inter, Arial, sans-serif
+  look: neo
+---
+flowchart TB
+ subgraph I1["Ideation / wording"]
+    direction TD
+        B["Brain-dump angles"]
+        A["Define the clarity we are buying"]
+        C["Draft ugly first post"]
+        D{"Hook lands?"}
+        E["Ask LLM for Mermaid skeleton"]
+  end
+ subgraph I2["Modeling / diagramming"]
+    direction TD
+        F["Render V1 🧭"]
+        G{"Too tidy / too fake?"}
+        H["Add forks, loops, dead ends"]
+        I["Trim labels · reorder flow · kill clutter ✂️"]
+        J["Diagram earns its space"]
+  end
+ subgraph I3["Post assembly / shipping"]
+    direction TD
+        P["Write around diagram:\nHook · thesis · proof · CTA"]
+        Q{"Clear and scannable?"}
+        R["Ship post + code + image set 🚀"]
+        W["Watch comments for confusion"]
+  end
+    S(("Spark ✨")) --> T["👀 Notice text fatigue"]
+    T --> U{"Text alone enough?"}
+    U -- Yes --> P0["Stay in prose"]
+    U -- No --> A
+    A --> B
+    B --> C
+    C --> D
+    D -- No --> B
+    D -- Yes --> E
+    E --> F
+    F --> G
+    G -- Yes --> H
+    H --> I
+    I --> F
+    G -- No --> J
+    J --> P
+    P --> Q
+    Q -- No --> I
+    Q -- Yes --> R
+    R --> W
+    W -. feedback loop .-> B
 
-subgraph I1["Ideation / wording"]
-A --> B["Brain-dump angles"]:::core
-B --> C["Draft ugly first post"]:::draft
-C --> D{"Hook lands?"}:::gate
-D -->|No| B
-D -->|Yes| E["Ask LLM for Mermaid skeleton"]:::core
-end
-
-subgraph I2["Modeling / diagramming"]
-E --> F["Render V1 🧭"]:::draft
-F --> G{"Too tidy / too fake?"}:::gate
-G -->|Yes| H["Add forks, loops, dead ends"]:::risk
-H --> I["Trim labels · reorder flow · kill clutter ✂️"]:::risk
-I --> F
-G -->|No| J["Diagram earns its space"]:::publish
-end
-
-subgraph I3["Post assembly / shipping"]
-J --> P["Write around diagram:<br/>Hook · thesis · proof · CTA"]:::core
-P --> Q{"Clear and scannable?"}:::gate
-Q -->|No| I
-Q -->|Yes| R["Ship post + code + image set 🚀"]:::publish
-R --> W["Watch comments for confusion"]:::low
-W -. feedback loop .-> B
-end
-
-classDef spark fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px;
-classDef core fill:#EAF2FF,stroke:#325DCC,color:#102A43,stroke-width:1.6px;
-classDef draft fill:#F3F4F6,stroke:#6B7280,color:#334155,stroke-width:1.4px,stroke-dasharray: 5 3;
-classDef gate fill:#F3E8FF,stroke:#7C3AED,color:#3B0764,stroke-width:2px;
-classDef risk fill:#FFF1F2,stroke:#DC2626,color:#7F1D1D,stroke-width:1.8px;
-classDef publish fill:#ECFDF5,stroke:#059669,color:#064E3B,stroke-width:2.2px;
-classDef low fill:#F8FAFC,stroke:#94A3B8,color:#64748B,stroke-width:1.2px,stroke-dasharray: 3 3;
-
-linkStyle 0 stroke:#325DCC,stroke-width:2.4px
-linkStyle 3 stroke:#325DCC,stroke-width:2.2px
-linkStyle 8 stroke:#DC2626,stroke-width:2px,stroke-dasharray: 6 4
-linkStyle 12 stroke:#DC2626,stroke-width:2.2px
-linkStyle 13 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4
-linkStyle 14 stroke:#059669,stroke-width:2.8px
-linkStyle 17 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4
-linkStyle 18 stroke:#059669,stroke-width:2.8px
-linkStyle 20 stroke:#7C3AED,stroke-width:2px,stroke-dasharray: 2 4
+     B:::core
+     A:::core
+     C:::draft
+     D:::gate
+     E:::core
+     F:::draft
+     G:::gate
+     H:::risk
+     I:::risk
+     J:::publish
+     P:::core
+     Q:::gate
+     R:::publish
+     W:::low
+     S:::spark
+     T:::core
+     U:::gate
+     P0:::low
+    classDef spark fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px
+    classDef core fill:#EAF2FF,stroke:#325DCC,color:#102A43,stroke-width:1.6px
+    classDef draft fill:#F3F4F6,stroke:#6B7280,color:#334155,stroke-width:1.4px,stroke-dasharray: 5 3
+    classDef gate fill:#F3E8FF,stroke:#7C3AED,color:#3B0764,stroke-width:2px
+    classDef risk fill:#FFF1F2,stroke:#DC2626,color:#7F1D1D,stroke-width:1.8px
+    classDef publish fill:#ECFDF5,stroke:#059669,color:#064E3B,stroke-width:2.2px
+    classDef low fill:#F8FAFC,stroke:#94A3B8,color:#64748B,stroke-width:1.2px,stroke-dasharray: 3 3
+    linkStyle 0 stroke:#325DCC,stroke-width:2.4px,fill:none
+    linkStyle 3 stroke:#325DCC,stroke-width:2.2px,fill:none
+    linkStyle 8 stroke:#DC2626,stroke-width:2px,stroke-dasharray: 6 4,fill:none
+    linkStyle 12 stroke:#DC2626,stroke-width:2.2px,fill:none
+    linkStyle 13 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4,fill:none
+    linkStyle 14 stroke:#059669,stroke-width:2.8px,fill:none
+    linkStyle 17 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4,fill:none
+    linkStyle 18 stroke:#059669,stroke-width:2.8px,fill:none
+    linkStyle 20 stroke:#7C3AED,stroke-width:2px,stroke-dasharray: 2 4,fill:none
                   </div>
                   <details class="code-drop">
                     <summary>View V1 Mermaid code</summary>
                     <pre><code>---
 config:
-  theme: base
-  fontFamily: &quot;Aptos, Segoe UI, Inter, Arial, sans-serif&quot;
+  theme: neutral
+  fontFamily: Aptos, Segoe UI, Inter, Arial, sans-serif
   themeVariables:
-    primaryColor: &quot;#EAF2FF&quot;
-    primaryTextColor: &quot;#14213D&quot;
-    primaryBorderColor: &quot;#325DCC&quot;
-    lineColor: &quot;#64748B&quot;
-    secondaryColor: &quot;#FFF7E8&quot;
-    tertiaryColor: &quot;#EEFDF3&quot;
+    primaryColor: '#EAF2FF'
+    primaryTextColor: '#14213D'
+    primaryBorderColor: '#325DCC'
+    lineColor: '#64748B'
+    secondaryColor: '#FFF7E8'
+    tertiaryColor: '#EEFDF3'
+    fontFamily: Aptos, Segoe UI, Inter, Arial, sans-serif
+  look: neo
 ---
-flowchart TD
-S((&quot;Spark ✨&quot;)):::spark --&gt; T[&quot;👀 Notice text fatigue&quot;]:::core
-T --&gt; U{&quot;Text alone enough?&quot;}:::gate
-U --&gt;|Yes| P0[&quot;Stay in prose&quot;]:::low
-U --&gt;|No| A[&quot;Define the clarity we are buying&quot;]:::core
+flowchart TB
+ subgraph I1["Ideation / wording"]
+    direction TD
+        B["Brain-dump angles"]
+        A["Define the clarity we are buying"]
+        C["Draft ugly first post"]
+        D{"Hook lands?"}
+        E["Ask LLM for Mermaid skeleton"]
+  end
+ subgraph I2["Modeling / diagramming"]
+    direction TD
+        F["Render V1 🧭"]
+        G{"Too tidy / too fake?"}
+        H["Add forks, loops, dead ends"]
+        I["Trim labels · reorder flow · kill clutter ✂️"]
+        J["Diagram earns its space"]
+  end
+ subgraph I3["Post assembly / shipping"]
+    direction TD
+        P["Write around diagram:\nHook · thesis · proof · CTA"]
+        Q{"Clear and scannable?"}
+        R["Ship post + code + image set 🚀"]
+        W["Watch comments for confusion"]
+  end
+    S(("Spark ✨")) --> T["👀 Notice text fatigue"]
+    T --> U{"Text alone enough?"}
+    U -- Yes --> P0["Stay in prose"]
+    U -- No --> A
+    A --> B
+    B --> C
+    C --> D
+    D -- No --> B
+    D -- Yes --> E
+    E --> F
+    F --> G
+    G -- Yes --> H
+    H --> I
+    I --> F
+    G -- No --> J
+    J --> P
+    P --> Q
+    Q -- No --> I
+    Q -- Yes --> R
+    R --> W
+    W -. feedback loop .-> B
 
-subgraph I1[&quot;Ideation / wording&quot;]
-direction TD
-A --&gt; B[&quot;Brain-dump angles&quot;]:::core
-B --&gt; C[&quot;Draft ugly first post&quot;]:::draft
-C --&gt; D{&quot;Hook lands?&quot;}:::gate
-D --&gt;|No| B
-D --&gt;|Yes| E[&quot;Ask LLM for Mermaid skeleton&quot;]:::core
-end
-
-subgraph I2[&quot;Modeling / diagramming&quot;]
-direction TD
-E --&gt; F[&quot;Render V1 🧭&quot;]:::draft
-F --&gt; G{&quot;Too tidy / too fake?&quot;}:::gate
-G --&gt;|Yes| H[&quot;Add forks, loops, dead ends&quot;]:::risk
-H --&gt; I[&quot;Trim labels · reorder flow · kill clutter ✂️&quot;]:::risk
-I --&gt; F
-G --&gt;|No| J[&quot;Diagram earns its space&quot;]:::publish
-end
-
-subgraph I3[&quot;Post assembly / shipping&quot;]
-direction TD
-J --&gt; P[&quot;Write around diagram:
-Hook · thesis · proof · CTA&quot;]:::core
-P --&gt; Q{&quot;Clear and scannable?&quot;}:::gate
-Q --&gt;|No| I
-Q --&gt;|Yes| R[&quot;Ship post + code + image set 🚀&quot;]:::publish
-R --&gt; W[&quot;Watch comments for confusion&quot;]:::low
-W -. feedback loop .-&gt; B
-end
-
-classDef spark fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px;
-classDef core fill:#EAF2FF,stroke:#325DCC,color:#102A43,stroke-width:1.6px;
-classDef draft fill:#F3F4F6,stroke:#6B7280,color:#334155,stroke-width:1.4px,stroke-dasharray: 5 3;
-classDef gate fill:#F3E8FF,stroke:#7C3AED,color:#3B0764,stroke-width:2px;
-classDef risk fill:#FFF1F2,stroke:#DC2626,color:#7F1D1D,stroke-width:1.8px;
-classDef publish fill:#ECFDF5,stroke:#059669,color:#064E3B,stroke-width:2.2px;
-classDef low fill:#F8FAFC,stroke:#94A3B8,color:#64748B,stroke-width:1.2px,stroke-dasharray: 3 3;
-
-linkStyle 0 stroke:#325DCC,stroke-width:2.4px
-linkStyle 3 stroke:#325DCC,stroke-width:2.2px
-linkStyle 8 stroke:#DC2626,stroke-width:2px,stroke-dasharray: 6 4
-linkStyle 12 stroke:#DC2626,stroke-width:2.2px
-linkStyle 13 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4
-linkStyle 14 stroke:#059669,stroke-width:2.8px
-linkStyle 17 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4
-linkStyle 18 stroke:#059669,stroke-width:2.8px
-linkStyle 20 stroke:#7C3AED,stroke-width:2px,stroke-dasharray: 2 4</code></pre>
+     B:::core
+     A:::core
+     C:::draft
+     D:::gate
+     E:::core
+     F:::draft
+     G:::gate
+     H:::risk
+     I:::risk
+     J:::publish
+     P:::core
+     Q:::gate
+     R:::publish
+     W:::low
+     S:::spark
+     T:::core
+     U:::gate
+     P0:::low
+    classDef spark fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px
+    classDef core fill:#EAF2FF,stroke:#325DCC,color:#102A43,stroke-width:1.6px
+    classDef draft fill:#F3F4F6,stroke:#6B7280,color:#334155,stroke-width:1.4px,stroke-dasharray: 5 3
+    classDef gate fill:#F3E8FF,stroke:#7C3AED,color:#3B0764,stroke-width:2px
+    classDef risk fill:#FFF1F2,stroke:#DC2626,color:#7F1D1D,stroke-width:1.8px
+    classDef publish fill:#ECFDF5,stroke:#059669,color:#064E3B,stroke-width:2.2px
+    classDef low fill:#F8FAFC,stroke:#94A3B8,color:#64748B,stroke-width:1.2px,stroke-dasharray: 3 3
+    linkStyle 0 stroke:#325DCC,stroke-width:2.4px,fill:none
+    linkStyle 3 stroke:#325DCC,stroke-width:2.2px,fill:none
+    linkStyle 8 stroke:#DC2626,stroke-width:2px,stroke-dasharray: 6 4,fill:none
+    linkStyle 12 stroke:#DC2626,stroke-width:2.2px,fill:none
+    linkStyle 13 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4,fill:none
+    linkStyle 14 stroke:#059669,stroke-width:2.8px,fill:none
+    linkStyle 17 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4,fill:none
+    linkStyle 18 stroke:#059669,stroke-width:2.8px,fill:none
+    linkStyle 20 stroke:#7C3AED,stroke-width:2px,stroke-dasharray: 2 4,fill:none</code></pre>
                   </details>
                 </div>
                 <p class="diagram-caption">
@@ -550,199 +624,307 @@ linkStyle 20 stroke:#7C3AED,stroke-width:2px,stroke-dasharray: 2 4</code></pre>
                 </div>
                 <div class="diagram-shell">
                   <div class="mermaid">
-flowchart TD
-
-  subgraph IGNITION ["⚡ Ignition — The Idea Finds You"]
-    A(["💥 Spark<br/>30 min of prose · nobody read it<br/>30 sec of diagram · everyone got it"]):::spark
-    B[/"Hypothesis<br/>Not all pictures earn their words"/]:::think
-    C[["ROY Formula<br/>Clarity × Universality ÷ Words to generate"]]:::formula
+---
+config:
+  theme: neutral
+  fontFamily: Segoe UI, Inter, Arial, sans-serif
+  themeVariables:
+    primaryColor: '#EAF2FF'
+    primaryTextColor: '#14213D'
+    primaryBorderColor: '#325DCC'
+    lineColor: '#64748B'
+    secondaryColor: '#FFF7E8'
+    tertiaryColor: '#EEFDF3'
+    edgeLabelBackground: '#FFFFFF'
+    clusterBkg: '#F8FAFC'
+    clusterBorder: '#CBD5E0'
+    fontFamily: Segoe UI, Inter, Arial, sans-serif
+  look: neo
+  layout: dagre
+---
+flowchart TB
+ subgraph IGNITION["⚡ Ignition — The Idea Finds You"]
+    direction TB
+        A(["💥 Spark
+        30 min of prose · nobody read it
+        30 sec of diagram · everyone got it"])
+        B[/"Hypothesis
+        Not all pictures earn their words"/]
+        C[["ROY Formula
+        Clarity × Universality ÷ Words to generate"]]
   end
-
-  subgraph STRATEGY ["🧭 Strategy — Shape the Argument"]
-    D{{"Does the<br/>framing hold?"}}:::gate
-    E["Sharpen it<br/>Refine the ratio metaphor"]:::revise
-    F(["✨ The Recursive Twist<br/>Diagram the post · inside the post"]):::insight
-    G{{"Too clever?<br/>Will readers get it<br/>or roll their eyes?"}}:::gate
-    H["Dial it back<br/>Lead with utility · not wit"]:::revise
+ subgraph STRATEGY["🧭 Strategy — Shape the Argument"]
+    direction TB
+        D{{"Does the
+        framing hold?"}}
+        E["Sharpen it
+        Refine the ratio metaphor"]
+        F(["✨ The Recursive Twist
+        Diagram the post · inside the post"])
+        G{{"Too clever?
+        Will readers get it
+        or roll their eyes?"}}
+        H["Dial it back
+        Lead with utility · not wit"]
   end
-
-  subgraph CRAFT ["✏️ Craft — Build the Thing"]
-    I[["Medium<br/>LinkedIn · 3K char · images in post · code in comments"]]:::core
-    J[["Tool<br/>Mermaid — LLM-native · free · no design degree"]]:::core
-    K["Draft<br/>Hook → Thesis → Diagram → Proof → CTA"]:::core
-    L{{"Hook landing?"}}:::gate
-    M["Kill the clever<br/>Find the honest"]:::revise
+ subgraph CRAFT["✏️ Craft — Build the Thing"]
+    direction TB
+        I[["Medium
+        LinkedIn · 3K char · images in post · code in comments"]]
+        J[["Tool
+        Mermaid — LLM-native · free · no design degree"]]
+        K["Draft
+        Hook → Thesis → Diagram → Proof → CTA"]
+        L{{"Hook landing?"}}
+        M["Kill the clever
+        Find the honest"]
   end
-
-  subgraph PROOF ["📐 Proof — The Diagram Earns Its Space"]
-    N(["✏️ Embed It<br/>This post's own process = the example"]):::insight
-    O{{"Happy path?<br/>Does it show<br/>real ideation?"}}:::gate
-    P["Rebuild<br/>Add forks · loops · dead ends · honest wrong turns"]:::revise
+ subgraph PROOF["📐 Proof — The Diagram Earns Its Space"]
+    direction TB
+        N@{ label: "✏️ Embed It<br/>        This post's own process = the example" }
+        O{{"Happy path?
+        Does it show
+        real ideation?"}}
+        P["Rebuild
+        Add forks · loops · dead ends · honest wrong turns"]
   end
-
-  subgraph SHIP ["🚀 Ship — Send It and Learn"]
-    Q[["Publish<br/>Post + diagram image + code screenshot + raw Mermaid in comments"]]:::publish
-    R{{"Did the visual land<br/>faster than words alone?"}}:::gate
-    S(["✅ Thesis Confirmed<br/>The picture earned its words"]):::win
-    T["Iterate<br/>Refine diagram · reframe post"]:::revise
+ subgraph SHIP["🚀 Ship — Send It and Learn"]
+    direction TB
+        Q[["Publish
+        Post + diagram image + code screenshot + raw Mermaid in comments"]]
+        R{{"Did the visual land
+        faster than words alone?"}}
+        S(["✅ Thesis Confirmed
+        The picture earned its words"])
+        T["Iterate
+        Refine diagram · reframe post"]
   end
+ subgraph BRAND["🧰 OverKill Hill P³™ · Precision · Protocol · Promptcraft"]
+    direction LR
+        U[["AskJamie™
+        Friendly AI Helpdesk"]]
+        V[["Glee-fully Personalizable Tools™ 🌳
+        glee-fully.tools"]]
+        W[["OverKill Hill P³™
+        linkedin.com/company/overkillhillp3"]]
+  end
+    A --> B
+    B --> C
+    C --> D
+    D -- holds up --> F
+    F --> G
+    G -- earned --> I
+    I --> J
+    J --> K
+    K --> L
+    L -- lands --> N
+    N --> O
+    O -- yes — ship it --> Q
+    Q --> R
+    R -- high multiplier --> S
+    S --> U & V & W
+    E -. sharpen .-> C
+    G -- too cute --> H
+    H -. reframe .-> F
+    L -- too stiff --> M
+    M -. rewrite .-> K
+    O -- too linear --> P
+    P -. rebuild .-> N
+    R -- missed --> T
+    T -. loop back .-> K
 
-  A --> B --> C --> D
-  D -->|"holds up"| F
-  F --> G
-  G -->|"earned"| I
-  I --> J --> K --> L
-  L -->|"lands"| N
-  N --> O
-  O -->|"yes — ship it"| Q
-  Q --> R
-  R -->|"high multiplier"| S
-
-  D -->|"too abstract"| E
-  E -. "sharpen" .-> C
-  G -->|"too cute"| H
-  H -. "reframe" .-> F
-  L -->|"too stiff"| M
-  M -. "rewrite" .-> K
-  O -->|"too linear"| P
-  P -. "rebuild" .-> N
-  R -->|"missed"| T
-  T -. "loop back" .-> K
-
-  classDef spark    fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px,font-weight:bold
-  classDef think    fill:#1a2844,stroke:#325DCC,color:#93b4f0,stroke-width:1.5px
-  classDef formula  fill:#1a1f2e,stroke:#4A5CCC,color:#a0aec0,stroke-width:1.5px,font-style:italic
-  classDef gate     fill:#2d1f3d,stroke:#7C3AED,color:#c4b5fd,stroke-width:2px
-  classDef revise   fill:#3d0f0f,stroke:#DC2626,color:#fca5a5,stroke-width:1.8px
-  classDef insight  fill:#0d2b1e,stroke:#059669,color:#6ee7b7,stroke-width:2px,font-weight:bold
-  classDef core     fill:#1a2233,stroke:#325DCC,color:#93b4f0,stroke-width:1.5px
-  classDef publish  fill:#1e1440,stroke:#5E35B1,color:#c4b5fd,stroke-width:2.2px,font-weight:bold
-  classDef win      fill:#0a2e1a,stroke:#059669,color:#6ee7b7,stroke-width:2.5px,font-weight:bold
-
-  style IGNITION  fill:#1a1500,stroke:#D6A700,stroke-width:1.5px,color:#D6A700
-  style STRATEGY  fill:#1a0f2e,stroke:#7C3AED,stroke-width:1.5px,color:#c4b5fd
-  style CRAFT     fill:#0d1525,stroke:#325DCC,stroke-width:1.5px,color:#93b4f0
-  style PROOF     fill:#061a0f,stroke:#059669,stroke-width:1.5px,color:#6ee7b7
-  style SHIP      fill:#110d2e,stroke:#5E35B1,stroke-width:1.5px,color:#c4b5fd
+    N@{ shape: stadium}
+     A:::spark
+     B:::think
+     C:::formula
+     D:::gate
+     E:::revise
+     F:::insight
+     G:::gate
+     H:::revise
+     I:::core
+     J:::core
+     K:::core
+     L:::gate
+     M:::revise
+     N:::insight
+     O:::gate
+     P:::revise
+     Q:::publish
+     R:::gate
+     S:::win
+     T:::revise
+     U:::brand
+     V:::brand
+     W:::brand
+    classDef spark fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px,font-weight:bold
+    classDef think fill:#EAF2FF,stroke:#325DCC,color:#102A43,stroke-width:1.5px
+    classDef formula fill:#F0F4FF,stroke:#4A5CCC,color:#1a2060,stroke-width:1.5px,font-style:italic
+    classDef gate fill:#F3E8FF,stroke:#7C3AED,color:#3B0764,stroke-width:2px
+    classDef revise fill:#FFF1F2,stroke:#DC2626,color:#7F1D1D,stroke-width:1.8px
+    classDef insight fill:#ECFDF5,stroke:#059669,color:#064E3B,stroke-width:2px,font-weight:bold
+    classDef core fill:#EAF2FF,stroke:#325DCC,color:#102A43,stroke-width:1.5px
+    classDef publish fill:#EDE7F6,stroke:#5E35B1,color:#311B92,stroke-width:2.2px,font-weight:bold
+    classDef win fill:#D1FAE5,stroke:#059669,color:#064E3B,stroke-width:2.5px,font-weight:bold
+    classDef brand fill:#F8FAFC,stroke:#4B5563,color:#111827,stroke-width:1.5px
+    style IGNITION fill:#FFFBF0,stroke:#D6A700,stroke-width:1.5px,color:#4A3B00
+    style STRATEGY fill:#F5F3FF,stroke:#7C3AED,stroke-width:1.5px,color:#3B0764
+    style CRAFT fill:#EFF6FF,stroke:#325DCC,stroke-width:1.5px,color:#1E3A5F
+    style PROOF fill:#F0FDF4,stroke:#059669,stroke-width:1.5px,color:#064E3B
+    style SHIP fill:#F5F3FF,stroke:#5E35B1,stroke-width:1.5px,color:#311B92
+    style BRAND fill:#F1F5F9,stroke:#64748B,stroke-width:1.5px,color:#334155
                   </div>
                   <details class="code-drop">
                     <summary>View V2 Mermaid code</summary>
                     <pre><code>---
 config:
-  theme: base
-  fontFamily: &quot;DM Sans, Segoe UI, Inter, Arial, sans-serif&quot;
+  theme: neutral
+  fontFamily: Segoe UI, Inter, Arial, sans-serif
   themeVariables:
-    primaryColor: &quot;#181f26&quot;
-    primaryTextColor: &quot;#e5e7eb&quot;
-    primaryBorderColor: &quot;#c46a2c&quot;
-    lineColor: &quot;#64748B&quot;
-    secondaryColor: &quot;#111827&quot;
-    tertiaryColor: &quot;#1c3a34&quot;
-    edgeLabelBackground: &quot;#111827&quot;
-    clusterBkg: &quot;#0d1117&quot;
-    clusterBorder: &quot;#2d3748&quot;
+    primaryColor: '#EAF2FF'
+    primaryTextColor: '#14213D'
+    primaryBorderColor: '#325DCC'
+    lineColor: '#64748B'
+    secondaryColor: '#FFF7E8'
+    tertiaryColor: '#EEFDF3'
+    edgeLabelBackground: '#FFFFFF'
+    clusterBkg: '#F8FAFC'
+    clusterBorder: '#CBD5E0'
+    fontFamily: Segoe UI, Inter, Arial, sans-serif
+  look: neo
+  layout: dagre
 ---
-flowchart TD
-
-  subgraph IGNITION [&quot;⚡ Ignition — The Idea Finds You&quot;]
+flowchart TB
+ subgraph IGNITION["⚡ Ignition — The Idea Finds You"]
     direction TB
-    A([&quot;💥 Spark
-30 min of prose · nobody read it
-30 sec of diagram · everyone got it&quot;]):::spark
-    B[/&quot;Hypothesis
-Not all pictures earn their words&quot;/]:::think
-    C[[&quot;ROY Formula
-Clarity × Universality ÷ Words to generate&quot;]]:::formula
+        A(["💥 Spark
+        30 min of prose · nobody read it
+        30 sec of diagram · everyone got it"])
+        B[/"Hypothesis
+        Not all pictures earn their words"/]
+        C[["ROY Formula
+        Clarity × Universality ÷ Words to generate"]]
   end
-
-  subgraph STRATEGY [&quot;🧭 Strategy — Shape the Argument&quot;]
+ subgraph STRATEGY["🧭 Strategy — Shape the Argument"]
     direction TB
-    D{{&quot;Does the
-framing hold?&quot;}}:::gate
-    E[&quot;Sharpen it
-Refine the ratio metaphor&quot;]:::revise
-    F([&quot;✨ The Recursive Twist
-Diagram the post · inside the post&quot;]):::insight
-    G{{&quot;Too clever?
-Will readers get it
-or roll their eyes?&quot;}}:::gate
-    H[&quot;Dial it back
-Lead with utility · not wit&quot;]:::revise
+        D{{"Does the
+        framing hold?"}}
+        E["Sharpen it
+        Refine the ratio metaphor"]
+        F(["✨ The Recursive Twist
+        Diagram the post · inside the post"])
+        G{{"Too clever?
+        Will readers get it
+        or roll their eyes?"}}
+        H["Dial it back
+        Lead with utility · not wit"]
   end
-
-  subgraph CRAFT [&quot;✏️ Craft — Build the Thing&quot;]
+ subgraph CRAFT["✏️ Craft — Build the Thing"]
     direction TB
-    I[[&quot;Medium
-LinkedIn · 3K char · images in post · code in comments&quot;]]:::core
-    J[[&quot;Tool
-Mermaid — LLM-native · free · no design degree&quot;]]:::core
-    K[&quot;Draft
-Hook → Thesis → Diagram → Proof → CTA&quot;]:::core
-    L{{&quot;Hook landing?&quot;}}:::gate
-    M[&quot;Kill the clever
-Find the honest&quot;]:::revise
+        I[["Medium
+        LinkedIn · 3K char · images in post · code in comments"]]
+        J[["Tool
+        Mermaid — LLM-native · free · no design degree"]]
+        K["Draft
+        Hook → Thesis → Diagram → Proof → CTA"]
+        L{{"Hook landing?"}}
+        M["Kill the clever
+        Find the honest"]
   end
-
-  subgraph PROOF [&quot;📐 Proof — The Diagram Earns Its Space&quot;]
+ subgraph PROOF["📐 Proof — The Diagram Earns Its Space"]
     direction TB
-    N([&quot;✏️ Embed It
-This post&#x27;s own process = the example&quot;]):::insight
-    O{{&quot;Happy path?
-Does it show
-real ideation?&quot;}}:::gate
-    P[&quot;Rebuild
-Add forks · loops · dead ends · honest wrong turns&quot;]:::revise
+        N@{ label: "✏️ Embed It<br/>        This post's own process = the example" }
+        O{{"Happy path?
+        Does it show
+        real ideation?"}}
+        P["Rebuild
+        Add forks · loops · dead ends · honest wrong turns"]
   end
-
-  subgraph SHIP [&quot;🚀 Ship — Send It and Learn&quot;]
+ subgraph SHIP["🚀 Ship — Send It and Learn"]
     direction TB
-    Q[[&quot;Publish
-Post + diagram image + code screenshot + raw Mermaid in comments&quot;]]:::publish
-    R{{&quot;Did the visual land
-faster than words alone?&quot;}}:::gate
-    S([&quot;✅ Thesis Confirmed
-The picture earned its words&quot;]):::win
-    T[&quot;Iterate
-Refine diagram · reframe post&quot;]:::revise
+        Q[["Publish
+        Post + diagram image + code screenshot + raw Mermaid in comments"]]
+        R{{"Did the visual land
+        faster than words alone?"}}
+        S(["✅ Thesis Confirmed
+        The picture earned its words"])
+        T["Iterate
+        Refine diagram · reframe post"]
   end
+ subgraph BRAND["🧰 OverKill Hill P³™ · Precision · Protocol · Promptcraft"]
+    direction LR
+        U[["AskJamie™
+        Friendly AI Helpdesk"]]
+        V[["Glee-fully Personalizable Tools™ 🌳
+        glee-fully.tools"]]
+        W[["OverKill Hill P³™
+        linkedin.com/company/overkillhillp3"]]
+  end
+    A --> B
+    B --> C
+    C --> D
+    D -- holds up --> F
+    F --> G
+    G -- earned --> I
+    I --> J
+    J --> K
+    K --> L
+    L -- lands --> N
+    N --> O
+    O -- yes — ship it --> Q
+    Q --> R
+    R -- high multiplier --> S
+    S --> U & V & W
+    E -. sharpen .-> C
+    G -- too cute --> H
+    H -. reframe .-> F
+    L -- too stiff --> M
+    M -. rewrite .-> K
+    O -- too linear --> P
+    P -. rebuild .-> N
+    R -- missed --> T
+    T -. loop back .-> K
 
-  A --&gt; B --&gt; C --&gt; D
-  D --&gt;|&quot;holds up&quot;| F
-  F --&gt; G
-  G --&gt;|&quot;earned&quot;| I
-  I --&gt; J --&gt; K --&gt; L
-  L --&gt;|&quot;lands&quot;| N
-  N --&gt; O
-  O --&gt;|&quot;yes — ship it&quot;| Q
-  Q --&gt; R
-  R --&gt;|&quot;high multiplier&quot;| S
-
-  D --&gt;|&quot;too abstract&quot;| E
-  E -. &quot;sharpen&quot; .-&gt; C
-  G --&gt;|&quot;too cute&quot;| H
-  H -. &quot;reframe&quot; .-&gt; F
-  L --&gt;|&quot;too stiff&quot;| M
-  M -. &quot;rewrite&quot; .-&gt; K
-  O --&gt;|&quot;too linear&quot;| P
-  P -. &quot;rebuild&quot; .-&gt; N
-  R --&gt;|&quot;missed&quot;| T
-  T -. &quot;loop back&quot; .-&gt; K
-
-  classDef spark    fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px,font-weight:bold
-  classDef think    fill:#1a2844,stroke:#325DCC,color:#93b4f0,stroke-width:1.5px
-  classDef formula  fill:#1a1f2e,stroke:#4A5CCC,color:#a0aec0,stroke-width:1.5px,font-style:italic
-  classDef gate     fill:#2d1f3d,stroke:#7C3AED,color:#c4b5fd,stroke-width:2px
-  classDef revise   fill:#3d0f0f,stroke:#DC2626,color:#fca5a5,stroke-width:1.8px
-  classDef insight  fill:#0d2b1e,stroke:#059669,color:#6ee7b7,stroke-width:2px,font-weight:bold
-  classDef core     fill:#1a2233,stroke:#325DCC,color:#93b4f0,stroke-width:1.5px
-  classDef publish  fill:#1e1440,stroke:#5E35B1,color:#c4b5fd,stroke-width:2.2px,font-weight:bold
-  classDef win      fill:#0a2e1a,stroke:#059669,color:#6ee7b7,stroke-width:2.5px,font-weight:bold
-
-  style IGNITION  fill:#1a1500,stroke:#D6A700,stroke-width:1.5px,color:#D6A700
-  style STRATEGY  fill:#1a0f2e,stroke:#7C3AED,stroke-width:1.5px,color:#c4b5fd
-  style CRAFT     fill:#0d1525,stroke:#325DCC,stroke-width:1.5px,color:#93b4f0
-  style PROOF     fill:#061a0f,stroke:#059669,stroke-width:1.5px,color:#6ee7b7
-  style SHIP      fill:#110d2e,stroke:#5E35B1,stroke-width:1.5px,color:#c4b5fd</code></pre>
+    N@{ shape: stadium}
+     A:::spark
+     B:::think
+     C:::formula
+     D:::gate
+     E:::revise
+     F:::insight
+     G:::gate
+     H:::revise
+     I:::core
+     J:::core
+     K:::core
+     L:::gate
+     M:::revise
+     N:::insight
+     O:::gate
+     P:::revise
+     Q:::publish
+     R:::gate
+     S:::win
+     T:::revise
+     U:::brand
+     V:::brand
+     W:::brand
+    classDef spark fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px,font-weight:bold
+    classDef think fill:#EAF2FF,stroke:#325DCC,color:#102A43,stroke-width:1.5px
+    classDef formula fill:#F0F4FF,stroke:#4A5CCC,color:#1a2060,stroke-width:1.5px,font-style:italic
+    classDef gate fill:#F3E8FF,stroke:#7C3AED,color:#3B0764,stroke-width:2px
+    classDef revise fill:#FFF1F2,stroke:#DC2626,color:#7F1D1D,stroke-width:1.8px
+    classDef insight fill:#ECFDF5,stroke:#059669,color:#064E3B,stroke-width:2px,font-weight:bold
+    classDef core fill:#EAF2FF,stroke:#325DCC,color:#102A43,stroke-width:1.5px
+    classDef publish fill:#EDE7F6,stroke:#5E35B1,color:#311B92,stroke-width:2.2px,font-weight:bold
+    classDef win fill:#D1FAE5,stroke:#059669,color:#064E3B,stroke-width:2.5px,font-weight:bold
+    classDef brand fill:#F8FAFC,stroke:#4B5563,color:#111827,stroke-width:1.5px
+    style IGNITION fill:#FFFBF0,stroke:#D6A700,stroke-width:1.5px,color:#4A3B00
+    style STRATEGY fill:#F5F3FF,stroke:#7C3AED,stroke-width:1.5px,color:#3B0764
+    style CRAFT fill:#EFF6FF,stroke:#325DCC,stroke-width:1.5px,color:#1E3A5F
+    style PROOF fill:#F0FDF4,stroke:#059669,stroke-width:1.5px,color:#064E3B
+    style SHIP fill:#F5F3FF,stroke:#5E35B1,stroke-width:1.5px,color:#311B92
+    style BRAND fill:#F1F5F9,stroke:#64748B,stroke-width:1.5px,color:#334155</code></pre>
                   </details>
                 </div>
                 <p class="diagram-caption">
@@ -751,8 +933,7 @@ Refine diagram · reframe post&quot;]:::revise
               </div>
 
               <p>
-                This was the moment the experiment stopped being a gimmick and started behaving like a method.
-                The diagrams were no longer just illustrating the argument. They were auditing it.
+                This was the moment the experiment stopped being a gimmick and started behaving like a method.  The diagrams were no longer just illustrating the argument. They were auditing it.
               </p>
 
               <hr />
@@ -769,15 +950,11 @@ Refine diagram · reframe post&quot;]:::revise
                 They were not engineered like final-form production assets.
               </p>
               <p>
-                Most of them started as live dictation — quick, directional, natural-language prompts
-                spoken in the moment while the idea was still moving.
+                Most of them started as live dictation — quick, directional, natural-language prompts spoken in the moment while the idea was still moving.
               </p>
               <p>That matters.</p>
               <p>
-                If every prompt had to be honed, polished, and weaponized before I could use it, the process would
-                lose much of what made it valuable in the first place. The friction would rise. The mental cost would rise.
-                The velocity would drop. And at some point I may as well go back to a traditional tool and manually
-                draw the thing in Visio.
+                If every prompt had to be honed, polished, and weaponized before I could use it, the process would lose much of what made it valuable in the first place. The friction would rise. The mental cost would rise.  The velocity would drop. And at some point I may as well go back to a traditional tool and manually draw the thing in Visio.
               </p>
 
               <p>That is part of the thesis here: <strong>prompt precision has a cost.</strong></p>
@@ -791,13 +968,10 @@ Refine diagram · reframe post&quot;]:::revise
               </div>
 
               <p>
-                In exploratory work — especially when using Mermaid to sketch, iterate, and surface
-                structure — I care less about crafting the perfect prompt and more about maintaining forward motion.
+                In exploratory work — especially when using Mermaid to sketch, iterate, and surface structure — I care less about crafting the perfect prompt and more about maintaining forward motion.
               </p>
               <p>
-                These prompts were lightly edited for readability only. Grammar corrected, duplicate
-                phrasing from live dictation removed, word overhead trimmed. The original shape and
-                intent were preserved intentionally.
+                These prompts were lightly edited for readability only. Grammar corrected, duplicate phrasing from live dictation removed, word overhead trimmed. The original shape and intent were preserved intentionally.
               </p>
               <p>
                 That is the point.
@@ -811,8 +985,7 @@ Refine diagram · reframe post&quot;]:::revise
                 <p class="council-card-eyebrow">A note on fairness</p>
                 <h3>The brief was consistent. The conditions were not.</h3>
                 <p>
-                  The core council members received materially similar direction and deliverable
-                  expectations. A few caveats matter:
+                  The core council members received materially similar direction and deliverable expectations. A few caveats matter:
                 </p>
                 <div class="council-members" style="margin-top: 0.75rem; margin-bottom: 1rem;">
                   <span class="council-pill winner">ChatGPT</span>
@@ -838,23 +1011,11 @@ Refine diagram · reframe post&quot;]:::revise
               <div class="artifact-card" style="margin-bottom: 1.5rem;">
                 <h3>Prompt 01 — The Seed</h3>
                 <p class="small-note">
-                  The idea started as a business-style ROI question, then bent toward pictures,
-                  words, and meaning. No deliverable yet. Just finding the governing idea.
+                  The idea started as a business-style ROI question, then bent toward pictures, words, and meaning. No deliverable yet. Just finding the governing idea.
                 </p>
                 <details class="code-drop">
                   <summary>View prompt</summary>
-                  <pre class="artifact-copy">Thinking like a professor of business and investment, what is a realistic
-              but attractive return on investment?
-
-              There is an old adage that a picture is worth 1,000 words. If a diagram
-              can be generated from words, what would be a good ROY — return on your
-              words? If it takes more words to generate the picture than the picture
-              returns in meaning, understanding, or compression, the investment may be
-              poor. But if a picture created from words lands with more meaning than the
-              words it took to create it, that seems valuable.
-
-              What ratio of words to meaning, understanding, and structure makes this a
-              good investment?</pre>
+                  <pre class="artifact-copy">Thinking like a professor of business and investment, what is a realistic but attractive return on investment?  There is an old adage that a picture is worth 1,000 words. If a diagram can be generated from words, what would be a good ROY — return on your words? If it takes more words to generate the picture than the picture returns in meaning, understanding, or compression, the investment may be poor. But if a picture created from words lands with more meaning than the words it took to create it, that seems valuable.  What ratio of words to meaning, understanding, and structure makes this a good investment?</pre>
                 </details>
                 <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
                   This prompt did not start with a deliverable. It started by finding the frame.
@@ -865,23 +1026,11 @@ Refine diagram · reframe post&quot;]:::revise
               <div class="artifact-card" style="margin-bottom: 1.5rem;">
                 <h3>Prompt 02 — The Meta Turn</h3>
                 <p class="small-note">
-                  The project becomes recursive: the post is about diagrams, and the diagram
-                  explains the making of the post. Abstract stops here. Self-demonstrating begins.
+                  The project becomes recursive: the post is about diagrams, and the diagram explains the making of the post. Abstract stops here. Self-demonstrating begins.
                 </p>
                 <details class="code-drop">
                   <summary>View prompt</summary>
-                  <pre class="artifact-copy">I'm considering a LinkedIn post/article about the visual value of pictures and
-              understanding — specifically the value of Mermaid diagrams, Mermaid tooling,
-              and the ability to create Mermaid diagrams with most LLMs.
-
-              I want the post itself to include a Mermaid diagram showing the ideation
-              process of creating the post. So the post would talk about the value of using
-              words to generate pictures, and the picture would be the steps involved in
-              writing the post itself.
-
-              What are the steps in creating a LinkedIn post about visual value, visual
-              ROI, and the way a picture can sometimes be worth less — or much more —
-              than a thousand words?</pre>
+                  <pre class="artifact-copy">I'm considering a LinkedIn post/article about the visual value of pictures and understanding — specifically the value of Mermaid diagrams, Mermaid tooling, and the ability to create Mermaid diagrams with most LLMs.  I want the post itself to include a Mermaid diagram showing the ideation process of creating the post. So the post would talk about the value of using words to generate pictures, and the picture would be the steps involved in writing the post itself. What are the steps in creating a LinkedIn post about visual value, visual ROI, and the way a picture can sometimes be worth less — or much more — than a thousand words?</pre>
                 </details>
                 <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
                   This is where the work stopped being abstract and started becoming self-demonstrating.
@@ -892,22 +1041,11 @@ Refine diagram · reframe post&quot;]:::revise
               <div class="artifact-card" style="margin-bottom: 1.5rem;">
                 <h3>Prompt 03 — The Happy-Path Lie</h3>
                 <p class="small-note">
-                  The first diagram was too clean. This prompt forced honesty back into the
-                  structure — the shortest prompt in the sequence and arguably the most important.
+                  The first diagram was too clean. This prompt forced honesty back into the structure — the shortest prompt in the sequence and arguably the most important.
                 </p>
                 <details class="code-drop">
                   <summary>View prompt</summary>
-                  <pre class="artifact-copy">Ideation, thought, and writing are not perfectly linear. This initial
-              Mermaid diagram shows a straight happy path from start to finish, but
-              that is not honest.
-
-              Generating a diagram from words involves revision. Revision involves forks
-              and loopbacks — a non-happy path. So it would be better if the diagram
-              showed a non-ideal path rather than a straight one, with slight visual flair:
-              restrained color variation, selective arrow styling, subtle hierarchy, and
-              conservative emoji use.
-
-              Enough to add clarity and pizzazz, but not enough to become noise.</pre>
+                  <pre class="artifact-copy">Ideation, thought, and writing are not perfectly linear. This initial Mermaid diagram shows a straight happy path from start to finish, but that is not honest.  Generating a diagram from words involves revision. Revision involves forks and loopbacks — a non-happy path. So it would be better if the diagram showed a non-ideal path rather than a straight one, with slight visual flair: restrained color variation, selective arrow styling, subtle hierarchy, and conservative emoji use.  Enough to add clarity and pizzazz, but not enough to become noise.</pre>
                 </details>
                 <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
                   This is the moment the diagram stops being decorative and starts being truthful.
@@ -918,18 +1056,11 @@ Refine diagram · reframe post&quot;]:::revise
               <div class="artifact-card" style="margin-bottom: 1.5rem;">
                 <h3>Prompt 04 — Voice and Brand Lock-In</h3>
                 <p class="small-note">
-                  Once the structure was right, the output needed to sound like it belonged
-                  to the same builder and brand. Style calibration through example, not description.
+                  Once the structure was right, the output needed to sound like it belonged to the same builder and brand. Style calibration through example, not description.
                 </p>
                 <details class="code-drop">
                   <summary>View prompt</summary>
-                  <pre class="artifact-copy">Create a tone-matched LinkedIn post that carries the same professional
-              snark, swagger, and practical voice I tend to use. Strong hooks, good CTA
-              structure, reinforcing my brand, driving interest toward OverKill Hill P³™,
-              Glee-fully Personalizable Tools™, and AskJamie™.
-
-              Here is a sample of my recent LinkedIn style and article voice: [reference
-              material pasted in full]</pre>
+                  <pre class="artifact-copy">Create a tone-matched LinkedIn post that carries the same professional snark, swagger, and practical voice I tend to use. Strong hooks, good CTA structure, reinforcing my brand, driving interest toward OverKill Hill P³™, Glee-fully Personalizable Tools™, and AskJamie™.  Here is a sample of my recent LinkedIn style and article voice: [reference material pasted in full]</pre>
                 </details>
                 <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
                   The work had to be structurally sound and recognizably mine.
@@ -944,14 +1075,7 @@ Refine diagram · reframe post&quot;]:::revise
                 </p>
                 <details class="code-drop">
                   <summary>View prompt</summary>
-                  <pre class="artifact-copy">This is the final competition, an art contest where you judge your design
-              against your peers.
-
-              First: identify the winner that best depicts the theme and best uses the
-              current features available within Mermaid to showcase the art of the possible.
-
-              Second: learn from your self-evaluation and from your peers, then create
-              a V2 that is more awe-inspiring for a LinkedIn audience.</pre>
+                  <pre class="artifact-copy">This is the final competition, an art contest where you judge your design against your peers.  First: identify the winner that best depicts the theme and best uses the current features available within Mermaid to showcase the art of the possible.  Second: learn from your self-evaluation and from your peers, then create a V2 that is more awe-inspiring for a LinkedIn audience.</pre>
                 </details>
                 <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
                   This is where prompting stops being single-model generation and becomes council orchestration.
@@ -960,18 +1084,13 @@ Refine diagram · reframe post&quot;]:::revise
 
               <!-- Closing -->
               <p>
-                Five prompts. One session. No template. No prompt framework. No pre-scripted
-                structure.
+                Five prompts. One session. No template. No prompt framework. No pre-scripted structure.
               </p>
               <p>
-                Prompt 01 didn't mention LinkedIn or Mermaid. Prompt 03 corrected a structural
-                lie in a single paragraph. Prompt 05 ran a five-model art competition with a
-                pun in the brief. None of them were polished before sending. All of them worked.
+                Prompt 01 didn't mention LinkedIn or Mermaid. Prompt 03 corrected a structural lie in a single paragraph. Prompt 05 ran a five-model art competition with a pun in the brief. None of them were polished before sending. All of them worked.
               </p>
               <p>
-                That's not an argument against precision. It's an argument for knowing when
-                velocity is the right tool — and when the diagram you need is cheap enough
-                to draft twice rather than plan once.
+                That's not an argument against precision. It's an argument for knowing when velocity is the right tool — and when the diagram you need is cheap enough to draft twice rather than plan once.
               </p>
 
 
@@ -979,8 +1098,7 @@ Refine diagram · reframe post&quot;]:::revise
 
               <h2 id="artifacts">Launch Artifacts</h2>
               <p>
-                Because this began as a LinkedIn experiment, the launch assets matter. The article is the canonical home.
-                The post is the spear. The first comment is the afterburner.
+                Because this began as a LinkedIn experiment, the launch assets matter. The article is the canonical home.  The post is the spear. The first comment is the afterburner.
               </p>
 
               <div class="artifact-stack">
@@ -1164,12 +1282,10 @@ What&#x27;s the one process in your world you&#x27;ve avoided diagramming becaus
                 Not because the words disappeared. Not because reading stopped mattering. But because the words were invested in a form that improved assimilation.
               </p>
               <p>
-                That is the work I keep circling back to at <strong>OverKill&nbsp;Hill&nbsp;P³™</strong>:
-                <strong>words → structure → systems → leverage</strong>.
+                That is the work I keep circling back to at <strong>OverKill&nbsp;Hill&nbsp;P³™</strong>: <strong>words → structure → systems → leverage</strong>.
               </p>
               <p>
-                The tools will keep changing. The interfaces will keep changing. The models will keep changing.
-                The question underneath them is not going away.
+                The tools will keep changing. The interfaces will keep changing. The models will keep changing.  The question underneath them is not going away.
               </p>
 
               <div class="pull-quote">
@@ -1210,9 +1326,7 @@ What&#x27;s the one process in your world you&#x27;ve avoided diagramming becaus
                   <strong style="color: var(--color-fg);">The First Diagram Is Usually a Liar</strong>
                 </p>
                 <p>
-                  A live argument about visual communication, ROY, and what a Council of AIs
-                  revealed when six models competed on the same brief. This version is the
-                  launch cut — more is coming.
+                  A live argument about visual communication, ROY, and what a Council of AIs revealed when six models competed on the same brief. This version is the launch cut — more is coming.
                 </p>
               </div>
 
