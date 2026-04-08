@@ -85,6 +85,12 @@
       html[data-theme="light"] .article-body h2 {
         color: #0f172a;
       }
+      @media (min-width: 1024px) {
+        .article-sidebar {
+          will-change: transform;
+          transition: opacity 0.3s ease;
+        }
+      }
     </style>
 
   </head>
@@ -1385,5 +1391,54 @@ What&#x27;s the one process in your world you&#x27;ve avoided diagramming becaus
       gtag("js", new Date());
       gtag("config", "G-VJ1BKXS27H");
     </script>
+    <!-- Sticky sidebar: smooth lerp scroll-follow, bounded by hero + footer -->
+    <script>
+      (function () {
+        if (window.innerWidth < 1024) return;
+
+        var sidebar  = document.querySelector('.article-sidebar');
+        var hero     = document.querySelector('.article-hero');
+        var footer   = document.querySelector('.site-footer');
+        if (!sidebar || !hero || !footer) return;
+
+        var lerpedY  = 0;
+        var targetY  = 0;
+        var SPEED    = 0.08;   /* lower = lazier follow */
+        var NAV_H    = 96;     /* px: clearance from viewport top (below sticky nav) */
+        var PAD      = 32;     /* px: breathing room above footer */
+
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        function tick() {
+          var scrollY    = window.scrollY;
+          var heroBottom = hero.offsetTop + hero.offsetHeight;
+          var footerTop  = footer.offsetTop;
+          var sidebarH   = sidebar.offsetHeight;
+
+          /* How far the sidebar needs to travel to feel "fixed" below the nav */
+          var raw = Math.max(0, scrollY - heroBottom + NAV_H);
+
+          /* Clamp: sidebar bottom must not cross the footer */
+          var max = Math.max(0, footerTop - PAD - heroBottom - sidebarH);
+          targetY = Math.min(raw, max);
+
+          /* Smooth lag */
+          lerpedY = lerp(lerpedY, targetY, SPEED);
+          sidebar.style.transform = 'translateY(' + lerpedY.toFixed(2) + 'px)';
+
+          requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+
+        /* Reset on resize below breakpoint */
+        window.addEventListener('resize', function () {
+          if (window.innerWidth < 1024) {
+            sidebar.style.transform = '';
+          }
+        });
+      }());
+    </script>
+
   </body>
 </html>
