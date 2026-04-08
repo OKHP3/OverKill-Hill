@@ -3723,7 +3723,8 @@ body.construction-dismissed .construction-overlay,
 }
 
 .council-table td:last-child {
-  color: var(--color-muted);
+  font-size: 14px;
+  color: #6b7280;
   text-align: right;
 }
 
