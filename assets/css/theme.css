@@ -3797,18 +3797,14 @@ body.construction-dismissed .construction-overlay,
    ---------------------------------------- */
 .sidebar-tool-link {
   font-size: 14px;
-  color: #6b7280;
-  border: 1px solid #6b7280;
-  padding: 0.15rem 0.35rem;
-  border-radius: 3px;
+  color: #FF3670;
   text-decoration: none;
   display: inline-block;
 }
 
 .sidebar-tool-link:hover,
 .sidebar-tool-link:focus-visible {
-  color: #9ca3af;
-  border-color: #9ca3af;
+  color: #ff6b95;
 }
 
 /* ----------------------------------------
