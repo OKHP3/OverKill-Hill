@@ -3747,7 +3747,6 @@ body.construction-dismissed .construction-overlay,
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: #e5e7eb;
-  border: 1px solid #e5e7eb;
   margin: 9.6px 0 0.3rem;
 }
 
@@ -3765,8 +3764,7 @@ body.construction-dismissed .construction-overlay,
    diagram without using the word "winner".
    ---------------------------------------- */
 .sidebar-diagram-selected {
-  border-left: 2px solid var(--okh-amber);
-  padding-left: 0.5rem;
+  padding-left: 0;
 }
 
 .sidebar-diagram-selected a {
@@ -3780,10 +3778,8 @@ body.construction-dismissed .construction-overlay,
 .sidebar-links .sidebar-diagram-entry {
   font-size: 14px;
   color: #6b7280;
-  border: 1px solid #6b7280;
-  padding: 0.1rem 0.4rem;
+  padding: 0.1rem 0;
   margin-left: 1rem;
-  border-radius: 3px;
   text-decoration: none;
   display: inline-block;
 }
