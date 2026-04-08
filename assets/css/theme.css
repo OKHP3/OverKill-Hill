@@ -3732,10 +3732,11 @@ body.construction-dismissed .construction-overlay,
    Reusable sub-heading for grouped sidebar link lists.
    ---------------------------------------- */
 .sidebar-section-label {
-  font-size: 0.75rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--okh-orange);
+  color: #e5e7eb;
+  border: 1px solid #e5e7eb;
   margin: 0.6rem 0 0.3rem;
 }
 
