@@ -3700,6 +3700,19 @@ body.construction-dismissed .construction-overlay,
    ---------------------------------------- */
 
 /* ----------------------------------------
+   Sidebar: Widget description text
+   Reusable muted descriptor paragraph inside any sidebar widget.
+   ---------------------------------------- */
+.sidebar-widget-desc {
+  font-size: 14px;
+  color: #6b7280;
+  border: 1px solid #6b7280;
+  padding: 0.25rem 0.4rem;
+  border-radius: 3px;
+  margin-bottom: 0.5rem;
+}
+
+/* ----------------------------------------
    Sidebar: Council Snapshot table
    Reusable for any multi-member council widget.
    ---------------------------------------- */
