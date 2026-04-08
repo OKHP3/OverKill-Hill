@@ -3716,7 +3716,8 @@ body.construction-dismissed .construction-overlay,
 }
 
 .council-table td:first-child {
-  color: var(--color-fg);
+  font-size: 14px;
+  color: #6b7280;
   font-weight: 600;
   white-space: nowrap;
   padding-right: 0.5rem;
