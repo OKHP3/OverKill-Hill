@@ -3706,9 +3706,6 @@ body.construction-dismissed .construction-overlay,
 .sidebar-widget-desc {
   font-size: 14px;
   color: #6b7280;
-  border: 1px solid #6b7280;
-  padding: 0.25rem 0.4rem;
-  border-radius: 3px;
   margin-bottom: 0.5rem;
 }
 
@@ -3730,10 +3727,10 @@ body.construction-dismissed .construction-overlay,
 
 .council-name {
   font-size: 14px;
-  color: #6b7280;
-  font-weight: 600;
+  color: var(--color-fg);
+  font-weight: 700;
   white-space: nowrap;
-  padding-right: 0.5rem;
+  padding-right: 0.75rem;
 }
 
 .council-role {
