@@ -3728,7 +3728,7 @@ body.construction-dismissed .construction-overlay,
   vertical-align: top;
 }
 
-.council-table td:first-child {
+.council-name {
   font-size: 14px;
   color: #6b7280;
   font-weight: 600;
@@ -3736,7 +3736,7 @@ body.construction-dismissed .construction-overlay,
   padding-right: 0.5rem;
 }
 
-.council-table td:last-child {
+.council-role {
   font-size: 14px;
   color: #6b7280;
   text-align: right;
