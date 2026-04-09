@@ -3795,15 +3795,15 @@ body.construction-dismissed .construction-overlay,
    Muted gray link with border — for utility/tool entries
    below the main diagram lists.
    ---------------------------------------- */
-.sidebar-tool-link {
+.sidebar-links .sidebar-tool-link {
   font-size: 14px;
   color: #FF3670;
   text-decoration: none;
   display: inline-block;
 }
 
-.sidebar-tool-link:hover,
-.sidebar-tool-link:focus-visible {
+.sidebar-links .sidebar-tool-link:hover,
+.sidebar-links .sidebar-tool-link:focus-visible {
   color: #ff6b95;
 }
 
@@ -3816,6 +3816,9 @@ body.construction-dismissed .construction-overlay,
    Prevents --color-fg (near-white) leaking into HTML foreignObject
    labels on light-themed diagrams.
    ---------------------------------------- */
-.mermaid foreignObject {
+.mermaid foreignObject,
+.mermaid foreignObject div,
+.mermaid foreignObject p,
+.mermaid foreignObject span {
   color: initial;
 }
