@@ -1,0 +1,225 @@
+You are performing a full quality-assurance and release-readiness audit of the OverKill Hill web presence and its supporting public repositories.
+
+SCOPE
+
+Audit all of the following as a connected public system, not as isolated files:
+
+1. GitHub repository:
+   https://github.com/OKHP3/OverKill-Hill
+
+2. GitHub repository:
+   https://github.com/OKHP3/first-diagram-is-a-liar
+
+3. Website:
+   https://overkillhill.com
+
+4. Website area:
+   https://overkillhill.com/writings/
+
+5. Flagship article page with highest priority:
+   https://overkillhill.com/writings/first-diagram-is-a-liar/
+
+PRIMARY GOAL
+
+Treat this as a launch-grade QA evaluation.
+
+Your job is to:
+- verify what is actually present now
+- identify all remaining weaknesses
+- separate blockers from polish
+- catch inconsistencies between repo and site
+- validate public-readiness, trustworthiness, rendering stability, and narrative coherence
+- hyper-focus on the article page above all else
+
+IMPORTANT OPERATING RULES
+
+- Do not assume things are correct because they look polished.
+- Verify by inspecting actual files, page source, links, metadata, asset references, and rendered behavior.
+- Audit both repos and the deployed site together.
+- Treat broken trust, stale scaffolding, inconsistent versioning, rendering fragility, and link drift as serious defects.
+- Be adversarial in a constructive way.
+- Do not rewrite content unless necessary to fix a real issue.
+- Produce a real QA report, not a marketing summary.
+
+DELIVERABLE FORMAT
+
+Return your audit in this exact structure:
+
+1. EXECUTIVE SUMMARY
+   - overall release-readiness status
+   - whether each repo is public-ready
+   - whether the website is traffic-ready
+   - whether the article page is ready for another promotional push
+
+2. SYSTEM MAP
+   - describe how the repos and website currently relate to each other
+   - identify the canonical source of truth for:
+     - article text
+     - Mermaid source files
+     - rendered diagram images
+     - prompt archive
+     - slide decks
+     - website copy
+
+3. REPOSITORY AUDIT — OVERKILL-HILL
+   Check:
+   - README quality
+   - LICENSE / SECURITY / CONTRIBUTING / CODE_OF_CONDUCT presence and adequacy
+   - obvious stale placeholder content
+   - public-facing clarity
+   - whether repo structure supports the live site cleanly
+   - whether content appears safe to keep public
+
+4. REPOSITORY AUDIT — FIRST-DIAGRAM-IS-A-LIAR
+   Check:
+   - README quality
+   - council-brief.md quality
+   - diagram-manifest.csv completeness and usefulness
+   - mermaid-public-links.md accuracy
+   - naming consistency across prompts / diagrams / images / slides
+   - whether all key folders have useful README files
+   - whether any accidental junk, internal notes, or confusing artifacts remain
+   - whether repo is ready to be used as a public “receipt stack”
+
+5. WEBSITE AUDIT — SITEWIDE
+   Crawl and evaluate every reachable page on overkillhill.com.
+   For every page, check:
+   - title tag
+   - meta description
+   - canonical URL
+   - OG / Twitter card quality
+   - internal links
+   - broken links
+   - nav consistency
+   - footer consistency
+   - obvious placeholder or draft copy
+   - visual trust / credibility
+   - mobile and desktop assumptions
+   - accessibility basics
+   - public-facing tone consistency
+
+6. WEBSITE AUDIT — HYPER-FOCUS PAGE
+   Audit:
+   https://overkillhill.com/writings/first-diagram-is-a-liar/
+
+   This page gets the deepest evaluation.
+
+   You must check:
+
+   A. Identity and framing
+   - version labeling consistency across meta description, hero, badges, notices, and sidebar
+   - whether the page knows what it is:
+     article, exhibit, archive, methodology page, or all four
+   - whether that identity is coherent
+
+   B. Trust and polish
+   - any stale “protoform” or workshop residue
+   - any internal-only notes leaking into the page
+   - any content that feels like scaffolding rather than public artifact
+   - whether the article reads like a finished public piece
+
+   C. Diagram rendering strategy
+   - are live Mermaid renders stable and worth the risk?
+   - does the page over-depend on client-side Mermaid rendering?
+   - would static featured images be more resilient?
+   - is the code duplication justified or excessive?
+   - do details/code blocks enhance the page or bloat it?
+
+   D. Content architecture
+   - does the article body flow cleanly?
+   - are the featured diagrams positioned and explained well?
+   - is the Council of AIs section coherent?
+   - is the prompts section adding value or becoming too archival?
+   - is the Launch Artifacts section helping or diluting?
+   - is the “What’s next” framing disciplined?
+
+   E. Sidebar and utilities
+   - About This Article card
+   - The Repository card
+   - Council Snapshot card
+   - The Diagrams card
+   - On This Page card
+   Check whether each one earns its space.
+
+   F. CTA and conversion logic
+   - do CTAs point to the right next step?
+   - does the page support:
+     LinkedIn traffic
+     website trust
+     GitHub artifact browsing
+     future Ko-fi monetization
+   - are there any premature or misplaced monetization cues?
+
+   G. Accessibility and UX
+   - heading hierarchy
+   - scannability
+   - paragraph rhythm
+   - code readability
+   - keyboard / screen-reader assumptions
+   - sidebar usability
+   - mobile risk
+   - scroll burden
+
+7. DEFECT LIST
+   For every issue found, classify as:
+   - BLOCKER
+   - HIGH
+   - MEDIUM
+   - LOW
+
+   For each defect provide:
+   - page or file
+   - issue
+   - why it matters
+   - exact recommended fix
+
+8. RELEASE DECISION
+   Give one of these outcomes:
+   - READY
+   - READY WITH MINOR FIXES
+   - HOLD UNTIL FIXED
+
+   Then justify the decision.
+
+9. PATCH PLAN
+   Provide:
+   - immediate fixes for the next 30 minutes
+   - next-pass fixes for the next half day
+   - polish fixes that can wait
+
+10. DIFF RECOMMENDATIONS
+   Where appropriate, propose exact copy, structural changes, or patch notes that can be implemented immediately.
+
+SPECIFIC THINGS TO VERIFY
+
+You must explicitly verify the following, not just mention them:
+
+- whether homepage “Fresh from the Forge” is real and current
+- whether Writings index correctly features “The First Diagram Is Usually a Liar”
+- whether article version labels are consistent
+- whether article metadata and visible labels agree
+- whether the article still depends too much on live Mermaid blocks
+- whether the Launch Artifacts section is too large or too archival
+- whether repository links on the article page are correct and useful
+- whether the Council Snapshot reflects the actual participant taxonomy accurately
+- whether the diagrams card reflects the actual current public Mermaid links accurately
+- whether “ChatGPT V2pro” is being handled clearly and consistently
+- whether Notion and Replit are represented appropriately as specialty participants rather than flattened into the primary council
+- whether Mermaid AI is excluded correctly and explained in the right place
+- whether both repos still contain any hidden trust leaks, weak docs, stale files, or naming inconsistencies
+
+QUALITY BAR
+
+Do not say “looks good” unless you can justify it.
+
+Be specific.
+Be skeptical.
+Be thorough.
+Assume this work is about to receive real public traffic and be judged by strangers.
+
+FINAL OUTPUT STYLE
+
+Use clear headings, tables where useful, and short blunt explanations.
+Do not pad.
+Do not flatter.
+Do not hand-wave.
