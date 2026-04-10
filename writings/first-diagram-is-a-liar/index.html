@@ -1142,14 +1142,102 @@ flowchart TB
                   <p class="small-note">The original published piece. The canonical home of the thesis, the council run, and both diagrams.</p>
                   <details class="code-drop">
                     <summary>View article v0.1 copy</summary>
-                    <pre class="artifact-copy">I’ve been drawing pictures on computers since the early 1990s.<br />Back then, it was AutoCAD R10: black screens, command lines, coordinates instead of cursors. If you wanted to express an idea visually, you did not drag shapes around. You constructed it, line by line, with the same kind of concentration you would use writing a careful spec. That early experience baked in a bias I still carry. A diagram is not decoration. It is a claim about how reality is structured.<br />And the first claim is almost always wrong.<br />Over the decades I have used just about every diagramming flavor I could get my hands on: house plans, network diagrams, process flows, mind maps, org charts, UML, and crow’s-foot schemas. Some tools were elegant. Many were painful. Nearly all of them charged the same tax: the cost of translating meaning into visuals. That tax is why people default to text, even when text is a lousy medium for structure. That is how we ended up with the modern classics: the 47-bullet Slack message, the “quick summary” that reads like a novella, and the doc everyone bookmarks and nobody finishes. We did not lack expertise. We lacked compression.<br />This is v0.1, the first proper build. The article is going to evolve in public. Later revisions will add the winning slide deck, direct links to the live Mermaid renders, public poll rounds where readers can judge the diagrams for themselves, and some behind-the-scenes notes on how the Council of AIs argued its way toward the stronger work. For now, this is the compressed cut.<br />People do not fail to read because they are lazy. They fail to read because their capacity to absorb meaning is finite and the workday is an attention shredder. Text is excellent for nuance and precision, but it is inefficient at showing flow. It hides forks and dead ends. It forces the reader to reconstruct a system in their head, one sentence at a time, without ever seeing the shape of it.<br />That reconstruction is the expensive part.<br />You can watch it happen in real time: somebody nods through the explanation, then asks a question that proves they assembled a completely different machine in their mind. Nobody is stupid. The medium simply did not carry the structure. This is where diagrams earn their keep, when they are honest. Not pretty. Not polished. Honest.<br />A lot of diagrams are not honest. They are optimism with arrows. They erase the messy edges, exceptions, feedback loops, and human bottlenecks because the author wants to look decisive, or because the tool quietly pressures everything toward tidiness. That is why the first diagram is usually a liar.<br />Not maliciously. Prematurely.<br />It shows what we hope is true before we have done enough work to see what is actually there.<br />The diagram above was generated from words. That is the point. The visual was purchased with language and judged by the understanding it produced.<br />ROY: Return on Your Words<br />I have started thinking about this through a metric I call ROY, Return on Your Words. Not how many words you wrote. Not how polished they sounded. ROY is the amount of understanding produced per unit of explanation invested.<br />If you write 800 words and the reader still needs a meeting to understand the system, the ROY is poor. If you write 80 words that generate a picture which makes the system obvious, the ROY can be excellent, even if the picture is not beautiful.<br />The point is not elegance.<br />The point is whether the words bought clarity.<br />That is the question I keep coming back to: did the visual remove enough confusion to justify the effort it took to make it?<br />For most of my career, the answer was often no, simply because the production cost was too high. Visio and its cousins made diagrams possible, but they also created friction. You were not just thinking about the system. You were wrestling the canvas: alignment, spacing, connectors, swimlanes, and that familiar moment when you are ten minutes deep into nudging boxes and have forgotten what you were trying to explain in the first place. The tool did not just cost time. It pulled you out of the mental mode required to do the work. So diagrams became presentation artifacts, something you created at the end after the thinking was supposedly finished.<br />But the thinking was never finished.<br />That is the point.<br />When Diagrams Stopped Being “Drawing”<br />About eight months ago, ChatGPT casually generated a visual for a simple process I was describing. My first reaction was not awe. It was suspicion. It looked too tidy. Then I asked what it was, and it answered: a Mermaid diagram.<br />That was the pivot.<br />Mermaid is a text-based diagramming language. You describe structure in plain language and it renders a diagram. No canvas anxiety. No toolbar archaeology. You are not arranging shapes so much as declaring relationships. Then I discovered Microsoft Loop could render Mermaid natively, and that changed the economics in a way I did not expect. Suddenly the cost curve collapsed. Diagramming stopped feeling like a separate task and started feeling like a mode of thought, structural thinking expressed in text.<br />When the cost of making a diagram collapses, the diagram can afford to be wrong. A bad first draft stops being a failure and becomes part of the reasoning process. I could draft the lie quickly, spot the lie quickly, and iterate toward something truer.<br />That changes the game.<br />The Council of AIs, and Why It Works<br />That is also when my workflow expanded. Instead of asking one model for one answer, I started asking several: ChatGPT, Claude, Copilot, Perplexity, Gemini, and Notion. Same prompt. Same goal. Independent outputs. Then I pulled them back together and compared the differences.<br />I call it the Council of AIs, and it is less about outsourcing intelligence and more about manufacturing perspective. The value is not that one model is correct. The value is that disagreement reveals structure.<br />One model assumes a clean pipeline. Another introduces a feedback loop. Another surfaces an ambiguous handoff. Another exposes a missing actor. When I compare those outputs side by side, I get less performance and more perspective.<br />And at that point, the diagram becomes the scoreboard.<br />Does the idea actually have shape?<br />Or is it still fog with confident nouns?<br />That comparison process becomes more visible in the next revisions: the first-round and second-round contenders, the Mermaid renders, and the public poll rounds so readers can judge for themselves instead of taking my word for it.<br />Here’s the brief I ran across all six models:<br />Same brief to 6 models.<br />Do not read each other.
+                    <pre class="artifact-copy">
+                      The First Diagram Is Usually a Liar
+
+                      I’ve been drawing pictures on computers since the early 1990s.
+
+                      Back then, it was AutoCAD R10: black screens, command lines, coordinates instead of cursors. If you wanted to express an idea visually, you did not drag shapes around. You constructed it, line by line, with the same kind of concentration you would use writing a careful spec. That early experience baked in a bias I still carry. A diagram is not decoration. It is a claim about how reality is structured.
+
+                      And the first claim is almost always wrong.
+
+                      Over the decades I have used just about every diagramming flavor I could get my hands on house plans, network diagrams, process flows, mind maps, org charts, UML, and crow’s-foot schemas. Some tools were elegant. Many were painful. Nearly all of them charged the same tax: the cost of translating meaning into visuals. That tax is why people default to text, even when text is a lousy medium for structure. That is how we ended up with the modern classics: the 47-bullet Slack message, the “quick summary” that reads like a novella, and the doc everyone bookmarks, and nobody finishes. We did not lack expertise. We lacked compression.
+
+                      This is v0.1, the first proper build. The article is going to evolve in public. Later revisions will add the winning slide deck, direct links to the live Mermaid renders, public poll rounds where readers can judge the diagrams for themselves, and some behind-the-scenes notes on how the Council of AIs argued its way toward the stronger work. For now, this is the compressed cut.
+
+                      People do not fail to read because they are lazy. They fail to read because their capacity to absorb meaning is finite and the workday is an attention shredder. Text is excellent for nuance and precision, but it is inefficient at showing flow. It hides forks and dead ends. It forces the reader to reconstruct a system in their head, one sentence at a time, without ever seeing the shape of it.
+
+                      That reconstruction is the expensive part.
+                      You can watch it happen in real time: somebody nods through the explanation, then asks a question that proves they assembled a completely different machine in their mind. Nobody is stupid. The medium simply did not carry the structure. This is where diagrams earn their keep, when they are honest. Not pretty. Not polished. Honest.
+
+                      A lot of diagrams are not honest. They are optimism with arrows. They erase the messy edges, exceptions, feedback loops, and human bottlenecks because the author wants to look decisive, or because the tool quietly pressures everything toward tidiness. That is why the first diagram is usually a liar.
+
+                      Not maliciously. Prematurely.
+
+                      It shows what we hope is true before we have done enough work to see what is actually there.
+
+                      Copilot V1 flowchart — Council of AIs Round 1 winner. Shows the ideation process for a LinkedIn post about visual ROI, including decision gates, revision loops, and non-linear thinking paths. Generated using GPT 5.4 Thinking.
+                      Copilot V1, generated using GPT 5.4 Thinking
+                      Copilot V1, generated using GPT 5.4 Thinking. Top-scoring first-round submission from the Council of AIs evaluation. It earns its place here because it demonstrates the argument instead of merely describing it: a diagram that shows structural thinking without hiding the decision points, the branches, or the places where the process could go wrong.
+
+                      The diagram above was generated from words. That is the point. The visual was purchased with language and judged by the understanding it produced.
+                      ROY: Return on Your Words
+                      I have started thinking about this through a metric I call ROY, Return on Your Words. Not how many words you wrote. Not how polished they sounded. ROY is the amount of understanding produced per unit of explanation invested.
+
+                      If you write 800 words and the reader still needs a meeting to understand the system, the ROY is poor. If you write 80 words that generate a picture which makes the system obvious, the ROY can be excellent, even if the picture is not beautiful.
+
+                      The point is not elegance.
+                      The point is whether the words bought clarity.
+
+                      That is the question I keep coming back to: did the visual remove enough confusion to justify the effort it took to make it?
+
+                      For most of my career, the answer was often no, simply because the production cost was too high. Visio and its cousins made diagrams possible, but they also created friction. You were not just thinking about the system. You were wrestling the canvas: alignment, spacing, connectors, swim lanes, and that familiar moment when you are ten minutes deep into nudging boxes and have forgotten what you were trying to explain in the first place. The tool did not just cost time. It pulled you out of the mental mode required to do the work. So, diagrams became presentation artifacts, something you created at the end after the thinking was supposedly finished.
+
+                      But the thinking was never finished.
+
+                      That is the point.
+
+                      When Diagrams Stopped Being “Drawing”
+                      About eight months ago, ChatGPT casually generated a visual for a simple process I was describing. My first reaction was not awe. It was suspicion. It looked too tidy. Then I asked what it was, and it answered: a Mermaid diagram.
+
+                      That was the pivot.
+
+                      Mermaid is a text-based diagramming language. You describe structure in plain language, and it renders a diagram. No canvas anxiety. No toolbar archaeology. You are not arranging shapes so much as declaring relationships. Then I discovered Microsoft Loop could render Mermaid natively, and that changed the economics in a way I did not expect. Suddenly the cost curve collapsed. Diagramming stopped feeling like a separate task and started feeling like a mode of thought, structural thinking expressed in text.
+
+                      When the cost of making a diagram collapses, the diagram can afford to be wrong. A bad first draft stops being a failure and becomes part of the reasoning process. I could draft the lie quickly, spot the lie quickly, and iterate toward something truer.
+
+                      That changes the game.
+
+                      The Council of AIs, and Why It Works
+                      That is also when my workflow expanded. Instead of asking one model for one answer, I started asking several: ChatGPT, Claude, Copilot, Perplexity, Gemini, and Notion. Same prompt. Same goal. Independent outputs. Then I pulled them back together and compared the differences.
+
+                      I call it the Council of AIs, and it is less about outsourcing intelligence and more about manufacturing perspective. The value is not that one model is correct. The value is that disagreement reveals structure.
+
+                      One model assumes a clean pipeline. Another introduces a feedback loop. Another surfaces an ambiguous handoff. Another exposes a missing actor. When I compare those outputs side by side, I get less performance and more perspective.
+
+                      And at that point, the diagram becomes the scoreboard.
+
+                      Does the idea actually have shape?
+
+                      Or is it still fog with confident nouns?
+
+                      That comparison process becomes more visible in the next revisions: the first-round and second-round contenders, the Mermaid renders, and the public poll rounds so readers can judge for themselves instead of taking my word for it.
+
+                      Claude V2 flowchart — Council of AIs Round 2 top scorer. Five swim lanes showing Ignition, Strategy, Craft, Proof, and Ship phases with dashed revision loops and labeled loopback arrows. Generated using Sonnet 4.6 Extended Thinking.
+                      Claude V2, generated using Sonnet 4.6 Extended Thinking
+                      Claude V2, generated using Sonnet 4.6 Extended Thinking. Top-scoring second-round submission after the council saw the first-round work and was pushed to improve. It earns its place here because the form matches the argument: revision loops stay visible, phases stay distinct, and the diagram stops pretending ideation is linear.
+
+                      Here’s the brief I ran across all six models:
+                      Same brief to 6 models.
+                      Do not read each other.
 
                       Deliver:
-                      1. a 3-part thesis
-                      2. a Mermaid diagram (first draft)
-                      3. 3 failure modes (where the diagram lies)
+                      a 3-part thesis
+                      a Mermaid diagram (first draft)
+                      3 failure modes (where the diagram lies)
 
-                      Then: compare, adjudicate, synthesize.<br />The value is not in the words themselves. The value is in the meaning extracted from them. If 75 words of structured prompting generate a diagram that saves five minutes of explanation, prevents one misunderstanding, and helps a team align faster, that picture may be worth more than the words that created it. Not because the words disappeared. Because the words were invested.<br />That is the work I keep circling back to at OverKill Hill P3, Precision, Protocol, Promptcraft. Words into structure, structure into systems, systems into leverage. Sometimes the right output is a paragraph. Sometimes it is a diagram. Sometimes it is both. But the output has to earn its space.<br />And yes, this article is part of the experiment too. It is going to be revised in public, diagrammed, judged, and probably accused of overthinking itself before it is done. A few things are landing here over the next few weeks: the full ETCH-AI-SKETCH slide deck, the Round 1 poll where readers vote on the diagrams, the Round 2 redesigns, and a section where each model gets interviewed about its own work in its own voice, including whether it thinks it should have won.<br />This article is the protoform. The interesting parts are still being forged.<br />A picture can absolutely be worth more than the words that prompted it into existence, but only if those words buy clarity, compression, and shared understanding.<br />If the visual can’t do that, it is still just wallpaper with a superiority complex.</pre>
+                      Then: compare, adjudicate, synthesize.
+                      The value is not in the words themselves. The value is in the meaning extracted from them. If 75 words of structured prompting generate a diagram that saves five minutes of explanation, prevents one misunderstanding, and helps a team align faster, that picture may be worth more than the words that created it. Not because the words disappeared. Because the words were invested.
+
+                      That is the work I keep circling back to at OverKill Hill P3, Precision, Protocol, Promptcraft. Words into structure, structure into systems, systems into leverage. Sometimes the right output is a paragraph. Sometimes it is a diagram. Sometimes it is both. But the output has to earn its space.
+
+                      And yes, this article is part of the experiment too. It is going to be revised in public, diagrammed, judged, and probably accused of overthinking itself before it is done. A few things are landing here over the next few weeks: the full ETCH-AI-SKETCH slide deck, the Round 1 poll where readers vote on the diagrams, the Round 2 redesigns, and a section where each model gets interviewed about its own work in its own voice, including whether it thinks it should have won.
+
+                      This article is the protoform. The interesting parts are still being forged.
+
+                      A picture can absolutely be worth more than the words that prompted it into existence, but only if those words buy clarity, compression, and shared understanding.
+                      If the visual can’t do that, it is still just wallpaper with a superiority complex.
+                    </pre>
                   </details>
                   <a href="https://www.linkedin.com/pulse/first-diagram-usually-liar-jamie-hill-lv3hc/" target="_blank" rel="noopener" class="btn btn-quiet" style="display:inline-block; margin-top:0.5rem;">Read on LinkedIn ↗</a>
                 </div>
@@ -1159,7 +1247,29 @@ flowchart TB
                   <p class="small-note">The feed-native cut. Short enough to move, sharp enough to stop the scroll.</p>
                   <details class="code-drop">
                     <summary>View launch post copy</summary>
-                    <pre class="artifact-copy">I don’t trust the first diagram.<br />It’s usually a lie.<br />Not an evil lie. A premature one. Too clean, too linear, too eager to pretend the thinking went from A to B without the detour through confusion and one or two bad ideas wearing professional clothes.<br />I started drawing on computers with AutoCAD R10 in the early 90s, so I’m not anti-diagram. I’m anti diagram-as-performance.<br />I’ve also spent an unnecessary number of hours in Visio, fighting the canvas harder than the problem, trying to force something real into a box-and-arrow story that looked presentable and quietly deleted everything inconvenient.<br />Then a few months ago, an LLM coughed up something I didn’t ask for. I asked what it was and got a new rabbit hole: a Mermaid diagram, rendered natively in Microsoft Loop.<br />The pivot for me wasn’t the syntax. It was the economics. When diagrams get cheap enough to draft and revise the way we revise prose, they stop being end-of-project artifacts and start being thinking tools.<br />That’s where the metric came from: ROY, Return on Your Words. The question isn’t whether a picture is worth 1,000 words. The question is whether the words you spent bought real understanding, or just another paragraph someone skims and forgets.<br />And once you can generate structure fast, you can also see how often the first diagram lies. It shows the happy path. The later versions show what the work actually looks like: loops, forks, cleanup, revision, and the moment you realize the clever version isn’t the useful one.<br />I pushed the idea further by running the same brief through a Council of AIs and comparing outputs. Not because any one model is right, but because differences make the structure visible.<br />Six models. Same prompt. Radically different instincts about what honesty looks like in a flowchart.<br />The full article, the diagrams, the slide deck, the polls, and the council methodology are all coming together at the link below. This is v0.1. It won’t look the same when you come back.<br />What’s the worst ROY offender in your world right now? The thing that takes the most words to explain and lands the least shared understanding?<br />#Mermaid #MicrosoftLoop #VisualThinking #SystemsThinking #EnterpriseArchitecture #KnowledgeWork #Communication #AIInPractice #PromptCraft #OverKillHillP3</pre>
+                    <pre class="artifact-copy">
+                      Return on Your Words (ROY)
+
+                      I have a fundamental distrust of the first diagram. It is almost always a lie. Not a malicious lie, but a premature one; too clean, too linear, and far too eager to pretend the thinking moved neatly from A to B without the detours through confusion, dead ends, and bad ideas wearing professional clothes. This experiment started on March 9, and after a month of generating diagrams around an idea I could not shake, I trust the direction enough to say the work is real, even if it is still evolving.
+
+                      I am pro-diagram, but anti-diagram-as-performance. I started drawing on computers with AutoCAD R10 in the early 90s and have spent more hours than I care to admit inside Visio, fighting the canvas harder than the problem. What I have grown skeptical of are visuals that look finished mainly because they circulate well, while quietly deleting everything inconvenient about how the work actually happened.
+
+                      What changed for me was not the aesthetics but the economics. Once diagrams became cheap enough to generate and revise directly from words, they stopped being end-of-project artifacts and started becoming thinking tools. That shift led me to a metric I call ROY, Return on Your Words. The real question is not whether a picture is worth a thousand words. It is whether the words you invested bought actual shared understanding, or just another paragraph someone skims and forgets.
+
+                      I pushed this further by running the same brief through a Council of AIs to manufacture perspective. The value is not in finding one correct model; it is in seeing how disagreement reveals structure. Six models, same prompt, radically different instincts about what honesty looks like in a flowchart. The differences told me more than any single output could.
+
+                      This v0.1 article is the first public cut of that experiment. If you work in systems, architecture, or any domain where too many words are doing too little work, it will probably feel familiar. It will not look the same when you come back, and that is intentional.
+
+                      Read the current version here:
+
+                      https://www.linkedin.com/pulse/first-diagram-usually-liar-jamie-hill-lv3hc
+
+                      What is the lowest-ROY artifact in your world right now, the thing that takes the most explanation but creates the least shared understanding?
+
+                      #Mermaid #VisualThinking #SystemsThinking #AIInPractice #PromptCraft #OverKillHillP3
+
+                      Copilot V1 and Claude V2 are below. They are the bookends of the experiment.
+                    </pre>
                   </details>
                 </div>
 
@@ -1168,7 +1278,17 @@ flowchart TB
                   <p class="small-note">The personal addendum: AutoCAD 10, Visio paralysis, and the moment Mermaid repealed the click-drag tax.</p>
                   <details class="code-drop">
                     <summary>View first comment copy</summary>
-                    <pre class="artifact-copy">AutoCAD R10. Early 90s. Thirteen kids in a high school drafting class, black screens, command lines, and the very specific discipline of constructing an idea line by line instead of dragging it into shape.<br />That&#x27;s where the bias started. A diagram is a claim. You either earn it or you fake it.<br />I spent years in Visio doing what felt like 30 percent thinking and 70 percent fighting the canvas. Alignment, connectors, swimlanes, and that particular moment when you&#x27;re ten minutes into nudging boxes and have completely forgotten what you were trying to explain. Welcome to the Visio Survivors Group. Membership is larger than any of us want to admit.<br />Then an LLM coughed up a Mermaid diagram I didn&#x27;t ask for, and suddenly the draw-the-boxes part got cheap.<br />That shift changes what a diagram is for. When it&#x27;s cheap to make, it can afford to be wrong. You draft the lie fast, spot the lie fast, and iterate toward something truer.<br />The diagram isn&#x27;t the finished thought. It&#x27;s the thinking surface.<br />If the tool is heavier than the thought, the diagram is already lying.<br />Full renders for all six council submissions, the Mermaid code, and the ETCH-AI-SKETCH methodology are at:<br />This is v0.1. The polls, the slide deck, and the Round 2 redesigns are coming in future updates.<br />What&#x27;s the one process in your world you&#x27;ve avoided diagramming because the tooling tax wasn&#x27;t worth the trouble?</pre>
+                    <pre class="artifact-copy">
+                      Diagramming Trauma (Visio Survivors Group)
+
+                      AutoCAD R10 in the early 90s is where I learned diagramming the hard way, and years of Visio followed, often 30% thinking and 70% fighting the canvas. That left me with a lasting bias: a diagram is a claim about how reality is structured, and if the tool is heavier than the thought, the diagram is already lying before you finish drawing it.
+
+                      That is why @Mermaid was the real pivot for me. Once the draw-the-boxes part became a low-cost byproduct of the prompt, the structure became easier to see and easier to challenge. Diagrams stopped being polished end products and started becoming thinking surfaces. They became cheap enough to be wrong on purpose, which is the only way to eventually get them right.
+
+                      What is one workflow in your world you have avoided diagramming because the tooling cost was higher than the thinking value?
+
+                      Notion V1 is below. It is the quietest entry in the council, and worth a look for exactly that reason.
+                    </pre>
                   </details>
                 </div>
 
