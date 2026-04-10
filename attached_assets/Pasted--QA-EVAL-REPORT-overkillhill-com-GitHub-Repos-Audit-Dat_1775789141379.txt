@@ -1,0 +1,69 @@
+
+QA EVAL REPORT — overkillhill.com + GitHub Repos
+Audit Date: April 9, 2026
+
+REPOSITORY AUDIT
+first-diagram-is-a-liar
+Visibility: PUBLIC (confirmed — private: false)
+Expected file structure: All required files present ✓
+Missing files: NONE — all 8 prompts, 15 .mmd files, 30 PNGs (v1+v2 full+lores), slides, READMEs all confirmed
+Stub READMEs: None detected at threshold depth
+Other flags:
+mermaid-public-links.md → Notion V1 UUID still corrupted in repo: fb3557e2-df35-46f8-a8cd-4754-98fd-268ae3ceeef7 (correct UUID ends in 4abe56c82ed5). Corrected version exists locally but has not been committed to the GitHub repo.
+slides/ has no wide.pdf by name — the file etch-ai-sketch-using-a-council-to-design-at-velocity.pdf (no dimension qualifier) may serve as the wide export; naming is ambiguous vs. the expected ...-wide.pdf convention.
+OverKill-Hill
+File count: 137 files — all expected page source files confirmed present
+Missing files: NONE of the required HTML pages or assets are absent
+Other flags:
+prompt-forge/index.html has no site-specials banner at all (not stale — the element is entirely absent from the template)
+writings/first-diagram-is-a-liar/council-snapshot.md, winners-summary.md, and mermaid-public-links-corrected.md exist locally but belong in the first-diagram-is-a-liar repo, not here
+SITE-WIDE ISSUES
+ID	Sev	Page	Issue	Status
+SW-01	MED	/prompt-forge/	Site-specials banner entirely absent — element does not exist in template	OPEN
+SW-02	LOW	/writings/first-diagram-is-a-liar/	Banner reads "Now live on LinkedIn: The First Diagram Is Usually a Liar →" while all other 11 pages read "New: The First Diagram Is Usually a Liar — ROY, Mermaid, and a Council of AIs →" — intentional variation but worth confirming	INFORMATIONAL
+SW-03	LOW	/writings/	Page <title> reads "Writings & Essays | OverKill Hill P³™" — spec expected "Writings | OverKill Hill P³™"	OPEN
+ARTICLE PAGE — HYPER-FOCUSED AUDIT
+Check	ID	Result	Evidence
+Version consistency	4A	PASS (consistent at v0.1)	Eyebrow: "Article v0.1 — Launch Cut" · Body: "This is the v0.1 launch cut" · Protoform: "v0.1 — Live" — all three agree. No mismatch. Note: neither has advanced to v1.0.
+Mermaid rendering	4B	UNVERIFIABLE FROM SOURCE	Both .mermaid divs with v11 YAML front matter are present. Visual rendering requires browser JS execution — cannot PASS or FAIL from HTML source alone.
+Council member count	4C	FAIL	Article reads: "ChatGPT, Claude, Copilot, Gemini, Perplexity, and Notion. Same question." — Replit is absent from this paragraph. Six named, not seven.
+Mermaid link placement	4D	PASS	All mermaid.ai links appear exclusively as labeled CTAs ("Open in Mermaid ↗") or sidebar entries. No raw URLs in flowing prose.
+JSON-LD schema dates	4E	PASS	datePublished: 2026-04-07 · dateModified: 2026-04-07 · author: Jamie Hill · headline: The First Diagram Is Usually a Liar
+Eyebrow middle text	4F	"Visual ROI & Mermaid" (old value)	Not yet updated to "ROY · Mermaid · Council of AIs"
+GitHub sidebar widget	4G	PRESENT	Three links confirmed: repository root, Mermaid source files, council-brief.md. Repo is now PUBLIC — widget is appropriate to show.
+Prompts in the Wild	4H	PASS	<h2 id="prompts">Prompts in the Wild</h2> present with content
+Four-tier taxonomy	4I	PARTIAL	V2pro exhibition status explained, Gemini free-tier noted, Notion archivist role noted. No explicit Tier 1 / Tier 2 / Tier 3 / Tier 4 numbered structure in article body.
+V2pro fairness card	4J	PRESENT	"ChatGPT Pro is a separate diagram (ChatGPT V2pro) produced using access to a Pro-tier reasoning model — a capability level no other council member had available during this session. It is included in the archive for transparency, not for direct comparison. Think of it as an exhibition entry: same brief, higher ceiling, different category."
+CROSS-REFERENCE CHECKS
+Check	ID	Result
+Cover image in repo	5A	PASS — assets/img/etch-ai-sketch-using-a-council-to-design-at-velocity.png present (2.4 MB)
+Mermaid URLs match	5B	PASS — Copilot V1: 8fe5c9ae-c8ac-4754-98fd-268ae3ceeef7 ✓ · Claude V2: 2e9a4321-6302-44ca-82cc-e2020479fdf5 ✓
+Repo visibility	5C	PUBLIC — private: false confirmed on both repos
+PRIOR ISSUE STATUS
+ID	Issue	Status	Evidence if Still Open
+CRIT-01a	About body BFS/lumber contamination	STILL OPEN	"OverKill Hill P³™ is the bridge between lumber yards and language models, between spreadsheets" and "largest building products companies, and a career that started in structural estimation"
+CRIT-01b	About nav missing Writings cluster	RESOLVED	Writings dropdown confirmed with Manifesto, Biases, Magnus, First Diagram all present
+CRIT-02	Writings hub overlay + content	RESOLVED	Three content cards confirmed (First Diagram, Magnus Saga, Biases as Constants), no construction overlay detected
+CRIT-03	Version number inconsistency	RESOLVED	All three version references agree on v0.1 — no mismatch
+LOW-02	About hero tagline lumber yards	STILL OPEN	"OverKill Hill P³™ is the bridge between lumber yards and language models" — hero tagline unchanged
+MED-01	Homepage six vs seven models	STILL OPEN	"ran six models against the same brief and let them compete"
+MED-03	Stale BFS banner	RESOLVED	All 11 pages with banner show correct article banner text
+LOW-01	Schema datePublished stale	RESOLVED	datePublished: 2026-04-07 confirmed
+LOW-04	Eyebrow descriptor underselling	STILL OPEN	Currently reads "Visual ROI & Mermaid" — not updated to "ROY · Mermaid · Council of AIs"
+SUMMARY
+Total new issues found: 3 (SW-01 through SW-03)
+Critical (blocking): 0
+Medium: 1 (SW-01 — prompt-forge missing banner)
+Low / polish: 2 (SW-02 banner variant, SW-03 title tag)
+Article page failures: 1 critical (4C — Replit missing from council intro paragraph)
+Prior issues resolved: 5 of 9
+Prior issues still open: 4
+Recommended next actions, highest priority first:
+
+4C — Add Replit to the council introduction paragraph in the article body (currently reads six models, not seven)
+CRIT-01a / LOW-02 — About page body copy and hero tagline still contain lumber/building products references — these are the two oldest open issues
+MED-01 — Homepage "six models" → "seven models"
+SW-01 — Add site-specials banner to prompt-forge/index.html
+LOW-04 — Update eyebrow middle descriptor from "Visual ROI & Mermaid" to "ROY · Mermaid · Council of AIs"
+Repo — Commit corrected mermaid-public-links.md (fixed Notion V1 UUID) to OKHP3/first-diagram-is-a-liar
+SW-03 — Update Writings hub <title> to "Writings | OverKill Hill P³™"
