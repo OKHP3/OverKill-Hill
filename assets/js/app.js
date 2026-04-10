@@ -190,3 +190,60 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+// ──────────────────────────────────────────────────────────────────────────
+// Sticky TOC: smooth-lerp scroll-follow for #toc-widget
+// Only activates on wide viewports (≥1024 px) when widget exists.
+// ──────────────────────────────────────────────────────────────────────────
+(function () {
+  if (window.innerWidth < 1024) return;
+
+  var toc    = document.getElementById('toc-widget');
+  var footer = document.querySelector('.site-footer');
+  if (!toc || !footer) return;
+
+  var lerpedY = 0;
+  var targetY = 0;
+  var SPEED   = 0.08;   /* 0 = no movement, 1 = instant */
+  var NAV_H   = 112;    /* minimum px from viewport top — clears sticky nav */
+  var PAD     = 32;     /* px breathing room above the footer */
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  /* Natural document position of the TOC widget before any transforms */
+  function getNaturalTop(el) {
+    var top = 0;
+    while (el) { top += el.offsetTop; el = el.offsetParent; }
+    return top;
+  }
+
+  var tocNaturalTop = getNaturalTop(toc);
+  var tocH          = toc.offsetHeight;
+
+  function tick() {
+    var scrollY   = window.scrollY;
+    var footerTop = footer.offsetTop;
+
+    var centeredOffset = Math.max(NAV_H, (window.innerHeight - tocH) / 2);
+    var raw = Math.max(0, scrollY + centeredOffset - tocNaturalTop);
+    var max = Math.max(0, footerTop - PAD - tocNaturalTop - tocH);
+    targetY = Math.min(raw, max);
+
+    lerpedY = lerp(lerpedY, targetY, SPEED);
+    toc.style.transform = 'translateY(' + lerpedY.toFixed(2) + 'px)';
+
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth < 1024) {
+      toc.style.transform = '';
+    } else {
+      toc.style.transform = '';
+      tocNaturalTop = getNaturalTop(toc);
+      tocH = toc.offsetHeight;
+    }
+  });
+}());
