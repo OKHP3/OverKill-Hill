@@ -1304,6 +1304,10 @@ body:not(.glee-main):not(.askjamie-main) .latest-pill {
   text-align: center;
   font-size: 0.85rem;
   color: var(--color-muted);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /* ===== SCROLL REVEAL ===================================================== */
@@ -2739,6 +2743,10 @@ html:has(
   color: var(--color-fg);
 }
 
+.article-meta-author img {
+  border-radius: 50%;
+}
+
 .article-meta-dot {
   width: 3px;
   height: 3px;
@@ -2940,6 +2948,7 @@ html:has(
   flex-wrap: wrap;
   gap: 0.4rem;
   margin-top: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .council-pill {
@@ -3025,6 +3034,7 @@ html:has(
   color: var(--okh-orange);
   margin-bottom: 0.85rem;
   font-weight: 600;
+  text-decoration: none;
 }
 
 /* ── Article footer ────────────────────────────────────────────────── */
@@ -3166,6 +3176,11 @@ html:has(
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-md);
   padding: 1.15rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.artifact-stack .artifact-card {
+  margin-bottom: 0;
 }
 
 .artifact-card h3 {
@@ -3821,4 +3836,154 @@ body.construction-dismissed .construction-overlay,
 .mermaid foreignObject p,
 .mermaid foreignObject span {
   color: initial;
+}
+
+/* ===== ARTICLE: FIRST DIAGRAM IS A LIAR — extracted from inline styles === */
+
+/* Hero section — removes default content-section bottom padding */
+.article-hero.content-section {
+  padding-bottom: 0;
+}
+
+/* Article body wrapper section — compressed top padding */
+.article-body-section {
+  padding-top: 2rem;
+}
+
+/* Amber text utility (version live badge, amber links) */
+.text-amber {
+  color: var(--okh-amber);
+}
+
+/* Amber inline link */
+.link-amber {
+  color: var(--okh-amber);
+  text-decoration: underline;
+}
+
+/* Diagram static PNG fallback (D-08) */
+.diagram-static-img {
+  display: block;
+  max-width: 100%;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+/* Live-render <details> toggle inside .diagram-shell */
+.diagram-live-render {
+  margin-bottom: 0;
+}
+
+.diagram-live-render > summary {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  list-style: none;
+}
+
+.diagram-live-render > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Prompts section: h3 subtitle beneath h2 */
+.section-subtitle {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-muted);
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Compact council-card variant (fairness note inline in prompts section) */
+.council-card--compact {
+  margin: 2rem 0;
+}
+
+/* Council fairness-note paragraphs */
+.council-note {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+}
+
+.council-note:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Prompt meta note — small italic text below each prompt card */
+.prompt-note {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-top: 0.6rem;
+  margin-bottom: 0;
+}
+
+/* Inline CTA link button block (LinkedIn article link) */
+.btn-block-top {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+/* Repo CTA paragraph below the prompts section */
+.article-repo-cta {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin-top: 1rem;
+}
+
+.article-repo-cta .link-amber {
+  text-decoration: none;
+  color: var(--okh-amber);
+}
+
+.article-repo-cta .link-amber:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar footnote (D-10 V2pro / Mermaid AI disclosure) */
+.sidebar-footnote {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  margin-top: 0.6rem;
+  line-height: 1.5;
+}
+
+/* Footer built-with bar */
+.footer-built-with {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+  padding-left: 1rem;
+}
+
+.footer-built-with a {
+  color: #FF3C00;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-copyright {
+  margin: 0;
+  text-align: center;
+}
+
+/* ── Light-mode article body overrides (was inline <style> in article head) */
+html[data-theme="light"] .article-body p {
+  color: #1e293b;
+}
+
+html[data-theme="light"] .article-body h2 {
+  color: #0f172a;
+}
+
+/* ── TOC widget: GPU-layer hint for smooth animation */
+@media (min-width: 1024px) {
+  #toc-widget {
+    will-change: transform;
+  }
 }

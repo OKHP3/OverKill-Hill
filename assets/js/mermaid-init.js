@@ -1,47 +1,11 @@
-// Mermaid diagram initialization with theme variables
+// Mermaid diagram initialization for OverKill Hill P³
+// Relies on YAML front-matter in each diagram for theme/look (theme: neutral, look: neo).
+// initialize() intentionally omits themeVariables to avoid overriding the YAML config.
 import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-
-const styles = getComputedStyle(document.body);
-
-// Read brand-specific Mermaid theming variables
-const mermaidPrimary =
-  styles.getPropertyValue("--mermaid-primary-color").trim() || "#111827";
-const mermaidPrimaryText =
-  styles.getPropertyValue("--mermaid-primary-text-color").trim() || "#e5e7eb";
-const mermaidBorder =
-  styles.getPropertyValue("--mermaid-primary-border-color").trim() || "#c46a2c";
-const mermaidLine =
-  styles.getPropertyValue("--mermaid-line-color").trim() || "#c46a2c";
-const mermaidSecondary =
-  styles.getPropertyValue("--mermaid-secondary-color").trim() || "#181f26";
-const mermaidTertiary =
-  styles.getPropertyValue("--mermaid-tertiary-color").trim() || "#1c3a34";
-const mermaidCluster =
-  styles.getPropertyValue("--mermaid-cluster-bg").trim() || "#0d1117";
-const mermaidEdgeLabel =
-  styles.getPropertyValue("--mermaid-edge-label-bg").trim() || "#181f26";
-const fontBody =
-  styles.getPropertyValue("--font-body").trim() ||
-  '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
 
 mermaid.initialize({
   startOnLoad: false,
   securityLevel: "loose",
-  theme: "base",
-  themeVariables: {
-    primaryColor: mermaidPrimary,
-    primaryTextColor: mermaidPrimaryText,
-    primaryBorderColor: mermaidBorder,
-    lineColor: mermaidLine,
-    secondaryColor: mermaidSecondary,
-    tertiaryColor: mermaidTertiary,
-    textColor: mermaidPrimaryText,
-    fontFamily: fontBody,
-    noteBkgColor: mermaidSecondary,
-    noteTextColor: mermaidPrimaryText,
-    clusterBkg: mermaidCluster,
-    edgeLabelBackground: mermaidEdgeLabel,
-  },
   flowchart: {
     curve: "basis",
     nodeSpacing: 55,
@@ -50,8 +14,7 @@ mermaid.initialize({
   },
 });
 
-// Explicitly render all .mermaid elements — more reliable than startOnLoad
-// when loaded as an ES module at end-of-body
+// Explicit run — more reliable than startOnLoad with ES module loading order
 mermaid.run({
   querySelector: ".mermaid",
 }).catch((err) => {

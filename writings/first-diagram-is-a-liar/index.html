@@ -85,21 +85,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&display=swap" />
-    <link rel="stylesheet" href="/assets/css/theme.css?v=8" />
+    <link rel="stylesheet" href="/assets/css/theme.css?v=9" />
 
-    <style>
-      html[data-theme="light"] .article-body p {
-        color: #1e293b;
-      }
-      html[data-theme="light"] .article-body h2 {
-        color: #0f172a;
-      }
-      @media (min-width: 1024px) {
-        #toc-widget {
-          will-change: transform;
-        }
-      }
-    </style>
 
   </head>
 
@@ -184,7 +171,7 @@
     <main id="main">
 
       <!-- ── Article Hero ──────────────────────────────────────── -->
-      <section class="article-hero content-section" style="padding-bottom: 0;">
+      <section class="article-hero content-section">
         <div class="brand-stripes brand-stripes--okh" aria-hidden="true"></div>
         <div class="container">
 
@@ -218,7 +205,7 @@
                 alt=""
                 width="24"
                 height="24"
-                style="border-radius: 50%;"
+               
               />
               Jamie Hill
             </span>
@@ -234,7 +221,7 @@
       </section>
 
       <!-- ── Article Body + Sidebar ─────────────────────────────── -->
-      <div class="content-section" style="padding-top: 2rem;">
+      <div class="content-section article-body-section">
         <div class="container">
           <div class="article-layout">
 
@@ -245,7 +232,7 @@
               <div class="protoform-notice">
                 <span class="protoform-notice-icon">🚀</span>
                 <span>
-                  <strong style="color: var(--okh-amber);">v0.1 — Live</strong>
+                  <strong class="text-amber">v0.1 — Live</strong>
                   This is the launch cut. The slide deck, poll rounds, and interview sections from each council member are coming in future updates.  The diagrams, the methodology, and the ROY framework are all here now.
                 </span>
               </div>
@@ -347,9 +334,9 @@
                   </div>
                 </div>
                 <div class="diagram-shell">
-                  <img src="/assets/img/etch-ai-sketch-copilot-v1-lores.png" alt="Copilot V1 — Round 1 winner Mermaid diagram showing ideation with renderer-level YAML configuration" class="diagram-static-img" style="display:block; max-width:100%; border-radius:4px; margin-bottom:0.5rem;" />
-                  <details class="diagram-live-render" style="margin-bottom:0;">
-                    <summary style="font-size:0.82rem; color:var(--color-muted); cursor:pointer; margin-bottom:0.5rem;">View live Mermaid render ↓</summary>
+                  <img src="/assets/img/etch-ai-sketch-copilot-v1-lores.png" alt="Copilot V1 — Round 1 winner Mermaid diagram showing ideation with renderer-level YAML configuration" class="diagram-static-img" />
+                  <details class="diagram-live-render">
+                    <summary>View live Mermaid render ↓</summary>
                   <div class="mermaid">
 ---
 config:
@@ -603,9 +590,9 @@ flowchart TB
                   </div>
                 </div>
                 <div class="diagram-shell">
-                  <img src="/assets/img/etch-ai-sketch-claude-v2-lores.png" alt="Claude V2 — Round 2 winner Mermaid diagram showing ideation with visible revision loops as dashed arrows" class="diagram-static-img" style="display:block; max-width:100%; border-radius:4px; margin-bottom:0.5rem;" />
-                  <details class="diagram-live-render" style="margin-bottom:0;">
-                    <summary style="font-size:0.82rem; color:var(--color-muted); cursor:pointer; margin-bottom:0.5rem;">View live Mermaid render ↓</summary>
+                  <img src="/assets/img/etch-ai-sketch-claude-v2-lores.png" alt="Claude V2 — Round 2 winner Mermaid diagram showing ideation with visible revision loops as dashed arrows" class="diagram-static-img" />
+                  <details class="diagram-live-render">
+                    <summary>View live Mermaid render ↓</summary>
                   <div class="mermaid">
 ---
 config:
@@ -923,7 +910,7 @@ flowchart TB
               <hr />
 
               <h2 id="prompts">Prompts in the Wild</h2>
-              <h3 style="font-family: var(--font-body); font-weight: 600; font-size: 1rem; text-transform: none; letter-spacing: 0; color: var(--color-muted); margin-top: -0.5rem; margin-bottom: 1.5rem;">Velocity, iteration, and vibe over premature prompt perfection</h3>
+              <h3 class="section-subtitle">Velocity, iteration, and vibe over premature prompt perfection</h3>
 
               <p>
                 One of the points of this experiment is that the prompts were <strong>not</strong> highly polished.
@@ -962,13 +949,13 @@ flowchart TB
               </p>
 
               <!-- Fairness note -->
-              <div class="council-card" style="margin: 2rem 0;">
+              <div class="council-card council-card--compact">
                 <p class="council-card-eyebrow">A note on fairness</p>
                 <h3>The brief was consistent. The conditions were not.</h3>
                 <p>
                   The core council members received materially similar direction and deliverable expectations. A few caveats matter:
                 </p>
-                <div class="council-members" style="margin-top: 0.75rem; margin-bottom: 1rem;">
+                <div class="council-members">
                   <span class="council-pill winner">ChatGPT</span>
                   <span class="council-pill winner">Claude</span>
                   <span class="council-pill winner">Copilot</span>
@@ -977,22 +964,22 @@ flowchart TB
                   <span class="council-pill">Notion</span>
                   <span class="council-pill">Replit</span>
                 </div>
-                <p style="font-size: 0.9rem; color: var(--color-muted); margin-bottom: 0.6rem;">
-                  <strong style="color: var(--color-fg);">Gemini</strong> ran on the free tier, the only council member with a capability ceiling imposed by tooling cost rather than the brief. Noted here. Not hidden.
+                <p class="council-note">
+                  <strong>Gemini</strong> ran on the free tier, the only council member with a capability ceiling imposed by tooling cost rather than the brief. Noted here. Not hidden.
                 </p>
-                <p style="font-size: 0.9rem; color: var(--color-muted); margin-bottom: 0.6rem;">
-                  <strong style="color: var(--color-fg);">Notion</strong> acted primarily as synthesizer, archivist, and court reporter rather than a voting peer.
+                <p class="council-note">
+                  <strong>Notion</strong> acted primarily as synthesizer, archivist, and court reporter rather than a voting peer.
                 </p>
-                <p style="font-size: 0.9rem; color: var(--color-muted); margin-bottom: 0.6rem;">
-                  <strong style="color: var(--color-fg);">Replit</strong> arrived later and was not part of the initial apples-to-apples round. The point of the exercise was not laboratory perfection, it was high-velocity comparative ideation with enough consistency to make the results useful.
+                <p class="council-note">
+                  <strong>Replit</strong> arrived later and was not part of the initial apples-to-apples round. The point of the exercise was not laboratory perfection, it was high-velocity comparative ideation with enough consistency to make the results useful.
                 </p>
-                <p style="font-size: 0.9rem; color: var(--color-muted); margin-bottom: 0;">
-                  <strong style="color: var(--color-fg);">ChatGPT Pro</strong> is a separate diagram (ChatGPT V2pro) produced using access to a Pro-tier reasoning model — a capability level no other council member had available during this session. It is included in the archive for transparency, not for direct comparison. Think of it as an exhibition entry: same brief, higher ceiling, different category.
+                <p class="council-note">
+                  <strong>ChatGPT Pro</strong> is a separate diagram (ChatGPT V2pro) produced using access to a Pro-tier reasoning model — a capability level no other council member had available during this session. It is included in the archive for transparency, not for direct comparison. Think of it as an exhibition entry: same brief, higher ceiling, different category.
                 </p>
               </div>
 
               <!-- Prompt 01 -->
-              <div class="artifact-card" style="margin-bottom: 1.5rem;">
+              <div class="artifact-card">
                 <h3>Prompt 01 — The Seed</h3>
                 <p class="small-note">
                   The idea started as a business-style ROI question, then bent toward pictures, words, and meaning. No deliverable yet. Just finding the governing idea.
@@ -1001,13 +988,13 @@ flowchart TB
                   <summary>View prompt</summary>
                   <pre class="artifact-copy">Thinking like a professor of business and investment, what is a realistic but attractive return on investment?  There is an old adage that a picture is worth 1,000 words. If a diagram can be generated from words, what would be a good ROY — return on your words? If it takes more words to generate the picture than the picture returns in meaning, understanding, or compression, the investment may be poor. But if a picture created from words lands with more meaning than the words it took to create it, that seems valuable.  What ratio of words to meaning, understanding, and structure makes this a good investment?</pre>
                 </details>
-                <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
+                <p class="prompt-note">
                   This prompt did not start with a deliverable. It started by finding the frame.
                 </p>
               </div>
 
               <!-- Prompt 02 -->
-              <div class="artifact-card" style="margin-bottom: 1.5rem;">
+              <div class="artifact-card">
                 <h3>Prompt 02 — The Meta Turn</h3>
                 <p class="small-note">
                   The project becomes recursive: the post is about diagrams, and the diagram explains the making of the post. Abstract stops here. Self-demonstrating begins.
@@ -1016,13 +1003,13 @@ flowchart TB
                   <summary>View prompt</summary>
                   <pre class="artifact-copy">I'm considering a LinkedIn post/article about the visual value of pictures and understanding — specifically the value of Mermaid diagrams, Mermaid tooling, and the ability to create Mermaid diagrams with most LLMs.<br />I want the post itself to include a Mermaid diagram showing the ideation process of creating the post. So the post would talk about the value of using words to generate pictures, and the picture would be the steps involved in writing the post itself.<br />What are the steps in creating a LinkedIn post about visual value, visual ROI, and the way a picture can sometimes be worth less — or much more — than a thousand words?</pre>
                 </details>
-                <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
+                <p class="prompt-note">
                   This is where the work stopped being abstract and started becoming self-demonstrating.
                 </p>
               </div>
 
               <!-- Prompt 03 -->
-              <div class="artifact-card" style="margin-bottom: 1.5rem;">
+              <div class="artifact-card">
                 <h3>Prompt 03 — The Happy-Path Lie</h3>
                 <p class="small-note">
                   The first diagram was too clean. This prompt forced honesty back into the structure — the shortest prompt in the sequence and arguably the most important.
@@ -1031,13 +1018,13 @@ flowchart TB
                   <summary>View prompt</summary>
                   <pre class="artifact-copy">Ideation, thought, and writing are not perfectly linear. This initial Mermaid diagram shows a straight happy path from start to finish, but that is not honest.<br />Generating a diagram from words involves revision. Revision involves forks and loopbacks — a non-happy path. So it would be better if the diagram showed a non-ideal path rather than a straight one, with slight visual flair: restrained color variation, selective arrow styling, subtle hierarchy, and conservative emoji use.  Enough to add clarity and pizzazz, but not enough to become noise.</pre>
                 </details>
-                <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
+                <p class="prompt-note">
                   This is the moment the diagram stops being decorative and starts being truthful.
                 </p>
               </div>
 
               <!-- Prompt 04 -->
-              <div class="artifact-card" style="margin-bottom: 1.5rem;">
+              <div class="artifact-card">
                 <h3>Prompt 04 — Voice and Brand Lock-In</h3>
                 <p class="small-note">
                   Once the structure was right, the output needed to sound like it belonged to the same builder and brand. Style calibration through example, not description.
@@ -1046,13 +1033,13 @@ flowchart TB
                   <summary>View prompt</summary>
                   <pre class="artifact-copy">Create a tone-matched LinkedIn post that carries the same professional snark, swagger, and practical voice I tend to use. Strong hooks, good CTA structure, reinforcing my brand, driving interest toward OverKill Hill P³™, Glee-fully Personalizable Tools™, and AskJamie™.<br />Here is a sample of my recent LinkedIn style and article voice: [reference material pasted in full]</pre>
                 </details>
-                <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
+                <p class="prompt-note">
                   The work had to be structurally sound and recognizably mine.
                 </p>
               </div>
 
               <!-- Prompt 05 -->
-              <div class="artifact-card" style="margin-bottom: 1.5rem;">
+              <div class="artifact-card">
                 <h3>Prompt 05 — The Council Becomes Formal</h3>
                 <p class="small-note">
                   The process evolves from drafting into comparative judgment and synthesis.
@@ -1061,14 +1048,14 @@ flowchart TB
                   <summary>View prompt</summary>
                   <pre class="artifact-copy">This is the final competition, an art contest where you judge your design against your peers.<br />First: identify the winner that best depicts the theme and best uses the current features available within Mermaid to showcase the art of the possible.<br />Second: learn from your self-evaluation and from your peers, then create a V2 that is more awe-inspiring for a LinkedIn audience.</pre>
                 </details>
-                <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
+                <p class="prompt-note">
                   This is where prompting stops being single-model generation and becomes council orchestration.
                 </p>
               </div>
 
 
               <!-- Prompt 06 -->
-              <div class="artifact-card" style="margin-bottom: 1.5rem;">
+              <div class="artifact-card">
                 <h3>Prompt 06 — The Hybrid Request</h3>
                 <p class="small-note">
                   Stop drafting. Start building. Synthesis into a best-of hybridization — post and final Mermaid diagram together.
@@ -1077,13 +1064,13 @@ flowchart TB
                   <summary>View prompt</summary>
                   <pre class="artifact-copy">Using the elements from all provided versions, create a best-of hybridization post. Add new elements based on what you’ve learned from your peers and from me.<br />Then create a Mermaid diagram to accompany it — pulling every useful feature from Mermaid’s toolbox.<br />Constraints: post can’t exceed 3,000 characters, should contain links, I have a Mermaid account and can share a link to the final diagram, and I plan to use images of both the code and the rendered diagram to maximize character usage and minimize rendering issues.</pre>
                 </details>
-                <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
+                <p class="prompt-note">
                   The hybrid outputs became the material for the final published LinkedIn post. Claude’s structure. ChatGPT’s hook. Perplexity’s ROY framing. Copilot’s Mermaid configuration.
                 </p>
               </div>
 
               <!-- Prompt 07 -->
-              <div class="artifact-card" style="margin-bottom: 1.5rem;">
+              <div class="artifact-card">
                 <h3>Prompt 07 — The Comment (Origin Story)</h3>
                 <p class="small-note">
                   Raw autobiographical input. The model’s job was editorial, not creative: shape a live-dictated story into a LinkedIn comment without sanitizing it.
@@ -1092,13 +1079,13 @@ flowchart TB
                   <summary>View prompt</summary>
                   <pre class="artifact-copy">Now I want to craft my first comment to my own post.<br />I began drawing pictures on a computer using AutoCAD 10 around 1991. Since then I’ve used numerous tools to put an idea into visual form — house plans, network diagrams, process flows, mind maps, org charts, UML, crow’s-foot database schemas. The list goes on.<br />About eight months ago, ChatGPT coughed up a random visual for a simple process I was describing. I asked what the hell it was. It replied: a Mermaid diagram.<br />So I asked Copilot to generate one too, then discovered that Microsoft Loop (Copilot Pages) could render Mermaid natively.<br />I can’t begin to count the hours I’ve stared at the Visio UI thinking: how in the hell am I going to draw this?<br />Now I can just throw spaghetti against the wall at high velocity and minimal drag.</pre>
                 </details>
-                <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
+                <p class="prompt-note">
                   The AutoCAD 10 origin story, the Visio framing, and the spaghetti metaphor all survived into the published comment.
                 </p>
               </div>
 
               <!-- Prompt 08 -->
-              <div class="artifact-card" style="margin-bottom: 1.5rem;">
+              <div class="artifact-card">
                 <h3>Prompt 08 — The Diagram Competition</h3>
                 <p class="small-note">
                   Final art contest. All five core council members judged their V1 peers and created V2 diagrams. This prompt produced both round winners.
@@ -1107,7 +1094,7 @@ flowchart TB
                   <summary>View prompt</summary>
                   <pre class="artifact-copy">This is the final competition — an art contest where you judge your design against your peers: ChatGPT, Claude, Perplexity, Copilot, and Notion. The plan is to create separate comments on my LinkedIn post with links to the Mermaid-hosted results from each model.<br />First: identify the top performer — the diagram that best depicts the theme and makes the most of Mermaid’s current feature set. Showcase the art of the possible (pun intended).<br />Second: learning from your own self-evaluation and your peers’ work, create a V2 that raises the bar for what a Mermaid diagram can do for a LinkedIn audience.</pre>
                 </details>
-                <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.6rem; margin-bottom: 0;">
+                <p class="prompt-note">
                   Round 1 top performer: Copilot V1 — renderer-level YAML configuration. Round 2 top performer: Claude V2 — honest recursion, visible revision loops.
                 </p>
               </div>
@@ -1123,10 +1110,10 @@ flowchart TB
                 That's not an argument against precision. It's an argument for knowing when velocity is the right tool — and when the diagram you need is cheap enough to draft twice rather than plan once.
               </p>
 
-              <p style="font-size: 0.9rem; color: var(--color-muted); margin-top: 1rem;">
+              <p class="article-repo-cta">
                 All 8 prompts in full, the council brief, and every Mermaid source file
                 are in the public repository:
-                <a href="https://github.com/OKHP3/first-diagram-is-a-liar" target="_blank" rel="noopener" style="color: var(--okh-amber);">github.com/OKHP3/first-diagram-is-a-liar ↗</a>
+                <a href="https://github.com/OKHP3/first-diagram-is-a-liar" target="_blank" rel="noopener" class="link-amber">github.com/OKHP3/first-diagram-is-a-liar ↗</a>
               </p>
 
               <hr />
@@ -1238,7 +1225,7 @@ A picture can absolutely be worth more than the words that prompted it into exis
 If the visual can’t do that, it is still just wallpaper with a superiority complex.
 </pre>
                   </details>
-                  <a href="https://www.linkedin.com/pulse/first-diagram-usually-liar-jamie-hill-lv3hc/" target="_blank" rel="noopener" class="btn btn-quiet" style="display:inline-block; margin-top:0.5rem;">Read on LinkedIn ↗</a>
+                  <a href="https://www.linkedin.com/pulse/first-diagram-usually-liar-jamie-hill-lv3hc/" target="_blank" rel="noopener" class="btn btn-quiet btn-block-top">Read on LinkedIn ↗</a>
                 </div>
 
                 <div class="artifact-card">
@@ -1319,7 +1306,7 @@ Notion V1 is below. It is the quietest entry in the council, and worth a look fo
                 <div>
                   <h3>Bring me your lowest-ROY artifact</h3>
                   <p>
-                    The process, deck, or explanation that takes the most words and lands the least understanding.  Bring it to <a href="https://www.linkedin.com/in/jamiehill75" target="_blank" rel="noopener" style="text-decoration:underline; color: var(--okh-amber);">LinkedIn</a>.  I’ll tell you what kind of diagram fixes it.
+                    The process, deck, or explanation that takes the most words and lands the least understanding.  Bring it to <a href="https://www.linkedin.com/in/jamiehill75" target="_blank" rel="noopener" class="link-amber">LinkedIn</a>.  I’ll tell you what kind of diagram fixes it.
                   </p>
                 </div>
                 <div class="cta-actions">
@@ -1337,10 +1324,10 @@ Notion V1 is below. It is the quietest entry in the council, and worth a look fo
 
               <!-- About This Article -->
               <div class="sidebar-widget">
-                <a href="https://www.linkedin.com/pulse/first-diagram-usually-liar-jamie-hill-lv3hc/" target="_blank" rel="noopener noreferrer" class="series-badge" style="text-decoration:none;">📄 Article v0.1</a>
+                <a href="https://www.linkedin.com/pulse/first-diagram-usually-liar-jamie-hill-lv3hc/" target="_blank" rel="noopener noreferrer" class="series-badge">📄 Article v0.1</a>
                 <h4>About This Article</h4>
                 <p>
-                  <strong style="color: var(--color-fg);">The First Diagram Is Usually a Liar</strong>
+                  <strong>The First Diagram Is Usually a Liar</strong>
                 </p>
                 <p>
                   A live argument about visual communication, ROY, and what a Council of AIs revealed when seven models competed on the same brief. This version is the launch cut — more is coming.
@@ -1350,7 +1337,7 @@ Notion V1 is below. It is the quietest entry in the council, and worth a look fo
               <!-- The Repository -->
               <div class="sidebar-widget">
                 <h4>The Repository</h4>
-                <p style="font-size: 0.88rem; color: var(--color-muted); margin-bottom: 0.6rem;">
+                <p>
                   All Mermaid source files, rendered images, the council brief, the prompts,
                   and the slide deck — public on GitHub.
                 </p>
@@ -1398,7 +1385,7 @@ Notion V1 is below. It is the quietest entry in the council, and worth a look fo
                     </tr>
                   </tbody>
                 </table>
-                <p class="sidebar-footnote" style="font-size:0.78rem; color:var(--color-muted); margin-top:0.6rem; line-height:1.5;">
+                <p class="sidebar-footnote">
                   <strong>ChatGPT V2pro</strong>: exhibition-tier only — Pro-tier model, not directly comparable to Core Five.<br />
                   <strong>Mermaid AI</strong>: attempted, excluded — native rendering only, no brief participation.
                 </p>
@@ -1496,9 +1483,9 @@ Notion V1 is below. It is the quietest entry in the council, and worth a look fo
           </ul>
         </div>
       </div>
-      <div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
-        <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a></span>
-        <p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³. All rights reserved.</p>
+      <div class="footer-bottom">
+        <span class="footer-built-with">Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer">Replit</a></span>
+        <p class="footer-copyright">© <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³. All rights reserved.</p>
         <span></span>
       </div>
     </footer>
@@ -1525,38 +1512,14 @@ Notion V1 is below. It is the quietest entry in the council, and worth a look fo
           "url": "https://overkillhill.com"
         },
         "datePublished": "2026-04-07",
-        "dateModified": "2026-04-07",
-        "image": "https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png",
+        "dateModified": "2026-04-10",
+        "image": "https://overkillhill.com/assets/img/etch-ai-sketch-using-a-council-to-design-at-velocity.png",
         "url": "https://overkillhill.com/writings/first-diagram-is-a-liar/"
       }
     </script>
 
-    <!-- Mermaid — inline init (module import from mermaid-init.js was not resolving) -->
-    <script type="module">
-      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-
-      const styles = getComputedStyle(document.body);
-
-      const surface = styles.getPropertyValue("--color-surface").trim() || "#111827";
-      const surfaceSoft = styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
-      const fg = styles.getPropertyValue("--color-fg").trim() || "#e5e7eb";
-      const accent = styles.getPropertyValue("--color-accent").trim() || "#c46a2c";
-      const muted = styles.getPropertyValue("--color-muted").trim() || "#6b7280";
-      const fontBody =
-        styles.getPropertyValue("--font-body").trim() ||
-        '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
-
-      mermaid.initialize({
-        startOnLoad: false,
-        securityLevel: "loose",
-        flowchart: {
-          curve: "basis",
-          nodeSpacing: 55,
-          rankSpacing: 65
-        }
-      });
-      mermaid.run({ querySelector: ".mermaid" });
-    </script>
+    <!-- Mermaid diagram initialisation -->
+    <script type="module" src="/assets/js/mermaid-init.js"></script>
 
     <!-- Analytics -->
     <script
@@ -1570,68 +1533,6 @@ Notion V1 is below. It is the quietest entry in the council, and worth a look fo
       }
       gtag("js", new Date());
       gtag("config", "G-VJ1BKXS27H");
-    </script>
-    <!-- Sticky TOC: only #toc-widget follows the reader; top-3 cards scroll normally -->
-    <script>
-      (function () {
-        if (window.innerWidth < 1024) return;
-
-        var toc    = document.getElementById('toc-widget');
-        var footer = document.querySelector('.site-footer');
-        if (!toc || !footer) return;
-
-        var lerpedY = 0;
-        var targetY = 0;
-        var SPEED   = 0.08;   /* 0 = no movement, 1 = instant */
-        var NAV_H   = 112;    /* minimum px from viewport top — clears the sticky nav */
-        var PAD     = 32;     /* px breathing room above the footer */
-
-        function lerp(a, b, t) { return a + (b - a) * t; }
-
-        /* Natural document position of the TOC widget, unaffected by any transform */
-        function getNaturalTop(el) {
-          var top = 0;
-          while (el) { top += el.offsetTop; el = el.offsetParent; }
-          return top;
-        }
-
-        /* Capture once at load (before any scroll or transform) */
-        var tocNaturalTop = getNaturalTop(toc);
-        var tocH          = toc.offsetHeight;
-
-        function tick() {
-          var scrollY   = window.scrollY;
-          var footerTop = footer.offsetTop;
-
-          /* Center the card in the viewport, but never above the nav */
-          var centeredOffset = Math.max(NAV_H, (window.innerHeight - tocH) / 2);
-
-          /* Target Y: how far down from its natural slot the TOC needs to translate */
-          var raw = Math.max(0, scrollY + centeredOffset - tocNaturalTop);
-
-          /* Hard ceiling: keep the TOC bottom above the footer */
-          var max = Math.max(0, footerTop - PAD - tocNaturalTop - tocH);
-          targetY = Math.min(raw, max);
-
-          lerpedY = lerp(lerpedY, targetY, SPEED);
-          toc.style.transform = 'translateY(' + lerpedY.toFixed(2) + 'px)';
-
-          requestAnimationFrame(tick);
-        }
-
-        requestAnimationFrame(tick);
-
-        window.addEventListener('resize', function () {
-          if (window.innerWidth < 1024) {
-            toc.style.transform = '';
-          } else {
-            /* Recapture after layout reflow */
-            toc.style.transform = '';
-            tocNaturalTop = getNaturalTop(toc);
-            tocH = toc.offsetHeight;
-          }
-        });
-      }());
     </script>
 
   </body>
