@@ -11,15 +11,18 @@
 
 ## YOUR MISSION
 
-Bring this site's HTML, CSS, JavaScript, and meta tags up to the same level of quality as overkillhill.com. That site is the gold standard. Scan every page, find every gap, fix everything you can, flag what you cannot.
+Bring this site's HTML, CSS, JavaScript, meta tags, and repository files up to the same level of quality as overkillhill.com. That site is the gold standard. Scan every page and every root-level file, find every gap, fix everything you can, flag what you cannot.
 
-Work through each part in order. Do not skip parts. Deliver the report specified in Part 8 when done.
+Work through each part in order. Do not skip parts. Deliver the report specified in Part 9 when done.
 
 ---
 
-## PART 1 — SCAN: INVENTORY EVERY PAGE
+## PART 1 — SCAN: INVENTORY EVERY PAGE AND ROOT FILE
 
-Before changing anything, find and list every `.html` file on this site. Apply every check in Parts 2–7 to each one.
+Before changing anything:
+- List every `.html` file on this site
+- List every file in the repository root
+- Note which gold-standard files (listed in Part 8) are missing
 
 ---
 
@@ -83,7 +86,7 @@ Rules:
 
 Rules:
 - `og:url` must be the canonical absolute URL of the page (https, trailing slash, no query strings)
-- `og:image` must be an absolute URL to an image that actually exists on the server — verify the file is present
+- `og:image` must be an absolute URL to an image that actually exists — verify the file is present
 - `og:image:alt` must not be empty and must describe the image in plain language
 - Recommended OG image dimensions: 1200×630 px (landscape) — minimum 600×315 px
 - If no suitable OG image exists for this site, flag it as a critical item in the report and use the best available image as a placeholder
@@ -136,7 +139,7 @@ Rules:
 ```
 
 Rules:
-- `theme-color` should match this site's primary background colour (dark sites: dark hex; light sites: brand accent hex)
+- `theme-color` should match this site's primary background colour
 - `color-scheme` should reflect whether the site supports dark mode, light mode, or both
 
 ### 2I. Favicons (required on every page)
@@ -149,8 +152,8 @@ Rules:
 ```
 
 Rules:
-- Verify that each file actually exists at the specified path before adding the link tag
-- If the favicon files live at a different path on this site, adjust the paths accordingly
+- Verify that each file actually exists at these paths before adding the link tag
+- If favicon files are at a different path on this site, adjust accordingly
 - If favicon files are missing entirely, flag this as a critical item in the report
 
 ### 2J. JSON-LD Structured Data (required on every page)
@@ -205,13 +208,11 @@ Every page needs a `<script type="application/ld+json">` block placed just befor
 
 Rules:
 - The JSON must be valid — double-check before writing it
-- `dateModified` must reflect the actual last modification date; use 2026-04-10 if unknown
 - Place this block just before `</body>`, not in `<head>`
 - One block per page
 
 ### 2K. Required order of tags inside `<head>`
 
-Follow this order exactly:
 1. `<meta charset>`
 2. `<meta viewport>`
 3. `<meta http-equiv>`
@@ -224,7 +225,7 @@ Follow this order exactly:
 10. Twitter `<meta name="twitter:*">` tags (card, title, description, image, image:alt, site, creator)
 11. Robots / crawl tags (robots, googlebot, bingbot, revisit-after)
 12. `<link rel="canonical">`
-13. Mobile / PWA tags (theme-color, color-scheme, mobile-web-app-capable, apple tags)
+13. Mobile / PWA tags
 14. Favicons
 15. CSS `<link rel="stylesheet">` tags
 16. Any remaining `<link>` or `<meta>` tags
@@ -233,15 +234,13 @@ Follow this order exactly:
 
 ## PART 3 — INLINE STYLES: EXTRACT TO CSS
 
-Scan every page for:
-- `style=""` attributes on HTML elements
-- `<style>...</style>` blocks inside `<head>` or `<body>`
+Scan every page for `style=""` attributes and `<style>` blocks inside `<head>` or `<body>`.
 
 For each found:
-1. For patterns that repeat across multiple elements or pages, create a named class in the site's CSS file
-2. Replace the `style=""` attribute in HTML with `class="your-new-class"`
-3. For genuinely one-off styles appearing only once with no likely reuse, leave inline but note them in the report
-4. After all changes, run a final check to confirm zero unexpected `style=""` attributes remain
+1. For repeated patterns, create a named class in the site's CSS file
+2. Replace `style=""` with `class="your-new-class"` in the HTML
+3. For genuinely one-off styles, leave inline but note them in the report
+4. Run a final check confirming zero unexpected `style=""` attributes remain
 
 Exception: do not touch styles inside `type="application/ld+json"` blocks.
 
@@ -249,33 +248,29 @@ Exception: do not touch styles inside `type="application/ld+json"` blocks.
 
 ## PART 4 — INLINE SCRIPTS: EXTRACT TO JS
 
-Scan every page for `<script>` blocks containing logic (not data).
-
-**Keep inline — these must not be moved:**
-- Google Analytics / gtag `dataLayer` initialisation and `gtag()` config blocks (industry standard requirement)
-- `<script type="application/ld+json">` structured data blocks
+**Keep inline:**
+- Google Analytics / gtag `dataLayer` and `gtag()` blocks
+- `<script type="application/ld+json">` blocks
 
 **Move to external files:**
-- Any other `<script>` block containing functions, event listeners, or initialisation logic
-- Mermaid initialisation — see Part 5 for the correct external file pattern
+- All other `<script>` blocks containing functions, event listeners, or initialisation logic
+- Mermaid initialisation — see Part 5
 
 ---
 
 ## PART 5 — MERMAID JS: UPDATE TO v11 ESM PATTERN
 
-### 5A. Find every Mermaid reference on the site
+### 5A. Find every Mermaid reference
 
 Search all HTML and JS files for: `mermaid`, `cdn.jsdelivr.net/npm/mermaid`, `unpkg.com/mermaid`
 
-Outdated patterns to remove:
+Remove outdated patterns:
 - `<script src="https://cdn.jsdelivr.net/npm/mermaid@[below-11]/...">` — non-module CDN tag
-- `<script src="https://unpkg.com/mermaid...">` — unpkg CDN, outdated
-- Any inline `<script type="module"> import mermaid from ... </script>` blocks in HTML files
-- Any `mermaid.initialize(...)` calls inside `<script>` tags in HTML
+- `<script src="https://unpkg.com/mermaid...">` — outdated CDN
+- Any inline `<script type="module"> import mermaid from ... </script>` blocks in HTML
+- Any `mermaid.initialize(...)` inside `<script>` tags in HTML files
 
 ### 5B. Create or replace `assets/js/mermaid-init.js`
-
-If this file does not exist, create it. If it does, replace its entire content:
 
 ```js
 // Mermaid diagram initialization
@@ -294,7 +289,6 @@ mermaid.initialize({
   },
 });
 
-// Explicit run — more reliable than startOnLoad with ES module loading order
 mermaid.run({
   querySelector: ".mermaid",
 }).catch((err) => {
@@ -302,17 +296,17 @@ mermaid.run({
 });
 ```
 
-### 5C. Add the reference to every page that uses diagrams
-
-Place this tag just before `</body>`, after your main `app.js` reference:
+### 5C. Reference the file in every page that uses diagrams
 
 ```html
 <script type="module" src="/assets/js/mermaid-init.js"></script>
 ```
 
-### 5D. Why `initialize()` must not set `themeVariables`
+Place just before `</body>`, after the main `app.js` reference.
 
-Setting `themeVariables` inside `initialize()` silently overrides any YAML front matter on individual diagrams. The correct pattern is to let each diagram control its own theme:
+### 5D. Do not set `themeVariables` in `initialize()`
+
+Setting `themeVariables` overrides YAML front matter on individual diagrams. Let each diagram control its own theme:
 
 ```
 ---
@@ -322,22 +316,15 @@ config:
 ---
 ```
 
-Add this YAML at the top of each `<pre class="mermaid">` block only on diagrams that need explicit theme control. The `initialize()` call must not interfere.
-
 ---
 
 ## PART 6 — CSS ADDITIONS: CROSS-SITE UTILITY CLASSES
 
-Open this site's main CSS file and append the following block at the very end, after all existing rules. Do not remove or overwrite anything — append only.
-
-After appending, bump the cache-bust version on every `<link rel="stylesheet">` tag in every HTML file (e.g. `?v=1` → `?v=2`). If no version string exists, add `?v=2`.
+Append to the end of this site's main CSS file. Do not remove existing rules. After appending, bump the CSS cache-bust version on every `<link rel="stylesheet">` tag (e.g. `?v=1` → `?v=2`; if no version exists, add `?v=2`).
 
 ```css
 /* ===== CROSS-SITE SYNC — from overkillhill.com refactor 2026-04-10 ===== */
 
-/* Mermaid: isolate diagram labels from page colour inheritance.
-   Prevents --color-fg (near-white) leaking into HTML foreignObject
-   labels on light-themed diagrams. */
 .mermaid foreignObject,
 .mermaid foreignObject div,
 .mermaid foreignObject p,
@@ -345,18 +332,13 @@ After appending, bump the cache-bust version on every `<link rel="stylesheet">` 
   color: initial;
 }
 
-/* Amber text utility */
-.text-amber {
-  color: var(--okh-amber, #F59E0B);
-}
+.text-amber { color: var(--okh-amber, #F59E0B); }
 
-/* Amber inline link */
 .link-amber {
   color: var(--okh-amber, #F59E0B);
   text-decoration: underline;
 }
 
-/* Diagram static PNG fallback */
 .diagram-static-img {
   display: block;
   max-width: 100%;
@@ -364,10 +346,7 @@ After appending, bump the cache-bust version on every `<link rel="stylesheet">` 
   margin-bottom: 0.5rem;
 }
 
-/* Live-render <details> toggle inside .diagram-shell */
-.diagram-live-render {
-  margin-bottom: 0;
-}
+.diagram-live-render { margin-bottom: 0; }
 
 .diagram-live-render > summary {
   font-size: 0.82rem;
@@ -377,11 +356,8 @@ After appending, bump the cache-bust version on every `<link rel="stylesheet">` 
   list-style: none;
 }
 
-.diagram-live-render > summary::-webkit-details-marker {
-  display: none;
-}
+.diagram-live-render > summary::-webkit-details-marker { display: none; }
 
-/* Section subtitle beneath h2 */
 .section-subtitle {
   font-family: var(--font-body, sans-serif);
   font-weight: 600;
@@ -393,12 +369,8 @@ After appending, bump the cache-bust version on every `<link rel="stylesheet">` 
   margin-bottom: 1.5rem;
 }
 
-/* Compact council-card variant */
-.council-card--compact {
-  margin: 2rem 0;
-}
+.council-card--compact { margin: 2rem 0; }
 
-/* Council fairness-note paragraphs */
 .council-note {
   font-size: 0.9rem;
   color: var(--color-muted, #6b7280);
@@ -406,11 +378,8 @@ After appending, bump the cache-bust version on every `<link rel="stylesheet">` 
   line-height: 1.6;
 }
 
-.council-note:last-of-type {
-  margin-bottom: 0;
-}
+.council-note:last-of-type { margin-bottom: 0; }
 
-/* Prompt meta note */
 .prompt-note {
   font-size: 0.85rem;
   color: var(--color-muted, #6b7280);
@@ -418,13 +387,11 @@ After appending, bump the cache-bust version on every `<link rel="stylesheet">` 
   margin-bottom: 0;
 }
 
-/* Inline CTA link button block */
 .btn-block-top {
   display: inline-block;
   margin-top: 0.5rem;
 }
 
-/* Repo CTA paragraph */
 .article-repo-cta {
   font-size: 0.9rem;
   color: var(--color-muted, #6b7280);
@@ -436,11 +403,8 @@ After appending, bump the cache-bust version on every `<link rel="stylesheet">` 
   color: var(--okh-amber, #F59E0B);
 }
 
-.article-repo-cta .link-amber:hover {
-  text-decoration: underline;
-}
+.article-repo-cta .link-amber:hover { text-decoration: underline; }
 
-/* Sidebar footnote */
 .sidebar-footnote {
   font-size: 0.78rem;
   color: var(--color-muted, #6b7280);
@@ -448,7 +412,6 @@ After appending, bump the cache-bust version on every `<link rel="stylesheet">` 
   line-height: 1.5;
 }
 
-/* Footer built-with bar */
 .footer-built-with {
   font-size: 0.8rem;
   color: var(--color-muted, #6b7280);
@@ -467,11 +430,8 @@ After appending, bump the cache-bust version on every `<link rel="stylesheet">` 
   text-align: center;
 }
 
-/* TOC widget: GPU-layer hint for smooth animation */
 @media (min-width: 1024px) {
-  #toc-widget {
-    will-change: transform;
-  }
+  #toc-widget { will-change: transform; }
 }
 
 /* ===== END CROSS-SITE SYNC ===== */
@@ -481,41 +441,22 @@ After appending, bump the cache-bust version on every `<link rel="stylesheet">` 
 
 ## PART 7 — STICKY TOC (conditional — skip if no #toc-widget)
 
-Only apply this section if the site has a sidebar table of contents element with `id="toc-widget"`. If it does not exist anywhere on the site, skip this part entirely.
+Only apply if the site has `id="toc-widget"` anywhere. Otherwise skip entirely.
 
-Append the following to the end of the site's main `app.js`:
+Append to the end of the site's main `app.js`:
 
 ```js
-// ──────────────────────────────────────────────────────────────
-// Sticky TOC: lerp scroll-follow (only on screens >= 1024px)
-// ──────────────────────────────────────────────────────────────
 (function () {
   if (window.innerWidth < 1024) return;
-
   var toc    = document.getElementById('toc-widget');
   var footer = document.querySelector('.site-footer');
   if (!toc || !footer) return;
-
-  var lerpedY = 0;
-  var targetY = 0;
-  var SPEED   = 0.08;
-  var NAV_H   = 112;
-  var PAD     = 32;
-
+  var lerpedY = 0, targetY = 0, SPEED = 0.08, NAV_H = 112, PAD = 32;
   function lerp(a, b, t) { return a + (b - a) * t; }
-
-  function getNaturalTop(el) {
-    var top = 0;
-    while (el) { top += el.offsetTop; el = el.offsetParent; }
-    return top;
-  }
-
-  var tocNaturalTop = getNaturalTop(toc);
-  var tocH          = toc.offsetHeight;
-
+  function getNaturalTop(el) { var top = 0; while (el) { top += el.offsetTop; el = el.offsetParent; } return top; }
+  var tocNaturalTop = getNaturalTop(toc), tocH = toc.offsetHeight;
   function tick() {
-    var scrollY   = window.scrollY;
-    var footerTop = footer.offsetTop;
+    var scrollY = window.scrollY, footerTop = footer.offsetTop;
     var centeredOffset = Math.max(NAV_H, (window.innerHeight - tocH) / 2);
     var raw = Math.max(0, scrollY + centeredOffset - tocNaturalTop);
     var max = Math.max(0, footerTop - PAD - tocNaturalTop - tocH);
@@ -524,35 +465,381 @@ Append the following to the end of the site's main `app.js`:
     toc.style.transform = 'translateY(' + lerpedY.toFixed(2) + 'px)';
     requestAnimationFrame(tick);
   }
-
   requestAnimationFrame(tick);
-
   window.addEventListener('resize', function () {
     toc.style.transform = '';
-    if (window.innerWidth >= 1024) {
-      tocNaturalTop = getNaturalTop(toc);
-      tocH = toc.offsetHeight;
-    }
+    if (window.innerWidth >= 1024) { tocNaturalTop = getNaturalTop(toc); tocH = toc.offsetHeight; }
   });
 }());
 ```
 
 ---
 
-## PART 8 — DELIVERY REPORT
+## PART 8 — REPOSITORY FILES: GOLD STANDARD
+
+Every repository must have the following files at its root. Check which exist, create any that are missing, and update any that are incomplete, generic, or placeholder. Templates and rules for each file are below.
+
+**Required file checklist:**
+- [ ] `AGENTS.md`
+- [ ] `CHANGELOG.md`
+- [ ] `CNAME`
+- [ ] `CODE_OF_CONDUCT.md`
+- [ ] `CONTRIBUTING.md`
+- [ ] `favicon.ico`
+- [ ] `LICENSE`
+- [ ] `LICENSE.md`
+- [ ] `README.md`
+- [ ] `ROADMAP.md`
+- [ ] `robots.txt`
+- [ ] `SECURITY.md`
+- [ ] `site.webmanifest`
+- [ ] `sitemap.xml`
+- [ ] `404.html`
+
+---
+
+### 8A. `CNAME`
+
+Single line, the bare domain. No `https://`, no trailing slash.
+
+```
+[yourdomain.com]
+```
+
+Examples: `glee-fully.tools` or `askjamie.bot`
+
+---
+
+### 8B. `robots.txt`
+
+```
+User-agent: *
+Allow: /
+
+# Block utility/template pages that are not content
+Disallow: /under-construction.html
+
+Sitemap: https://[yourdomain.com]/sitemap.xml
+```
+
+Rules:
+- Replace `[yourdomain.com]` with the real domain
+- Add additional `Disallow:` lines for any other pages that should not be indexed (staging pages, placeholder pages, etc.)
+- The Sitemap line is mandatory — it must point to the actual sitemap file
+
+---
+
+### 8C. `site.webmanifest`
+
+```json
+{
+  "name": "[Full Brand Name]",
+  "short_name": "[Short Name]",
+  "icons": [
+    {
+      "src": "/assets/img/favicons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/favicons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#[primary-brand-hex]",
+  "background_color": "#[background-hex]",
+  "display": "standalone"
+}
+```
+
+Rules:
+- `name` should be the full brand name (e.g. "Glee-fully Personalizable Tools™" or "AskJamie™")
+- `short_name` should be 12 characters or fewer (e.g. "Glee-fully" or "AskJamie")
+- `theme_color` and `background_color` must match the site's brand colours — not left as `#ffffff`
+- Verify that the icon files actually exist at the specified paths; if they do not, flag this in the report
+- The `site.webmanifest` must be referenced in every page's `<head>` with: `<link rel="manifest" href="/site.webmanifest" />`
+
+---
+
+### 8D. `sitemap.xml`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://[yourdomain.com]/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Add one <url> block per public HTML page on the site -->
+  <!-- Use priority 0.8 for key pages, 0.6 for secondary, 0.4 for legal/utility -->
+  <!-- Do not include: 404.html, under-construction.html, or any Disallowed pages -->
+
+</urlset>
+```
+
+Rules:
+- Every public page on the site must have an entry
+- URLs must be absolute with https and trailing slashes
+- `changefreq`: home page = `weekly`, key content pages = `monthly`, legal = `yearly`
+- `priority`: home = `1.0`, key pages = `0.8`, secondary = `0.6`–`0.7`, utility/legal = `0.4`
+- Do not include pages that are `Disallow`-ed in `robots.txt`
+
+---
+
+### 8E. `LICENSE`
+
+Plain text file (no `.md` extension). CC BY 4.0 adapted for this brand:
+
+```
+Creative Commons Attribution 4.0 International License (CC BY 4.0)
+
+Copyright (c) 2026 [Brand Name] / Jamie Hill
+
+This work is licensed under the Creative Commons Attribution 4.0 International License.
+
+You are free to:
+  Share — copy and redistribute the material in any medium or format
+  Adapt — remix, transform, and build upon the material for any purpose, even commercially
+
+Under the following terms:
+  Attribution — You must give appropriate credit, provide a link to the license,
+  and indicate if changes were made. You may do so in any reasonable manner, but
+  not in any way that suggests the licensor endorses you or your use.
+
+No additional restrictions — You may not apply legal terms or technological
+measures that legally restrict others from doing anything the license permits.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+```
+
+---
+
+### 8F. `LICENSE.md`
+
+```markdown
+# License
+
+Unless otherwise noted, the contents of this repository are © [Brand Name] / Jamie Hill.
+
+This repository includes website source and brand materials intended for public viewing and reference.
+
+You may read, reference, and link to this material freely.
+
+Do not republish, commercialize, or redistribute brand assets, written content, or design artifacts as your own without permission.
+
+For licensing or reuse questions, contact **[contact@yourdomain.com]**.
+```
+
+---
+
+### 8G. `CODE_OF_CONDUCT.md`
+
+```markdown
+# Code of Conduct
+
+All participants in **[Brand Name]** public repositories are expected to:
+
+* Be respectful and civil.
+* Avoid harassment, abusive language, or attacks.
+* Ensure feedback is constructive and practical.
+* Keep discussions focused on the content, artifacts, and public materials.
+
+## Reporting violations
+
+Please contact the maintainer at [contact@yourdomain.com] with evidence of behavior that violates this code of conduct.
+
+Maintainers will review and respond appropriately. Repeated or severe violations may result in restriction from contributions.
+```
+
+---
+
+### 8H. `SECURITY.md`
+
+```markdown
+# Security Policy
+
+This repository contains public website and brand source materials.
+
+## Reporting Issues
+
+If you discover:
+- exposed credentials
+- misconfigured artifacts
+- broken links or misleading content
+
+please contact **[contact@yourdomain.com]** immediately.
+
+## Scope
+
+No bounty program exists at this time. Reports will be reviewed and mitigated as practical.
+
+## Notes
+
+This repo is primarily for reference and public brand artifact access.
+```
+
+---
+
+### 8I. `CONTRIBUTING.md`
+
+```markdown
+# Contributing
+
+Thanks for your interest in **[Brand Name]**.
+
+This repository primarily contains public website source, brand artifacts, and supporting materials.
+
+## Helpful contributions
+- flagging broken links
+- identifying rendering issues
+- suggesting documentation clarifications
+- proposing cleaner artifact organization for public pages
+
+## Please avoid
+- large unsolicited brand rewrites
+- structural changes that break live site continuity
+- adding placeholder or experimental content to public-facing pages without alignment
+
+## How to contribute
+1. Be specific about the file, page, or artifact in question.
+2. Describe the problem first, then the proposed improvement.
+3. Keep suggestions practical, respectful, and public-artifact focused.
+
+## Maintainer
+Jamie Hill / [Brand Name]
+[contact@yourdomain.com]
+```
+
+---
+
+### 8J. `AGENTS.md`
+
+```markdown
+# Agent rules
+
+- Work in small steps. Ask before large refactors.
+- Prefer adding tests before changing logic if risk is medium/high.
+- Keep changes localized. Avoid touching unrelated files.
+- If you need config/secrets, stop and ask. Never invent credentials.
+- Summarize what you changed and why at the end.
+```
+
+This file is identical across all three sites — no customisation needed.
+
+---
+
+### 8K. `README.md`
+
+The README must be substantive, specific to this brand, and honest about what the site/product is. It must not be a placeholder or copy of another site's README.
+
+Required sections:
+1. **Brand name as H1 heading**
+2. **One-paragraph brand description** — what this product is and who it is for
+3. **What it does / what it builds** — key features or offerings, specific to this brand
+4. **Why it matters** — the philosophy or mission behind it
+5. **Explore** — website URL, contact email, and any relevant external links (Ko-fi, LinkedIn, etc.)
+6. **Closing tagline** — one memorable line that captures the brand voice
+
+Tone must match the brand voice of this specific site. Do not use OverKill Hill P³ language in the Glee-fully or AskJamie READMEs — each brand has its own voice.
+
+---
+
+### 8L. `CHANGELOG.md`
+
+```markdown
+# Changelog
+
+All notable changes to the **[Brand Name]** public repository should be recorded here.
+
+## [Unreleased]
+
+### Planned
+- [List near-term improvements specific to this site]
+
+## [v0.1 — 2026-04-10]
+
+### Established
+- Core brand README
+- Public website source for [yourdomain.com]
+- Repository governance files (LICENSE, SECURITY, CODE_OF_CONDUCT, CONTRIBUTING, ROADMAP)
+- Full meta tag pass across all pages
+- Cross-site CSS and JS sync with overkillhill.com
+- Mermaid JS updated to v11 ESM pattern
+```
+
+Rules:
+- The `[v0.1 — 2026-04-10]` section should reflect what was actually set up on this date
+- Add a bullet for every meaningful change made during this sync session
+- Date format: `YYYY-MM-DD`
+
+---
+
+### 8M. `ROADMAP.md`
+
+```markdown
+# Roadmap
+
+This roadmap outlines the near-term public direction for the **[Brand Name]** repository.
+
+## Current
+- [What is actively being worked on for this site right now]
+
+## Next
+- Improve repository-level documentation and governance
+- Expand content and feature pages
+- Align public page content with live LinkedIn and platform artifacts
+
+## Later
+- Continue evolving public case studies and documentation
+- Improve cross-linking between OverKill Hill, Glee-fully, AskJamie, and supporting repositories
+- Add more structured project indexes
+```
+
+Customise each section to reflect the actual roadmap priorities for this specific site. Do not copy the OverKill Hill roadmap verbatim.
+
+---
+
+### 8N. `404.html`
+
+A custom 404 page must exist. It must:
+- Match the site's design (header, footer, brand colours, fonts)
+- Have a correct `<title>` tag: `[Site Name] — 404 Page Not Found`
+- Contain a helpful heading and message explaining the page wasn't found
+- Include a clear link or button back to the home page
+- Include the full meta tag set from Part 2 (simplified — `og:type` = `website`, no `og:article` tags)
+- Not be a default server/framework 404 page
+
+If no `404.html` exists, create one. If one exists but is a default/generic page, rewrite it to match the site's design.
+
+---
+
+### 8O. `favicon.ico` (root level)
+
+A `favicon.ico` file must exist at the repository root. This is separate from the favicon PNGs in `assets/img/favicons/`. If it is missing, flag it as a critical item — the user must provide the file.
+
+---
+
+## PART 9 — DELIVERY REPORT
 
 When all work is complete, provide a structured report covering:
 
 1. **Pages scanned** — every HTML file found and checked
-2. **Meta tag gaps fixed** — per page, list which tags were missing or incorrect before your changes
-3. **Meta tags still incomplete** — any tag you could not populate because information was unavailable (e.g. OG image file missing, Twitter handle unknown) — state exactly what is needed and who must provide it
-4. **Inline styles** — count found, count extracted to CSS, count left inline with reason for each
-5. **Inline scripts** — count found, count externalised, what was kept inline and why
-6. **Mermaid** — version confirmed, how many pages updated, old pattern that was replaced
-7. **CSS additions** — confirmed appended, cache-bust version before and after on each page
-8. **JSON-LD** — which pages had it before, which pages had it added, any that still need manual input
-9. **Orphaned or broken files** — any files not referenced anywhere, or `<link>`/`<script>`/`<img>` tags pointing to missing files
-10. **Items requiring your manual action** — anything the agent cannot resolve itself, described clearly with the specific information or file needed from you
+2. **Repository files** — full checklist: which existed, which were created, which were updated
+3. **Meta tag gaps fixed** — per page, which tags were missing or incorrect before your changes
+4. **Meta tags still incomplete** — any tag you could not populate (state exactly what is needed and who must provide it)
+5. **Inline styles** — count found, count extracted, count left inline with reason
+6. **Inline scripts** — count found, count externalised, what was kept and why
+7. **Mermaid** — version confirmed, pages updated, old pattern replaced
+8. **CSS additions** — confirmed appended, cache-bust version before and after
+9. **JSON-LD** — which pages had it, which had it added, any needing manual input
+10. **sitemap.xml** — list of URLs included
+11. **site.webmanifest** — confirmed values (name, short_name, theme_color, background_color)
+12. **Orphaned or broken files** — any unreferenced files or dead links
+13. **Items requiring your manual action** — anything the agent cannot resolve, described clearly with what is needed from you
 
 ---
 
