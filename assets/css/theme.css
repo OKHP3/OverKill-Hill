@@ -69,6 +69,13 @@ html[data-theme="light"] body {
   background: radial-gradient(circle at top, #e5e8ed, #eff2f5);
 }
 
+/* ===== SCROLL OFFSET (sticky header compensation) ===================== */
+/* Prevents anchor targets from landing beneath the sticky site header + banner */
+
+html {
+  scroll-padding-top: 6.5rem;
+}
+
 /* ── Light mode: elements with hardcoded dark backgrounds ──────────────
    The nav, footer, hero cards, and a few other components are intentionally
    dark at all times (brand identity). In light mode their var(--color-*)
