@@ -688,6 +688,12 @@ body:not(.glee-main):not(.askjamie-main) .site-status {
   letter-spacing: 0.06em;
 }
 
+@media (max-width: 599px) {
+  .site-specials-label--hide-mobile {
+    display: none;
+  }
+}
+
 .site-specials-link {
   text-decoration: underline;
 }
