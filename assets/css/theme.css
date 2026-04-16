@@ -73,7 +73,7 @@ html[data-theme="light"] body {
 /* Prevents anchor targets from landing beneath the sticky site header + banner */
 
 html {
-  scroll-padding-top: 6.5rem;
+  scroll-padding-top: 8.5rem;
 }
 
 /* ── Light mode: elements with hardcoded dark backgrounds ──────────────
