@@ -3591,6 +3591,43 @@ html:has(
 }
 
 /* ============================================================
+   v0.3 Visual Edition — Inline Article Changelog
+   ============================================================ */
+
+.article-changelog {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border-subtle);
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+.article-changelog h3 {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin: 0 0 1rem;
+}
+.article-changelog dt {
+  font-weight: 600;
+  color: var(--okh-amber);
+  margin-top: 1.5rem;
+  font-size: 0.9375rem;
+}
+.article-changelog dt:first-of-type {
+  margin-top: 0;
+}
+.article-changelog dd {
+  margin: 0.5rem 0 0 0;
+  line-height: 1.6;
+}
+.article-changelog dd ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.5rem;
+}
+.article-changelog dd li {
+  margin-bottom: 0.25rem;
+}
+
+/* ============================================================
    Glee-fully under-construction overlay
    - Used on toolbox pages that are live-but-not-finished
    ============================================================ */
