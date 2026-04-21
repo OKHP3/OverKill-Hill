@@ -1,0 +1,744 @@
+# FINAL REPLIT DIRECTIVE: v0.3 Website Updates — Ready to Execute
+
+## Repository & Target Files
+
+**Main site repo:** https://github.com/OKHP3/OverKill-Hill  
+**Target file:** /writings/first-diagram-is-a-liar/index.html  
+**Live URL:** https://overkillhill.com/writings/first-diagram-is-a-liar/
+
+**Related assets repo:** https://github.com/OKHP3/first-diagram-is-a-liar
+
+**Deck files (all formats):**
+- Square PPTX: https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-square.pptx
+- Square PDF: https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-square.pdf
+- Wide PPTX: https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-wide.pptx
+- Wide PDF: https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-wide.pdf
+
+## Objective
+
+Update the article page to v0.3 — The Visual Edition / Public Scoring Launch. All narrative content is locked. This is production-ready for April 21, 2026 launch.
+
+---
+
+## REQUIRED UPDATES
+
+### Update 1: Version Badge
+
+**Find:** Any version label showing v0.2, "v0.2 — Live", or "Article v0.2"
+
+**Replace with:** `v0.3 — Visual Edition Live`
+
+Use existing styling/class structure.
+
+---
+
+### Update 2: Intro/Summary Section
+
+**Find:** Any stale language saying slide deck, polls, or scoring are "coming soon"
+
+**Replace with:**
+
+```
+v0.3 adds the Etch-AI-Sketch slide deck (18 slides in square and wide formats), public scoring bracket, poll schedule (April 22-30), and three-lane scoring model. The Council interviews and deeper workflow essays are still coming in future updates.
+```
+
+Preserve existing page tone and layout.
+
+---
+
+### Update 3: Add New Section — "v0.3 — The Visual Edition"
+
+**Location:** After current intro/version block, before any "Launch Artifacts" section
+
+**Content:**
+
+```html
+<section id="visual-edition" class="article-section">
+  <h2>v0.3 — The Visual Edition</h2>
+  
+  <p>The slide deck is now live.</p>
+  
+  <p>This is the first version of the article where the argument becomes a visual artifact instead of only a written one.</p>
+  
+  <p>The Council produced the diagrams.<br>
+  The deck packages the field.<br>
+  The polls let the audience score the work.</p>
+  
+  <p>That matters because the whole ROY argument depends on a simple question:</p>
+  
+  <p><strong>Did the diagram create enough clarity to justify the words that produced it?</strong></p>
+  
+  <p>The v0.3 release turns that question into a public test.</p>
+  
+  <h3>What v0.3 Adds</h3>
+  
+  <ul>
+    <li>The Etch-AI-Sketch Council Diagramming Shootout deck (18 slides, square and wide formats)</li>
+    <li>The V1 and V2 diagram voting bracket</li>
+    <li>Public poll rounds for reader scoring</li>
+    <li>A scoring model for comparing audience judgment, architect judgment, and Council judgment</li>
+    <li>A setup for the final v0.3.x debrief before the series moves into the v0.4 Council-origin arc</li>
+  </ul>
+  
+  <h3>Public Scoring Bracket</h3>
+  
+  <p><strong>V1 Heat A:</strong> ChatGPT, Claude, Gemini, Perplexity<br>
+  <strong>V1 Heat B:</strong> Copilot, Notion, Replit</p>
+  
+  <p><strong>V2 Heat A:</strong> ChatGPT, Copilot, Gemini, Notion<br>
+  <strong>V2 Heat B:</strong> ChatGPT Pro, Claude, Replit, Perplexity</p>
+  
+  <p>The audience vote will not be treated as the only answer.</p>
+  
+  <p>It will be treated as one signal.</p>
+  
+  <p>After the polls close, the scoring breakdown will compare three scoring lanes:</p>
+  
+  <ol>
+    <li><strong>Audience scoring</strong> — what communicated best to human viewers</li>
+    <li><strong>Jamie's scoring</strong> — architectural judgment against fidelity, clarity, and usefulness</li>
+    <li><strong>Council-assisted scoring</strong> — model-assisted rubric review across the full field</li>
+  </ol>
+  
+  <p>The gap between those scores is probably where the interesting lesson lives.</p>
+</section>
+```
+
+---
+
+### Update 4: Add Poll Schedule Table
+
+**Location:** Immediately after "Public Scoring Bracket" section
+
+**Content:**
+
+```html
+<section id="poll-schedule" class="article-section">
+  <h3>Poll Schedule</h3>
+  
+  <table class="schedule-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Version</th>
+        <th>Public Label</th>
+        <th>Artifact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>04/21/2026</td>
+        <td>v0.3</td>
+        <td>Visual Edition</td>
+        <td>Deck / document carousel</td>
+      </tr>
+      <tr>
+        <td>04/22/2026</td>
+        <td>v0.3.1.1</td>
+        <td>V1 Heat A</td>
+        <td>Poll</td>
+      </tr>
+      <tr>
+        <td>04/23/2026</td>
+        <td>v0.3.1.2</td>
+        <td>V1 Heat B</td>
+        <td>Poll</td>
+      </tr>
+      <tr>
+        <td>04/28/2026</td>
+        <td>v0.3.2</td>
+        <td>V2 Bridge</td>
+        <td>Post</td>
+      </tr>
+      <tr>
+        <td>04/29/2026</td>
+        <td>v0.3.2.1</td>
+        <td>V2 Heat A</td>
+        <td>Poll</td>
+      </tr>
+      <tr>
+        <td>04/30/2026</td>
+        <td>v0.3.2.2</td>
+        <td>V2 Heat B</td>
+        <td>Poll</td>
+      </tr>
+      <tr>
+        <td>After polls close</td>
+        <td>v0.3.3</td>
+        <td>Scoring Debrief</td>
+        <td>Post</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+```
+
+**CSS for table** (add to stylesheet if not already present):
+
+```css
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.schedule-table th,
+.schedule-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color, #333);
+}
+
+.schedule-table th {
+  font-weight: 600;
+  color: var(--accent-color, #ff8c42);
+  border-bottom: 2px solid var(--accent-color, #ff8c42);
+}
+
+.schedule-table tbody tr:hover {
+  background: rgba(255, 140, 66, 0.05);
+}
+
+@media (max-width: 768px) {
+  .schedule-table {
+    font-size: 0.8rem;
+  }
+  
+  .schedule-table th,
+  .schedule-table td {
+    padding: 0.5rem;
+  }
+}
+```
+
+---
+
+### Update 5: Add Scoring Rubric Section
+
+**Location:** After Poll Schedule table
+
+**Content:**
+
+```html
+<section id="scoring-model" class="article-section">
+  <h3>Scoring Model</h3>
+  
+  <p>The final v0.3.x debrief will compare three scoring methodologies:</p>
+  
+  <div class="scoring-lanes">
+    <div class="scoring-lane">
+      <h4>Audience Scoring (Popular Vote)</h4>
+      <p>What communicated best to human viewers across LinkedIn polls</p>
+    </div>
+    
+    <div class="scoring-lane">
+      <h4>Jamie's Scoring (Architectural Assessment)</h4>
+      <p>Evaluated against:</p>
+      <ul>
+        <li>First-glance comprehension</li>
+        <li>Semantic fidelity</li>
+        <li>Diagram structure</li>
+        <li>Visual hierarchy</li>
+        <li>Theming discipline</li>
+        <li>Iteration improvement (V1→V2)</li>
+        <li>Usefulness as thinking artifact</li>
+      </ul>
+    </div>
+    
+    <div class="scoring-lane">
+      <h4>Council-Assisted Scoring (Peer Review)</h4>
+      <p>Each AI evaluated the others' outputs using the same rubric</p>
+    </div>
+  </div>
+</section>
+```
+
+**CSS for scoring lanes:**
+
+```css
+.scoring-lanes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.scoring-lane {
+  background: var(--card-bg, #1a1a1a);
+  border: 1px solid var(--card-border, #333);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.scoring-lane h4 {
+  margin: 0 0 0.75rem 0;
+  color: var(--accent-color, #ff8c42);
+  font-size: 1.1rem;
+}
+
+.scoring-lane p {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.scoring-lane ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.scoring-lane li {
+  margin-bottom: 0.25rem;
+}
+```
+
+---
+
+### Update 6: Add Deep-Linkable Diagram Gallery Sections
+
+**Location:** After Scoring Model section
+
+**Purpose:** Provides poll voters direct links to high-resolution diagrams on Mermaid.ai
+
+**Content:**
+
+```html
+<section id="v1-diagrams" class="diagram-gallery">
+  <h3>Round 1: V1 First-Pass Diagrams</h3>
+  
+  <p>View the full-resolution diagrams on Mermaid.ai to see details before voting.</p>
+  
+  <div class="diagram-grid">
+    <div class="diagram-card">
+      <h4>👑 Copilot V1</h4>
+      <p>Presentation-ready, solid system thinking. Strong architecture, clear phases, deliverable feel.</p>
+      <a href="[MERMAID_LINK_COPILOT_V1]" target="_blank" rel="noopener">View on Mermaid.ai →</a>
+    </div>
+    
+    <div class="diagram-card">
+      <h4>Claude V1</h4>
+      <p>Most elegant storyteller — occasionally too polished. Narrative intelligence, strong framing.</p>
+      <a href="[MERMAID_LINK_CLAUDE_V1]" target="_blank" rel="noopener">View on Mermaid.ai →</a>
+    </div>
+    
+    <div class="diagram-card">
+      <h4>Perplexity V1</h4>
+      <p>Less theater, more utility. Efficient and grounded. Pragmatic structure, ROI thinking, business framing.</p>
+      <a href="[MERMAID_LINK_PERPLEXITY_V1]" target="_blank" rel="noopener">View on Mermaid.ai →</a>
+    </div>
+    
+    <div class="diagram-card">
+      <h4>ChatGPT V1</h4>
+      <p>Clarity, hierarchy, and a little swagger. Balanced composition, strong loops, polish + branding.</p>
+      <a href="[MERMAID_LINK_CHATGPT_V1]" target="_blank" rel="noopener">View on Mermaid.ai →</a>
+    </div>
+    
+    <div class="diagram-card">
+      <h4>Gemini V1</h4>
+      <p>Elegance from insight... or just restraint? Synthesis + reduction, simplify without flattening.</p>
+      <a href="[MERMAID_LINK_GEMINI_V1]" target="_blank" rel="noopener">View on Mermaid.ai →</a>
+    </div>
+    
+    <div class="diagram-card">
+      <h4>Notion V1</h4>
+      <p>Quietly effective — here's the shape of the thing. Clean lanes, minimalist, setup/compression/shipping separation.</p>
+      <a href="[MERMAID_LINK_NOTION_V1]" target="_blank" rel="noopener">View on Mermaid.ai →</a>
+    </div>
+    
+    <div class="diagram-card">
+      <h4>Replit V1</h4>
+      <p>The builder's eye — does it ship, does it render? Code-first thinking, runtime honesty, builder pragmatism.</p>
+      <a href="[MERMAID_LINK_REPLIT_V1]" target="_blank" rel="noopener">View on Mermaid.ai →</a>
+    </div>
+  </div>
+  
+  <p class="diagram-note">All diagrams created with Mermaid.js and hosted on <a href="https://mermaidchart.cello.so/UhVlNtC2MlS" target="_blank" rel="noopener">Mermaid.ai</a></p>
+</section>
+
+<section id="v2-diagrams" class="diagram-gallery">
+  <h3>Round 2: V2 Refined Diagrams</h3>
+  
+  <p>After critique and iteration. View the full-resolution diagrams on Mermaid.ai.</p>
+  
+  <div class="diagram-grid">
+    <div class="diagram-card">
+      <h4>Copilot V2</h4>
+      <p>Strong if V2 adds flair without losing structure. Architecture preserved, emotion + discipline, boardroom-ready.</p>
+      <a href="[MERMAID_LINK_COPILOT_V2]" target="_blank" rel="noopener">View on Mermaid.ai →</a>
+    </div>
+    
+    <div class="diagram-card">
+      <h4>Perplexity V2</h4>
+      <p>Can pragmatism also become beautiful? Visually memorable, clarity under complexity, business logic star.</p>
+      <a href="[MERMAID_LINK_PERPLEXITY_V2]" target="_blank" rel="noopener">View on Mermaid.ai →</a>
+    </div>
+    
+    <div class="diagram-card">
+      <h4>Notion V2</h4>
+      <p>Wins if restraint survives iteration. Cleaner or richer lanes, minimalism still useful, calm depth.</p>
+      <a href="[MERMAID_LINK_NOTION_V2]" target="_blank" rel="noopener">View on Mermaid.ai →</a>
+    </div>
+    
+    <div class="diagram-card">
+      <h4>Gemini V2</h4>
+      <p>Separate itself or disappear into 'pretty enough.' Stronger conviction, distinct POV, synthesized not generic.</p>
+      <a href="[MERMAID_LINK_GEMINI_V2]" target="_blank" rel="noopener">View on Mermaid.ai →</a>
+    </div>
+    
+    <div class="diagram-card">
+      <h4>👑 Claude V2</h4>
+      <p>Thinks beautifully. Wins if it also diagrams brutally. Narrative to structure, honest recursion, earned elegance.</p>
+      <a href="[MERMAID_LINK_CLAUDE_V2]" target="_blank" rel="noopener">View on Mermaid.ai →</a>
+    </div>
+    
+    <div class="diagram-card">
+      <h4>ChatGPT V2</h4>
+      <p>More deliberate, less merely clever. Denser reasoning, explicit loop logic, brand + story + mechanics.</p>
+      <a href="[MERMAID_LINK_CHATGPT_V2]" target="_blank" rel="noopener">View on Mermaid.ai →</a>
+    </div>
+    
+    <div class="diagram-card">
+      <h4>ChatGPT V2 Pro</h4>
+      <p>Art of the possible — feature-rich, theatrical, trying to wow. Pushes Mermaid further. Diagram or poster?</p>
+      <a href="[MERMAID_LINK_CHATGPT_V2_PRO]" target="_blank" rel="noopener">View on Mermaid.ai →</a>
+    </div>
+    
+    <div class="diagram-card">
+      <h4>Replit V2</h4>
+      <p>The outsider's revision — sharper code sense, same honest question. Render-tested, builder's restraint or limitation?</p>
+      <a href="[MERMAID_LINK_REPLIT_V2]" target="_blank" rel="noopener">View on Mermaid.ai →</a>
+    </div>
+  </div>
+  
+  <p class="diagram-note">All diagrams created with Mermaid.js and hosted on <a href="https://mermaidchart.cello.so/UhVlNtC2MlS" target="_blank" rel="noopener">Mermaid.ai</a></p>
+</section>
+```
+
+**CSS for diagram galleries:**
+
+```css
+.diagram-gallery {
+  margin: 3rem 0;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-color, #333);
+}
+
+.diagram-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.diagram-card {
+  background: var(--card-bg, #1a1a1a);
+  border: 1px solid var(--card-border, #333);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.diagram-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.diagram-card h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--accent-color, #ff8c42);
+  font-size: 1.1rem;
+}
+
+.diagram-card p {
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted, #999);
+  line-height: 1.4;
+}
+
+.diagram-card a {
+  display: inline-block;
+  color: var(--link-color, #4a9eff);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.diagram-card a:hover {
+  text-decoration: underline;
+}
+
+.diagram-note {
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  color: var(--text-muted, #999);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .diagram-grid {
+    grid-template-columns: 1fr;
+  }
+}
+```
+
+**IMPORTANT NOTE:** Replace all `[MERMAID_LINK_*]` placeholders with actual Mermaid.ai diagram URLs when available. For now, leave placeholders intact or use `#` as temporary href value.
+
+---
+
+### Update 7: Add/Update Launch Artifacts Section
+
+**Location:** Find existing "Launch Artifacts" section or create new one after diagram galleries
+
+**Content:**
+
+```html
+<section id="launch-artifacts" class="article-section">
+  <h3>Download Etch-AI-Sketch Deck</h3>
+  
+  <p>Available in two formats optimized for different uses:</p>
+  
+  <div class="download-options">
+    <div class="download-format">
+      <h4>Square Format</h4>
+      <p>Optimized for LinkedIn carousel, social sharing</p>
+      <ul class="download-links">
+        <li><a href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-square.pptx" target="_blank" rel="noopener">Download PPTX →</a></li>
+        <li><a href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-square.pdf" target="_blank" rel="noopener">Download PDF →</a></li>
+      </ul>
+    </div>
+    
+    <div class="download-format">
+      <h4>Wide Format</h4>
+      <p>Optimized for presentations, detailed review</p>
+      <ul class="download-links">
+        <li><a href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-wide.pptx" target="_blank" rel="noopener">Download PPTX →</a></li>
+        <li><a href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-wide.pdf" target="_blank" rel="noopener">Download PDF →</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <p class="format-note">All formats contain the same 18 diagrams across V1 and V2 rounds.</p>
+  
+  <p><a href="https://github.com/OKHP3/first-diagram-is-a-liar" target="_blank" rel="noopener">View full repository on GitHub →</a></p>
+</section>
+```
+
+**CSS for download options:**
+
+```css
+.download-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.download-format {
+  background: var(--card-bg, #1a1a1a);
+  border: 1px solid var(--card-border, #333);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.download-format h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--accent-color, #ff8c42);
+  font-size: 1.1rem;
+}
+
+.download-format p {
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted, #999);
+}
+
+.download-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.download-links li {
+  margin-bottom: 0.5rem;
+}
+
+.download-links a {
+  display: inline-block;
+  color: var(--link-color, #4a9eff);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.download-links a:hover {
+  text-decoration: underline;
+}
+
+.format-note {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--text-muted, #999);
+  text-align: center;
+}
+```
+
+---
+
+### Update 8: Add Changelog Entry
+
+**Location:** Find existing changelog/version history section, or create new one at bottom of article before footer
+
+**Content:**
+
+```html
+<section id="changelog" class="article-changelog">
+  <h3>Version History</h3>
+  
+  <dl>
+    <dt>v0.3 — Visual Edition / Public Scoring Launch</dt>
+    <dd>
+      <strong>Date:</strong> April 21, 2026<br>
+      <strong>Changes:</strong>
+      <ul>
+        <li>Added Etch-AI-Sketch Council Diagramming Shootout deck (18 slides, square and wide formats in PPTX and PDF)</li>
+        <li>Added public V1/V2 voting bracket</li>
+        <li>Added poll schedule (4 rounds: April 22, 23, 29, 30)</li>
+        <li>Added scoring model (audience + architect + Council peer review)</li>
+        <li>Added deep-linkable diagram galleries with Mermaid.ai integration</li>
+        <li>Reframed v0.3 as the visual edition of the article</li>
+        <li>Prepared page for v0.3.x scoring debrief and v0.4 Council-origin arc</li>
+      </ul>
+    </dd>
+    
+    <dt>v0.2</dt>
+    <dd>
+      <strong>Date:</strong> March 2026<br>
+      <strong>Changes:</strong> Initial publication
+    </dd>
+  </dl>
+</section>
+```
+
+**CSS for changelog:**
+
+```css
+.article-changelog {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color, #333);
+  font-size: 0.875rem;
+  color: var(--text-muted, #999);
+}
+
+.article-changelog dt {
+  font-weight: 600;
+  color: var(--accent-color, #ff8c42);
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+
+.article-changelog dd {
+  margin: 0.5rem 0 0 0;
+  line-height: 1.6;
+}
+
+.article-changelog dd ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.5rem;
+}
+
+.article-changelog dd li {
+  margin-bottom: 0.25rem;
+}
+```
+
+---
+
+### Update 9: SEO/Metadata
+
+**Find:** Existing `<meta name="description">` or `<meta property="og:description">` tags in `<head>`
+
+**Replace content with:**
+
+```
+The First Diagram Is Usually a Liar v0.3 adds the Etch-AI-Sketch Council Diagramming Shootout (18 slides, multiple formats), public scoring bracket, and visual edition of Jamie Hill's ROY Diagramming series.
+```
+
+**If meta tags don't exist, add:**
+
+```html
+<meta name="description" content="The First Diagram Is Usually a Liar v0.3 adds the Etch-AI-Sketch Council Diagramming Shootout (18 slides, multiple formats), public scoring bracket, and visual edition of Jamie Hill's ROY Diagramming series.">
+<meta property="og:description" content="The First Diagram Is Usually a Liar v0.3 adds the Etch-AI-Sketch Council Diagramming Shootout (18 slides, multiple formats), public scoring bracket, and visual edition of Jamie Hill's ROY Diagramming series.">
+```
+
+---
+
+## Preserve Existing Design
+
+**DO NOT BREAK:**
+- Existing OverKill Hill typography/style conventions
+- Existing color palette
+- Responsive behavior
+- Existing navigation
+- Any existing content not explicitly marked for replacement
+
+**VERIFY:**
+- All internal anchor links work (#visual-edition, #v1-diagrams, #v2-diagrams, #poll-schedule, #scoring-model)
+- All external GitHub links are correct and functional
+- Mobile responsive behavior maintained
+- No broken images or missing assets
+- GitHub Pages build succeeds
+
+---
+
+## Acceptance Criteria (Pre-Deployment Checklist)
+
+- [ ] Page visibly says v0.3 / Visual Edition
+- [ ] No stale copy says slide deck or polls are "coming soon"
+- [ ] All four deck formats linked correctly (square PPTX/PDF, wide PPTX/PDF)
+- [ ] Public scoring bracket is visible
+- [ ] Poll schedule is visible with correct dates (Wed 4/22, Thu 4/23, Wed 4/29, Thu 4/30)
+- [ ] Scoring model is visible
+- [ ] V1 diagram gallery section exists with anchor #v1-diagrams
+- [ ] V2 diagram gallery section exists with anchor #v2-diagrams
+- [ ] Mermaid.ai referral link (https://mermaidchart.cello.so/UhVlNtC2MlS) present in diagram notes
+- [ ] Page sets up final v0.3.x debrief
+- [ ] Page renders correctly on desktop
+- [ ] Page renders correctly on mobile
+- [ ] No existing article content accidentally deleted
+- [ ] GitHub Pages build clean (no errors)
+- [ ] All GitHub links use correct URLs from https://github.com/OKHP3/first-diagram-is-a-liar/
+
+---
+
+## Post-Deployment Report Format
+
+After completing updates, provide:
+
+1. **Files changed:** List all modified files
+2. **Summary of changes:** Brief description of each update
+3. **Assumptions made:** Any decisions made where instructions were ambiguous
+4. **Broken links or missing assets:** List any placeholders left (e.g., Mermaid.ai diagram URLs)
+5. **Manual QA results:** Checklist completion status
+6. **Recommended next patch:** What needs updating after LinkedIn posts go live
+
+---
+
+## Priority Notes
+
+**CRITICAL PLACEHOLDER:** Mermaid.ai diagram URLs marked as `[MERMAID_LINK_*]` need to be replaced with actual URLs. Leave placeholders for now if URLs not yet available.
+
+**SCHEDULE ACCURACY:** Verify all dates show Wed 4/22, Thu 4/23, Wed 4/29, Thu 4/30 (not Tue/Wed)
+
+**DEEP LINK TESTING:** After deployment, test these URLs work correctly:
+- overkillhill.com/writings/first-diagram-is-a-liar/#v1-diagrams
+- overkillhill.com/writings/first-diagram-is-a-liar/#v2-diagrams
+
+**TRAFFIC ATTRIBUTION:** Referral link (https://mermaidchart.cello.so/UhVlNtC2MlS) should appear in diagram note sections to drive Mermaid.ai signups through Jamie's referral
+
+---
+
+This directive is production-ready. Execute immediately.
