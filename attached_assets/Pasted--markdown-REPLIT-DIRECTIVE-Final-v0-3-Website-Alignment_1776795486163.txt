@@ -1,0 +1,1415 @@
+````markdown
+# REPLIT DIRECTIVE — Final v0.3 Website Alignment Patch for “The First Diagram Is Usually a Liar”
+
+You are updating the OverKill Hill website page and supporting static routes for Jamie Hill’s ROY Diagramming series:
+
+Live page:
+https://overkillhill.com/writings/first-diagram-is-a-liar/
+
+GitHub source:
+https://github.com/OKHP3/OverKill-Hill/blob/main/writings/first-diagram-is-a-liar/index.html
+
+Main site repo:
+https://github.com/OKHP3/OverKill-Hill
+
+Public artifact repo:
+https://github.com/OKHP3/first-diagram-is-a-liar/tree/main
+
+The v0.3 narrative is now locked.
+
+This patch must align the website with the LinkedIn v0.3 document carousel, the four follow-up poll heats, and the final v0.3 scoring/debrief cycle.
+
+## Core Objective
+
+Make the website the canonical routing layer for the v0.3 release.
+
+The reader journey should be:
+
+LinkedIn document post / poll  
+→ OverKill Hill article or heat guide  
+→ high-resolution Mermaid view / GitHub source / rendered image / deck asset
+
+Do not send LinkedIn readers directly into raw link soup.
+
+Do not make the reader hunt.
+
+Do not force Mermaid referral routing as the diagram-viewing path.
+
+The website should explain the experiment, host the field guide, link to the public artifacts, and preserve OverKill Hill as the visible origin of the attention.
+
+## Strategic Frame
+
+This patch implements:
+
+**v0.3 — The Visual Edition / Public Scoring Launch**
+
+v0.3 is not merely “a deck.”
+
+It is the point where the article becomes:
+
+1. a visual artifact,
+2. a public scoring loop,
+3. a high-resolution inspection field,
+4. a bridge into the v0.4 Council-origin narrative.
+
+The deck is Jamie’s first read.
+
+The polls are the audience read.
+
+The final debrief will compare:
+
+- audience scoring,
+- Jamie’s architectural scoring,
+- Council-assisted rubric scoring.
+
+Core line to preserve somewhere on the page:
+
+> The deck is my first read. The polls are the audience read. The final debrief is where the two get compared.
+
+## Required Public Deck Links
+
+The v0.3 deck artifacts are already public in GitHub.
+
+Use these exact links.
+
+Primary LinkedIn / v0.3 visual edition asset:
+https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-square.pdf
+
+Square PPTX source:
+https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-square.pptx
+
+Wide PDF:
+https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-wide.pdf
+
+Wide PPTX:
+https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-wide.pptx
+
+Operational rule:
+
+- Square PDF = primary LinkedIn / v0.3 visual edition artifact
+- Square PPTX = editable/source deck
+- Wide PDF = alternate reading/presentation artifact
+- Wide PPTX = alternate editable/source deck
+
+Do not describe these assets as local, private, draft-only, unpublished, pending export, or pending upload.
+
+They are public launch artifacts.
+
+---
+
+# PART 1 — Inspect Existing Page Before Editing
+
+Before patching, inspect:
+
+```text
+/writings/first-diagram-is-a-liar/index.html
+````
+
+Identify:
+
+1. Existing version label / article badge.
+2. Existing “Repository” aside.
+3. Existing “Diagrams” aside.
+4. Existing links to Mermaid diagrams.
+5. Existing GitHub source links.
+6. Existing image/render links.
+7. Existing deck links, if any.
+8. Existing “coming soon” or future-looking language.
+9. Existing CSS classes and layout patterns.
+10. Existing mobile behavior of the right-side aside blocks.
+
+Do not blindly overwrite the article.
+
+Prefer additive patching.
+
+Preserve the existing design language.
+
+---
+
+# PART 2 — Update Version Label and Summary
+
+Find visible labels similar to:
+
+```text
+Article v0.2
+v0.2
+v0.2 — Live
+```
+
+Replace with:
+
+```text
+Article v0.3
+```
+
+or:
+
+```text
+v0.3 — Visual Edition Live
+```
+
+Use whichever better matches the current badge style.
+
+Update the article summary near the top.
+
+Current summary likely says something like v0.2 adds Mermaid.ai analysis, syntax vs platform distinction, or Think Mode.
+
+Preserve the v0.2 reference as history, but make v0.3 current.
+
+Suggested replacement summary:
+
+```html
+<p>
+  <strong>v0.3 adds the Etch-AI-Sketch visual edition, public scoring bracket, high-resolution field guides, preliminary judge reads, poll schedule, and scoring rubric.</strong>
+  v0.2 added the Mermaid.ai analysis, syntax vs. platform distinction, and the case for a Think Mode. v0.3 turns the argument into a public visual field test.
+</p>
+```
+
+---
+
+# PART 3 — Add v0.3 Visual Edition Section Near Top
+
+Add a prominent section near the top of the article, ideally after the intro/version block and before the prior article body continues.
+
+Section heading:
+
+```text
+v0.3 — The Visual Edition
+```
+
+Suggested HTML:
+
+```html
+<section id="v03-visual-edition" class="v03-update">
+  <h2>v0.3 — The Visual Edition</h2>
+
+  <p>The slide deck is now live.</p>
+
+  <p>This is the first version of the article where the argument becomes a visual artifact instead of only a written one.</p>
+
+  <p>The Council produced the diagrams. The deck packages the field. The polls let the audience score the work.</p>
+
+  <p>That matters because the whole ROY argument depends on a simple question:</p>
+
+  <blockquote>
+    <p>Did the diagram create enough clarity to justify the words that produced it?</p>
+  </blockquote>
+
+  <p>The v0.3 release turns that question into a public test.</p>
+
+  <p>The deck is my first read. The polls are the audience read. The final debrief is where the two get compared.</p>
+</section>
+```
+
+---
+
+# PART 4 — Add or Update Launch Artifacts Section
+
+Find the existing repository/artifacts card or create a new section titled:
+
+```text
+Launch Artifacts
+```
+
+This should be visible on the main article page.
+
+Add all four public deck links in this order:
+
+1. Square PDF
+2. Square PPTX
+3. Wide PDF
+4. Wide PPTX
+
+Suggested HTML:
+
+```html
+<section id="v03-launch-artifacts" class="artifact-section">
+  <h2>v0.3 Launch Artifacts</h2>
+
+  <p>The v0.3 deck files are public in the project repository. The square PDF is the primary LinkedIn document-carousel artifact.</p>
+
+  <div class="artifact-grid">
+    <article class="artifact-card">
+      <h3>Square PDF</h3>
+      <p>Primary v0.3 visual edition artifact for LinkedIn document carousel viewing.</p>
+      <a href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-square.pdf">View square PDF</a>
+    </article>
+
+    <article class="artifact-card">
+      <h3>Square PPTX</h3>
+      <p>Editable/source version of the square presentation.</p>
+      <a href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-square.pptx">View square PPTX</a>
+    </article>
+
+    <article class="artifact-card">
+      <h3>Wide PDF</h3>
+      <p>Alternate landscape reading and presentation version.</p>
+      <a href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-wide.pdf">View wide PDF</a>
+    </article>
+
+    <article class="artifact-card">
+      <h3>Wide PPTX</h3>
+      <p>Editable/source version of the wide presentation.</p>
+      <a href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-wide.pptx">View wide PPTX</a>
+    </article>
+  </div>
+</section>
+```
+
+Use existing card/grid styles where possible.
+
+Do not introduce heavy new styling unless required.
+
+---
+
+# PART 5 — Add v0.3 High-Resolution Field Guide Section
+
+Add a main article section titled:
+
+```text
+v0.3 High-Resolution Field Guide
+```
+
+This section should be deep-linkable.
+
+Required ID:
+
+```html
+id="v03-high-resolution-field-guide"
+```
+
+Purpose:
+
+This is the main section LinkedIn Comment-1 on the document carousel will link to.
+
+Suggested HTML:
+
+```html
+<section id="v03-high-resolution-field-guide" class="v03-field-guide">
+  <h2>v0.3 High-Resolution Field Guide</h2>
+
+  <p>The LinkedIn deck compresses the visual field. These guides give each poll heat its own inspection page with higher-resolution diagram links, source files, rendered images, and context.</p>
+
+  <p>Use these before voting if you want the cleaner view.</p>
+
+  <div class="heat-guide-grid">
+    <article class="heat-guide-card">
+      <h3>V1 Heat A — First-Pass Diagrams</h3>
+      <p>ChatGPT, Claude, Gemini, Perplexity</p>
+      <a href="/writings/first-diagram-is-a-liar/v03/v1-heat-a/">View V1 Heat A field guide</a>
+    </article>
+
+    <article class="heat-guide-card">
+      <h3>V1 Heat B — First-Pass Diagrams</h3>
+      <p>Copilot, Notion, Replit</p>
+      <a href="/writings/first-diagram-is-a-liar/v03/v1-heat-b/">View V1 Heat B field guide</a>
+    </article>
+
+    <article class="heat-guide-card">
+      <h3>V2 Heat A — Revised Diagrams</h3>
+      <p>ChatGPT, Copilot, Gemini, Notion</p>
+      <a href="/writings/first-diagram-is-a-liar/v03/v2-heat-a/">View V2 Heat A field guide</a>
+    </article>
+
+    <article class="heat-guide-card">
+      <h3>V2 Heat B — Revised Diagrams</h3>
+      <p>ChatGPT Pro, Claude, Replit, Perplexity</p>
+      <a href="/writings/first-diagram-is-a-liar/v03/v2-heat-b/">View V2 Heat B field guide</a>
+    </article>
+  </div>
+</section>
+```
+
+This section should not use winner/loser language.
+
+Use “field guide,” “heat,” “first-pass,” and “revised.”
+
+---
+
+# PART 6 — Create Four Heat Guide Static Routes
+
+Create four new static pages:
+
+```text
+/writings/first-diagram-is-a-liar/v03/v1-heat-a/index.html
+/writings/first-diagram-is-a-liar/v03/v1-heat-b/index.html
+/writings/first-diagram-is-a-liar/v03/v2-heat-a/index.html
+/writings/first-diagram-is-a-liar/v03/v2-heat-b/index.html
+```
+
+These pages should reuse the existing OverKill Hill site header, footer, typography, colors, and dark styling.
+
+If the site has templates or shared includes, use them.
+
+If it is pure static HTML, copy the minimum necessary structure from the main article page and preserve canonical navigation.
+
+Each heat page must include:
+
+1. Page title.
+2. Short explanation.
+3. Exact poll question.
+4. Competitor cards.
+5. Link back to the main article.
+6. Link to the primary square PDF deck.
+7. Links to diagram high-resolution Mermaid views when available.
+8. Links to GitHub Mermaid source files when available.
+9. Links to rendered image/PNG files when available.
+10. Separate Mermaid referral CTA near bottom.
+
+Do not require users to click through the main page before seeing competitors.
+
+The heat guide page itself should show the competitor list and cards.
+
+---
+
+# PART 7 — Heat Guide Page Structure
+
+Use this structure for each heat guide:
+
+```html
+<main class="article-page heat-guide-page">
+  <section class="heat-guide-hero">
+    <p class="eyebrow">v0.3 Public Scoring</p>
+    <h1>[Heat Name]</h1>
+    <p>[Short explanation]</p>
+    <p><strong>Poll question:</strong> [Exact poll question]</p>
+  </section>
+
+  <section class="heat-competitors">
+    <h2>Diagram Field</h2>
+    <!-- competitor cards here -->
+  </section>
+
+  <section class="heat-actions">
+    <h2>After reviewing</h2>
+    <p>Return to the LinkedIn poll and vote for the diagram that communicates best.</p>
+    <p><a href="/writings/first-diagram-is-a-liar/">Back to the full article</a></p>
+    <p><a href="[square PDF URL]">View the v0.3 deck</a></p>
+  </section>
+
+  <section class="mermaid-cta">
+    <h2>Want to try Mermaid Chart?</h2>
+    <p>Use this separate referral path if you want to explore Mermaid Chart yourself.</p>
+    <p><a href="https://mermaidchart.cello.so/UhVlNtC2MlS">Try Mermaid Chart</a></p>
+  </section>
+</main>
+```
+
+Important:
+
+The Mermaid referral link is a separate CTA.
+
+Do not use it as the diagram-viewing link.
+
+---
+
+# PART 8 — Heat Assignments and Copy
+
+## V1 Heat A
+
+Route:
+
+```text
+/writings/first-diagram-is-a-liar/v03/v1-heat-a/
+```
+
+Page title:
+
+```text
+V1 Heat A — First-Pass Diagrams
+```
+
+Poll question:
+
+```text
+V1 Heat A: which diagram wins?
+```
+
+Intro copy:
+
+```html
+<p>This is the high-resolution field guide for V1 Heat A: four first-pass diagrams created from the same challenge before deeper steering or correction.</p>
+<p>Use this page to inspect the diagrams before voting. The poll compresses the work; this guide gives the cleaner view.</p>
+```
+
+Competitors:
+
+1. ChatGPT V1
+2. Claude V1
+3. Gemini V1
+4. Perplexity V1
+
+Quick reads:
+
+* ChatGPT V1 — clarity, hierarchy, strong loop logic, a little swagger.
+* Claude V1 — elegant storyteller, strong framing, maybe too polished.
+* Gemini V1 — restrained synthesis; simplifies without flattening.
+* Perplexity V1 — pragmatic, grounded, business-first utility.
+
+## V1 Heat B
+
+Route:
+
+```text
+/writings/first-diagram-is-a-liar/v03/v1-heat-b/
+```
+
+Page title:
+
+```text
+V1 Heat B — First-Pass Diagrams
+```
+
+Poll question:
+
+```text
+V1 Heat B: which diagram wins?
+```
+
+Intro copy:
+
+```html
+<p>This is the high-resolution field guide for V1 Heat B: the remaining first-pass diagrams from the Round 1 field.</p>
+<p>Vote for the artifact, not the platform. The point is communication value.</p>
+```
+
+Competitors:
+
+1. Copilot V1
+2. Notion V1
+3. Replit V1
+
+Quick reads:
+
+* Copilot V1 — presentation-ready system thinking; clear phases and deliverable feel.
+* Notion V1 — quiet, minimalist, useful; shows the shape without theater.
+* Replit V1 — builder’s eye; asks whether the diagram ships, renders, and survives the IDE.
+
+## V2 Heat A
+
+Route:
+
+```text
+/writings/first-diagram-is-a-liar/v03/v2-heat-a/
+```
+
+Page title:
+
+```text
+V2 Heat A — Revised Diagrams
+```
+
+Poll question:
+
+```text
+V2 Heat A: which diagram wins?
+```
+
+Intro copy:
+
+```html
+<p>This is the high-resolution field guide for V2 Heat A: revised diagrams after critique, constraint, and more context.</p>
+<p>V2 is not first instinct. V2 is adaptation. Vote for useful improvement, not extra decoration.</p>
+```
+
+Competitors:
+
+1. ChatGPT V2
+2. Copilot V2
+3. Gemini V2
+4. Notion V2
+
+Quick reads:
+
+* ChatGPT V2 — denser reasoning; explicit loop logic with brand and mechanics.
+* Copilot V2 — boardroom-ready if flair does not damage structure.
+* Gemini V2 — needs stronger conviction; synthesis cannot become generic.
+* Notion V2 — restraint under revision; calm depth without overbuilding.
+
+## V2 Heat B
+
+Route:
+
+```text
+/writings/first-diagram-is-a-liar/v03/v2-heat-b/
+```
+
+Page title:
+
+```text
+V2 Heat B — Revised Diagrams
+```
+
+Poll question:
+
+```text
+V2 Heat B: which diagram wins?
+```
+
+Intro copy:
+
+```html
+<p>This is the high-resolution field guide for V2 Heat B: the final revised-output heat before the v0.3 scoring debrief.</p>
+<p>This is the last audience scoring lane before audience, architect, and Council-assisted scoring get compared.</p>
+```
+
+Competitors:
+
+1. ChatGPT Pro
+2. Claude V2
+3. Replit V2
+4. Perplexity V2
+
+Quick reads:
+
+* ChatGPT Pro — feature-rich and theatrical; question is diagram or poster?
+* Claude V2 — beautiful thinking; wins if it diagrams brutally, not just elegantly.
+* Replit V2 — render-tested outsider revision; builder restraint or limitation?
+* Perplexity V2 — pragmatic logic trying to become visually memorable.
+
+---
+
+# PART 9 — Competitor Card Requirements
+
+Each competitor card should include:
+
+1. Platform/version name.
+2. Quick read.
+3. Preview thumbnail if available.
+4. High-resolution Mermaid view link if available.
+5. GitHub Mermaid source link if available.
+6. Rendered image/PNG link if available.
+7. Optional deck reference.
+
+Suggested card structure:
+
+```html
+<article class="diagram-card">
+  <h3>ChatGPT V1</h3>
+  <p class="quick-read">Quick read: clarity, hierarchy, strong loop logic, a little swagger.</p>
+
+  <div class="diagram-preview">
+    <img src="[rendered-image-path]" alt="ChatGPT V1 diagram preview">
+  </div>
+
+  <ul class="diagram-links">
+    <li><a href="[mermaid-high-res-url]">View high-resolution diagram</a></li>
+    <li><a href="[github-source-url]">View Mermaid source</a></li>
+    <li><a href="[rendered-image-url]">View rendered image</a></li>
+  </ul>
+</article>
+```
+
+If a specific link is missing, omit that link and add a TODO comment in the source.
+
+Do not expose broken or placeholder links to users.
+
+Acceptable hidden comment:
+
+```html
+<!-- TODO v0.3: Add Mermaid high-resolution link for ChatGPT V1 once confirmed. -->
+```
+
+Unacceptable visible link:
+
+```text
+Coming soon
+```
+
+---
+
+# PART 10 — Reuse Existing Diagram Links
+
+The current article already appears to have a right-side “THE DIAGRAMS” aside with links for:
+
+Round 1:
+
+* Copilot V1
+* Claude V1
+* ChatGPT V1
+* Perplexity V1
+* Gemini V1
+* Notion V1
+* Replit V1
+
+Round 2:
+
+* Claude V2
+* Copilot V2
+* ChatGPT V2
+* ChatGPT V2 Pro
+* Perplexity V2
+* Gemini V2
+* Notion V2
+* Replit V2
+
+Also a Mermaid link.
+
+Reuse these existing links exactly if they already point to Mermaid high-resolution views or correct diagram targets.
+
+Do not invent Mermaid URLs.
+
+If the current page already links to the high-resolution Mermaid views, lift those links into the competitor cards.
+
+If the current page links only to local images or GitHub source, use those and report missing Mermaid high-resolution links in QA.
+
+---
+
+# PART 11 — GitHub Source Path Guidance
+
+The public artifact repo likely contains Mermaid source files under a path similar to:
+
+```text
+etch-ai-sketch-vibe-diagramming-shootout/diagrams/v1/
+etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/
+```
+
+Expected filenames may resemble:
+
+```text
+etch-ai-sketch-using-a-council-to-design-at-velocity-chatgpt-v1.mmd
+etch-ai-sketch-using-a-council-to-design-at-velocity-claude-v1.mmd
+etch-ai-sketch-using-a-council-to-design-at-velocity-copilot-v1.mmd
+etch-ai-sketch-using-a-council-to-design-at-velocity-gemini-v1.mmd
+etch-ai-sketch-using-a-council-to-design-at-velocity-notion-v1.mmd
+etch-ai-sketch-using-a-council-to-design-at-velocity-perplexity-v1.mmd
+etch-ai-sketch-using-a-council-to-design-at-velocity-replit-v1.mmd
+etch-ai-sketch-using-a-council-to-design-at-velocity-chatgpt-v2.mmd
+etch-ai-sketch-using-a-council-to-design-at-velocity-chatgpt-v2pro.mmd
+etch-ai-sketch-using-a-council-to-design-at-velocity-claude-v2.mmd
+etch-ai-sketch-using-a-council-to-design-at-velocity-copilot-v2.mmd
+etch-ai-sketch-using-a-council-to-design-at-velocity-gemini-v2.mmd
+etch-ai-sketch-using-a-council-to-design-at-velocity-notion-v2.mmd
+etch-ai-sketch-using-a-council-to-design-at-velocity-perplexity-v2.mmd
+etch-ai-sketch-using-a-council-to-design-at-velocity-replit-v2.mmd
+```
+
+Verify actual paths in the repo.
+
+Do not assume if different.
+
+Use the real GitHub blob URLs after verification.
+
+---
+
+# PART 12 — Rendered Image Guidance
+
+If rendered images are already available in the repo or the existing article, use them as preview thumbnails.
+
+Expected naming pattern may resemble:
+
+```text
+etch-ai-sketch-using-a-council-to-design-at-velocity-chatgpt-v1-2026-03-18-043624.png
+etch-ai-sketch-using-a-council-to-design-at-velocity-claude-v1-2026-03-18-043722.png
+etch-ai-sketch-using-a-council-to-design-at-velocity-copilot-v1-2026-03-18-042801.png
+etch-ai-sketch-using-a-council-to-design-at-velocity-gemini-v1-2026-03-18-043408.png
+etch-ai-sketch-using-a-council-to-design-at-velocity-notion-v1-2026-03-18-042833.png
+etch-ai-sketch-using-a-council-to-design-at-velocity-perplexity-v1-2026-03-18-043551.png
+etch-ai-sketch-using-a-council-to-design-at-velocity-replit-v1-2026-03-18-043754.png
+etch-ai-sketch-using-a-council-to-design-at-velocity-chatgpt-v2-2026-03-18-043638.png
+etch-ai-sketch-using-a-council-to-design-at-velocity-chatgpt-v2pro-2026-03-18-043653.png
+etch-ai-sketch-using-a-council-to-design-at-velocity-claude-v2-2026-03-18-043735.png
+etch-ai-sketch-using-a-council-to-design-at-velocity-copilot-v2-2026-03-18-042615.png
+etch-ai-sketch-using-a-council-to-design-at-velocity-gemini-v2-2026-03-18-043434.png
+etch-ai-sketch-using-a-council-to-design-at-velocity-notion-v2-2026-03-18-043345.png
+etch-ai-sketch-using-a-council-to-design-at-velocity-perplexity-v2-2026-03-18-043606.png
+etch-ai-sketch-using-a-council-to-design-at-velocity-replit-v2-2026-03-18-043808.png
+```
+
+Verify actual repo locations before linking.
+
+If these images are not in the OverKill-Hill repo, use public GitHub links from the artifact repo.
+
+If local image paths are needed for performance, copy only if that is consistent with the repo’s current asset strategy.
+
+Do not duplicate assets unnecessarily.
+
+---
+
+# PART 13 — Add Public Scoring Bracket to Main Page
+
+Add this section to the main article page.
+
+Heading:
+
+```text
+Public Scoring Bracket
+```
+
+Suggested HTML:
+
+```html
+<section id="public-scoring-bracket" class="scoring-bracket">
+  <h2>Public Scoring Bracket</h2>
+
+  <p>The audience vote will not be treated as the only answer. It will be treated as one signal.</p>
+
+  <div class="bracket-grid">
+    <article>
+      <h3>V1 Heat A</h3>
+      <p>ChatGPT, Claude, Gemini, Perplexity</p>
+      <a href="/writings/first-diagram-is-a-liar/v03/v1-heat-a/">View field guide</a>
+    </article>
+
+    <article>
+      <h3>V1 Heat B</h3>
+      <p>Copilot, Notion, Replit</p>
+      <a href="/writings/first-diagram-is-a-liar/v03/v1-heat-b/">View field guide</a>
+    </article>
+
+    <article>
+      <h3>V2 Heat A</h3>
+      <p>ChatGPT, Copilot, Gemini, Notion</p>
+      <a href="/writings/first-diagram-is-a-liar/v03/v2-heat-a/">View field guide</a>
+    </article>
+
+    <article>
+      <h3>V2 Heat B</h3>
+      <p>ChatGPT Pro, Claude, Replit, Perplexity</p>
+      <a href="/writings/first-diagram-is-a-liar/v03/v2-heat-b/">View field guide</a>
+    </article>
+  </div>
+</section>
+```
+
+---
+
+# PART 14 — Add Poll Schedule to Main Page
+
+Add a section titled:
+
+```text
+v0.3.x Poll Schedule
+```
+
+Suggested content:
+
+```html
+<section id="v03-poll-schedule" class="poll-schedule">
+  <h2>v0.3.x Poll Schedule</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Version</th>
+        <th>Public Label</th>
+        <th>Artifact</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>04/21/2026</td>
+        <td>v0.3</td>
+        <td>Visual Edition</td>
+        <td>Document carousel</td>
+        <td>Launch the visual field</td>
+      </tr>
+      <tr>
+        <td>04/22/2026</td>
+        <td>v0.3.1.1</td>
+        <td>V1 Heat A</td>
+        <td>Poll</td>
+        <td>Begin first-pass audience scoring</td>
+      </tr>
+      <tr>
+        <td>04/23/2026</td>
+        <td>v0.3.1.2</td>
+        <td>V1 Heat B</td>
+        <td>Poll</td>
+        <td>Complete V1 voting</td>
+      </tr>
+      <tr>
+        <td>04/28/2026</td>
+        <td>v0.3.2</td>
+        <td>V2 Bridge</td>
+        <td>Post</td>
+        <td>Explain revision as adaptation</td>
+      </tr>
+      <tr>
+        <td>04/29/2026</td>
+        <td>v0.3.2.1</td>
+        <td>V2 Heat A</td>
+        <td>Poll</td>
+        <td>Begin refined-output scoring</td>
+      </tr>
+      <tr>
+        <td>04/30/2026</td>
+        <td>v0.3.2.2</td>
+        <td>V2 Heat B</td>
+        <td>Poll</td>
+        <td>Complete V2 voting</td>
+      </tr>
+      <tr>
+        <td>After polls close</td>
+        <td>v0.3.3</td>
+        <td>Architect’s Debrief</td>
+        <td>Long post</td>
+        <td>Compare audience vs. Jamie vs. Council scoring</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+```
+
+If the current site’s table styling is poor on mobile, use cards instead of a table.
+
+Mobile usability matters more than table purity.
+
+---
+
+# PART 15 — Add Scoring Model
+
+Add a section titled:
+
+```text
+Scoring Model
+```
+
+Suggested HTML:
+
+```html
+<section id="scoring-model" class="scoring-model">
+  <h2>Scoring Model</h2>
+
+  <p>The final v0.3.x debrief will compare audience scoring, Jamie’s architectural scoring, and Council-assisted scoring.</p>
+
+  <p>The rubric will evaluate:</p>
+
+  <ul>
+    <li>First-glance comprehension</li>
+    <li>Semantic fidelity</li>
+    <li>Diagram structure</li>
+    <li>Visual hierarchy</li>
+    <li>Theming discipline</li>
+    <li>Iteration improvement</li>
+    <li>Usefulness as a thinking artifact</li>
+  </ul>
+
+  <p>The point is not to crown a mascot. The point is to understand what makes diagrams communicate.</p>
+</section>
+```
+
+---
+
+# PART 16 — Add Preliminary Judge Reads to Main Page
+
+Add a section titled:
+
+```text
+v0.3 Preliminary Reads
+```
+
+Use “Preliminary Reads” or “Quick Reads,” not “final scores.”
+
+Suggested intro:
+
+```html
+<section id="v03-preliminary-reads" class="preliminary-reads">
+  <h2>v0.3 Preliminary Reads</h2>
+
+  <p>The deck includes my first-pass read on each platform. These are not final audience results. They are the starting layer before public polling and Council-assisted rubric review.</p>
+```
+
+Then include:
+
+## V1 Reads
+
+```html
+<h3>V1 Reads</h3>
+<ul>
+  <li><strong>Copilot V1</strong> — Presentation-ready system thinking; clear phases and deliverable feel.</li>
+  <li><strong>Claude V1</strong> — Elegant storyteller; strong framing, maybe too polished.</li>
+  <li><strong>Perplexity V1</strong> — Pragmatic, grounded, business-first utility.</li>
+  <li><strong>ChatGPT V1</strong> — Clarity, hierarchy, strong loop logic, a little swagger.</li>
+  <li><strong>Gemini V1</strong> — Restrained synthesis; simplifies without flattening.</li>
+  <li><strong>Notion V1</strong> — Quiet, minimalist, useful; shows the shape without theater.</li>
+  <li><strong>Replit V1</strong> — Builder’s eye; asks whether it ships, renders, and survives the IDE.</li>
+</ul>
+```
+
+## V2 Reads
+
+```html
+<h3>V2 Reads</h3>
+<ul>
+  <li><strong>Copilot V2</strong> — Boardroom-ready if flair does not damage structure.</li>
+  <li><strong>Perplexity V2</strong> — Pragmatic logic trying to become visually memorable.</li>
+  <li><strong>Notion V2</strong> — Restraint under revision; calm depth without overbuilding.</li>
+  <li><strong>Gemini V2</strong> — Needs stronger conviction; synthesis cannot become generic.</li>
+  <li><strong>Claude V2</strong> — Beautiful thinking; wins if it diagrams brutally, not just elegantly.</li>
+  <li><strong>ChatGPT V2</strong> — Denser reasoning; explicit loop logic with brand and mechanics.</li>
+  <li><strong>ChatGPT Pro</strong> — Feature-rich and theatrical; question is diagram or poster?</li>
+  <li><strong>Replit V2</strong> — Render-tested outsider revision; builder restraint or limitation?</li>
+</ul>
+</section>
+```
+
+Do not call these winners.
+
+Do not call these final scores.
+
+---
+
+# PART 17 — Add “Not Just Diagramming” Pull-Quote Section
+
+Add a section based on the deck’s final slide.
+
+Heading:
+
+```text
+Not Just Diagramming
+```
+
+Suggested HTML:
+
+```html
+<section id="not-just-diagramming" class="final-read">
+  <h2>Not Just Diagramming</h2>
+
+  <p>What this contest actually measured:</p>
+
+  <ul>
+    <li>Taste under constraints</li>
+    <li>Honesty in showing nonlinear thought</li>
+    <li>Turning words into structure without losing meaning</li>
+    <li>The difference between “generated” and “designed”</li>
+  </ul>
+</section>
+```
+
+---
+
+# PART 18 — Mermaid Referral CTA
+
+Add a separate CTA near the bottom of the main article and each heat guide page.
+
+Heading:
+
+```text
+Want to try Mermaid Chart?
+```
+
+Copy:
+
+```html
+<section id="mermaid-referral" class="mermaid-cta">
+  <h2>Want to try Mermaid Chart?</h2>
+  <p>If the diagrams make you want to test Mermaid Chart yourself, use this path.</p>
+  <p><a href="https://mermaidchart.cello.so/UhVlNtC2MlS">Try Mermaid Chart</a></p>
+</section>
+```
+
+Important:
+
+This referral link must be separate from the diagram viewing path.
+
+Do not make readers click the referral link to view the diagrams.
+
+Diagram cards should link directly to the actual high-resolution diagram views when available.
+
+---
+
+# PART 19 — Update Existing Right-Side Asides
+
+The screenshots show two existing right-side aside elements:
+
+1. The Repository
+2. The Diagrams
+
+These are useful but not currently sufficient for LinkedIn poll routing.
+
+Do not remove them.
+
+Instead:
+
+1. Give them stable IDs if they do not already have them.
+2. Add a third aside/card if layout allows: “v0.3 Field Guides.”
+3. Add links to the four heat guide pages.
+4. Keep existing diagram links.
+5. Keep existing repository links.
+6. Ensure all aside links are keyboard accessible.
+
+Suggested aside block:
+
+```html
+<aside id="v03-field-guides" class="article-aside">
+  <h2>v0.3 Field Guides</h2>
+  <ul>
+    <li><a href="/writings/first-diagram-is-a-liar/v03/v1-heat-a/">V1 Heat A</a></li>
+    <li><a href="/writings/first-diagram-is-a-liar/v03/v1-heat-b/">V1 Heat B</a></li>
+    <li><a href="/writings/first-diagram-is-a-liar/v03/v2-heat-a/">V2 Heat A</a></li>
+    <li><a href="/writings/first-diagram-is-a-liar/v03/v2-heat-b/">V2 Heat B</a></li>
+  </ul>
+</aside>
+```
+
+If layout is cramped, place this in the main article body instead.
+
+Do not break the existing right-side layout.
+
+---
+
+# PART 20 — Replace Stale “Coming Soon” Language
+
+Search for phrases like:
+
+```text
+slide deck coming soon
+polls coming soon
+poll rounds coming soon
+future revisions will add the slide deck
+future revisions will add public poll rounds
+deck will be added
+scoring will be added
+```
+
+Replace with language that reflects v0.3 is live.
+
+Suggested replacement:
+
+```text
+v0.3 adds the visual edition: the slide deck, high-resolution field guides, preliminary reads, public poll bracket, and scoring path that will carry this from diagram shootout into audience-tested communication.
+```
+
+Future-looking language is still allowed for:
+
+* Council interviews
+* Notion workflow essay
+* Replit workflow essay
+* Mermaid.ai deeper dive
+* visual language / theming system
+* v0.4 Council-origin article
+* v1.0 manifesto
+
+Do not say the deck or poll structure is merely “coming soon.”
+
+---
+
+# PART 21 — Metadata / SEO
+
+If the page has meta description or Open Graph tags, update safely.
+
+Suggested meta description:
+
+```text
+The First Diagram Is Usually a Liar v0.3 adds the Etch-AI-Sketch Council Diagramming Shootout, high-resolution field guides, public scoring bracket, preliminary reads, and visual edition of Jamie Hill’s ROY Diagramming series.
+```
+
+Suggested Open Graph title:
+
+```text
+The First Diagram Is Usually a Liar — v0.3 Visual Edition
+```
+
+Suggested Open Graph description:
+
+```text
+v0.3 turns the ROY Diagramming argument into a visual field test with the Etch-AI-Sketch Council Diagramming Shootout, high-resolution field guides, public polls, and scoring rubric.
+```
+
+Do not change canonical URL unless the site already has a clean canonical strategy.
+
+For the four heat guide pages, use unique titles and descriptions.
+
+Example:
+
+```html
+<title>V1 Heat A — First-Pass Diagrams | OverKill Hill P³</title>
+<meta name="description" content="High-resolution field guide for V1 Heat A of the Etch-AI-Sketch Council Diagramming Shootout: ChatGPT, Claude, Gemini, and Perplexity.">
+```
+
+Set canonical URLs appropriately if the site uses canonical tags.
+
+---
+
+# PART 22 — Avoid Spoiling / Framing Rules
+
+Do not use:
+
+* winner
+* loser
+* defeated
+* champion
+* final score
+* official result
+* crown
+* best AI
+* worst AI
+
+Use:
+
+* field guide
+* heat
+* audience scoring
+* preliminary read
+* quick read
+* first-pass diagrams
+* revised diagrams
+* communication value
+* final debrief after polls close
+
+The deck may reveal Jamie’s preference or “first read,” but the website must preserve the poll as an open audience scoring mechanism.
+
+---
+
+# PART 23 — Design / CSS Guidance
+
+Preserve the existing OverKill Hill design.
+
+Do not introduce a new visual system.
+
+If new classes are required, keep them minimal and scoped.
+
+Suggested class names:
+
+```css
+.v03-update
+.artifact-section
+.artifact-grid
+.artifact-card
+.v03-field-guide
+.heat-guide-grid
+.heat-guide-card
+.scoring-bracket
+.bracket-grid
+.poll-schedule
+.scoring-model
+.preliminary-reads
+.final-read
+.heat-guide-page
+.heat-guide-hero
+.heat-competitors
+.diagram-card
+.diagram-preview
+.diagram-links
+.mermaid-cta
+```
+
+If the site already has card/grid/asides classes, reuse them.
+
+Avoid JavaScript unless absolutely necessary.
+
+Do not add dependencies.
+
+---
+
+# PART 24 — Accessibility Requirements
+
+Ensure:
+
+1. All headings are hierarchical.
+2. Link text is descriptive.
+3. Images have meaningful alt text.
+4. Tables, if used, have headers.
+5. Cards are readable with keyboard navigation.
+6. Contrast remains acceptable.
+7. Mobile layout does not require horizontal scrolling except for tables, if unavoidable.
+8. No visible “click here” links without context.
+
+Example alt text:
+
+```text
+ChatGPT V1 Mermaid diagram preview from the Etch-AI-Sketch Council Diagramming Shootout.
+```
+
+---
+
+# PART 25 — Build / GitHub Pages Constraints
+
+Do not break GitHub Pages.
+
+Do not require a server-side router.
+
+These should be static directories with `index.html` files.
+
+Valid routes:
+
+```text
+/writings/first-diagram-is-a-liar/v03/v1-heat-a/
+/writings/first-diagram-is-a-liar/v03/v1-heat-b/
+/writings/first-diagram-is-a-liar/v03/v2-heat-a/
+/writings/first-diagram-is-a-liar/v03/v2-heat-b/
+```
+
+Each directory should contain:
+
+```text
+index.html
+```
+
+Use relative paths carefully.
+
+Check CSS/script paths from nested routes.
+
+If the main page uses relative links that break in nested directories, switch those nested pages to root-relative links for shared assets.
+
+---
+
+# PART 26 — Acceptance Criteria
+
+The patch is complete only if:
+
+1. Main article visibly says v0.3.
+2. Main article visibly includes “Visual Edition.”
+3. Main article links to all four public deck assets.
+4. Square PDF is identified as the primary v0.3 visual artifact.
+5. Main article includes v0.3 High-Resolution Field Guide.
+6. Main article links to all four heat guide pages.
+7. Four static heat guide pages exist and render.
+8. Each heat guide page contains the correct competitors.
+9. Each heat guide page contains the exact poll question.
+10. Each heat guide page has competitor cards.
+11. Competitor cards include quick reads.
+12. Competitor cards include high-resolution Mermaid links when available.
+13. Competitor cards include GitHub source links when available.
+14. Competitor cards include rendered image links/previews when available.
+15. Main article includes public scoring bracket.
+16. Main article includes poll schedule.
+17. Main article includes scoring model.
+18. Main article includes preliminary reads.
+19. Main article includes “Not Just Diagramming” section.
+20. Mermaid referral CTA appears separately from diagram-viewing links.
+21. Existing Repository aside remains.
+22. Existing Diagrams aside remains.
+23. New field guide links are easy to find.
+24. No stale copy says deck is coming soon.
+25. No stale copy says poll structure is coming soon.
+26. No winner/loser language appears before polls close.
+27. Desktop layout works.
+28. Mobile layout works.
+29. GitHub Pages build remains clean.
+30. No broken links are introduced.
+
+---
+
+# PART 27 — QA Checklist to Run
+
+After implementation, run:
+
+## Content QA
+
+* Confirm v0.3 label appears near top.
+* Confirm Visual Edition explanation appears near top.
+* Confirm high-resolution field guide section appears.
+* Confirm public scoring bracket appears.
+* Confirm poll schedule appears.
+* Confirm scoring model appears.
+* Confirm preliminary reads appear.
+* Confirm “Not Just Diagramming” appears.
+* Confirm Mermaid referral CTA appears separately.
+* Confirm stale “coming soon” deck/poll language is removed.
+
+## Route QA
+
+Visit:
+
+```text
+/writings/first-diagram-is-a-liar/v03/v1-heat-a/
+/writings/first-diagram-is-a-liar/v03/v1-heat-b/
+/writings/first-diagram-is-a-liar/v03/v2-heat-a/
+/writings/first-diagram-is-a-liar/v03/v2-heat-b/
+```
+
+Confirm each renders correctly.
+
+## Link QA
+
+Check:
+
+* Square PDF link
+* Square PPTX link
+* Wide PDF link
+* Wide PPTX link
+* Main article link
+* All heat guide links
+* All Mermaid high-resolution links
+* All GitHub source links
+* All rendered image links
+* Mermaid referral link
+
+## Layout QA
+
+Check:
+
+* Desktop
+* Mobile
+* Right-side asides
+* Nested route header/footer
+* Card grids
+* Tables or schedule cards
+* Long URL wrapping
+* Image scaling
+
+## Build QA
+
+Check:
+
+* GitHub Pages build
+* Console errors
+* 404s
+* broken asset paths
+* malformed HTML
+* invalid nesting
+
+---
+
+# PART 28 — Required Response After Patch
+
+After making the changes, report:
+
+1. Files changed.
+2. Directories/routes created.
+3. Sections added to main article.
+4. Sections updated on main article.
+5. Stale copy removed or replaced.
+6. Public deck links added.
+7. Heat guide URLs created.
+8. Diagram links successfully reused from existing page.
+9. Missing Mermaid high-resolution links, if any.
+10. Missing GitHub source links, if any.
+11. Missing rendered image links, if any.
+12. Mermaid referral CTA placement.
+13. Desktop QA result.
+14. Mobile QA result.
+15. Broken-link check result.
+16. Build result.
+17. Assumptions made.
+18. Recommended follow-up patch after LinkedIn post and poll URLs exist.
+
+---
+
+# PART 29 — Follow-Up Patch After LinkedIn URLs Exist
+
+Do not invent LinkedIn post URLs.
+
+Once the LinkedIn document post and polls are published, add their real URLs to:
+
+1. Main v0.3 Visual Edition section.
+2. v0.3 Poll Schedule.
+3. Each corresponding heat guide page.
+4. Changelog, if present.
+
+Future link slots:
+
+* v0.3 document carousel URL
+* v0.3.1.1 V1 Heat A poll URL
+* v0.3.1.2 V1 Heat B poll URL
+* v0.3.2 bridge post URL
+* v0.3.2.1 V2 Heat A poll URL
+* v0.3.2.2 V2 Heat B poll URL
+* v0.3.3 final debrief URL
+
+Until those exist, use no visible placeholder URLs.
+
+Hidden TODO comments are acceptable.
+
+Example:
+
+```html
+<!-- TODO v0.3: Add LinkedIn V1 Heat A poll URL after publishing. -->
+```
+
+```
+```
