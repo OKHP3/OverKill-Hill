@@ -2949,32 +2949,11 @@ html:has(
   letter-spacing: 0 !important;
 }
 
-.council-card h4 {
-  font-size: 1rem;
-  margin-bottom: 0.75rem;
-  color: var(--color-fg);
-  font-family: var(--font-body) !important;
-  font-weight: 600 !important;
-  text-transform: none !important;
-  letter-spacing: 0 !important;
-  font-style: italic;
-}
-
 .council-card p {
   font-size: 0.92rem;
   color: var(--color-muted);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0;
   line-height: 1.6;
-}
-
-.council-card-role {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--okh-teal);
-  margin-top: 1rem !important;
-  margin-bottom: 0 !important;
-  font-weight: 600;
 }
 
 .council-members {
