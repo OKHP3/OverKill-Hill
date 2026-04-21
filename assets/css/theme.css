@@ -3338,6 +3338,259 @@ html:has(
 }
 
 /* ============================================================
+   v0.3 Visual Edition — Schedule Table
+   ============================================================ */
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.88rem;
+}
+.schedule-table th,
+.schedule-table td {
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.schedule-table th {
+  font-weight: 600;
+  color: var(--okh-orange);
+  border-bottom: 2px solid var(--okh-orange);
+}
+.schedule-table tbody tr:hover {
+  background: rgba(196, 106, 44, 0.05);
+}
+@media (max-width: 640px) {
+  .schedule-table th,
+  .schedule-table td {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.78rem;
+  }
+}
+
+/* ============================================================
+   v0.3 Visual Edition — Scoring Lanes
+   ============================================================ */
+
+.scoring-lanes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+.scoring-lane {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-left: 3px solid var(--okh-amber);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1.25rem;
+}
+.scoring-lane h4 {
+  margin: 0 0 0.5rem;
+  color: var(--okh-amber);
+  font-size: 0.95rem;
+}
+.scoring-lane p {
+  margin: 0 0 0.4rem;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+.scoring-lane ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   v0.3 Visual Edition — Diagram Gallery
+   ============================================================ */
+
+.diagram-gallery {
+  margin: 2.5rem 0;
+}
+.diagram-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+.diagram-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.diagram-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+}
+.diagram-card h4 {
+  margin: 0 0 0.4rem;
+  color: var(--okh-orange);
+  font-size: 0.95rem;
+}
+.diagram-card p {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  line-height: 1.45;
+}
+.diagram-card a {
+  color: var(--okh-amber);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.diagram-card a:hover {
+  text-decoration: underline;
+}
+.diagram-gallery-note {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+@media (max-width: 640px) {
+  .diagram-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   v0.3 Visual Edition — Deck Download Options
+   ============================================================ */
+
+.download-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+.download-format {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+.download-format h4 {
+  margin: 0 0 0.4rem;
+  color: var(--okh-orange);
+  font-size: 0.95rem;
+}
+.download-format > p {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+.download-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.download-links li {
+  margin-bottom: 0.4rem;
+}
+.download-links a {
+  color: var(--okh-amber);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.download-links a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 640px) {
+  .download-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   v0.3 Visual Edition — Heat Guide Grid (field guide cards)
+   ============================================================ */
+
+.heat-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+.heat-guide-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+.heat-guide-card h3 {
+  margin: 0 0 0.4rem;
+  color: var(--okh-orange);
+  font-size: 0.95rem;
+}
+.heat-guide-card p {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  line-height: 1.45;
+}
+.heat-guide-card a {
+  color: var(--okh-amber);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.heat-guide-card a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 640px) {
+  .heat-guide-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   v0.3 Heat Guide Pages — standalone page layout helpers
+   ============================================================ */
+
+.heat-guide-hero {
+  padding: 2.5rem 0 1.5rem;
+}
+.heat-guide-hero .article-eyebrow {
+  margin-bottom: 0.75rem;
+}
+.heat-competitors {
+  margin: 2rem 0;
+}
+.heat-actions {
+  margin: 2rem 0;
+  padding: 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+}
+.heat-actions p {
+  margin: 0 0 0.6rem;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+.heat-actions p:last-child {
+  margin-bottom: 0;
+}
+.mermaid-cta {
+  margin: 2.5rem 0;
+  padding: 1.25rem;
+  border-top: 1px solid var(--color-border-subtle);
+}
+.mermaid-cta p {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  margin: 0 0 0.5rem;
+}
+
+/* ============================================================
    Glee-fully under-construction overlay
    - Used on toolbox pages that are live-but-not-finished
    ============================================================ */
