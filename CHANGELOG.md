@@ -53,14 +53,23 @@ All notable changes to the **OverKill Hill P³™** public repository should be 
 
 ---
 
-## [v0.4 — Planned] — The First Diagram Is Usually a Liar: Council-Origin Arc
+## [v0.4 — 2026-05-01] — The First Diagram Is Usually a Liar: Council-Origin Arc
 
-### Planned
-- **v0.4 Council-Origin Arc section** (`#council-origin-arc`) — placeholder scaffolded in v0.3 article; full content drops after v0.3.3 scoring debrief closes (target: post April 30, 2026).
-- **Council interviews** — each model in its own voice, responding to its own V1 and V2 diagrams.
-- **Workflow essays** — orchestration layer: how a human runs a council without losing the thread.
-- **Origin story** — why seven models instead of one, and what the disagreements cost.
-- **Gap analysis** — where audience scoring, architect scoring, and Council-assisted scoring diverge, and what that means for design at velocity.
+### Added
+- **v0.4 Council-Origin Arc section** (`#council-origin-arc`) — placeholder replaced with full live content: Council interviews, orchestration workflow essay, and three-lane gap analysis.
+- **Council interviews** (`#council-interviews`) — seven model-voice responses: ChatGPT, Claude, Copilot, Perplexity, Gemini, Notion, and Replit, each evaluating its own V1 and V2 diagrams and responding to whether it should have won.
+- **Orchestration method essay** (`#council-workflow`) — four-phase workflow: anchor brief, live session prompts, capture layer, synthesis session. How a human runs a Council of AIs without losing the thread.
+- **Three-lane gap analysis** (`#gap-analysis`) — audience scoring vs. architect scoring vs. Council-assisted scoring: where the lanes diverge, what model aesthetic bias looks like as a measurement, and what it means for design at velocity.
+- **Three new sidebar TOC entries** — Council Interviews, Orchestration Method, Gap Analysis.
+
+### Updated
+- Article version throughout: `v0.3` → `v0.4` (eyebrow, protoform notice, sidebar badge, meta description, OG/Twitter tags, JSON-LD `dateModified`).
+- Protoform notice: updated from "v0.3 — Polls Closed" to "v0.4 — Council-Origin Arc Live".
+- Article banner: scoring-debrief hook → v0.4 live hook, link target `#scoring-debrief` → `#council-origin-arc`.
+- JSON-LD `dateModified`: `2026-04-21` → `2026-05-01`.
+- CSS cache-bust: `?v=15` → `?v=16`.
+- Read time: `~18 min` → `~25 min`.
+- About This Article sidebar widget: updated to reference v0.4 additions.
 
 ---
 
