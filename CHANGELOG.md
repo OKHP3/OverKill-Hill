@@ -53,6 +53,17 @@ All notable changes to the **OverKill Hill P³™** public repository should be 
 
 ---
 
+## [v0.4 — Planned] — The First Diagram Is Usually a Liar: Council-Origin Arc
+
+### Planned
+- **v0.4 Council-Origin Arc section** (`#council-origin-arc`) — placeholder scaffolded in v0.3 article; full content drops after v0.3.3 scoring debrief closes (target: post April 30, 2026).
+- **Council interviews** — each model in its own voice, responding to its own V1 and V2 diagrams.
+- **Workflow essays** — orchestration layer: how a human runs a council without losing the thread.
+- **Origin story** — why seven models instead of one, and what the disagreements cost.
+- **Gap analysis** — where audience scoring, architect scoring, and Council-assisted scoring diverge, and what that means for design at velocity.
+
+---
+
 ## [Unreleased]
 
 ### Planned
