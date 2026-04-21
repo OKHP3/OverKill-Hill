@@ -3325,6 +3325,19 @@ html:has(
   color: var(--okh-amber);
 }
 
+.toc-list a.toc-active {
+  color: var(--okh-amber);
+  font-weight: 600;
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--okh-amber);
+  margin-left: -0.625rem;
+  transition: padding-left 0.15s ease, color 0.15s ease;
+}
+
+.toc-list a {
+  transition: color 0.15s ease;
+}
+
 :root[data-theme="light"] .artifact-card,
 :root[data-theme="light"] .code-drop {
   background: #f8fafc;

@@ -85,7 +85,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&display=swap" />
-    <link rel="stylesheet" href="/assets/css/theme.css?v=16" />
+    <link rel="stylesheet" href="/assets/css/theme.css?v=17" />
 
 
   </head>
@@ -2074,6 +2074,38 @@ https://overkillhill.com/writings/first-diagram-is-a-liar/</pre>
       }
       gtag("js", new Date());
       gtag("config", "G-VJ1BKXS27H");
+    </script>
+
+    <script>
+    /* ── TOC scrollspy ─────────────────────────────────────────── */
+    (function () {
+      var links   = Array.from(document.querySelectorAll('#toc-widget .toc-list a'));
+      if (!links.length) return;
+
+      var ids     = links.map(function (a) { return a.getAttribute('href').replace('#', ''); });
+      var targets = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+
+      function setActive() {
+        /* Trigger line: 20% down from top of viewport */
+        var triggerY = window.scrollY + window.innerHeight * 0.20;
+        var activeId = null;
+
+        targets.forEach(function (el) {
+          var elTop = el.getBoundingClientRect().top + window.scrollY;
+          if (elTop <= triggerY) { activeId = el.id; }
+        });
+
+        links.forEach(function (a) {
+          var id = a.getAttribute('href').replace('#', '');
+          a.classList.toggle('toc-active', id === activeId);
+        });
+      }
+
+      window.addEventListener('scroll', setActive, { passive: true });
+      /* Run once on load after paint */
+      window.addEventListener('DOMContentLoaded', setActive);
+      setTimeout(setActive, 100);
+    })();
     </script>
 
   </body>
