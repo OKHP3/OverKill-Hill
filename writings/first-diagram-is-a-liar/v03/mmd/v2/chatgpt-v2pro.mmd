@@ -1,0 +1,117 @@
+---
+config:
+  theme: neutral
+  look: neo
+  htmlLabels: true
+  fontFamily: Aptos, Segoe UI, Inter, Arial, sans-serif
+  flowchart:
+    curve: basis
+    defaultRenderer: elk
+  themeVariables:
+    primaryColor: '#EAF3FF'
+    primaryTextColor: '#142033'
+    primaryBorderColor: '#3E6EA8'
+    lineColor: '#627184'
+    secondaryColor: '#F6F0FF'
+    tertiaryColor: '#EEF9F0'
+    background: '#FFFFFF'
+    clusterBkg: '#FAFBFC'
+    clusterBorder: '#CBD5E1'
+    edgeLabelBackground: '#FFFFFF'
+    fontFamily: Aptos, Segoe UI, Inter, Arial, sans-serif
+  layout: elk
+---
+flowchart LR
+ subgraph S1["**1. Friction** · _words hit their limit_"]
+    direction TB
+        A["Spark 💥"]
+        B["Most documentation is **polite confusion**."]
+        C["Words carry nuance.\nVisuals carry **shape**."]
+        D["ROY > 1?"]
+        X["Decorative wallpaper"]
+  end
+ subgraph S2["**2. Modeling** · _turn prose into structure_"]
+    direction TB
+        E["Angles + notes"]
+        F["Draft post"]
+        G["Mermaid V1"]
+        H["Honest?"]
+        I["Add forks + loops"]
+        J["Kill clutter ✂️"]
+        K["Now it earns trust"]
+  end
+ subgraph S3["**3. Proof + publish** · _show the work, then ship it_"]
+    direction TB
+        L["Write around the proof:\n**hook → thesis → diagram → CTA**"]
+        M["Diagram + code images"]
+        N["Clear in 5 seconds?"]
+        O(("Ship 🚀"))
+        P["OverKill Hill P³™"]
+        Q["Comments → V2"]
+  end
+    A --> B
+    B --> C
+    C --> D
+    D -- No --> X
+    D -- Yes --> E
+    E --> F
+    F --> G
+    G --> H
+    H -- Too tidy --> I
+    H -- Too noisy --> J
+    H -- Credible --> K
+    I -.-> G
+    J -.-> G
+    K --> L
+    L --> M
+    M --> N
+    N -. No .-> J
+    N -- Yes --> O
+    O --> P
+    O -.-> Q
+    Q -.-> F
+
+    A@{ shape: bolt}
+    D@{ shape: diam}
+    X@{ shape: rect}
+    E@{ shape: docs}
+    F@{ shape: doc}
+    G@{ shape: fr-rect}
+    H@{ shape: diam}
+    I@{ shape: fork}
+    J@{ shape: notch-rect}
+    K@{ shape: hex}
+    M@{ shape: docs}
+    N@{ shape: diam}
+    P@{ shape: tag-rect}
+    Q@{ shape: hourglass}
+     A:::spark
+     B:::core
+     C:::core
+     D:::gate
+     X:::risk
+     E:::draft
+     F:::draft
+     G:::draft
+     H:::gate
+     I:::risk
+     J:::risk
+     K:::win
+     L:::core
+     M:::publish
+     N:::gate
+     O:::publish
+     P:::brand
+     Q:::feedback
+    classDef spark fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px,font-weight:bold
+    classDef core fill:#EAF3FF,stroke:#3E6EA8,color:#142033,stroke-width:1.6px
+    classDef gate fill:#F6F0FF,stroke:#7E57C2,color:#221533,stroke-width:2px,font-weight:bold
+    classDef draft fill:#F3F4F6,stroke:#64748B,color:#334155,stroke-width:1.4px
+    classDef risk fill:#FFF1F2,stroke:#C05666,color:#5A1822,stroke-width:1.8px
+    classDef win fill:#EEF9F0,stroke:#3E8E5A,color:#12331D,stroke-width:2px,font-weight:bold
+    classDef publish fill:#ECFDF5,stroke:#059669,color:#064E3B,stroke-width:2.2px,font-weight:bold
+    classDef brand fill:#111827,stroke:#374151,color:#FFFFFF,stroke-width:2.4px,font-weight:bold
+    classDef feedback fill:#FFF7ED,stroke:#DD6B20,color:#5B3415,stroke-width:1.7px
+    style S1 fill:#F8FBFF,stroke:#A8C1DD,stroke-width:1.3px
+    style S2 fill:#FFFCF7,stroke:#D9C7A5,stroke-width:1.3px
+    style S3 fill:#F9FAFB,stroke:#C9D2DE,stroke-width:1.3px

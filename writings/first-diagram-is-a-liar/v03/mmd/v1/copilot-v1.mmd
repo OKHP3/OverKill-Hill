@@ -1,0 +1,94 @@
+---
+config:
+  theme: neutral
+  fontFamily: Aptos, Segoe UI, Inter, Arial, sans-serif
+  themeVariables:
+    primaryColor: '#EAF2FF'
+    primaryTextColor: '#14213D'
+    primaryBorderColor: '#325DCC'
+    lineColor: '#64748B'
+    secondaryColor: '#FFF7E8'
+    tertiaryColor: '#EEFDF3'
+    fontFamily: Aptos, Segoe UI, Inter, Arial, sans-serif
+  look: neo
+---
+flowchart TB
+ subgraph I1["Ideation / wording"]
+    direction TD
+        B["Brain-dump angles"]
+        A["Define the clarity we are buying"]
+        C["Draft ugly first post"]
+        D{"Hook lands?"}
+        E["Ask LLM for Mermaid skeleton"]
+  end
+ subgraph I2["Modeling / diagramming"]
+    direction TD
+        F["Render V1 🧭"]
+        G{"Too tidy / too fake?"}
+        H["Add forks, loops, dead ends"]
+        I["Trim labels · reorder flow · kill clutter ✂️"]
+        J["Diagram earns its space"]
+  end
+ subgraph I3["Post assembly / shipping"]
+    direction TD
+        P["Write around diagram:\nHook · thesis · proof · CTA"]
+        Q{"Clear and scannable?"}
+        R["Ship post + code + image set 🚀"]
+        W["Watch comments for confusion"]
+  end
+    S(("Spark ✨")) --> T["👀 Notice text fatigue"]
+    T --> U{"Text alone enough?"}
+    U -- Yes --> P0["Stay in prose"]
+    U -- No --> A
+    A --> B
+    B --> C
+    C --> D
+    D -- No --> B
+    D -- Yes --> E
+    E --> F
+    F --> G
+    G -- Yes --> H
+    H --> I
+    I --> F
+    G -- No --> J
+    J --> P
+    P --> Q
+    Q -- No --> I
+    Q -- Yes --> R
+    R --> W
+    W -. feedback loop .-> B
+
+     B:::core
+     A:::core
+     C:::draft
+     D:::gate
+     E:::core
+     F:::draft
+     G:::gate
+     H:::risk
+     I:::risk
+     J:::publish
+     P:::core
+     Q:::gate
+     R:::publish
+     W:::low
+     S:::spark
+     T:::core
+     U:::gate
+     P0:::low
+    classDef spark fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px
+    classDef core fill:#EAF2FF,stroke:#325DCC,color:#102A43,stroke-width:1.6px
+    classDef draft fill:#F3F4F6,stroke:#6B7280,color:#334155,stroke-width:1.4px,stroke-dasharray: 5 3
+    classDef gate fill:#F3E8FF,stroke:#7C3AED,color:#3B0764,stroke-width:2px
+    classDef risk fill:#FFF1F2,stroke:#DC2626,color:#7F1D1D,stroke-width:1.8px
+    classDef publish fill:#ECFDF5,stroke:#059669,color:#064E3B,stroke-width:2.2px
+    classDef low fill:#F8FAFC,stroke:#94A3B8,color:#64748B,stroke-width:1.2px,stroke-dasharray: 3 3
+    linkStyle 0 stroke:#325DCC,stroke-width:2.4px,fill:none
+    linkStyle 3 stroke:#325DCC,stroke-width:2.2px,fill:none
+    linkStyle 8 stroke:#DC2626,stroke-width:2px,stroke-dasharray: 6 4,fill:none
+    linkStyle 12 stroke:#DC2626,stroke-width:2.2px,fill:none
+    linkStyle 13 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4,fill:none
+    linkStyle 14 stroke:#059669,stroke-width:2.8px,fill:none
+    linkStyle 17 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4,fill:none
+    linkStyle 18 stroke:#059669,stroke-width:2.8px,fill:none
+    linkStyle 20 stroke:#7C3AED,stroke-width:2px,stroke-dasharray: 2 4,fill:none

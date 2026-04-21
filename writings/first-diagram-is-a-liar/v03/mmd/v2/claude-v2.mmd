@@ -1,0 +1,149 @@
+---
+config:
+  theme: neutral
+  fontFamily: Segoe UI, Inter, Arial, sans-serif
+  themeVariables:
+    primaryColor: '#EAF2FF'
+    primaryTextColor: '#14213D'
+    primaryBorderColor: '#325DCC'
+    lineColor: '#64748B'
+    secondaryColor: '#FFF7E8'
+    tertiaryColor: '#EEFDF3'
+    edgeLabelBackground: '#FFFFFF'
+    clusterBkg: '#F8FAFC'
+    clusterBorder: '#CBD5E0'
+    fontFamily: Segoe UI, Inter, Arial, sans-serif
+  look: neo
+  layout: dagre
+---
+flowchart TB
+ subgraph IGNITION["⚡ Ignition — The Idea Finds You"]
+    direction TB
+        A(["💥 Spark
+        30 min of prose · nobody read it
+        30 sec of diagram · everyone got it"])
+        B[/"Hypothesis
+        Not all pictures earn their words"/]
+        C[["ROY Formula
+        Clarity × Universality ÷ Words to generate"]]
+  end
+ subgraph STRATEGY["🧭 Strategy — Shape the Argument"]
+    direction TB
+        D{{"Does the
+        framing hold?"}}
+        E["Sharpen it
+        Refine the ratio metaphor"]
+        F(["✨ The Recursive Twist
+        Diagram the post · inside the post"])
+        G{{"Too clever?
+        Will readers get it
+        or roll their eyes?"}}
+        H["Dial it back
+        Lead with utility · not wit"]
+  end
+ subgraph CRAFT["✏️ Craft — Build the Thing"]
+    direction TB
+        I[["Medium
+        LinkedIn · 3K char · images in post · code in comments"]]
+        J[["Tool
+        Mermaid — LLM-native · free · no design degree"]]
+        K["Draft
+        Hook → Thesis → Diagram → Proof → CTA"]
+        L{{"Hook landing?"}}
+        M["Kill the clever
+        Find the honest"]
+  end
+ subgraph PROOF["📐 Proof — The Diagram Earns Its Space"]
+    direction TB
+        N@{ label: "✏️ Embed It<br/>        This post's own process = the example" }
+        O{{"Happy path?
+        Does it show
+        real ideation?"}}
+        P["Rebuild
+        Add forks · loops · dead ends · honest wrong turns"]
+  end
+ subgraph SHIP["🚀 Ship — Send It and Learn"]
+    direction TB
+        Q[["Publish
+        Post + diagram image + code screenshot + raw Mermaid in comments"]]
+        R{{"Did the visual land
+        faster than words alone?"}}
+        S(["✅ Thesis Confirmed
+        The picture earned its words"])
+        T["Iterate
+        Refine diagram · reframe post"]
+  end
+ subgraph BRAND["🧰 OverKill Hill P³™ · Precision · Protocol · Promptcraft"]
+    direction LR
+        U[["AskJamie™
+        Friendly AI Helpdesk"]]
+        V[["Glee-fully Personalizable Tools™ 🌳
+        glee-fully.tools"]]
+        W[["OverKill Hill P³™
+        linkedin.com/company/overkillhillp3"]]
+  end
+    A --> B
+    B --> C
+    C --> D
+    D -- holds up --> F
+    F --> G
+    G -- earned --> I
+    I --> J
+    J --> K
+    K --> L
+    L -- lands --> N
+    N --> O
+    O -- yes — ship it --> Q
+    Q --> R
+    R -- high multiplier --> S
+    S --> U & V & W
+    E -. sharpen .-> C
+    G -- too cute --> H
+    H -. reframe .-> F
+    L -- too stiff --> M
+    M -. rewrite .-> K
+    O -- too linear --> P
+    P -. rebuild .-> N
+    R -- missed --> T
+    T -. loop back .-> K
+
+    N@{ shape: stadium}
+     A:::spark
+     B:::think
+     C:::formula
+     D:::gate
+     E:::revise
+     F:::insight
+     G:::gate
+     H:::revise
+     I:::core
+     J:::core
+     K:::core
+     L:::gate
+     M:::revise
+     N:::insight
+     O:::gate
+     P:::revise
+     Q:::publish
+     R:::gate
+     S:::win
+     T:::revise
+     U:::brand
+     V:::brand
+     W:::brand
+    classDef spark fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px,font-weight:bold
+    classDef think fill:#EAF2FF,stroke:#325DCC,color:#102A43,stroke-width:1.5px
+    classDef formula fill:#F0F4FF,stroke:#4A5CCC,color:#1a2060,stroke-width:1.5px,font-style:italic
+    classDef gate fill:#F3E8FF,stroke:#7C3AED,color:#3B0764,stroke-width:2px
+    classDef revise fill:#FFF1F2,stroke:#DC2626,color:#7F1D1D,stroke-width:1.8px
+    classDef insight fill:#ECFDF5,stroke:#059669,color:#064E3B,stroke-width:2px,font-weight:bold
+    classDef core fill:#EAF2FF,stroke:#325DCC,color:#102A43,stroke-width:1.5px
+    classDef publish fill:#EDE7F6,stroke:#5E35B1,color:#311B92,stroke-width:2.2px,font-weight:bold
+    classDef win fill:#D1FAE5,stroke:#059669,color:#064E3B,stroke-width:2.5px,font-weight:bold
+    classDef brand fill:#F8FAFC,stroke:#4B5563,color:#111827,stroke-width:1.5px
+    style IGNITION fill:#FFFBF0,stroke:#D6A700,stroke-width:1.5px,color:#4A3B00
+    style STRATEGY fill:#F5F3FF,stroke:#7C3AED,stroke-width:1.5px,color:#3B0764
+    style CRAFT fill:#EFF6FF,stroke:#325DCC,stroke-width:1.5px,color:#1E3A5F
+    style PROOF fill:#F0FDF4,stroke:#059669,stroke-width:1.5px,color:#064E3B
+    style SHIP fill:#F5F3FF,stroke:#5E35B1,stroke-width:1.5px,color:#311B92
+    style BRAND fill:#F1F5F9,stroke:#64748B,stroke-width:1.5px,color:#334155

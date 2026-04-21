@@ -1,0 +1,56 @@
+---
+config:
+  theme: neutral
+  look: neo
+---
+flowchart TB
+ subgraph FORGE["⚒️ THE CONCEPTUAL FOUNDRY"]
+    direction TB
+        A(("💥 <b>THE SPARK</b><br>Messy Idea"))
+        B["⚖️ <b>ROI CALCULUS</b><br>Clarity vs. Friction"]
+        C{"🔍 <b>LOGIC AUDIT</b><br>Wallpaper or Weapon?"}
+  end
+ subgraph ARCHITECTURE["🌀 THE NON-LINEAR PATH"]
+    direction LR
+        D["🏗️ <b>DRAFT V1</b><br>Initial Mermaid Syntax"]
+        E@{ label: "🧪 <b>STRESS TEST</b><br>Too 'Happy-Path'?" }
+        F["🛠️ <b>REFACTOR</b><br>Add Forks &amp; Loops"]
+        G["✂️ <b>TRIM SIGNAL</b><br>Kill the Clutter"]
+  end
+ subgraph PAYOUT["🚀 THE SEMANTIC MULTIPLIER"]
+    direction TB
+        H["💎 <b>VIBE CODE READY</b><br>Structural Excellence"]
+        I["📢 <b>POST ASSET</b><br>Words + Model + Link"]
+        J(("✅ <b>ROI ACHIEVED</b><br>Instant Synthesis"))
+  end
+    A --> B
+    B --> C
+    D --> E
+    E -- Too Tidy --> F
+    F --> D
+    E -- Too Noisy --> G
+    G --> D
+    H --> I
+    I --> J
+    C -- Structural Weapon --> D
+    C -- Decorative Junk --> A
+    E -- Earns Its Space --> H
+    J -. User Confusion .-> F
+
+    E@{ shape: hexagon}
+     A:::spark
+     B:::core
+     C:::gate
+     D:::core
+     E:::gate
+     F:::risk
+     G:::risk
+     H:::win
+     I:::publish
+     J:::spark
+    classDef spark fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:3px,font-weight:bold
+    classDef core fill:#E8F3FF,stroke:#2B6CB0,color:#0B2A4A,stroke-width:1.5px
+    classDef gate fill:#EFE9FF,stroke:#6B46C1,color:#2A124D,stroke-width:2.5px
+    classDef risk fill:#FFF1F2,stroke:#C53030,color:#5A1010,stroke-width:1.5px,stroke-dasharray:5 5
+    classDef win fill:#E9FBEF,stroke:#2F855A,color:#0F3D25,stroke-width:2.5px,font-weight:bold
+    classDef publish fill:#F3F4F6,stroke:#374151,color:#111827,stroke-width:2px
