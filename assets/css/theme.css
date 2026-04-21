@@ -3467,6 +3467,83 @@ html:has(
   font-size: 0.8rem;
   color: var(--color-muted);
 }
+
+/* ── Field guide embed layout ───────────────────────────────── */
+.diagram-grid--full {
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.diagram-card--embed {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.75rem;
+}
+
+.diagram-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.diagram-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+.diagram-external-link,
+.diagram-source-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.diagram-external-link {
+  color: var(--okh-amber);
+}
+
+.diagram-source-link {
+  color: var(--color-muted);
+}
+
+.diagram-external-link:hover,
+.diagram-source-link:hover {
+  text-decoration: underline;
+}
+
+.diagram-embed-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  padding: 1.5rem 1rem;
+  border: 1px solid var(--color-border-subtle);
+}
+
+.diagram-embed-wrap .mermaid {
+  min-width: 480px;
+}
+
+.heat-poll-box {
+  background: var(--color-surface);
+  border: 1px solid var(--okh-amber);
+  border-left: 4px solid var(--okh-amber);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+}
+
+.heat-poll-box p {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+.heat-poll-box p:last-child {
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
 @media (max-width: 640px) {
   .diagram-grid {
     grid-template-columns: 1fr;

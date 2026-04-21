@@ -1,0 +1,54 @@
+---
+config:
+  theme: neutral
+  look: neo
+---
+flowchart TB
+    A(["Spark 💥<br>Text alone is polite confusion"]) --> B(["Define core claim<br>Picture ROI &amp; ROY"])
+    B --> C(["Map audience &amp; use case<br>LinkedIn post + Mermaid"])
+    C --> D[["Brain-dump hooks,<br>lines, examples"]]
+    D --> E[["Draft v0 post<br>in plain text"]]
+    E --> F[["Ask LLM for<br>Mermaid skeleton"]]
+    F --> G{{"Does the diagram<br>match the real chaos?"}}
+    G -- Yes --> I[["Tune styling:<br>classes, colors, light emoji"]]
+    I --> L[["Align post<br>to the diagram"]]
+    L --> M{{"ROY check:<br>Is this visual worth its words?"}}
+    G -- No, too neat --> K(["😐 Too linear,<br>looks fake"])
+    K --> H[["Refine structure:<br>forks, loops, dead-ends"]]
+    H --> G
+    G -- No, too noisy --> J(["😵 Too clever,<br>not clear"])
+    J --> I
+    M -- High ROY 💹 --> N(["✅ Post + diagram<br>feel honest &amp; scannable"])
+    N --> O(["Publish: images +<br>Mermaid link + CTA"])
+    O --> P(["Watch comments<br>for confusion signals"])
+    P --> Q[["Feed insights back<br>into next diagram"]]
+    Q --> D
+    M -- Low ROY 😬 --> H
+
+     A:::spark
+     B:::think
+     C:::think
+     D:::draft
+     E:::draft
+     F:::draft
+     G:::revise
+     I:::revise
+     L:::draft
+     M:::revise
+     K:::risk
+     H:::revise
+     J:::risk
+     N:::publish
+     O:::publish
+     P:::risk
+     Q:::revise
+    classDef spark   fill:#fff4cc,stroke:#d6a700,color:#4a3b00,stroke-width:2px
+    classDef think   fill:#e3f2fd,stroke:#1565c0,color:#0b2a4a,stroke-width:1.5px
+    classDef draft   fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20,stroke-width:1.5px
+    classDef revise  fill:#fff3e0,stroke:#ef6c00,color:#e65100,stroke-width:1.5px
+    classDef risk    fill:#ffebee,stroke:#c53030,color:#7b1111,stroke-width:1.5px
+    classDef publish fill:#ede7f6,stroke:#5e35b1,color:#311b92,stroke-width:2px
+    linkStyle 6 stroke:#6b46c1,stroke-width:2px,fill:none
+    linkStyle 7 stroke:#c53030,stroke-dasharray:4 2,fill:none
+    linkStyle 8 stroke:#c53030,stroke-width:2px,fill:none
+    linkStyle 11 stroke:#2f855a,stroke-width:2px,fill:none

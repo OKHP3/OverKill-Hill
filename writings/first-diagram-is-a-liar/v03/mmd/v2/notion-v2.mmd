@@ -1,0 +1,120 @@
+---
+config:
+  theme: neutral
+  fontFamily: Aptos, Segoe UI, Inter, Arial, sans-serif
+  themeVariables:
+    primaryColor: '#EAF2FF'
+    primaryTextColor: '#0B2A4A'
+    primaryBorderColor: '#2B6CB0'
+    lineColor: '#64748B'
+    secondaryColor: '#FFF7E8'
+    tertiaryColor: '#ECFDF5'
+    fontFamily: Aptos, Segoe UI, Inter, Arial, sans-serif
+  look: neo
+---
+flowchart LR
+ subgraph L1["⚡ Ignition"]
+    direction TB
+        A2["Name the claim\nROY = Return on Your Words"]
+        A1["Define the decision\nand the audience"]
+        A3{"Is the visual worth its words?"}
+        A4["Cut scope\nor change the medium"]
+        B1["Draft the hook\nsnark + signal"]
+  end
+ subgraph L2["✏️ Craft - write + model"]
+    direction TB
+        B2{"Hook lands\nin 3 lines?"}
+        B3["Rewrite the open\nkill clever, keep honest"]
+        C1["Ask LLM for Mermaid skeleton\nugly + fast"]
+        C2["Render V1"]
+        C3{"First diagram test\nis it a liar?"}
+        C4["Add forks + doubt\nmake it honest"]
+        C5["Kill clutter\nkeep signal ✂️"]
+        D1["Light styling\nhierarchy + emphasis"]
+  end
+ subgraph L3["📐 Proof - compression layer"]
+    direction TB
+        D2{"Obvious in 5 seconds?"}
+        D3["Refactor labels\norder scope"]
+        E1["Write around diagram\nclaim -> proof -> takeaway"]
+  end
+ subgraph L4["🚀 Ship - package + loop"]
+    direction TB
+        E2{"Too long\nor too dense?"}
+        E3["Trim words\nnot meaning"]
+        F1["Export images\n1 diagram, 1 code"]
+        F2["Post + pin Mermaid link\nand raw code in comments"]
+        F3["Comments reveal confusion\nand new edge cases"]
+  end
+    S0(("Spark 💥")) --> S1["Text alone is polite confusion"]
+    S1 --> S2{"Does this need structure\nmore than more words?"}
+    S2 -- No --> Z1["Stay in prose\nShip the paragraph"]
+    S2 -- Yes --> A1
+    A1 --> A2
+    A2 --> A3
+    A3 -- Low ROY --> A4
+    A3 -- High ROY --> B1
+    B1 --> B2
+    B2 -- No --> B3
+    B3 -.-> B1
+    B2 -- Yes --> C1
+    C1 --> C2
+    C2 --> C3
+    C3 -- Too tidy --> C4
+    C3 -- Too noisy --> C5
+    C4 -.-> C2
+    C5 -.-> C2
+    C3 -- Earned --> D1
+    D1 --> D2
+    D2 -- No --> D3
+    D3 -.-> C2
+    D2 -- Yes --> E1
+    E1 --> E2
+    E2 -- Yes --> E3
+    E3 -.-> E1
+    E2 -- No --> F1
+    F1 --> F2
+    F2 --> F3
+    F3 -.-> D3
+
+     A2:::core
+     A1:::core
+     A3:::gate
+     A4:::risk
+     B1:::draft
+     B2:::gate
+     B3:::risk
+     C1:::draft
+     C2:::draft
+     C3:::gate
+     C4:::risk
+     C5:::risk
+     D1:::core
+     D2:::gate
+     D3:::risk
+     E1:::core
+     E2:::gate
+     E3:::risk
+     F1:::publish
+     F2:::publish
+     F3:::feedback
+     S0:::spark
+     S1:::core
+     S2:::gate
+     Z1:::low
+    classDef spark fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.8px
+    classDef core fill:#EAF2FF,stroke:#2B6CB0,color:#0B2A4A,stroke-width:1.8px
+    classDef draft fill:#F3F4F6,stroke:#6B7280,color:#334155,stroke-width:1.4px,stroke-dasharray: 6 4
+    classDef gate fill:#F3E8FF,stroke:#7C3AED,color:#3B0764,stroke-width:2.2px
+    classDef risk fill:#FFF1F2,stroke:#DC2626,color:#7F1D1D,stroke-width:1.8px
+    classDef publish fill:#ECFDF5,stroke:#059669,color:#064E3B,stroke-width:2.6px
+    classDef low fill:#F8FAFC,stroke:#94A3B8,color:#64748B,stroke-width:1.2px,stroke-dasharray: 3 3
+    classDef feedback fill:#FFF7ED,stroke:#DD6B20,color:#5B3415,stroke-width:1.6px
+    style L1 fill:#EBF4FF,stroke:#2B6CB0,stroke-width:1.2px,color:#0B2A4A
+    style L2 fill:#F8FAFC,stroke:#64748B,stroke-width:1.2px,color:#0B2A4A
+    style L3 fill:#F0FFF4,stroke:#059669,stroke-width:1.2px,color:#064E3B
+    style L4 fill:#F3F0FF,stroke:#7C3AED,stroke-width:1.2px,color:#3B0764
+    linkStyle 2 stroke:#7C3AED,stroke-width:2.2px,fill:none
+    linkStyle 9 stroke:#DC2626,stroke-width:2px,stroke-dasharray:6 4,fill:none
+    linkStyle 10 stroke:#DC2626,stroke-width:2px,stroke-dasharray:6 4,fill:none
+    linkStyle 21 stroke:#059669,stroke-width:2.6px,fill:none

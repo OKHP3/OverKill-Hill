@@ -1,0 +1,77 @@
+---
+config:
+  theme: neutral
+  look: neo
+---
+flowchart LR
+ subgraph P["Prose - setup"]
+        A["Spark: confusion costs time 💥"]
+        B["Audience + decision"]
+        C["Claim draft"]
+        D["ROY check: Return on Your Words"]
+  end
+ subgraph V["Visual - compression"]
+        E["Pick diagram type"]
+        F["Mermaid V1 - ugly and fast"]
+        G{"Obvious in 5 seconds?"}
+        H["Refactor: labels order scope"]
+        I["Kill clutter, keep signal ✂️"]
+        J["Add light styling + hierarchy"]
+  end
+ subgraph S["Ship - learn loop"]
+        K["Write post around diagram"]
+        L{"Too long or too dense?"}
+        M["Trim words, not meaning"]
+        N["Render diagram + code as images 🖼️"]
+        O["Post + pin code in comments 🔁"]
+        Q["Comment signals: where readers stuck"]
+        R["Patch diagram + post for V2"]
+  end
+    A --> B
+    B --> C
+    C --> D
+    D -- High ROY --> E
+    D -- Low ROY --> M
+    E --> F
+    F --> G
+    G -- No --> H
+    H --> F
+    G -- Kinda --> I
+    I --> F
+    G -- Yes --> J
+    J --> K
+    K --> L
+    L -- Yes --> M
+    M --> K
+    L -- No --> N
+    N --> O
+    O --> Q
+    Q --> R
+    R --> F
+
+     A:::spark
+     B:::core
+     C:::core
+     D:::gate
+     E:::core
+     F:::core
+     G:::gate
+     H:::risk
+     I:::risk
+     J:::core
+     K:::core
+     L:::gate
+     M:::risk
+     N:::publish
+     O:::publish
+     Q:::risk
+     R:::core
+    classDef spark fill:#fff4cc,stroke:#d6a700,color:#4a3b00,stroke-width:2px
+    classDef core fill:#e8f3ff,stroke:#2b6cb0,color:#0b2a4a,stroke-width:1.5px
+    classDef gate fill:#efe9ff,stroke:#6b46c1,color:#2a124d,stroke-width:1.5px
+    classDef risk fill:#fff1f2,stroke:#c53030,color:#5a1010,stroke-width:1.5px
+    classDef publish fill:#e9fbef,stroke:#2f855a,color:#0f3d25,stroke-width:2px
+    linkStyle 0 stroke:#2b6cb0,stroke-width:2px,fill:none
+    linkStyle 6 stroke:#c53030,stroke-width:2px,stroke-dasharray: 6 4,fill:none
+    linkStyle 7 stroke:#c53030,stroke-width:2px,stroke-dasharray: 6 4,fill:none
+    linkStyle 14 stroke:#2f855a,stroke-width:2px,fill:none

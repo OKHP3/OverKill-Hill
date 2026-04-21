@@ -1,0 +1,153 @@
+---
+config:
+  theme: neutral
+  fontFamily: Aptos, Segoe UI, Inter, Arial, sans-serif
+  themeVariables:
+    primaryColor: '#EAF2FF'
+    primaryTextColor: '#132238'
+    primaryBorderColor: '#2B6CB0'
+    lineColor: '#64748B'
+    secondaryColor: '#FFF8E8'
+    tertiaryColor: '#EEFDF3'
+    fontFamily: Aptos, Segoe UI, Inter, Arial, sans-serif
+  look: neo
+---
+flowchart LR
+ subgraph A1["⚡ Ignition"]
+    direction TB
+        A["💥 Spark<br>A picture is worth 1,000 words?"]
+        B["Question the proverb"]
+        C{"Is the visual<br>actually earning its space?"}
+        D["Decorative wallpaper<br>with a superiority complex"]
+        E["Potential clarity multiplier"]
+        F["Define the real metric:<br><b>ambiguity removed ÷ effort spent</b>"]
+  end
+ subgraph A2["✍️ Prose / Framing"]
+    direction TB
+        G["Notice the real problem:<br>most documentation is polite confusion"]
+        H["Draft ugly first post"]
+        I{"Does the hook land?"}
+        J["Rewrite the open<br>kill the clever, keep the honest"]
+        K["Find the thesis:<br>prose sets up, visuals compress"]
+  end
+ subgraph A3["🧭 Modeling / Mermaid"]
+    direction TB
+        L["Ask LLM for Mermaid skeleton"]
+        M["Render V1 🧪"]
+        N{"Honest... or fake happy path?"}
+        O["Add forks, loops,<br>dead ends, doubt"]
+        P["Too noisy?<br>Kill clutter, keep signal ✂️"]
+        Q["Tune labels, order,<br>hierarchy, styling"]
+        R["Diagram starts earning trust"]
+  end
+ subgraph A4["📈 ROY Check"]
+    direction TB
+        S["ROY = Return on Your Words"]
+        T{"Clear faster than<br>text alone?"}
+        U["Revise again"]
+        V["Trim words around the visual"]
+        W["✅ The picture earned its words"]
+  end
+ subgraph A5["🚀 Ship / Learn"]
+    direction TB
+        X["Export diagram image"]
+        Y["Export code screenshot"]
+        Z["Write post around proof:<br>words → structure → systems → leverage"]
+        AA["Publish to LinkedIn"]
+        AB["Drive readers to<br>OverKill Hill P³™"]
+        AC["Comments reveal confusion,<br>questions, stronger examples"]
+        AD["Feed signals into V2"]
+  end
+    A --> B
+    B --> C
+    C -- No --> D
+    D --> F
+    C -- Yes --> E
+    E --> F
+    G --> H
+    H --> I
+    I -- No --> J
+    J --> H
+    I -- Yes --> K
+    L --> M
+    M --> N
+    N -- Too tidy --> O
+    O --> M
+    N -- Too busy --> P
+    P --> Q
+    Q --> M
+    N -- Credible --> R
+    S --> T
+    T -- No --> U
+    U --> Q
+    T -- Mostly --> V
+    V --> T
+    T -- Yes --> W
+    X --> Y
+    Y --> Z
+    Z --> AA
+    AA --> AB & AC
+    AC --> AD
+    F --> G
+    K --> L
+    R --> S
+    W --> X
+    AD -. iterate .-> H
+    AD -. refine .-> L
+
+     A:::spark
+     B:::core
+     C:::gate
+     D:::risk
+     E:::win
+     F:::insight
+     G:::core
+     H:::draft
+     I:::gate
+     J:::risk
+     K:::insight
+     L:::core
+     M:::draft
+     N:::gate
+     O:::risk
+     P:::risk
+     Q:::core
+     R:::win
+     S:::insight
+     T:::gate
+     U:::risk
+     V:::core
+     W:::publish
+     X:::publish
+     Y:::publish
+     Z:::publish
+     AA:::publish
+     AB:::brand
+     AC:::feedback
+     AD:::feedback
+    classDef spark fill:#FFF4CC,stroke:#D6A700,color:#4A3B00,stroke-width:2.5px
+    classDef core fill:#EAF2FF,stroke:#2B6CB0,color:#102A43,stroke-width:1.6px
+    classDef draft fill:#F3F4F6,stroke:#6B7280,color:#334155,stroke-width:1.4px,stroke-dasharray: 5 3
+    classDef gate fill:#F3E8FF,stroke:#7C3AED,color:#3B0764,stroke-width:2px
+    classDef risk fill:#FFF1F2,stroke:#DC2626,color:#7F1D1D,stroke-width:1.8px
+    classDef win fill:#ECFDF5,stroke:#16A34A,color:#14532D,stroke-width:1.8px
+    classDef insight fill:#FFF7E8,stroke:#D97706,color:#78350F,stroke-width:1.8px
+    classDef publish fill:#EAF7F1,stroke:#059669,color:#064E3B,stroke-width:2.2px
+    classDef brand fill:#F3F4F6,stroke:#374151,color:#111827,stroke-width:2.2px
+    classDef feedback fill:#EFF6FF,stroke:#2563EB,color:#1E3A8A,stroke-width:1.8px,stroke-dasharray: 4 3
+    style A1 fill:#FFFCF2,stroke:#D6A700,stroke-width:1.5px,color:#4A3B00
+    style A2 fill:#F8FBFF,stroke:#2B6CB0,stroke-width:1.5px,color:#102A43
+    style A3 fill:#FFF8FB,stroke:#C05666,stroke-width:1.5px,color:#4A1020
+    style A4 fill:#F9FFF9,stroke:#16A34A,stroke-width:1.5px,color:#14532D
+    style A5 fill:#F5F3FF,stroke:#6D28D9,stroke-width:1.5px,color:#312E81
+    linkStyle 2 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4,fill:none
+    linkStyle 3 stroke:#16A34A,stroke-width:2.2px,fill:none
+    linkStyle 10 stroke:#DC2626,stroke-width:2px,stroke-dasharray: 6 4,fill:none
+    linkStyle 15 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4,fill:none
+    linkStyle 16 stroke:#DC2626,stroke-width:2px,fill:none
+    linkStyle 17 stroke:#16A34A,stroke-width:2.6px,fill:none
+    linkStyle 20 stroke:#DC2626,stroke-width:2.2px,stroke-dasharray: 6 4,fill:none
+    linkStyle 21 stroke:#D97706,stroke-width:2px,stroke-dasharray: 4 4,fill:none
+    linkStyle 22 stroke:#16A34A,stroke-width:2.8px,fill:none
+    linkStyle 30 stroke:#2563EB,stroke-width:2px,stroke-dasharray: 3 5,fill:none
+    linkStyle 31 stroke:#2563EB,stroke-width:2px,stroke-dasharray: 3 5,fill:none

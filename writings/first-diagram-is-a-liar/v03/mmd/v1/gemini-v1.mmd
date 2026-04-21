@@ -1,0 +1,46 @@
+---
+config:
+  theme: neutral
+  look: neo
+---
+flowchart TB
+ subgraph Conceptual_Foundry["The Thinking Phase"]
+        B["Define Audience ROI"]
+        A(("💥 The Spark:<br>Messy Idea"))
+        C{"Logic Audit:<br>Is it Wallpaper?"}
+  end
+ subgraph Iteration_Loop["The 'Non-Happy' Path"]
+        Refine["🌀 <b>Refine Structure</b><br>(Kill the Fluff)"]
+        D["Draft Mermaid Syntax"]
+        E{"Does it land?"}
+        F["Add Forks & Loops"]
+  end
+ subgraph The_Payout["The Delivery"]
+        Success["🚀 <b>ROI ACHIEVED</b><br>(Instant Synthesis)"]
+        Share["Post to LinkedIn"]
+  end
+    A --> B
+    B --> C
+    C -- Yes (Decorative) --> Refine
+    Refine -.-> B
+    C -- No (Structural) --> D
+    D --> E
+    E -- Too Linear --> F
+    F --> D
+    E ==> Success
+    Success --> Share
+
+     B:::core
+     A:::spark
+     C:::gate
+     Refine:::risk
+     D:::core
+     E:::gate
+     F:::risk
+     Success:::publish
+     Share:::publish
+    classDef spark fill:#fff4cc,stroke:#d6a700,color:#4a3b00,stroke-width:2px
+    classDef core fill:#e8f3ff,stroke:#2b6cb0,color:#0b2a4a,stroke-width:1.5px
+    classDef gate fill:#efe9ff,stroke:#6b46c1,color:#2a124d,stroke-width:2px
+    classDef risk fill:#fff1f2,stroke:#c53030,color:#5a1010,stroke-width:1.5px
+    classDef publish fill:#e9fbef,stroke:#2f855a,color:#0f3d25,stroke-width:4px.
