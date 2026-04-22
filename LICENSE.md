@@ -1,11 +1,19 @@
-# License
+Creative Commons Attribution 4.0 International License (CC BY 4.0)
 
-Unless otherwise noted, the contents of this repository are © OverKill Hill P³™.
+Copyright (c) 2026 OverKill Hill P³™ / Jamie Hill
 
-This repository includes website source, writing artifacts, and brand materials intended for public viewing and reference.
+This work is licensed under the Creative Commons Attribution 4.0 International License.
 
-You may read, reference, and link to this material freely.
+You are free to:
+  Share — copy and redistribute the material in any medium or format
+  Adapt — remix, transform, and build upon the material for any purpose, even commercially
 
-Do not republish, commercialize, or redistribute brand assets, written content, or design artifacts as your own without permission.
+Under the following terms:
+  Attribution — You must give appropriate credit, provide a link to the license,
+  and indicate if changes were made. You may do so in any reasonable manner, but
+  not in any way that suggests the licensor endorses you or your use.
 
-For licensing or reuse questions, contact **contact@overkillhill.com**.
+No additional restrictions — You may not apply legal terms or technological
+measures that legally restrict others from doing anything the license permits.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
