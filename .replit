@@ -38,5 +38,5 @@ deploymentTarget = "static"
 publicDir = "."
 
 [postMerge]
-path = "scripts/post-merge.sh"
+path = "assets/scripts/post-merge.sh"
 timeoutMs = 30000
