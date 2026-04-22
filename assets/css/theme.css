@@ -2810,6 +2810,19 @@ html:has(
   font-weight: 600;
 }
 
+.bracket-heats {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.bracket-heats li {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  padding: 0.2rem 0;
+  color: rgba(229, 231, 235, 0.88);
+}
+
 .article-body strong {
   color: var(--okh-orange);
   font-weight: 600;
