@@ -4249,6 +4249,17 @@ body.construction-dismissed .construction-overlay,
    End of Council / Diagram sidebar utilities
    ---------------------------------------- */
 
+/* Mermaid Chart referral links — official Mermaid hot pink */
+a.mermaid-referral-link {
+  color: #FF3670;
+  text-decoration: none;
+}
+a.mermaid-referral-link:hover,
+a.mermaid-referral-link:focus-visible {
+  color: #ff6b95;
+  text-decoration: underline;
+}
+
 /* ----------------------------------------
    Mermaid: isolate diagram labels from page colour inheritance.
    Prevents --color-fg (near-white) leaking into HTML foreignObject
