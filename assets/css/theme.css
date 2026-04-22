@@ -2800,6 +2800,16 @@ html:has(
   font-weight: 600;
 }
 
+.article-body h4 {
+  font-size: 0.95rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.35rem;
+  color: var(--okh-amber);
+  letter-spacing: 0.03em;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
 .article-body strong {
   color: var(--okh-orange);
   font-weight: 600;
