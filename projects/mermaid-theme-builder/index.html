@@ -248,9 +248,6 @@
       }
       .embed-frame-wrapper iframe {
         display: block;
-        width: 100%;
-        height: 680px;
-        border: 0;
       }
       .iframe-loading-overlay {
         position: absolute;
@@ -614,12 +611,31 @@
       .sidebar-related a { color: var(--color-muted); }
       .sidebar-related a:hover { color: var(--okh-orange); }
 
-      /* ── Mobile stacking ──────────────────────────────────────────────── */
-      @media (max-width: 1023px) {
-        .embed-frame-wrapper iframe { height: 520px; }
+      /* ── Fallback CTA button above iframe ────────────────────────────── */
+      .embed-fallback-cta {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0.75rem;
       }
+      .embed-fallback-cta a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
+        padding: 0.65rem 1.4rem;
+        background: var(--okh-orange);
+        color: #fff;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.88rem;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        text-decoration: none;
+        letter-spacing: 0.01em;
+        transition: background 0.15s ease, opacity 0.15s ease;
+      }
+      .embed-fallback-cta a:hover { opacity: 0.88; }
+
+      /* ── Mobile stacking ──────────────────────────────────────────────── */
       @media (max-width: 640px) {
-        .embed-frame-wrapper iframe { height: 420px; }
         .embed-toolbar { flex-direction: column; align-items: flex-start; }
       }
     </style>
@@ -703,7 +719,7 @@
           <div class="tag-row">
             <span class="tag">Community Tool</span>
             <span class="tag">Open Source</span>
-            <span class="tag tag--accent">v0.9 Beta</span>
+            <span class="tag tag--accent">V0.3 Public Alpha</span>
           </div>
 
           <h1>Mermaid Theme Builder</h1>
@@ -742,6 +758,12 @@
                 </div>
               </div>
 
+              <div class="embed-fallback-cta">
+                <a href="https://okhp3.github.io/mermaid-theme-builder/" target="_blank" rel="noopener noreferrer">
+                  ⤢ Open Mermaid Theme Builder Full Screen
+                </a>
+              </div>
+
               <div class="embed-frame-wrapper">
                 <div class="iframe-loading-overlay" id="iframe-overlay" aria-hidden="true">
                   <div class="iframe-spinner"></div>
@@ -754,9 +776,11 @@
                 <iframe
                   id="tool-iframe"
                   src="https://okhp3.github.io/mermaid-theme-builder/"
-                  title="Mermaid Theme Builder — OverKill Hill P³"
-                  allow="clipboard-write"
-                  loading="eager"
+                  title="Mermaid Theme Builder"
+                  loading="lazy"
+                  allow="clipboard-read; clipboard-write; fullscreen"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  style="width:100%; min-height:900px; border:0;"
                 ></iframe>
               </div>
 
@@ -987,7 +1011,7 @@
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">Why doesn't it support dark/light mode toggle in the builder itself?</p>
-                      <p class="faq-a">It's v0.9 beta. Dark/light preview toggle is on the roadmap. For now, set your background color to match your target mode and the contrast preview is accurate.</p>
+                      <p class="faq-a">It's V0.3 Public Alpha. Dark/light preview toggle is on the roadmap. For now, set your background color to match your target mode and the contrast preview is accurate.</p>
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">Can I save and share my theme?</p>
@@ -1017,8 +1041,8 @@
 
             <!-- STORY PLACEHOLDER ────────────────────────────── -->
             <div class="story-placeholder">
-              <div class="tag-row"><span class="tag">v0.9 Story</span><span class="tag" style="opacity:0.5;">Placeholder</span></div>
-              <p>The full write-up — what this is, how it came together, and what it means for the Mermaid.js community — is reserved for the v0.9 article. This page is the tool advertisement; the story is separate.</p>
+              <div class="tag-row"><span class="tag">V0.3 Story</span><span class="tag" style="opacity:0.5;">Placeholder</span></div>
+              <p>The full write-up — what this is, how it came together, and what it means for the Mermaid.js community — is reserved for the V0.3 article. This page is the tool advertisement; the story is separate.</p>
               <p class="story-note">
                 Article forthcoming. Watch <a href="https://github.com/OKHP3" target="_blank" rel="noopener noreferrer">github.com/OKHP3</a> for updates.
               </p>
@@ -1044,7 +1068,7 @@
               <div class="meta-row">
                 <div class="meta-item">
                   <span class="meta-key">Status</span>
-                  <span class="meta-val"><span class="status-dot"></span>v0.9 Beta</span>
+                  <span class="meta-val"><span class="status-dot"></span>V0.3 Public Alpha</span>
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">License</span>
