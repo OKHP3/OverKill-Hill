@@ -244,12 +244,59 @@
         overflow: hidden;
         background: #090d12;
         box-shadow: 0 0 40px rgba(196, 106, 44, 0.06);
+        position: relative;
       }
       .embed-frame-wrapper iframe {
         display: block;
         width: 100%;
         height: 680px;
         border: 0;
+      }
+      .iframe-loading-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        background: #090d12;
+        z-index: 2;
+        transition: opacity 0.4s ease;
+      }
+      .iframe-loading-overlay.loaded {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .iframe-spinner {
+        width: 36px;
+        height: 36px;
+        border: 3px solid rgba(196, 106, 44, 0.2);
+        border-top-color: #c46a2c;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .iframe-loading-text {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: rgba(196, 106, 44, 0.7);
+        letter-spacing: 0.05em;
+      }
+      .iframe-slow-fallback {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      .iframe-slow-fallback.visible { display: flex; }
+      .iframe-slow-fallback a {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.82rem;
+        color: #c46a2c;
+        text-decoration: underline;
+        text-underline-offset: 3px;
       }
       .embed-note {
         margin-top: 0.5rem;
@@ -696,6 +743,14 @@
               </div>
 
               <div class="embed-frame-wrapper">
+                <div class="iframe-loading-overlay" id="iframe-overlay" aria-hidden="true">
+                  <div class="iframe-spinner"></div>
+                  <span class="iframe-loading-text">Loading Mermaid Theme Builder…</span>
+                  <div class="iframe-slow-fallback" id="iframe-fallback">
+                    <span class="iframe-loading-text" style="opacity:0.6;">Taking longer than expected?</span>
+                    <a href="https://okhp3.github.io/mermaid-theme-builder/" target="_blank" rel="noopener noreferrer">Open the tool in a new tab →</a>
+                  </div>
+                </div>
                 <iframe
                   id="tool-iframe"
                   src="https://okhp3.github.io/mermaid-theme-builder/"
@@ -1092,16 +1147,47 @@
          ============================================================ -->
     <script src="/assets/js/app.js"></script>
 
-    <!-- Iframe reload control -->
+    <!-- Iframe loading overlay + reload control -->
     <script>
       (function () {
         const btn = document.getElementById('reload-btn');
         const iframe = document.getElementById('tool-iframe');
-        if (btn && iframe) {
+        const overlay = document.getElementById('iframe-overlay');
+        const fallback = document.getElementById('iframe-fallback');
+
+        if (!iframe) return;
+
+        var slowTimer = null;
+
+        function showLoading() {
+          if (overlay) {
+            overlay.classList.remove('loaded');
+          }
+          if (fallback) {
+            fallback.classList.remove('visible');
+          }
+          clearTimeout(slowTimer);
+          slowTimer = setTimeout(function () {
+            if (fallback) fallback.classList.add('visible');
+          }, 8000);
+        }
+
+        function hideLoading() {
+          clearTimeout(slowTimer);
+          if (overlay) overlay.classList.add('loaded');
+          if (fallback) fallback.classList.remove('visible');
+        }
+
+        iframe.addEventListener('load', hideLoading);
+
+        if (btn) {
           btn.addEventListener('click', function () {
+            showLoading();
             iframe.src = iframe.src;
           });
         }
+
+        showLoading();
       })();
     </script>
 
