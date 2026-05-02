@@ -13,8 +13,8 @@ Python simple HTTP server via `server.py` — serves the static site from root.
 ## Architecture
 
 - Root `/` — home page, site-wide assets
-- `/assets/css/theme.css` — single global stylesheet (dark theme + OKH design tokens)
-- `/assets/js/app.js` — vanilla JS (nav, reading progress, theme toggle)
+- `/assets/css/theme.css` — single global stylesheet (dark theme + OKH design tokens). **Organized in 4 sections in this order: GLOBAL → OKH → GLEE → ASKJAMIE.** See "CSS file structure" below.
+- `/assets/js/app.js` — vanilla JS, sectioned `1. progress bar · 2. nav/year/theme/scroll-reveal/anchors · 3. GLEE construction overlay · 4. sticky TOC`
 - `/assets/img/` — favicons, logos, OG images
 - `/writings/` — article pages
 - `/projects/` — project pages
@@ -31,6 +31,26 @@ Python simple HTTP server via `server.py` — serves the static site from root.
 - `--radius-md` — card border-radius
 
 **CSS cache-bust:** Currently at `?v=15`
+
+## CSS file structure (theme.css)
+
+`assets/css/theme.css` is **organized in 4 banner-separated sections in canonical order**:
+
+1. **GLOBAL** — tokens, reset, base, shared utilities + components used by all 3 sites
+2. **OVERKILL HILL** — site-specific (default brand). Scoped via `body:not(.glee-main):not(.askjamie-main)` OR uses OKH-only component classes (`.article-*`, `.heat-*`, `.diagram-*`, `.bfs-hero`, `.gpt-hero`, `.brand-stripes--okh`, etc.)
+3. **GLEE-FULLY** — `.glee-main`-scoped overrides + `--glee` BEM modifiers
+4. **ASKJAMIE** — `.askjamie-main`-scoped overrides + `--jamie` BEM modifiers
+
+**Maintenance:** edit rules wherever you want, then run
+
+```
+python3 assets/scripts/reorg-theme-css.py             # in-place reorg
+python3 assets/scripts/reorg-theme-css.py --dry-run   # report classifier output + flag GLOBAL blocks containing brand tokens
+```
+
+The reorg script tokenizes every top-level rule, classifies it by selector, and re-emits in canonical order. Within-brand source order is **always preserved** so cascade winners for same-selector duplicates stay intact. Brace balance is verified after every run.
+
+After running the reorg, copy `assets/css/theme.css` and `assets/js/app.js` to the sibling sync drops (see "Cross-Site Foundation Files" below).
 
 ## Current Feature: Article — The First Diagram Is Usually a Liar
 
@@ -128,7 +148,14 @@ for repo in glee askjamie; do
   cp assets/js/app.js          dist/sync/$repo/assets/js/app.js
   cp assets/js/mermaid-init.js dist/sync/$repo/assets/js/mermaid-init.js
 done
-cd dist/sync && zip -qr ../okh-cross-repo-sync-$(date +%F).zip glee askjamie MIGRATION.md
+cd dist && python3 -c "
+import zipfile, os
+with zipfile.ZipFile(f'okh-cross-repo-sync-$(date +%F).zip', 'w', zipfile.ZIP_DEFLATED) as zf:
+    for root, _, files in os.walk('sync'):
+        for f in sorted(files):
+            p = os.path.join(root, f); zf.write(p, p)
+    if os.path.exists('MIGRATION.md'): zf.write('MIGRATION.md', 'MIGRATION.md')
+"
 ```
 
 Then drop the per-repo subdirectories into the corresponding sibling clones and commit there with `chore(sync): align foundation files with overkillhill.com canonical (YYYY-MM-DD)`.
