@@ -509,7 +509,10 @@
         "description": "OverKill Hill P³™ is the digital forge where custom GPT systems are architected, tempered and polished for real-world performance.",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://overkillhill.com/?s={search_term_string}",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://overkillhill.com/search/?q={search_term_string}"
+          },
           "query-input": "required name=search_term_string"
         }
       }
@@ -562,5 +565,6 @@
 
       gtag('config', 'G-VJ1BKXS27H');
     </script>
+      <script src="/assets/js/search.js" defer></script>
   </body>
 </html>

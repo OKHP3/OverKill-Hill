@@ -79,6 +79,34 @@ All 19 non-article pages + the article page itself have a site-wide "HOT OFF THE
 - **Non-article pages (19):** Link to `/writings/first-diagram-is-a-liar/`, text: "v0.3 Visual Edition: The First Diagram Is Usually a Liar →"
 - **Article page:** Links to `#visual-edition`, text: "The diagrams are in. The polls are open. The deck is live. →"
 
+## Internal Search Engine
+
+Static, client-side search across the entire site.
+
+- `/search/` — dedicated results page (URL-shareable: `/search/?q=foo`).
+- `assets/js/search.js` — auto-injects a `Ctrl/Cmd+K` overlay button into the primary nav of every page; bound to `/` and `Ctrl/Cmd+K`. Reads `assets/search-index.json`.
+- `assets/css/search.css` — overlay + results-page styles (loaded on demand by search.js + statically on the search page).
+- `assets/search-index.json` — generated index (39 entries: 1 home, 5 brand, 1 writings hub, 1 article, **23 article-section deep links**, 4 field guides, 3 projects, 1 search page).
+- `assets/scripts/build-search-index.py` — Python re-builder. Walks all `*.html`, skips `noindex`, extracts title + description + headings + body excerpt, plus per-section deep links for the FDIAL article. Re-run any time content changes:
+  ```
+  python3 assets/scripts/build-search-index.py
+  ```
+- Sitelinks Searchbox JSON-LD (`SearchAction`) on every page now points at the real `/search/?q={search_term_string}` URL pattern (was previously phantom `/?s=…`).
+
+## SEO / Metadata Status
+
+- `sitemap.xml` — rebuilt with all 18 indexable URLs (was 8). Includes writings hub, all writings, all 4 v03 field guides, projects hub, both indexable projects, and `/search/`.
+- `robots.txt` — explicit opt-ins for GPTBot, ChatGPT-User, OAI-SearchBot, Google-Extended, ClaudeBot, anthropic-ai, PerplexityBot, CCBot, Applebot-Extended, Bytespider; crawl-delay for AhrefsBot/SemrushBot.
+- `site.webmanifest` — fixed (was empty name + broken icon paths). Now: name "OverKill Hill P³™", short_name "OKHP³", correct favicon paths, dark theme color #111827.
+
+### Proposed but not yet implemented (deferred)
+- BreadcrumbList JSON-LD on article + project + heat pages
+- Sitewide Organization JSON-LD with sameAs (LinkedIn/Fiverr/X/YouTube/Facebook/Ko-fi)
+- `og:type=article` + `article:published_time` on writings pages (currently `website`)
+- Per-page OG landscape images (most pages still use the 1024² sentinel; article uses a landscape image correctly)
+- `prev`/`next` rel links on the four v03 field-guide pages
+- "Recent Writings" surfacing block on the home page so magnus-saga and biases-as-constants aren't dropdown-only
+
 ## Out of Scope for This Session
 - LinkedIn poll URLs (not yet published; TODO comments in heat pages)
 - GitHub Mermaid source `.mmd` file links (not yet verified)
