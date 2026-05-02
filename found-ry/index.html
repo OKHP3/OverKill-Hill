@@ -132,7 +132,12 @@
         <nav class="primary-nav" id="navigation" aria-label="Primary">
           <ul>
             <li><a href="/#forge">The Forge</a></li>
-            <li><a href="/projects/" aria-current="page">Our Projects</a></li>
+            <li class="has-submenu">
+              <a href="/projects/" aria-current="page">Our Projects</a>
+              <ul class="submenu">
+                <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
+              </ul>
+            </li>
             <!-- Writings cluster: Manifesto / Biases / Magnus / Promptcraft -->
             <li class="has-submenu">
               <a href="/writings/">Writings</a>
@@ -261,7 +266,10 @@
         "description": "OverKill Hill P³™ is the digital forge where custom GPT systems are architected, tempered and polished for real-world performance.",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://overkillhill.com/?s={search_term_string}",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://overkillhill.com/search/?q={search_term_string}"
+          },
           "query-input": "required name=search_term_string"
         }
       }
@@ -314,5 +322,6 @@
 
       gtag('config', 'G-VJ1BKXS27H');
     </script>
+      <script src="/assets/js/search.js" defer></script>
   </body>
 </html>

@@ -1,7 +1,74 @@
+# OverKill Hill P³™ — robots.txt
+# All cooperative crawlers welcome. Per-bot blocks below are explicit
+# opt-ins for AI / LLM crawlers. NOTE: when a crawler matches a more
+# specific User-agent group it ignores the global "*" group, so any
+# disallows (utility/template pages) must be repeated in each block.
+
 User-agent: *
 Allow: /
+Disallow: /404.html
+Disallow: /under-construction.html
 
-# Block utility/template pages that are not content
+# ----- Explicit AI / LLM crawler opt-ins -----
+User-agent: GPTBot
+Allow: /
+Disallow: /404.html
+Disallow: /under-construction.html
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /404.html
+Disallow: /under-construction.html
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /404.html
+Disallow: /under-construction.html
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /404.html
+Disallow: /under-construction.html
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /404.html
+Disallow: /under-construction.html
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /404.html
+Disallow: /under-construction.html
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /404.html
+Disallow: /under-construction.html
+
+User-agent: CCBot
+Allow: /
+Disallow: /404.html
+Disallow: /under-construction.html
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /404.html
+Disallow: /under-construction.html
+
+User-agent: Bytespider
+Allow: /
+Disallow: /404.html
+Disallow: /under-construction.html
+
+# ----- Polite-mode for greedy SEO crawlers -----
+User-agent: AhrefsBot
+Crawl-delay: 10
+Disallow: /404.html
+Disallow: /under-construction.html
+
+User-agent: SemrushBot
+Crawl-delay: 10
+Disallow: /404.html
 Disallow: /under-construction.html
 
 Sitemap: https://overkillhill.com/sitemap.xml

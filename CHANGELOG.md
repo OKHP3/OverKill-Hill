@@ -55,10 +55,26 @@ All notable changes to the **OverKill Hill P³™** public repository should be 
 
 ## [Unreleased]
 
-### Planned
-- Continue cleaning public website copy and artifacts
-- Expand Writings section support files and project-level repo references
-- Improve project documentation and governance files
+### Added
+- **Internal search engine** — new `/search/` results page plus a sitewide `Ctrl/Cmd+K` (or `/`) overlay injected into the primary nav of every page via `assets/js/search.js`. Results highlight matched terms, support category filters, and link directly to article sections.
+- **Per-section deep-link indexing** for `/writings/first-diagram-is-a-liar/` — 23 article sections now individually searchable (e.g. searching "ROY", "council", or "mermaid" returns specific in-article anchors, not just the parent page).
+- `assets/scripts/build-search-index.py` — re-runnable Python script that walks all `*.html`, skips `noindex`, and produces `assets/search-index.json` (39 entries).
+- `assets/css/search.css` — overlay + results-page styles using OKH design tokens.
+- New artifact cards: **LinkedIn Post v0.3.2** and **LinkedIn Comment v0.3.2** in `#artifacts`.
+
+### Updated
+- **`sitemap.xml`** — rebuilt with all 18 indexable URLs (previously 8). Now includes the `/writings/` hub, both other writings, all four v03 field guides, the Mermaid Theme Builder project, and `/search/`.
+- **`robots.txt`** — explicit allow opt-ins for GPTBot, ChatGPT-User, OAI-SearchBot, Google-Extended, ClaudeBot, anthropic-ai, PerplexityBot, CCBot, Applebot-Extended, Bytespider. Crawl-delay 10 for AhrefsBot and SemrushBot. `Disallow: /404.html` added.
+- **`site.webmanifest`** — fixed (was previously empty `name`/`short_name` and pointed at non-existent root favicons). Now includes name, short name, description, scope, dark theme color #111827, and correct `/assets/img/favicons/` icon paths including 192/512 maskable variants.
+- **JSON-LD `SearchAction`** on 18 pages — phantom `https://overkillhill.com/?s={search_term_string}` replaced with the real `https://overkillhill.com/search/?q={search_term_string}` pattern.
+
+### Planned (deferred follow-up)
+- BreadcrumbList JSON-LD on article + project + heat pages
+- Sitewide Organization JSON-LD with `sameAs` social links
+- `og:type=article` and `article:published_time` on writings pages
+- Per-page landscape (1200×630) Open Graph images
+- `prev`/`next` `rel` links across the four v03 field-guide pages
+- "Recent Writings" home-page block surfacing magnus-saga and biases-as-constants
 
 ## [Current Public Baseline]
 
