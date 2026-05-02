@@ -56,6 +56,7 @@ All notable changes to the **OverKill Hill P³™** public repository should be 
 ## [Unreleased]
 
 ### Added
+- **Cross-repo foundation alignment** — re-established the original design intent that `assets/css/theme.css`, `assets/js/app.js`, and `assets/js/mermaid-init.js` ship byte-identically across `overkillhill.com`, `glee-fully.tools`, and `askjamie.bot`. New `SHARED UTILITIES` section in `theme.css` (margin scale `.mt-1/2/3/4/075` + AskJamie-style `.u-mt-sm/md/lg/xl` aliases + `.u-flex-center`, `.u-opacity-90`, `.img-fluid`, `.img-constrained`). Brand-neutral header on `mermaid-init.js`. Drop-in canonical files for both sibling repos staged at `dist/sync/` with full `MIGRATION.md`.
 - **Internal search engine** — new `/search/` results page plus a sitewide `Ctrl/Cmd+K` (or `/`) overlay injected into the primary nav of every page via `assets/js/search.js`. Results highlight matched terms, support category filters, and link directly to article sections.
 - **Per-section deep-link indexing** for `/writings/first-diagram-is-a-liar/` — 23 article sections now individually searchable (e.g. searching "ROY", "council", or "mermaid" returns specific in-article anchors, not just the parent page).
 - `assets/scripts/build-search-index.py` — re-runnable Python script that walks all `*.html`, skips `noindex`, and produces `assets/search-index.json` (39 entries).

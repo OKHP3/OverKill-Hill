@@ -107,6 +107,46 @@ Static, client-side search across the entire site.
 - `prev`/`next` rel links on the four v03 field-guide pages
 - "Recent Writings" surfacing block on the home page so magnus-saga and biases-as-constants aren't dropdown-only
 
+## Cross-Site Foundation Files
+
+`overkillhill.com`, `glee-fully.tools`, and `askjamie.bot` each live in their own GitHub Pages repo but share three byte-identical foundation files:
+
+- `assets/css/theme.css`
+- `assets/js/app.js`
+- `assets/js/mermaid-init.js`
+
+**OverKill-Hill is the source of truth.** When making a change to any of these three files, edit it here, then propagate to the siblings.
+
+### Propagation workflow
+
+After editing any of the three foundation files:
+
+```bash
+mkdir -p dist/sync/glee/assets/{css,js} dist/sync/askjamie/assets/{css,js}
+for repo in glee askjamie; do
+  cp assets/css/theme.css      dist/sync/$repo/assets/css/theme.css
+  cp assets/js/app.js          dist/sync/$repo/assets/js/app.js
+  cp assets/js/mermaid-init.js dist/sync/$repo/assets/js/mermaid-init.js
+done
+cd dist/sync && zip -qr ../okh-cross-repo-sync-$(date +%F).zip glee askjamie MIGRATION.md
+```
+
+Then drop the per-repo subdirectories into the corresponding sibling clones and commit there with `chore(sync): align foundation files with overkillhill.com canonical (YYYY-MM-DD)`.
+
+### Site-specific divergence is expressed via class hooks, not separate files
+
+The shared `theme.css` already scopes site-specific styling via class selectors on `<body>`:
+
+- `.glee-main` — Glee-fully.tools pages
+- `.askjamie-main` — AskJamie.bot pages
+- `body:not(.glee-main):not(.askjamie-main)` — OverKill Hill pages
+
+Add new site-specific styles inside one of those scopes — never as a parallel file.
+
+### Theme switching mechanism (do not regress)
+
+The shared `app.js` sets `data-theme` on the `<html>` element (`document.documentElement`), **not on `<body>`**. The matching CSS uses `html[data-theme="…"] body { … }`. If you ever see `body[data-theme="…"]` rules creeping in, those are dead code — the selector will never match.
+
 ## Out of Scope for This Session
 - LinkedIn poll URLs (not yet published; TODO comments in heat pages)
 - GitHub Mermaid source `.mmd` file links (not yet verified)
