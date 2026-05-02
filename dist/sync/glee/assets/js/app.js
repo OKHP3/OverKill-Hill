@@ -1,8 +1,16 @@
-// Shared scripts for OverKill Hill P³ + subsites
+// ════════════════════════════════════════════════════════════════════════════
+//  app.js — Shared client-side script
+//  Used byte-identically by overkillhill.com, glee-fully.tools, askjamie.bot.
+//
+//  Sections (in load order):
+//   1. GLOBAL   · Reading-progress bar (article pages)
+//   2. GLOBAL   · DOMContentLoaded: nav, year stamps, theme toggle (OKH only),
+//                 scroll reveal, smooth anchors
+//   3. GLEE     · Under-construction overlay gate (toolbox WIP pages)
+//   4. GLOBAL   · Sticky TOC scroll-follow (article pages, ≥1024px)
+// ════════════════════════════════════════════════════════════════════════════
 
-// ──────────────────────────────────────────────────────────────
-// Reading progress bar
-// ──────────────────────────────────────────────────────────────
+// ── 1. Reading progress bar ─────────────────────────────────────────────────
 (function () {
   const bar = document.getElementById("reading-progress");
   if (!bar) return;
@@ -22,26 +30,7 @@
   );
 })();
 
-// ──────────────────────────────────────────────────────────────
-// Theme toggle, nav, and page interactions
-// ──────────────────────────────────────────────────────────────
-document.addEventListener("DOMContentLoaded", () => {
-  const themeToggle = document.querySelector(".theme-toggle");
-  const savedTheme = localStorage.getItem("okh-theme");
-  if (savedTheme) {
-    document.documentElement.setAttribute("data-theme", savedTheme);
-  }
-
-  if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      const currentTheme = document.documentElement.getAttribute("data-theme");
-      const newTheme = currentTheme === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", newTheme);
-      localStorage.setItem("okh-theme", newTheme);
-    });
-  }
-});
-
+// ── 2. Page interactions: nav, year, theme toggle, scroll reveal ───────────
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".site-header");
   const navToggle = document.querySelector(".nav-toggle");
@@ -146,9 +135,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-    // -----------------------------------------
-  // Under-construction overlay gate (Glee, etc.)
-  // -----------------------------------------
+  // ── 3. GLEE · Under-construction overlay gate ────────────────────────────
+  // Used on glee-fully.tools toolbox pages that are live-but-not-finished.
+  // No-op on pages without `.construction-overlay`.
   const constructionOverlay = document.querySelector(".construction-overlay");
 
   if (constructionOverlay) {
@@ -191,10 +180,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// ──────────────────────────────────────────────────────────────────────────
-// Sticky TOC: smooth-lerp scroll-follow for #toc-widget
+// ── 4. Sticky TOC: smooth-lerp scroll-follow for #toc-widget ───────────────
 // Only activates on wide viewports (≥1024 px) when widget exists.
-// ──────────────────────────────────────────────────────────────────────────
+// No-op on every other page (return on missing element).
 (function () {
   if (window.innerWidth < 1024) return;
 
