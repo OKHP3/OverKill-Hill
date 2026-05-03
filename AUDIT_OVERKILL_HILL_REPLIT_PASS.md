@@ -113,6 +113,23 @@ User instruction: *execute all 12 deferred actions, then provide a crispier favi
 
 **Net outcome: 9 of 12 items fully completed in-repo, 2 documented architectural deferrals (header/footer dedup, Notion-backed editorial review), 1 operator action pending (`git push`). Favicon redesigned and all derivatives rebuilt from a brighter, higher-contrast source.**
 
+### Closing action — Template extraction (issued same day)
+
+Walked the full site (26 production pages), grouped by structural layout, and produced **16 stripped templates** in `/assets/templates/` plus a `README.md` index. Built via `scripts/extract_templates.py` (BeautifulSoup, idempotent, with a `--check` mode that runs conformance asserts). Every template:
+
+- Has a working `<head>` (CSS/JS/favicon refs intact, all asset paths root-relative)
+- Keeps the live site `<header>` / `<nav>` / `<footer>` / hot-forge banner / skip-link as chrome
+- Strips every `<title>`, meta/OG/Twitter/canonical value, every non-chrome `<h1>`/`<h2>`/`<h3>`/`<h4>`, every `<p>` body text, every `<img src>`/`alt`/`srcset`, in-content `<a href>`, `<time datetime>`, version badges, and JSON-LD string values to `[PLACEHOLDER]` tokens
+- Opens with the directive's required `<!-- OverKill Hill P³™ — Page Template -->` comment block
+
+Layout consolidations made:
+- 3 long-form articles → one `writings-article-template.html`
+- 4 v03 heat-test variants → one `writings-article-study-template.html`
+- 6 individual project pages → one `projects-project-template.html`
+- All other pages had unique enough layouts to warrant their own template
+
+Verification: `python3 scripts/extract_templates.py --check` → **0 conformance violations across 16 templates**. `python3 scripts/validate_site.py` → still clean on all 26 production pages.
+
 | # | Item | Status | Detail |
 |---|---|---|---|
 | 1 | Soften homepage eyebrow | **DONE** | `index.html` — replaced ⚠ "Active build zone" with ⚙ "Forge in motion — actively iterated, not under construction"; body copy reworded to match the calmer tone |
