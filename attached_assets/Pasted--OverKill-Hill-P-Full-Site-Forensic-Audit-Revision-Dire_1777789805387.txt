@@ -1,0 +1,676 @@
+# OverKill Hill P³™ — Full-Site Forensic Audit & Revision Directive
+
+### Replit Agent Master Prompt | One-Shot Total Overhaul
+
+-----
+
+## MISSION STATEMENT
+
+You are tasked with performing a complete, zero-excuses forensic audit and revision of the OverKill Hill P³™ website hosted in this Replit. This is not a suggestions document. This is an execution order. You will audit every file, diagnose every deficiency, and implement every fix you are capable of implementing autonomously. Where a fix requires external credentials or third-party configuration you cannot touch, you will document the exact manual step required with the precise values to use.
+
+When you finish, this site must be the best version of itself that the current codebase and your capabilities allow. Not 80% there. Not “improved.” Done.
+
+The site lives at: **https://overkillhill.com**
+GitHub origin: **https://github.com/OKHP3/OverKill-Hill**
+
+-----
+
+## EXECUTION ORDER
+
+Execute the following phases in sequence. Do not skip phases. Do not summarize phases without executing them. Report your findings and changes in a structured audit log as you go.
+
+-----
+
+## PHASE 1: INVENTORY AND STRUCTURAL AUDIT
+
+**1.1 — Directory walk**
+Walk the entire project tree. Produce a complete annotated inventory of every file and directory with:
+
+- File type and purpose
+- Current status (production, placeholder, orphaned, under-construction)
+- Whether the file is linked from any navigation or page
+- Any file that exists in the repo but is not reachable from the live site navigation
+
+**1.2 — Dead link detection**
+Crawl every internal `href`, `src`, and `action` attribute in every HTML file. Flag every link that:
+
+- Points to a path that does not exist in the repo
+- Points to an anchor (`#id`) that does not exist on the target page
+- Is a placeholder (`#`, `javascript:void(0)`, empty `href`)
+- Points to a page serving `under-construction.html` content
+
+Produce a dead link manifest. Fix every internal dead link you can fix by either: (a) creating the missing target page with appropriate placeholder content, or (b) removing the link and replacing it with a graceful in-progress notice.
+
+**1.3 — File naming and path audit**
+Check for:
+
+- Inconsistent casing (e.g., `index.html` vs `Index.html`)
+- Directory names with special characters that may cause routing issues (note: `found-ry` directory — verify this routes correctly)
+- Any file referenced in HTML that uses a different case than its actual filename on disk
+- Asset paths that are absolute when they should be relative, or vice versa
+
+-----
+
+## PHASE 2: HTML QUALITY AUDIT — ALL PAGES
+
+Run this audit against: `index.html`, `404.html`, `under-construction.html`, and every `index.html` inside subdirectories (about/, contact/, writings/, projects/, legal/, manifesto/, universe/, prompt-forge/, found-ry/, and all nested pages).
+
+**2.1 — Document structure**
+Each page must have:
+
+- `<!DOCTYPE html>`
+- `lang="en"` on `<html>`
+- Proper `<head>` with `charset` meta first, then `viewport`, then title, then everything else
+- A single `<h1>` per page (not zero, not two)
+- Logical heading hierarchy (`h1` → `h2` → `h3`, no skipped levels)
+- `<main>` element wrapping page content
+- `<header>`, `<nav>`, `<footer>` as semantic landmarks
+- Skip navigation link that actually works (`<a href="#main" class="skip-link">`)
+
+Fix every violation. Do not leave a single page with broken document structure.
+
+**2.2 — Title tag and meta description audit**
+Each page must have:
+
+- A unique `<title>` tag using the format: `[Page Name] | OverKill Hill P³™`
+- A unique `<meta name="description">` between 120–160 characters, written in the OverKill Hill brand voice (confident, precise, no filler phrases)
+- No duplicate titles across pages
+- No title tags that are generic placeholders (“Untitled”, “Page”, or identical to another page)
+
+Write these for every page. Do not use the same description twice.
+
+**2.3 — Open Graph and Twitter Card meta**
+Every page must have the following fully populated Open Graph block:
+
+```html
+<meta property="og:title" content="[Page Title]">
+<meta property="og:description" content="[Unique description]">
+<meta property="og:type" content="website"> <!-- or "article" for writing pages -->
+<meta property="og:url" content="https://overkillhill.com/[path]/">
+<meta property="og:image" content="https://overkillhill.com/assets/img/[appropriate image]">
+<meta property="og:site_name" content="OverKill Hill P³™">
+```
+
+And the Twitter Card block:
+
+```html
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@OverKillHillP3">
+<meta name="twitter:title" content="[Page Title]">
+<meta name="twitter:description" content="[Unique description]">
+<meta name="twitter:image" content="https://overkillhill.com/assets/img/[appropriate image]">
+```
+
+Article pages (writings/) should use `og:type` = `article` and include:
+
+```html
+<meta property="article:author" content="Jamie Hill">
+<meta property="article:published_time" content="[ISO date]">
+```
+
+Implement this on every page. Identify which images are most appropriate as og:image for each page based on what’s available in assets/img/.
+
+**2.4 — Canonical URLs**
+Every page must have:
+
+```html
+<link rel="canonical" href="https://overkillhill.com/[path]/">
+```
+
+Trailing slash should be consistent with the site’s routing convention. Pick one convention and apply it everywhere.
+
+**2.5 — Structured data (JSON-LD)**
+
+The homepage needs `WebSite` and `Organization` schema:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "OverKill Hill P³™",
+  "url": "https://overkillhill.com",
+  "logo": "https://overkillhill.com/assets/img/OverKillHillP³-Sentinel-Warning-Square-256.png",
+  "sameAs": [
+    "https://www.linkedin.com/company/overkillhillp3",
+    "https://ko-fi.com/overkillhillp3",
+    "https://x.com/OverKillHillP3",
+    "https://www.youtube.com/@OverKillHillP3",
+    "https://facebook.com/OverKillHillP3/"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "contact@overkillhill.com",
+    "contactType": "customer support"
+  }
+}
+```
+
+Writing pages (articles) need `Article` schema with `headline`, `author`, `datePublished`, `image`, `publisher`.
+
+The Manifesto page should use `WebPage` schema.
+
+Implement all of these.
+
+-----
+
+## PHASE 3: SEO INFRASTRUCTURE
+
+**3.1 — robots.txt**
+Check if `robots.txt` exists in the root. If it doesn’t, create it:
+
+```
+User-agent: *
+Allow: /
+
+Sitemap: https://overkillhill.com/sitemap.xml
+```
+
+**3.2 — XML Sitemap**
+Check if `sitemap.xml` exists. If it doesn’t (or if it’s incomplete), generate a complete one including every canonical URL on the site with:
+
+- `<loc>` for every page
+- `<lastmod>` using actual file modification dates where available, or today’s date
+- `<changefreq>` appropriate to content type (weekly for homepage, monthly for articles, yearly for legal)
+- `<priority>` (1.0 for homepage, 0.8 for main sections, 0.6 for articles, 0.4 for legal/about)
+
+**3.3 — Brand keyword consistency audit**
+Scan all pages for inconsistent use of the brand name. The canonical form is:
+
+- **Full form:** OverKill Hill P³™
+- **Short form:** OKH P³ or OKHP³
+- **Tagline:** Precision · Protocol · Promptcraft
+
+Flag and fix any instances of:
+
+- “Precision. Power. Presence.” (this is the old tagline — appears in README but must not appear on the live site)
+- “OverKillHill” without the space
+- “P3” without the superscript (must be P³ with the Unicode superscript three)
+- Missing ™ on first use per page
+
+-----
+
+## PHASE 4: PERFORMANCE AUDIT AND OPTIMIZATION
+
+**4.1 — Image audit**
+Inventory every image in assets/img/ and every `<img>` tag in HTML files.
+
+For each image, check:
+
+- Does it have a non-empty, descriptive `alt` attribute? (Not “image”, not empty, not the filename)
+- Does it have explicit `width` and `height` attributes to prevent layout shift?
+- Is it served in a modern format (WebP preferred over PNG/JPG where feasible)?
+- Is any image being loaded that’s larger than 2x the maximum display size?
+- Are hero/above-fold images marked with `loading="eager"` and below-fold images with `loading="lazy"`?
+
+Fix every alt text that is generic or missing. Add width/height where absent. Add `loading="lazy"` to all below-fold images. Add `loading="eager"` and `fetchpriority="high"` to the primary hero image on each page.
+
+**4.2 — CSS audit**
+
+- Check for duplicate CSS rules across stylesheets
+- Check for unused CSS selectors (selectors that target elements that don’t exist in any HTML page)
+- Check that CSS custom properties (variables) are used consistently and not hardcoded colors scattered throughout
+- Check that all color values use the site’s brand palette (identify the primary palette from what’s in use and document it in a comment block at the top of the main stylesheet)
+- Check for render-blocking CSS that isn’t critical and could be deferred
+- Verify the font stack is consistent across all pages
+- Check for any `!important` declarations that could be eliminated
+
+Produce a CSS remediation plan and implement every fix that doesn’t risk visual regression.
+
+**4.3 — JavaScript audit**
+The site currently has only 1.6% JavaScript. Audit what exists:
+
+- What does each JS file do?
+- Are any scripts included that are not used?
+- Are scripts loaded with `defer` or `async` where appropriate?
+- Is the mobile navigation hamburger implemented in JS? Does it work correctly? Is the “Toggle navigation” label visible as raw text anywhere in the rendered output? If so, fix the button so its text is visually hidden but accessible to screen readers using the proper technique (`visually-hidden` class or `aria-label`).
+
+Implement the following JavaScript improvements if not already present:
+
+- Smooth scroll behavior for all anchor links (`scroll-behavior: smooth` in CSS, or JS fallback)
+- Active nav link highlighting based on current page URL
+- Mobile nav: ensure tap outside the menu closes it
+- Any inline `onclick` handlers should be moved to proper event listeners in external JS files
+
+**4.4 — Resource loading order**
+Check `<head>` in each page for:
+
+- Render-blocking resources that should be deferred
+- Preconnect hints for external origins used (fonts, CDNs)
+- Correct order: charset > viewport > title > meta > canonical > OG > CSS > preloads
+
+Add `<link rel="preconnect">` for any external font or CDN domains being used.
+
+-----
+
+## PHASE 5: ACCESSIBILITY AUDIT
+
+Run a thorough WCAG 2.1 AA checklist against every page.
+
+**5.1 — Color contrast**
+Identify every text/background color combination in use. Verify minimum contrast ratios:
+
+- Normal text (under 18pt): 4.5:1
+- Large text (18pt+ or 14pt+ bold): 3:1
+- UI components and states: 3:1
+
+If the current brand palette has any combinations that fail, flag them and propose specific adjusted values that preserve brand identity while meeting contrast requirements.
+
+**5.2 — Interactive element accessibility**
+Every interactive element must have:
+
+- A visible focus indicator (not removed by `outline: none` without a custom replacement)
+- An accessible name (via visible label, `aria-label`, or `aria-labelledby`)
+- Keyboard operability (no mouse-only interactions)
+- Correct ARIA roles where native HTML semantics are insufficient
+
+Check every button, link, and form control. The navigation dropdown menus must be keyboard-navigable.
+
+**5.3 — Form accessibility**
+Check the contact form (contact/):
+
+- Every input must have an associated `<label>` with matching `for`/`id` pairing
+- Required fields must be marked with both visual indicator and `required` attribute and `aria-required="true"`
+- Error states must use `aria-describedby` or `aria-live` region for screen reader announcements
+- Form submission feedback must be accessible
+
+**5.4 — Image accessibility**
+Beyond alt text (covered in 4.1), check:
+
+- Decorative images use `alt=""` and `role="presentation"`
+- Complex images (charts, diagrams) have either a long description or `aria-describedby` pointing to a nearby text explanation
+- No image used to convey text that isn’t replicated in actual text
+
+**5.5 — Document language and landmarks**
+
+- Verify `lang="en"` on every page’s `<html>` element
+- Verify page has at minimum these ARIA landmarks: `banner` (header), `navigation` (nav), `main`, `contentinfo` (footer)
+- If multiple nav elements exist, each needs a unique `aria-label`
+
+-----
+
+## PHASE 6: NAVIGATION AND UX AUDIT
+
+**6.1 — Navigation consistency**
+The main nav currently contains:
+
+- The Forge → `/#forge`
+- Our Projects → `/projects/` with sub: Mermaid Theme Builder → `/projects/mermaid-theme-builder/`
+- Writings → `/writings/` with subs: Manifesto, Biases as Constants, Magnus Saga, Prompt Forge, First Diagram Is a Liar
+- About → `/about/` with subs: OKHP³™ Universe, About OKHP³™, Contact, Legal
+
+Verify:
+
+- Does each nav link reach its destination?
+- Does the dropdown open on hover (desktop) AND on tap (mobile)?
+- Is there a visual indicator of the current page in the nav?
+- Are dropdown items reachable by keyboard (Tab + Enter, or arrow keys)?
+- On mobile, does the hamburger menu open, show all items, and close cleanly?
+
+Fix every deficiency.
+
+**6.2 — Breadcrumb navigation**
+The First Diagram Is a Liar page shows a breadcrumb: `OverKill Hill P³™ › Writings › [Article]`. Verify this pattern exists and works on all article and subpage content. If it doesn’t, implement it consistently using the `<nav aria-label="Breadcrumb">` pattern with proper schema markup:
+
+```html
+<nav aria-label="Breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="https://overkillhill.com/"><span itemprop="name">OverKill Hill P³™</span></a>
+      <meta itemprop="position" content="1" />
+    </li>
+    <!-- continue for each level -->
+  </ol>
+</nav>
+```
+
+**6.3 — The “forge mode” disclaimer**
+The homepage currently contains a prominent “⚠ Active build zone” disclaimer that positions the site as under construction. Evaluate whether this disclaimer is still accurate given the volume of published content. If the site has mature published articles and functional pages, the disclaimer should be softened to something that frames the ongoing build as intentional, iterative craft — not as an excuse for incompleteness. Propose revised copy and implement if appropriate.
+
+**6.4 — CTA audit**
+Every page must have at least one clear call-to-action that moves the visitor deeper into the site or toward a conversion point. Audit every page for:
+
+- Is there a CTA?
+- Is it above the fold or clearly visible without scrolling?
+- Does it align with the page’s purpose?
+
+Specific CTA requirements to implement if missing:
+
+- Every article page: Ko-fi support CTA near the bottom (use the brand-appropriate phrasing, not generic “buy me a coffee”)
+- Homepage: ensure the primary CTA path is clear (Explore Projects OR Read Articles — pick a priority lane and make it primary)
+- Projects page: Fiverr link should have a proper CTA button, not just a text link
+- About page: Contact CTA should be prominent
+
+**6.5 — Footer audit**
+Verify the footer contains and links correctly to:
+
+- All nav sections
+- Ko-fi ✓
+- Fiverr ✓ (verify link still works: `https://pro.fiverr.com/s/VYKPpoB`)
+- LinkedIn ✓
+- Facebook ✓
+- X/Twitter ✓
+- YouTube ✓
+- Copyright year (must be current: 2026)
+- Privacy/Legal page link ✓
+
+If any social icon links open in the same tab, add `target="_blank" rel="noopener noreferrer"` to all external links. Verify this is applied consistently.
+
+-----
+
+## PHASE 7: CONTENT AUDIT — PAGE BY PAGE
+
+**7.1 — Homepage (index.html)**
+
+- Verify the “Fresh from the Forge” section correctly highlights the most recent published article
+- The hot-off-the-forge banner links to the First Diagram article — verify this is current and update if a newer article exists
+- Verify the three feature cards (Protocol-driven, Performance forged, Crafted to scale) are present and complete
+- Verify all project cards link to live pages
+- Check the “Protocol Libraries” link (`/projects/#protocols`) — does this anchor exist on the projects page? If not, either create the section or remove the dead anchor reference.
+- The `sales@overkillhill.com` CTA at the bottom — verify this address is intentional and active (different from `contact@overkillhill.com`). If it’s a mistake, standardize to one address.
+
+**7.2 — Writings hub (/writings/)**
+
+- Verify this page lists ALL published articles with correct titles, descriptions, and links
+- Verify article listing order is reverse-chronological (newest first)
+- Add publication dates visibly to each listing
+- If any article is listed in the nav dropdown but not in the writings hub, add it
+
+**7.3 — First Diagram Is a Liar (/writings/first-diagram-is-a-liar/)**
+This is the flagship article currently at v0.3 — Visual Edition. Verify:
+
+- The article version badge (v0.3) is visible and current
+- The version history or changelog section exists and is accurate
+- All internal section links (if any anchor links in the article) work
+- The Etch-AI-Sketch deck (18 slides) — is it embedded or linked? Is the embed or link functional?
+- Scoring bracket and polls — are links still live or do they point to expired content? If expired, update to reflect concluded results or current status.
+- Reading time estimate (~18 min) — verify this is still accurate for the current version length
+- Ko-fi CTA exists at article conclusion
+
+**7.4 — Biases as Constants (/writings/biases-as-constants/)**
+
+- Is this page live with actual content, or is it a placeholder?
+- If placeholder: add at minimum a proper landing page with a description of what the work is, status, and an email signup or Ko-fi link for notification when published
+- If live: run full content quality check for structure, headings, CTAs
+
+**7.5 — Magnus Saga (/writings/magnus-saga/)**
+
+- Same audit as 7.4
+- The Magnus Saga is a 7-book speculative fiction arc. If this page is a stub, it needs at minimum: a compelling series description, book titles/status for all 7 books, and a waitlist/notification mechanism
+
+**7.6 — Manifesto (/manifesto/)**
+
+- Verify this page exists and has complete content
+- Verify it reads as an authentic brand manifesto, not a placeholder
+- Check that it’s consistent with the brand voice established in the First Diagram article
+
+**7.7 — Projects (/projects/)**
+
+- Verify Mermaid Theme Builder is properly featured with description, link, and status
+- Verify “Protocol Libraries” section exists and has meaningful content or an in-progress notice
+- Glee-fully and AskJamie are referenced from homepage but not in the projects nav. Verify whether they have dedicated pages on this site or just external links. If external links only, ensure the projects page clearly flags them as external.
+
+**7.8 — Mermaid Theme Builder (/projects/mermaid-theme-builder/)**
+
+- Is this a live interactive tool, an embedded tool, or a description page?
+- If interactive: verify the tool functions correctly
+- If description only: add a clear demo link, screenshot, or embedded preview
+- Given the partnership with Mermaid Chart (Akshatha Muralidhar, enterprise plan), consider whether a “Powered by Mermaid Chart” attribution or badge is appropriate here
+
+**7.9 — Prompt Forge (/prompt-forge/)**
+
+- Verify live with meaningful content
+- This is referenced in the Writings nav. Verify it’s categorized correctly — is it a tool, a content archive, or a writing?
+
+**7.10 — Universe (/universe/)**
+
+- Verify this page exists and has content
+- It should describe the OKHP³ ecosystem: OverKill Hill as parent brand, with Glee-fully and AskJamie as sub-brands
+
+**7.11 — About (/about/)**
+
+- Verify bio and brand story are present and current
+- Check for the correct brand tagline (Precision · Protocol · Promptcraft, not any old version)
+- Ensure Contact CTA is present and functional
+
+**7.12 — Contact (/contact/)**
+
+- Verify form exists and fields are complete
+- Verify form submission mechanism — does it actually send? What’s the backend? (Netlify form, Formspree, mailto, etc.) Document the current mechanism.
+- If the form doesn’t work, implement a fallback: a direct mailto link as a visible backup below the form
+- Verify both email addresses used across the site (contact@ and sales@) — are both intentional?
+
+**7.13 — Legal (/legal/)**
+
+- Verify Privacy Policy exists and is substantive (not a template stub)
+- Verify Terms of Service exists
+- Check that copyright year is 2026
+- Verify ™ trademark notices are consistent throughout
+
+**7.14 — 404 page (404.html)**
+
+- Verify this is a custom 404 page (not GitHub’s default)
+- It must include: brand nav, on-brand messaging, links back to home and main sections, and ideally some personality (forge metaphor — “That page went into the fire. Here’s what survived.”)
+- Verify it renders correctly when a bad URL is hit
+
+**7.15 — under-construction.html**
+
+- Identify every page that routes to or includes this file
+- Ensure every stub page has: a clear title, a brief description of what’s coming, and a way to get notified (Ko-fi, email, or social link)
+- The under-construction page itself should be on-brand, not generic
+
+-----
+
+## PHASE 8: PWA AND MANIFEST AUDIT
+
+**8.1 — site.webmanifest**
+Open and audit the current manifest. It must have:
+
+- `name`: “OverKill Hill P³™”
+- `short_name`: “OKH P³”
+- `start_url`: “/”
+- `display`: “standalone”
+- `background_color`: (matching brand background color)
+- `theme_color`: (matching brand primary color)
+- `icons`: at minimum 192x192 and 512x512 PNG icons with correct paths
+- `description`: brand description
+
+Verify every icon path resolves to an actual file in the repo. Fix any broken icon references.
+
+**8.2 — Apple Touch Icons and Favicons**
+Verify `<head>` in every page includes:
+
+- `<link rel="apple-touch-icon">` pointing to a valid 180x180 image
+- `<link rel="icon" type="image/png">` for 32x32 and 16x16
+- `<link rel="manifest" href="/site.webmanifest">`
+- `<meta name="theme-color" content="[brand color]">`
+
+-----
+
+## PHASE 9: SECURITY AND HTTP HEADERS
+
+**9.1 — HTTPS enforcement**
+Verify all internal links use `https://` not `http://`. Fix any mixed-content references.
+
+**9.2 — External link security**
+All `<a>` tags pointing to external domains must have `rel="noopener noreferrer"`. Audit every external link and add these attributes where missing.
+
+**9.3 — Content Security Policy consideration**
+Document whether a CSP header is currently set. If not, produce a CSP header recommendation appropriate for this site’s asset mix (inline styles, external fonts, CDN resources). Do not implement if it risks breaking the site — document the recommendation instead.
+
+**9.4 — Sensitive data audit**
+Scan every file for:
+
+- API keys or tokens hardcoded anywhere
+- Email addresses exposed in HTML that should be obfuscated (to reduce spam scraping)
+- Any credentials or secrets in comments
+
+For email addresses that are already public (contact@, sales@), optionally add basic obfuscation via the CSS direction trick or JS encoding, but do not remove them — they must remain functional.
+
+-----
+
+## PHASE 10: CODE QUALITY AND MAINTAINABILITY
+
+**10.1 — HTML validation**
+Run W3C validation logic against every HTML file. Fix:
+
+- Duplicate `id` attributes on any page
+- Unclosed tags
+- Deprecated HTML attributes (e.g., `border` on tables, `align` on elements)
+- Incorrectly nested elements (e.g., block elements inside inline elements)
+- `<a>` tags wrapping `<button>` tags (or vice versa)
+
+**10.2 — CSS organization**
+
+- Is there a single global stylesheet, or are styles scattered across multiple files and inline `<style>` blocks?
+- Identify and consolidate any styles that appear in multiple files
+- Add a CSS custom properties section at the top of the main stylesheet documenting the full brand color palette and typography scale:
+
+```css
+/* === OverKill Hill P³™ Brand System === */
+:root {
+  /* Colors */
+  --color-primary: [value];
+  --color-secondary: [value];
+  --color-accent: [value];
+  --color-bg: [value];
+  --color-text: [value];
+  --color-text-muted: [value];
+  
+  /* Typography */
+  --font-heading: [value];
+  --font-body: [value];
+  --font-mono: [value];
+  
+  /* Spacing scale */
+  --space-xs: [value];
+  --space-sm: [value];
+  --space-md: [value];
+  --space-lg: [value];
+  --space-xl: [value];
+}
+```
+
+**10.3 — JavaScript quality**
+
+- Remove any `console.log` statements from production files
+- Remove any commented-out code blocks that serve no documentation purpose
+- Ensure no JavaScript errors are thrown on page load for any page
+- Verify no JavaScript file is loaded on pages where it’s not needed
+
+**10.4 — Asset hygiene**
+
+- Identify any image files in assets/ that are not referenced anywhere in the HTML
+- Identify any CSS or JS files that are not imported anywhere
+- Document these orphaned assets (do not delete without confirming — some may be planned for future use, but flag them)
+
+-----
+
+## PHASE 11: MOBILE AND RESPONSIVE AUDIT
+
+Test (or simulate) the following breakpoints: 320px, 375px, 428px, 768px, 1024px, 1280px, 1440px.
+
+**11.1 — Layout integrity**
+
+- No horizontal scroll at any breakpoint
+- No text overflow beyond its container
+- No images wider than their container
+- Navigation collapses properly to hamburger below the appropriate breakpoint
+- Footer columns stack appropriately on mobile
+
+**11.2 — Touch targets**
+All interactive elements (buttons, links, nav items) must have a minimum touch target of 44x44px. Verify and fix any targets smaller than this.
+
+**11.3 — Font sizing**
+No body text below 16px on mobile. No heading sizes that are disproportionately large or small relative to the scale at any breakpoint.
+
+**11.4 — The hot-banner**
+The “Hot off the FORGE” announcement banner at the top of several pages — verify it displays correctly, doesn’t obscure navigation, and is dismissible (or not — make a deliberate decision and implement it).
+
+-----
+
+## PHASE 12: DEPLOYMENT VERIFICATION
+
+**12.1 — CNAME file**
+Verify `CNAME` file contains exactly: `overkillhill.com` with no extra whitespace or second line.
+
+**12.2 — Routing**
+Verify that the routing configuration (whether via GitHub Pages, Replit hosting, or Cloudflare) correctly handles:
+
+- Trailing slash normalization (requests to `/about` and `/about/` should both work)
+- 404 custom page routing (the custom 404.html must be served for all 404 responses)
+- Case-insensitive routing (or document that it’s case-sensitive and ensure all links use exact casing)
+
+**12.3 — Build output**
+If any build step exists (asset compilation, templating), verify it runs clean with no errors or warnings. Document the build command.
+
+-----
+
+## DELIVERABLES
+
+When all phases are complete, produce a single **AUDIT COMPLETE REPORT** with the following sections:
+
+### 1. Changes Made
+
+A complete list of every file modified, created, or deleted. For each: file path, nature of change, reason.
+
+### 2. Outstanding Manual Steps
+
+Every item you could not implement autonomously, with exact instructions for what the human needs to do, including specific values, URLs, or configurations to use.
+
+### 3. Brand Consistency Final State
+
+Confirm the canonical brand elements as they now appear across the site: tagline, trademark usage, email addresses, color values.
+
+### 4. Performance Baseline
+
+Estimated impact of changes made (not a Lighthouse score — an informed description of what was improved and why it matters).
+
+### 5. Remaining Opportunities
+
+Issues identified but not implemented, ranked by impact. These are the next sprint items.
+
+### 6. Questions Requiring Human Decision
+
+A short numbered list of decisions that require input from the site owner before implementation. One decision per line. No padding, no explanation beyond what’s necessary to make the decision.
+
+-----
+
+## BRAND CONSTRAINTS — DO NOT VIOLATE
+
+These are locked. Do not change them, work around them, or “improve” them without explicit instruction:
+
+- **Brand name:** OverKill Hill P³™ (with Unicode ³, not superscript HTML tag, not “P3”)
+- **Tagline:** Precision · Protocol · Promptcraft (not “Precision. Power. Presence.” — that is the old version and must not appear on the live site)
+- **Brand voice:** Confident, precise, no filler, dry wit acceptable, no sentimentality
+- **Raven mascot:** The Sentinel. Referenced as the brand illustration. Do not alter image file names or paths without updating all references.
+- **AutoCAD reference in article:** “AutoCAD 10” — this is locked, do not “correct” it to a different version number.
+- **Sub-brands:** Glee-fully and AskJamie™ are separate brands that operate under the OverKill Hill umbrella. They have their own external domains. Do not merge their identities into the main site navigation or branding.
+- **Ko-fi:** The monetization platform. Never link directly from LinkedIn to Ko-fi (a routing rule that lives in the content strategy, not the site code). On the site itself, Ko-fi links are appropriate and should be present on article pages.
+- **No BFS connection:** Nothing on this site references Builders FirstSource, Jamie’s employer, or his corporate role. Do not add any such reference.
+
+-----
+
+## SUCCESS CRITERIA
+
+This audit is complete when:
+
+- Every page passes basic HTML validation with no errors
+- Every page has unique, populated title and meta description tags
+- Every page has complete Open Graph and Twitter Card meta blocks
+- No internal dead links exist
+- Every external link has `rel="noopener noreferrer"`
+- Every image has a meaningful alt attribute
+- The site renders without horizontal scroll at 375px viewport width
+- The mobile navigation opens and closes correctly via the hamburger control
+- The 404 page is custom, on-brand, and serves correctly
+- The copyright year reads 2026 everywhere
+- The brand tagline is “Precision · Protocol · Promptcraft” everywhere it appears
+- A sitemap.xml and robots.txt exist and are valid
+- Structured data (JSON-LD) exists on the homepage and article pages
+- The audit report described above has been produced and committed
+
+-----
+
+*Issued by: OverKill Hill P³™ — Precision · Protocol · Promptcraft*
+*Execution date: May 2026*
+*This prompt supersedes any prior partial audit or to-do list in the repository.*
