@@ -1,0 +1,42 @@
+# OverKill Hill P³ — edge headers
+# Format compatible with Cloudflare Pages / Netlify _headers files.
+# If served by Cloudflare directly, mirror these via Transform Rules.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+  # CSP — derived from a real audit of the site (scripts/dep-audit run 2026-05-03).
+  # Site uses: Google Analytics gtag (G-VJ1BKXS27H), Google Fonts (CSS + woff2),
+  # Mermaid via jsdelivr ESM, and 67 inline <script> blocks (gtag config + JSON-LD
+  # + small page bootstraps), so 'unsafe-inline' for script-src is currently
+  # required. Future hardening: hash or nonce the inline blocks, then drop
+  # 'unsafe-inline'. Deployed Report-Only first; flip header name to
+  # `Content-Security-Policy` (no `-Report-Only`) once the report endpoint shows
+  # a clean baseline for ~2 weeks.
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests
+
+# Long-cache hashed assets — once cache_bust.py is wired into deploy, every
+# stylesheet/script ref will carry a content-hash ?v=, so the underlying file
+# is safe to serve with immutable caching.
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/img/favicons/*
+  Cache-Control: public, max-age=604800
+
+# HTML — short cache, must revalidate so eyebrow/copy fixes propagate fast.
+/*.html
+  Cache-Control: public, max-age=300, must-revalidate
+
+/
+  Cache-Control: public, max-age=300, must-revalidate
