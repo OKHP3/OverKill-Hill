@@ -19,6 +19,7 @@ Python simple HTTP server via `server.py` — serves the static site from root.
 - `/writings/` — article pages
 - `/projects/` — project pages
 - `/universe/`, `/manifesto/`, `/about/`, `/contact/`, `/legal/` — brand pages
+- `/_replit/` — non-served dev tooling preserved for reference. **Not** part of the static site; the deployment `publicDir = "."` setting still serves it as files but it has no inbound links. See `_replit/mermaid-theme-builder-preview/` for the React/Vite preview app migrated from the retired `Project-Page-Mermaid-Theme-Tool` Repl (2026-05-03). It is a snapshot only — not wired to a workflow because it depends on pnpm catalog/workspace refs that this static-site repo doesn't provide. Source of truth for the published page remains `projects/mermaid-theme-builder/index.html`.
 
 ## Key CSS Design Tokens (theme.css)
 
