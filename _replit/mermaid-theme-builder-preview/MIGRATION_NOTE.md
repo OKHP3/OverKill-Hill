@@ -4,23 +4,32 @@ This folder was migrated from the now-retired Replit project
 `Project-Page-Mermaid-Theme-Tool` via the GitHub branch
 `migrate/mermaid-page-tooling` (folder `_replit/mermaid-theme-builder-preview/`).
 
-## Status: preserved snapshot, NOT wired to a workflow
+## Status: standalone, buildable dev preview
 
-The OverKill-Hill repo is a plain static site served by `python3 server.py`
-— it is **not** a pnpm monorepo. This app's `package.json` uses pnpm
-catalog references (`"catalog:"`) and a workspace dep
-(`"@workspace/api-client-react": "workspace:*"`), so `pnpm install` /
-`npm install` will fail here without first:
+The original `package.json` used pnpm catalog refs (`"catalog:"`) and a
+workspace dep (`"@workspace/api-client-react": "workspace:*"`) that only
+resolve inside a pnpm monorepo. This project is a plain static site, so
+the deps were rewritten to concrete versions and the unused workspace
+dep was dropped. `tsconfig.json` was made standalone (no `extends` / no
+project references). Source code in `src/` was not modified.
 
-1. Replacing every `"catalog:"` dep with a concrete version.
-2. Removing or stubbing `@workspace/api-client-react`.
-3. Setting `PORT` and `BASE_PATH` env vars (required by `vite.config.ts`).
+## Run / build
 
-If you want to revive the dev preview, do that surgery first, then add a
-workflow such as `cd _replit/mermaid-theme-builder-preview && PORT=5173
-BASE_PATH=/ pnpm dev`.
+Vite requires `PORT` and `BASE_PATH` env vars (a Replit convention baked
+into `vite.config.ts`):
+
+```
+cd _replit/mermaid-theme-builder-preview
+npm install
+PORT=5173 BASE_PATH=/ npm run dev      # dev server
+PORT=5173 BASE_PATH=/ npm run build    # production build → dist/public/
+```
+
+Verified: `npm install` + `npm run build` succeed (vite 6, 1683 modules
+transformed, ~302 KB JS / ~104 KB CSS gzipped to ~95 KB / ~17 KB).
 
 ## Source of truth
 
 The published page is `projects/mermaid-theme-builder/index.html` at the
-repo root. Edit that file for any live-site changes.
+repo root. Edit that file for any live-site changes. This React preview
+is for visual editing only — its build output is not deployed.
