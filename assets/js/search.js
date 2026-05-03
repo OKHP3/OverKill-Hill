@@ -14,8 +14,12 @@
   const STYLE_URL = "/assets/css/search.css?v=1";
 
   // ----- styles -----
+  // Pages should preload /assets/css/search.css statically in <head> to avoid a
+  // FOUC where the injected nav button renders with an oversized SVG glyph
+  // before the stylesheet arrives. This dynamic injection is a fallback for
+  // any page that forgot the static link tag.
   function ensureStyles() {
-    if (document.querySelector('link[data-okh-search-styles]')) return;
+    if (document.querySelector('link[href*="/assets/css/search.css"]')) return;
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = STYLE_URL;
@@ -147,7 +151,7 @@
     wrap.innerHTML = (
       '<div class="okh-search-panel" role="document">' +
         '<div class="okh-search-input-row">' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' +
+          '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' +
             '<circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />' +
           "</svg>" +
           '<input type="search" class="okh-search-input" autocomplete="off" spellcheck="false" placeholder="Search the Forge — articles, projects, ideas…" aria-label="Search" />' +
@@ -311,7 +315,10 @@
     btn.className = "okh-search-trigger";
     btn.setAttribute("aria-label", "Open search (" + shortcut + ")");
     btn.innerHTML = (
-      '<svg class="okh-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' +
+      // width/height attrs are an intrinsic-size backstop in case search.css
+      // is not yet parsed on first cold load (prevents a flash of an
+      // oversized SVG glyph in the nav).
+      '<svg class="okh-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' +
         '<circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />' +
       "</svg>" +
       '<span class="okh-search-label">Search</span>' +
