@@ -1,0 +1,270 @@
+# OverKill Hill P³™ — Template Extraction Directive
+
+### Replit Agent Addendum | Final Action of Session
+
+-----
+
+## OBJECTIVE
+
+Identify every unique page layout currently live in this Replit project, verify whether a stripped template version already exists in `/assets/templates/`, and create one for every page that lacks it. This runs after the full audit or as a standalone closing action.
+
+-----
+
+## STEP 1: SITE PAGE INVENTORY
+
+Walk the entire project directory. Produce a complete list of every HTML page — defined as any `index.html` found at any path depth, plus any standalone `.html` files in the root (excluding `404.html` and `under-construction.html` which are special-case templates and get their own treatment below).
+
+The expected inventory, based on current site structure, includes at minimum:
+
+|Page                             |Source Path                                   |
+|---------------------------------|----------------------------------------------|
+|Homepage                         |`/index.html`                                 |
+|Writings Hub                     |`/writings/index.html`                        |
+|First Diagram Is a Liar          |`/writings/first-diagram-is-a-liar/index.html`|
+|Biases as Constants              |`/writings/biases-as-constants/index.html`    |
+|Magnus Saga                      |`/writings/magnus-saga/index.html`            |
+|Manifesto                        |`/manifesto/index.html`                       |
+|Prompt Forge                     |`/prompt-forge/index.html`                    |
+|Projects Hub                     |`/projects/index.html`                        |
+|Mermaid Theme Builder            |`/projects/mermaid-theme-builder/index.html`  |
+|Universe                         |`/universe/index.html`                        |
+|About                            |`/about/index.html`                           |
+|Contact                          |`/contact/index.html`                         |
+|Legal                            |`/legal/index.html`                           |
+|Found-ry                         |`/found-ry/index.html`                        |
+|404 (special case)               |`/404.html`                                   |
+|Under Construction (special case)|`/under-construction.html`                    |
+
+Walk the full tree and add any pages not in this list that you discover. Do not assume this inventory is complete — it is a starting reference only. The actual walk governs.
+
+-----
+
+## STEP 2: IDENTIFY EXISTING TEMPLATES
+
+Check whether `/assets/templates/` exists. If it does not, create it.
+
+Inside `/assets/templates/`, look for any files that match the naming convention defined in Step 3. Log which templates already exist and which pages are not yet covered.
+
+-----
+
+## STEP 3: NAMING CONVENTION
+
+Every template file must follow this exact naming convention:
+
+```
+[section]-[subsection]-template.html
+```
+
+Examples:
+
+- Homepage → `home-template.html`
+- Writings Hub → `writings-hub-template.html`
+- Individual Article → `writings-article-template.html`
+- Projects Hub → `projects-hub-template.html`
+- Individual Project → `projects-project-template.html`
+- About → `about-template.html`
+- Contact → `contact-template.html`
+- Legal → `legal-template.html`
+- Manifesto → `manifesto-template.html`
+- Universe → `universe-template.html`
+- Prompt Forge → `prompt-forge-template.html`
+- Found-ry → `found-ry-template.html`
+- 404 → `404-template.html`
+- Under Construction → `under-construction-template.html`
+
+**Page type consolidation rule:** If two or more pages share the same structural layout (same section regions, same component arrangement), they share one template. For example: “First Diagram Is a Liar,” “Biases as Constants,” and “Magnus Saga” likely all use the same article layout — they produce one shared template called `writings-article-template.html`, not three separate files. Use judgment to identify which pages are layout-identical and consolidate them. Document your consolidation decisions in the template header comment.
+
+-----
+
+## STEP 4: TEMPLATE CONSTRUCTION RULES
+
+For each page that lacks a template, create the template file according to these rules:
+
+### 4.1 — What stays in the template
+
+Keep all structural and chrome elements exactly as they appear in the source page:
+
+- The full `<head>` block, with all CSS links, meta tags, and scripts intact
+- The complete site `<header>` and `<nav>` (navigation must be fully functional — the template is a working HTML file, not a wireframe)
+- The complete site `<footer>` with all links and social icons
+- The skip-to-content link
+- Every layout container, wrapper div, section, and grid structure
+- CSS class names on every element (so the template reflects the actual layout grid)
+- Any JavaScript includes or inline scripts that drive layout behavior (hamburger menu, dropdowns, etc.)
+- The announcement/hot-forge banner at the top if present on the source page
+
+### 4.2 — What gets stripped
+
+Remove all page-specific content, replacing it with labeled placeholder comments:
+
+|Content type                           |Replace with                                                                             |
+|---------------------------------------|-----------------------------------------------------------------------------------------|
+|Page `<title>` text                    |`[PAGE TITLE]                                                                            |
+|`<meta name="description">` content    |`[PAGE META DESCRIPTION — 120-160 chars]`                                                |
+|`og:title` content                     |`[OG TITLE]`                                                                             |
+|`og:description` content               |`[OG DESCRIPTION]`                                                                       |
+|`og:url` content                       |`[CANONICAL URL]`                                                                        |
+|`og:image` content                     |`[OG IMAGE PATH]`                                                                        |
+|`twitter:title` / `twitter:description`|`[TWITTER TITLE]` / `[TWITTER DESCRIPTION]`                                              |
+|`<link rel="canonical">` href          |`[CANONICAL URL]`                                                                        |
+|Page `<h1>` text                       |`[PAGE HEADLINE]`                                                                        |
+|Any `<h2>` section heading             |`[SECTION HEADING]`                                                                      |
+|Any `<h3>` subsection heading          |`[SUBSECTION HEADING]`                                                                   |
+|Body paragraph text                    |`<!-- [BODY CONTENT] -->` (preserve the `<p>` tag, empty the text)                       |
+|Article body content                   |Single `<p>` containing `[ARTICLE BODY CONTENT]` inside the content container            |
+|Image `src` attributes                 |`/assets/img/[IMAGE-FILENAME.ext]`                                                       |
+|Image `alt` attributes                 |`[Descriptive alt text for image]`                                                       |
+|Inline `href` links within body content|`[LINK URL]`                                                                             |
+|Any hardcoded dates                    |`[PUBLICATION DATE]`                                                                     |
+|Author bylines                         |`[AUTHOR NAME]`                                                                          |
+|Read-time estimates                    |`[X min read]`                                                                           |
+|Any version badges (e.g., v0.3)        |`[VERSION BADGE]`                                                                        |
+|JSON-LD structured data values         |Placeholder strings matching the key names                                               |
+|Breadcrumb page-specific items         |`[CURRENT PAGE NAME]` / `[CURRENT PAGE URL]`                                             |
+|Ko-fi or CTA section content           |Preserve the CTA container structure; replace copy with `[CTA HEADLINE]` and `[CTA BODY]`|
+
+### 4.3 — What the template must NOT do
+
+- Do not alter the nav links — they must remain live and accurate (the nav is chrome, not content)
+- Do not remove the footer social links — they are structural chrome
+- Do not change CSS classes or IDs on any element
+- Do not remove any structural `div`, `section`, `article`, or `aside` wrappers — even if empty after stripping
+- Do not convert the template to a component, partial, or include format — it must be a complete, self-contained, valid HTML file that renders correctly in a browser
+
+### 4.4 — Template header comment block
+
+Every template file must open (after `<!DOCTYPE html>`) with this comment block before the `<html>` tag:
+
+```html
+<!--
+  =====================================================
+  OverKill Hill P³™ — Page Template
+  =====================================================
+  Template:       [template filename, e.g., writings-article-template.html]
+  Covers pages:   [list every source page this template was derived from]
+  Derived from:   [primary source file path, e.g., /writings/first-diagram-is-a-liar/index.html]
+  Created:        [date created, e.g., May 2026]
+  Last updated:   [same as created on initial generation]
+
+  PURPOSE:
+  Stripped structural clone of the above page(s). All page-specific
+  content replaced with labeled placeholders. Navigation, footer,
+  CSS, and JS are live and functional. Use this file as the starting
+  point when creating a new page of this layout type.
+
+  USAGE:
+  1. Copy this file to the appropriate directory path
+  2. Rename to index.html
+  3. Replace all [PLACEHOLDER] tokens with real content
+  4. Update <head> meta, canonical URL, and OG tags
+  5. Commit and deploy
+
+  Consolidated from: [Y / N — if Y, list which pages share this layout]
+  =====================================================
+-->
+```
+
+-----
+
+## STEP 5: TEMPLATE INDEX FILE
+
+After creating all templates, create a single index file at:
+
+```
+/assets/templates/README.md
+```
+
+This file must contain:
+
+```markdown
+# OverKill Hill P³™ — Template Library
+**Location:** `/assets/templates/`
+**Last updated:** [Month Year]
+
+## Purpose
+Structural clones of every page layout on overkillhill.com, stripped of
+page-specific content and ready to use as starting points for new pages.
+All templates are complete, valid HTML files. Navigation and footer are
+live. CSS and JS are functional.
+
+## Template Inventory
+
+| Template File | Covers These Pages | Layout Type |
+|---|---|---|
+| home-template.html | / (homepage) | Homepage |
+| writings-hub-template.html | /writings/ | Content hub / index |
+| writings-article-template.html | /writings/first-diagram-is-a-liar/, /writings/biases-as-constants/, /writings/magnus-saga/ | Long-form article |
+| projects-hub-template.html | /projects/ | Content hub / index |
+| projects-project-template.html | /projects/mermaid-theme-builder/ | Individual project |
+| about-template.html | /about/ | About / brand page |
+| contact-template.html | /contact/ | Contact / form page |
+| legal-template.html | /legal/ | Legal / policy page |
+| manifesto-template.html | /manifesto/ | Manifesto / editorial |
+| universe-template.html | /universe/ | Brand universe |
+| prompt-forge-template.html | /prompt-forge/ | Tool / resource page |
+| found-ry-template.html | /found-ry/ | [describe layout type] |
+| 404-template.html | /404.html | Error page |
+| under-construction-template.html | /under-construction.html | Placeholder / stub |
+
+*(Update this table to reflect actual consolidation decisions made during generation)*
+
+## Usage Protocol
+1. Identify which template matches the layout type of the page you're building
+2. Copy the template file to the correct directory path
+3. Rename to `index.html`
+4. Replace every `[PLACEHOLDER]` token with real content
+5. Populate all `<head>` meta, OG tags, and canonical URL
+6. Validate HTML before committing
+7. Update this README with any new templates added
+
+## Placeholder Token Reference
+| Token | Where Used |
+|---|---|
+| `[PAGE TITLE]` | `<title>` tag |
+| `[PAGE META DESCRIPTION]` | `<meta name="description">` |
+| `[PAGE HEADLINE]` | First `<h1>` on page |
+| `[SECTION HEADING]` | `<h2>` section headers |
+| `[SUBSECTION HEADING]` | `<h3>` subheaders |
+| `[BODY CONTENT]` | Body `<p>` elements |
+| `[CANONICAL URL]` | `<link rel="canonical">` and `og:url` |
+| `[OG IMAGE PATH]` | `og:image` and `twitter:image` |
+| `[IMAGE-FILENAME.ext]` | `<img src>` attributes |
+| `[Descriptive alt text]` | `<img alt>` attributes |
+| `[PUBLICATION DATE]` | Dates in bylines and meta |
+| `[VERSION BADGE]` | Article version indicators |
+| `[CTA HEADLINE]` / `[CTA BODY]` | Call-to-action sections |
+```
+
+Update the table to reflect the actual templates created, not this reference list.
+
+-----
+
+## STEP 6: VALIDATION
+
+After creating all templates:
+
+1. Verify every template file opens without HTML parse errors
+1. Verify every template file has the correct header comment block
+1. Verify the `/assets/templates/README.md` lists every template created
+1. Verify no template contains any page-specific proper nouns, URLs, dates, or body text that should have been stripped
+1. Verify every template’s nav and footer links are intact and point to live site URLs (not relative paths that would break from the `/assets/templates/` subdirectory — use root-relative or absolute paths for all nav/footer links)
+
+**Critical on point 5:** Because templates live at `/assets/templates/filename.html` rather than at a page root, any relative CSS, JS, or image paths that worked at page root level will break. All asset paths in templates must be root-relative (starting with `/`) or absolute (`https://overkillhill.com/`). Audit and fix every `href`, `src`, and `url()` in template files to ensure nothing uses a relative path that would resolve incorrectly from the `/assets/templates/` directory depth.
+
+-----
+
+## DELIVERABLE
+
+A single closing report listing:
+
+- Total pages inventoried
+- Templates that already existed (if any)
+- Templates created (filename + source page(s))
+- Layout consolidations made and reasoning
+- Any pages where template creation was skipped and why
+- Confirmation that `/assets/templates/README.md` is complete
+
+-----
+
+*Issued by: OverKill Hill P³™ — Precision · Protocol · Promptcraft*
+*Session: May 2026 Free Token Sprint — Final Action*
