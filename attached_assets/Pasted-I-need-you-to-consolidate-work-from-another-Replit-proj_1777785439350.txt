@@ -1,0 +1,93 @@
+I need you to consolidate work from another Replit project into this one. 
+All the source files are already pushed to a branch in our GitHub repo, 
+so no cross-project file transfer is needed.
+
+CONTEXT
+=======
+This Replit project (OverKill-Hill) maintains the full overkillhill.com 
+static site, which lives in the GitHub repo OKHP3/OverKill-Hill.
+
+A separate, now-redundant Replit project called "Project-Page-Mermaid-Theme-Tool" 
+was used to build the page at:
+  https://overkillhill.com/projects/mermaid-theme-builder/
+
+That page already exists in this repo at:
+  projects/mermaid-theme-builder/index.html
+  
+It was committed and is being served — DO NOT modify the published page during 
+this migration unless I ask for changes.
+
+The other Replit project also contained a React + Vite dev-preview app that 
+mirrors the published page for easier visual editing. That React app has been 
+pushed to a migration branch in this repo.
+
+WHAT TO DO
+==========
+
+Step 1 — Pull the migration branch into the working tree
+--------------------------------------------------------
+The migration branch is:  migrate/mermaid-page-tooling
+The folder on that branch is:  _replit/mermaid-theme-builder-preview/
+
+It contains 86 files: a React 18 + Vite + Tailwind v4 + shadcn/ui app, 
+configured with the official OKH theme (Alfa Slab One headings, DM Sans body, 
+JetBrains Mono, orange #c46a2c primary, teal/espresso radial background — 
+matching assets/css/theme.css).
+
+Run from this Repl's shell:
+
+  git fetch origin migrate/mermaid-page-tooling
+  git checkout migrate/mermaid-page-tooling -- _replit/mermaid-theme-builder-preview
+  
+That copies the folder onto the current branch without switching branches.
+
+Step 2 — Decide where the dev preview should live in this project
+------------------------------------------------------------------
+First, check this project's structure with `ls -la` and `cat .replit` and 
+`cat pnpm-workspace.yaml` (if present) to understand whether it's a:
+  (a) pnpm monorepo with artifacts/ folders, OR
+  (b) plain static site repo with no Node tooling, OR
+  (c) something else
+
+Then place the React app appropriately:
+  - If (a): move it to artifacts/mermaid-theme-builder-preview/ and add to 
+    pnpm-workspace.yaml packages list
+  - If (b): keep it at _replit/mermaid-theme-builder-preview/ as a standalone 
+    dev tool, OR discard it entirely if you don't need a React preview 
+    (the static HTML at projects/mermaid-theme-builder/index.html is the 
+    real source of truth for the published page)
+  - If (c): use your best judgment; explain your decision before committing
+
+Step 3 — Wire it up (only if keeping the React preview)
+--------------------------------------------------------
+- Install dependencies in the moved folder: cd into it and run `pnpm install` 
+  (or `npm install` if not pnpm)
+- Add a workflow to run it: typically `pnpm run dev` or `npm run dev`
+- The vite.config.ts requires PORT and BASE_PATH env vars to be set by the 
+  workflow (this is a Replit convention)
+- Verify it boots and the preview matches the published page styling 
+  (orange palette, Alfa Slab One headings, teal/espresso bg)
+
+Step 4 — Commit and clean up
+-----------------------------
+- Commit the changes with a clear message
+- Push to main (or open a PR if that's the convention here)
+- Once verified, delete the migration branch:
+    git push origin --delete migrate/mermaid-page-tooling
+
+Step 5 — Confirm what was done
+------------------------------
+Tell me:
+  - Where the React dev preview ended up (or that you discarded it)
+  - The workflow command you registered (if any)
+  - Whether you verified the preview matches the live page styling
+  - That projects/mermaid-theme-builder/index.html was NOT modified
+
+REFERENCE FILES (already on main, do not touch unless asked)
+============================================================
+- projects/mermaid-theme-builder/index.html  ← the published page
+- assets/css/theme.css                        ← the official OKH theme
+- projects/index.html                         ← already has the card linking 
+                                                 to the mermaid page
+
+Begin with Step 1.
