@@ -1,0 +1,339 @@
+# Page Template Library — Build Prompt
+## For use on: OverKill Hill (overkillhill.com) · Glee-fully Tools (glee-fully.tools)
+### Reference implementation: AskJamie™ (askjamie.bot)
+
+---
+
+## What you are building
+
+You are building a **page template library** for this site, stored at
+`assets/templates/`. Every template is a production-quality HTML page with
+all page-specific content replaced by `[[DOUBLE-BRACKET]]` tokens. Together
+the templates become the single authoritative starting point for every new
+page added to this project.
+
+This is the same system already in use on the AskJamie™ site. Match it
+exactly — same folder, same naming convention, same token syntax, same header
+comment block format, same companion INDEX.md.
+
+---
+
+## Step 1 — Audit every HTML page in the project
+
+Before writing a single template, build a complete inventory:
+
+1. List every `.html` file in the repo (excluding `assets/templates/` itself
+   and any vendor/library files).
+2. For each page record: file path (relative to root), page title, and
+   **page type** (see Step 2).
+3. Count total pages.
+
+---
+
+## Step 2 — Assign a Page Type to every page
+
+A **Page Type** is a structural category, not a content category. Two pages
+with completely different copy but the same layout pattern share one Page Type
+and one template. Use the minimum number of Page Types that covers all real
+structural variation.
+
+**Standard Page Types** (use these names exactly if the site has pages of
+these shapes; invent a new slug only when none of these fit):
+
+| Slug | Shape |
+|---|---|
+| `homepage` | Root index — full-width hero, multi-section, multi-CTA |
+| `interior-single` | Standard interior page, prose only, no form, no card grid |
+| `interior-form` | Interior page whose primary element is a form or contact block |
+| `hub` | Directory/index page listing child items in a card or article grid |
+| `detail` | A deep individual item page (portfolio piece, case study, product, etc.) |
+| `utility` | Single-purpose tool page (search, calculator, etc.) |
+| `error` | Any HTTP error page (404, 410, 500, maintenance) |
+| `holding` | Coming-soon or under-construction holding page |
+
+Rename `detail` to something site-specific if it helps (e.g. `tool-detail`,
+`project-detail`, `post-detail`) — just keep it lowercase, hyphenated, and
+consistent.
+
+When two pages look identical in structure, they share **one** Page Type.
+When a page has a genuinely unique layout, create a new slug for it.
+
+Target: **the smallest set of Page Types that covers every page with zero
+structural compromise.**
+
+---
+
+## Step 3 — Identify the best source page for each Page Type
+
+For each Page Type, pick **one representative production page** — the most
+complete, most current, most structurally canonical example of that type. This
+is the source the template will be derived from.
+
+Record it as `Source Page: path/from/root/index.html`.
+
+---
+
+## Step 4 — Create `assets/templates/`
+
+Create the directory `assets/templates/` at the project root if it does not
+already exist.
+
+---
+
+## Step 5 — Write one template file per Page Type
+
+### File naming
+
+```
+template--[page-type-slug].html
+```
+
+Examples:
+```
+template--homepage.html
+template--interior-single.html
+template--hub.html
+template--detail.html
+template--utility.html
+template--error.html
+template--holding.html
+```
+
+Always lowercase. Always double-dash between `template` and the slug. Always
+`.html` extension.
+
+### How to build each template
+
+Start from the source page for that Page Type. Apply these rules in order:
+
+**PRESERVE (do not change or tokenise):**
+- All HTML structure, element nesting, and semantic tags
+- All CSS class names and IDs exactly as they appear
+- Nav markup (logo, links, mobile menu button) — this is shared infrastructure
+- Footer markup — shared infrastructure
+- All `<link>` tags for stylesheets
+- All `<script>` tags (src paths and inline scripts)
+- All `<meta>` tags that are site-wide constants (charset, viewport,
+  X-UA-Compatible, language, author, publisher, theme-color)
+- All `rel="preconnect"` and `rel="preload"` link hints
+- Nav logo `<img>` src and alt (shared infrastructure)
+- Footer logo `<img>` src and alt (shared infrastructure)
+- All `aria-*` attributes and structural accessibility roles
+- All shared inline blocks (e.g. a universal demo-notice, cookie banner,
+  announcement bar) — leave copy intact
+
+**TOKENISE (replace with `[[TOKEN-NAME]]`):**
+- `<title>` content → `[[PAGE-TITLE]]`
+- `<meta name="description">` content → `[[PAGE-DESCRIPTION]]`
+- `<meta name="keywords">` content → `[[PAGE-KEYWORDS]]`
+- `<link rel="canonical">` href → `[[CANONICAL-URL]]`
+- `og:title` → `[[OG-TITLE]]`
+- `og:description` → `[[OG-DESCRIPTION]]`
+- `og:type` → `[[OG-TYPE]]`
+- `og:url` → `[[OG-URL]]`
+- `og:image` → `[[OG-IMAGE-URL]]`
+- `og:image:alt` → `[[OG-IMAGE-ALT]]`
+- `og:site_name` → `[[OG-SITE-NAME]]` *(if it varies by page)*
+- `twitter:title` → `[[TWITTER-TITLE]]`
+- `twitter:description` → `[[TWITTER-DESCRIPTION]]`
+- `twitter:image` → `[[TWITTER-IMAGE-URL]]`
+- `twitter:image:alt` → `[[TWITTER-IMAGE-ALT]]`
+- JSON-LD `<script type="application/ld+json">` body → replace the entire
+  object body with a single comment `/* [[SCHEMA-JSON-LD]] */` inside
+  the braces; keep the outer `<script>` wrapper and `@context`/`@type`
+  shell if present
+- Every `<h1>` → `[[HERO-HEADING]]`
+- Every `<h2>` inside `<main>` → `[[SECTION-HEADING]]`
+- Every `<h3>` inside a card, article, or list block → `[[CARD-OR-ARTICLE-TITLE]]`
+- Hero subtitle paragraph → `[[HERO-SUBTITLE]]`
+- Hero tagline / supporting line → `[[HERO-TAGLINE]]`
+- Breadcrumb eyebrow label → `[[BREADCRUMB-LABEL]]`
+- Body paragraph copy → `[[BODY-COPY]]`
+- Button / link text for a CTA → `[[CTA-LABEL]]`
+- Button / link href for a CTA → `[[CTA-URL]]`
+- Page-specific `<img>` src (not nav/footer logos) → `[[IMAGE-SRC]]`
+- Page-specific `<img>` alt → `[[IMAGE-ALT]]`
+- Any other page-specific value: invent a SCREAMING-KEBAB-CASE token name
+  that describes what the value is, e.g. `[[TOOL-TAGLINE]]`,
+  `[[PROJECT-NUMBER]]`, `[[GPT-URL]]`.
+
+**Token rules:**
+- Always `[[UPPERCASE-KEBAB-CASE]]` — double bracket open, double bracket
+  close, all caps, words separated by hyphens.
+- When the same logical slot repeats (e.g. multiple section headings), reuse
+  the same token name. The author filling the template will find-replace
+  each occurrence individually.
+- Never invent a token for something that is a site-wide constant.
+
+### Header comment block
+
+Every template file must begin with this block (before `<!DOCTYPE html>`),
+adapted for each file:
+
+```html
+<!--
+  ============================================================
+  [SITE NAME] PAGE TEMPLATE
+  ============================================================
+  Template Type  : [page-type-slug]
+  Source Page    : [path/from/root/to/source.html]
+  Template Path  : /assets/templates/template--[slug].html
+  Created        : [YYYY-MM-DD]
+  ============================================================
+  USAGE INSTRUCTIONS:
+  1. Copy this file to the appropriate directory and rename to index.html
+  2. Search for all [[ ]] tokens and replace with real content
+  3. Update the <link rel="canonical"> to the new page's URL
+  4. Update all Open Graph og:url and og:title meta tags
+  5. Update the JSON-LD structured data values
+  6. Add page-specific JavaScript if needed (do not remove existing tags)
+  7. Remove this comment block before publishing
+  ============================================================
+-->
+```
+
+### TEMPLATE SECTION comments
+
+Inside `<main>`, above each `<section>` element, inject a comment that names
+the section. Derive the name from the section's first `<h1>`/`<h2>` or
+`aria-label`. Example:
+
+```html
+<!-- TEMPLATE SECTION: About Hero -->
+<section class="hero" aria-label="About page hero">
+```
+
+---
+
+## Step 6 — Write `assets/templates/INDEX.md`
+
+This file is the authoritative map of the template library. It must contain:
+
+### Required sections
+
+**Header:**
+```markdown
+# [Site Name] Template Library
+## /assets/templates/
+
+Created: [YYYY-MM-DD]
+Total templates: [N]
+
+---
+```
+
+**Page Inventory table** — every HTML page in the repo mapped to its
+Page Type and template:
+
+```markdown
+## Page Inventory
+
+| #  | File path                        | Page Title       | Page Type    | Template                        |
+|---:|----------------------------------|------------------|--------------|----------------------------------|
+|  1 | `index.html`                     | Homepage         | `homepage`   | `template--homepage.html`        |
+|  2 | `about/index.html`               | About            | `interior-single` | `template--interior-single.html` |
+...
+```
+
+**Available Templates section** — one subsection per template:
+
+```markdown
+## Available Templates
+
+### `template--homepage.html`
+- **Page type:** `homepage`
+- **Source page:** `index.html`
+- **Use for:** [one sentence]
+- **Required tokens:** `[[PAGE-TITLE]]`, `[[HERO-HEADING]]`, ... (list all)
+- **Optional tokens:** [any conditional tokens or "none"]
+```
+
+**Token Reference table** — every token used across all templates:
+
+```markdown
+## Token Reference
+
+| Token                     | Description                              | Required in        |
+|---------------------------|------------------------------------------|--------------------|
+| `[[PAGE-TITLE]]`          | Full browser tab title (≤70 chars)       | All                |
+| `[[PAGE-DESCRIPTION]]`    | Meta description (150–160 chars)         | All                |
+...
+```
+
+**How to Use a Template section:**
+
+```markdown
+## How to Use a Template
+
+1. Copy the desired template file to the target directory, rename `index.html`.
+2. Open and use Find & Replace to locate all `[[` tokens.
+3. Replace each token with real content for the page.
+4. Update `<link rel="canonical">` href.
+5. Update `og:url`, `og:title`, `og:description`, `og:image`.
+6. Replace the JSON-LD placeholder with the page-specific schema.
+7. **Remove** the template header comment block at the top of the file.
+8. Add any page-specific CSS classes or JS without modifying shared files.
+9. Test on mobile and desktop.
+10. Run the site auditor and rebuild the search index before committing.
+```
+
+**Adding a New Template section:**
+
+```markdown
+## Adding a New Template
+
+If a new page type is introduced that doesn't match any existing template:
+
+1. Build the new page using the closest existing template as a starting point.
+2. Once the page is production-ready, manually create a new template file
+   from it following the rules above.
+3. Add a row to the Page Inventory table in this INDEX.md.
+4. Add a subsection to Available Templates and rows to the Token Reference.
+5. Commit the new page, the new template, and the updated INDEX together.
+```
+
+---
+
+## Step 7 — Exclude templates from the site auditor
+
+Open `tools/audit-site.py`. Locate the `EXCLUDE_DIRS` (or equivalent) list.
+Add `"templates"` to it so the auditor never flags `[[TOKEN]]` placeholders
+as real page errors.
+
+If the site does not yet have an auditor script, skip this step and note it
+in INDEX.md.
+
+---
+
+## Step 8 — Exclude `tools/audit-report.md` from version control
+
+Open `.gitignore`. Add:
+
+```
+tools/audit-report.md
+```
+
+(The audit report is regenerated on every run — it should not be committed.)
+
+---
+
+## Quality checks before finishing
+
+- Every `.html` page in the repo appears in the INDEX.md inventory table.
+- Every template file begins with the header comment block.
+- Every template file ends with a valid closing `</html>` tag.
+- No template contains any hard-coded page-specific copy outside of
+  shared infrastructure (nav, footer, universal blocks).
+- No template contains a hard-coded `<link rel="canonical">` href (it must
+  be `[[CANONICAL-URL]]`).
+- All token names are `[[UPPERCASE-KEBAB-CASE]]` with double brackets.
+- `assets/templates/` is not listed as a source of pages in the auditor.
+- INDEX.md total template count matches the actual file count.
+
+---
+
+## Reference
+
+This prompt documents the system as built on AskJamie™ (askjamie.bot,
+`OKHP3/AskJamie`). That repo's `assets/templates/` folder — including its
+9 template files and `INDEX.md` — is the canonical reference implementation.

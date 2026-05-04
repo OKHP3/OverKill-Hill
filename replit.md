@@ -102,17 +102,21 @@ All 19 non-article pages + the article page itself have a site-wide "HOT OFF THE
 
 ## Internal Search Engine
 
-Static, client-side search across the entire site.
+Static, client-side search across the entire site. Consolidated 2026-05-03.
 
-- `/search/` — dedicated results page (URL-shareable: `/search/?q=foo`).
-- `assets/js/search.js` — auto-injects a `Ctrl/Cmd+K` overlay button into the primary nav of every page; bound to `/` and `Ctrl/Cmd+K`. Reads `assets/search-index.json`.
-- `assets/css/search.css` — overlay + results-page styles (loaded on demand by search.js + statically on the search page).
-- `assets/search-index.json` — generated index (39 entries: 1 home, 5 brand, 1 writings hub, 1 article, **23 article-section deep links**, 4 field guides, 3 projects, 1 search page).
+- `/search/` — dedicated results page (URL-shareable: `/search/?q=foo`). Body class `search-page` activates the JS page initialiser.
+- **All search logic lives in `assets/js/app.js` Section 5** (consolidated from the retired `assets/js/search.js`). Ctrl/Cmd+K or `/` opens overlay; Esc closes; ↑↓ navigate; ↵ follows.
+- **All search CSS lives in `assets/css/theme.css`** under the `SECTION · OKH SEARCH` banner (consolidated from the retired `assets/css/search.css`).
+- `assets/data/search-index.json` — generated index (47 entries as of 2026-05-04). `INDEX_URL` in `app.js` points to `/assets/data/search-index.json`.
 - `assets/scripts/build-search-index.py` — Python re-builder. Walks all `*.html`, skips `noindex`, extracts title + description + headings + body excerpt, plus per-section deep links for the FDIAL article. Re-run any time content changes:
   ```
   python3 assets/scripts/build-search-index.py
   ```
-- Sitelinks Searchbox JSON-LD (`SearchAction`) on every page now points at the real `/search/?q={search_term_string}` URL pattern (was previously phantom `/?s=…`).
+- Sitelinks Searchbox JSON-LD (`SearchAction`) on every page points at `/search/?q={search_term_string}`.
+
+### Cross-site search prompt
+
+`.local/cross-site-search-prompt.md` — a self-contained prompt (740 lines) for the Glee-fully.tools and AskJamie.bot Replit agents to implement functionally identical search on their sites. Covers: index builder adaptation, CORS setup, `app.js` tuning, CSS brand-color overrides, the `/search/` page template, and the peer-results feature (each site shows its own results first, then a secondary section of top results from the other two sibling sites with absolute cross-domain links).
 
 ## SEO / Metadata Status
 

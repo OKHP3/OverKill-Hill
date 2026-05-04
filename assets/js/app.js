@@ -239,12 +239,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ── 5. OKH Search — overlay + dedicated /search/ page ──────────────────────
 // Consolidated from search.js (2026-05-03). All 26 production pages load this.
-// Index: /assets/search-index.json  Styles: inlined into theme.css (2026-05-04)
+// Index: /assets/data/search-index.json  Styles: inlined into theme.css (2026-05-04)
 // Keyboard: Ctrl/Cmd+K or "/" to open · Esc to close · ↑/↓ navigate · ↵ follow
 (function () {
   "use strict";
 
-  const INDEX_URL = "/assets/search-index.json";
+  const INDEX_URL = "/assets/data/search-index.json";
 
   // ----- index loader (cached promise) -----
   let _indexPromise = null;

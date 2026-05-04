@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Build /assets/search-index.json from every indexable HTML page on the site.
+Build /assets/data/search-index.json from every indexable HTML page on the site.
 
 - Walks the project root for *.html files.
 - Skips files whose <meta name="robots"> contains "noindex".
@@ -24,7 +24,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "assets" / "search-index.json"
+OUT = ROOT / "assets" / "data" / "search-index.json"
 SITE = "https://overkillhill.com"
 
 SKIP_FILES = {
