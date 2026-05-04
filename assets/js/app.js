@@ -239,25 +239,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ── 5. OKH Search — overlay + dedicated /search/ page ──────────────────────
 // Consolidated from search.js (2026-05-03). All 26 production pages load this.
-// Index: /assets/search-index.json  Styles: /assets/css/search.css
+// Index: /assets/search-index.json  Styles: inlined into theme.css (2026-05-04)
 // Keyboard: Ctrl/Cmd+K or "/" to open · Esc to close · ↑/↓ navigate · ↵ follow
 (function () {
   "use strict";
 
   const INDEX_URL = "/assets/search-index.json";
-  const STYLE_URL = "/assets/css/search.css?v=1";
-
-  // ----- styles -----
-  // Pages preload /assets/css/search.css statically in <head> to avoid FOUC.
-  // This dynamic injection is a fallback for any page missing the static link.
-  function ensureStyles() {
-    if (document.querySelector('link[href*="/assets/css/search.css"]')) return;
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = STYLE_URL;
-    link.setAttribute("data-okh-search-styles", "");
-    document.head.appendChild(link);
-  }
 
   // ----- index loader (cached promise) -----
   let _indexPromise = null;
@@ -420,7 +407,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function initOverlay() {
-    ensureStyles();
     const overlay = buildOverlay();
     if (!overlay) return;
     const input    = overlay.querySelector(".okh-search-input");
@@ -669,7 +655,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Bootstrap ────────────────────────────────────────────────────────────
   function start() {
     if (document.body.classList.contains("search-page")) {
-      ensureStyles();
       initSearchPage();
       initOverlay(); // search button still works on the search page itself
     } else {
