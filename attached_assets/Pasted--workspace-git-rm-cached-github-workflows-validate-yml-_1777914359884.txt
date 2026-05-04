@@ -1,0 +1,26 @@
+~/workspace$ git rm --cached .github/workflows/validate.yml
+git add .gitignore
+git commit -m "Stop tracking CI workflow via git (Replit OAuth lacks workflow scope)"
+git push origin main
+fatal: pathspec '.github/workflows/validate.yml' did not match any files
+fatal: pathspec '.gitignore' did not match any files
+U   writings/first-diagram-is-a-liar/index.html
+U   writings/first-diagram-is-a-liar/v03/v1-heat-a/index.html
+U   writings/first-diagram-is-a-liar/v03/v1-heat-b/index.html
+U   writings/first-diagram-is-a-liar/v03/v2-heat-a/index.html
+U   writings/first-diagram-is-a-liar/v03/v2-heat-b/index.html
+error: Committing is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+Enumerating objects: 554, done.
+Counting objects: 100% (510/510), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (270/270), done.
+Writing objects:  24% (78/322), 6.63 MiB | 1Writing objects:  25% (81/322), 6.63 MiB | 1Writing objects:  26% (84/322), 6.63 MiB | 1Writing objects:  27% (87/322), 6.63 MiB | 1Writing objects:  28% (91/322), 6.63 MiB | 1Writing objects:  29% (94/322), 6.63 MiB | 1Writing objects:  30% (97/322), 6.63 MiB | 1Writing objects:  31% (100/322), 6.63 MiB | Writing objects:  32% (104/322), 6.63 MiB | Writing objects:  33% (107/322), 6.63 MiB | Writing objects:  34% (110/322), 6.63 MiB | Writing objects:  35% (113/322), 6.63 MiB | Writing objects:  37% (121/322), 6.63 MiB | Writing objects:  38% (123/322), 6.63 MiB | Writing objects:  39% (126/322), 6.63 MiB | Writing objects:  40% (129/322), 6.63 MiB | Writing objects:  41% (133/322), 6.63 MiB | Writing objects:  42% (136/322), 6.63 MiB | Writing objects:  43% (139/322), 6.63 MiB | Writing objects:  44% (142/322), 6.63 MiB | Writing objects:  45% (145/322), 6.63 MiB | Writing objects:  46% (149/322), 6.63 MiB | Writing objects:  47% (152/322), 6.63 MiB | Writing objects:  48% (155/322), 6.63 MiB | Writing objects:  49% (158/322), 6.63 MiB | Writing objects:  50% (161/322), 6.63 MiB | Writing objects:  51% (165/322), 6.63 MiB | Writing objects:  52% (168/322), 6.63 MiB | Writing objects:  53% (171/322), 6.63 MiB | Writing objects:  54% (174/322), 6.63 MiB | Writing objects:  55% (178/322), 6.63 MiB | Writing objects:  56% (181/322), 6.63 MiB | Writing objects:  57% (184/322), 6.63 MiB | Writing objects:  58% (187/322), 6.63 MiB | Writing objects:  59% (190/322), 6.63 MiB | Writing objects:  60% (194/322), 6.63 MiB | Writing objects:  61% (197/322), 6.63 MiB | Writing objects:  62% (200/322), 6.63 MiB | Writing objects:  63% (203/322), 6.63 MiB | Writing objects:  64% (207/322), 6.63 MiB | Writing objects:  65% (210/322), 6.63 MiB | Writing objects:  66% (213/322), 6.63 MiB | Writing objects:  67% (216/322), 6.63 MiB | Writing objects:  68% (219/322), 6.63 MiB | Writing objects:  69% (223/322), 6.63 MiB | Writing objects:  70% (226/322), 6.63 MiB | Writing objects:  71% (229/322), 6.63 MiB | Writing objects:  72% (232/322), 6.63 MiB | Writing objects:  73% (236/322), 6.63 MiB | Writing objects:  74% (239/322), 6.63 MiB | Writing objects:  75% (242/322), 6.63 MiB | Writing objects:  76% (245/322), 6.63 MiB | Writing objects:  77% (248/322), 6.63 MiB | Writing objects:  78% (252/322), 6.63 MiB | Writing objects:  79% (255/322), 6.63 MiB | Writing objects:  80% (258/322), 6.63 MiB | Writing objects:  81% (261/322), 6.63 MiB | Writing objects:  82% (265/322), 6.63 MiB | Writing objects:  83% (268/322), 6.63 MiB | Writing objects:  84% (271/322), 6.63 MiB | Writing objects:  85% (274/322), 6.63 MiB | Writing objects:  86% (277/322), 6.63 MiB | Writing objects:  87% (281/322), 6.63 MiB | Writing objects:  88% (284/322), 6.63 MiB | Writing objects:  89% (287/322), 6.63 MiB | Writing objects:  90% (290/322), 6.63 MiB | Writing objects:  91% (294/322), 6.63 MiB | Writing objects:  92% (297/322), 6.63 MiB | Writing objects:  93% (300/322), 6.63 MiB | Writing objects:  94% (303/322), 6.63 MiB | Writing objects:  95% (306/322), 6.63 MiB | Writing objects:  96% (310/322), 6.63 MiB | Writing objects:  97% (313/322), 6.63 MiB | Writing objects:  98% (316/322), 6.63 MiB | Writing objects:  99% (319/322), 6.63 MiB | Writing objects: 100% (322/322), 6.63 MiB | Writing objects: 100% (322/322), 14.64 MiB | 19.91 MiB/s, done.
+Total 322 (delta 139), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (139/139), completed with 40 local objects.
+To https://github.com/OKHP3/OverKill-Hill
+ ! [remote rejected] main -> main (refusing to allow an OAuth App to create or update workflow `.github/workflows/validate.yml` without `workflow` scope)
+error: failed to push some refs to 'https://github.com/OKHP3/OverKill-Hill'
+~/workspace$ 

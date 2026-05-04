@@ -49,13 +49,14 @@
        METADATA: Search & Crawling
        ======================================== -->
     <meta name="robots" content="noindex, nofollow" />
+    <link rel="author" href="/humans.txt" />
     <link rel="canonical" href="https://overkillhill.com/projects/un-nocked-truth/" />
     <link rel="alternate" hreflang="en" href="https://overkillhill.com/projects/un-nocked-truth/" />
 
     <!-- ========================================
        METADATA: Color Scheme & Theme
        ======================================== -->
-    <meta name="theme-color" content="#111827" />
+    <meta name="theme-color" content="#2a2320" />
     <meta name="color-scheme" content="dark light" />
 
     <!-- ========================================
@@ -85,22 +86,32 @@
     <link rel="stylesheet" href="/assets/css/theme.css" />
     <link rel="stylesheet" href="/assets/css/search.css?v=1" />
 
+      <script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
   </head>
 
   <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-
+    <a class="okh-skip-link" href="#main">Skip to main content</a>
     <!-- 🔧 OKH “under construction” gate -->
     <div class="construction-overlay"
          data-wip-key="found-ry">
       <div class="construction-overlay__card">
-        <img
+        <picture><source type="image/webp" srcset="/assets/img/OverKillHillP³-BirdPatrolCompLeft-UnderConstruction-Wide-1536.webp"><img
           src="/assets/img/OverKillHillP³-BirdPatrolCompLeft-UnderConstruction-Wide-1536.png"
           alt="The Forge — is undergoing construction"
           class="construction-overlay__image"
           width="1536"
           height="768"
-        />
+        /></picture>
 
         <p class="construction-overlay__copy">
           This Found‑Rᵧ page is still being wired up. Sections may move,

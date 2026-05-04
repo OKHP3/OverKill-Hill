@@ -1,0 +1,203 @@
+~/workspace$ git add writings/first-diagram-is-a-liar/index.html writings/first-diagram-is-a-liar/v03/v1-heat-a/index.html writings/first-diagram-is-a-liar/v03/v1-heat-b/index.html writings/first-diagram-is-a-liar/v03/v2-heat-a/index.html writings/first-diagram-is-a-liar/v03/v2-heat-b/index.html
+~/workspace$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 9 commits.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+    modified:   404.html
+    modified:   AUDIT_OVERKILL_HILL_REPLIT_PASS.md
+    modified:   about/index.html
+    modified:   assets/js/search.js
+    deleted:    assets/templates/404-template.html
+    deleted:    assets/templates/README.md
+    deleted:    assets/templates/about-template.html
+    deleted:    assets/templates/contact-template.html
+    deleted:    assets/templates/found-ry-template.html
+    deleted:    assets/templates/home-template.html
+    deleted:    assets/templates/legal-template.html
+    deleted:    assets/templates/manifesto-template.html
+    deleted:    assets/templates/projects-hub-template.html
+    deleted:    assets/templates/projects-project-template.html
+    deleted:    assets/templates/prompt-forge-template.html
+    deleted:    assets/templates/search-template.html
+    deleted:    assets/templates/under-construction-template.html
+    deleted:    assets/templates/universe-template.html
+    deleted:    assets/templates/writings-article-study-template.html
+    deleted:    assets/templates/writings-article-template.html
+    deleted:    assets/templates/writings-hub-template.html
+    modified:   contact/index.html
+    modified:   found-ry/index.html
+    modified:   index.html
+    modified:   legal/index.html
+    modified:   manifesto/index.html
+    modified:   projects/abrahamic-reference-engine/index.html
+    modified:   projects/bfs-framing-intelligent-futures/index.html
+    modified:   projects/hometools/index.html
+    modified:   projects/index.html
+    modified:   projects/mermaid-theme-builder/index.html
+    modified:   projects/pathscrib-r/index.html
+    modified:   projects/un-nocked-truth/index.html
+    modified:   prompt-forge/index.html
+    deleted:    scripts/extract_templates.py
+    modified:   scripts/validate_site.py
+    modified:   under-construction.html
+    modified:   universe/index.html
+    modified:   writings/biases-as-constants/index.html
+    modified:   writings/first-diagram-is-a-liar/index.html
+    modified:   writings/first-diagram-is-a-liar/v03/v1-heat-a/index.html
+    modified:   writings/first-diagram-is-a-liar/v03/v1-heat-b/index.html
+    modified:   writings/first-diagram-is-a-liar/v03/v2-heat-a/index.html
+    modified:   writings/first-diagram-is-a-liar/v03/v2-heat-b/index.html
+    modified:   writings/index.html
+    modified:   writings/magnus-saga/index.html
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+    modified:   404.html
+    modified:   AUDIT_OVERKILL_HILL_REPLIT_PASS.md
+    modified:   CHANGELOG.md
+    modified:   CONTRIBUTING.md
+    modified:   README.md
+    modified:   _headers
+    modified:   about/index.html
+    modified:   assets/css/theme.css
+    deleted:    assets/img/AskJamie/BrandGuard/AskJamie-GPTIcon-BFS01-BFSFramingIntelligentFutures-Square-1024-alt.png
+    deleted:    assets/img/AskJamie/BrandGuard/AskJamie-GPTIcon-BFS01-BFSFramingIntelligentFutures-Square-1024-alt.webp
+    deleted:    assets/img/AskJamie/BrandGuard/AskJamie-GPTIcon-BFS01-BFSFramingIntelligentFutures-Square-1024-pre.png
+    deleted:    assets/img/AskJamie/BrandGuard/AskJamie-GPTIcon-BFS01-BFSFramingIntelligentFutures-Square-1024-pre.webp
+    deleted:    "assets/img/OverKillHillP\302\263-Background-Square-1024.png"
+    deleted:    "assets/img/OverKillHillP\302\263-Background-Square-1024.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-Background-Wide-2256.png"
+    deleted:    "assets/img/OverKillHillP\302\263-Background-Wide-2256.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-Background-Wide-2390.png"
+    deleted:    "assets/img/OverKillHillP\302\263-Background-Wide-2390.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-Background-Wide-4096.png"
+    deleted:    "assets/img/OverKillHillP\302\263-Background-Wide-4096.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-BirdPatrolCompLeft-ErrorExplosion-Background-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-BirdPatrolCompLeft-ErrorExplosion-Background-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-BirdPatrolCompLeft-ErrorExplosion-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-BirdPatrolCompLeft-UnderConstruction-Background-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-BirdPatrolCompLeft-UnderConstruction-Background-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-BirdPatrolCompLeft-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-BirdPatrolCompLeft-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-BirdPatrolCompRight-Wide-1536-alt.png"
+    deleted:    "assets/img/OverKillHillP\302\263-BirdPatrolCompRight-Wide-1536-alt.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-BirdPatrolCompRight-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-BirdPatrolCompRight-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-CompLeft-Wide-2390.png"
+    deleted:    "assets/img/OverKillHillP\302\263-CompLeft-Wide-2390.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-CompRight-Wide-2390.png"
+    deleted:    "assets/img/OverKillHillP\302\263-CompRight-Wide-2390.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-LogoCompLeft-Square-1024.png"
+    deleted:    "assets/img/OverKillHillP\302\263-LogoCompLeft-Square-1024.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-LogoCompRight-Square-1024.png"
+    deleted:    "assets/img/OverKillHillP\302\263-LogoCompRight-Square-1024.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-LogoDesktopLeft-Square-1024.png"
+    deleted:    "assets/img/OverKillHillP\302\263-LogoDesktopLeft-Square-1024.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-LogoDesktopLeftTitleRight-Wide-2390.png"
+    deleted:    "assets/img/OverKillHillP\302\263-LogoDesktopLeftTitleRight-Wide-2390.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-LogoDesktopRight-Square-1024.png"
+    deleted:    "assets/img/OverKillHillP\302\263-LogoDesktopRight-Square-1024.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-LogoLaptopLeft-Square-1024.png"
+    deleted:    "assets/img/OverKillHillP\302\263-LogoLaptopLeft-Square-1024.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-LogoLaptopRight-Square-1024.png"
+    deleted:    "assets/img/OverKillHillP\302\263-LogoLaptopRight-Square-1024.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-Sentinel-Attacking-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-Sentinel-Attacking-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-Sentinel-Warning-Square-1024.png"
+    deleted:    "assets/img/OverKillHillP\302\263-Sentinel-Warning-Square-1024.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleBotBirdPatrol-Square-1024.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleBotBirdPatrol-Square-1024.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleBotBirdPatrolCompRight-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleBotBirdPatrolCompRight-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleBotBirdWarn-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleBotBirdWarn-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleHoriz-Square-1024.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleHoriz-Square-1024.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleHorzBackground-Wide-2256.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleHorzBackground-Wide-2256.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLeftBotBirdPatrolCompRight-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLeftBotBirdPatrolCompRight-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLeftCompRight-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLeftCompRight-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLeftLowBirdWarnCompRight-Wide-1992.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLeftLowBirdWarnCompRight-Wide-1992.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLeftUpBirdWaitingCompRight-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLeftUpBirdWaitingCompRight-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLeftUpLaptopRight-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLeftUpLaptopRight-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLowRightBirdPerchComp-Square-1024.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLowRightBirdPerchComp-Square-1024.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLowRightBirdPerchComp-Square-192.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLowRightBirdPerchComp-Square-502.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLowRightBirdPerchComp-Square-502.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLowRightBirdPerchComp-Square-512.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleLowRightBirdPerchComp-Square-512.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleMidBirdPatrolCompRight-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleMidBirdPatrolCompRight-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightBirdPatrol-Wide-1536-alt.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightBirdPatrol-Wide-1536-alt.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightBirdPatrol-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightBirdPatrol-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightBotBirdPatrolCompLeft-Wide-1536-alt.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightBotBirdPatrolCompLeft-Wide-1536-alt.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightBotBirdPatrolCompLeft-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightBotBirdPatrolCompLeft-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightBotBirdWarn-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightBotBirdWarn-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightLaptopLeft-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightLaptopLeft-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightLowBirdCrucible-Square-1024.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightLowBirdCrucible-Square-1024.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightUpBirdPatrolCompRight-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleRightUpBirdPatrolCompRight-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleStackLeftUpLaptopRight-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleStackLeftUpLaptopRight-Wide-1536.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleStacked-Square-256.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleStackedSquare 1024.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleStackedSquare 1024.webp"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleUpRightLaptopLeft-Wide-1536.png"
+    deleted:    "assets/img/OverKillHillP\302\263-TitleUpRightLaptopLeft-Wide-1536.webp"
+    deleted:    assets/img/etch-ai-sketch-using-a-council-to-design-at-velocity.webp
+    modified:   assets/search-index.json
+    modified:   contact/index.html
+    modified:   found-ry/index.html
+    modified:   index.html
+    modified:   legal/index.html
+    modified:   manifesto/index.html
+    modified:   projects/abrahamic-reference-engine/index.html
+    modified:   projects/bfs-framing-intelligent-futures/index.html
+    modified:   projects/hometools/index.html
+    modified:   projects/index.html
+    modified:   projects/mermaid-theme-builder/index.html
+    modified:   projects/pathscrib-r/index.html
+    modified:   projects/un-nocked-truth/index.html
+    modified:   prompt-forge/index.html
+    modified:   robots.txt
+    modified:   scripts/validate_site.py
+    modified:   search/index.html
+    modified:   sitemap.xml
+    modified:   under-construction.html
+    modified:   universe/index.html
+    modified:   writings/biases-as-constants/index.html
+    modified:   writings/index.html
+    modified:   writings/magnus-saga/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+    .github/workflows/
+    .gitignore
+    .well-known/
+    assets/img/library/
+    assets/templates/
+    humans.txt
+    llms.txt
+    scripts/build_search_index.py
+    scripts/extract_templates.py
+    scripts/modernize_pages.py
+    scripts/move_orphans_to_library.py
+
+~/workspace$ 

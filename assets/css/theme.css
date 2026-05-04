@@ -390,21 +390,8 @@ button {
   left: -9999px;
 }
 
-/* Skip link */
-.skip-link {
-  position: absolute;
-  left: -999px;
-  top: 0;
-  padding: 0.5rem 1rem;
-  background: #111827;
-  color: #f9fafb;
-  z-index: 999;
-}
-
-.skip-link:focus {
-  left: 1rem;
-  top: 1rem;
-}
+/* Legacy `.skip-link` removed 2026-05-03 — superseded by `.okh-skip-link`
+   (brand-themed, better focus styles, applied via scripts/modernize_pages.py). */
 
 /* ===== SHARED UTILITIES — cross-site (overkillhill / glee-fully / askjamie) =====
    These atomic helpers replace common inline style="margin-top: …" /
@@ -906,12 +893,46 @@ button {
   }
 }
 
-/* Respect reduced-motion preferences */
+/* Respect reduced-motion preferences (WCAG 2.3.3) — comprehensive 2026 baseline */
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
   .brand-stripes {
     animation: none;
     background-position: 0 0;
   }
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Skip-link — WCAG 2.4.1 baseline. Visually hidden until focused. */
+.okh-skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.75rem 1rem;
+  background: var(--okh-espresso, #2a2320);
+  color: var(--okh-cream, #f5ead7);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 6px 0;
+  z-index: 9999;
+  transform: translateY(-150%);
+  transition: transform 120ms ease-out;
+}
+.okh-skip-link:focus,
+.okh-skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--okh-orange, #c46a2c);
+  outline-offset: 2px;
 }
 
 /* ===== SECTION STYLES ==================================================== */

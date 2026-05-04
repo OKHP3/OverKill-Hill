@@ -52,13 +52,14 @@
     <meta name="googlebot" content="index, follow" />
     <meta name="bingbot" content="index, follow" />
     <meta name="revisit-after" content="7 days" />
+    <link rel="author" href="/humans.txt" />
     <link rel="canonical" href="https://overkillhill.com/about/" />
     <link rel="alternate" hreflang="en" href="https://overkillhill.com/about/" />
 
     <!-- ========================================
        METADATA: Color Scheme & Theme
        ======================================== -->
-    <meta name="theme-color" content="#111827" />
+    <meta name="theme-color" content="#2a2320" />
     <meta name="color-scheme" content="dark light" />
 
     <!-- ========================================
@@ -88,11 +89,21 @@
     <link rel="stylesheet" href="/assets/css/theme.css" />
     <link rel="stylesheet" href="/assets/css/search.css?v=1" />
 
+      <script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
   </head>
 
   <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    
+    <a class="okh-skip-link" href="#main">Skip to main content</a>
     <header class="site-header" id="top">
       <div class="container">
         <div class="logo">

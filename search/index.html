@@ -7,7 +7,7 @@
     <meta name="language" content="English" />
     <title>Search the Forge | OverKill Hill P³™</title>
     <meta name="description" content="Search OverKill Hill P³™ — articles, projects, manifesto, and the Council archives. Find anything from ROY to Mermaid to the v0.3 Visual Edition without hunting through menus." />
-    <meta name="keywords" content="OverKill Hill search, OKHP3 search, Mermaid search, Council search, OverKill Hill P3, find articles" />
+    <meta name="keywords" content="OverKill Hill search, OKHP³ search, Mermaid search, Council search, OverKill Hill P³, find articles" />
     <meta name="author" content="OverKill Hill P³™" />
     <meta name="creator" content="OverKill Hill P³™" />
     <meta name="publisher" content="OverKill Hill P³™" />
@@ -32,9 +32,10 @@
     <meta name="twitter:creator" content="@OverKillHillP3" />
 
     <meta name="robots" content="index, follow, max-snippet:-1" />
+    <link rel="author" href="/humans.txt" />
     <link rel="canonical" href="https://overkillhill.com/search/" />
 
-    <meta name="theme-color" content="#111827" />
+    <meta name="theme-color" content="#2a2320" />
     <meta name="color-scheme" content="dark light" />
 
     <link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
@@ -43,8 +44,8 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <link rel="stylesheet" href="/assets/css/theme.css?v=15" />
-    <link rel="stylesheet" href="/assets/css/search.css?v=1" />
+    <link rel="stylesheet" href="/assets/css/theme.css?v=072b3dc7" />
+    <link rel="stylesheet" href="/assets/css/search.css?v=519c0c2d" />
 
     <script type="application/ld+json">
       {
@@ -59,8 +60,20 @@
         }
       }
     </script>
+      <script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
   </head>
   <body class="search-page">
+    <a class="okh-skip-link" href="#main">Skip to main content</a>
     <a class="skip-link sr-only" href="#main">Skip to content</a>
 
     <header class="site-header" id="top">

@@ -1,0 +1,33 @@
+# Python (used by /scripts/*.py and /server.py)
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Replit/local
+.local/
+.cache/
+.upm/
+.replit_cache/
+node_modules/
+
+# GitHub Actions — push via GitHub web UI or a PAT with workflow scope.
+# Replit's OAuth app lacks that scope, so tracking this in git blocks pushes.
+.github/workflows/
+
+# Build / temp
+dist/
+build/
+*.log
+.tmp/

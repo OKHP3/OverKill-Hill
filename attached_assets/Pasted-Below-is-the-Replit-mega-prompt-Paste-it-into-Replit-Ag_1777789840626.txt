@@ -1,0 +1,846 @@
+Below is the Replit mega-prompt. Paste it into Replit Agent for the OverKill Hill repl.
+
+I checked the public homepage, GitHub repo, README, sitemap, and root index.html before writing this. The site is already framed as an active “forge mode” build, with major areas for Forge, Projects, Writings, Manifesto, Universe, About, Contact, and Legal.  ￼ The repo is public, has a static-site structure with folders like about, assets, contact, found-ry, legal, manifesto, projects, prompt-forge, universe, writings, plus server.py, sitemap.xml, robots.txt, and Replit config.  ￼ The sitemap also exposes pages not obvious from the homepage navigation, including /search/ and several first-diagram-is-a-liar subpages, so the audit prompt pushes hard on route inventory, navigation consistency, crawlability, and content parity.  ￼
+
+You are Replit Agent operating on the OverKill Hill P³ website and repository. This is an authorized maximum-effort audit, repair, refactor, polish, and deployment-hardening pass.
+Treat this as a full-stack static-site rescue and maturation engagement.
+PRIMARY OBJECTIVE
+Completely evaluate, correct, strengthen, polish, and production-harden the OverKill Hill P³ website to the maximum extent possible within the current Replit project and GitHub repository.
+This is not a cosmetic pass.
+This is not a quick bug fix.
+This is not a shallow lint pass.
+This is a comprehensive site, codebase, content, brand, UX, SEO, accessibility, performance, repository, and deployment audit followed by direct corrections wherever safe and appropriate.
+You are authorized to make broad improvements across the repository as long as you preserve the core identity, brand, meaning, content ownership, URLs, and public-facing purpose of the project.
+SOURCE LINKS
+Public website:
+https://overkillhill.com
+GitHub repository:
+https://github.com/OKHP3/OverKill-Hill
+Replit project:
+https://replit.com/t/overkill-hill/repls/OverKill-Hill
+Strategic Notion source:
+https://www.notion.so/overkillhill/OverKill-Hill-2cc812e0ced480389730dbd833839ae6
+Behind-the-scenes Notion source:
+https://www.notion.so/overkillhill/OverKill-Hill-P-Behind-the-Curtains-46fd17e144f64c58bd5a488287d68b62
+If you can access the Notion links, use them as strategic source material for brand, architecture, roadmap, positioning, and content alignment.
+If you cannot access the Notion links, do not block. Continue using the repository and public site as the source of truth, and leave clear TODO markers where Notion-backed validation is needed.
+BRAND CONTEXT
+OverKill Hill P³ is not a generic AI consulting site.
+It is the parent forge behind protocol-driven promptcraft, custom GPT architecture, AI system design, symbolic tooling, visual communication, and structured automation.
+The core identity is:
+OverKill Hill P³
+Precision · Protocol · Promptcraft
+The site should feel like:
+- A digital forge
+- A protocol workshop
+- A systems architecture lab
+- A thought leadership platform
+- A public-facing hub for related projects such as AskJamie, Glee-fully Personalizable Tools, Mermaid Theme Builder, Prompt Forge, and related writings
+The site must not drift into bland startup language.
+Do not flatten the voice into generic “AI solutions for businesses.”
+Do not remove the distinctive forge metaphor unless you are tightening or clarifying it.
+Do not remove the personal, architectural, protocol-driven tone.
+Do not over-polish the site into something sterile.
+Improve clarity without erasing personality.
+The brand should communicate:
+1. This is an intelligent systems architecture brand.
+2. Prompts are treated as protocols, not clever one-off questions.
+3. AI systems should be structured, auditable, interpretable, and human-centered.
+4. Visual communication, Mermaid diagrams, and “Return on Your Words” are part of the OverKill Hill thesis.
+5. The site is both a public portfolio and an evolving build zone.
+6. The correct vibe is professional, sharp, forged, slightly mythic, but still practical.
+7. The voice can have swagger, but it must remain readable and credible.
+EXECUTION MODE
+Operate in the following mode:
+- Audit first.
+- Inventory before changing.
+- Fix directly where the correction is safe.
+- Refactor only when it clearly improves maintainability, reliability, accessibility, performance, or consistency.
+- Preserve public routes unless a route is clearly dead, duplicate, or broken.
+- Do not invent credentials.
+- Do not add paid third-party dependencies unless absolutely necessary.
+- Prefer simple static-site solutions.
+- Prefer plain HTML, CSS, and JavaScript unless the repo already has a stronger framework.
+- Preserve GitHub Pages compatibility.
+- Preserve Replit compatibility.
+- Preserve the custom domain behavior.
+- Preserve existing content unless it is broken, duplicated, misleading, obsolete, inaccessible, or clearly placeholder-only.
+- When replacing content, retain the original meaning while improving clarity, structure, and conversion value.
+- If a large refactor is needed, perform it carefully and document the change.
+- Leave the repo cleaner than you found it.
+IMPORTANT CONSTRAINTS
+1. Do not delete major content without replacing it or documenting why.
+2. Do not remove the “OverKill Hill P³” identity.
+3. Do not remove project ecosystem connections to AskJamie, Glee-fully, Mermaid Theme Builder, Prompt Forge, or related writings.
+4. Do not break existing inbound URLs.
+5. Do not break GitHub Pages static hosting.
+6. Do not add server-only dependencies that make the site unusable as static HTML unless the existing architecture already requires them.
+7. Do not add fake testimonials, fake clients, fake certifications, fake analytics, fake case studies, or fabricated claims.
+8. Do not expose private Notion content publicly unless it is clearly intended to be public site content.
+9. Do not introduce privacy-invasive tracking.
+10. Do not add contact forms that require backend secrets unless you implement a safe static alternative or leave a clear integration stub.
+INITIAL PUBLIC OBSERVATIONS TO VERIFY LOCALLY
+From public review, the site appears to have:
+- A homepage positioned around “Precision · Protocol · Promptcraft.”
+- Navigation for The Forge, Projects, Writings, Manifesto, Biases as Constants, Magnus Saga, Prompt Forge, First Diagram Is Usually a Liar, OKHP³ Universe, About, Contact, and Legal.
+- A homepage “Fresh from the Forge” section focused on “The First Diagram Is Usually a Liar.”
+- Project cards or references for Glee-fully Personalizable Tools, AskJamie, and Protocol Libraries.
+- A repository with folders including about, assets, contact, found-ry, legal, manifesto, projects, prompt-forge, universe, writings, plus root files such as index.html, 404.html, sitemap.xml, robots.txt, site.webmanifest, server.py, .replit, README.md, ROADMAP.md, SECURITY.md, CONTRIBUTING.md, AGENTS.md, and license files.
+- A sitemap that includes routes such as /search/ and several /writings/first-diagram-is-a-liar/v03/... pages.
+Validate these assumptions against the actual current repo before acting.
+PHASE 0: CHECKPOINT AND WORKSPACE SAFETY
+Before changing anything:
+1. Inspect the repo structure.
+2. Determine current branch, working tree status, and remote status.
+3. Identify whether this Replit workspace is synced to GitHub.
+4. Create a concise audit note file at:
+   /AUDIT_OVERKILL_HILL_REPLIT_PASS.md
+5. In that file, record:
+   - Start timestamp
+   - Current branch
+   - Current commit hash if available
+   - Detected app type
+   - Detected hosting assumptions
+   - Initial file/folder inventory
+   - Known risks
+6. If Git is available, create a safety branch or clear checkpoint commit if appropriate. If not appropriate, document why.
+7. Do not stop to ask permission for every improvement. This prompt is the authorization for a comprehensive improvement pass.
+PHASE 1: FULL REPOSITORY INVENTORY
+Perform a full repo scan.
+Inventory:
+- Top-level files
+- Top-level directories
+- HTML pages
+- CSS files
+- JavaScript files
+- Python files
+- Static assets
+- Images
+- Favicons and icons
+- Manifest files
+- Sitemap
+- Robots
+- Markdown documentation
+- Replit configuration
+- GitHub workflow files
+- Any package or dependency files
+- Any generated or duplicate files
+- Any likely dead files
+- Any placeholder files
+- Any broken references
+Create or update:
+/AUDIT_OVERKILL_HILL_REPLIT_PASS.md
+Add a section:
+## Repository Inventory
+Include a table:
+| Area | Files Found | Issues | Recommended Action | Action Taken |
+PHASE 2: ROUTE AND PAGE AUDIT
+Identify every public route by scanning:
+- sitemap.xml
+- anchor tags
+- directory index files
+- nav menus
+- footer links
+- robots.txt
+- README references
+- any hardcoded links in HTML, CSS, and JS
+Build a route matrix:
+| Route | Source File | Title | In Sitemap | In Navigation | In Footer | Status | Notes |
+Check:
+- Homepage
+- About
+- Universe
+- Manifesto
+- Contact
+- Legal
+- Projects
+- Mermaid Theme Builder
+- BFS Framing Intelligent Futures if present
+- Writings index
+- First Diagram Is Usually a Liar
+- First Diagram subpages
+- Biases as Constants
+- Magnus Saga
+- Prompt Forge
+- Search
+- 404 page
+- Under construction page
+- Found-ry pages
+- Any orphaned pages
+- Any pages linked in sitemap but not reachable from navigation
+- Any pages reachable from navigation but missing from sitemap
+- Any pages with inconsistent trailing slash behavior
+- Any absolute URL mismatch
+Fix:
+- Broken internal links
+- Incorrect relative paths
+- Missing nav/footer links where appropriate
+- Sitemap mismatches
+- Page titles that are duplicated or weak
+- Missing canonical tags if static HTML supports them
+- Missing meta descriptions
+- Missing Open Graph/Twitter metadata
+- Missing or weak H1 structure
+- Dead “View protocols” or empty project links
+- Any link that points nowhere or to a placeholder without clear user context
+Do not remove routes merely because they are unfinished.
+If unfinished, give them a controlled “active build zone” treatment with meaningful next-step content.
+PHASE 3: INFORMATION ARCHITECTURE
+Evaluate the site as a user journey.
+The user should understand within 10 seconds:
+1. What OverKill Hill P³ is.
+2. Why it exists.
+3. What it builds.
+4. What to read first.
+5. What projects exist.
+6. How AskJamie and Glee-fully relate to OverKill Hill.
+7. How Mermaid, Prompt Forge, and writings fit the ecosystem.
+8. How to contact or follow.
+9. Whether the site is live, experimental, or both.
+Audit and improve:
+- Global navigation labels
+- Footer navigation
+- Homepage sections
+- Project hierarchy
+- Writings hierarchy
+- Calls to action
+- Cross-links between related pages
+- “Fresh from the Forge” logic
+- Consistency of page intros
+- Consistency of project descriptions
+- Consistency of branded terms
+- Link priority
+- Reading flow
+- Content duplication
+- Overuse of slogans without explanatory substance
+- Gaps between poetic language and practical clarity
+Recommended IA model:
+Primary nav:
+- The Forge
+- Projects
+- Writings
+- Manifesto
+- Universe
+- About
+- Contact
+Secondary project links:
+- AskJamie
+- Glee-fully
+- Mermaid Theme Builder
+- Prompt Forge
+- Protocol Libraries
+Writings:
+- First Diagram Is Usually a Liar
+- Biases as Constants
+- Magnus Saga
+- Other essays if present
+Ensure the IA does not make users guess which pages are essays, which are products, and which are ecosystem identity pages.
+PHASE 4: BRAND AND CONTENT MATURITY PASS
+Audit all visible copy.
+Improve copy where it is:
+- Vague
+- Repetitive
+- Too clever without clarity
+- Too generic
+- Too wordy
+- Too thin
+- Too placeholder-like
+- Inconsistent in tone
+- Inconsistent in capitalization
+- Inconsistent in brand naming
+- Too internally focused
+- Missing a user-facing benefit
+- Missing a clear next action
+Preserve the tone:
+- Sharp
+- Architected
+- Slightly mythic
+- Practical
+- Protocol-driven
+- Human-centered
+- Systems-aware
+- Not bland
+- Not buzzword sludge
+- Not fake enterprise speak
+- Not fake guru speak
+Preferred language patterns:
+Use:
+- protocol
+- forge
+- architecture
+- systems
+- promptcraft
+- visual communication
+- structured thinking
+- human context
+- ambiguity
+- real-world complexity
+- clarity
+- leverage
+- scaffolds
+- reusable patterns
+- workflows
+- signal
+- synthesis
+Avoid or reduce:
+- revolutionary
+- cutting-edge
+- next-gen
+- unlock your potential
+- seamless solutions
+- AI-powered everything
+- transform your business overnight
+- generic “we help companies leverage AI”
+- empty startup boilerplate
+Brand naming rules:
+- Use “OverKill Hill P³” consistently.
+- Use “OKHP³” only where appropriate as shorthand.
+- Use “Glee-fully Personalizable Tools” consistently.
+- Use “AskJamie” consistently.
+- Use “Prompt Forge” consistently unless the repo has a stronger canonical spelling.
+- Use “Mermaid Theme Builder” consistently.
+- Do not accidentally rename the brand into “Overkill Hill” without the capital K unless in URLs or technical fields.
+- Preserve trademark markers where already used, but do not overstuff every sentence with ™.
+Specific content upgrades to consider:
+Homepage:
+- Tighten hero.
+- Make the value proposition more immediately legible.
+- Preserve the forge metaphor.
+- Clarify that this is a public workbench for protocol-driven AI systems, writings, experiments, and reusable frameworks.
+- Make “Fresh from the Forge” more visually and semantically strong.
+- Make project cards more actionable.
+- Ensure CTA links are real and clear.
+Projects page:
+- Ensure each project has:
+  - Name
+  - One-line description
+  - Status
+  - Relationship to OverKill Hill
+  - Public URL if applicable
+  - Repository URL if applicable
+  - Primary action
+  - Secondary action if needed
+- Avoid “coming soon” dead ends.
+- If a project is unfinished, frame it as active development.
+Writings page:
+- Ensure each writing entry has:
+  - Title
+  - Short abstract
+  - Reading path
+  - Status or version if relevant
+  - Date or version where available
+  - CTA
+- Ensure First Diagram Is Usually a Liar is featured correctly.
+- Connect ROY, Mermaid, diagrams, and Council of AIs in a clear way.
+Manifesto:
+- Make it feel like a canonical declaration, not a generic about page.
+- Use strong section headings.
+- Ensure it explains why “OverKill” is disciplined depth, not pointless excess.
+- Tie Precision, Protocol, Promptcraft to practical behavior.
+Universe:
+- Clarify the ecosystem map.
+- Explain parent-child relationships between OverKill Hill, AskJamie, Glee-fully, Found-Ry, Prompt Forge, Mermaid Theme Builder, and writings.
+- Avoid making the ecosystem feel like private lore only insiders can understand.
+- Provide enough translation for new visitors.
+Contact:
+- Ensure clear email.
+- Ensure social links.
+- Ensure expectations are set.
+- Avoid fake forms unless implemented.
+- Provide pathways:
+  - Collaborate
+  - Read
+  - Follow
+  - Support
+  - Explore projects
+Legal:
+- Ensure copyright year is current or dynamically safe.
+- Ensure privacy terms are honest.
+- Do not claim things not implemented.
+- If no tracking exists, say so or keep privacy language simple.
+- If outbound links exist, disclose external sites as appropriate.
+PHASE 5: VISUAL DESIGN AND UI POLISH
+Audit and improve:
+- Layout hierarchy
+- Header behavior
+- Mobile nav
+- Footer layout
+- Button styling
+- Card styling
+- Typography
+- Spacing
+- Contrast
+- Section rhythm
+- Image sizing
+- Image aspect ratios
+- Hero composition
+- CTA hierarchy
+- Hover states
+- Focus states
+- Active link states
+- Long-page readability
+- Mobile overflow
+- Tablet behavior
+- Desktop max-width
+- Dark theme consistency if present
+- Print/readability if relevant for essays
+Preserve visual identity.
+The site can feel forged, dark, mechanical, architectural, raven-like, blueprint-like, or protocol-oriented. But it must remain usable.
+Look for:
+- Too many competing accent colors
+- Weak contrast
+- Tiny text
+- Overly dense blocks
+- Images without framing
+- Buttons that do not look clickable
+- Cards with inconsistent height
+- Inconsistent heading sizes
+- Inconsistent section spacing
+- Footer clutter
+- Mobile hamburger issues
+- Nav wrapping issues
+- Horizontal scroll
+- Hero image dominating or misaligning
+- Lack of visual distinction between pages
+Apply improvements directly in CSS.
+If there is no design token system, create or improve one.
+Recommended CSS tokens:
+:root {
+  --okh-bg
+  --okh-surface
+  --okh-surface-2
+  --okh-text
+  --okh-muted
+  --okh-accent
+  --okh-accent-2
+  --okh-border
+  --okh-danger
+  --okh-radius
+  --okh-shadow
+  --okh-max-width
+}
+Only implement tokens that fit the current CSS architecture.
+PHASE 6: ACCESSIBILITY AUDIT AND FIXES
+Bring the site as close as practical to WCAG 2.2 AA.
+Audit and fix:
+- Missing alt text
+- Decorative images not marked appropriately
+- Heading order
+- Multiple H1s
+- Empty links
+- Ambiguous link text
+- Color contrast
+- Keyboard navigation
+- Focus indicators
+- Skip link behavior
+- Landmark elements
+- Header/nav/footer semantics
+- Button vs anchor misuse
+- ARIA misuse
+- Forms if present
+- Mobile menu accessibility
+- Reduced motion preferences
+- Image text alternatives
+- Page language attribute
+- Title uniqueness
+- Meaningful document structure
+Add or improve:
+- skip-to-content link
+- main landmark
+- nav aria-labels
+- footer semantics
+- visually hidden helper class if needed
+- focus-visible styles
+- alt text standards
+- aria-current for active nav where feasible
+Do not add unnecessary ARIA.
+Use semantic HTML first.
+PHASE 7: SEO, SOCIAL, AND DISCOVERABILITY
+Audit and improve every major page for:
+- Unique title tag
+- Unique meta description
+- Canonical URL
+- Open Graph title
+- Open Graph description
+- Open Graph image
+- Twitter card metadata
+- Structured data where appropriate
+- Correct H1
+- Crawlable links
+- Sitemap inclusion
+- Robots alignment
+- Favicon
+- Manifest metadata
+- Image alt text
+- Internal links
+- External links
+- Reading time if already used
+- Publication/update date if relevant
+- Author metadata if relevant
+Structured data candidates:
+- Organization schema for OverKill Hill P³
+- WebSite schema
+- WebPage schema
+- Article schema for writings
+- BreadcrumbList schema where practical
+- CreativeWork schema for major essays or projects if appropriate
+Do not overdo schema.
+Implement clean, valid JSON-LD only where it is meaningful.
+Open Graph image strategy:
+- Identify existing brand/social images.
+- If missing, use best available existing image.
+- Do not generate fake assets unless the repo already has appropriate images.
+- If needed, create a placeholder OG asset reference and document what image should be created later.
+Sitemap:
+- Make sure sitemap.xml is valid XML, not just a flat text line.
+- Include all canonical public pages.
+- Use correct loc values.
+- Use lastmod where known.
+- Use changefreq and priority sensibly.
+- Do not include private, duplicate, broken, or test pages.
+- Include /search/ only if the search page exists and is useful.
+Robots:
+- Make sure robots.txt references sitemap correctly.
+- Do not accidentally block the site.
+PHASE 8: PERFORMANCE PASS
+Audit performance without assuming heavy tooling exists.
+Check:
+- Image sizes
+- Image formats
+- Lazy loading
+- Explicit width and height
+- CSS duplication
+- JS size
+- Blocking scripts
+- Font loading
+- Unused assets
+- Cache-friendly static assets
+- Excessive DOM complexity
+- Large inline CSS or JS
+- Layout shifts
+- Missing preconnect/preload where obvious
+- Render-blocking issues
+- Mobile performance
+Fix where safe:
+- Add loading="lazy" to non-critical images.
+- Add decoding="async" where appropriate.
+- Add width/height to images if known.
+- Improve image paths.
+- Remove dead CSS only if confidence is high.
+- Consolidate duplicate CSS cautiously.
+- Defer non-critical JS.
+- Avoid adding frameworks.
+- Prefer static, fast, resilient pages.
+Do not break visual quality.
+Document large asset concerns if files are too large to safely replace.
+PHASE 9: SECURITY, PRIVACY, AND TRUST
+Audit:
+- External links
+- target="_blank" without rel="noopener noreferrer"
+- Email exposure
+- Forms
+- Scripts
+- Third-party embeds
+- Insecure mixed content
+- Overly broad claims
+- Legal language
+- License inconsistency
+- Duplicate LICENSE and LICENSE.md problem
+- README license mismatch
+- Security policy quality
+- Code of conduct relevance
+- Contributing instructions
+- Replit server exposure
+- Python server behavior
+- No secrets committed
+- No API keys
+- No tokens
+- No private Notion content
+Fix:
+- Add rel attributes to external links opening new tabs.
+- Ensure no secrets.
+- Clarify legal/privacy claims.
+- Ensure license files are intentional and not contradictory.
+- If license ambiguity exists, do not invent a license. Document it and create a TODO.
+- Harden server.py if used for local preview.
+- Ensure no directory listing exposure.
+- Ensure 404 works.
+PHASE 10: CONTENT CROSS-LINKING AND ECOSYSTEM COHERENCE
+The site should not feel like disconnected pages.
+Create or improve internal linking between:
+- Homepage and Manifesto
+- Homepage and Projects
+- Homepage and Writings
+- Homepage and First Diagram Is Usually a Liar
+- First Diagram article and Mermaid Theme Builder
+- Mermaid Theme Builder and Projects
+- Glee-fully and AskJamie references
+- Prompt Forge and protocol-driven promptcraft
+- Universe and all major ecosystem entities
+- Contact and project inquiry CTAs
+- Manifesto and About
+- Writings index and all writing pages
+- 404 and top-level recovery links
+Add contextual links, not link spam.
+Each page should answer:
+- Where am I?
+- Why does this page exist?
+- What should I do next?
+- What related page should I read?
+PHASE 11: FIRST DIAGRAM IS USUALLY A LIAR SPECIFIC PASS
+This appears to be a major thought-leadership asset.
+Audit:
+- Main article page
+- v03 subpages
+- poll heat pages
+- image references
+- deck links
+- Mermaid examples
+- prompts section if present
+- navigation into and out of this series
+- reading time claims
+- version labeling
+- internal links
+- social sharing metadata
+- diagram accessibility
+- image alt text
+- captions
+- source attribution
+- GitHub artifact links if present
+Improve:
+- Make the series easier to understand for first-time visitors.
+- Clarify what V1 and V2 mean.
+- Clarify Council of AIs if referenced.
+- Clarify ROY, Return on Your Words.
+- Clarify Mermaid syntax versus Mermaid.ai where relevant.
+- Ensure high-resolution assets are discoverable through OverKill Hill properties.
+- Ensure links route through the site where appropriate.
+- Avoid sending all attention directly away from OverKill Hill.
+- Make public artifact access clear.
+- Ensure polls or outdated references are time-aware.
+- If language says “polls are open” but they are now closed or scheduled, update to a more durable phrasing unless live context confirms otherwise.
+PHASE 12: SEARCH PAGE PASS
+If /search/ exists:
+Audit:
+- Does it work?
+- Does it index visible pages?
+- Is it client-side?
+- Does it have accessible input labels?
+- Does it have useful empty states?
+- Does it exclude legal/utility pages if appropriate?
+- Does it surface writings and projects clearly?
+- Is it linked from navigation or footer?
+- Should it be linked?
+If search does not exist but sitemap includes it:
+- Either implement a lightweight static search if feasible,
+- Or remove it from sitemap,
+- Or convert it into a useful curated “Find your way around the Hill” page.
+Prefer implementation if simple.
+Do not add heavy dependencies.
+PHASE 13: 404 AND UNDER CONSTRUCTION PASS
+Audit 404.html and under-construction.html.
+Fix:
+- 404 page should match brand.
+- 404 page should provide recovery links.
+- 404 page should not be generic.
+- Under construction page should not be a dead end.
+- Under construction language should match “forge mode” concept.
+- Link back to homepage, writings, projects, contact.
+If under-construction.html is unused, decide whether to keep, improve, or document.
+PHASE 14: README AND REPO DOCUMENTATION
+Improve repository documentation.
+README.md should include:
+- Project name
+- Brand summary
+- Public site URL
+- Current status
+- Tech stack
+- Local development instructions
+- Replit usage
+- GitHub Pages deployment note
+- Project structure
+- Major routes
+- Content editing guidance
+- Asset guidance
+- Known limitations
+- Related projects
+- Contact
+Do not make README bloated.
+Make it useful for future Jamie and future agents.
+Improve or create:
+- CHANGELOG.md if present but weak
+- ROADMAP.md if present but weak
+- CONTRIBUTING.md if present but generic
+- SECURITY.md if present but generic
+- AGENTS.md if present, preserving Jamie’s constraints but adding site-specific guidance if helpful
+AGENTS.md should tell future agents:
+- Preserve brand voice.
+- Work in small commits.
+- Validate routes.
+- Do not invent credentials.
+- Do not remove public routes casually.
+- Maintain sitemap and metadata when adding pages.
+- Preserve static-site compatibility.
+- Summarize changes.
+PHASE 15: CODE QUALITY AND MAINTAINABILITY
+Audit HTML/CSS/JS.
+Fix:
+- Duplicate header/footer markup where practical.
+- Inconsistent class names.
+- Dead CSS.
+- Conflicting CSS.
+- Inline styles that should be classes.
+- Broken JS.
+- Console errors.
+- Mobile nav script issues.
+- Repeated metadata blocks that are wrong.
+- Invalid HTML nesting.
+- Missing closing tags.
+- Bad indentation.
+- Mixed tabs/spaces where disruptive.
+- Broken paths due to relative URL mistakes.
+- Unused Python server logic.
+- Inconsistent asset organization.
+If the site is purely static and repeats header/footer across many files, do not over-engineer unless it clearly helps.
+If introducing a build step would create risk, avoid it.
+A clean static site is acceptable.
+But reduce obvious duplication and improve conventions where safe.
+Potential helper scripts:
+If useful, create a /tools or /scripts folder with lightweight validation scripts, for example:
+- validate-links.py
+- validate-sitemap.py
+- audit-meta.py
+- list-routes.py
+These should not require external services.
+They should run locally in Replit.
+Document usage in README.
+PHASE 16: VALIDATION HARNESS
+Create a practical validation harness.
+At minimum, add or update a script that checks:
+- All local internal links resolve to existing files/routes.
+- sitemap.xml routes resolve to files.
+- all HTML files have title.
+- all major HTML files have meta description.
+- all images have alt attributes or are marked decorative.
+- all external target blank links have rel noopener noreferrer.
+- no obvious placeholder href values such as "#", "javascript:void(0)", or empty href, unless intentionally documented.
+- no references to missing CSS/JS/image assets.
+- no accidental localhost links in production pages.
+- no broken absolute links to overkillhill.com internal pages if they should be relative.
+If package.json does not exist and no Node tooling is needed, write this in Python.
+Add command documentation:
+python scripts/validate_site.py
+or equivalent.
+Run the validation and fix what it reports.
+PHASE 17: BROWSER AND DEVICE TESTING
+Use whatever Replit preview/browser capabilities are available.
+Test:
+- Homepage desktop
+- Homepage mobile
+- Navigation mobile
+- Writings page
+- First Diagram article
+- Projects page
+- Manifesto
+- About
+- Contact
+- 404
+- Search if present
+Look for:
+- Layout breaks
+- Horizontal scroll
+- Missing images
+- Buttons not clickable
+- Nav menu not opening
+- Footer overlap
+- Text too small
+- Contrast problems
+- Broken routes
+- Console errors
+Fix directly.
+PHASE 18: DEPLOYMENT READINESS
+Verify:
+- Replit run command works.
+- Static preview works.
+- GitHub Pages assumptions remain valid.
+- CNAME remains correct.
+- sitemap references production domain.
+- robots references sitemap.
+- no dev-only links remain.
+- no broken links to Replit internal preview URLs.
+- no hardcoded local filesystem paths.
+- 404 behavior is as good as possible for static hosting.
+- server.py is safe and simple if retained.
+If deployment requires manual action, document it clearly in AUDIT file and README.
+PHASE 19: FINAL POLISH PASS
+Once major fixes are complete:
+1. Re-read homepage.
+2. Re-read top nav.
+3. Re-read footer.
+4. Re-read Projects.
+5. Re-read Writings.
+6. Re-read Manifesto.
+7. Re-read About.
+8. Re-read Contact.
+9. Re-run validation.
+10. Review diff.
+Then perform a final editorial polish pass:
+- Remove accidental double spaces.
+- Normalize punctuation.
+- Normalize brand capitalization.
+- Remove broken placeholders.
+- Improve weak CTAs.
+- Ensure all pages sound like the same site.
+- Ensure no page feels abandoned.
+- Ensure the site still feels like OverKill Hill P³.
+PHASE 20: REQUIRED DELIVERABLES
+At the end, provide:
+1. A concise summary of what you changed.
+2. A list of files changed.
+3. A list of issues fixed.
+4. A list of issues intentionally deferred.
+5. A list of risks remaining.
+6. Exact validation commands run.
+7. Exact test results.
+8. Recommended next manual steps.
+9. Whether the site is safe to commit/push/deploy.
+10. Any pages that still need Jamie’s direct editorial review.
+Also update:
+/AUDIT_OVERKILL_HILL_REPLIT_PASS.md
+with:
+## Final Summary
+## Files Changed
+## Validation Commands
+## Validation Results
+## Deferred Items
+## Recommended Next Pass
+QUALITY BAR
+Do not stop after superficial edits.
+The final site should be materially better in:
+- Usability
+- Navigation
+- Accessibility
+- SEO
+- Social sharing
+- Performance
+- Brand coherence
+- Content clarity
+- Mobile behavior
+- Repository maintainability
+- Deployment readiness
+- Future-agent readiness
+This should feel like the site was put through a forge, not dusted with a napkin.
+DECISION RULES
+When unsure, choose the option that:
+1. Preserves public URLs.
+2. Preserves OverKill Hill’s brand identity.
+3. Improves clarity for first-time visitors.
+4. Improves accessibility.
+5. Improves maintainability.
+6. Reduces future confusion.
+7. Avoids unnecessary dependencies.
+8. Keeps the site deployable.
+Do not ask Jamie for clarification unless blocked by credentials, private data, destructive deletion, or a genuinely irreversible choice.
+You are authorized to proceed.
+
+My strong recommendation: run this once, then run a second shorter prompt afterward that says, “Now review your own changes as a hostile QA auditor and find what you missed.” Replit agents often do better with an execution pass followed by an adversarial verification pass.

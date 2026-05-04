@@ -19,6 +19,7 @@ Python simple HTTP server via `server.py` — serves the static site from root.
 - `/writings/` — article pages
 - `/projects/` — project pages
 - `/universe/`, `/manifesto/`, `/about/`, `/contact/`, `/legal/` — brand pages
+- `/_replit/` — non-served dev tooling. **Not** part of the static site; the deployment `publicDir = "."` setting still serves it as files but it has no inbound links. See `_replit/mermaid-theme-builder-preview/` for the React + Vite + Tailwind v4 preview app for the mermaid theme builder project page (migrated 2026-05-03 from the retired `Project-Page-Mermaid-Theme-Tool` Repl). Standalone — not in a pnpm workspace. Run with `cd _replit/mermaid-theme-builder-preview && npm install && PORT=5173 BASE_PATH=/ npm run dev`. Build verified working (vite 6). Source of truth for the live page remains `projects/mermaid-theme-builder/index.html`; the React app's build output is **not** deployed.
 
 ## Key CSS Design Tokens (theme.css)
 

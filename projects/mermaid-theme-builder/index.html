@@ -52,13 +52,14 @@
     <meta name="googlebot" content="index, follow" />
     <meta name="bingbot" content="index, follow" />
     <meta name="revisit-after" content="30 days" />
+    <link rel="author" href="/humans.txt" />
     <link rel="canonical" href="https://overkillhill.com/projects/mermaid-theme-builder/" />
     <link rel="alternate" hreflang="en" href="https://overkillhill.com/projects/mermaid-theme-builder/" />
 
     <!-- ========================================
        METADATA: Color Scheme & Theme
        ======================================== -->
-    <meta name="theme-color" content="#111827" />
+    <meta name="theme-color" content="#2a2320" />
     <meta name="color-scheme" content="dark light" />
 
     <!-- ========================================
@@ -640,11 +641,21 @@
         .embed-toolbar { flex-direction: column; align-items: flex-start; }
       }
     </style>
+      <script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
   </head>
 
   <body class="projects-main">
-    <a href="#main" class="skip-link">Skip to content</a>
-
+    <a class="okh-skip-link" href="#main">Skip to main content</a>
     <!-- ============================================================
          HEADER
          ============================================================ -->
@@ -1162,7 +1173,7 @@
         <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">
           Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a>
         </span>
-        <p style="margin:0;text-align:center;">© <span id="current-year"></span> The OverKill&nbsp;Hill&nbsp;P³™. All rights reserved.</p>
+        <p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³™. All rights reserved.</p>
         <span></span>
       </div>
     </footer>

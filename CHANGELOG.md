@@ -77,6 +77,95 @@ All notable changes to the **OverKill Hill P³™** public repository should be 
 - `prev`/`next` `rel` links across the four v03 field-guide pages
 - "Recent Writings" home-page block surfacing magnus-saga and biases-as-constants
 
+## [Unreleased — May 2026 forensic audit pass]
+
+### Added (sixth backlog sweep — 2025/2026 modernization, 2026-05-03 late)
+- **Modern security headers** (`_headers`):
+  - `Cross-Origin-Opener-Policy: same-origin` (Spectre-class isolation, MDN 2024+ baseline)
+  - `Cross-Origin-Resource-Policy: same-origin` site-wide, with `/assets/img/*` overridden to `cross-origin` so LinkedIn / Twitter share-card crawlers can still fetch `og:image`
+  - `Origin-Agent-Cluster: ?1` for stronger Chromium process isolation
+  - `Permissions-Policy` expanded from 4 to **27** directives — comprehensive 2026 deny-by-default surface
+- **Speculation Rules API** (Chrome 121+) on all 26 pages — moderate-eagerness prefetch of internal links for instant navigation, with sensible exclusions (`rel=nofollow`, asset/PDF URLs)
+- **Skip-link as first `<body>` child on all 26 pages** — WCAG 2.4.1 baseline; `.okh-skip-link` is visually hidden until focused, then slides in with brand colors and brand-orange focus ring
+- **Comprehensive `prefers-reduced-motion` rule** in `theme.css` — disables ALL animations/transitions/scroll-behavior, plus targeted overrides for `.brand-stripes` and `.reveal-on-scroll`. WCAG 2.3.3 baseline
+- **`<meta name="color-scheme" content="dark light">`** on every page (was on 3, now on 26) — proper UA dark/light hint
+- **`<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>`** + **`<link rel="modulepreload">`** for mermaid ESM on all 6 diagram pages — eliminates render-blocking discovery for the mermaid module
+- `scripts/modernize_pages.py` — idempotent page modernizer with `--check`; wired into CI
+- `scripts/move_orphans_to_library.py` — orphan-asset detector + archiver with `--check`; wired into CI
+- CI workflow now runs **5** validators (was 3) — modernization-drift and orphan-presence both gate merges
+
+### Fixed (sixth sweep — caught by post-build code review)
+- **Skip-link duplication**: pre-existing legacy `.skip-link` (hardcoded `#111827` colors, no brand identity) was on all 26 production pages. The new `.okh-skip-link` insertion left both in place — two consecutive "Skip to content" links would have shown to screen-reader users. Modernizer now detects the legacy form and either replaces it (first run) or removes the duplicate (re-run after the new one is already there). Legacy CSS rule deleted from `theme.css`.
+
+### Changed (sixth sweep)
+- **123 MB of orphan brand imagery archived** to `assets/img/library/` — live image tree shrank from 140 MB → 16 MB (-89%). All 98 unreferenced files preserved as a media kit (with `assets/img/library/README.md` documenting disposition options); production deploys won't carry the dead weight
+- All 16 templates regenerated to pick up the new `<head>`/`<body>` hygiene
+- Search index refreshed (no field deltas — body extractor strips `<script>`/`<nav>`/`<footer>`, so the new `speculationrules` script and skip-link don't bleed into search bodies)
+
+### Added (fifth backlog sweep, 2026-05-03 late)
+- `.gitignore` — covers Python `__pycache__`, `*.pyc`, editor cruft, OS junk, build dirs (none of this was being ignored before; first commit could have leaked `__pycache__` from the new scripts)
+- `CONTRIBUTING.md`: added a "Validation before you commit" section with the three CI commands, so contributors know what gates merges
+- `alt=` attributes on the 3 inline `<img>` tags inside Mermaid node strings on `writings/first-diagram-is-a-liar/v03/v2-heat-b/` (defensive — Mermaid may strip them, but they're correct in the source either way)
+
+### Reported (action requires user decision — NOT executed)
+- **125 MB of orphan brand imagery** detected in `assets/img/` — 53 PNGs + 49 WebP siblings totaling 124 MB across 103 files, none referenced by any HTML/CSS/JS/JSON/MD on disk. Breakdown: 94 MB wide-format hero/background variants, 28 MB square sentinel/avatar variants, 1 MB other. Did **not** delete (per AGENTS.md "Ask before large refactors") — operator should choose: (a) move to `assets/img/library/` archive subdir to retain as a media kit, or (b) delete to shrink deploy. Re-run detection: `python3 -c "..."` block in this audit pass.
+
+### Added (fourth backlog sweep, 2026-05-03 evening)
+- `_headers`: more-specific `/assets/search-index.json` rule with `max-age=300, must-revalidate` so the rebuilt index isn't trapped behind the 1-year `/assets/*` immutable cache (browsers will see search updates within 5 min, not 1 year)
+- `extract_templates.py --check`: now exits non-zero on **any** template drift (not just conformance violations), aligning CI gating semantics with `validate_site.py` and `build_search_index.py --check`. Caught real drift on first run — 16 templates were stale because the third-pass `rel="author"` injection and `universe/` HMT label fix never reached the extracted templates
+- Regenerated all 16 templates from current source pages
+- `README.md`: added a CI section pointing at `.github/workflows/validate.yml`
+
+### Fixed (fourth sweep)
+- All 16 extracted templates were silently stale w.r.t. source pages (no diagnostic before this sweep)
+- `assets/search-index.json` would have been trapped in 1-year immutable cache after every rebuild — defeats the purpose of CI re-running the index builder
+
+### Added (third backlog sweep, 2026-05-03 PM)
+- `scripts/build_search_index.py` — refreshes `assets/search-index.json` against current HTML; preserves hand-curated anchor entries; supports `--check` for CI
+- `.github/workflows/validate.yml` — CI workflow running `validate_site.py`, `extract_templates.py --check`, and `build_search_index.py --check` on every push / PR (closes "wire validators as a pre-commit hook or GitHub Action" from Recommended Next Pass)
+- `<link rel="author" href="/humans.txt" />` on all 26 pages — gives `humans.txt` proper machine-discoverable provenance per the humanstxt.org convention
+- 8 missing pages now indexed for site search: `/found-ry/`, `/prompt-forge/`, `/projects/abrahamic-reference-engine/`, `/projects/hometools/`, `/projects/pathscrib-r/`, `/projects/un-nocked-truth/`, `/writings/biases-as-constants/`, `/writings/magnus-saga/` (47 entries total, was 39)
+
+### Fixed (third sweep)
+- `universe/index.html` HomeTools sub-system labels: `HMT02/HMT03/HMT04` nodes were all displaying `"HMT01 — …"` (copy-paste typo); now show their correct codes
+- `assets/search-index.json` was stale — home entry body still quoted the pre-soften "⚠ Active build zone" eyebrow; refreshed against current HTML, 42 field/entry changes
+
+### Added
+- `_headers` (Cloudflare/Netlify-style) — full security header set: HSTS preload, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, plus a real-deps-aware **Content-Security-Policy-Report-Only** (allows GA gtag, Google Fonts, jsdelivr Mermaid, and the 67 inline scripts the site actually uses)
+- `assets/templates/` — 16 stripped layout templates derived from every unique page layout, with placeholder tokens, live nav/footer, root-relative asset paths, and a `README.md` index (see `scripts/extract_templates.py`)
+- `.well-known/security.txt` — RFC 9116 disclosure contact
+- `humans.txt` — credit + stack file
+- `llms.txt` — structured site map for LLM consumers (especially on-brand for a Promptcraft site)
+- `scripts/png_to_webp.py` — Pillow-based bulk converter (PNG ≥200 KB → WebP at q=82, method=6)
+- `scripts/picture_upgrade.py` — wraps `<img>` in `<picture>` with WebP source + PNG fallback
+- `scripts/cache_bust.py` — appends `?v=<sha256[:8]>` to local CSS/JS refs
+- `scripts/extract_templates.py` — BeautifulSoup template extractor with idempotent `--check` conformance asserts
+- `width`/`height` attributes on every remaining `<img>` (CLS = 0)
+
+### Changed
+- Favicon redesign: brighter teal/copper raven on cream circular vignette, regenerated at every required size from a 1024 px source. Old 2.4 MB unreferenced `favicon.svg` removed (~3.6 MB net favicon savings)
+- Theme color migrated to brand espresso `#2a2320` in `site.webmanifest` and the `theme-color` meta on all 26 pages
+- Bulk PNG → WebP conversion: **123.9 MB → 11.4 MB (-91%)** across 55 images
+- `assets/js/mermaid-init.js` rewritten to lazy-render via `IntersectionObserver` (rootMargin 400 px)
+- Homepage eyebrow softened: ⚠ "Active build zone" → ⚙ "Forge in motion — actively iterated, not under construction"
+- Standardised email to `contact@overkillhill.com` everywhere
+- `robots.txt` now disallows `/assets/templates/` for every crawler group
+- `sitemap.xml` lastmod bumped to 2026-05-03 across the board
+
+### Fixed
+- 404.html `@overkillhillp3` → `@OverKillHillP3` Twitter handle case
+- under-construction.html missing `twitter:site` / `twitter:creator` added
+- 4 images missing `width`/`height` causing potential CLS
+
+### Deferred (intentional)
+- Header/footer dedup (would introduce a build step — separate scoped task)
+- Notion-backed editorial review (no agent access)
+- CSP enforcement flip (leave Report-Only ~2 weeks first)
+- `git push` (operator action)
+- Device QA for new favicon (operator action)
+
+---
+
 ## [Current Public Baseline]
 
 ### Established

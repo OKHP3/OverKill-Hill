@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!--
+  =====================================================
+  OverKill Hill P³™ — Page Template
+  =====================================================
+  Template:       under-construction-template.html
+  Covers pages:   /under-construction.html
+  Derived from:   /under-construction.html
+  Created:        May 2026
+  Last updated:   May 2026
+
+  PURPOSE:
+  Stripped structural clone of the above page(s). All page-specific
+  content replaced with labeled placeholders. Navigation, footer,
+  CSS, and JS are live and functional. Use this file as the starting
+  point when creating a new page of this layout type.
+
+  USAGE:
+  1. Copy this file to the appropriate directory path
+  2. Rename to index.html
+  3. Replace all [PLACEHOLDER] tokens with real content
+  4. Update <head> meta, canonical URL, and OG tags
+  5. Commit and deploy
+
+  Consolidated from: N
+  =====================================================
+-->
+<html lang="en">
+<head>
+<!-- ========================================
+         METADATA: Core Document & Character Set
+         ======================================== -->
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="dark light" name="color-scheme"/>
+<meta content="#2a2320" name="theme-color"/>
+<!-- ========================================
+         METADATA: Primary Title & Description
+         ======================================== -->
+<title>[PAGE TITLE]</title>
+<meta content="[PAGE META DESCRIPTION — 120-160 chars]" name="description"/>
+<!-- Removed AskJamie references from keywords so the page aligns with OverKill Hill branding -->
+<meta content="OverKill Hill, OverKill Hill P³, OKH P³, under construction, coming soon, work in progress" name="keywords"/>
+<meta content="[AUTHOR NAME]" name="author"/>
+<!-- ========================================
+         METADATA: Search & Crawling
+         ======================================== -->
+<meta content="noindex, nofollow" name="robots"/>
+<meta content="noindex, nofollow" name="googlebot"/>
+<!-- ========================================
+         METADATA: Open Graph (Social Sharing)
+         ======================================== -->
+<meta content="website" property="og:type"/>
+<meta content="[CANONICAL URL]" property="og:url"/>
+<meta content="[OG TITLE]" property="og:title"/>
+<meta content="[OG DESCRIPTION]" property="og:description"/>
+<meta content="[OG IMAGE PATH]" property="og:image"/>
+<meta content="1024" property="og:image:width"/>
+<meta content="1024" property="og:image:height"/>
+<meta content="[OG IMAGE ALT]" property="og:image:alt"/>
+<meta content="en_US" property="og:locale"/>
+<!-- ========================================
+         METADATA: Twitter Card (X Social)
+         ======================================== -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="[TWITTER TITLE]" name="twitter:title"/>
+<meta content="[TWITTER DESCRIPTION]" name="twitter:description"/>
+<meta content="[OG IMAGE PATH]" name="twitter:image"/>
+<meta content="[OG IMAGE ALT]" name="twitter:image:alt"/>
+<meta content="@OverKillHillP3" name="twitter:site"/>
+<meta content="@OverKillHillP3" name="twitter:creator"/>
+<!-- ========================================
+         METADATA: Color Scheme & Theme
+         ======================================== -->
+<link href="/humans.txt" rel="author"/>
+<link href="[CANONICAL URL]" rel="canonical"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- ========================================
+         FAVICONS: Multi-Format Icon Support
+         ======================================== -->
+<link href="/assets/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/assets/img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<!-- ========================================
+         STYLESHEETS & FONTS
+         ======================================== -->
+<link href="/assets/css/theme.css" rel="stylesheet"/>
+<link href="/assets/css/search.css?v=1" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
+</head>
+<body>
+<a class="okh-skip-link" href="#main">Skip to main content</a>
+<header class="site-header" id="top">
+<div class="container">
+<div class="logo">
+<a href="#top">
+<img alt="OverKill Hill P³ logo" height="40" src="/assets/img/OverKillHillP³-Sentinel-Warning-Square-256.png" width="40"/>
+<span class="sr-only">OverKill Hill P³™ Home</span>
+</a>
+</div>
+<nav aria-label="Primary" class="primary-nav" id="navigation">
+<ul>
+<li><a aria-current="page" href="/#forge">The Forge</a></li>
+<li><a href="projects/">Our Projects</a></li>
+<li><a href="manifesto/">The Manifesto</a></li>
+<!-- About cluster: Universe / About / Contact / Legal -->
+<li class="has-submenu">
+<a href="about/">About</a>
+<ul class="submenu">
+<li><a href="universe/">OKHP³™ Universe</a></li>
+<li><a href="about/">About OKHP³™</a></li>
+<li><a href="contact/">Contact</a></li>
+<li><a href="legal/">Legal</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<button aria-controls="navigation" aria-expanded="false" class="nav-toggle">
+<span class="sr-only">Toggle navigation</span>
+<span class="bar"></span><span class="bar"></span><span class="bar"></span>
+</button>
+</div>
+<section aria-label="Forge update" class="site-specials site-specials--okh">
+<span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
+<a class="site-specials-link" href="/writings/first-diagram-is-a-liar/">
+          v0.3 Visual Edition: The First Diagram Is Usually a Liar →
+        </a>
+</section>
+</header>
+<main id="main">
+<!-- HERO: OverKill Hill under‑construction message -->
+<section aria-labelledby="hero-title" class="under-construction-hero">
+<!-- OverKill Hill industrial stripes drift behind the content -->
+<div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div>
+<div class="container reveal-on-scroll">
+<div class="under-construction-hero-grid">
+<div class="under-construction-hero-visual">
+<img alt="[Descriptive alt text for image]" class="lazyload" height="768" loading="lazy" src="/assets/img/[IMAGE-FILENAME.png]" width="1536"/>
+</div>
+<div class="under-construction-hero-copy">
+<h1 id="hero-title">[PAGE HEADLINE]</h1>
+<p class="hero-subtitle"><!-- [BODY CONTENT] --></p>
+<p class="hero-tagline"><!-- [BODY CONTENT] --></p>
+<div class="hero-actions">
+<a class="btn btn-quiet" href="[LINK URL]">Back to the forge</a>
+<a class="btn btn-primary" href="[LINK URL]">Explore projects</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Simple body content so the page isn’t just a hero -->
+<section class="content-section container reveal-on-scroll">
+<header class="section-header">
+<h2>[SECTION HEADING]</h2>
+<p class="note"><!-- [BODY CONTENT] --></p>
+</header>
+<div class="grid grid-3">
+<article class="card">
+<h3>[SUBSECTION HEADING]</h3>
+<p><!-- [BODY CONTENT] --></p>
+</article>
+<article class="card">
+<h3>[SUBSECTION HEADING]</h3>
+<p><!-- [BODY CONTENT] --></p>
+</article>
+<article class="card">
+<h3>[SUBSECTION HEADING]</h3>
+<p><!-- [BODY CONTENT] --></p>
+</article>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container footer-grid">
+<div class="footer-column">
+<h3>OverKill Hill P³™</h3>
+<p>The digital forge for protocol-driven power prompts and custom GPT systems that can withstand real-world complexity.</p>
+</div>
+<div class="footer-column">
+<h4>Navigation</h4>
+<ul>
+<li><a href="/#forge">The Forge</a></li>
+<li><a href="universe/">P³ Universe</a></li>
+<li><a href="manifesto/">The Manifesto</a></li>
+<li><a href="projects/">Our Projects</a></li>
+<li><a href="about/">About OKH P³</a></li>
+<li><a href="contact/">Contact OKH P³</a></li>
+<li><a href="legal/">Legal</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Connect</h4>
+<ul>
+<li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
+<li><a href="https://ko-fi.com/overkillhillp3" rel="noopener" target="_blank">Ko-fi</a></li>
+<li><a href="https://pro.fiverr.com/s/VYKPpoB" rel="noopener" target="_blank">Fiverr</a></li>
+<li><a href="https://www.linkedin.com/company/overkillhillp3" rel="noopener" target="_blank">LinkedIn</a></li>
+<li><a href="https://facebook.com/OverKillHillP3/" rel="noopener" target="_blank">Facebook</a></li>
+<li><a href="https://x.com/OverKillHillP3" rel="noopener" target="_blank">X (Twitter)</a></li>
+<li><a href="https://www.youtube.com/@OverKillHillP3" rel="noopener" target="_blank">YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
+<span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;" target="_blank">Replit</a></span>
+<p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill Hill P³. All rights reserved.</p>
+<span></span>
+</div>
+</footer>
+<script src="/assets/js/app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "[NAME]",
+  "url": "[URL]",
+  "description": "[DESCRIPTION]",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "[URLTEMPLATE]"
+    },
+    "query-input": "[QUERY-INPUT]"
+  }
+}
+</script>
+<script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+
+      // Pull final, brand-specific tokens (OKH / AskJamie / Glee) from computed styles
+      const styles = getComputedStyle(document.body);
+
+      const surface = styles.getPropertyValue("--color-surface").trim() || "#111827";
+      const surfaceSoft = styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
+      const fg = styles.getPropertyValue("--color-fg").trim() || "#e5e7eb";
+      const accent = styles.getPropertyValue("--color-accent").trim() || "#c46a2c";
+      const muted = styles.getPropertyValue("--color-muted").trim() || "#6b7280";
+      const fontBody =
+        styles.getPropertyValue("--font-body").trim() ||
+        '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
+
+      mermaid.initialize({
+        startOnLoad: true,
+        securityLevel: "loose",   // required for clickable links in diagrams
+        theme: "base",            // modifiable theme
+        themeVariables: {
+          primaryColor: surface,        // node background
+          primaryTextColor: fg,
+          primaryBorderColor: accent,
+          lineColor: accent,
+          secondaryColor: surfaceSoft,  // secondary fills / highlights
+          tertiaryColor: surfaceSoft,
+          textColor: fg,
+          fontFamily: fontBody,
+          noteBkgColor: surface,
+          noteTextColor: muted
+        },
+        flowchart: {
+          curve: "basis",
+          nodeSpacing: 60,
+          rankSpacing: 70
+        }
+      });
+    </script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VJ1BKXS27H');
+    </script>
+<script defer="" src="/assets/js/search.js"></script>
+</body>
+</html>
