@@ -74,6 +74,7 @@
 <meta content="index, follow" name="googlebot"/>
 <meta content="index, follow" name="bingbot"/>
 <meta content="7 days" name="revisit-after"/>
+<link href="/humans.txt" rel="author"/>
 <link href="[CANONICAL URL]" rel="canonical"/>
 <link href="https://overkillhill.com/universe/" hreflang="en" rel="alternate"/>
 <!-- ========================================
@@ -104,9 +105,23 @@
 <link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="/assets/css/theme.css" rel="stylesheet"/>
+<link href="/assets/css/search.css?v=1" rel="stylesheet"/>
+<script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs" rel="modulepreload"/>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="okh-skip-link" href="#main">Skip to main content</a>
 <header class="site-header" id="top">
 <div class="container">
 <div class="logo">
@@ -220,9 +235,9 @@
                       ARE00["ARE00 — Abrahamic Reference Engine"]
                       HMT00["HMT00 — HomeTools"]
                       HMT01["HMT01 — Homestead‑R"]
-                      HMT02["HMT01 — HomeVisual-R"]
-                      HMT03["HMT01 — FloorPlan-R"]
-                      HMT04["HMT01 — HomeEstimate-R"]
+                      HMT02["HMT02 — HomeVisual-R"]
+                      HMT03["HMT03 — FloorPlan-R"]
+                      HMT04["HMT04 — HomeEstimate-R"]
                       FDY00["FDY00 — The Found-Rᵧ"]
                       FDY99["GPTs to build GPTs"]
                       WRIT["Writing &amp; Narrative Experiments"]
@@ -311,6 +326,7 @@
                     experiments like Magnus Progenitor Saga.
                   </figcaption>
 </figure>
+<p class="diagram-gallery-note"><!-- [BODY CONTENT] --></p>
 </div>
 </div>
 </div>

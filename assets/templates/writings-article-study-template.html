@@ -31,6 +31,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
+<meta content="dark light" name="color-scheme"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="English" name="language"/>
@@ -56,6 +57,7 @@
 <meta content="@OverKillHillP3" name="twitter:creator"/>
 <meta content="@OverKillHillP3" name="twitter:site"/>
 <meta content="index, follow" name="robots"/>
+<link href="/humans.txt" rel="author"/>
 <link href="[CANONICAL URL]" rel="canonical"/>
 <meta content="#2a2320" name="theme-color"/>
 <link href="/assets/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
@@ -65,11 +67,25 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="/assets/css/theme.css?v=072b3dc7" rel="stylesheet"/>
+<link href="/assets/css/theme.css?v=17" rel="stylesheet"/>
+<link href="/assets/css/search.css?v=1" rel="stylesheet"/>
+<script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs" rel="modulepreload"/>
 </head>
 <body>
+<a class="okh-skip-link" href="#main">Skip to main content</a>
 <div aria-hidden="true" class="reading-progress" id="reading-progress"></div>
-<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" id="top">
 <div class="container">
 <div class="logo">

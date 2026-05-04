@@ -509,6 +509,7 @@ def main() -> int:
             for v in violations:
                 print(f"      ✗ {v}")
             total_violations += len(violations)
+            if would_change: changed += 1
             built.append((name, pages, label))
 
     if not args.check:
@@ -517,8 +518,8 @@ def main() -> int:
         print(f"\nDone. {changed} written, {skipped} unchanged, {len(built)} total.")
         return 0
     else:
-        print(f"\n--check: {total_violations} conformance violation(s) across {len(built)} templates.")
-        return 1 if total_violations else 0
+        print(f"\n--check: {total_violations} conformance violation(s), {changed} drifted template(s) across {len(built)} templates.")
+        return 1 if (total_violations or changed) else 0
 
 
 if __name__ == "__main__":

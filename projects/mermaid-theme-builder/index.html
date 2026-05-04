@@ -52,6 +52,7 @@
     <meta name="googlebot" content="index, follow" />
     <meta name="bingbot" content="index, follow" />
     <meta name="revisit-after" content="30 days" />
+    <link rel="author" href="/humans.txt" />
     <link rel="canonical" href="https://overkillhill.com/projects/mermaid-theme-builder/" />
     <link rel="alternate" hreflang="en" href="https://overkillhill.com/projects/mermaid-theme-builder/" />
 
@@ -88,6 +89,7 @@
     <!-- Page-specific: JetBrains Mono for code/monospace elements -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" />
     <link rel="stylesheet" href="/assets/css/theme.css" />
+    <link rel="stylesheet" href="/assets/css/search.css?v=1" />
 
     <!-- ========================================
        STRUCTURED DATA
@@ -639,11 +641,21 @@
         .embed-toolbar { flex-direction: column; align-items: flex-start; }
       }
     </style>
+      <script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
   </head>
 
   <body class="projects-main">
-    <a href="#main" class="skip-link">Skip to content</a>
-
+    <a class="okh-skip-link" href="#main">Skip to main content</a>
     <!-- ============================================================
          HEADER
          ============================================================ -->

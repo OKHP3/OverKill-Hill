@@ -1,0 +1,37 @@
+name: Validate site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install beautifulsoup4 lxml Pillow
+
+      - name: Validate every HTML page (titles, canonicals, links, brand)
+        run: python3 scripts/validate_site.py
+
+      - name: Conformance — extracted templates
+        run: python3 scripts/extract_templates.py --check
+
+      - name: Search index is fresh
+        run: python3 scripts/build_search_index.py --check
+
+      - name: Pages carry modern HTML hygiene (color-scheme, skip-link, speculation rules, mermaid preloads)
+        run: python3 scripts/modernize_pages.py --check
+
+      - name: No orphan assets in live image tree
+        run: python3 scripts/move_orphans_to_library.py --check

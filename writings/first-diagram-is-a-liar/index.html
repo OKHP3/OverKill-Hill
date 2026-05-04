@@ -52,6 +52,7 @@
     <meta name="googlebot" content="index, follow" />
     <meta name="bingbot" content="index, follow" />
     <meta name="revisit-after" content="7 days" />
+    <link rel="author" href="/humans.txt" />
     <link rel="canonical" href="https://overkillhill.com/writings/first-diagram-is-a-liar/" />
     <link rel="alternate" hreflang="en" href="https://overkillhill.com/writings/first-diagram-is-a-liar/" />
 
@@ -85,16 +86,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&display=swap" />
-    <link rel="stylesheet" href="/assets/css/theme.css?v=072b3dc7" />
+    <link rel="stylesheet" href="/assets/css/theme.css?v=21" />
+    <link rel="stylesheet" href="/assets/css/search.css?v=1" />
 
 
+      <script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
+      <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+      <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs" crossorigin />
   </head>
 
   <body>
+    <a class="okh-skip-link" href="#main">Skip to main content</a>
     <!-- Reading progress bar -->
     <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
-
-    <a href="#main" class="skip-link">Skip to content</a>
 
     <!-- ========================================
          HEADER
@@ -810,7 +824,7 @@
                   </div>
                 </div>
                 <div class="diagram-shell">
-                  <picture><source type="image/webp" srcset="/assets/img/etch-ai-sketch-copilot-v1-lores.webp"><img src="/assets/img/etch-ai-sketch-copilot-v1-lores.png" alt="Copilot V1 — Round 1 winner Mermaid diagram showing ideation with renderer-level YAML configuration" class="diagram-static-img" /></picture>
+                  <picture><source type="image/webp" srcset="/assets/img/etch-ai-sketch-copilot-v1-lores.webp"><img src="/assets/img/etch-ai-sketch-copilot-v1-lores.png" alt="Copilot V1 — Round 1 winner Mermaid diagram showing ideation with renderer-level YAML configuration" class="diagram-static-img" width="2609" height="6012" loading="lazy" /></picture>
                   <details class="diagram-live-render">
                     <summary>View live Mermaid render ↓</summary>
                   <div class="mermaid">
@@ -1036,7 +1050,7 @@ flowchart TB
                   </div>
                 </div>
                 <div class="diagram-shell">
-                  <picture><source type="image/webp" srcset="/assets/img/etch-ai-sketch-claude-v2-lores.webp"><img src="/assets/img/etch-ai-sketch-claude-v2-lores.png" alt="Claude V2 — Round 2 winner Mermaid diagram showing ideation with visible revision loops as dashed arrows" class="diagram-static-img" /></picture>
+                  <picture><source type="image/webp" srcset="/assets/img/etch-ai-sketch-claude-v2-lores.webp"><img src="/assets/img/etch-ai-sketch-claude-v2-lores.png" alt="Claude V2 — Round 2 winner Mermaid diagram showing ideation with visible revision loops as dashed arrows" class="diagram-static-img" width="3267" height="6012" loading="lazy" /></picture>
                   <details class="diagram-live-render">
                     <summary>View live Mermaid render ↓</summary>
                   <div class="mermaid">
