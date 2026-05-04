@@ -6,10 +6,13 @@ All notable changes to the **OverKill Hill P³™** public repository should be 
 
 ### Changed
 - **Consolidated `assets/js/search.js` → `assets/js/app.js`** (Section 5). All search logic — overlay, dedicated `/search/` page, index loader, scoring engine, highlight/snippet rendering, keyboard shortcuts — now lives in a single JS file. Eliminates one HTTP request per page load across all 26 production pages.
+- **Consolidated `assets/css/search.css` → `assets/css/theme.css`** (new OKH SEARCH section). All search styles — trigger button, overlay, panel, results, hint chips, `/search/` page — now live in a single stylesheet. Eliminates one render-blocking CSS request per page load. The runtime `ensureStyles()` fallback in `app.js` removed as redundant.
 
 ### Removed
 - `assets/js/search.js` — deleted; content fully merged into `app.js`.
+- `assets/css/search.css` — deleted; content fully merged into `theme.css`.
 - `<script src="…/search.js">` tag stripped from all 26 live pages and all 16 source templates.
+- `<link href="…/search.css">` tag stripped from all 26 live pages and all 16 source templates (42 files total).
 
 ---
 
