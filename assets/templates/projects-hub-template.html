@@ -74,6 +74,7 @@
 <meta content="index, follow" name="googlebot"/>
 <meta content="index, follow" name="bingbot"/>
 <meta content="7 days" name="revisit-after"/>
+<link href="/humans.txt" rel="author"/>
 <link href="[CANONICAL URL]" rel="canonical"/>
 <link href="https://overkillhill.com/projects/" hreflang="en" rel="alternate"/>
 <!-- ========================================
@@ -104,9 +105,21 @@
 <link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="/assets/css/theme.css" rel="stylesheet"/>
+<link href="/assets/css/search.css?v=1" rel="stylesheet"/>
+<script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
 </head>
 <body class="projects-main">
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="okh-skip-link" href="#main">Skip to main content</a>
 <header class="site-header" id="top">
 <div class="container">
 <div class="logo">

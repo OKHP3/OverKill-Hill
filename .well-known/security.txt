@@ -1,0 +1,22 @@
+# OverKill Hill P³™ — Security Disclosure
+# https://overkillhill.com/.well-known/security.txt
+# Format: RFC 9116
+
+Contact: mailto:contact@overkillhill.com
+Expires: 2027-05-03T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://overkillhill.com/.well-known/security.txt
+Policy: https://overkillhill.com/legal/
+
+# OverKill Hill is a static brand/editorial site (no auth, no PII intake,
+# no server-side application logic). If you have found something that looks
+# like a security or privacy issue — exposed credentials in the repo,
+# misconfigured headers, content-injection vector in a published article,
+# typosquatting, etc. — please email the contact address above with:
+#
+#   1. A clear description of the issue
+#   2. Reproduction steps or the affected URL
+#   3. Your name/handle for credit (optional)
+#
+# We aim to acknowledge reports within 5 business days. Thank you for
+# practicing coordinated disclosure.

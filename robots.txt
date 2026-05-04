@@ -8,67 +8,80 @@ User-agent: *
 Allow: /
 Disallow: /404.html
 Disallow: /under-construction.html
+Disallow: /assets/templates/
 
 # ----- Explicit AI / LLM crawler opt-ins -----
 User-agent: GPTBot
 Allow: /
 Disallow: /404.html
 Disallow: /under-construction.html
+Disallow: /assets/templates/
 
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /404.html
 Disallow: /under-construction.html
+Disallow: /assets/templates/
 
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /404.html
 Disallow: /under-construction.html
+Disallow: /assets/templates/
 
 User-agent: Google-Extended
 Allow: /
 Disallow: /404.html
 Disallow: /under-construction.html
+Disallow: /assets/templates/
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /404.html
 Disallow: /under-construction.html
+Disallow: /assets/templates/
 
 User-agent: anthropic-ai
 Allow: /
 Disallow: /404.html
 Disallow: /under-construction.html
+Disallow: /assets/templates/
 
 User-agent: PerplexityBot
 Allow: /
 Disallow: /404.html
 Disallow: /under-construction.html
+Disallow: /assets/templates/
 
 User-agent: CCBot
 Allow: /
 Disallow: /404.html
 Disallow: /under-construction.html
+Disallow: /assets/templates/
 
 User-agent: Applebot-Extended
 Allow: /
 Disallow: /404.html
 Disallow: /under-construction.html
+Disallow: /assets/templates/
 
 User-agent: Bytespider
 Allow: /
 Disallow: /404.html
 Disallow: /under-construction.html
+Disallow: /assets/templates/
 
 # ----- Polite-mode for greedy SEO crawlers -----
 User-agent: AhrefsBot
 Crawl-delay: 10
 Disallow: /404.html
 Disallow: /under-construction.html
+Disallow: /assets/templates/
 
 User-agent: SemrushBot
 Crawl-delay: 10
 Disallow: /404.html
 Disallow: /under-construction.html
+Disallow: /assets/templates/
 
 Sitemap: https://overkillhill.com/sitemap.xml

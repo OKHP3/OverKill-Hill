@@ -113,23 +113,6 @@ User instruction: *execute all 12 deferred actions, then provide a crispier favi
 
 **Net outcome: 9 of 12 items fully completed in-repo, 2 documented architectural deferrals (header/footer dedup, Notion-backed editorial review), 1 operator action pending (`git push`). Favicon redesigned and all derivatives rebuilt from a brighter, higher-contrast source.**
 
-### Closing action — Template extraction (issued same day)
-
-Walked the full site (26 production pages), grouped by structural layout, and produced **16 stripped templates** in `/assets/templates/` plus a `README.md` index. Built via `scripts/extract_templates.py` (BeautifulSoup, idempotent, with a `--check` mode that runs conformance asserts). Every template:
-
-- Has a working `<head>` (CSS/JS/favicon refs intact, all asset paths root-relative)
-- Keeps the live site `<header>` / `<nav>` / `<footer>` / hot-forge banner / skip-link as chrome
-- Strips every `<title>`, meta/OG/Twitter/canonical value, every non-chrome `<h1>`/`<h2>`/`<h3>`/`<h4>`, every `<p>` body text, every `<img src>`/`alt`/`srcset`, in-content `<a href>`, `<time datetime>`, version badges, and JSON-LD string values to `[PLACEHOLDER]` tokens
-- Opens with the directive's required `<!-- OverKill Hill P³™ — Page Template -->` comment block
-
-Layout consolidations made:
-- 3 long-form articles → one `writings-article-template.html`
-- 4 v03 heat-test variants → one `writings-article-study-template.html`
-- 6 individual project pages → one `projects-project-template.html`
-- All other pages had unique enough layouts to warrant their own template
-
-Verification: `python3 scripts/extract_templates.py --check` → **0 conformance violations across 16 templates**. `python3 scripts/validate_site.py` → still clean on all 26 production pages.
-
 | # | Item | Status | Detail |
 |---|---|---|---|
 | 1 | Soften homepage eyebrow | **DONE** | `index.html` — replaced ⚠ "Active build zone" with ⚙ "Forge in motion — actively iterated, not under construction"; body copy reworded to match the calmer tone |
@@ -175,6 +158,99 @@ The original raven (dark olive on dark wood-grain stripes) was unreadable below 
 $ python3 scripts/validate_site.py
 Validating 26 HTML pages…
 ✓ all clean.
+```
+
+---
+
+## Sixth-Pass Execution — 2025/2026 modernization (2026-05-03 late, same day)
+
+User instruction: *off the leash, align to modern 2025/2026 best practices, impress me.*
+
+| # | Item | Modernization rationale | Status |
+|---|---|---|---|
+| 1 | `Cross-Origin-Opener-Policy: same-origin` + `Cross-Origin-Resource-Policy: same-origin` + `Origin-Agent-Cluster: ?1` | MDN 2024+ baseline for Spectre-class isolation; nothing on the site loads cross-origin in a way that needs SharedArrayBuffer | **DONE** in `_headers` (with `/assets/img/*` CORP override to `cross-origin` so social share crawlers can still fetch `og:image`) |
+| 2 | `Permissions-Policy` expanded 4 → 27 directives | Modern deny-by-default surface; covers every directive currently shipped in Chromium | **DONE** |
+| 3 | Speculation Rules API (`<script type="speculationrules">`) | Replaces `<link rel=prefetch>` in Chrome 121+; instant nav with moderate eagerness | **DONE** on all 26 pages, with sensible exclusions (`rel=nofollow`, asset/PDF URLs) |
+| 4 | Skip-link as first `<body>` child + supporting CSS | WCAG 2.4.1 baseline; was missing on every page | **DONE** on all 26 pages with brand-themed focus styles |
+| 5 | Comprehensive `prefers-reduced-motion` rule | WCAG 2.3.3; existing rule covered only `.brand-stripes` (1 element) | **DONE** — now disables all animations/transitions/scroll-behavior with targeted overrides |
+| 6 | `<meta name="color-scheme" content="dark light">` everywhere | Proper UA dark/light handling; was on 3/26 pages | **DONE** on remaining pages (template extractor was missing it) |
+| 7 | jsdelivr `preconnect` + mermaid `modulepreload` on diagram pages | Eliminates render-blocking module discovery | **DONE** on 6/6 mermaid pages |
+| 8 | 125 MB orphan-image disposition (deferred from pass 5) | User authorized "off the leash" — moved to `assets/img/library/` archive (preserves as media kit, removes from deploy hot path) | **DONE** — 98 files / 123 MB archived; live image tree 140 MB → 16 MB (-89%) |
+| 9 | New scripts wired into CI | Drift detection only matters if CI gates on it | **DONE** — `validate.yml` now runs 5 validators (was 3) |
+| 10 | README + CONTRIBUTING + CHANGELOG updated | Document the new scripts and CI gates | **DONE** |
+
+Validators after sixth pass:
+```
+$ python3 scripts/validate_site.py            → ✓ all clean (26 pages)
+$ python3 scripts/extract_templates.py --check → 0 conformance violations, 0 drift (16 templates)
+$ python3 scripts/build_search_index.py --check → fresh (47 entries)
+$ python3 scripts/modernize_pages.py --check   → 0 pages would change
+$ python3 scripts/move_orphans_to_library.py --check → no orphans in live tree
+```
+
+Runtime smoke test: `/`, `/universe/`, `/writings/first-diagram-is-a-liar/`, `/assets/search-index.json`, `/humans.txt`, `/robots.txt` — all HTTP 200.
+
+**Post-build code review (`architect`) — 1 real finding, fixed in-pass:**
+
+| Finding | Severity | Resolution |
+|---|---|---|
+| Skip-link duplication: pre-existing legacy `.skip-link` (hardcoded `#111827`, on all 26 pages) coexisted with the new `.okh-skip-link`, producing two skip-links per page | Low | Modernizer extended to detect the legacy form and either *replace* (first run) or *strip* (re-run); legacy CSS rule deleted; all 26 pages now carry exactly 1 skip-link |
+| CORP same-origin could break GA/Fonts *if* COEP is later added | Informational | Noted — COEP is intentionally not enabled (no SharedArrayBuffer use case); no action needed |
+| `move_orphans_to_library.py` regex misses dynamically-constructed asset paths in JS | Informational | True but the site has zero dynamic image construction (verified — all imagery is in `<img>`/`<picture>`/`og:image`); soft-archive (move, not delete) mitigates if a future false positive ever occurs |
+
+---
+
+## Fifth-Pass Execution (2026-05-03 late, same day)
+
+| Item | Source | Status |
+|---|---|---|
+| 125 MB of orphan brand imagery in `assets/img/` (103 files, none referenced) | implicit (deep asset audit, never run before) | **REPORTED, not deleted** — per AGENTS.md "ask before large refactors" rule. Operator decision needed. 94 MB wide-format heroes + 28 MB square sentinels + 1 MB other |
+| 3 inline `<img>` tags inside Mermaid node strings missing `alt` | implicit (alt-text audit) | **DONE** — added `alt='OverKill Hill P³'` / `'Mermaid logo'` / `'Replit logo'` |
+| `.gitignore` missing — Python `__pycache__` from new scripts could be committed | implicit (introduced by passes 2-4 adding scripts/) | **DONE** — added with Python + editor + OS + Replit-local rules |
+| `CONTRIBUTING.md` had no validator guidance | implicit (we wired CI in pass 3 but never told contributors how to run it locally) | **DONE** — added "Validation before you commit" section with the three commands |
+
+Other audits run this pass that found NO issues:
+- JSON-LD validity across all 26 pages: 0 invalid blocks
+- `target="_blank"` `rel="noopener"` coverage: 0 unsafe links
+- canonical / description / theme-color / rel=author coverage: 4-of-4 on all 26 pages
+- runtime: homepage 200, 404 page 404 (proper status codes)
+
+Validators after fifth pass: still all green.
+
+---
+
+## Fourth-Pass Execution (2026-05-03 evening, same day)
+
+User instruction: *another backlog review.*
+
+| Item | Source | Status |
+|---|---|---|
+| `assets/search-index.json` was trapped in 1-year immutable cache (`/assets/*` rule in `_headers`) — every CI rebuild would be invisible to returning visitors | implicit (interaction between pass-2 `_headers` and pass-3 search-index rebuild) | **DONE** — added more-specific `/assets/search-index.json` rule with `max-age=300, must-revalidate` |
+| `extract_templates.py --check` only failed on conformance violations, not on body drift | architect feedback (deferred as scope creep last pass; user re-asked) | **DONE** — `--check` now also exits 1 on any "would change" delta |
+| 16 extracted templates were silently stale w.r.t. source pages (the `rel="author"` injection + HMT label fix never reached templates) | discovered by the new drift detection above | **DONE** — all 16 regenerated |
+| README didn't mention the CI workflow exists | implicit | **DONE** — added CI subsection |
+
+Validators after fourth pass: all green (validate_site, extract_templates --check, build_search_index --check).
+
+---
+
+## Third-Pass Execution (2026-05-03 PM, same day)
+
+User instruction: *another backlog review — pick off explicit + implicit items.*
+
+| Item | Source | Status |
+|---|---|---|
+| Search index stale (home body still quoted pre-soften "⚠ Active build zone"; 8 newer pages absent) | implicit (audit "Risks Remaining" #4 + this thread's eyebrow rewrite) | **DONE** — new `scripts/build_search_index.py` (--check supported); 47 entries (was 39); 42 fields refreshed |
+| Wire validators as pre-commit / GitHub Action | explicit (Recommended Next Pass #2) | **DONE** — `.github/workflows/validate.yml` runs `validate_site.py` + `extract_templates.py --check` + `build_search_index.py --check` on every push/PR |
+| `humans.txt` discoverability (file existed but nothing pointed at it) | implicit (we added the file in earlier pass without wiring discovery) | **DONE** — `<link rel="author" href="/humans.txt" />` injected into all 26 pages |
+| `universe/` HMT label bug — HMT02/03/04 all rendered as "HMT01 — …" | implicit (caught reading the diagram while doing referral work this thread) | **DONE** — labels corrected |
+| Mermaid referral coverage on every diagram page | this thread's user request | **DONE** — `universe/` was the only gap; now 6/6 diagram pages carry the `mermaid-referral-link` (#FF3670 hot-pink) CTA |
+
+Validators after third pass:
+```
+$ python3 scripts/validate_site.py            → ✓ all clean (26 pages)
+$ python3 scripts/extract_templates.py --check → 0 conformance violations (16 templates)
+$ python3 scripts/build_search_index.py --check → fresh (47 entries)
 ```
 
 ---

@@ -52,6 +52,7 @@
     <meta name="googlebot" content="index, follow" />
     <meta name="bingbot" content="index, follow" />
     <meta name="revisit-after" content="7 days" />
+    <link rel="author" href="/humans.txt" />
     <link rel="canonical" href="https://overkillhill.com/projects/bfs-framing-intelligent-futures/" />
     <link rel="alternate" hreflang="en" href="https://overkillhill.com/projects/bfs-framing-intelligent-futures/" />
 
@@ -86,12 +87,23 @@
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&display=swap" />
     <link rel="stylesheet" href="/assets/css/theme.css" />
+    <link rel="stylesheet" href="/assets/css/search.css?v=1" />
 
+      <script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
   </head>
 
   <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    
+    <a class="okh-skip-link" href="#main">Skip to main content</a>
     <header class="site-header" id="top">
       <div class="container">
         <div class="logo">
@@ -195,6 +207,8 @@
                 <picture><source type="image/webp" srcset="/assets/img/AskJamie/BrandGuard/AskJamie-GPTIcon-BFS01-BFSFramingIntelligentFutures-Square-1024.webp"><img
                   src="/assets/img/AskJamie/BrandGuard/AskJamie-GPTIcon-BFS01-BFSFramingIntelligentFutures-Square-1024.png"
                   alt="GPT‑BFS01 · BFS Framing Intelligent Futures"
+                  width="1024"
+                  height="1024"
                 /></picture>
                 <a
                   class="gpt-hero__badge-cta"

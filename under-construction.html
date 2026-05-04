@@ -51,6 +51,7 @@
     <!-- ========================================
          METADATA: Color Scheme & Theme
          ======================================== -->
+    <link rel="author" href="/humans.txt" />
     <link rel="canonical" href="https://overkillhill.com/under-construction.html" />
     <link rel="manifest" href="site.webmanifest" />
     
@@ -66,14 +67,26 @@
          STYLESHEETS & FONTS
          ======================================== -->
     <link rel="stylesheet" href="assets/css/theme.css" />
+    <link rel="stylesheet" href="assets/css/search.css?v=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&display=swap" />
 
+      <script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
   </head>
 
   <body>
-    <a href="#main" class="skip-link">Skip to content</a>
+    <a class="okh-skip-link" href="#main">Skip to main content</a>
     <header class="site-header" id="top">
       <div class="container">
         <div class="logo">

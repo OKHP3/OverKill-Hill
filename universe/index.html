@@ -52,6 +52,7 @@
     <meta name="googlebot" content="index, follow" />
     <meta name="bingbot" content="index, follow" />
     <meta name="revisit-after" content="7 days" />
+    <link rel="author" href="/humans.txt" />
     <link rel="canonical" href="https://overkillhill.com/universe/" />
     <link rel="alternate" hreflang="en" href="https://overkillhill.com/universe/" />
 
@@ -86,12 +87,25 @@
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&display=swap" />
     <link rel="stylesheet" href="/assets/css/theme.css" />
+    <link rel="stylesheet" href="/assets/css/search.css?v=1" />
 
+      <script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
+      <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+      <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs" crossorigin />
   </head>
 
   <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    
+    <a class="okh-skip-link" href="#main">Skip to main content</a>
     <header class="site-header" id="top">
       <div class="container">
         <div class="logo">
@@ -216,9 +230,9 @@
                       ARE00["ARE00 — Abrahamic Reference Engine"]
                       HMT00["HMT00 — HomeTools"]
                       HMT01["HMT01 — Homestead‑R"]
-                      HMT02["HMT01 — HomeVisual-R"]
-                      HMT03["HMT01 — FloorPlan-R"]
-                      HMT04["HMT01 — HomeEstimate-R"]
+                      HMT02["HMT02 — HomeVisual-R"]
+                      HMT03["HMT03 — FloorPlan-R"]
+                      HMT04["HMT04 — HomeEstimate-R"]
                       FDY00["FDY00 — The Found-Rᵧ"]
                       FDY99["GPTs to build GPTs"]
                       WRIT["Writing & Narrative Experiments"]
@@ -307,6 +321,7 @@
                     experiments like Magnus Progenitor Saga.
                   </figcaption>
                 </figure>
+                <p class="diagram-gallery-note">Diagram rendered with Mermaid.js. <a href="https://mermaidchart.cello.so/UhVlNtC2MlS" class="mermaid-referral-link" target="_blank" rel="noopener">Try Mermaid.AI &#8594;</a> if you want to explore the syntax yourself.</p>
               </div>
           </div>
         </div>
