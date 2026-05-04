@@ -2,6 +2,17 @@
 
 All notable changes to the **OverKill Hill P³™** public repository should be recorded here.
 
+## [Unreleased — 2026-05-04]
+
+### Changed
+- **Consolidated `assets/js/search.js` → `assets/js/app.js`** (Section 5). All search logic — overlay, dedicated `/search/` page, index loader, scoring engine, highlight/snippet rendering, keyboard shortcuts — now lives in a single JS file. Eliminates one HTTP request per page load across all 26 production pages.
+
+### Removed
+- `assets/js/search.js` — deleted; content fully merged into `app.js`.
+- `<script src="…/search.js">` tag stripped from all 26 live pages and all 16 source templates.
+
+---
+
 ## [v0.3 — 2026-04-21] — The First Diagram Is Usually a Liar: Visual Edition
 
 ### Added
