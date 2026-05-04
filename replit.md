@@ -175,6 +175,32 @@ Add new site-specific styles inside one of those scopes — never as a parallel 
 
 The shared `app.js` sets `data-theme` on the `<html>` element (`document.documentElement`), **not on `<body>`**. The matching CSS uses `html[data-theme="…"] body { … }`. If you ever see `body[data-theme="…"]` rules creeping in, those are dead code — the selector will never match.
 
+## Template Library
+
+Path: `assets/templates/`
+
+10 production-ready HTML templates following the `template--[slug].html` naming
+convention. Index and full token reference: `assets/templates/INDEX.md`.
+
+| Template | Slug | Key Pages |
+|----------|------|-----------|
+| `template--homepage.html` | homepage | `index.html` |
+| `template--interior-single.html` | interior-single | about, legal, manifesto, universe, prompt-forge |
+| `template--interior-form.html` | interior-form | contact |
+| `template--hub.html` | hub | projects/index, writings/index |
+| `template--project-detail.html` | project-detail | all `/projects/*/`, found-ry, biases-as-constants, magnus-saga |
+| `template--article.html` | article | writings/first-diagram-is-a-liar |
+| `template--article-study.html` | article-study | v03/v1-heat-a, v1-heat-b, v2-heat-a, v2-heat-b |
+| `template--utility.html` | utility | search |
+| `template--error.html` | error | 404.html |
+| `template--holding.html` | holding | under-construction.html |
+
+**Validation exclusion:** `assets/templates/` is in `SKIP_DIRS` inside
+`scripts/validate_site.py` so `[[token]]` placeholders don't cause false
+positives during the site audit.
+
+**Spec:** `attached_assets/TEMPLATE-SYSTEM-PROMPT_1777919852480.md`
+
 ## Out of Scope for This Session
 - LinkedIn poll URLs (not yet published; TODO comments in heat pages)
 - GitHub Mermaid source `.mmd` file links (not yet verified)
