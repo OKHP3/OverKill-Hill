@@ -203,6 +203,10 @@ convention. Index and full token reference: `assets/templates/INDEX.md`.
 `scripts/validate_site.py` so `[[token]]` placeholders don't cause false
 positives during the site audit.
 
+**Status:** Complete (2026-05-04). Post-audit fixes applied:
+- `template--project-detail.html` — `robots` corrected from `noindex, nofollow` to the standard `index, follow` block (+ googlebot / bingbot / revisit-after), matching published project pages.
+- `template--article-study.html` — About submenu fixed to canonical 4-item cluster (Universe / About / Contact / Legal); Contact and Legal were erroneously top-level nav items.
+
 **Spec:** `attached_assets/TEMPLATE-SYSTEM-PROMPT_1777919852480.md`
 
 ## Out of Scope for This Session
