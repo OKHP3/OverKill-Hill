@@ -1,0 +1,316 @@
+<!--
+  ============================================================
+  OVERKILL HILL P³™ PAGE TEMPLATE
+  ============================================================
+  Template Type  : interior-single
+  Source Page    : about/index.html
+  Template Path  : /assets/templates/template--interior-single.html
+  Created        : 2026-05-04
+  ============================================================
+  USAGE INSTRUCTIONS:
+  1. Copy this file to the appropriate directory and rename to index.html
+  2. Search for all [[ ]] tokens and replace with real content
+  3. Update the <link rel="canonical"> to the new page's URL
+  4. Update all Open Graph og:url and og:title meta tags
+  5. Update the JSON-LD structured data values
+  6. Add page-specific JavaScript if needed (do not remove existing tags)
+  7. Remove this comment block before publishing
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ========================================
+       METADATA: Core Document & Character Set
+       ======================================== -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="language" content="English" />
+
+    <!-- ========================================
+       METADATA: Primary Title & Description
+       ======================================== -->
+    <title>[[PAGE-TITLE]]</title>
+    <meta name="description" content="[[PAGE-DESCRIPTION]]" />
+    <meta name="keywords" content="[[PAGE-KEYWORDS]]" />
+    <meta name="author" content="OverKill Hill P³™" />
+    <meta name="creator" content="OverKill Hill P³™" />
+    <meta name="publisher" content="OverKill Hill P³™" />
+
+    <!-- ========================================
+       METADATA: Open Graph (Social Sharing)
+       ======================================== -->
+    <meta property="og:title" content="[[OG-TITLE]]" />
+    <meta property="og:description" content="[[OG-DESCRIPTION]]" />
+    <meta property="og:type" content="[[OG-TYPE]]" />
+    <meta property="og:url" content="[[OG-URL]]" />
+    <meta property="og:image" content="[[OG-IMAGE-URL]]" />
+    <meta property="og:image:alt" content="[[OG-IMAGE-ALT]]" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:site_name" content="OverKill Hill P³™" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ========================================
+       METADATA: Twitter Card (X Social)
+       ======================================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[[TWITTER-TITLE]]" />
+    <meta name="twitter:description" content="[[TWITTER-DESCRIPTION]]" />
+    <meta name="twitter:image" content="[[TWITTER-IMAGE-URL]]" />
+    <meta name="twitter:image:alt" content="[[TWITTER-IMAGE-ALT]]" />
+    <meta name="twitter:site" content="@OverKillHillP3" />
+    <meta name="twitter:creator" content="@OverKillHillP3" />
+
+    <!-- ========================================
+       METADATA: Search & Crawling
+       ======================================== -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="revisit-after" content="7 days" />
+    <link rel="author" href="/humans.txt" />
+    <link rel="canonical" href="[[CANONICAL-URL]]" />
+    <link rel="alternate" hreflang="en" href="[[CANONICAL-URL]]" />
+
+    <!-- ========================================
+       METADATA: Color Scheme & Theme
+       ======================================== -->
+    <meta name="theme-color" content="#2a2320" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- ========================================
+       METADATA: Web App & PWA
+       ======================================== -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- ========================================
+       FAVICONS: Multi-Format Icon Support
+       ======================================== -->
+    <link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180" type="image/png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ========================================
+       STYLESHEETS & FONTS
+       ======================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="/assets/css/theme.css" />
+
+    <script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
+  </head>
+
+  <body>
+    <a class="okh-skip-link" href="#main">Skip to main content</a>
+    <header class="site-header" id="top">
+      <div class="container">
+        <div class="logo">
+          <a href="/">
+            <img src="/assets/img/OverKillHillP³-Sentinel-Warning-Square-256.png" alt="OverKill Hill P³ logo" width="40" height="40" />
+            <span class="sr-only">OverKill&nbsp;Hill&nbsp;P³™ Home</span>
+          </a>
+        </div>
+
+        <nav class="primary-nav" id="navigation" aria-label="Primary">
+          <ul>
+            <li><a href="/#forge">The Forge</a></li>
+            <li class="has-submenu">
+              <a href="/projects/">Our Projects</a>
+              <ul class="submenu">
+                <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="/writings/">Writings</a>
+              <ul class="submenu">
+                <li><a href="/manifesto/">The Manifesto</a></li>
+                <li><a href="/writings/biases-as-constants/">Biases as Constants</a></li>
+                <li><a href="/writings/magnus-saga/">The Magnus Saga</a></li>
+                <li><a href="/prompt-forge/">The Prompt Forge</a></li>
+                <li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="/about/">About</a>
+              <ul class="submenu">
+                <li><a href="/universe/">OKHP³™ Universe</a></li>
+                <li><a href="/about/" aria-current="page">About OKHP³™</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/legal/">Legal</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="nav-toggle" aria-controls="navigation" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+
+      <section class="site-specials site-specials--okh" aria-label="Forge update">
+        <span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
+        <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/">
+          v0.3 Visual Edition: The First Diagram Is Usually a Liar →
+        </a>
+      </section>
+    </header>
+
+    <main id="main">
+
+      <!-- TEMPLATE SECTION: Hero -->
+      <section class="hero" id="[[PAGE-ANCHOR]]" aria-labelledby="hero-title">
+        <div class="hero-blueprint-bg"></div>
+        <div class="brand-stripes brand-stripes--okh" aria-hidden="true"></div>
+
+        <div class="container hero-inner reveal-on-scroll">
+          <div class="hero-grid">
+            <div>
+              <p class="hero-eyebrow">
+                <a href="[[CTA-URL]]">[[BREADCRUMB-LABEL]]</a>
+              </p>
+              <h1 id="hero-title">[[HERO-HEADING]]</h1>
+              <p class="hero-tagline">[[HERO-TAGLINE]]</p>
+              <div class="hero-actions">
+                <a href="[[CTA-URL]]" class="btn btn-primary">[[CTA-LABEL]]</a>
+                <a href="[[CTA-URL]]" class="btn btn-quiet">[[CTA-LABEL]]</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEMPLATE SECTION: Body Content -->
+      <section class="content-section container reveal-on-scroll">
+        <header class="section-header">
+          <h2>[[SECTION-HEADING]]</h2>
+        </header>
+        <article class="card">
+          <p>[[BODY-COPY]]</p>
+          <p>[[BODY-COPY]]</p>
+          <p>[[BODY-COPY]]</p>
+        </article>
+
+        <header class="section-header">
+          <h2>[[SECTION-HEADING]]</h2>
+        </header>
+        <div class="about-grid">
+          <article class="card">
+            <p>[[BODY-COPY]]</p>
+            <p>[[BODY-COPY]]</p>
+          </article>
+        </div>
+
+        <header class="section-header">
+          <h2>[[SECTION-HEADING]]</h2>
+        </header>
+        <div class="about-grid">
+          <article class="card">
+            <p>[[BODY-COPY]]</p>
+            <p>[[BODY-COPY]]</p>
+          </article>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-column">
+          <h3>OverKill&nbsp;Hill&nbsp;P³™</h3>
+          <p>The digital forge for protocol-driven power prompts and custom GPT systems that can withstand real-world complexity.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="/#forge">The Forge</a></li>
+            <li><a href="/universe/">P³ Universe</a></li>
+            <li><a href="/manifesto/">The Manifesto</a></li>
+            <li><a href="/projects/">Our Projects</a></li>
+            <li><a href="/writings/">Writings</a></li>
+            <li><a href="/about/">About OKH P³</a></li>
+            <li><a href="/contact/">Contact OKH P³</a></li>
+            <li><a href="/legal/">Legal</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
+            <li><a href="https://ko-fi.com/overkillhillp3" target="_blank" rel="noopener">Ko-fi</a></li>
+            <li><a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener">Fiverr</a></li>
+            <li><a href="https://www.linkedin.com/company/overkillhillp3" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://facebook.com/OverKillHillP3/" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://x.com/OverKillHillP3" target="_blank" rel="noopener">X (Twitter)</a></li>
+            <li><a href="https://www.youtube.com/@OverKillHillP3" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
+        <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a></span>
+        <p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³. All rights reserved.</p>
+        <span></span>
+      </div>
+    </footer>
+
+    <script src="/assets/js/app.js"></script>
+    <script type="application/ld+json">
+      {/* [[SCHEMA-JSON-LD]] */}
+    </script>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      const styles = getComputedStyle(document.body);
+      const surface = styles.getPropertyValue("--color-surface").trim() || "#111827";
+      const surfaceSoft = styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
+      const fg = styles.getPropertyValue("--color-fg").trim() || "#e5e7eb";
+      const accent = styles.getPropertyValue("--color-accent").trim() || "#c46a2c";
+      const muted = styles.getPropertyValue("--color-muted").trim() || "#6b7280";
+      const fontBody = styles.getPropertyValue("--font-body").trim() || '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
+      mermaid.initialize({
+        startOnLoad: true,
+        securityLevel: "loose",
+        theme: "base",
+        themeVariables: {
+          primaryColor: surface,
+          primaryTextColor: fg,
+          primaryBorderColor: accent,
+          lineColor: accent,
+          secondaryColor: surfaceSoft,
+          tertiaryColor: surfaceSoft,
+          textColor: fg,
+          fontFamily: fontBody,
+          noteBkgColor: surface,
+          noteTextColor: muted
+        },
+        flowchart: { curve: "basis", nodeSpacing: 60, rankSpacing: 70 }
+      });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VJ1BKXS27H');
+    </script>
+  </body>
+</html>

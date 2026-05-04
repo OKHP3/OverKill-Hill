@@ -31,3 +31,6 @@ dist/
 build/
 *.log
 .tmp/
+
+# Audit output
+tools/audit-report.md

@@ -32,7 +32,7 @@ from pathlib import Path
 from urllib.parse import urlparse, unquote
 
 ROOT = Path(__file__).resolve().parent.parent
-SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "dist"}
+SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "dist", "templates"}
 SITEMAP = ROOT / "sitemap.xml"
 SITE_ORIGIN = "https://overkillhill.com"
 
