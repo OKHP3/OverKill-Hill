@@ -13,8 +13,8 @@
        METADATA: Primary Title & Description
        ======================================== -->
     <title>Mermaid Theme Builder | OverKill Hill P³™</title>
-    <meta name="description" content="A free, visual Mermaid.js theme builder from OverKill Hill P³. Pick colors, preview diagrams live, and export production-ready CSS variables — no prompting, no guessing." />
-    <meta name="keywords" content="Mermaid.js, theme builder, Mermaid themes, diagram theming, CSS variables, OverKill Hill, open source" />
+    <meta name="description" content="Visual governance for AI-generated Mermaid diagrams. Define your theme once, apply it to any diagram, export styled Mermaid code and LLM prompt scaffolds. Free, browser-only, MIT licensed." />
+    <meta name="keywords" content="Mermaid.js, theme builder, Mermaid themes, diagram theming, CSS variables, prompt scaffold, visual governance, OverKill Hill, open source" />
     <meta name="author" content="OverKill Hill P³™" />
     <meta name="creator" content="OverKill Hill P³™" />
     <meta name="publisher" content="OverKill Hill P³™" />
@@ -23,7 +23,7 @@
        METADATA: Open Graph (Social Sharing)
        ======================================== -->
     <meta property="og:title" content="Mermaid Theme Builder | OverKill Hill P³™" />
-    <meta property="og:description" content="A free, visual Mermaid.js theme builder. Pick colors, preview diagrams live, export CSS variables. A community contribution from OverKill Hill P³." />
+    <meta property="og:description" content="Visual governance for AI-generated Mermaid diagrams. Define a theme, apply it to Mermaid code, export themed output and LLM prompt scaffolds. Browser-only, no login, MIT licensed." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://overkillhill.com/projects/mermaid-theme-builder/" />
     <meta property="og:image" content="https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png" />
@@ -39,7 +39,7 @@
        ======================================== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Mermaid Theme Builder | OverKill Hill P³™" />
-    <meta name="twitter:description" content="Visual, no-prompt Mermaid.js theme builder. Pick colors, preview diagrams live, export CSS variables. Free community contribution." />
+    <meta name="twitter:description" content="Stop re-prompting for styles. Mermaid Theme Builder: define a theme, apply it to any diagram, export prompt scaffolds that keep AI tools on-brand. Free, browser-only." />
     <meta name="twitter:image" content="https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png" />
     <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³ illustration" />
     <meta name="twitter:site" content="@OverKillHillP3" />
@@ -495,6 +495,49 @@
       .faq-q { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.35rem; }
       .faq-a { font-size: 0.875rem; color: var(--color-muted); margin: 0; line-height: 1.6; }
 
+      /* ── Build progress track ────────────────────────────────────────── */
+      .progress-track { list-style: none; padding: 0; margin: 1rem 0 0; }
+      .progress-phase {
+        display: flex;
+        gap: 1rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--color-border-subtle);
+      }
+      .progress-phase:last-child { border-bottom: 0; }
+      .progress-marker {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.8rem;
+        font-weight: 700;
+        min-width: 1.25rem;
+        padding-top: 0.15rem;
+        flex-shrink: 0;
+      }
+      .progress-marker--done { color: var(--okh-orange); }
+      .progress-marker--active { color: var(--okh-orange); opacity: 0.75; }
+      .progress-marker--planned { color: var(--color-muted); }
+      .progress-phase-content { flex: 1; }
+      .progress-phase-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin: 0 0 0.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .phase-pill {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 0.15rem 0.5rem;
+        border-radius: 3px;
+      }
+      .phase-pill--shipped { background: rgba(196,106,44,0.12); color: var(--okh-orange); border: 1px solid rgba(196,106,44,0.3); }
+      .phase-pill--active { background: rgba(234,179,8,0.1); color: #eab308; border: 1px solid rgba(234,179,8,0.3); }
+      .phase-pill--planned { background: rgba(107,114,128,0.08); color: var(--color-muted); border: 1px solid rgba(107,114,128,0.2); }
+      .progress-phase-desc { font-size: 0.85rem; color: var(--color-muted); margin: 0; line-height: 1.55; }
+
       /* ── Builder's note ───────────────────────────────────────────────── */
       .builder-note {
         background: var(--color-surface-soft);
@@ -730,14 +773,14 @@
           <div class="tag-row">
             <span class="tag">Community Tool</span>
             <span class="tag">Open Source</span>
-            <span class="tag tag--accent">V0.3 Public Alpha</span>
+            <span class="tag tag--accent">V0.3 → V0.5 Active</span>
           </div>
 
           <h1>Mermaid Theme Builder</h1>
           <p class="hero-sub">Visual. Instant. Yours.</p>
 
           <p>
-            A free, open-source visual editor for Mermaid.js themes. Pick your colors, watch diagrams update live, and export production-ready CSS — no prompting, no guessing, no iteration cycles.
+            A free, open-source visual governance utility for AI-generated Mermaid diagrams. Define your theme once, apply it to any Mermaid code, and export styled output with LLM prompt scaffolds — one round trip instead of six.
           </p>
 
           <div class="hero-ctas">
@@ -819,12 +862,12 @@
                     <span class="why-mark why-mark--yes">✓</span>
                     <h3>Mermaid Theme Builder</h3>
                   </div>
-                  <p>Pick a color, see every diagram type update instantly. When it looks right, export. One round trip instead of five.</p>
+                  <p>Pick a color, see every diagram type update instantly. Export as CSS variables, a Markdown style bootstrap, or a prompt scaffold that keeps AI tools on-brand from the first generation.</p>
                 </div>
               </div>
 
               <div class="why-note">
-                This is a <strong>community contribution</strong> to the Mermaid.js ecosystem — not a commercial product, not a SaaS, not a competitor to Mermaid.ai. It runs entirely in your browser. No account. No data collected.
+                This is a <strong>visual governance layer</strong> for the Mermaid.js ecosystem — not a commercial product, not a SaaS, not a competitor to Mermaid.ai. It runs entirely in your browser. No account. No data collected.
               </div>
             </div>
 
@@ -838,14 +881,49 @@
                   <div class="feature-icon" aria-hidden="true">⚡</div>
                   <div>
                     <h3>Live Diagram Preview</h3>
-                    <p>Every color change reflects instantly across multiple diagram types — flowchart, sequence, class, gantt, and more.</p>
+                    <p>Every color change reflects instantly across multiple diagram types — flowchart, sequence, class, Gantt, and more. What you see is what you get.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⟳</div>
+                  <div>
+                    <h3>Diagram Family Detection</h3>
+                    <p>Automatically identifies your diagram type and applies family-appropriate transformations. Not all Mermaid families behave the same — the tool knows the difference.</p>
                   </div>
                 </div>
                 <div class="feature-item">
                   <div class="feature-icon" aria-hidden="true">&lt;/&gt;</div>
                   <div>
-                    <h3>Full CSS Variable Export</h3>
-                    <p>One-click export of the complete Mermaid themeVariables block. Paste directly into your <code>mermaid.initialize()</code> config.</p>
+                    <h3>Multi-Format Export</h3>
+                    <p>Export as a complete <code>themeVariables</code> block, a Markdown style bootstrap you paste before any diagram, or a model-specific LLM prompt scaffold.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◎</div>
+                  <div>
+                    <h3>Prompt Scaffold Generator</h3>
+                    <p>Generates LLM-ready prompt prefixes with your theme embedded. AI tools produce on-brand Mermaid on the first try — no follow-up styling cycles needed.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⚐</div>
+                  <div>
+                    <h3>Renderer Capability Notes</h3>
+                    <p>Flags which styling choices work in GitHub, GitLab, Notion, Obsidian, and other renderers — so you know what breaks before you paste and find out.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">▤</div>
+                  <div>
+                    <h3>Brand Palette Presets</h3>
+                    <p>Ships with Neutral Enterprise, OKH P³, AskJamie, and Glee-fully palettes. Start from a working preset or build your own from scratch.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">🎨</div>
+                  <div>
+                    <h3>Precise Color Controls</h3>
+                    <p>Full HSL/RGB pickers with live swatch previews. Dial in exact values with visual confirmation at every step — not just a hex input box.</p>
                   </div>
                 </div>
                 <div class="feature-item">
@@ -856,20 +934,6 @@
                   </div>
                 </div>
                 <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">⊞</div>
-                  <div>
-                    <h3>Multiple Diagram Types</h3>
-                    <p>Preview your theme across the full range of Mermaid diagram types simultaneously, not just a single example.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">🎨</div>
-                  <div>
-                    <h3>Precise Color Picker</h3>
-                    <p>Not just a hex input — full HSL/RGB pickers let you dial in exact values with visual confirmation at every step.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
                   <div class="feature-icon" aria-hidden="true">◻</div>
                   <div>
                     <h3>Open Source, MIT License</h3>
@@ -877,6 +941,43 @@
                   </div>
                 </div>
               </div>
+            </div>
+
+            <!-- BUILD PROGRESS ───────────────────────────────────── -->
+            <div class="content-block">
+              <div class="section-label">Build Progress</div>
+              <h2>Where the project is</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.5rem;">Actively shipping from V0.3 toward V0.5. Each increment tightens the visual governance story and expands the export options.</p>
+              <ul class="progress-track">
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--done">✓</span>
+                  <div class="progress-phase-content">
+                    <p class="progress-phase-title">V0.1 – V0.3 Alpha <span class="phase-pill phase-pill--shipped">Shipped</span></p>
+                    <p class="progress-phase-desc">Core loop: paste Mermaid → apply palette → preview live → export. Diagram family detection, prompt scaffold modal, brand palette presets (OKH P³, Glee-fully, AskJamie, Neutral Enterprise), and renderer capability notes. Live at <a href="https://okhp3.github.io/mermaid-theme-builder/" target="_blank" rel="noopener noreferrer">okhp3.github.io/mermaid-theme-builder</a>.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--active">→</span>
+                  <div class="progress-phase-content">
+                    <p class="progress-phase-title">V0.3.1 <span class="phase-pill phase-pill--active">In Progress</span></p>
+                    <p class="progress-phase-desc">Brand alignment sprint: OKH light-mode UI skin using production design tokens, corrected palette presets sourced from production theme.css, deployment stabilization.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--planned">○</span>
+                  <div class="progress-phase-content">
+                    <p class="progress-phase-title">V0.4 <span class="phase-pill phase-pill--planned">Planned</span></p>
+                    <p class="progress-phase-desc">Multi-format export improvements, renderer compatibility matrix, dark/light preview toggle.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--planned">○</span>
+                  <div class="progress-phase-content">
+                    <p class="progress-phase-title">V0.5 Trust Sprint <span class="phase-pill phase-pill--planned">Planned</span></p>
+                    <p class="progress-phase-desc">Maximum Compatibility Mode, prompt scaffold education layer, example trust levels, research-backed positioning page, and target renderer export profiles (GitHub, GitLab, Obsidian, Notion, Confluence).</p>
+                  </div>
+                </li>
+              </ul>
             </div>
 
             <!-- COLLAPSIBLE SECTIONS ─────────────────────────── -->
@@ -1022,11 +1123,11 @@
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">Why doesn't it support dark/light mode toggle in the builder itself?</p>
-                      <p class="faq-a">It's V0.3 Public Alpha. Dark/light preview toggle is on the roadmap. For now, set your background color to match your target mode and the contrast preview is accurate.</p>
+                      <p class="faq-a">Dark/light preview toggle is on the active roadmap for V0.4. For now, set your background color to match your target mode — the contrast preview is accurate for any background you choose.</p>
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">Can I save and share my theme?</p>
-                      <p class="faq-a">Not yet via a URL share feature, though it's planned. For now, export your themeVariables JSON and commit it to your project.</p>
+                      <p class="faq-a">Theme state is preserved in the URL, so you can bookmark or share your current configuration directly. For permanent storage, export your themeVariables JSON and commit it to your project.</p>
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">How do I contribute or file a bug?</p>
@@ -1050,13 +1151,15 @@
               <p class="builder-sig">— OverKill Hill P³</p>
             </div>
 
-            <!-- STORY PLACEHOLDER ────────────────────────────── -->
-            <div class="story-placeholder">
-              <div class="tag-row"><span class="tag">V0.3 Story</span><span class="tag" style="opacity:0.5;">Placeholder</span></div>
-              <p>The full write-up — what this is, how it came together, and what it means for the Mermaid.js community — is reserved for the V0.3 article. This page is the tool advertisement; the story is separate.</p>
-              <p class="story-note">
-                Article forthcoming. Watch <a href="https://github.com/OKHP3" target="_blank" rel="noopener noreferrer">github.com/OKHP3</a> for updates.
-              </p>
+            <!-- DEVELOPMENT UPDATE ───────────────────────────── -->
+            <div class="builder-note" style="border-color: rgba(196,106,44,0.35);">
+              <div class="section-label">Development Update</div>
+              <blockquote>
+                <p>The tool shipped with more than the minimum viable loop. Diagram family detection, prompt scaffold generation, renderer capability notes, and brand palettes for the full OKH ecosystem (OKH P³, Glee-fully, AskJamie) are all live.</p>
+                <p>V0.3.1 is tightening the visual alignment — the app UI is being reskinned to OKH light-mode tokens so the builder looks like it belongs to the brand it serves. Palette presets are being corrected against production CSS.</p>
+                <p><em>V0.5 is the trust sprint: renderer compatibility mode, example quality tiers, and a full research-backed positioning page. The goal is a tool you can hand to someone else and trust them to get value from immediately.</em></p>
+              </blockquote>
+              <p class="builder-sig">— May 2026 · OverKill Hill P³</p>
             </div>
 
           </div><!-- /main column -->
@@ -1079,7 +1182,11 @@
               <div class="meta-row">
                 <div class="meta-item">
                   <span class="meta-key">Status</span>
-                  <span class="meta-val"><span class="status-dot"></span>V0.3 Public Alpha</span>
+                  <span class="meta-val"><span class="status-dot"></span>V0.3 → V0.5 Active</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Build Phase</span>
+                  <span class="meta-val">V0.3.1 in progress</span>
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">License</span>
