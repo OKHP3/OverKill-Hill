@@ -12,9 +12,9 @@
     <!-- ========================================
        METADATA: Primary Title & Description
        ======================================== -->
-    <title>Mermaid Theme Builder | OverKill Hill P³™</title>
-    <meta name="description" content="Visual governance for AI-generated Mermaid diagrams. Define your theme once, apply it to any diagram, export styled Mermaid code and LLM prompt scaffolds. Free, browser-only, MIT licensed." />
-    <meta name="keywords" content="Mermaid.js, theme builder, Mermaid themes, diagram theming, CSS variables, prompt scaffold, visual governance, OverKill Hill, open source" />
+    <title>BPMN for Mermaid | OverKill Hill P³™</title>
+    <meta name="description" content="A Mermaid-native bpmn-beta diagram type for readable, version-controllable BPMN process diagrams. No XML, no heavyweight tools. Text-first, Git-native, AI-generatable." />
+    <meta name="keywords" content="BPMN, Mermaid.js, bpmn-beta, business process modeling, diagram type, open source, BPMN 2.0, OverKill Hill, process diagrams, Mermaid plugin" />
     <meta name="author" content="OverKill Hill P³™" />
     <meta name="creator" content="OverKill Hill P³™" />
     <meta name="publisher" content="OverKill Hill P³™" />
@@ -22,10 +22,10 @@
     <!-- ========================================
        METADATA: Open Graph (Social Sharing)
        ======================================== -->
-    <meta property="og:title" content="Mermaid Theme Builder | OverKill Hill P³™" />
-    <meta property="og:description" content="Visual governance for AI-generated Mermaid diagrams. Define a theme, apply it to Mermaid code, export themed output and LLM prompt scaffolds. Browser-only, no login, MIT licensed." />
+    <meta property="og:title" content="BPMN for Mermaid | OverKill Hill P³™" />
+    <meta property="og:description" content="A Mermaid-native bpmn-beta diagram type for readable, version-controllable BPMN process diagrams. No XML, no heavyweight tools, no bpmn-js dependency." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://overkillhill.com/projects/mermaid-theme-builder/" />
+    <meta property="og:url" content="https://overkillhill.com/projects/bpmn-for-mermaid/" />
     <meta property="og:image" content="https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png" />
     <meta property="og:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³ illustration" />
     <meta property="og:image:width" content="1024" />
@@ -38,8 +38,8 @@
        METADATA: Twitter Card (X Social)
        ======================================== -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Mermaid Theme Builder | OverKill Hill P³™" />
-    <meta name="twitter:description" content="Stop re-prompting for styles. Mermaid Theme Builder: define a theme, apply it to any diagram, export prompt scaffolds that keep AI tools on-brand. Free, browser-only." />
+    <meta name="twitter:title" content="BPMN for Mermaid | OverKill Hill P³™" />
+    <meta name="twitter:description" content="Mermaid has flowcharts, sequence, Gantt. But no BPMN. bpmn-beta is the bridge — text-first, Git-native, AI-generatable BPMN process diagrams. No XML required." />
     <meta name="twitter:image" content="https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png" />
     <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³ illustration" />
     <meta name="twitter:site" content="@OverKillHillP3" />
@@ -53,8 +53,8 @@
     <meta name="bingbot" content="index, follow" />
     <meta name="revisit-after" content="30 days" />
     <link rel="author" href="/humans.txt" />
-    <link rel="canonical" href="https://overkillhill.com/projects/mermaid-theme-builder/" />
-    <link rel="alternate" hreflang="en" href="https://overkillhill.com/projects/mermaid-theme-builder/" />
+    <link rel="canonical" href="https://overkillhill.com/projects/bpmn-for-mermaid/" />
+    <link rel="alternate" hreflang="en" href="https://overkillhill.com/projects/bpmn-for-mermaid/" />
 
     <!-- ========================================
        METADATA: Color Scheme & Theme
@@ -96,20 +96,23 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Mermaid Theme Builder",
-      "description": "A visual, no-prompt Mermaid.js theme builder. Pick colors, preview diagrams live, and export production-ready CSS variables.",
-      "url": "https://okhp3.github.io/mermaid-theme-builder/",
+      "@type": "SoftwareSourceCode",
+      "name": "BPMN for Mermaid (bpmn-beta)",
+      "description": "A Mermaid-native bpmn-beta diagram type implementing a BPMN 2.0 descriptive subset for readable, version-controllable process diagrams.",
+      "url": "https://github.com/OKHP3/mermaid-diagram-bpmn",
+      "codeRepository": "https://github.com/OKHP3/mermaid-diagram-bpmn",
       "author": {
         "@type": "Organization",
         "name": "OverKill Hill P³",
         "url": "https://overkillhill.com"
       },
-      "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "codeRepository": "https://github.com/OKHP3/mermaid-theme-builder",
-      "license": "https://opensource.org/licenses/MIT"
+      "programmingLanguage": "JavaScript",
+      "license": "https://opensource.org/licenses/MIT",
+      "targetProduct": {
+        "@type": "SoftwareApplication",
+        "name": "Mermaid.js",
+        "url": "https://mermaid.js.org"
+      }
     }
     </script>
 
@@ -186,124 +189,78 @@
         }
       }
 
-      /* ── Embed section ────────────────────────────────────────────────── */
-      .embed-toolbar {
+      /* ── DSL Showcase ─────────────────────────────────────────────────── */
+      .dsl-showcase {
+        border: 1px solid rgba(196,106,44,0.2);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        background: #090d12;
+        box-shadow: 0 0 40px rgba(196,106,44,0.06);
+      }
+      .dsl-showcase-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 0.6rem;
+        padding: 0.55rem 1.1rem;
+        background: rgba(196,106,44,0.07);
+        border-bottom: 1px solid rgba(196,106,44,0.15);
         flex-wrap: wrap;
         gap: 0.5rem;
       }
-      .embed-label {
+      .dsl-lang-badge {
         font-family: "JetBrains Mono", monospace;
-        font-size: 0.72rem;
-        color: var(--color-muted);
-        letter-spacing: 0.07em;
+        font-size: 0.7rem;
+        letter-spacing: 0.06em;
+        color: var(--okh-orange);
         text-transform: uppercase;
         display: flex;
         align-items: center;
         gap: 0.5rem;
       }
-      .embed-live-dot {
+      .dsl-live-dot {
         display: inline-block;
         width: 7px; height: 7px;
         border-radius: 50%;
         background: var(--okh-orange);
         animation: pulse-dot 2s ease-in-out infinite;
       }
-      @keyframes pulse-dot {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.35; }
-      }
-      .embed-actions { display: flex; gap: 0.5rem; }
-      .embed-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        padding: 0.35rem 0.75rem;
-        border-radius: 6px;
-        border: 1px solid var(--color-border-subtle);
-        background: transparent;
-        color: var(--color-muted);
+      @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+      .dsl-copy-btn {
         font-family: "JetBrains Mono", monospace;
         font-size: 0.72rem;
+        color: var(--color-muted);
+        background: transparent;
+        border: 1px solid var(--color-border-subtle);
+        border-radius: 4px;
+        padding: 0.25rem 0.65rem;
         cursor: pointer;
-        text-decoration: none;
-        transition: border-color 0.15s, color 0.15s;
+        transition: color 0.15s, border-color 0.15s;
       }
-      .embed-btn:hover { border-color: var(--color-accent); color: var(--color-accent); text-decoration: none; }
-      .embed-btn--primary {
-        border-color: rgba(196, 106, 44, 0.5);
-        color: var(--okh-orange);
-        background: rgba(196, 106, 44, 0.08);
-      }
-      .embed-btn--primary:hover { background: rgba(196, 106, 44, 0.15); color: var(--okh-orange); }
-      .embed-frame-wrapper {
-        border: 1px solid rgba(196, 106, 44, 0.2);
-        border-radius: var(--radius-md);
-        overflow: hidden;
-        background: #090d12;
-        box-shadow: 0 0 40px rgba(196, 106, 44, 0.06);
-        position: relative;
-      }
-      .embed-frame-wrapper iframe {
-        display: block;
-      }
-      .iframe-loading-overlay {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        background: #090d12;
-        z-index: 2;
-        transition: opacity 0.4s ease;
-      }
-      .iframe-loading-overlay.loaded {
-        opacity: 0;
-        pointer-events: none;
-      }
-      .iframe-spinner {
-        width: 36px;
-        height: 36px;
-        border: 3px solid rgba(196, 106, 44, 0.2);
-        border-top-color: #c46a2c;
-        border-radius: 50%;
-        animation: spin 0.8s linear infinite;
-      }
-      @keyframes spin { to { transform: rotate(360deg); } }
-      .iframe-loading-text {
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.78rem;
-        color: rgba(196, 106, 44, 0.7);
-        letter-spacing: 0.05em;
-      }
-      .iframe-slow-fallback {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-      }
-      .iframe-slow-fallback.visible { display: flex; }
-      .iframe-slow-fallback a {
+      .dsl-copy-btn:hover { color: var(--okh-orange); border-color: rgba(196,106,44,0.4); }
+      .dsl-code {
+        padding: 1.35rem 1.5rem;
         font-family: "JetBrains Mono", monospace;
         font-size: 0.82rem;
-        color: #c46a2c;
-        text-decoration: underline;
-        text-underline-offset: 3px;
+        line-height: 1.75;
+        color: #cbd5e1;
+        overflow-x: auto;
+        margin: 0;
+        white-space: pre;
       }
-      .embed-note {
+      .dsl-kw { color: #c46a2c; font-weight: 500; }
+      .dsl-kw2 { color: #fb923c; }
+      .dsl-str { color: #86efac; }
+      .dsl-op { color: #93c5fd; }
+      .dsl-cm { color: #4b5563; font-style: italic; }
+      .dsl-id { color: #94a3b8; }
+      .dsl-note {
         margin-top: 0.5rem;
         font-size: 0.78rem;
         color: var(--color-muted);
         font-family: "JetBrains Mono", monospace;
         text-align: center;
       }
-      .embed-note a { color: var(--okh-orange); }
+      .dsl-note a { color: var(--okh-orange); }
 
       /* ── Content sections ─────────────────────────────────────────────── */
       .section-label {
@@ -386,116 +343,9 @@
       }
       .feature-item h3 { font-size: 0.9rem; margin: 0 0 0.25rem; font-family: var(--font-body); font-weight: 600; }
       .feature-item p { font-size: 0.85rem; color: var(--color-muted); margin: 0; }
+      .feature-item code { font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--okh-orange); }
 
-      /* ── Collapsible sections ─────────────────────────────────────────── */
-      .collapsibles { display: flex; flex-direction: column; gap: 0.5rem; }
-      .collapsible {
-        border: 1px solid var(--color-border-subtle);
-        border-radius: var(--radius-md);
-        background: var(--color-surface-soft);
-        overflow: hidden;
-      }
-      .collapsible-toggle {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.9rem 1.25rem;
-        background: transparent;
-        border: 0;
-        color: var(--color-fg);
-        font-family: var(--font-body);
-        font-size: 0.95rem;
-        font-weight: 600;
-        cursor: pointer;
-        text-align: left;
-        transition: color 0.15s;
-      }
-      .collapsible-toggle:hover { color: var(--okh-orange); }
-      .collapsible-chevron {
-        display: inline-block;
-        transition: transform 0.2s ease;
-        color: var(--color-muted);
-        font-size: 0.8rem;
-      }
-      .collapsible[open] > .collapsible-toggle .collapsible-chevron {
-        transform: rotate(180deg);
-      }
-      .collapsible-body {
-        padding: 0 1.25rem 1.25rem;
-        border-top: 1px solid var(--color-border-subtle);
-      }
-
-      /* ── Guide steps ──────────────────────────────────────────────────── */
-      .guide-steps { list-style: none; padding: 0; margin: 1rem 0; }
-      .guide-step {
-        display: flex;
-        gap: 1rem;
-        padding: 0.6rem 0;
-        border-bottom: 1px solid var(--color-border-subtle);
-      }
-      .guide-step:last-child { border-bottom: 0; }
-      .step-num {
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.75rem;
-        font-weight: 700;
-        color: var(--okh-orange);
-        opacity: 0.7;
-        padding-top: 0.1rem;
-        min-width: 1.5rem;
-      }
-      .step-content strong { display: block; font-size: 0.9rem; margin-bottom: 0.2rem; }
-      .step-content p { font-size: 0.85rem; color: var(--color-muted); margin: 0; }
-      .guide-tier-note {
-        background: rgba(196,106,44,0.06);
-        border: 1px solid rgba(196,106,44,0.2);
-        border-radius: 6px;
-        padding: 0.75rem 1rem;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.75rem;
-        color: var(--color-muted);
-        line-height: 1.6;
-        margin-top: 1rem;
-      }
-      .guide-tier-note strong { color: var(--okh-orange); }
-
-      /* ── Palette reference table ──────────────────────────────────────── */
-      .palette-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.82rem;
-        margin-top: 0.75rem;
-      }
-      .palette-table th {
-        text-align: left;
-        padding: 0.5rem 1rem 0.5rem 0;
-        border-bottom: 1px solid var(--color-border-subtle);
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.72rem;
-        color: var(--color-muted);
-        font-weight: 500;
-      }
-      .palette-table td {
-        padding: 0.4rem 1rem 0.4rem 0;
-        vertical-align: top;
-        border-bottom: 1px solid rgba(249, 250, 251, 0.04);
-      }
-      .palette-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
-      .palette-var {
-        font-family: "JetBrains Mono", monospace;
-        color: var(--okh-orange);
-        white-space: nowrap;
-      }
-      .palette-desc { color: var(--color-muted); }
-
-      /* ── FAQ ──────────────────────────────────────────────────────────── */
-      .faq-list { margin-top: 0.75rem; }
-      .faq-item { padding: 0.9rem 0; border-bottom: 1px solid var(--color-border-subtle); }
-      .faq-item:last-child { border-bottom: 0; }
-      .faq-q { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.35rem; }
-      .faq-a { font-size: 0.875rem; color: var(--color-muted); margin: 0; line-height: 1.6; }
-
-      /* ── Build progress track ────────────────────────────────────────── */
+      /* ── Build progress track ─────────────────────────────────────────── */
       .progress-track { list-style: none; padding: 0; margin: 1rem 0 0; }
       .progress-phase {
         display: flex;
@@ -538,6 +388,97 @@
       .phase-pill--planned { background: rgba(107,114,128,0.08); color: var(--color-muted); border: 1px solid rgba(107,114,128,0.2); }
       .progress-phase-desc { font-size: 0.85rem; color: var(--color-muted); margin: 0; line-height: 1.55; }
 
+      /* ── Collapsible sections ─────────────────────────────────────────── */
+      .collapsibles { display: flex; flex-direction: column; gap: 0.5rem; }
+      .collapsible {
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-md);
+        background: var(--color-surface-soft);
+        overflow: hidden;
+      }
+      .collapsible-toggle {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.9rem 1.25rem;
+        background: transparent;
+        border: 0;
+        color: var(--color-fg);
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: left;
+        transition: color 0.15s;
+      }
+      .collapsible-toggle:hover { color: var(--okh-orange); }
+      .collapsible-chevron {
+        display: inline-block;
+        transition: transform 0.2s ease;
+        color: var(--color-muted);
+        font-size: 0.8rem;
+      }
+      .collapsible[open] > .collapsible-toggle .collapsible-chevron {
+        transform: rotate(180deg);
+      }
+      .collapsible-body {
+        padding: 0 1.25rem 1.25rem;
+        border-top: 1px solid var(--color-border-subtle);
+      }
+
+      /* ── DSL Reference table ──────────────────────────────────────────── */
+      .dsl-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.82rem;
+        margin-top: 0.75rem;
+      }
+      .dsl-table th {
+        text-align: left;
+        padding: 0.5rem 1rem 0.5rem 0;
+        border-bottom: 1px solid var(--color-border-subtle);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--color-muted);
+        font-weight: 500;
+      }
+      .dsl-table td {
+        padding: 0.4rem 1rem 0.4rem 0;
+        vertical-align: top;
+        border-bottom: 1px solid rgba(249, 250, 251, 0.04);
+      }
+      .dsl-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+      .dsl-kwd {
+        font-family: "JetBrains Mono", monospace;
+        color: var(--okh-orange);
+        white-space: nowrap;
+      }
+      .dsl-desc { color: var(--color-muted); }
+
+      /* ── DSL example in collapsible body ─────────────────────────────── */
+      .dsl-inline {
+        background: #090d12;
+        border: 1px solid rgba(196,106,44,0.15);
+        border-radius: 6px;
+        padding: 1rem 1.25rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.8rem;
+        line-height: 1.7;
+        color: #cbd5e1;
+        overflow-x: auto;
+        white-space: pre;
+        margin: 0.75rem 0;
+      }
+
+      /* ── FAQ ──────────────────────────────────────────────────────────── */
+      .faq-list { margin-top: 0.75rem; }
+      .faq-item { padding: 0.9rem 0; border-bottom: 1px solid var(--color-border-subtle); }
+      .faq-item:last-child { border-bottom: 0; }
+      .faq-q { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.35rem; }
+      .faq-a { font-size: 0.875rem; color: var(--color-muted); margin: 0; line-height: 1.6; }
+      .faq-a code { font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--okh-orange); }
+
       /* ── Builder's note ───────────────────────────────────────────────── */
       .builder-note {
         background: var(--color-surface-soft);
@@ -563,28 +504,6 @@
         margin-top: 1rem;
       }
 
-      /* ── Story placeholder ────────────────────────────────────────────── */
-      .story-placeholder {
-        border: 1px dashed rgba(249,250,251,0.12);
-        border-radius: var(--radius-md);
-        padding: 1.5rem 1.75rem;
-        margin-bottom: 2.5rem;
-      }
-      .story-placeholder p {
-        font-size: 0.875rem;
-        color: rgba(107,114,128,0.7);
-        font-style: italic;
-        margin-bottom: 0.5rem;
-      }
-      .story-placeholder .story-note {
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.72rem;
-        color: rgba(107,114,128,0.5);
-        margin: 0;
-      }
-      .story-note a { color: rgba(196,106,44,0.5); }
-      .story-note a:hover { color: rgba(196,106,44,0.8); }
-
       /* ── Right rail sidebar ───────────────────────────────────────────── */
       .sidebar-rail { display: flex; flex-direction: column; gap: 1rem; }
       @media (min-width: 1024px) {
@@ -600,7 +519,8 @@
       }
       .sidebar-cta .section-label { margin-bottom: 0.75rem; }
       .sidebar-cta .btn-primary { width: 100%; margin-bottom: 0.5rem; justify-content: center; }
-      .sidebar-cta .cta-note { font-size: 0.78rem; color: var(--color-muted); margin: 0; }
+      .sidebar-cta .btn-quiet { width: 100%; justify-content: center; }
+      .sidebar-cta .cta-note { font-size: 0.78rem; color: var(--color-muted); margin: 0.5rem 0 0; }
       .sidebar-meta {
         border: 1px solid var(--color-border-subtle);
         background: var(--color-surface-soft);
@@ -619,6 +539,7 @@
       }
       .meta-val { color: var(--color-fg); }
       .meta-val a { color: var(--okh-orange); }
+      .meta-val code { font-family: "JetBrains Mono", monospace; font-size: 0.78rem; }
       .status-dot {
         display: inline-block;
         width: 8px; height: 8px;
@@ -655,35 +576,12 @@
       .sidebar-related a { color: var(--color-muted); }
       .sidebar-related a:hover { color: var(--okh-orange); }
 
-      /* ── Fallback CTA button above iframe ────────────────────────────── */
-      .embed-fallback-cta {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 0.75rem;
-      }
-      .embed-fallback-cta a {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4em;
-        padding: 0.65rem 1.4rem;
-        background: var(--okh-orange);
-        color: #fff;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.88rem;
-        font-weight: 600;
-        border-radius: var(--radius-sm);
-        text-decoration: none;
-        letter-spacing: 0.01em;
-        transition: background 0.15s ease, opacity 0.15s ease;
-      }
-      .embed-fallback-cta a:hover { opacity: 0.88; }
-
       /* ── Mobile stacking ──────────────────────────────────────────────── */
       @media (max-width: 640px) {
-        .embed-toolbar { flex-direction: column; align-items: flex-start; }
+        .dsl-showcase-header { flex-direction: column; align-items: flex-start; }
       }
     </style>
-      <script type="speculationrules">
+    <script type="speculationrules">
     {
       "prefetch": [
         { "source": "document", "where": { "and": [
@@ -713,12 +611,12 @@
         <nav class="primary-nav" id="navigation" aria-label="Primary">
           <ul>
             <li><a href="/#forge">The Forge</a></li>
-            <!-- Projects cluster: index + individual project pages -->
+            <!-- Projects cluster -->
             <li class="has-submenu">
               <a href="/projects/" aria-current="page">Our Projects</a>
               <ul class="submenu">
-                <li><a href="/projects/mermaid-theme-builder/" class="is-current">Mermaid Theme Builder</a></li>
-                <li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
+                <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
+                <li><a href="/projects/bpmn-for-mermaid/" class="is-current">BPMN for Mermaid</a></li>
               </ul>
             </li>
             <li class="has-submenu">
@@ -768,25 +666,25 @@
           <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="/">overkillhill.com</a><span>/</span>
             <a href="/projects/">projects</a><span>/</span>
-            <span>mermaid-theme-builder</span>
+            <span>bpmn-for-mermaid</span>
           </nav>
 
           <div class="tag-row">
-            <span class="tag">Community Tool</span>
             <span class="tag">Open Source</span>
-            <span class="tag tag--accent">V0.3 → V0.5 Active</span>
+            <span class="tag">Mermaid Contribution</span>
+            <span class="tag tag--accent">bpmn-beta · Active</span>
           </div>
 
-          <h1>Mermaid Theme Builder</h1>
-          <p class="hero-sub">Visual. Instant. Yours.</p>
+          <h1>BPMN for Mermaid</h1>
+          <p class="hero-sub">Text-first. Standards-aware. Git-native.</p>
 
           <p>
-            A free, open-source visual governance utility for AI-generated Mermaid diagrams. Define your theme once, apply it to any Mermaid code, and export styled output with LLM prompt scaffolds — one round trip instead of six.
+            A Mermaid-native <code style="font-family:'JetBrains Mono',monospace;font-size:0.92rem;color:var(--okh-orange);">bpmn-beta</code> diagram type for readable, version-controllable BPMN process diagrams — no XML, no heavyweight tools, no bpmn-js runtime dependency. Write process models as text, render them as correct BPMN shapes, commit them alongside your code.
           </p>
 
           <div class="hero-ctas">
-            <a href="#embed-tool" class="btn btn-primary">Use the Tool Now</a>
-            <a href="https://github.com/OKHP3/mermaid-theme-builder" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">View Source on GitHub</a>
+            <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on GitHub</a>
+            <a href="#dsl-showcase" class="btn btn-quiet">See the DSL →</a>
           </div>
         </section>
 
@@ -796,149 +694,146 @@
           <!-- MAIN COLUMN ──────────────────────────────────────── -->
           <div>
 
-            <!-- EMBED TOOL ───────────────────────────────────── -->
-            <div class="content-block" id="embed-tool" style="scroll-margin-top: 8rem;">
-              <div class="embed-toolbar">
-                <div class="embed-label">
-                  <span class="embed-live-dot"></span>
-                  Live Tool &nbsp;·&nbsp; okhp3.github.io
-                </div>
-                <div class="embed-actions">
-                  <button class="embed-btn" id="reload-btn" title="Reload tool" aria-label="Reload tool">
-                    ↺ Reload
-                  </button>
-                  <a href="https://okhp3.github.io/mermaid-theme-builder/" target="_blank" rel="noopener noreferrer" class="embed-btn embed-btn--primary">
-                    ⤢ Full Screen
-                  </a>
-                </div>
-              </div>
+            <!-- DSL SHOWCASE ─────────────────────────────────── -->
+            <div class="content-block" id="dsl-showcase" style="scroll-margin-top: 8rem;">
+              <div class="section-label">DSL Example</div>
+              <h2>What bpmn-beta looks like</h2>
+              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1rem;">
+                The canonical purchase order approval flow — three participants, a gateway, and a rejection path — in 20 lines of text. No XML, no drag-and-drop, no proprietary format.
+              </p>
 
-              <div class="embed-fallback-cta">
-                <a href="https://okhp3.github.io/mermaid-theme-builder/" target="_blank" rel="noopener noreferrer">
-                  ⤢ Open Mermaid Theme Builder Full Screen
-                </a>
-              </div>
-
-              <div class="embed-frame-wrapper">
-                <div class="iframe-loading-overlay" id="iframe-overlay" aria-hidden="true">
-                  <div class="iframe-spinner"></div>
-                  <span class="iframe-loading-text">Loading Mermaid Theme Builder…</span>
-                  <div class="iframe-slow-fallback" id="iframe-fallback">
-                    <span class="iframe-loading-text" style="opacity:0.6;">Taking longer than expected?</span>
-                    <a href="https://okhp3.github.io/mermaid-theme-builder/" target="_blank" rel="noopener noreferrer">Open the tool in a new tab →</a>
+              <div class="dsl-showcase">
+                <div class="dsl-showcase-header">
+                  <div class="dsl-lang-badge">
+                    <span class="dsl-live-dot"></span>
+                    bpmn-beta · Canonical Example
                   </div>
+                  <button class="dsl-copy-btn" id="dsl-copy-btn" title="Copy to clipboard">
+                    ⎘ Copy
+                  </button>
                 </div>
-                <iframe
-                  id="tool-iframe"
-                  src="https://okhp3.github.io/mermaid-theme-builder/"
-                  title="Mermaid Theme Builder"
-                  loading="lazy"
-                  allow="clipboard-read; clipboard-write; fullscreen"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  style="width:100%; min-height:900px; border:0;"
-                ></iframe>
+                <pre class="dsl-code" id="dsl-example-code"><span class="dsl-kw">bpmn-beta</span>
+<span class="dsl-kw2">accTitle</span><span class="dsl-op">:</span> Purchase Order Approval
+
+<span class="dsl-kw">pool</span> <span class="dsl-id">company</span> <span class="dsl-str">"Company"</span> <span class="dsl-op">{</span>
+  <span class="dsl-kw">lane</span> <span class="dsl-id">requester</span> <span class="dsl-str">"Requester"</span> <span class="dsl-op">{</span>
+    <span class="dsl-kw">start</span>     <span class="dsl-id">s1</span>  <span class="dsl-str">"Need Identified"</span>
+    <span class="dsl-kw">task:user</span> <span class="dsl-id">t1</span>  <span class="dsl-str">"Submit Purchase Request"</span>
+  <span class="dsl-op">}</span>
+
+  <span class="dsl-kw">lane</span> <span class="dsl-id">manager</span> <span class="dsl-str">"Manager"</span> <span class="dsl-op">{</span>
+    <span class="dsl-kw">task:user</span> <span class="dsl-id">t2</span>  <span class="dsl-str">"Review Request"</span>
+    <span class="dsl-kw">xor</span>       <span class="dsl-id">g1</span>  <span class="dsl-str">"Approved?"</span>
+    <span class="dsl-kw">end</span>       <span class="dsl-id">e2</span>  <span class="dsl-str">"Rejected"</span>
+  <span class="dsl-op">}</span>
+
+  <span class="dsl-kw">lane</span> <span class="dsl-id">procurement</span> <span class="dsl-str">"Procurement"</span> <span class="dsl-op">{</span>
+    <span class="dsl-kw">task:service</span> <span class="dsl-id">t3</span>  <span class="dsl-str">"Create Purchase Order"</span>
+    <span class="dsl-kw">end</span>          <span class="dsl-id">e1</span>  <span class="dsl-str">"PO Issued"</span>
+  <span class="dsl-op">}</span>
+
+  <span class="dsl-id">s1</span> <span class="dsl-op">--&gt;</span> <span class="dsl-id">t1</span>
+  <span class="dsl-id">t1</span> <span class="dsl-op">--&gt;</span> <span class="dsl-id">t2</span>
+  <span class="dsl-id">t2</span> <span class="dsl-op">--&gt;</span> <span class="dsl-id">g1</span>
+  <span class="dsl-id">g1</span> <span class="dsl-op">--&gt;</span> <span class="dsl-id">t3</span><span class="dsl-op">:</span> <span class="dsl-str">"yes"</span>
+  <span class="dsl-id">g1</span> <span class="dsl-op">--&gt;</span> <span class="dsl-id">e2</span><span class="dsl-op">:</span> <span class="dsl-str">"no"</span>
+  <span class="dsl-id">t3</span> <span class="dsl-op">--&gt;</span> <span class="dsl-id">e1</span>
+<span class="dsl-op">}</span></pre>
               </div>
 
-              <p class="embed-note">
-                Embedded from <a href="https://okhp3.github.io/mermaid-theme-builder/" target="_blank" rel="noopener noreferrer">okhp3.github.io/mermaid-theme-builder</a>
-                — open in a new tab for the best experience
+              <p class="dsl-note">
+                Playground and DSL Reference →
+                <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer">github.com/OKHP3/mermaid-diagram-bpmn</a>
               </p>
             </div>
 
             <!-- WHY THIS EXISTS ──────────────────────────────── -->
             <div class="content-block card">
               <div class="section-label">Why This Exists</div>
-              <h2>What you get here that you don't get from prompting an LLM</h2>
+              <h2>The gap Mermaid has always had</h2>
 
               <div class="why-grid">
                 <div class="why-col">
                   <div class="why-col-header">
                     <span class="why-mark why-mark--no">✗</span>
-                    <h3>Prompting an LLM</h3>
+                    <h3>The current options</h3>
                   </div>
-                  <p>Generates CSS variable blobs you paste and re-prompt until something looks right. No live preview, no iteration feedback, result varies by model.</p>
+                  <p>Heavyweight tools (Visio, Signavio, Camunda, bpmn.io) are XML-first and don't live in version control. Mermaid flowcharts resemble BPMN but lack semantic correctness — a process analyst will flag it on sight.</p>
                 </div>
                 <div class="why-col">
                   <div class="why-col-header">
                     <span class="why-mark why-mark--yes">✓</span>
-                    <h3>Mermaid Theme Builder</h3>
+                    <h3>bpmn-beta</h3>
                   </div>
-                  <p>Pick a color, see every diagram type update instantly. Export as CSS variables, a Markdown style bootstrap, or a prompt scaffold that keeps AI tools on-brand from the first generation.</p>
+                  <p>Write BPMN as a Markdown code fence. Commit it alongside your code. Let LLMs generate it. Have process analysts read it. Render BPMN-correct shapes without XML, without a graphical editor, without bpmn-js.</p>
                 </div>
               </div>
 
               <div class="why-note">
-                This is a <strong>visual governance layer</strong> for the Mermaid.js ecosystem — not a commercial product, not a SaaS, not a competitor to Mermaid.ai. It runs entirely in your browser. No account. No data collected.
+                This is a <strong>Mermaid diagram-type contribution proposal</strong>, not a commercial product. It ships as an external plugin first. Upstream Mermaid core inclusion is the long-term target — after the syntax stabilizes and the community weighs in.
               </div>
             </div>
 
             <!-- FEATURES ─────────────────────────────────────── -->
             <div class="content-block">
               <div class="section-label">Features</div>
-              <h2>What the builder does</h2>
+              <h2>What the prototype does</h2>
 
               <div class="feature-grid">
                 <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">⚡</div>
+                  <div class="feature-icon" aria-hidden="true">🔷</div>
                   <div>
-                    <h3>Live Diagram Preview</h3>
-                    <p>Every color change reflects instantly across multiple diagram types — flowchart, sequence, class, Gantt, and more. What you see is what you get.</p>
+                    <h3>Mermaid-Native DSL</h3>
+                    <p>Starts with <code>bpmn-beta</code> — the diagram type keyword. Reads like every other Mermaid diagram. No boilerplate, no XML, no schema to import.</p>
                   </div>
                 </div>
                 <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">⟳</div>
+                  <div class="feature-icon" aria-hidden="true">⊞</div>
                   <div>
-                    <h3>Diagram Family Detection</h3>
-                    <p>Automatically identifies your diagram type and applies family-appropriate transformations. Not all Mermaid families behave the same — the tool knows the difference.</p>
+                    <h3>Pools &amp; Lanes</h3>
+                    <p>Multi-participant process diagrams with proper pool and lane containment. Sequence flows stay inside pools; message flows cross pool boundaries at the top level.</p>
                   </div>
                 </div>
                 <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">&lt;/&gt;</div>
+                  <div class="feature-icon" aria-hidden="true">◆</div>
                   <div>
-                    <h3>Multi-Format Export</h3>
-                    <p>Export as a complete <code>themeVariables</code> block, a Markdown style bootstrap you paste before any diagram, or a model-specific LLM prompt scaffold.</p>
+                    <h3>BPMN 2.0 Correct Shapes</h3>
+                    <p>Start/end/intermediate events, user/service/script tasks, XOR/AND/OR gateways — rendered with correct BPMN visual notation, not flowchart approximations.</p>
                   </div>
                 </div>
                 <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">◎</div>
+                  <div class="feature-icon" aria-hidden="true">🤖</div>
                   <div>
-                    <h3>Prompt Scaffold Generator</h3>
-                    <p>Generates LLM-ready prompt prefixes with your theme embedded. AI tools produce on-brand Mermaid on the first try — no follow-up styling cycles needed.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">⚐</div>
-                  <div>
-                    <h3>Renderer Capability Notes</h3>
-                    <p>Flags which styling choices work in GitHub, GitLab, Notion, Obsidian, and other renderers — so you know what breaks before you paste and find out.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">▤</div>
-                  <div>
-                    <h3>Brand Palette Presets</h3>
-                    <p>Ships with Neutral Enterprise, OKH P³, AskJamie, and Glee-fully palettes. Start from a working preset or build your own from scratch.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">🎨</div>
-                  <div>
-                    <h3>Precise Color Controls</h3>
-                    <p>Full HSL/RGB pickers with live swatch previews. Dial in exact values with visual confirmation at every step — not just a hex input box.</p>
+                    <h3>AI-Generatable Syntax</h3>
+                    <p>Clean enough for LLMs to produce valid <code>bpmn-beta</code> on first try. Readable enough for non-experts to write directly. No prompt repair loops for syntax errors.</p>
                   </div>
                 </div>
                 <div class="feature-item">
                   <div class="feature-icon" aria-hidden="true">🔒</div>
                   <div>
-                    <h3>Browser-Only — No Server</h3>
-                    <p>Runs 100% client-side. No login, no account, no data leaves your machine. Close the tab and nothing is stored anywhere.</p>
+                    <h3>No bpmn-js Dependency</h3>
+                    <p>Hand-written SVG renderer produces correct BPMN shapes from scratch. No runtime dependency on bpmn-js — keeps bundle size manageable for Mermaid's contribution bar.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">🎨</div>
+                  <div>
+                    <h3>Mermaid Theme Integration</h3>
+                    <p>Honors Mermaid theme variables. Diagrams aren't visual outliers in existing Mermaid-themed documents. Theme Builder palettes apply here too.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">📚</div>
+                  <div>
+                    <h3>Playground &amp; DSL Reference</h3>
+                    <p>Six-page React app: Home, Playground, DSL Reference, Architecture, Roadmap, and About. Live-parses bpmn-beta and renders the SVG output in-browser.</p>
                   </div>
                 </div>
                 <div class="feature-item">
                   <div class="feature-icon" aria-hidden="true">◻</div>
                   <div>
                     <h3>Open Source, MIT License</h3>
-                    <p>Fork it, remix it, embed it. Full source on GitHub. Contributions welcome.</p>
+                    <p>Fork it, extend it, propose it upstream. The spec, architecture decisions, and all source are on GitHub. Community feedback shapes the DSL before it locks.</p>
                   </div>
                 </div>
               </div>
@@ -948,34 +843,36 @@
             <div class="content-block">
               <div class="section-label">Build Progress</div>
               <h2>Where the project is</h2>
-              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.5rem;">Actively shipping from V0.3 toward V0.5. Each increment tightens the visual governance story and expands the export options.</p>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.5rem;">
+                The prototype validates the core thesis. The next phase closes the gap to a complete External Diagram plugin that can be proposed upstream.
+              </p>
               <ul class="progress-track">
                 <li class="progress-phase">
                   <span class="progress-marker progress-marker--done">✓</span>
                   <div class="progress-phase-content">
-                    <p class="progress-phase-title">V0.1 – V0.3 Alpha <span class="phase-pill phase-pill--shipped">Shipped</span></p>
-                    <p class="progress-phase-desc">Core loop: paste Mermaid → apply palette → preview live → export. Diagram family detection, prompt scaffold modal, brand palette presets (OKH P³, Glee-fully, AskJamie, Neutral Enterprise), and renderer capability notes. Live at <a href="https://okhp3.github.io/mermaid-theme-builder/" target="_blank" rel="noopener noreferrer">okhp3.github.io/mermaid-theme-builder</a>.</p>
+                    <p class="progress-phase-title">Prototype <span class="phase-pill phase-pill--shipped">Shipped</span></p>
+                    <p class="progress-phase-desc">Hand-written line parser, heuristic topological layout, hand-written SVG renderer (no bpmn-js), four canonical example diagrams, six-page React app (Home, Playground, DSL Reference, Architecture, Roadmap, About). Validates the core thesis: a Mermaid-native readable BPMN DSL can render BPMN-correct shapes without bpmn-js.</p>
                   </div>
                 </li>
                 <li class="progress-phase">
                   <span class="progress-marker progress-marker--active">→</span>
                   <div class="progress-phase-content">
-                    <p class="progress-phase-title">V0.3.1 <span class="phase-pill phase-pill--active">In Progress</span></p>
-                    <p class="progress-phase-desc">Brand alignment sprint: OKH light-mode UI skin using production design tokens, corrected palette presets sourced from production theme.css, deployment stabilization.</p>
+                    <p class="progress-phase-title">v0.1 — Pools, Lanes &amp; Plugin API <span class="phase-pill phase-pill--active">In Progress</span></p>
+                    <p class="progress-phase-desc">Pools and lanes implementation (required for Descriptive Conformance subset claim), complete v1 element set, port to Mermaid External Diagram API, Langium grammar prototype for the parser. Target: demo-ready for Mermaid community engagement on issue <a href="https://github.com/mermaid-js/mermaid/issues/7699" target="_blank" rel="noopener noreferrer">#7699</a>.</p>
                   </div>
                 </li>
                 <li class="progress-phase">
                   <span class="progress-marker progress-marker--planned">○</span>
                   <div class="progress-phase-content">
-                    <p class="progress-phase-title">V0.4 <span class="phase-pill phase-pill--planned">Planned</span></p>
-                    <p class="progress-phase-desc">Multi-format export improvements, renderer compatibility matrix, dark/light preview toggle.</p>
+                    <p class="progress-phase-title">v1.0 — Full Plugin <span class="phase-pill phase-pill--planned">Planned</span></p>
+                    <p class="progress-phase-desc">Langium grammar (replaces hand-written parser), npm publication, accessibility (<code>accTitle</code>/<code>accDescr</code> + ARIA metadata), theme integration, full test suite (Vitest), Mermaid PR gates (size &lt;200 KB, tests, docs).</p>
                   </div>
                 </li>
                 <li class="progress-phase">
                   <span class="progress-marker progress-marker--planned">○</span>
                   <div class="progress-phase-content">
-                    <p class="progress-phase-title">V0.5 Trust Sprint <span class="phase-pill phase-pill--planned">Planned</span></p>
-                    <p class="progress-phase-desc">Maximum Compatibility Mode, prompt scaffold education layer, example trust levels, research-backed positioning page, and target renderer export profiles (GitHub, GitLab, Obsidian, Notion, Confluence).</p>
+                    <p class="progress-phase-title">Upstream Proposal <span class="phase-pill phase-pill--planned">Future</span></p>
+                    <p class="progress-phase-desc">Mermaid core PR after v1.0 syntax stabilizes and community feedback from issue #7699 is incorporated. Requires maintainer acceptance, full docs, and a parity test corpus between the hand-written and Langium parsers.</p>
                   </div>
                 </li>
               </ul>
@@ -984,112 +881,90 @@
             <!-- COLLAPSIBLE SECTIONS ─────────────────────────── -->
             <div class="content-block collapsibles">
 
-              <!-- User Guide -->
+              <!-- DSL Reference -->
               <details class="collapsible">
                 <summary class="collapsible-toggle">
-                  User Guide
+                  DSL Reference
                   <span class="collapsible-chevron" aria-hidden="true">▾</span>
                 </summary>
                 <div class="collapsible-body">
                   <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.75rem;">
-                    Get from zero to a custom Mermaid theme in under five minutes.
+                    The complete bpmn-beta element vocabulary, flow operators, and pool/lane rules. This is the v1 scope — what ships in the initial plugin.
                   </p>
-                  <ol class="guide-steps">
-                    <li class="guide-step">
-                      <span class="step-num">01</span>
-                      <div class="step-content">
-                        <strong>Open the builder</strong>
-                        <p>Use the embedded tool above or open it in a full tab for maximum workspace. No login required.</p>
-                      </div>
-                    </li>
-                    <li class="guide-step">
-                      <span class="step-num">02</span>
-                      <div class="step-content">
-                        <strong>Select a diagram type to preview</strong>
-                        <p>The panel shows multiple Mermaid diagram types. Pick the one most relevant to your use case as your primary reference.</p>
-                      </div>
-                    </li>
-                    <li class="guide-step">
-                      <span class="step-num">03</span>
-                      <div class="step-content">
-                        <strong>Adjust base colors</strong>
-                        <p>Start with your primary background and node fill colors. Everything else cascades from these. Use the color pickers — HSL sliders give you the most control.</p>
-                      </div>
-                    </li>
-                    <li class="guide-step">
-                      <span class="step-num">04</span>
-                      <div class="step-content">
-                        <strong>Refine edges, text, and accents</strong>
-                        <p>Dial in edge colors, label text colors, and cluster/subgraph backgrounds. Watch the preview update in real time.</p>
-                      </div>
-                    </li>
-                    <li class="guide-step">
-                      <span class="step-num">05</span>
-                      <div class="step-content">
-                        <strong>Export your theme</strong>
-                        <p>Hit Export. You get a complete <code>mermaid.themeVariables</code> object ready to drop into your <code>mermaid.initialize()</code> call or mdx frontmatter.</p>
-                      </div>
-                    </li>
-                    <li class="guide-step">
-                      <span class="step-num">06</span>
-                      <div class="step-content">
-                        <strong>Paste and verify</strong>
-                        <p>Drop the exported variables into your project. If anything needs a tweak, return to the builder — your context is preserved in the URL.</p>
-                      </div>
-                    </li>
-                  </ol>
-                  <div class="guide-tier-note">
-                    <strong>Tier 1 users:</strong> Go straight to the tool. It's self-evident.<br>
-                    <strong>Tier 2 users:</strong> Follow steps 1–5. Total time: ~3 minutes.
-                  </div>
-                </div>
-              </details>
 
-              <!-- Palette Reference -->
-              <details class="collapsible">
-                <summary class="collapsible-toggle">
-                  Palette Reference
-                  <span class="collapsible-chevron" aria-hidden="true">▾</span>
-                </summary>
-                <div class="collapsible-body">
-                  <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.5rem;">
-                    All Mermaid themeVariables touched by the builder, and what they control.
-                  </p>
+                  <div class="section-label" style="margin-top:0.5rem;">Event Keywords</div>
                   <div style="overflow-x:auto;">
-                    <table class="palette-table">
+                    <table class="dsl-table">
                       <thead>
-                        <tr>
-                          <th style="width:200px;">Variable</th>
-                          <th>Effect</th>
-                        </tr>
+                        <tr><th style="width:180px;">Keyword</th><th>BPMN Element</th><th>Shape</th></tr>
                       </thead>
                       <tbody>
-                        <tr><td class="palette-var">primaryColor</td><td class="palette-desc">Main node fill color — the dominant hue in your diagram.</td></tr>
-                        <tr><td class="palette-var">primaryTextColor</td><td class="palette-desc">Text inside primary-colored nodes. Ensure contrast.</td></tr>
-                        <tr><td class="palette-var">primaryBorderColor</td><td class="palette-desc">Border/stroke of primary nodes.</td></tr>
-                        <tr><td class="palette-var">secondaryColor</td><td class="palette-desc">Secondary node fill — used for alternate node types.</td></tr>
-                        <tr><td class="palette-var">secondaryTextColor</td><td class="palette-desc">Text inside secondary nodes.</td></tr>
-                        <tr><td class="palette-var">secondaryBorderColor</td><td class="palette-desc">Border of secondary nodes.</td></tr>
-                        <tr><td class="palette-var">tertiaryColor</td><td class="palette-desc">Tertiary fill — subgraphs, clusters, grouping elements.</td></tr>
-                        <tr><td class="palette-var">tertiaryTextColor</td><td class="palette-desc">Text inside tertiary elements.</td></tr>
-                        <tr><td class="palette-var">tertiaryBorderColor</td><td class="palette-desc">Border of tertiary elements.</td></tr>
-                        <tr><td class="palette-var">background</td><td class="palette-desc">Canvas/diagram background. Usually the page's background color.</td></tr>
-                        <tr><td class="palette-var">mainBkg</td><td class="palette-desc">Default background for most node types.</td></tr>
-                        <tr><td class="palette-var">nodeBorder</td><td class="palette-desc">Default border for all node types.</td></tr>
-                        <tr><td class="palette-var">clusterBkg</td><td class="palette-desc">Subgraph/cluster fill color.</td></tr>
-                        <tr><td class="palette-var">clusterBorder</td><td class="palette-desc">Subgraph/cluster border.</td></tr>
-                        <tr><td class="palette-var">lineColor</td><td class="palette-desc">Arrow and edge line color.</td></tr>
-                        <tr><td class="palette-var">edgeLabelBackground</td><td class="palette-desc">Background of inline edge labels.</td></tr>
-                        <tr><td class="palette-var">fontFamily</td><td class="palette-desc">Font family applied to all diagram text.</td></tr>
-                        <tr><td class="palette-var">fontSize</td><td class="palette-desc">Base font size — default 16px.</td></tr>
-                        <tr><td class="palette-var">labelBackground</td><td class="palette-desc">Background of standalone labels.</td></tr>
-                        <tr><td class="palette-var">labelTextColor</td><td class="palette-desc">Color of standalone label text.</td></tr>
-                        <tr><td class="palette-var">titleColor</td><td class="palette-desc">Diagram title text color.</td></tr>
+                        <tr><td class="dsl-kwd">start</td><td class="dsl-desc">Start event (none)</td><td class="dsl-desc">Thin circle</td></tr>
+                        <tr><td class="dsl-kwd">end</td><td class="dsl-desc">End event (none)</td><td class="dsl-desc">Thick circle</td></tr>
+                        <tr><td class="dsl-kwd">event:message</td><td class="dsl-desc">Message intermediate event</td><td class="dsl-desc">Circle + envelope</td></tr>
+                        <tr><td class="dsl-kwd">event:timer</td><td class="dsl-desc">Timer intermediate event</td><td class="dsl-desc">Circle + clock</td></tr>
+                        <tr><td class="dsl-kwd">event:error</td><td class="dsl-desc">Error end event</td><td class="dsl-desc">Thick circle + lightning</td></tr>
                       </tbody>
                     </table>
                   </div>
-                  <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.75rem;">
-                    The builder exports these as a complete <code>themeVariables</code> object. Pass them to <code>mermaid.initialize({ theme: 'base', themeVariables: {...} })</code>.
+
+                  <div class="section-label" style="margin-top:1rem;">Task Keywords</div>
+                  <div style="overflow-x:auto;">
+                    <table class="dsl-table">
+                      <thead>
+                        <tr><th style="width:180px;">Keyword</th><th>BPMN Element</th><th>Marker</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td class="dsl-kwd">task</td><td class="dsl-desc">Abstract task</td><td class="dsl-desc">Rounded rectangle</td></tr>
+                        <tr><td class="dsl-kwd">task:user</td><td class="dsl-desc">User task</td><td class="dsl-desc">Person icon</td></tr>
+                        <tr><td class="dsl-kwd">task:service</td><td class="dsl-desc">Service task</td><td class="dsl-desc">Gear icon</td></tr>
+                        <tr><td class="dsl-kwd">task:script</td><td class="dsl-desc">Script task</td><td class="dsl-desc">Scroll icon</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="section-label" style="margin-top:1rem;">Gateway Keywords</div>
+                  <div style="overflow-x:auto;">
+                    <table class="dsl-table">
+                      <thead>
+                        <tr><th style="width:180px;">Keyword</th><th>BPMN Element</th><th>Marker</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td class="dsl-kwd">xor</td><td class="dsl-desc">Exclusive (XOR) gateway</td><td class="dsl-desc">Diamond + X</td></tr>
+                        <tr><td class="dsl-kwd">and</td><td class="dsl-desc">Parallel (AND) gateway</td><td class="dsl-desc">Diamond + +</td></tr>
+                        <tr><td class="dsl-kwd">or</td><td class="dsl-desc">Inclusive (OR) gateway</td><td class="dsl-desc">Diamond + O</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="section-label" style="margin-top:1rem;">Flow Operators</div>
+                  <div style="overflow-x:auto;">
+                    <table class="dsl-table">
+                      <thead>
+                        <tr><th style="width:180px;">Operator</th><th>Meaning</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td class="dsl-kwd">--&gt;</td><td class="dsl-desc">Sequence flow</td></tr>
+                        <tr><td class="dsl-kwd">--&gt; : "label"</td><td class="dsl-desc">Conditional sequence flow with label</td></tr>
+                        <tr><td class="dsl-kwd">==&gt;</td><td class="dsl-desc">Default sequence flow</td></tr>
+                        <tr><td class="dsl-kwd">~~&gt;</td><td class="dsl-desc">Message flow (cross-pool only, declared at top level)</td></tr>
+                        <tr><td class="dsl-kwd">---</td><td class="dsl-desc">Association (to text annotations)</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="section-label" style="margin-top:1rem;">Pool &amp; Lane Rules</div>
+                  <ul style="font-size:0.875rem;color:var(--color-muted);line-height:1.7;padding-left:1.25rem;margin-top:0.5rem;">
+                    <li>Sequence flows (<code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">--&gt;</code>) must stay inside a pool — they cannot cross pool boundaries.</li>
+                    <li>Message flows (<code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">~~&gt;</code>) cross pools and must be declared at the top level, outside any pool block.</li>
+                    <li>Lanes are one level deep. Nested lanes are explicitly deferred to a later version.</li>
+                    <li>IDs follow the pattern <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">[A-Za-z_][A-Za-z0-9_]*</code> — short IDs like <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">s1</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">t1</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">g1</code> are recommended.</li>
+                    <li>Comments: <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">%%</code> — follows Mermaid convention.</li>
+                  </ul>
+
+                  <div class="section-label" style="margin-top:1rem;">What's Deferred (Not in v1)</div>
+                  <p style="font-size:0.875rem;color:var(--color-muted);line-height:1.7;margin-top:0.5rem;">
+                    Boundary events · Event subprocesses · Transactions · Choreography diagrams · Conversation diagrams · BPMN XML import/export · Executable semantics · Multi-instance markers · Compensation · Data objects/stores/groups · Nested lanes deeper than one level.
                   </p>
                 </div>
               </details>
@@ -1103,36 +978,36 @@
                 <div class="collapsible-body">
                   <div class="faq-list">
                     <div class="faq-item">
-                      <p class="faq-q">Is this affiliated with Mermaid.ai?</p>
-                      <p class="faq-a">No. This is an independent community contribution to the open-source Mermaid.js ecosystem. It has no relationship with Mermaid.ai or any commercial Mermaid product.</p>
+                      <p class="faq-q">Is this an official Mermaid diagram type?</p>
+                      <p class="faq-a">Not yet. This is an open-source contribution proposal — it ships as an external Mermaid diagram plugin first. Upstream inclusion in Mermaid core requires maintainer acceptance and a formal PR process. The <code>bpmn-beta</code> keyword signals its pre-proposal status.</p>
                     </div>
                     <div class="faq-item">
-                      <p class="faq-q">Does it cost anything?</p>
-                      <p class="faq-a">Nothing. Free now, free always. No subscription, no freemium gate, no ads. MIT licensed.</p>
+                      <p class="faq-q">Will this implement the full BPMN 2.0 spec?</p>
+                      <p class="faq-a">No. v1 targets the BPMN 2.0 Descriptive Conformance subset — the practical elements most business process diagrams actually use. Execution semantics, choreography, conversation diagrams, and BPMN XML import/export are explicitly out of scope and will remain so.</p>
                     </div>
                     <div class="faq-item">
-                      <p class="faq-q">Does it collect any data?</p>
-                      <p class="faq-a">No. The tool is fully client-side. No analytics, no telemetry, no server communication. Your theme stays in your browser.</p>
+                      <p class="faq-q">Why not use bpmn.io or bpmn-js?</p>
+                      <p class="faq-a">bpmn-js is XML-first, browser-only in a different sense, and would be a heavyweight runtime dependency that Mermaid maintainers would reject outright. <code>bpmn-beta</code> is text-first, version-controllable, and designed for process diagrams that live next to code in Markdown — not in a graphical editor.</p>
                     </div>
                     <div class="faq-item">
-                      <p class="faq-q">Which Mermaid.js versions does it support?</p>
-                      <p class="faq-a">Tested against Mermaid.js v10 and v11. The themeVariables API has been stable across these versions.</p>
+                      <p class="faq-q">What about the Emrich/DFKI proposal on Mermaid issue #7699?</p>
+                      <p class="faq-a">There's an academic BPMN proposal filed on GitHub by Andreas Emrich (DFKI) with a more XML-flavored DSL. <code>bpmn-beta</code> takes a different position: Mermaid-native readability first. The intent is to engage on that thread constructively, with the prototype as evidence of an alternative readable approach — not to compete or merge prematurely.</p>
                     </div>
                     <div class="faq-item">
-                      <p class="faq-q">Can I use the exported theme with Docusaurus, VitePress, or GitHub?</p>
-                      <p class="faq-a">Yes. The exported themeVariables object is standard Mermaid config — it works anywhere Mermaid.js is used. Check your platform's docs on how to pass themeVariables.</p>
+                      <p class="faq-q">Can I render this in GitHub or GitLab today?</p>
+                      <p class="faq-a">Not natively yet. The prototype runs in-browser via Replit. The GitHub/GitLab render path requires the Mermaid External Diagram API plugin, which is the v0.1 milestone target. Until then, use the Playground to render and export SVG output.</p>
                     </div>
                     <div class="faq-item">
-                      <p class="faq-q">Why doesn't it support dark/light mode toggle in the builder itself?</p>
-                      <p class="faq-a">Dark/light preview toggle is on the active roadmap for V0.4. For now, set your background color to match your target mode — the contrast preview is accurate for any background you choose.</p>
+                      <p class="faq-q">Can LLMs generate valid bpmn-beta?</p>
+                      <p class="faq-a">That's by design. The DSL is intentionally short and predictable — no XML attributes, no metadata blocks, no nested namespaces. A well-prompted LLM should produce valid <code>bpmn-beta</code> on the first try for common process patterns. The Playground lets you verify output immediately.</p>
                     </div>
                     <div class="faq-item">
-                      <p class="faq-q">Can I save and share my theme?</p>
-                      <p class="faq-a">Theme state is preserved in the URL, so you can bookmark or share your current configuration directly. For permanent storage, export your themeVariables JSON and commit it to your project.</p>
+                      <p class="faq-q">How does this relate to Mermaid Theme Builder?</p>
+                      <p class="faq-a"><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a> handles visual governance — defining and exporting themes. <code>bpmn-beta</code> adds a diagram type. They're complementary: Theme Builder palettes will apply to <code>bpmn-beta</code> diagrams once the Mermaid theming hook is wired in.</p>
                     </div>
                     <div class="faq-item">
-                      <p class="faq-q">How do I contribute or file a bug?</p>
-                      <p class="faq-a">Open an issue or PR on <a href="https://github.com/OKHP3/mermaid-theme-builder" target="_blank" rel="noopener noreferrer">GitHub</a>. Community feedback is actively used to shape the roadmap.</p>
+                      <p class="faq-q">How do I contribute or follow along?</p>
+                      <p class="faq-a">Watch the <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer">GitHub repo</a> for updates. Open issues for DSL feedback — syntax decisions are still early enough to change. The decision log in the repo captures what's been locked and what's still open.</p>
                     </div>
                   </div>
                 </div>
@@ -1144,23 +1019,11 @@
             <div class="builder-note">
               <div class="section-label">Builder's Note</div>
               <blockquote>
-                <p>This tool started as a personal itch. I kept running into the same friction: needing a custom Mermaid theme, describing what I wanted in a prompt, getting CSS, pasting it, noticing something was off, re-prompting. The feedback loop was slow and imprecise.</p>
-                <p>So I built the direct-manipulation version. Pick a color. See the change. Move on.</p>
-                <p>It's useful to me and probably useful to someone else in the Mermaid.js community. That's why it's here.</p>
-                <p><em>Not a startup. Not a SaaS pivot in progress. A tool I built, made free, and put on GitHub.</em></p>
+                <p>Mermaid has flowcharts, sequence diagrams, Gantt charts, entity-relationship diagrams, state diagrams, mindmaps, and more. But if you need to show a business process to a process analyst — accurately, in a way they can read without you explaining your notation — Mermaid has nothing.</p>
+                <p>BPMN is the standard. It has been since 2004. It has ISO status. It's taught in enterprise architecture programs. And it's conspicuously absent from Mermaid's diagram type library.</p>
+                <p><em>bpmn-beta is the bridge. Not the whole spec. Not an XML importer. A readable, Mermaid-native syntax that renders BPMN-correct shapes — the ones people actually use — and fits inside a Markdown code fence.</em></p>
               </blockquote>
-              <p class="builder-sig">— OverKill Hill P³</p>
-            </div>
-
-            <!-- DEVELOPMENT UPDATE ───────────────────────────── -->
-            <div class="builder-note" style="border-color: rgba(196,106,44,0.35);">
-              <div class="section-label">Development Update</div>
-              <blockquote>
-                <p>The tool shipped with more than the minimum viable loop. Diagram family detection, prompt scaffold generation, renderer capability notes, and brand palettes for the full OKH ecosystem (OKH P³, Glee-fully, AskJamie) are all live.</p>
-                <p>V0.3.1 is tightening the visual alignment — the app UI is being reskinned to OKH light-mode tokens so the builder looks like it belongs to the brand it serves. Palette presets are being corrected against production CSS.</p>
-                <p><em>V0.5 is the trust sprint: renderer compatibility mode, example quality tiers, and a full research-backed positioning page. The goal is a tool you can hand to someone else and trust them to get value from immediately.</em></p>
-              </blockquote>
-              <p class="builder-sig">— May 2026 · OverKill Hill P³</p>
+              <p class="builder-sig">— OverKill Hill P³ · May 2026</p>
             </div>
 
           </div><!-- /main column -->
@@ -1170,11 +1033,14 @@
 
             <!-- CTA -->
             <div class="sidebar-cta">
-              <div class="section-label">Start Now</div>
-              <a href="https://okhp3.github.io/mermaid-theme-builder/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                ⤢ Open Full Screen
+              <div class="section-label">Get Started</div>
+              <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                ◻ View on GitHub
               </a>
-              <p class="cta-note">No login. No install. Works immediately.</p>
+              <a href="https://github.com/OKHP3/mermaid-diagram-bpmn/issues" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">
+                DSL Feedback →
+              </a>
+              <p class="cta-note">Syntax decisions are still open. Feedback shapes the DSL.</p>
             </div>
 
             <!-- Meta -->
@@ -1183,11 +1049,15 @@
               <div class="meta-row">
                 <div class="meta-item">
                   <span class="meta-key">Status</span>
-                  <span class="meta-val"><span class="status-dot"></span>V0.3 → V0.5 Active</span>
+                  <span class="meta-val"><span class="status-dot"></span>Prototype → v0.1 Active</span>
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">Build Phase</span>
-                  <span class="meta-val">V0.3.1 in progress</span>
+                  <span class="meta-val">v0.1 Pools &amp; Plugin API</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">DSL keyword</span>
+                  <span class="meta-val"><code>bpmn-beta</code></span>
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">License</span>
@@ -1195,7 +1065,7 @@
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">Type</span>
-                  <span class="meta-val">Community Contribution</span>
+                  <span class="meta-val">Mermaid Contribution Proposal</span>
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">Cost</span>
@@ -1206,31 +1076,37 @@
                   <span class="meta-val"><a href="https://overkillhill.com">OverKill Hill P³</a></span>
                 </div>
                 <div class="meta-item">
-                  <span class="meta-key">Mermaid.js compat</span>
-                  <span class="meta-val">v10, v11+</span>
+                  <span class="meta-key">Mermaid compat target</span>
+                  <span class="meta-val">v10, v11+ (External Diagram API)</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Created</span>
+                  <span class="meta-val">May 2026</span>
                 </div>
               </div>
               <div class="sidebar-links">
-                <a href="https://github.com/OKHP3/mermaid-theme-builder" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="sidebar-link">
                   ◻ View on GitHub
                 </a>
-                <a href="https://github.com/OKHP3/mermaid-theme-builder/issues" target="_blank" rel="noopener noreferrer" class="sidebar-link">
-                  ⊘ Report an Issue
+                <a href="https://github.com/OKHP3/mermaid-diagram-bpmn/issues" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                  ⚐ Open an Issue
                 </a>
-                <a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" class="sidebar-link">
-                  ⊕ Contribute
+                <a href="https://github.com/mermaid-js/mermaid/issues/7699" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                  ◎ Mermaid Issue #7699
                 </a>
               </div>
             </div>
 
             <!-- Related -->
             <div class="sidebar-related">
-              <div class="section-label">Related Resources</div>
+              <div class="section-label">Related</div>
               <ul>
+                <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder ↗</a></li>
                 <li><a href="https://mermaid.js.org/config/theming.html" target="_blank" rel="noopener noreferrer">Mermaid.js Theming Docs ↗</a></li>
-                <li><a href="https://mermaid.js.org/config/theming.html#theme-variables" target="_blank" rel="noopener noreferrer">themeVariables Reference ↗</a></li>
+                <li><a href="https://www.bpmn.org/" target="_blank" rel="noopener noreferrer">BPMN.org ↗</a></li>
+                <li><a href="https://www.omg.org/spec/BPMN/" target="_blank" rel="noopener noreferrer">OMG BPMN 2.0 Spec ↗</a></li>
+                <li><a href="https://github.com/mermaid-js/mermaid" target="_blank" rel="noopener noreferrer">Mermaid GitHub ↗</a></li>
                 <li><a href="/projects/">All OverKill Hill Projects</a></li>
-                <li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
               </ul>
             </div>
 
@@ -1290,47 +1166,48 @@
          ============================================================ -->
     <script src="/assets/js/app.js"></script>
 
-    <!-- Iframe loading overlay + reload control -->
+    <!-- DSL copy button -->
     <script>
       (function () {
-        const btn = document.getElementById('reload-btn');
-        const iframe = document.getElementById('tool-iframe');
-        const overlay = document.getElementById('iframe-overlay');
-        const fallback = document.getElementById('iframe-fallback');
-
-        if (!iframe) return;
-
-        var slowTimer = null;
-
-        function showLoading() {
-          if (overlay) {
-            overlay.classList.remove('loaded');
+        var btn = document.getElementById('dsl-copy-btn');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          var raw = [
+            'bpmn-beta',
+            'accTitle: Purchase Order Approval',
+            '',
+            'pool company "Company" {',
+            '  lane requester "Requester" {',
+            '    start     s1  "Need Identified"',
+            '    task:user t1  "Submit Purchase Request"',
+            '  }',
+            '',
+            '  lane manager "Manager" {',
+            '    task:user t2  "Review Request"',
+            '    xor       g1  "Approved?"',
+            '    end       e2  "Rejected"',
+            '  }',
+            '',
+            '  lane procurement "Procurement" {',
+            '    task:service t3  "Create Purchase Order"',
+            '    end          e1  "PO Issued"',
+            '  }',
+            '',
+            '  s1 --> t1',
+            '  t1 --> t2',
+            '  t2 --> g1',
+            '  g1 --> t3: "yes"',
+            '  g1 --> e2: "no"',
+            '  t3 --> e1',
+            '}'
+          ].join('\n');
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(raw).then(function () {
+              btn.textContent = '✓ Copied';
+              setTimeout(function () { btn.textContent = '⎘ Copy'; }, 2000);
+            });
           }
-          if (fallback) {
-            fallback.classList.remove('visible');
-          }
-          clearTimeout(slowTimer);
-          slowTimer = setTimeout(function () {
-            if (fallback) fallback.classList.add('visible');
-          }, 8000);
-        }
-
-        function hideLoading() {
-          clearTimeout(slowTimer);
-          if (overlay) overlay.classList.add('loaded');
-          if (fallback) fallback.classList.remove('visible');
-        }
-
-        iframe.addEventListener('load', hideLoading);
-
-        if (btn) {
-          btn.addEventListener('click', function () {
-            showLoading();
-            iframe.src = iframe.src;
-          });
-        }
-
-        showLoading();
+        });
       })();
     </script>
 
@@ -1342,5 +1219,5 @@
       gtag('js', new Date());
       gtag('config', 'G-VJ1BKXS27H');
     </script>
-</body>
+  </body>
 </html>
