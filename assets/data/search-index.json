@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 47,
+  "count": 48,
   "entries": [
     {
       "url": "/",
@@ -499,6 +499,24 @@
         "The OverKill Hill P³™"
       ],
       "body": "Community Tool Open Source V0.3 Public Alpha Mermaid Theme Builder Visual. Instant. Yours. A free, open-source visual editor for Mermaid.js themes. Pick your colors, watch diagrams update live, and export production-ready CSS — no prompting, no guessing, no iteration cycles. Use the Tool Now View Source on GitHub Live Tool · okhp3.github.io ↺ Reload ⤢ Full Screen ⤢ Open Mermaid Theme Builder Full Screen Loading Mermaid Theme Builder… Taking longer than expected? Open the tool in a new tab → Embedded from okhp3.github.io/mermaid-theme-builder — open in a new tab for the best experience Why This Exists What you get here that you don't get from prompting an LLM ✗ Prompting an LLM Generates CSS variable blobs you paste and re-prompt until something looks right. No live preview, no iteration feedback, result varies by model. ✓ Mermaid Theme Builder Pick a color, see every diagram type update instantly. When it looks right, export. One round trip instead of five. This is a community contribution to the Mermaid.js ecosystem — not a commercial product, not a SaaS, not a competitor to Mermaid.ai. It runs entirely in your browser. No account. No data collected. Features What the builder…"
+    },
+    {
+      "url": "/projects/bpmn-for-mermaid/",
+      "title": "BPMN for Mermaid | OverKill Hill P³™",
+      "category": "Project",
+      "description": "A Mermaid-native bpmn-beta diagram type for readable, version-controllable BPMN process diagrams. No XML, no heavyweight tools, no bpmn-js dependency. Text-first, Git-native, AI-generatable.",
+      "headings": [
+        "BPMN for Mermaid",
+        "What bpmn-beta looks like",
+        "The gap Mermaid has always had",
+        "What the prototype does",
+        "Where the project is",
+        "DSL Reference",
+        "FAQ",
+        "Builder's Note",
+        "The OverKill Hill P³™"
+      ],
+      "body": "Open Source Mermaid Contribution bpmn-beta Active BPMN for Mermaid Text-first. Standards-aware. Git-native. A Mermaid-native bpmn-beta diagram type for readable, version-controllable BPMN process diagrams — no XML, no heavyweight tools, no bpmn-js runtime dependency. Mermaid-Native DSL Starts with bpmn-beta — the diagram type keyword. Pools and Lanes multi-participant process diagrams with pool and lane containment. BPMN 2.0 Correct Shapes start/end/intermediate events, user/service/script tasks, XOR/AND/OR gateways. AI-Generatable Syntax clean enough for LLMs to produce valid bpmn-beta on first try. No bpmn-js Dependency hand-written SVG renderer produces correct BPMN shapes from scratch. Mermaid Theme Integration honors Mermaid theme variables. Playground and DSL Reference six-page React app. Open Source MIT License. DSL Reference: start end event:message event:timer event:error task task:user task:service task:script xor and or gateway. Flow operators: --> sequence flow --> : conditional ==> default ~~> message flow --- association. FAQ: bpmn-beta is an open-source contribution proposal; ships as external plugin first. v1 targets BPMN 2.0 Descriptive Conformance subset. No bpmn-js. Mermaid issue 7699 Emrich DFKI competing proposal. GitHub: OKHP3/mermaid-diagram-bpmn."
     },
     {
       "url": "/search/",
