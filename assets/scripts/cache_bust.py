@@ -7,8 +7,8 @@ or `<script src=".../mermaid-init.js?v=N">` style references and rewrites the `?
 suffix to a short content hash of the referenced asset on disk.
 
 Usage:
-    python3 scripts/cache_bust.py            # rewrite in place
-    python3 scripts/cache_bust.py --check    # exit 1 if anything would change
+    python3 assets/scripts/cache_bust.py            # rewrite in place
+    python3 assets/scripts/cache_bust.py --check    # exit 1 if anything would change
 
 Conventions:
 - Only rewrites refs whose path resolves to a real file under the repo root.

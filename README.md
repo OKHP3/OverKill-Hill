@@ -71,9 +71,9 @@ The server is dev-only. It serves the repo root with no caching so edits are imm
 │   ├── css/theme.css                Single stylesheet, token-driven
 │   ├── js/app.js                    Mobile nav + year setter + search
 │   ├── img/                         Logos, hero images, favicons
-│   └── search-index.json            Generated search index
-├── scripts/
-│   └── validate_site.py             Static-site validation harness
+│   ├── data/search-index.json       Generated search index
+│   ├── templates/                   10 production HTML scaffolds
+│   └── scripts/                     All dev + CI maintenance scripts
 ├── sitemap.xml                      All canonical public URLs
 ├── robots.txt                       Crawler policy + AI-bot opt-ins
 ├── site.webmanifest                 PWA manifest
@@ -93,14 +93,14 @@ Utility: `/404.html`, `/under-construction.html`
 ## Validation
 
 ```bash
-python3 scripts/validate_site.py
+python3 assets/scripts/validate_site.py
 ```
 
 Checks every HTML page for: title, meta description, canonical, single H1, JSON-LD, sitemap inclusion, broken internal links, broken asset references, external `target="_blank"` links missing `rel="noopener"`, placeholder hrefs, `P3` (without superscript) brand violations, and old-tagline regressions. Run before every commit.
 
 ## Build / maintenance scripts
 
-All scripts in `/scripts/` are pure Python, dependency-light (Pillow + bs4 + lxml), and **idempotent** — re-running them on an already-processed repo is a no-op. Each supports `--check` (where applicable) for dry-run mode.
+All scripts in `assets/scripts/` are pure Python, dependency-light (Pillow + bs4 + lxml), and **idempotent** — re-running them on an already-processed repo is a no-op. Each supports `--check` (where applicable) for dry-run mode.
 
 | Script | Purpose |
 |---|---|
@@ -136,7 +136,7 @@ Templates produced by `extract_templates.py` are **scaffolds, not pages** — th
 ## Known limitations
 
 - No automated image-format optimization yet (everything is PNG; WebP conversion is a follow-up task).
-- No CSP header set at the edge yet (recommendation in `AUDIT_OVERKILL_HILL_REPLIT_PASS.md`).
+- No CSP header set at the edge yet (recommendation in `.local/AUDIT_OVERKILL_HILL_REPLIT_PASS.md`).
 - Search index (`assets/search-index.json`) is committed; regenerate when adding new pages.
 
 ## Contact

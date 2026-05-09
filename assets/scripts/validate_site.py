@@ -19,7 +19,7 @@ Checks every production HTML page for:
   - old tagline "Precision. Power. Presence." anywhere (brand regression)
 
 Exits 0 if no errors. Exits 1 if any errors. Warnings do not fail the build.
-Run from repo root:  python3 scripts/validate_site.py
+Run from repo root:  python3 assets/scripts/validate_site.py
 """
 
 from __future__ import annotations

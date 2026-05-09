@@ -140,11 +140,11 @@ Replace every token before publishing a page derived from these templates.
 
 ## Site Tooling Notes
 
-- **Validator:** `scripts/validate_site.py` — the `assets/templates/` directory is
+- **Validator:** `assets/scripts/validate_site.py` — the `assets/templates/` directory is
   excluded via `SKIP_DIRS` so template `[[token]]` placeholders don't trigger
-  false positives. Run from repo root: `python3 scripts/validate_site.py`
+  false positives. Run from repo root: `python3 assets/scripts/validate_site.py`
 - **Audit script note:** The spec references `tools/audit-site.py`; this project
-  uses `scripts/validate_site.py` instead. `tools/audit-report.md` is in
+  uses `assets/scripts/validate_site.py` instead. `tools/audit-report.md` is in
   `.gitignore` so generated reports don't pollute the repository.
 - **No build step:** This is a pure static site served by `server.py`. Templates
   are authoring tools only — they are never served directly.

@@ -104,8 +104,8 @@ All notable changes to the **OverKill Hill P³™** public repository should be 
 - **Comprehensive `prefers-reduced-motion` rule** in `theme.css` — disables ALL animations/transitions/scroll-behavior, plus targeted overrides for `.brand-stripes` and `.reveal-on-scroll`. WCAG 2.3.3 baseline
 - **`<meta name="color-scheme" content="dark light">`** on every page (was on 3, now on 26) — proper UA dark/light hint
 - **`<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>`** + **`<link rel="modulepreload">`** for mermaid ESM on all 6 diagram pages — eliminates render-blocking discovery for the mermaid module
-- `scripts/modernize_pages.py` — idempotent page modernizer with `--check`; wired into CI
-- `scripts/move_orphans_to_library.py` — orphan-asset detector + archiver with `--check`; wired into CI
+- `assets/scripts/modernize_pages.py` — idempotent page modernizer with `--check`; wired into CI
+- `assets/scripts/move_orphans_to_library.py` — orphan-asset detector + archiver with `--check`; wired into CI
 - CI workflow now runs **5** validators (was 3) — modernization-drift and orphan-presence both gate merges
 
 ### Fixed (sixth sweep — caught by post-build code review)
@@ -135,7 +135,7 @@ All notable changes to the **OverKill Hill P³™** public repository should be 
 - `assets/search-index.json` would have been trapped in 1-year immutable cache after every rebuild — defeats the purpose of CI re-running the index builder
 
 ### Added (third backlog sweep, 2026-05-03 PM)
-- `scripts/build_search_index.py` — refreshes `assets/search-index.json` against current HTML; preserves hand-curated anchor entries; supports `--check` for CI
+- `assets/scripts/build_search_index.py` — refreshes `assets/search-index.json` against current HTML; preserves hand-curated anchor entries; supports `--check` for CI
 - `.github/workflows/validate.yml` — CI workflow running `validate_site.py`, `extract_templates.py --check`, and `build_search_index.py --check` on every push / PR (closes "wire validators as a pre-commit hook or GitHub Action" from Recommended Next Pass)
 - `<link rel="author" href="/humans.txt" />` on all 26 pages — gives `humans.txt` proper machine-discoverable provenance per the humanstxt.org convention
 - 8 missing pages now indexed for site search: `/found-ry/`, `/prompt-forge/`, `/projects/abrahamic-reference-engine/`, `/projects/hometools/`, `/projects/pathscrib-r/`, `/projects/un-nocked-truth/`, `/writings/biases-as-constants/`, `/writings/magnus-saga/` (47 entries total, was 39)
@@ -146,14 +146,14 @@ All notable changes to the **OverKill Hill P³™** public repository should be 
 
 ### Added
 - `_headers` (Cloudflare/Netlify-style) — full security header set: HSTS preload, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, plus a real-deps-aware **Content-Security-Policy-Report-Only** (allows GA gtag, Google Fonts, jsdelivr Mermaid, and the 67 inline scripts the site actually uses)
-- `assets/templates/` — 16 stripped layout templates derived from every unique page layout, with placeholder tokens, live nav/footer, root-relative asset paths, and a `README.md` index (see `scripts/extract_templates.py`)
+- `assets/templates/` — 16 stripped layout templates derived from every unique page layout, with placeholder tokens, live nav/footer, root-relative asset paths, and a `README.md` index (see `assets/scripts/extract_templates.py`)
 - `.well-known/security.txt` — RFC 9116 disclosure contact
 - `humans.txt` — credit + stack file
 - `llms.txt` — structured site map for LLM consumers (especially on-brand for a Promptcraft site)
-- `scripts/png_to_webp.py` — Pillow-based bulk converter (PNG ≥200 KB → WebP at q=82, method=6)
-- `scripts/picture_upgrade.py` — wraps `<img>` in `<picture>` with WebP source + PNG fallback
-- `scripts/cache_bust.py` — appends `?v=<sha256[:8]>` to local CSS/JS refs
-- `scripts/extract_templates.py` — BeautifulSoup template extractor with idempotent `--check` conformance asserts
+- `assets/scripts/png_to_webp.py` — Pillow-based bulk converter (PNG ≥200 KB → WebP at q=82, method=6)
+- `assets/scripts/picture_upgrade.py` — wraps `<img>` in `<picture>` with WebP source + PNG fallback
+- `assets/scripts/cache_bust.py` — appends `?v=<sha256[:8]>` to local CSS/JS refs
+- `assets/scripts/extract_templates.py` — BeautifulSoup template extractor with idempotent `--check` conformance asserts
 - `width`/`height` attributes on every remaining `<img>` (CLS = 0)
 
 ### Changed
