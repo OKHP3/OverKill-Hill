@@ -24,12 +24,12 @@ This repository primarily contains public website source, writing artifacts, and
 This repo gates every push and PR through three Python validators (see `.github/workflows/validate.yml`). Run them locally first; CI will block merges that fail any of them.
 
 ```bash
-python3 scripts/validate_site.py            # editorial + structural site validator (26 pages)
-python3 scripts/extract_templates.py --check # template-conformance + drift detector (16 templates)
-python3 scripts/build_search_index.py --check # search-index freshness + orphan detector
+python3 assets/scripts/validate_site.py            # editorial + structural site validator (26 pages)
+python3 assets/scripts/extract_templates.py --check # template-conformance + drift detector (16 templates)
+python3 assets/scripts/build_search_index.py --check # search-index freshness + orphan detector
 ```
 
-If you change content, run `python3 scripts/build_search_index.py` (without `--check`) to rebuild the search index. If you change a layout that has an extracted template, re-run `python3 scripts/extract_templates.py` so the template stays in sync. See `README.md` → "Build / maintenance scripts" for the full list.
+If you change content, run `python3 assets/scripts/build_search_index.py` (without `--check`) to rebuild the search index. If you change a layout that has an extracted template, re-run `python3 assets/scripts/extract_templates.py` so the template stays in sync. See `README.md` → "Build / maintenance scripts" for the full list.
 
 ## Maintainer
 Jamie Hill / OverKill Hill P³™  

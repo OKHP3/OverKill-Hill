@@ -200,7 +200,7 @@ convention. Index and full token reference: `assets/templates/INDEX.md`.
 | `template--holding.html` | holding | under-construction.html |
 
 **Validation exclusion:** `assets/templates/` is in `SKIP_DIRS` inside
-`scripts/validate_site.py` so `[[token]]` placeholders don't cause false
+`assets/scripts/validate_site.py` so `[[token]]` placeholders don't cause false
 positives during the site audit.
 
 **Status:** Complete (2026-05-04). Post-audit fixes applied:
