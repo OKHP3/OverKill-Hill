@@ -14,7 +14,7 @@
        ======================================== -->
     <title>BPMN for Mermaid | OverKill Hill P³™</title>
     <meta name="description" content="A Mermaid-native bpmn-beta diagram type for readable, version-controllable BPMN process diagrams. No XML, no heavyweight tools. Text-first, Git-native, AI-generatable." />
-    <meta name="keywords" content="BPMN, Mermaid.js, bpmn-beta, business process modeling, diagram type, open source, BPMN 2.0, OverKill Hill, process diagrams, Mermaid plugin" />
+    <meta name="keywords" content="BPMN, Mermaid.js, bpmn-beta, business process modeling, DSL, process modeling, diagram type, open source, BPMN 2.0, OverKill Hill, process diagrams, Mermaid plugin, GitHub playground, bpmn-beta DSL" />
     <meta name="author" content="OverKill Hill P³™" />
     <meta name="creator" content="OverKill Hill P³™" />
     <meta name="publisher" content="OverKill Hill P³™" />
@@ -576,6 +576,105 @@
       .sidebar-related a { color: var(--color-muted); }
       .sidebar-related a:hover { color: var(--okh-orange); }
 
+      /* ── Project surfaces grid ───────────────────────────────────────── */
+      .surfaces-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+        gap: 0.75rem;
+        margin-top: 0.75rem;
+      }
+      .surface-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 1rem 1.1rem;
+        background: var(--color-surface-soft);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        transition: border-color 0.15s, background 0.15s;
+      }
+      .surface-card:hover {
+        border-color: rgba(196,106,44,0.35);
+        background: rgba(196,106,44,0.04);
+        text-decoration: none;
+      }
+      .surface-icon { font-size: 1.1rem; flex-shrink: 0; padding-top: 0.05rem; }
+      .surface-card-label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--color-fg);
+        display: block;
+        margin-bottom: 0.2rem;
+        line-height: 1.3;
+      }
+      .surface-card:hover .surface-card-label { color: var(--okh-orange); }
+      .surface-card-desc {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--color-muted);
+        line-height: 1.4;
+      }
+
+      /* ── Prototype status callout ─────────────────────────────────────── */
+      .status-callout {
+        border: 1px solid rgba(234,179,8,0.3);
+        background: rgba(234,179,8,0.04);
+        border-radius: var(--radius-md);
+        padding: 1.25rem 1.5rem;
+      }
+      .status-callout ul {
+        list-style: none;
+        padding: 0;
+        margin: 0.75rem 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .status-callout li {
+        font-size: 0.875rem;
+        color: var(--color-muted);
+        line-height: 1.5;
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
+      }
+      .s-ok   { color: var(--okh-orange); font-family: "JetBrains Mono", monospace; font-size: 0.78rem; flex-shrink: 0; }
+      .s-warn { color: #eab308; font-family: "JetBrains Mono", monospace; font-size: 0.78rem; flex-shrink: 0; }
+      .s-road { color: var(--color-muted); font-family: "JetBrains Mono", monospace; font-size: 0.78rem; flex-shrink: 0; opacity: 0.7; }
+
+      /* ── Honest scope callout ─────────────────────────────────────────── */
+      .scope-callout {
+        border: 1px solid var(--color-border-subtle);
+        background: var(--color-surface-soft);
+        border-radius: var(--radius-md);
+        padding: 1.25rem 1.5rem;
+      }
+      .scope-intro {
+        font-size: 0.9rem;
+        color: var(--color-fg);
+        font-weight: 600;
+        margin: 0 0 0.75rem;
+      }
+      .scope-callout ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .scope-callout li {
+        font-size: 0.875rem;
+        color: var(--color-muted);
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
+        line-height: 1.5;
+      }
+      .scope-yes { color: var(--okh-orange); font-family: "JetBrains Mono", monospace; font-size: 0.78rem; flex-shrink: 0; font-weight: 700; }
+      .scope-no  { color: #f87171; font-family: "JetBrains Mono", monospace; font-size: 0.78rem; flex-shrink: 0; font-weight: 700; }
+
       /* ── Mobile stacking ──────────────────────────────────────────────── */
       @media (max-width: 640px) {
         .dsl-showcase-header { flex-direction: column; align-items: flex-start; }
@@ -683,8 +782,8 @@
           </p>
 
           <div class="hero-ctas">
-            <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on GitHub</a>
-            <a href="#dsl-showcase" class="btn btn-quiet">See the DSL →</a>
+            <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Try the Playground →</a>
+            <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">View on GitHub</a>
           </div>
         </section>
 
@@ -742,9 +841,60 @@
               </div>
 
               <p class="dsl-note">
-                Playground and DSL Reference →
-                <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer">github.com/OKHP3/mermaid-diagram-bpmn</a>
+                Paste this into the live playground →
+                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer">okhp3.github.io/mermaid-diagram-bpmn/playground</a>
               </p>
+            </div>
+
+            <!-- PROJECT SURFACES ────────────────────────────── -->
+            <div class="content-block" id="project-surfaces" style="scroll-margin-top:8rem;">
+              <div class="section-label">Project Surfaces</div>
+              <h2>Where to find the project</h2>
+              <div class="surfaces-grid">
+                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer" class="surface-card">
+                  <span class="surface-icon" aria-hidden="true">▶</span>
+                  <span>
+                    <span class="surface-card-label">Try the Playground</span>
+                    <span class="surface-card-desc">Live in-browser parser and SVG renderer. Paste bpmn-beta, see output.</span>
+                  </span>
+                </a>
+                <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="surface-card">
+                  <span class="surface-icon" aria-hidden="true">◻</span>
+                  <span>
+                    <span class="surface-card-label">GitHub Repo</span>
+                    <span class="surface-card-desc">Full source, DSL spec, architecture notes, and decision log.</span>
+                  </span>
+                </a>
+                <a href="https://replit.com/t/overkill-hill/repls/BPMN-for-Mermaid" target="_blank" rel="noopener noreferrer" class="surface-card">
+                  <span class="surface-icon" aria-hidden="true">⚙</span>
+                  <span>
+                    <span class="surface-card-label">Replit Build Surface</span>
+                    <span class="surface-card-desc">Active development environment for the prototype.</span>
+                  </span>
+                </a>
+                <a href="https://www.notion.so/overkillhill/BPMN-for-Mermaid-bpmn-beta-Diagram-Type-Proposal-357812e0ced481c88b20d2eb493dc775" target="_blank" rel="noopener noreferrer" class="surface-card">
+                  <span class="surface-icon" aria-hidden="true">📋</span>
+                  <span>
+                    <span class="surface-card-label">Notion Specification</span>
+                    <span class="surface-card-desc">PRD, DSL spec, architecture decisions, and deliverables tracker.</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            <!-- PROTOTYPE STATUS ─────────────────────────────── -->
+            <div class="content-block" id="prototype-status" style="scroll-margin-top:8rem;">
+              <div class="section-label">Current Prototype Status</div>
+              <h2>What's working, what's not</h2>
+              <div class="status-callout">
+                <ul>
+                  <li><span class="s-ok">✓</span> Supports core BPMN primitives in the playground — start/end events, tasks, gateways, sequence flows.</li>
+                  <li><span class="s-ok">✓</span> Uses a hand-written prototype parser (line-by-line, not Langium).</li>
+                  <li><span class="s-ok">✓</span> Renders SVG directly, with no bpmn-js dependency.</li>
+                  <li><span class="s-warn">⚠</span> Pool/lane/message-flow support is experimental — verify output in the playground before relying on it.</li>
+                  <li><span class="s-road">○</span> Langium grammar, Mermaid External Diagram API packaging, parser validation, and <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">getStyles</code> integration are roadmap items — not yet implemented.</li>
+                </ul>
+              </div>
             </div>
 
             <!-- WHY THIS EXISTS ──────────────────────────────── -->
@@ -790,8 +940,8 @@
                 <div class="feature-item">
                   <div class="feature-icon" aria-hidden="true">⊞</div>
                   <div>
-                    <h3>Pools &amp; Lanes</h3>
-                    <p>Multi-participant process diagrams with proper pool and lane containment. Sequence flows stay inside pools; message flows cross pool boundaries at the top level.</p>
+                    <h3>Pools &amp; Lanes <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#eab308;border:1px solid rgba(234,179,8,0.3);background:rgba(234,179,8,0.08);border-radius:3px;padding:0.1rem 0.4rem;vertical-align:middle;">experimental</span></h3>
+                    <p>Pool and lane containment syntax is defined in the DSL spec. Rendering is experimental in the current prototype — verify output in the playground before relying on it.</p>
                   </div>
                 </div>
                 <div class="feature-item">
@@ -836,6 +986,24 @@
                     <p>Fork it, extend it, propose it upstream. The spec, architecture decisions, and all source are on GitHub. Community feedback shapes the DSL before it locks.</p>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            <!-- HONEST SCOPE ─────────────────────────────────────── -->
+            <div class="content-block" id="honest-scope" style="scroll-margin-top:8rem;">
+              <div class="section-label">Honest Scope</div>
+              <h2>What this is — and isn't</h2>
+              <div class="scope-callout">
+                <p class="scope-intro">This is a Mermaid-native BPMN descriptive subset proposal.</p>
+                <ul>
+                  <li><span class="scope-yes">✓</span> A readable DSL for the BPMN 2.0 Descriptive Conformance subset — start/end events, tasks, gateways, flows, pools, and lanes.</li>
+                  <li><span class="scope-yes">✓</span> Text-first, Git-native, works inside a Markdown code fence.</li>
+                  <li><span class="scope-yes">✓</span> AI-generatable — designed to be writable by LLMs without syntax repair.</li>
+                  <li><span class="scope-no">✗</span> Not executable BPMN — no process engine, no token simulation, no runtime semantics.</li>
+                  <li><span class="scope-no">✗</span> Not BPMN XML round-tripping — no import or export of BPMN 2.0 XML files.</li>
+                  <li><span class="scope-no">✗</span> Not full BPMN 2.0 conformance — choreography, conversation, boundary events, transactions, and data objects are out of scope for v1.</li>
+                  <li><span class="scope-no">✗</span> Not a production Mermaid plugin yet — the upstream contribution path comes after the DSL stabilizes and the Langium parser is built.</li>
+                </ul>
               </div>
             </div>
 
@@ -1034,13 +1202,13 @@
             <!-- CTA -->
             <div class="sidebar-cta">
               <div class="section-label">Get Started</div>
-              <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                ▶ Try the Playground
+              </a>
+              <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">
                 ◻ View on GitHub
               </a>
-              <a href="https://github.com/OKHP3/mermaid-diagram-bpmn/issues" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">
-                DSL Feedback →
-              </a>
-              <p class="cta-note">Syntax decisions are still open. Feedback shapes the DSL.</p>
+              <p class="cta-note">Live playground on GitHub Pages. No install, no login.</p>
             </div>
 
             <!-- Meta -->
@@ -1085,8 +1253,17 @@
                 </div>
               </div>
               <div class="sidebar-links">
+                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                  ▶ Live Playground
+                </a>
                 <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="sidebar-link">
-                  ◻ View on GitHub
+                  ◻ GitHub Repo
+                </a>
+                <a href="https://replit.com/t/overkill-hill/repls/BPMN-for-Mermaid" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                  ⚙ Replit Build Surface
+                </a>
+                <a href="https://www.notion.so/overkillhill/BPMN-for-Mermaid-bpmn-beta-Diagram-Type-Proposal-357812e0ced481c88b20d2eb493dc775" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                  📋 Notion Specification
                 </a>
                 <a href="https://github.com/OKHP3/mermaid-diagram-bpmn/issues" target="_blank" rel="noopener noreferrer" class="sidebar-link">
                   ⚐ Open an Issue
