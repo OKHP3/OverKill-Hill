@@ -675,9 +675,140 @@
       .scope-yes { color: var(--okh-orange); font-family: "JetBrains Mono", monospace; font-size: 0.78rem; flex-shrink: 0; font-weight: 700; }
       .scope-no  { color: #f87171; font-family: "JetBrains Mono", monospace; font-size: 0.78rem; flex-shrink: 0; font-weight: 700; }
 
+      /* ── Embed section ────────────────────────────────────────────────── */
+      .embed-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.6rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .embed-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--color-muted);
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .embed-live-dot {
+        display: inline-block;
+        width: 7px; height: 7px;
+        border-radius: 50%;
+        background: var(--okh-orange);
+        animation: pulse-dot 2s ease-in-out infinite;
+      }
+      .embed-actions { display: flex; gap: 0.5rem; }
+      .embed-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 6px;
+        border: 1px solid var(--color-border-subtle);
+        background: transparent;
+        color: var(--color-muted);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        cursor: pointer;
+        text-decoration: none;
+        transition: border-color 0.15s, color 0.15s;
+      }
+      .embed-btn:hover { border-color: var(--color-accent); color: var(--color-accent); text-decoration: none; }
+      .embed-btn--primary {
+        border-color: rgba(196, 106, 44, 0.5);
+        color: var(--okh-orange);
+        background: rgba(196, 106, 44, 0.08);
+      }
+      .embed-btn--primary:hover { background: rgba(196, 106, 44, 0.15); color: var(--okh-orange); }
+      .embed-frame-wrapper {
+        border: 1px solid rgba(196, 106, 44, 0.2);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        background: #090d12;
+        box-shadow: 0 0 40px rgba(196, 106, 44, 0.06);
+        position: relative;
+      }
+      .embed-frame-wrapper iframe { display: block; }
+      .iframe-loading-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        background: #090d12;
+        z-index: 2;
+        transition: opacity 0.4s ease;
+      }
+      .iframe-loading-overlay.loaded { opacity: 0; pointer-events: none; }
+      .iframe-spinner {
+        width: 36px; height: 36px;
+        border: 3px solid rgba(196, 106, 44, 0.2);
+        border-top-color: #c46a2c;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .iframe-loading-text {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: rgba(196, 106, 44, 0.7);
+        letter-spacing: 0.05em;
+      }
+      .iframe-slow-fallback {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      .iframe-slow-fallback.visible { display: flex; }
+      .iframe-slow-fallback a {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.82rem;
+        color: #c46a2c;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .embed-note {
+        margin-top: 0.5rem;
+        font-size: 0.78rem;
+        color: var(--color-muted);
+        font-family: "JetBrains Mono", monospace;
+        text-align: center;
+      }
+      .embed-note a { color: var(--okh-orange); }
+      .embed-fallback-cta {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0.75rem;
+      }
+      .embed-fallback-cta a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
+        padding: 0.65rem 1.4rem;
+        background: var(--okh-orange);
+        color: #fff;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.88rem;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        text-decoration: none;
+        letter-spacing: 0.01em;
+        transition: background 0.15s ease, opacity 0.15s ease;
+      }
+      .embed-fallback-cta a:hover { opacity: 0.88; }
+
       /* ── Mobile stacking ──────────────────────────────────────────────── */
       @media (max-width: 640px) {
         .dsl-showcase-header { flex-direction: column; align-items: flex-start; }
+        .embed-toolbar { flex-direction: column; align-items: flex-start; }
       }
     </style>
     <script type="speculationrules">
@@ -782,7 +913,7 @@
           </p>
 
           <div class="hero-ctas">
-            <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Try the Playground →</a>
+            <a href="#embed-playground" class="btn btn-primary">Try the Playground →</a>
             <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">View on GitHub</a>
           </div>
         </section>
@@ -792,6 +923,55 @@
 
           <!-- MAIN COLUMN ──────────────────────────────────────── -->
           <div>
+
+            <!-- PLAYGROUND EMBED ────────────────────────────── -->
+            <div class="content-block" id="embed-playground" style="scroll-margin-top: 8rem;">
+              <div class="embed-toolbar">
+                <div class="embed-label">
+                  <span class="embed-live-dot"></span>
+                  Live Playground &nbsp;·&nbsp; okhp3.github.io
+                </div>
+                <div class="embed-actions">
+                  <button class="embed-btn" id="bpmn-reload-btn" title="Reload playground" aria-label="Reload playground">
+                    ↺ Reload
+                  </button>
+                  <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer" class="embed-btn embed-btn--primary">
+                    ⤢ Full Screen
+                  </a>
+                </div>
+              </div>
+
+              <div class="embed-fallback-cta">
+                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer">
+                  ⤢ Open BPMN Playground Full Screen
+                </a>
+              </div>
+
+              <div class="embed-frame-wrapper">
+                <div class="iframe-loading-overlay" id="bpmn-iframe-overlay" aria-hidden="true">
+                  <div class="iframe-spinner"></div>
+                  <span class="iframe-loading-text">Loading BPMN Playground…</span>
+                  <div class="iframe-slow-fallback" id="bpmn-iframe-fallback">
+                    <span class="iframe-loading-text" style="opacity:0.6;">Taking longer than expected?</span>
+                    <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer">Open the playground in a new tab →</a>
+                  </div>
+                </div>
+                <iframe
+                  id="bpmn-tool-iframe"
+                  src="https://okhp3.github.io/mermaid-diagram-bpmn/playground"
+                  title="BPMN for Mermaid — Live Playground"
+                  loading="lazy"
+                  allow="clipboard-read; clipboard-write; fullscreen"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  style="width:100%; min-height:720px; border:0;"
+                ></iframe>
+              </div>
+
+              <p class="embed-note">
+                Embedded from <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer">okhp3.github.io/mermaid-diagram-bpmn/playground</a>
+                — open in a new tab for the full experience
+              </p>
+            </div>
 
             <!-- DSL SHOWCASE ─────────────────────────────────── -->
             <div class="content-block" id="dsl-showcase" style="scroll-margin-top: 8rem;">
@@ -1342,6 +1522,46 @@
          SCRIPTS
          ============================================================ -->
     <script src="/assets/js/app.js"></script>
+
+    <!-- BPMN Playground iframe loading overlay + reload control -->
+    <script>
+      (function () {
+        var btn = document.getElementById('bpmn-reload-btn');
+        var iframe = document.getElementById('bpmn-tool-iframe');
+        var overlay = document.getElementById('bpmn-iframe-overlay');
+        var fallback = document.getElementById('bpmn-iframe-fallback');
+
+        if (!iframe) return;
+
+        var slowTimer = null;
+
+        function showLoading() {
+          if (overlay) overlay.classList.remove('loaded');
+          if (fallback) fallback.classList.remove('visible');
+          clearTimeout(slowTimer);
+          slowTimer = setTimeout(function () {
+            if (fallback) fallback.classList.add('visible');
+          }, 8000);
+        }
+
+        function hideLoading() {
+          clearTimeout(slowTimer);
+          if (overlay) overlay.classList.add('loaded');
+          if (fallback) fallback.classList.remove('visible');
+        }
+
+        iframe.addEventListener('load', hideLoading);
+
+        if (btn) {
+          btn.addEventListener('click', function () {
+            showLoading();
+            iframe.src = iframe.src;
+          });
+        }
+
+        showLoading();
+      })();
+    </script>
 
     <!-- DSL copy button -->
     <script>
