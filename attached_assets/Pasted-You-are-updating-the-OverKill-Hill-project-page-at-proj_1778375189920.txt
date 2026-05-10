@@ -1,0 +1,43 @@
+You are updating the OverKill Hill project page at /projects/bpmn-for-mermaid/.
+
+Goal: align the public marketing page with the canonical BPMN for Mermaid project state from Notion and GitHub.
+
+Canonical positioning:
+- Public project title: BPMN for Mermaid
+- Repo slug: mermaid-diagram-bpmn
+- Working DSL keyword: bpmn-beta
+- Status: prototype / convergence phase
+- Current implementation: React/GitHub Pages playground with hand-written parser, heuristic layout, SVG renderer, no bpmn-js runtime dependency
+- Strategic direction: external Mermaid-compatible plugin path, possible upstream contribution later
+- Do NOT imply full BPMN 2.0 compliance
+- Do NOT imply this is already a production Mermaid plugin
+- Do NOT imply BPMN XML import/export exists
+
+Required page updates:
+1. Add a “Project surfaces” section with four explicit links:
+   - Try the playground: https://okhp3.github.io/mermaid-diagram-bpmn/playground
+   - View the GitHub repo: https://github.com/OKHP3/mermaid-diagram-bpmn
+   - Open the Replit build surface: https://replit.com/t/overkill-hill/repls/BPMN-for-Mermaid
+   - Read the Notion specification: https://www.notion.so/overkillhill/BPMN-for-Mermaid-bpmn-beta-Diagram-Type-Proposal-357812e0ced481c88b20d2eb493dc775
+
+2. Add a “Current prototype status” box:
+   - Supports core BPMN primitives in the playground.
+   - Uses a hand-written prototype parser.
+   - Renders SVG directly, with no bpmn-js dependency.
+   - Pool/lane/message-flow support is experimental unless verified.
+   - Langium, Mermaid External Diagram API packaging, parser validation, and getStyles integration are roadmap items.
+
+3. Add an “Honest scope” section:
+   - This is a Mermaid-native BPMN descriptive subset proposal.
+   - It is not executable BPMN.
+   - It is not BPMN XML round-tripping.
+   - It is not full BPMN 2.0 conformance.
+
+4. Update CTAs so the primary CTA goes directly to:
+   https://okhp3.github.io/mermaid-diagram-bpmn/playground
+
+5. If the project-specific icon/social image exists in the BPMN repo or Replit app, use it for OG/Twitter image. Otherwise keep the OKH sentinel as fallback.
+
+6. Update the local search index so the page is discoverable by “BPMN,” “Mermaid,” “bpmn-beta,” “DSL,” “process modeling,” and “GitHub playground.”
+
+Preserve the OverKill Hill P³ light-mode styling from /assets/css/theme.css: warm paper cards, OKH orange/amber accents, dark persistent header, industrial forge tone, and clean project-card layout.
