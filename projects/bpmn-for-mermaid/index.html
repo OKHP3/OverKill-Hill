@@ -115,6 +115,22 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BPMN for Mermaid",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "url": "https://overkillhill.com/projects/bpmn-for-mermaid/",
+      "author": {
+        "@type": "Organization",
+        "name": "OverKill Hill P³™"
+      },
+      "description": "A Mermaid-native bpmn-beta diagram type implementing a BPMN 2.0 descriptive subset for readable, version-controllable process diagrams. Built under the OverKill Hill P³™ protocol-driven architecture."
+    }
+    </script>
+
     <!-- ========================================
        PAGE-SPECIFIC STYLES
        ======================================== -->
@@ -818,6 +834,36 @@
           { "not": { "selector_matches": "[rel~=nofollow]" } },
           { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
         ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
+  
+    <!-- ========================================
+       STRUCTURED DATA: BreadcrumbList
+       ======================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "OverKill Hill P³™",
+        "item": "https://overkillhill.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "item": "https://overkillhill.com/projects/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "BPMN for Mermaid",
+        "item": "https://overkillhill.com/projects/bpmn-for-mermaid/"
+      }
       ]
     }
     </script>

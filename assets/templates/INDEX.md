@@ -45,6 +45,7 @@ required HTML filename), then replace every `[[ ]]` token before publishing.
 | `projects/bfs-framing-intelligent-futures/index.html` | `template--project-detail.html` |
 | `projects/hometools/index.html` | `template--project-detail.html` |
 | `projects/mermaid-theme-builder/index.html` | `template--project-detail.html` |
+| `projects/bpmn-for-mermaid/index.html` | `template--project-detail.html` |
 | `projects/pathscrib-r/index.html` | `template--project-detail.html` |
 | `projects/un-nocked-truth/index.html` | `template--project-detail.html` |
 | `found-ry/index.html` | `template--project-detail.html` |
