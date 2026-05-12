@@ -70,6 +70,25 @@
 
   /* Motion */
   --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.5);
+
+  /* --- Semantic alias tokens (Sprint 2 — May 2026) --- */
+  --color-text-heading:     var(--color-fg);          /* heading text color */
+  --color-link:             var(--color-fg);           /* default link color */
+  --color-link-hover:       var(--okh-orange);         /* link hover state */
+  --font-mono:              "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+  --radius-sm:              4px;
+
+  /* --- Spacing scale --- */
+  --space-xs:   0.25rem;
+  --space-sm:   0.5rem;
+  --space-md:   1rem;
+  --space-lg:   2rem;
+  --space-xl:   4rem;
+  --space-xxl:  8rem;
+
+  /* --- Transitions --- */
+  --transition-fast:    150ms ease;
+  --transition-normal:  300ms ease;
 }
 
 /* Optional light theme toggle */
@@ -118,7 +137,7 @@ html[data-theme="light"] .primary-nav a.is-current {
 /* Desktop dropdown — gets var(--color-surface) bg (white in light mode);
    ensure the link text is dark enough to read on white */
 html[data-theme="light"] .primary-nav .submenu a {
-  color: #1c3a34;
+  color: var(--okh-teal);
 }
 
 /* Hero eyebrow — uses var(--color-muted) inside the always-dark hero stripe area */
@@ -175,7 +194,7 @@ body {
 }
 
 body {
-  background: radial-gradient(circle at top, #1c3a34, #020617);
+  background: radial-gradient(circle at top, var(--okh-teal), #020617);
   color: var(--color-fg);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -344,7 +363,7 @@ button {
   transition: transform 0.15s ease, box-shadow 0.15s ease,
     background 0.15s ease, border-color 0.15s ease;
   text-decoration: none;
-  background: linear-gradient(135deg, #c46a2c, #e6a03c);
+  background: linear-gradient(135deg, var(--okh-orange), #e6a03c);
   color: #0f172a;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
@@ -719,7 +738,7 @@ button {
   width: 26px;
   height: 3px;
   border-radius: 999px;
-  background: #e5e7eb;
+  background: var(--color-fg);
   margin: 4px 0;
 }
 
@@ -833,7 +852,7 @@ button {
 
 .hero-tagline {
   max-width: 32rem;
-  color: #e5e7eb;
+  color: var(--color-fg);
   margin-bottom: 1.75rem;
 }
 
@@ -919,7 +938,7 @@ button {
   top: 0;
   left: 0;
   padding: 0.75rem 1rem;
-  background: var(--okh-espresso, #2a2320);
+  background: var(--okh-espresso, var(--okh-espresso));
   color: var(--okh-cream, #f5ead7);
   font-weight: 600;
   text-decoration: none;
@@ -931,7 +950,7 @@ button {
 .okh-skip-link:focus,
 .okh-skip-link:focus-visible {
   transform: translateY(0);
-  outline: 2px solid var(--okh-orange, #c46a2c);
+  outline: 2px solid var(--okh-orange, var(--okh-orange));
   outline-offset: 2px;
 }
 
@@ -1480,7 +1499,7 @@ body.construction-dismissed .construction-overlay,
 
 /* "Active Build Zone" card — dark bg, keep text light */
 html[data-theme="light"] body:not(.glee-main):not(.askjamie-main) .site-status {
-  color: #e5e7eb;
+  color: var(--color-fg);
 }
 
 /* ===== HEADINGS VARIANTS ================================================= */
@@ -1529,7 +1548,7 @@ body:not(.glee-main):not(.askjamie-main) .site-status {
 }
 
 body:not(.glee-main):not(.askjamie-main) .latest-pill {
-  background: #111827;
+  background: var(--color-surface);
   color: #f9fafb;
 }
 
@@ -1571,7 +1590,7 @@ body:not(.askjamie-main):not(.glee-main) .mermaid .cluster rect {
 /* Default OKH tooltip styling */
 body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
   background-color: #020617;
-  color: #e5e7eb;
+  color: var(--color-fg);
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
   font-size: 0.75rem;
@@ -1582,7 +1601,7 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
 
 /* Hero-forge-card ("What happens at the Hill?") — hardcoded dark gradient bg */
 html[data-theme="light"] .hero-forge-card {
-  color: #e5e7eb;
+  color: var(--color-fg);
 }
 
 /* ===== "LATEST MILESTONE" HIGHLIGHT SECTION ========================= */
@@ -1722,16 +1741,16 @@ html[data-theme="light"] .hero-forge-card {
 .brand-stripes--okh {
   background-image: linear-gradient(
     to bottom,
-    #1c3a34 0%,
-    #1c3a34 20%,
+    var(--okh-teal) 0%,
+    var(--okh-teal) 20%,
     #676a2c 20%,
     #676a2c 40%,
     #a06e28 40%,
     #a06e28 60%,
     #5b3a27 60%,
     #5b3a27 80%,
-    #2a2320 80%,
-    #2a2320 100%
+    var(--okh-espresso) 80%,
+    var(--okh-espresso) 100%
   );
 }
 
@@ -3046,7 +3065,7 @@ sentinel artwork used on this error page, we override two rules:
    ---------------------------------------- */
 .sidebar-widget-desc {
   font-size: 14px;
-  color: #6b7280;
+  color: var(--okh-gray);
   margin-bottom: 0.5rem;
 }
 
@@ -3067,14 +3086,14 @@ sentinel artwork used on this error page, we override two rules:
 }
 
 .council-table .council-name {
-  color: #e5e7eb;
+  color: var(--color-fg);
   font-weight: 600;
   white-space: nowrap;
   padding-right: 0.5rem;
 }
 
 .council-table .council-role {
-  color: #6b7280;
+  color: var(--okh-gray);
   font-size: 0.8rem;
   text-align: right;
 }
@@ -3087,7 +3106,7 @@ sentinel artwork used on this error page, we override two rules:
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: #e5e7eb;
+  color: var(--color-fg);
   margin: 9.6px 0 0.3rem;
 }
 
@@ -3119,7 +3138,7 @@ sentinel artwork used on this error page, we override two rules:
    ---------------------------------------- */
 .sidebar-links .sidebar-diagram-entry {
   font-size: 14px;
-  color: #6b7280;
+  color: var(--okh-gray);
   padding: 0.1rem 0;
   margin-left: 1rem;
   text-decoration: none;
@@ -4553,7 +4572,7 @@ html:has(
   gap: 0.4rem;
   padding: 0.45rem 0.75rem;
   background: transparent;
-  color: var(--color-fg, #e5e7eb);
+  color: var(--color-fg, var(--color-fg));
   border: 1px solid var(--color-border-subtle, #2a2f37);
   border-radius: var(--radius-md, 8px);
   font: inherit;
@@ -4564,8 +4583,8 @@ html:has(
 }
 .okh-search-trigger:hover,
 .okh-search-trigger:focus-visible {
-  border-color: var(--okh-orange, #c46a2c);
-  color: var(--okh-orange, #c46a2c);
+  border-color: var(--okh-orange, var(--okh-orange));
+  color: var(--okh-orange, var(--okh-orange));
   outline: none;
 }
 .okh-search-trigger .okh-search-icon {
@@ -4608,7 +4627,7 @@ html:has(
 
 .okh-search-panel {
   width: min(720px, 100%);
-  background: var(--color-surface, #111827);
+  background: var(--color-surface, var(--color-surface));
   border: 1px solid var(--color-border-subtle, #2a2f37);
   border-radius: var(--radius-md, 12px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
@@ -4634,13 +4653,13 @@ html:has(
   flex: 1 1 auto;
   background: transparent;
   border: none;
-  color: var(--color-fg, #e5e7eb);
+  color: var(--color-fg, var(--color-fg));
   font-size: 1.05rem;
   padding: 0.25rem 0;
   outline: none;
 }
 .okh-search-input::placeholder {
-  color: var(--color-muted, #6b7280);
+  color: var(--color-muted, var(--okh-gray));
 }
 .okh-search-close {
   background: transparent;
@@ -4652,7 +4671,7 @@ html:has(
   cursor: pointer;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
-.okh-search-close:hover { color: var(--okh-orange, #c46a2c); border-color: var(--okh-orange, #c46a2c); }
+.okh-search-close:hover { color: var(--okh-orange, var(--okh-orange)); border-color: var(--okh-orange, var(--okh-orange)); }
 
 .okh-search-results {
   flex: 1 1 auto;
@@ -4722,13 +4741,13 @@ html:has(
 .okh-search-result-url {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.7rem;
-  color: var(--color-muted, #6b7280);
+  color: var(--color-muted, var(--okh-gray));
   word-break: break-all;
 }
 .okh-search-result-title {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-fg, #e5e7eb);
+  color: var(--color-fg, var(--color-fg));
   margin: 0 0 0.2rem;
   line-height: 1.3;
 }
@@ -4796,12 +4815,12 @@ html:has(
   align-items: center;
   gap: 0.65rem;
   padding: 0.65rem 1rem;
-  background: var(--color-surface, #111827);
+  background: var(--color-surface, var(--color-surface));
   border: 1px solid var(--color-border-subtle, #2a2f37);
   border-radius: var(--radius-md, 12px);
 }
 .search-page .search-input-wrap:focus-within {
-  border-color: var(--okh-orange, #c46a2c);
+  border-color: var(--okh-orange, var(--okh-orange));
 }
 .search-page .search-input-wrap svg {
   width: 1.2rem;
@@ -4813,7 +4832,7 @@ html:has(
   flex: 1 1 auto;
   background: transparent;
   border: none;
-  color: var(--color-fg, #e5e7eb);
+  color: var(--color-fg, var(--color-fg));
   font-size: 1.05rem;
   outline: none;
 }
@@ -4833,7 +4852,7 @@ html:has(
 .search-page .search-results-list .okh-search-result {
   border: 1px solid var(--color-border-subtle, #2a2f37);
   border-radius: var(--radius-md, 12px);
-  background: var(--color-surface, #111827);
+  background: var(--color-surface, var(--color-surface));
   border-top: 1px solid var(--color-border-subtle, #2a2f37);
 }
 .search-page .search-empty-state {

@@ -1,0 +1,538 @@
+# OverKill Hill P³™ — Sprint 2 Remediation Prompt
+### Replit Agent | Picking Up Where the Standards Audit Left Off
+
+---
+
+## CONTEXT
+
+This prompt is a direct continuation of the Standards Compliance & Consistency Audit
+completed on 2026-05-12 (report: `_replit/audit-2026-05-12.md`). That session closed
+with three intentionally deferred items and several confirmed gaps. This sprint executes
+all of them.
+
+**Do not re-audit what was already fixed.** Read the prior audit report first to
+understand the current state. Then execute only what is scoped below.
+
+**Live site:** https://overkillhill.com
+**GitHub source:** https://github.com/OKHP3/OverKill-Hill
+
+---
+
+## CONFIRMED SITE INVENTORY UPDATE
+
+Two separate project pages exist under `/projects/` — both are intentional:
+
+| Page | Path |
+|---|---|
+| Mermaid Theme Builder | `/projects/mermaid-theme-builder/` |
+| BPMN for Mermaid | `/projects/bpmn-for-mermaid/` |
+
+Every task in this prompt that touches navigation, sitemaps, templates, or structured
+data must account for both pages. Neither is a stub of the other.
+
+---
+
+## TASK 1: NAVIGATION VERIFICATION
+
+The prior session added BPMN for Mermaid to the Projects submenu across 20 pages.
+Verify the result is correct before proceeding.
+
+**1.1 — Confirm nav label accuracy**
+
+On every HTML file, find the Projects dropdown. Verify it reads exactly:
+
+```
+Our Projects
+  ├ Mermaid Theme Builder  →  /projects/mermaid-theme-builder/
+  └ BPMN for Mermaid       →  /projects/bpmn-for-mermaid/
+```
+
+Check for:
+- Any instance where the label reads "BPMN" without "for Mermaid"
+- Any instance where only one of the two sub-items is present
+- Any instance where the order is reversed (Mermaid Theme Builder must be first)
+- Any `href` that points to a path that does not exist in the repo
+
+Fix every deviation. Produce a count of pages corrected vs pages already correct.
+
+**1.2 — Verify both project pages exist**
+
+Confirm that both `/projects/mermaid-theme-builder/index.html` and
+`/projects/bpmn-for-mermaid/index.html` exist in the repo and are not
+`under-construction.html` redirects or empty shells. If either is an empty shell,
+flag it in the report — do not fill it with content, but ensure it has at minimum:
+- A valid `<title>` tag
+- A `<meta name="description">` tag
+- The canonical header and footer
+- A `<main id="main">` containing a placeholder `<h1>` with the page name
+
+---
+
+## TASK 2: SITEMAP
+
+Read the current `/sitemap.xml`. If it does not exist, create it from scratch.
+If it exists, update it.
+
+The sitemap must contain exactly these entries and no others (excluding 404, under-construction,
+assets, and templates directories):
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://overkillhill.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://overkillhill.com/writings/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://overkillhill.com/writings/first-diagram-is-a-liar/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://overkillhill.com/writings/biases-as-constants/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://overkillhill.com/writings/magnus-saga/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://overkillhill.com/manifesto/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://overkillhill.com/projects/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://overkillhill.com/projects/mermaid-theme-builder/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://overkillhill.com/projects/bpmn-for-mermaid/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://overkillhill.com/prompt-forge/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://overkillhill.com/universe/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://overkillhill.com/about/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://overkillhill.com/contact/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://overkillhill.com/legal/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+</urlset>
+```
+
+If additional pages are discovered in the directory walk that are not in this list and
+are not 404/under-construction/assets/templates, add them with `priority>0.5</priority>`
+and `<changefreq>monthly</changefreq>` and flag them in the report for human review.
+
+---
+
+## TASK 3: robots.txt
+
+Read the current `/robots.txt`. If it does not exist, create it.
+The file must contain exactly:
+
+```
+User-agent: *
+Allow: /
+Disallow: /assets/templates/
+
+Sitemap: https://overkillhill.com/sitemap.xml
+```
+
+If the file exists but differs, overwrite it with the above. No other rules unless
+already present and clearly intentional (document them if so).
+
+---
+
+## TASK 4: ARTICLE JSON-LD VERIFICATION AND COMPLETION
+
+The prior session added Article JSON-LD to `biases-as-constants/` and `magnus-saga/`.
+This task verifies those and completes the missing one.
+
+**4.1 — Verify existing Article JSON-LD**
+
+Read `writings/biases-as-constants/index.html` and `writings/magnus-saga/index.html`.
+Confirm each has a `<script type="application/ld+json">` block with `"@type": "Article"`.
+Confirm the values are populated (not placeholder text). Log the result.
+
+**4.2 — Add Article JSON-LD to first-diagram-is-a-liar**
+
+Read `writings/first-diagram-is-a-liar/index.html`. If a JSON-LD Article block is not
+present, add one immediately before `</head>`. Use this structure, populated with the
+correct values for this article:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The First Diagram Is Usually a Liar",
+  "description": "ROY — Return on Your Words — is the metric. A Council of AIs ran eight platforms against the same brief. One was built for Mermaid — and it lost.",
+  "author": {
+    "@type": "Person",
+    "name": "Jamie Hill"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "OverKill Hill P³™",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://overkillhill.com/assets/img/OverKillHillP³-Sentinel-Warning-Square-256.png"
+    }
+  },
+  "datePublished": "2026-04-01T00:00:00Z",
+  "dateModified": "2026-04-01T00:00:00Z",
+  "image": "https://overkillhill.com/assets/img/etch-ai-sketch-using-a-council-to-design-at-velocity.png",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://overkillhill.com/writings/first-diagram-is-a-liar/"
+  },
+  "keywords": "Mermaid diagrams, ROY, Return on Your Words, premature rendering, Council of AIs, AI diagramming, prompt engineering"
+}
+```
+
+Pull the actual `datePublished` value from the article byline or existing meta if one
+exists — do not use a placeholder date if the real one is visible in the file.
+
+**4.3 — Add Article JSON-LD to both project pages**
+
+Both `/projects/mermaid-theme-builder/index.html` and
+`/projects/bpmn-for-mermaid/index.html` should use `"@type": "SoftwareApplication"`
+schema instead of Article. Add this block to each if not already present:
+
+For Mermaid Theme Builder:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Mermaid Theme Builder",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "url": "https://overkillhill.com/projects/mermaid-theme-builder/",
+  "author": {
+    "@type": "Organization",
+    "name": "OverKill Hill P³™"
+  },
+  "description": "A tool for building and customizing Mermaid diagram themes with the OverKill Hill P³™ styling system."
+}
+```
+
+For BPMN for Mermaid:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "BPMN for Mermaid",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "url": "https://overkillhill.com/projects/bpmn-for-mermaid/",
+  "author": {
+    "@type": "Organization",
+    "name": "OverKill Hill P³™"
+  },
+  "description": "BPMN notation support for Mermaid diagrams, built under the OverKill Hill P³™ protocol-driven architecture."
+}
+```
+
+Adjust the description values if the actual page content says something more specific.
+
+---
+
+## TASK 5: BREADCRUMBLIST JSON-LD — ALL NON-HOMEPAGE PAGES
+
+This was the largest deferred item from the prior session. Add BreadcrumbList JSON-LD
+to every page except the homepage. This is additive only — do not touch existing JSON-LD blocks.
+
+**Structure for top-level pages** (about, contact, legal, manifesto, universe, prompt-forge):
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "OverKill Hill P³™",
+      "item": "https://overkillhill.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "[Page Name]",
+      "item": "https://overkillhill.com/[path]/"
+    }
+  ]
+}
+```
+
+**Structure for hub pages** (writings, projects):
+
+Same as above — two levels, second item is the hub.
+
+**Structure for article and project pages** (three levels):
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "OverKill Hill P³™",
+      "item": "https://overkillhill.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "[Section — Writings or Projects]",
+      "item": "https://overkillhill.com/[writings or projects]/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "[Page Name]",
+      "item": "https://overkillhill.com/[section]/[page-slug]/"
+    }
+  ]
+}
+```
+
+Apply the correct structure to each page. Add as a separate `<script type="application/ld+json">` block — do not merge with any existing JSON-LD blocks on the page.
+
+**Pages requiring BreadcrumbList and their correct values:**
+
+| Page | Level 2 Name | Level 2 URL | Level 3 Name | Level 3 URL |
+|---|---|---|---|---|
+| /writings/ | Writings | /writings/ | — | — |
+| /writings/first-diagram-is-a-liar/ | Writings | /writings/ | The First Diagram Is Usually a Liar | /writings/first-diagram-is-a-liar/ |
+| /writings/biases-as-constants/ | Writings | /writings/ | Biases as Constants | /writings/biases-as-constants/ |
+| /writings/magnus-saga/ | Writings | /writings/ | The Magnus Saga | /writings/magnus-saga/ |
+| /manifesto/ | Manifesto | /manifesto/ | — | — |
+| /prompt-forge/ | Prompt Forge | /prompt-forge/ | — | — |
+| /projects/ | Projects | /projects/ | — | — |
+| /projects/mermaid-theme-builder/ | Projects | /projects/ | Mermaid Theme Builder | /projects/mermaid-theme-builder/ |
+| /projects/bpmn-for-mermaid/ | Projects | /projects/ | BPMN for Mermaid | /projects/bpmn-for-mermaid/ |
+| /universe/ | Universe | /universe/ | — | — |
+| /about/ | About | /about/ | — | — |
+| /contact/ | Contact | /contact/ | — | — |
+| /legal/ | Legal | /legal/ | — | — |
+
+Do not add BreadcrumbList to: `index.html` (homepage), `404.html`, `under-construction.html`.
+
+---
+
+## TASK 6: CSS CUSTOM PROPERTIES CONSOLIDATION
+
+**6.1 — Color inventory**
+
+Read every `.css` file in `/assets/css/`. Extract every unique color value used
+(hex, rgb, rgba, hsl, named colors). Produce a complete table:
+
+| Color Value | Where Used | How Many Times |
+|---|---|---|
+
+**6.2 — Identify the brand palette**
+
+From the inventory, identify the core repeating values. Cross-reference the confirmed
+brand anchor: `#2a2320` (primary dark, confirmed from theme-color meta).
+
+Group all found values into:
+- **Core palette** — appears 3+ times, clearly intentional
+- **Accent values** — appears 1–2 times, may be intentional or may be drift
+- **One-offs** — appears once, likely unintentional
+
+**6.3 — Implement CSS custom properties**
+
+If a `:root {}` block with CSS custom properties does not already exist at the top of
+`/assets/css/main.css` (or the primary global stylesheet), add one. It must include at
+minimum the core palette colors, the brand typography stack, and the primary spacing scale.
+
+Use this structure as the starting point, populated with the actual values found:
+
+```css
+/* =====================================================
+   OverKill Hill P³™ — Brand Design Tokens
+   Updated: May 2026
+   ===================================================== */
+:root {
+  /* --- Color Palette --- */
+  --color-bg-primary:       #2a2320;   /* primary dark background */
+  --color-bg-secondary:     [value];   /* secondary background */
+  --color-bg-surface:       [value];   /* card / surface background */
+  --color-text-primary:     [value];   /* primary body text */
+  --color-text-secondary:   [value];   /* muted / secondary text */
+  --color-text-heading:     [value];   /* heading text */
+  --color-accent-primary:   [value];   /* primary brand accent */
+  --color-accent-secondary: [value];   /* secondary accent */
+  --color-border:           [value];   /* border / divider color */
+  --color-link:             [value];   /* default link color */
+  --color-link-hover:       [value];   /* link hover state */
+
+  /* --- Typography --- */
+  --font-heading:  [value];            /* heading font stack */
+  --font-body:     [value];            /* body font stack */
+  --font-mono:     [value];            /* monospace / code font stack */
+
+  /* --- Spacing Scale --- */
+  --space-xs:   0.25rem;
+  --space-sm:   0.5rem;
+  --space-md:   1rem;
+  --space-lg:   2rem;
+  --space-xl:   4rem;
+  --space-xxl:  8rem;
+
+  /* --- Borders --- */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  16px;
+
+  /* --- Transitions --- */
+  --transition-fast:    150ms ease;
+  --transition-normal:  300ms ease;
+}
+```
+
+Fill in every `[value]` with the actual values found in the inventory. Do not invent values.
+
+**6.4 — Replace hardcoded values**
+
+After the `:root` block is in place, do a find-and-replace pass across all CSS files.
+Replace every hardcoded instance of a core palette color with its corresponding custom
+property variable.
+
+Scope this carefully:
+- Replace only the core palette colors (3+ occurrences) — do not touch one-off values
+- Do not replace color values inside vendor-prefixed blocks or third-party code
+- After replacing, verify the site renders correctly by checking that no replaced value
+  produced a broken or `unset` result
+
+**6.5 — Inline style cleanup**
+
+Scan all HTML files for `style=""` attributes containing color values. For each one:
+- If the color is a core palette color: replace the inline style with the appropriate
+  CSS class (create the class in main.css if it doesn't exist)
+- If the color is a one-off: flag it in the report for human review; do not change it
+
+---
+
+## TASK 7: TEMPLATE LIBRARY — PROJECT PAGES
+
+The template extraction session created templates for known pages. Two templates need
+to be confirmed or created now that both project pages are confirmed:
+
+**7.1 — Verify `projects-project-template.html` exists** in `/assets/templates/`.
+
+**7.2 — If it exists:** Confirm it was derived from both project pages (i.e., the header
+comment block lists both `/projects/mermaid-theme-builder/index.html` and
+`/projects/bpmn-for-mermaid/index.html` as source pages). If it only lists one, update
+the comment block to reference both.
+
+**7.3 — If it does not exist:** Create it. Derive it from whichever project page is the
+more complete of the two. Apply all standard template rules:
+- Strip all page-specific content to labeled placeholders
+- Preserve full nav, header, and footer as live HTML
+- All asset paths must be root-relative (`/assets/...`)
+- Include the standard header comment block
+
+**7.4 — Update `/assets/templates/README.md`** to reflect the correct state of the
+template library, including both project pages in the coverage table.
+
+---
+
+## TASK 8: FINAL VERIFICATION SWEEP
+
+After all tasks are complete, run this checklist and report the result of each item:
+
+| Check | Pass / Fail | Notes |
+|---|---|---|
+| sitemap.xml exists and includes bpmn-for-mermaid | | |
+| robots.txt exists with correct Disallow for /assets/templates/ | | |
+| Projects nav sub-items correct on every page | | |
+| Article JSON-LD present on first-diagram-is-a-liar | | |
+| Article JSON-LD present on biases-as-constants | | |
+| Article JSON-LD present on magnus-saga | | |
+| SoftwareApplication JSON-LD present on mermaid-theme-builder | | |
+| SoftwareApplication JSON-LD present on bpmn-for-mermaid | | |
+| BreadcrumbList JSON-LD present on all 13 non-homepage pages | | |
+| :root CSS custom properties block exists in primary stylesheet | | |
+| No hardcoded core palette colors remaining in CSS | | |
+| projects-project-template.html exists and covers both project pages | | |
+| /assets/templates/README.md is current | | |
+
+---
+
+## DELIVERABLE
+
+Produce a sprint report at `_replit/sprint-2026-05-12b.md` with:
+
+1. **Tasks completed** — one line per task, status, file count affected
+2. **Files modified** — complete list with task reference
+3. **Deferred or skipped** — anything not completed and exact reason
+4. **Manual action items** — anything requiring human decision or external access
+5. **Recommended Task 1 for Sprint 3** — single highest-impact remaining item
+
+---
+
+## LOCKED CONSTRAINTS
+
+- Brand name: `OverKill Hill P³™` — Unicode ³, never P3
+- Brand tagline: `Precision · Protocol · Promptcraft` — middle dot, never pipe or dash
+- Theme color: `#2a2320`
+- Both project pages are real, intentional, and equal — treat them identically
+- JSON-LD blocks stay in `<head>` as inline `<script type="application/ld+json">` — never externalized
+- Google Analytics snippet: copy exactly from existing pages — do not alter the Measurement ID
+- AutoCAD reference in article copy: `AutoCAD 10` — do not touch
+- No BFS / employer references anywhere on the site
+
+---
+
+*Issued by: OverKill Hill P³™ — Precision · Protocol · Promptcraft*
+*Sprint 2 | Continuation of Standards Audit 2026-05-12*
