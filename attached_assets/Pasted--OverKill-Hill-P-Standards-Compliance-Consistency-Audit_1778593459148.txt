@@ -1,0 +1,709 @@
+# OverKill Hill P³™ — Standards Compliance & Consistency Audit
+### Replit Agent Prompt | Best Practices · Analytics · SEO · Design Consistency · Asset Hygiene
+
+---
+
+## CONTEXT
+
+**Live site:** https://overkillhill.com
+**GitHub source:** https://github.com/OKHP3/OverKill-Hill
+**Notion documentation:** https://www.notion.so/overkillhill/OverKill-Hill-2cc812e0ced480389730dbd833839ae6
+
+This is a GitHub Pages static site (HTML/CSS/JS) managed through this Replit. The site consists of approximately 14–16 HTML pages across a directory tree with `/assets/` holding all shared CSS, JS, and image files.
+
+This audit is focused and scoped. It does not cover full structural overhauls or content rewrites. It covers six specific compliance domains listed below. Execute each domain in sequence. Produce a findings log as you go, then a consolidated remediation report at the end.
+
+---
+
+## DOMAIN 1: 2026 WEB BEST PRACTICES
+
+Audit every HTML file against the following 2026-era baseline. Flag each violation. Implement every fix that can be made without risk of visual or functional regression.
+
+### 1.1 — Document-level requirements
+
+Every page must have:
+
+| Requirement | Correct Implementation |
+|---|---|
+| DOCTYPE | `<!DOCTYPE html>` — no XHTML, no legacy variants |
+| HTML lang | `<html lang="en">` on every page |
+| Charset | `<meta charset="UTF-8">` as the **first** element inside `<head>` |
+| Viewport | `<meta name="viewport" content="width=device-width, initial-scale=1">` |
+| Color scheme | `<meta name="color-scheme" content="dark light">` |
+| Theme color | `<meta name="theme-color" content="#2a2320">` (brand dark) |
+| IE compat | No `X-UA-Compatible` meta — this is dead in 2026, remove it if present |
+| `<main>` element | One per page, with `id="main"` so skip-link targets are consistent |
+| Skip link | `<a class="skip-link" href="#main">Skip to main content</a>` as the first child of `<body>` — text and anchor must be consistent across all pages |
+
+Check: The live site shows `href="#main"` on some pages and `href="#content"` on others. Standardize to `href="#main"` and ensure every page's main content container has `id="main"`.
+
+### 1.2 — Resource loading best practices
+
+For every `<link>`, `<script>`, and `<img>` tag across all pages:
+
+**CSS:**
+- All stylesheets loaded via `<link rel="stylesheet">` in `<head>`
+- No `@import` inside CSS files that chains blocking requests
+- Add `<link rel="preload" as="style">` for the primary stylesheet if not already present
+
+**JavaScript:**
+- All `<script>` tags referencing external files must have `defer` attribute unless the script must execute synchronously (almost never the case for a static site)
+- No `<script>` tags without `defer` or `async` unless there is a documented reason — comment that reason inline
+- No `<script>` tags placed in `<head>` without `defer`
+
+**Images:**
+- `loading="lazy"` on all images that appear below the fold
+- `loading="eager"` and `fetchpriority="high"` on the primary hero image of each page
+- `decoding="async"` on all non-hero images
+- Explicit `width` and `height` attributes on every `<img>` to prevent Cumulative Layout Shift
+
+**External domains:**
+- Add `<link rel="preconnect">` for every external origin used (Google Fonts, Google Analytics, any CDN)
+- Add `<link rel="dns-prefetch">` as a fallback for browsers that don't support preconnect
+
+### 1.3 — Deprecated patterns to eliminate
+
+Scan all HTML files and remove or replace:
+
+| Pattern | Action |
+|---|---|
+| `<meta http-equiv="X-UA-Compatible">` | Remove entirely |
+| `border="0"` on `<img>` | Remove — use CSS |
+| `align=""` attribute on any element | Remove — use CSS |
+| `onclick=""` inline handlers | Move to external JS file |
+| `style=""` inline styles | Move to external CSS (see Domain 6) |
+| `<b>` and `<i>` for emphasis | Replace with `<strong>` and `<em>` |
+| `target="_blank"` without `rel="noopener noreferrer"` | Add the rel attribute to every external link |
+| `javascript:void(0)` hrefs | Replace with proper button elements or real URLs |
+| HTML comments containing development notes | Remove from production files |
+
+### 1.4 — Modern HTML features to add where missing
+
+- `<meta name="referrer" content="strict-origin-when-cross-origin">` in every `<head>`
+- `autocomplete` attributes on all form inputs (contact form)
+- `inputmode` attributes on numeric or email inputs
+- `<time datetime="[ISO date]">` wrapping any dates displayed in article bylines
+
+---
+
+## DOMAIN 2: METADATA, OPEN GRAPH, AND TWITTER CARD AUDIT
+
+### 2.1 — Required meta block
+
+Every page must have this exact set of meta tags, fully populated with page-specific values. No placeholder text, no empty content attributes, no copy-pasted duplicates from another page.
+
+**Core SEO meta:**
+```html
+<meta name="description" content="[120–160 char unique description]">
+<meta name="keywords" content="[5–10 relevant terms]">
+<meta name="author" content="OverKill Hill P³™">
+<meta name="publisher" content="OverKill Hill P³™">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<meta name="revisit-after" content="7 days">
+<meta name="language" content="English">
+<link rel="canonical" href="https://overkillhill.com/[path]/">
+```
+
+**Open Graph:**
+```html
+<meta property="og:type" content="website"> <!-- "article" for writing pages -->
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="OverKill Hill P³™">
+<meta property="og:title" content="[Unique page title]">
+<meta property="og:description" content="[Unique 1–2 sentence description]">
+<meta property="og:url" content="https://overkillhill.com/[path]/">
+<meta property="og:image" content="https://overkillhill.com/assets/img/[image].png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="[actual width]">
+<meta property="og:image:height" content="[actual height]">
+<meta property="og:image:alt" content="[descriptive alt text]">
+```
+
+**Twitter Card:**
+```html
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@OverKillHillP3">
+<meta name="twitter:creator" content="@OverKillHillP3">
+<meta name="twitter:title" content="[Unique page title]">
+<meta name="twitter:description" content="[Unique 1–2 sentence description]">
+<meta name="twitter:image" content="https://overkillhill.com/assets/img/[image].png">
+<meta name="twitter:image:alt" content="[descriptive alt text]">
+```
+
+**PWA / Mobile:**
+```html
+<meta name="theme-color" content="#2a2320">
+<meta name="color-scheme" content="dark light">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="/site.webmanifest">
+```
+
+### 2.2 — Article-specific meta (writing pages only)
+
+Pages under `/writings/` and `/manifesto/` must also include:
+
+```html
+<meta property="og:type" content="article">
+<meta property="article:author" content="Jamie Hill">
+<meta property="article:published_time" content="[ISO 8601 date, e.g., 2026-04-01T00:00:00Z]">
+<meta property="article:modified_time" content="[ISO 8601 date of last update]">
+<meta property="article:section" content="[Category, e.g., AI Architecture]">
+<meta property="article:tag" content="[primary tag]">
+```
+
+### 2.3 — Uniqueness check
+
+Extract the `<title>`, `og:title`, `og:description`, and `meta description` from every page. Produce a table. Flag any value that appears on more than one page — duplicates are an SEO penalty.
+
+**Known issue to check:** The homepage title appears to be `"OverKill Hill P³™ — Precision · Protocol · Promptcraft"` and must not be reused on any other page verbatim.
+
+### 2.4 — Title tag format
+
+Canonical format: `[Page-Specific Name] | OverKill Hill P³™`
+
+Exception: The homepage uses the full brand name and tagline as its title. Every other page uses the pipe format.
+
+Check and correct every page.
+
+### 2.5 — OG image audit
+
+Verify that every `og:image` and `twitter:image` value:
+- Points to a file that actually exists in `/assets/img/`
+- Is at least 1200×630px (Twitter) or 1200×1200px (square OG)
+- Is not a relative path (must be an absolute URL with `https://overkillhill.com/`)
+- Has matching `og:image:width` and `og:image:height` that match the actual file dimensions
+
+If a page is using the default Sentinel image (`OverKillHillP³-Sentinel-Waiting-Square-1024.png`) as a fallback, flag it. It's acceptable as a fallback but should be noted so page-specific social images can be created later.
+
+---
+
+## DOMAIN 3: GOOGLE ANALYTICS
+
+### 3.1 — Presence check
+
+Scan every HTML file for the Google Analytics or Google Tag Manager snippet. Check for:
+- A `<script>` tag loading `gtag.js` or `analytics.js`
+- A Google Tag Manager `<noscript>` block in `<body>`
+- Any `G-XXXXXXXXXX` or `GTM-XXXXXXX` measurement ID present
+
+Document: Is analytics present? On which pages? On all pages or only some?
+
+### 3.2 — Consistency
+
+Analytics tracking must be present on **every** page without exception, including:
+- `404.html` (tracking 404 hits is valuable — this page needs the snippet)
+- `under-construction.html` (you want to know how often users land on stub pages)
+- Every writing, project, legal, and about page
+
+If any page is missing the snippet, add it. Copy the snippet exactly from a page where it is currently correct.
+
+### 3.3 — Placement
+
+The Google Tag Manager snippet has two parts:
+- The `<script>` block goes in `<head>` as high as possible (after charset and viewport, before other scripts)
+- The `<noscript>` iframe goes immediately after the opening `<body>` tag
+
+Verify this placement is correct on every page. An analytics snippet at the bottom of `<body>` will miss users who bounce before the page finishes loading.
+
+### 3.4 — No duplicate snippets
+
+Verify no page loads the analytics snippet more than once. A double-fire inflates session counts.
+
+### 3.5 — Event tracking check
+
+Document whether any custom events are tracked (button clicks, outbound links, form submissions, Ko-fi clicks, Fiverr clicks). If not, note this as a follow-up opportunity — do not implement custom events in this audit without explicit instruction. Flag the absence and list the highest-value events to add in a future session:
+- Ko-fi link clicks (conversion signal)
+- Fiverr link clicks (conversion signal)
+- Article completion scroll depth (engagement signal)
+- Contact form submission (conversion signal)
+- Outbound links to glee-fully.tools and askjamie.bot
+
+### 3.6 — Measurement ID documentation
+
+Extract and document the current Measurement ID (format: `G-XXXXXXXXXX`) from the source files. Record it in a comment at the top of the analytics snippet on each page so it's visible at a glance during future maintenance. Format:
+
+```html
+<!-- Google Analytics | Measurement ID: G-XXXXXXXXXX -->
+```
+
+---
+
+## DOMAIN 4: SEO AUDIT
+
+### 4.1 — robots.txt
+
+Verify `/robots.txt` exists at the root. It must contain:
+
+```
+User-agent: *
+Allow: /
+
+Sitemap: https://overkillhill.com/sitemap.xml
+```
+
+No `Disallow` rules unless there are specific directories that must not be indexed. The `/assets/templates/` directory created in a prior session should be disallowed from indexing:
+
+```
+Disallow: /assets/templates/
+```
+
+If `robots.txt` is missing or incorrect, create or fix it.
+
+### 4.2 — XML Sitemap
+
+Verify `/sitemap.xml` exists at the root. It must include every canonical page URL. Required entries:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://overkillhill.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://overkillhill.com/writings/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://overkillhill.com/writings/first-diagram-is-a-liar/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://overkillhill.com/writings/biases-as-constants/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://overkillhill.com/writings/magnus-saga/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://overkillhill.com/manifesto/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://overkillhill.com/projects/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://overkillhill.com/projects/mermaid-theme-builder/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://overkillhill.com/prompt-forge/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://overkillhill.com/universe/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://overkillhill.com/about/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://overkillhill.com/contact/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://overkillhill.com/legal/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+</urlset>
+```
+
+Add any pages discovered in the directory walk that are not in this list. Exclude: `404.html`, `under-construction.html`, and anything under `/assets/templates/`.
+
+### 4.3 — Heading hierarchy
+
+On every page, verify:
+- Exactly one `<h1>` — no page has zero, no page has two or more
+- `<h2>` used for major sections
+- `<h3>` used for subsections within `<h2>` sections
+- No heading levels skipped (no jumping from `<h2>` to `<h4>`)
+- Heading text is descriptive and contains relevant keywords — not generic labels like "Section One" or "More Info"
+
+### 4.4 — Internal linking
+
+Verify that:
+- Every page is reachable from at least one other page via a hyperlink (no orphan pages)
+- Article pages link back to the Writings hub (`/writings/`)
+- Project pages link back to the Projects hub (`/projects/`)
+- The homepage links to the two or three highest-value content destinations
+- No internal links use raw absolute URLs when root-relative would work (e.g., prefer `/about/` over `https://overkillhill.com/about/` in internal navigation)
+
+### 4.5 — Structured data (JSON-LD)
+
+Verify the following schema blocks are present on the correct pages:
+
+**Homepage — Organization + WebSite:**
+```json
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "OverKill Hill P³™",
+      "url": "https://overkillhill.com",
+      "logo": "https://overkillhill.com/assets/img/OverKillHillP³-Sentinel-Warning-Square-256.png",
+      "description": "Protocol-driven AI architecture, custom GPT systems, and prompt engineering.",
+      "email": "contact@overkillhill.com",
+      "sameAs": [
+        "https://www.linkedin.com/company/overkillhillp3",
+        "https://ko-fi.com/overkillhillp3",
+        "https://x.com/OverKillHillP3",
+        "https://www.youtube.com/@OverKillHillP3",
+        "https://facebook.com/OverKillHillP3/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "OverKill Hill P³™",
+      "url": "https://overkillhill.com"
+    }
+  ]
+}
+```
+
+**Writing pages — Article:**
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "[Article title]",
+  "description": "[Meta description]",
+  "author": {
+    "@type": "Person",
+    "name": "Jamie Hill"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "OverKill Hill P³™",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://overkillhill.com/assets/img/OverKillHillP³-Sentinel-Warning-Square-256.png"
+    }
+  },
+  "datePublished": "[ISO date]",
+  "dateModified": "[ISO date]",
+  "image": "https://overkillhill.com/assets/img/[page image]",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://overkillhill.com/writings/[article-slug]/"
+  }
+}
+```
+
+**Breadcrumb — all pages except homepage:**
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "OverKill Hill P³™",
+      "item": "https://overkillhill.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "[Section Name]",
+      "item": "https://overkillhill.com/[section]/"
+    }
+  ]
+}
+```
+
+Add the third breadcrumb item for pages nested under a section (e.g., an individual article under Writings).
+
+If any of these JSON-LD blocks are missing on the appropriate pages, add them inside a `<script type="application/ld+json">` tag immediately before `</head>`.
+
+### 4.6 — Keyword targeting
+
+Extract the `<meta name="keywords">` from every page. Verify:
+- Keywords are present on every page
+- They're not identical across pages (same keywords on every page = no differentiation)
+- Each page's keywords reflect the actual content of that page
+- The brand term "OverKill Hill P³" appears in the keywords of every page
+- Writing pages include topic-specific terms (e.g., "Mermaid diagrams, ROY, premature rendering, Council of AIs" for the First Diagram article)
+
+---
+
+## DOMAIN 5: HEADER AND FOOTER CONSISTENCY
+
+This is a known problem on the live site. The following inconsistencies were confirmed by direct inspection:
+
+| Element | Issue |
+|---|---|
+| Footer brand name | Some pages say `"OverKill Hill P³"`, others say `"The OverKill Hill P³™"` |
+| Footer copyright | Some pages say `"© OverKill Hill P³. All rights reserved."`, others say `"© The OverKill Hill P³™. All rights reserved."` |
+| Skip link target | Some pages use `href="#main"`, others use `href="#content"` |
+| Nav sub-items | Mermaid Theme Builder appears in some nav instances, absent from others |
+
+Run a systematic comparison of `<header>`, `<nav>`, and `<footer>` blocks across every HTML file in the project.
+
+### 5.1 — Canonical header block
+
+Define the correct header once here for reference. Every page must match this exactly:
+
+```html
+<header>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <a href="https://overkillhill.com/" id="top">
+    <img src="/assets/img/OverKillHillP³-Sentinel-Warning-Square-256.png"
+         alt="OverKill Hill P³ logo"
+         width="48"
+         height="48"
+         loading="eager">
+    OverKill Hill P³™ Home
+  </a>
+  <nav aria-label="Primary navigation">
+    <!-- nav items — see 5.2 -->
+  </nav>
+</header>
+```
+
+### 5.2 — Canonical navigation
+
+The nav must be identical across all pages:
+
+```
+The Forge → https://overkillhill.com/#forge
+Our Projects → https://overkillhill.com/projects/
+  └ Mermaid Theme Builder → https://overkillhill.com/projects/mermaid-theme-builder/
+Writings → https://overkillhill.com/writings/
+  ├ The Manifesto → https://overkillhill.com/manifesto/
+  ├ Biases as Constants → https://overkillhill.com/writings/biases-as-constants/
+  ├ The Magnus Saga → https://overkillhill.com/writings/magnus-saga/
+  ├ The Prompt Forge → https://overkillhill.com/prompt-forge/
+  └ The First Diagram is a Liar → https://overkillhill.com/writings/first-diagram-is-a-liar/
+About → https://overkillhill.com/about/
+  ├ OKHP³™ Universe → https://overkillhill.com/universe/
+  ├ About OKHP³™ → https://overkillhill.com/about/
+  ├ Contact → https://overkillhill.com/contact/
+  └ Legal → https://overkillhill.com/legal/
+```
+
+Every page's nav must match this structure exactly. Compare each file's nav HTML against this canonical version and fix every deviation.
+
+### 5.3 — Canonical footer block
+
+The correct footer values are:
+
+- **Brand name in footer:** `OverKill Hill P³™` (no leading "The")
+- **Copyright line:** `© 2026 OverKill Hill P³™. All rights reserved.`
+- **Description:** `The digital forge for protocol-driven power prompts and custom GPT systems that can withstand real-world complexity.`
+- **Nav section heading:** `Navigation`
+- **Connect section heading:** `Connect`
+- **Email:** `contact@overkillhill.com` (not `sales@`, not `info@`)
+- **"Built with" attribution:** `Built with Replit` linking to `https://replit.com/refer/overkillhillp3/`
+- **Social links — all must be present in this order:**
+  1. Ko-fi → `https://ko-fi.com/overkillhillp3`
+  2. Fiverr → `https://pro.fiverr.com/s/VYKPpoB`
+  3. LinkedIn → `https://www.linkedin.com/company/overkillhillp3`
+  4. Facebook → `https://facebook.com/OverKillHillP3/`
+  5. X (Twitter) → `https://x.com/OverKillHillP3`
+  6. YouTube → `https://www.youtube.com/@OverKillHillP3`
+
+All social links must have `target="_blank" rel="noopener noreferrer"`.
+
+Compare every page's footer against these values. Fix every deviation. Zero exceptions.
+
+### 5.4 — Announcement banner
+
+The hot-forge banner (`🔥Hot off the FORGE⚒️`) appears on most pages. Verify:
+- It is present on every page (including legal, contact, about — or document a deliberate decision to exclude it from certain page types)
+- The linked text and URL are identical across all instances
+- The banner is not hardcoded with different content on different pages — if the content needs to change site-wide, it should be easy to update
+
+Current banner link: `v0.3 Visual Edition: The First Diagram Is Usually a Liar → https://overkillhill.com/writings/first-diagram-is-a-liar/`
+
+Verify this is consistent. If a newer article has been published that should be featured instead, update all instances.
+
+---
+
+## DOMAIN 6: DESIGN PRINCIPLES CONSISTENCY
+
+### 6.1 — Visual consistency checklist
+
+Run a visual structure comparison across all pages. Document the following for each page:
+
+| Page | Has hero section | Has CTA buttons | Card layout used | Branded section dividers | Consistent heading sizes |
+|---|---|---|---|---|---|
+
+Flag any page that is visually out of family — missing standard section patterns that peer pages use.
+
+### 6.2 — CSS class naming consistency
+
+Scan all HTML files for CSS class names. Identify:
+- Classes used on multiple pages with inconsistent spelling or casing (e.g., `forge-section` vs `forgeSection` vs `forge_section`)
+- Classes referenced in HTML that do not exist in any stylesheet
+- Classes defined in stylesheets that are not used in any HTML file
+
+Produce a class usage table. Flag mismatches. Implement fixes for any class name inconsistencies that don't require visual redesign.
+
+### 6.3 — Component pattern consistency
+
+The following components must look and function identically across all pages where they appear:
+
+| Component | Must be consistent across |
+|---|---|
+| Card / project card | Homepage, Projects hub |
+| Article listing row | Writings hub |
+| CTA button (primary) | Every page |
+| CTA button (secondary) | Every page |
+| Section divider / `<hr>` | Every page |
+| Breadcrumb | All pages except homepage |
+| Announcement banner | All pages (or documented exceptions) |
+| Ko-fi support CTA | All writing/article pages |
+
+For each component, extract the HTML from one canonical source and compare it to every other instance. Fix deviations.
+
+### 6.4 — Brand color audit
+
+Extract every color value used across all CSS files and any inline `style=""` attributes. Produce a complete color inventory. Cross-reference against the known brand palette:
+
+- Primary dark: `#2a2320` (confirmed from theme-color meta on about/ page)
+- Document all other colors found and flag any that appear only once or twice and may be accidental deviations
+
+If CSS custom properties (`:root` variables) are not already used for the brand palette, add them to the primary stylesheet and replace hardcoded values throughout. This is the highest-leverage CSS refactor available on a static site.
+
+---
+
+## DOMAIN 7: CSS AND JS ASSET EXTERNALIZATION
+
+This is a hard rule. No page should have styles or scripts defined or loaded anywhere except the `/assets/` folder. Inline styles and inline scripts are maintenance traps and SEO liabilities.
+
+### 7.1 — Inline style audit
+
+Scan every HTML file for `style=""` attributes on any element. For each one found:
+
+1. Document: which file, which element, what styles are applied
+2. Determine: does an existing CSS class already handle this? If yes, replace the inline style with the class
+3. If no existing class handles it: create a named utility class in the appropriate stylesheet and apply it
+
+Do not leave a single `style=""` attribute in any HTML file. Convert all of them.
+
+### 7.2 — Inline script audit
+
+Scan every HTML file for `<script>` blocks that contain JavaScript code directly (not `<script src="...">`). For each one found:
+
+1. Document: which file, what the script does
+2. Determine: does this script belong in an existing JS file in `/assets/js/`?
+3. Move the JavaScript to the appropriate file in `/assets/js/`
+4. Replace the inline `<script>` block with `<script src="/assets/js/[filename].js" defer></script>`
+
+Exception: Google Analytics / Google Tag Manager snippets are expected to be inline `<script>` blocks. These do not need to be externalized. Leave them in place.
+
+Exception: JSON-LD structured data `<script type="application/ld+json">` blocks are not JavaScript and must remain inline in `<head>`. Do not move these.
+
+### 7.3 — `<style>` block audit
+
+Scan every HTML file for `<style>` blocks in `<head>` (not external stylesheet links — actual inline `<style>` blocks containing CSS rules). For each one found:
+
+1. Document: which file, what rules it contains
+2. If the styles are page-specific and don't exist anywhere in `/assets/css/`: add them to the most appropriate external stylesheet (or create a page-specific CSS file in `/assets/css/pages/` if the rules are genuinely unique to that one page)
+3. Remove the `<style>` block from the HTML file
+4. Ensure the external stylesheet is already linked in the page's `<head>`
+
+Exception: Critical CSS that is intentionally inlined for render performance is acceptable **only** if it is under 1KB and is duplicated in the external stylesheet. Document any such exceptions with a comment.
+
+### 7.4 — Asset folder structure verification
+
+After externalization, verify `/assets/` is organized as follows (create any missing directories):
+
+```
+/assets/
+  /css/
+    main.css          ← primary global stylesheet
+    /pages/           ← page-specific overrides (only if truly needed)
+  /js/
+    main.js           ← primary global script (nav, etc.)
+    /pages/           ← page-specific scripts (only if truly needed)
+  /img/               ← all images
+  /fonts/             ← self-hosted fonts if any
+  /templates/         ← template HTML files (from prior session)
+```
+
+If JS or CSS files exist outside this structure, move them and update all references.
+
+### 7.5 — Stylesheet load order
+
+On every page, the `<head>` must load stylesheets in this order:
+1. Preconnect hints for external font domains
+2. External font `<link>` (Google Fonts or similar) if used
+3. `/assets/css/main.css` (global styles)
+4. Page-specific CSS `<link>` if it exists (after main.css, not before)
+
+Verify this order is correct on every page.
+
+---
+
+## FINAL DELIVERABLE: AUDIT REPORT
+
+After completing all seven domains, produce a single audit report structured as follows:
+
+### SECTION A — Findings Summary Table
+
+| Domain | Pages Audited | Issues Found | Issues Fixed | Issues Requiring Manual Action |
+|---|---|---|---|---|
+| 1. Best Practices | | | | |
+| 2. Metadata / OG / Twitter | | | | |
+| 3. Google Analytics | | | | |
+| 4. SEO | | | | |
+| 5. Header / Footer Consistency | | | | |
+| 6. Design Principles | | | | |
+| 7. CSS / JS Externalization | | | | |
+| **TOTAL** | | | | |
+
+### SECTION B — Files Modified
+
+Complete list of every file changed. For each: filename, nature of change, domain it belongs to.
+
+### SECTION C — Manual Action Items
+
+Numbered list of items requiring human decision or external access (e.g., Google Analytics console verification, image creation for OG images, credentials). One per line. No padding.
+
+### SECTION D — Confirmed Compliance Items
+
+What passed without changes. Short list.
+
+### SECTION E — Recommended Next Session
+
+Top 5 highest-impact items not covered by this audit scope, ranked by SEO or UX value.
+
+---
+
+## LOCKED CONSTRAINTS — DO NOT MODIFY
+
+- **Brand tagline:** Precision · Protocol · Promptcraft (middle dot separator, not pipe, not dash)
+- **Brand name:** OverKill Hill P³™ (Unicode superscript ³, not "P3" or "P<sup>3</sup>")
+- **Theme color:** `#2a2320`
+- **Twitter handle:** `@OverKillHillP3`
+- **AutoCAD reference in article copy:** "AutoCAD 10" — do not touch this value
+- **No BFS / employer references** anywhere on the site — if any appear, flag and remove
+- **All external links to glee-fully.tools and askjamie.bot** are intentional — do not remove them, but ensure they have `target="_blank" rel="noopener noreferrer"`
+- **Analytics snippet:** Do not change the Measurement ID. Copy it exactly from the pages where it currently appears
+
+---
+
+*Issued by: OverKill Hill P³™ — Precision · Protocol · Promptcraft*
+*Audit date: May 2026*
