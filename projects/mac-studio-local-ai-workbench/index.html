@@ -1,233 +1,1405 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- ========================================
-			 METADATA: Core Document & Character Set
-			 ======================================== -->
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="language" content="English" />
+  <head>
+    <!-- ========================================
+       METADATA: Core Document & Character Set
+       ======================================== -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="language" content="English" />
 
-		<!-- ========================================
-			 METADATA: Primary Title & Description
-			 ======================================== -->
-		<title>Mac Studio Local AI Workbench | OverKill Hill P³™</title>
-		<meta name="description" content="Mac Studio Local AI Workbench is an OverKill Hill P³ project for local-first AI workflows, repeatable benchmarking, and practical engineering notes for self-hosted model experimentation." />
-		<meta name="keywords" content="Mac Studio, local AI, AI workbench, LLM benchmarking, self-hosted AI, local inference, OverKill Hill P3" />
-		<meta name="author" content="OverKill Hill P³™" />
-		<meta name="creator" content="OverKill Hill P³™" />
-		<meta name="publisher" content="OverKill Hill P³™" />
+    <!-- ========================================
+       METADATA: Primary Title & Description
+       ======================================== -->
+    <title>Mac Studio Local AI Workbench | OverKill Hill P³™</title>
+    <meta name="description" content="A 10-day build journal: Mac Studio M4 Max configured as a production-grade personal AI workstation — Ollama, LM Studio, Open WebUI, mlx-lm, 11 MCP servers, and 10 local models. Baseline complete 2026-05-12." />
+    <meta name="keywords" content="Mac Studio M4 Max, local AI, Ollama, LM Studio, Open WebUI, mlx-lm, MCP servers, local LLM, AI workbench, OverKill Hill P³™" />
+    <meta name="author" content="OverKill Hill P³™" />
+    <meta name="creator" content="OverKill Hill P³™" />
+    <meta name="publisher" content="OverKill Hill P³™" />
 
-		<!-- ========================================
-			 METADATA: Open Graph (Social Sharing)
-			 ======================================== -->
-		<meta property="og:title" content="Mac Studio Local AI Workbench | OverKill Hill P³™" />
-		<meta property="og:description" content="Local-first AI workflows, repeatable benchmark snapshots, and build notes for running serious model experimentation on Mac Studio hardware." />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://overkillhill.com/projects/mac-studio-local-ai-workbench/" />
-		<meta property="og:image" content="https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png" />
-		<meta property="og:image:alt" content="Mechanical raven perched on a vintage computer - OverKill Hill P3 illustration" />
-		<meta property="og:image:width" content="1024" />
-		<meta property="og:image:height" content="1024" />
-		<meta property="og:image:type" content="image/png" />
-		<meta property="og:site_name" content="OverKill Hill P³™" />
-		<meta property="og:locale" content="en_US" />
+    <!-- ========================================
+       METADATA: Open Graph (Social Sharing)
+       ======================================== -->
+    <meta property="og:title" content="Mac Studio Local AI Workbench | OverKill Hill P³™" />
+    <meta property="og:description" content="10 days. 10 models. 11 MCP servers. A production-grade personal AI workstation built on Mac Studio M4 Max — local-first, governed, benchmarked, and archived." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://overkillhill.com/projects/mac-studio-local-ai-workbench/" />
+    <meta property="og:image" content="https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png" />
+    <meta property="og:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³™ illustration" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:site_name" content="OverKill Hill P³™" />
+    <meta property="og:locale" content="en_US" />
 
-		<!-- ========================================
-			 METADATA: Twitter Card (X Social)
-			 ======================================== -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="Mac Studio Local AI Workbench | OverKill Hill P³™" />
-		<meta name="twitter:description" content="A local-first AI workbench with repeatable benchmark notes, deployment recipes, and practical model operations guidance." />
-		<meta name="twitter:image" content="https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png" />
-		<meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer - OverKill Hill P3 illustration" />
-		<meta name="twitter:site" content="@OverKillHillP3" />
-		<meta name="twitter:creator" content="@OverKillHillP3" />
+    <!-- ========================================
+       METADATA: Twitter Card (X Social)
+       ======================================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mac Studio Local AI Workbench | OverKill Hill P³™" />
+    <meta name="twitter:description" content="10 days. 10 models. 11 MCP servers. A production-grade personal AI workstation — local-first, governed, benchmarked, and archived." />
+    <meta name="twitter:image" content="https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png" />
+    <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³™ illustration" />
+    <meta name="twitter:site" content="@OverKillHillP3" />
+    <meta name="twitter:creator" content="@OverKillHillP3" />
 
-		<!-- ========================================
-			 METADATA: Search & Crawling
-			 ======================================== -->
-		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-		<meta name="googlebot" content="index, follow" />
-		<meta name="bingbot" content="index, follow" />
-		<meta name="revisit-after" content="30 days" />
-		<link rel="author" href="/humans.txt" />
-		<link rel="canonical" href="https://overkillhill.com/projects/mac-studio-local-ai-workbench/" />
-		<link rel="alternate" hreflang="en" href="https://overkillhill.com/projects/mac-studio-local-ai-workbench/" />
+    <!-- ========================================
+       METADATA: Search & Crawling
+       ======================================== -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="revisit-after" content="30 days" />
+    <link rel="author" href="/humans.txt" />
+    <link rel="canonical" href="https://overkillhill.com/projects/mac-studio-local-ai-workbench/" />
+    <link rel="alternate" hreflang="en" href="https://overkillhill.com/projects/mac-studio-local-ai-workbench/" />
 
-		<!-- ========================================
-			 METADATA: Color Scheme & Theme
-			 ======================================== -->
-		<meta name="theme-color" content="#2a2320" />
-		<meta name="color-scheme" content="dark light" />
+    <!-- ========================================
+       METADATA: Color Scheme & Theme
+       ======================================== -->
+    <meta name="theme-color" content="#2a2320" />
+    <meta name="color-scheme" content="dark light" />
 
-		<!-- ========================================
-			 METADATA: Web App & PWA
-			 ======================================== -->
-		<meta name="mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- ========================================
+       METADATA: Web App & PWA
+       ======================================== -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<!-- ========================================
-			 FAVICONS: Multi-Format Icon Support
-			 ======================================== -->
-		<link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
-		<link rel="icon" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
-		<link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180" type="image/png" />
-		<link rel="icon" href="/favicon.ico" sizes="any" />
-		<link rel="manifest" href="/site.webmanifest" />
+    <!-- ========================================
+       FAVICONS: Multi-Format Icon Support
+       ======================================== -->
+    <link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180" type="image/png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-		<!-- ========================================
-			 STYLESHEETS & FONTS
-			 ======================================== -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&display=swap" />
-		<link rel="stylesheet" href="/assets/css/theme.css" />
+    <!-- ========================================
+       STYLESHEETS & FONTS
+       ======================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&display=swap" />
+    <!-- JetBrains Mono for inline code and spec values -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="/assets/css/theme.css?v=16" />
 
-		<script type="speculationrules">
-		{
-			"prefetch": [
-				{ "source": "document", "where": { "and": [
-					{ "href_matches": "/*" },
-					{ "not": { "selector_matches": "[rel~=nofollow]" } },
-					{ "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
-				]}, "eagerness": "moderate" }
-			]
-		}
-		</script>
-	</head>
+    <!-- ========================================
+       STRUCTURED DATA: SoftwareApplication
+       ======================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Mac Studio Local AI Workbench",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "macOS",
+      "url": "https://overkillhill.com/projects/mac-studio-local-ai-workbench/",
+      "author": {
+        "@type": "Organization",
+        "name": "OverKill Hill P³™"
+      },
+      "description": "A production-grade personal AI workstation built on Mac Studio M4 Max — Ollama, LM Studio, Open WebUI, mlx-lm, 11 MCP servers, local-first model stack, and a repeatable benchmark suite."
+    }
+    </script>
 
-	<body class="projects-main">
-		<a class="okh-skip-link" href="#main">Skip to main content</a>
+    <!-- ========================================
+       STRUCTURED DATA: BreadcrumbList
+       ======================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "OverKill Hill P³™",
+          "item": "https://overkillhill.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projects",
+          "item": "https://overkillhill.com/projects/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Mac Studio Local AI Workbench",
+          "item": "https://overkillhill.com/projects/mac-studio-local-ai-workbench/"
+        }
+      ]
+    }
+    </script>
 
-		<header class="site-header" id="top">
-			<div class="container">
-				<div class="logo">
-					<a href="/">
-						<img src="/assets/img/OverKillHillP³-Sentinel-Warning-Square-256.png" alt="OverKill Hill P³ logo" width="40" height="40" />
-						<span class="sr-only">OverKill&nbsp;Hill&nbsp;P³™ Home</span>
-					</a>
-				</div>
+    <!-- ========================================
+       PAGE-SPECIFIC STYLES
+       ======================================== -->
+    <style>
+      /* ── Breadcrumb ─────────────────────────────────────────────── */
+      .breadcrumb {
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        color: var(--color-muted);
+        margin-bottom: 1.25rem;
+      }
+      .breadcrumb a { color: var(--color-muted); text-decoration: none; }
+      .breadcrumb a:hover { color: var(--color-accent); }
+      .breadcrumb span { margin: 0 0.35em; opacity: 0.5; }
 
-				<nav class="primary-nav" id="navigation" aria-label="Primary">
-					<ul>
-						<li><a href="/#forge">The Forge</a></li>
-						<li class="has-submenu">
-							<a href="/projects/" aria-current="page">Our Projects</a>
-							<ul class="submenu">
-								<li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
-								<li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
-								<li><a href="/projects/mac-studio-local-ai-workbench/" class="is-current">Mac Studio Local AI Workbench</a></li>
-							</ul>
-						</li>
-						<li class="has-submenu">
-							<a href="/writings/">Writings</a>
-							<ul class="submenu">
-								<li><a href="/manifesto/">The Manifesto</a></li>
-								<li><a href="/writings/biases-as-constants/">Biases as Constants</a></li>
-								<li><a href="/writings/magnus-saga/">The Magnus Saga</a></li>
-								<li><a href="/prompt-forge/">The Prompt Forge</a></li>
-								<li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
-							</ul>
-						</li>
-						<li class="has-submenu">
-							<a href="/about/">About</a>
-							<ul class="submenu">
-								<li><a href="/universe/">OKHP³™ Universe</a></li>
-								<li><a href="/about/">About OKHP³™</a></li>
-								<li><a href="/contact/">Contact</a></li>
-								<li><a href="/legal/">Legal</a></li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
+      /* ── Project hero ───────────────────────────────────────────── */
+      .project-hero {
+        padding: 4rem 0 3rem;
+        position: relative;
+      }
+      .project-hero .brand-stripes {
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 4px;
+      }
+      .project-hero-inner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 2rem;
+        align-items: start;
+      }
+      @media (max-width: 720px) {
+        .project-hero-inner { grid-template-columns: 1fr; }
+      }
 
-				<button class="nav-toggle" aria-controls="navigation" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="bar"></span><span class="bar"></span><span class="bar"></span>
-				</button>
-			</div>
+      /* Status badge */
+      .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 0.3em 0.75em;
+        border-radius: 999px;
+        margin-bottom: 1rem;
+      }
+      .status-badge--complete {
+        background: rgba(34, 197, 94, 0.12);
+        color: #4ade80;
+        border: 1px solid rgba(34, 197, 94, 0.25);
+      }
 
-			<section class="site-specials site-specials--okh" aria-label="Forge update">
-				<span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
-				<a class="site-specials-link" href="/writings/first-diagram-is-a-liar/">
-					v0.3 Visual Edition: The First Diagram Is Usually a Liar →
-				</a>
-			</section>
-		</header>
+      .project-hero h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        line-height: 1.1;
+        margin: 0 0 0.75rem;
+        color: var(--color-fg);
+      }
+      .project-hero .hero-sub {
+        font-size: 1.1rem;
+        color: var(--color-muted);
+        max-width: 56ch;
+        margin: 0 0 1.5rem;
+      }
 
-		<main id="main">
-			<section class="hero">
-				<div class="brand-stripes okh" aria-hidden="true"></div>
-				<div class="container">
-					<div class="hero-content">
-						<h1>Mac Studio Local AI Workbench</h1>
-						<p>Project page scaffold populated with shared site metadata, header, and footer.</p>
-					</div>
-				</div>
-			</section>
+      /* Hardware spec chips */
+      .hw-spec-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .hw-chip {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-sm);
+        padding: 0.25em 0.6em;
+        color: var(--color-fg);
+        white-space: nowrap;
+      }
+      .hw-chip strong { color: var(--okh-amber); }
 
-			<section class="content">
-				<div class="container">
-					<div class="section-header"><h2>Overview</h2></div>
-					<p>This page has been prepopulated so it matches the core OverKill Hill project-page structure.</p>
-					<p>Replace this placeholder content with your final workbench narrative, benchmarks, and resource links.</p>
-				</div>
-			</section>
-		</main>
+      /* ── Content blocks ─────────────────────────────────────────── */
+      .content-block {
+        margin-bottom: 3rem;
+        scroll-margin-top: 6rem;
+      }
+      .section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--okh-orange);
+        margin-bottom: 0.75rem;
+      }
+      .content-block h2 {
+        font-family: var(--font-heading);
+        font-size: 1.6rem;
+        margin: 0 0 1.25rem;
+        color: var(--color-fg);
+      }
+      .content-block h3 {
+        font-family: var(--font-heading);
+        font-size: 1.15rem;
+        color: var(--color-fg);
+        margin: 0 0 0.5rem;
+      }
 
-		<footer class="site-footer">
-			<div class="container footer-grid">
-				<div class="footer-column">
-					<h3>The OverKill&nbsp;Hill&nbsp;P³™</h3>
-					<p>The digital forge for protocol-driven power prompts and custom GPT systems that can withstand real-world complexity.</p>
-				</div>
-				<div class="footer-column">
-					<h4>Navigation</h4>
-					<ul>
-						<li><a href="/#forge">The Forge</a></li>
-						<li><a href="/universe/">P³ Universe</a></li>
-						<li><a href="/manifesto/">The Manifesto</a></li>
-						<li><a href="/projects/">Our Projects</a></li>
-						<li><a href="/writings/">Writings</a></li>
-						<li><a href="/about/">About OKH P³</a></li>
-						<li><a href="/contact/">Contact OKH P³</a></li>
-						<li><a href="/legal/">Legal</a></li>
-					</ul>
-				</div>
-				<div class="footer-column">
-					<h4>Connect</h4>
-					<ul>
-						<li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
-						<li><a href="https://ko-fi.com/overkillhillp3" target="_blank" rel="noopener noreferrer">Ko-fi</a></li>
-						<li><a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener noreferrer">Fiverr</a></li>
-						<li><a href="https://www.linkedin.com/company/overkillhillp3" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-						<li><a href="https://facebook.com/OverKillHillP3/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-						<li><a href="https://x.com/OverKillHillP3" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
-						<li><a href="https://www.youtube.com/@OverKillHillP3" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
-				<span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">
-					Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a>
-				</span>
-				<p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³™. All rights reserved.</p>
-				<span></span>
-			</div>
-		</footer>
+      /* ── Two-column layout ──────────────────────────────────────── */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 2rem;
+        align-items: start;
+      }
+      @media (max-width: 900px) {
+        .two-col { grid-template-columns: 1fr; }
+      }
 
-		<script src="/assets/js/app.js"></script>
+      /* ── Quick facts sidebar ────────────────────────────────────── */
+      .quick-facts {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1.25rem 1.5rem;
+        position: sticky;
+        top: 6.5rem;
+      }
+      .quick-facts h3 {
+        font-family: var(--font-heading);
+        font-size: 0.95rem;
+        color: var(--okh-orange);
+        margin: 0 0 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .fact-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+        padding: 0.6rem 0;
+        border-bottom: 1px solid var(--color-border-subtle);
+      }
+      .fact-row:last-child { border-bottom: none; }
+      .fact-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--color-muted);
+        font-weight: 600;
+      }
+      .fact-value {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--color-fg);
+      }
+      .fact-value.accent { color: var(--okh-amber); }
 
-		<!-- Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);} 
-			gtag('js', new Date());
-			gtag('config', 'G-VJ1BKXS27H');
-		</script>
-	</body>
+      /* ── Status board ───────────────────────────────────────────── */
+      .status-board {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.4rem;
+      }
+      @media (max-width: 640px) {
+        .status-board { grid-template-columns: 1fr; }
+      }
+      .status-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        padding: 0.5rem 0.75rem;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-sm);
+        font-size: 0.82rem;
+        color: var(--color-fg);
+        line-height: 1.4;
+      }
+      .status-item .check { color: #4ade80; font-size: 0.85rem; flex-shrink: 0; margin-top: 0.05em; }
+      .status-item code {
+        font-family: var(--font-mono);
+        font-size: 0.75em;
+        background: rgba(255,255,255,0.05);
+        padding: 0.1em 0.3em;
+        border-radius: 3px;
+      }
+
+      /* ── Timeline ───────────────────────────────────────────────── */
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        position: relative;
+      }
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 5.5rem;
+        top: 0; bottom: 0;
+        width: 2px;
+        background: var(--color-border-subtle);
+      }
+      @media (max-width: 640px) {
+        .timeline::before { left: 1.25rem; }
+      }
+      .timeline-entry {
+        display: grid;
+        grid-template-columns: 6rem 1fr;
+        gap: 0 1.5rem;
+        padding: 1.25rem 0;
+        border-bottom: 1px solid var(--color-border-subtle);
+        position: relative;
+      }
+      .timeline-entry:last-child { border-bottom: none; }
+      @media (max-width: 640px) {
+        .timeline-entry { grid-template-columns: 2.5rem 1fr; gap: 0 0.75rem; }
+      }
+      .timeline-date {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--color-muted);
+        text-align: right;
+        padding-right: 1.5rem;
+        padding-top: 0.15rem;
+        line-height: 1.3;
+        position: relative;
+        white-space: nowrap;
+      }
+      @media (max-width: 640px) {
+        .timeline-date { text-align: left; padding-right: 0; font-size: 0.65rem; }
+      }
+      .timeline-date::after {
+        content: '';
+        position: absolute;
+        right: -0.45rem;
+        top: 0.35rem;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--okh-orange);
+        border: 2px solid var(--color-surface);
+      }
+      @media (max-width: 640px) {
+        .timeline-date::after { right: auto; left: calc(100% + 0.4rem); }
+      }
+      .timeline-body h3 {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--okh-amber);
+        margin: 0 0 0.5rem;
+      }
+      .timeline-rows { display: flex; flex-direction: column; gap: 0.4rem; }
+      .timeline-row {
+        display: grid;
+        grid-template-columns: 5.5rem 1fr;
+        gap: 0 0.6rem;
+        font-size: 0.82rem;
+        line-height: 1.45;
+      }
+      @media (max-width: 480px) {
+        .timeline-row { grid-template-columns: 1fr; }
+      }
+      .timeline-row-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--color-muted);
+        padding-top: 0.15rem;
+      }
+      .timeline-row-label.did { color: var(--okh-orange); }
+      .timeline-row-label.worked { color: #4ade80; }
+      .timeline-row-label.broke { color: #f87171; }
+      .timeline-row-content { color: var(--color-fg); }
+
+      /* ── Data tables ────────────────────────────────────────────── */
+      .data-table-wrap {
+        overflow-x: auto;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--color-border-subtle);
+      }
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.85rem;
+      }
+      .data-table th {
+        background: var(--color-surface);
+        color: var(--okh-orange);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 0.6rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--color-border-subtle);
+        white-space: nowrap;
+      }
+      .data-table td {
+        padding: 0.6rem 1rem;
+        border-bottom: 1px solid var(--color-border-subtle);
+        color: var(--color-fg);
+        vertical-align: top;
+      }
+      .data-table tr:last-child td { border-bottom: none; }
+      .data-table tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
+      .data-table code {
+        font-family: var(--font-mono);
+        font-size: 0.8em;
+        background: rgba(255,255,255,0.06);
+        padding: 0.1em 0.35em;
+        border-radius: 3px;
+      }
+      .bench-pass  { color: #4ade80; font-weight: 600; }
+      .bench-warn  { color: var(--okh-amber); font-weight: 600; }
+      .bench-fail  { color: #f87171; font-weight: 600; }
+
+      /* ── Stack grid ─────────────────────────────────────────────── */
+      .stack-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 0.75rem;
+      }
+      .stack-item {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-sm);
+        padding: 0.75rem 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+      }
+      .stack-name {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--color-fg);
+        font-weight: 500;
+      }
+      .stack-version {
+        font-size: 0.7rem;
+        color: var(--color-muted);
+      }
+
+      /* ── Decisions ──────────────────────────────────────────────── */
+      .decision-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .decision-item {
+        display: grid;
+        grid-template-columns: 10rem 1fr;
+        gap: 0 1rem;
+        padding: 0.75rem 1rem;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-sm);
+        font-size: 0.85rem;
+      }
+      @media (max-width: 600px) {
+        .decision-item { grid-template-columns: 1fr; gap: 0.25rem; }
+      }
+      .decision-key {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--okh-orange);
+        padding-top: 0.1rem;
+      }
+      .decision-val { color: var(--color-fg); line-height: 1.5; }
+
+      /* ── Next phase ─────────────────────────────────────────────── */
+      .next-phase-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        counter-reset: phase;
+      }
+      .next-phase-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-sm);
+        font-size: 0.85rem;
+        color: var(--color-fg);
+        line-height: 1.5;
+        counter-increment: phase;
+      }
+      .next-phase-item::before {
+        content: counter(phase);
+        flex-shrink: 0;
+        width: 1.4rem;
+        height: 1.4rem;
+        background: rgba(196, 106, 44, 0.15);
+        border: 1px solid rgba(196, 106, 44, 0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--okh-orange);
+        margin-top: 0.05rem;
+      }
+
+      /* ── Surface cards (links) ──────────────────────────────────── */
+      .surface-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 0.75rem;
+      }
+      .surface-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        padding: 1rem 1.25rem;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        transition: border-color 0.18s ease, transform 0.18s ease;
+      }
+      .surface-card:hover {
+        border-color: var(--okh-orange);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+      .surface-card-icon { font-size: 1.25rem; line-height: 1; }
+      .surface-card-label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--color-fg);
+      }
+      .surface-card-desc {
+        font-size: 0.78rem;
+        color: var(--color-muted);
+        line-height: 1.45;
+      }
+
+      /* ── Callout ────────────────────────────────────────────────── */
+      .callout {
+        display: flex;
+        gap: 0.75rem;
+        padding: 1rem 1.25rem;
+        border-radius: var(--radius-md);
+        font-size: 0.88rem;
+        line-height: 1.55;
+        margin-bottom: 2rem;
+      }
+      .callout--success {
+        background: rgba(34, 197, 94, 0.08);
+        border: 1px solid rgba(34, 197, 94, 0.22);
+        color: #d1fae5;
+      }
+      .callout-icon { font-size: 1.1rem; flex-shrink: 0; padding-top: 0.05rem; }
+
+      /* ── Project-body wrapper ───────────────────────────────────── */
+      .project-body {
+        padding: 0 0 4rem;
+      }
+    </style>
+
+    <script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
+  </head>
+
+  <body class="projects-main">
+    <a class="okh-skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header" id="top">
+      <div class="container">
+        <div class="logo">
+          <a href="/">
+            <img src="/assets/img/OverKillHillP³-Sentinel-Warning-Square-256.png" alt="OverKill Hill P³ logo" width="40" height="40" />
+            <span class="sr-only">OverKill&nbsp;Hill&nbsp;P³™ Home</span>
+          </a>
+        </div>
+
+        <nav class="primary-nav" id="navigation" aria-label="Primary">
+          <ul>
+            <li><a href="/#forge">The Forge</a></li>
+            <li class="has-submenu">
+              <a href="/projects/" aria-current="page">Our Projects</a>
+              <ul class="submenu">
+                <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
+                <li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
+                <li><a href="/projects/mac-studio-local-ai-workbench/" class="is-current">Mac Studio Local AI Workbench</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="/writings/">Writings</a>
+              <ul class="submenu">
+                <li><a href="/manifesto/">The Manifesto</a></li>
+                <li><a href="/writings/biases-as-constants/">Biases as Constants</a></li>
+                <li><a href="/writings/magnus-saga/">The Magnus Saga</a></li>
+                <li><a href="/prompt-forge/">The Prompt Forge</a></li>
+                <li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="/about/">About</a>
+              <ul class="submenu">
+                <li><a href="/universe/">OKHP³™ Universe</a></li>
+                <li><a href="/about/">About OKHP³™</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/legal/">Legal</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="nav-toggle" aria-controls="navigation" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+
+      <section class="site-specials site-specials--okh" aria-label="Forge update">
+        <span class="site-specials-label">🔥 Hot off the FORGE ⚒️</span>
+        <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/">
+          v0.3 Visual Edition: The First Diagram Is Usually a Liar →
+        </a>
+      </section>
+    </header>
+
+    <main id="main">
+
+      <!-- ═══════════════════════════════════════════════════
+           HERO
+      ════════════════════════════════════════════════════════ -->
+      <section class="project-hero" aria-label="Project overview">
+        <div class="brand-stripes okh" aria-hidden="true"></div>
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">OverKill Hill P³™</a>
+            <span aria-hidden="true">›</span>
+            <a href="/projects/">Projects</a>
+            <span aria-hidden="true">›</span>
+            <span aria-current="page">Mac Studio Local AI Workbench</span>
+          </nav>
+
+          <div class="project-hero-inner">
+            <div>
+              <div class="status-badge status-badge--complete">✅ Baseline complete · 2026-05-12</div>
+              <h1>Mac Studio Local AI Workbench</h1>
+              <p class="hero-sub">Production-grade personal AI workstation — local-first, governed, documented, and restorable. Built in 10 days on Apple Silicon.</p>
+              <div class="hw-spec-row" aria-label="Hardware specification">
+                <span class="hw-chip"><strong>M4 Max</strong></span>
+                <span class="hw-chip"><strong>36GB</strong> unified memory</span>
+                <span class="hw-chip"><strong>512GB</strong> internal SSD</span>
+                <span class="hw-chip"><strong>1TB</strong> OKH-Local NVMe</span>
+                <span class="hw-chip">macOS Sequoia</span>
+                <span class="hw-chip"><strong>10</strong> local models</span>
+                <span class="hw-chip"><strong>11</strong> MCP servers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════
+           BODY
+      ════════════════════════════════════════════════════════ -->
+      <div class="project-body">
+        <div class="container">
+
+          <!-- BASELINE CALLOUT -->
+          <div class="callout callout--success" role="note">
+            <span class="callout-icon">✅</span>
+            <div>
+              <strong>BASELINE COMPLETE</strong> — Build finished, normalized, benchmarked, and archived on 2026-05-12.
+              System is in a known-good, restorable state.
+              Archive: <code style="font-family:var(--font-mono);font-size:0.85em;">/Volumes/OKH-Local/05_Research_Vault/mac-studio-setup_DONE_2026-05-12.tar.gz</code>
+            </div>
+          </div>
+
+          <div class="two-col">
+
+            <!-- ── MAIN CONTENT ─────────────────────────────────── -->
+            <div>
+
+              <!-- STATUS BOARD -->
+              <div class="content-block" id="status-board">
+                <div class="section-label">Completion Checklist</div>
+                <h2>Status Board</h2>
+                <div class="status-board">
+                  <div class="status-item"><span class="check">✓</span> Hardware unboxed — KVM, Satechi stand, SN7100 NVMe, Logitech Brio MX</div>
+                  <div class="status-item"><span class="check">✓</span> macOS Sequoia updated, Apple Watch Auto Unlock configured</div>
+                  <div class="status-item"><span class="check">✓</span> Homebrew 5.1.8 installed, PATH configured</div>
+                  <div class="status-item"><span class="check">✓</span> Git 2.54.0, Python 3.14.4, Node.js 26.0.0, GitHub CLI 2.92.0</div>
+                  <div class="status-item"><span class="check">✓</span> GitHub SSH key (ed25519) configured and verified</div>
+                  <div class="status-item"><span class="check">✓</span> Ollama 0.23.1 with MLX acceleration, Flash Attention, <code>q8_0</code> KV cache</div>
+                  <div class="status-item"><span class="check">✓</span> Model storage normalized to <code>/Volumes/OKH-Local/07_Local_LLMs/ollama/models</code></div>
+                  <div class="status-item"><span class="check">✓</span> LM Studio 0.4.12 with MLX backend active</div>
+                  <div class="status-item"><span class="check">✓</span> Open WebUI running in Docker on <code>localhost:3000</code></div>
+                  <div class="status-item"><span class="check">✓</span> VSCode 1.119.0 + 43 extensions + Continue.dev 1.2.22</div>
+                  <div class="status-item"><span class="check">✓</span> Claude Desktop + 11 MCP servers (Notion, GitHub, PageSpace, Mermaid, Google suite, M365, more)</div>
+                  <div class="status-item"><span class="check">✓</span> ChatGPT Desktop, Codex, and ChatGPT Atlas installed</div>
+                  <div class="status-item"><span class="check">✓</span> Microsoft Office suite, OneDrive, Edge, Notion, Perplexity installed</div>
+                  <div class="status-item"><span class="check">✓</span> mlx-lm 0.31.3 installed — 139 tok/s on Phi-4 mini via direct Apple Silicon inference</div>
+                  <div class="status-item"><span class="check">✓</span> HuggingFace cache normalized to <code>/Volumes/OKH-Local/07_Local_LLMs/huggingface-cache</code></div>
+                  <div class="status-item"><span class="check">✓</span> Storage baseline normalized, verified, benchmarked, and archived</div>
+                  <div class="status-item"><span class="check">✓</span> Git identity configured, VSCode Settings Sync active across machines</div>
+                  <div class="status-item"><span class="check">✓</span> 28 GitHub repos mapped, SSH remotes updated</div>
+                  <div class="status-item"><span class="check">✓</span> OneDrive sync active, OKH alias configured in <code>.zprofile</code></div>
+                </div>
+              </div>
+
+              <!-- BUILD TIMELINE -->
+              <div class="content-block" id="timeline">
+                <div class="section-label">Build Log</div>
+                <h2>Timeline</h2>
+                <div class="timeline">
+
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 3<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>Hardware planning and research</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Researched local AI stack options — Ollama vs LM Studio, MLX vs llama.cpp performance, HuggingFace tier requirements, model selection policy (Western-lab only).</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">Decision: Ollama + LM Studio + Open WebUI stack. HuggingFace free tier confirmed sufficient.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label broke">Broke</span>
+                          <span class="timeline-row-content">N/A — research phase only.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 4<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>Hardware unboxed, OS baseline</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Unboxed Mac Studio M4 Max, connected to KVM with Dell 34″ widescreen, installed SN7100 into Satechi stand, ran macOS Sequoia updates, configured Apple Watch Auto Unlock, installed Claude Desktop and ChatGPT Desktop.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">Apple Watch Auto Unlock working immediately. Claude and ChatGPT signed in — used as setup runbook going forward.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label broke">Broke</span>
+                          <span class="timeline-row-content">Nothing — clean start.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 5<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>Development foundation</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Installed Homebrew 5.1.8, Git 2.54.0, Python 3.14.4. Configured PATH in <code>.zprofile</code>. Generated GitHub SSH key (ed25519), added as "Mac Studio M4 Max", verified with <code>Hi OKHP3!</code>.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">Full development foundation clean. Homebrew Git correctly overrides Apple Git. SSH auth confirmed.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label broke">Broke</span>
+                          <span class="timeline-row-content">Duplicate <code>eval</code> lines in <code>.zprofile</code> from paste issue — cleaned to single line.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 5<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>Ollama install and first models</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Installed Ollama 0.23.1 via Homebrew (MLX + mlx-c as auto-dependencies). Renamed external drive to <code>OKH-Local</code>. Configured <code>OLLAMA_MODELS</code>, <code>OLLAMA_FLASH_ATTENTION</code>, <code>OLLAMA_KV_CACHE_TYPE</code> in <code>.zprofile</code> and Homebrew plist. Pulled phi4:14b, gemma3:12b, gemma3:27b, codestral:22b.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">Ollama running as Homebrew background service with MLX acceleration. First inference passed.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label broke">Broke</span>
+                          <span class="timeline-row-content"><code>OLLAMA_MODELS</code> env var not picked up by Homebrew service — required editing <code>homebrew.mxcl.ollama.plist</code> directly. Models initially landed in <code>~/.ollama</code> — corrected with <code>mv</code> and manifest cleanup.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 6<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>Model collection and LM Studio</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Pulled mistral-small3.1:24b and llama3.1:8b. Attempted llama3.3:70b — system froze, required restart, model removed (42GB exceeds 36GB ceiling). Installed LM Studio 0.4.12, confirmed MLX v1.6.0 backend, downloaded Gemma4 E2B, E4B, 26B A4B. Set model loading guardrails to Balanced. Configured LM Studio server on port 1234.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">LM Studio MLX backend auto-detected and active. Gemma4 E4B multimodal model running.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label broke">Broke</span>
+                          <span class="timeline-row-content">llama3.3:70b caused system freeze — 42GB exceeds 36GB ceiling with apps running. Gemma4 31B rejected by guardrails (87GB requirement — correct behavior).</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 7<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>Open WebUI, VSCode, and MCP foundation</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Installed Docker Desktop 4.72.0 (required Rosetta update). Deployed Open WebUI container on <code>localhost:3000</code>. Installed VSCode 1.119.0 + Continue.dev v1.2.22. Configured Continue.dev with all local Ollama models (Codestral as primary autocomplete). Installed Node.js 26.0.0 for MCP server support.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">Open WebUI auto-detecting Ollama models. Continue.dev configured as local Copilot replacement.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label broke">Broke</span>
+                          <span class="timeline-row-content">Docker Desktop failed initial start — Rosetta update pending. Resolved after update.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 8<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>MCP servers and app ecosystem</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Configured Claude Desktop <code>claude_desktop_config.json</code> with Notion and GitHub MCP. Used full paths to fix PATH issues for background service. Pulled GitHub MCP via Docker. Verified 11 MCP servers connected in Claude Desktop: Notion, GitHub, PageSpace, Mermaid Chart (enterprise), Google Calendar/Gmail/Drive, Microsoft 365, PayPal, Cloudflare, Indeed, Microsoft Learn.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">All 11 MCP servers live in Claude Desktop.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label broke">Broke</span>
+                          <span class="timeline-row-content">GitHub PAT accidentally exposed in chat — immediately rotated both Notion and GitHub tokens. GitHub MCP npm package deprecated — switched to Docker-based server. Full path required for both MCP commands (Claude Desktop doesn't inherit shell PATH).</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 9<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>App ecosystem and Edge PWAs</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Installed Microsoft Edge, Office suite, OneDrive, Notion Desktop, Perplexity (native), GitHub Desktop. Inventoried all Edge PWAs. Confirmed brand PWAs (AskJamie™, OverKill Hill P³™, Glee-fully™) present. Installed PageSpace MCP.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">Full app ecosystem clean. 26 applications in <code>/Applications/</code>. 30+ Edge PWAs. All brand properties pinned as apps.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label broke">Broke</span>
+                          <span class="timeline-row-content">Several Office apps installed twice (Homebrew + DMG). Cleaned with <code>sudo rm -rf</code>.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 10<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>VSCode extension audit across machines</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Conducted full cross-machine extension audit. Identified Windows-only and redundant extensions. Built MVP lists. Installed 43 extensions on Mac Studio via bulk install command. VSCode Settings Sync enabled — pushing Solarized Light theme across machines.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">All 43 extensions installed clean.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label broke">Broke</span>
+                          <span class="timeline-row-content">Continue.dev flagged Photos Library permissions error — harmless, just noisy.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 11<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>Git workspace, OneDrive sync, and repos</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Configured Git global identity (OKHP3 / noreply email). Set up OneDrive sync. Created <code>okhp3</code> alias in <code>.zprofile</code>. Updated VSCode workspace file to OKH root. Updated all 28 repo SSH remotes from HTTPS to SSH via batch script. Installed mlx-lm 0.31.3 — verified at 139 tok/s on Phi-4 mini.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">Workspace file correct and opening all 28 repos. SSH remotes updated in one pass. mlx-lm functional — 4× faster than Ollama for MLX-compatible models.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label broke">Broke</span>
+                          <span class="timeline-row-content">Git pull inside OneDrive timing out — OneDrive holding <code>.git/index</code> with file locks during initial sync. Decision: skip for now (low risk — commits come from Replit/Claude Code/Codex/Mac).</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 12<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>Normalization, benchmarking, and baseline archive</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Normalized Ollama model storage. Fixed LM Studio nested <code>models/models</code> path from UI misconfiguration. Created compatibility symlinks. Externalized HuggingFace cache, authenticated as <code>okhp3</code>. Created model inventories, benchmark workspace, restore script, and verification script. Benchmarked llama3.1:8b and phi4:14b across 5 tests. Created known-good baseline documentation and archived closure package.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">Full storage normalization verified. All 6 Ollama models confirmed. Benchmark smoke tests completed. Archive integrity check passed.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label broke">Broke</span>
+                          <span class="timeline-row-content">Ollama stale path after move — required service stop/restart with explicit env vars. HuggingFace first token failed (invalid) — second succeeded.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- MODEL INVENTORY -->
+              <div class="content-block" id="models">
+                <div class="section-label">Local Model Stack</div>
+                <h2>Model Inventory</h2>
+                <div class="data-table-wrap">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>Model</th>
+                        <th>Format</th>
+                        <th>Size</th>
+                        <th>Runtime</th>
+                        <th>Use</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>phi4:14b</code></td>
+                        <td>GGUF</td>
+                        <td>9.1 GB</td>
+                        <td>Ollama</td>
+                        <td>Fast reasoning, instruction following. Daily driver.</td>
+                      </tr>
+                      <tr>
+                        <td><code>gemma3:12b</code></td>
+                        <td>GGUF</td>
+                        <td>8.1 GB</td>
+                        <td>Ollama</td>
+                        <td>General purpose, mid-tier</td>
+                      </tr>
+                      <tr>
+                        <td><code>gemma3:27b</code></td>
+                        <td>GGUF</td>
+                        <td>17 GB</td>
+                        <td>Ollama</td>
+                        <td>Flagship general, heavy reasoning. Daily driver (quality).</td>
+                      </tr>
+                      <tr>
+                        <td><code>codestral:22b</code></td>
+                        <td>GGUF</td>
+                        <td>12 GB</td>
+                        <td>Ollama</td>
+                        <td>Code generation, Continue.dev autocomplete</td>
+                      </tr>
+                      <tr>
+                        <td><code>mistral-small3.1:24b</code></td>
+                        <td>GGUF</td>
+                        <td>15 GB</td>
+                        <td>Ollama</td>
+                        <td>General purpose, fast</td>
+                      </tr>
+                      <tr>
+                        <td><code>llama3.1:8b</code></td>
+                        <td>GGUF</td>
+                        <td>4.9 GB</td>
+                        <td>Ollama</td>
+                        <td>Lightweight utility, bulk tasks</td>
+                      </tr>
+                      <tr>
+                        <td><code>gemma-4-E4B-it</code></td>
+                        <td>GGUF Q4_K_M</td>
+                        <td>6.33 GB</td>
+                        <td>LM Studio</td>
+                        <td>Multimodal (image input), fast MoE</td>
+                      </tr>
+                      <tr>
+                        <td><code>gemma-4-E2B-it</code></td>
+                        <td>GGUF</td>
+                        <td>~5 GB</td>
+                        <td>LM Studio</td>
+                        <td>Ultra-light, fastest responses</td>
+                      </tr>
+                      <tr>
+                        <td><code>gemma-4-26B-A4B-it</code></td>
+                        <td>GGUF</td>
+                        <td>~16 GB</td>
+                        <td>LM Studio</td>
+                        <td>MoE, 4B active params, larger knowledge</td>
+                      </tr>
+                      <tr>
+                        <td><code>Phi-4-mini-instruct-4bit</code></td>
+                        <td>MLX 4-bit</td>
+                        <td>2.18 GB</td>
+                        <td>mlx-lm</td>
+                        <td>Direct MLX inference — 139 tok/s on Apple Silicon</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p style="font-size:0.8rem;color:var(--color-muted);margin-top:0.75rem;">
+                  Note: llama3.3:70b (42 GB) was attempted and removed — exceeds the 36 GB ceiling with apps running.
+                  Model selection policy: Western-lab models only (Meta, Google, Mistral, Microsoft).
+                </p>
+              </div>
+
+              <!-- BENCHMARKS -->
+              <div class="content-block" id="benchmarks">
+                <div class="section-label">Smoke Test Results · 2026-05-12</div>
+                <h2>Benchmark Snapshot</h2>
+                <div class="data-table-wrap">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>Test</th>
+                        <th>llama3.1:8b</th>
+                        <th>phi4:14b</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Exact instruction following</td>
+                        <td><span class="bench-pass">✅ Pass</span></td>
+                        <td><span class="bench-pass">✅ Pass</span></td>
+                      </tr>
+                      <tr>
+                        <td>Voice transcript cleanup</td>
+                        <td><span class="bench-warn">⚠️ Functional</span> <span style="font-size:0.78em;color:var(--color-muted)">(formatting issue)</span></td>
+                        <td><span class="bench-pass">✅ Pass</span></td>
+                      </tr>
+                      <tr>
+                        <td>YAML generation</td>
+                        <td><span class="bench-fail">❌ Fail</span></td>
+                        <td><span class="bench-fail">❌ Fail</span></td>
+                      </tr>
+                      <tr>
+                        <td>Architecture summary</td>
+                        <td><span class="bench-warn">⚠️ Functional</span> <span style="font-size:0.78em;color:var(--color-muted)">(semantic flaw)</span></td>
+                        <td><span class="bench-warn">⚠️ Partial fail</span></td>
+                      </tr>
+                      <tr>
+                        <td>Mermaid diagram generation</td>
+                        <td><span class="bench-fail">❌ Fail</span></td>
+                        <td><span class="bench-warn">⚠️ Partial fail</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p style="font-size:0.82rem;color:var(--color-muted);margin-top:0.75rem;line-height:1.55;">
+                  <strong style="color:var(--color-fg);">Conclusion:</strong>
+                  Neither model is governance-grade for autonomous structured artifact generation under simple prompting.
+                  A strict prompt benchmark pass is recommended before declaring models inadequate.
+                  gemma3:12b, gemma3:27b, mistral-small3.1:24b, and codestral:22b are not yet benchmarked.
+                </p>
+              </div>
+
+              <!-- NEXT PHASE -->
+              <div class="content-block" id="next-phase">
+                <div class="section-label">What's Next</div>
+                <h2>Next Phase</h2>
+                <div class="next-phase-list">
+                  <div class="next-phase-item">Backup archive to OneDrive, GitHub private repo, and Time Machine</div>
+                  <div class="next-phase-item">Strict prompt benchmark pass — same 5 tests with tighter prompting before declaring models inadequate</div>
+                  <div class="next-phase-item">Benchmark remaining models: gemma3:12b, gemma3:27b, mistral-small3.1:24b, codestral:22b</div>
+                  <div class="next-phase-item">Open WebUI as Edge PWA — resolve Edge localhost authentication</div>
+                  <div class="next-phase-item">Build tiny RAG corpus against OKH GitHub content</div>
+                  <div class="next-phase-item">ASUS VSCode extension cleanup (uninstall commands ready, not yet executed)</div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ── SIDEBAR ───────────────────────────────────────── -->
+            <div>
+              <aside class="quick-facts" aria-label="Quick facts">
+                <h3>Quick Facts</h3>
+                <div class="fact-row">
+                  <span class="fact-label">Machine</span>
+                  <span class="fact-value accent">Mac Studio M4 Max (2025)</span>
+                </div>
+                <div class="fact-row">
+                  <span class="fact-label">Memory</span>
+                  <span class="fact-value">36GB unified memory</span>
+                </div>
+                <div class="fact-row">
+                  <span class="fact-label">Storage</span>
+                  <span class="fact-value">512GB internal SSD<br/>1TB WD Black SN7100 NVMe<br/>(via Satechi Stand Hub, mounted as <code style="font-size:0.75em;">/Volumes/OKH-Local</code>)</span>
+                </div>
+                <div class="fact-row">
+                  <span class="fact-label">macOS</span>
+                  <span class="fact-value">Sequoia (latest · 2026-05-04)</span>
+                </div>
+                <div class="fact-row">
+                  <span class="fact-label">Build window</span>
+                  <span class="fact-value">2026-05-03 → 2026-05-12<br/>(10 days)</span>
+                </div>
+                <div class="fact-row">
+                  <span class="fact-label">Status</span>
+                  <span class="fact-value" style="color:#4ade80;font-weight:600;">✅ Baseline complete</span>
+                </div>
+                <div class="fact-row">
+                  <span class="fact-label">Primary goals</span>
+                  <span class="fact-value">Local LLMs · MCP orchestration · RAG corpus · Council of AIs workflow</span>
+                </div>
+                <div class="fact-row">
+                  <span class="fact-label">Models</span>
+                  <span class="fact-value accent">10 local models</span>
+                </div>
+                <div class="fact-row">
+                  <span class="fact-label">MCP servers</span>
+                  <span class="fact-value accent">11 active in Claude Desktop</span>
+                </div>
+                <div class="fact-row">
+                  <span class="fact-label">Max throughput</span>
+                  <span class="fact-value accent">139 tok/s</span>
+                </div>
+                <div class="fact-row">
+                  <span class="fact-label">North star</span>
+                  <span class="fact-value">Production-grade personal AI workstation — functional, governed, documented, restorable</span>
+                </div>
+              </aside>
+
+              <!-- ENVIRONMENT BLUEPRINT -->
+              <div class="content-block" id="stack" style="margin-top:2rem;">
+                <div class="section-label">Environment Blueprint</div>
+                <h2 style="font-size:1.1rem;">Core Toolchain</h2>
+                <div class="stack-grid" style="grid-template-columns:1fr;">
+                  <div class="stack-item">
+                    <span class="stack-name">Homebrew</span>
+                    <span class="stack-version">5.1.8</span>
+                  </div>
+                  <div class="stack-item">
+                    <span class="stack-name">Git (Homebrew)</span>
+                    <span class="stack-version">2.54.0</span>
+                  </div>
+                  <div class="stack-item">
+                    <span class="stack-name">Python</span>
+                    <span class="stack-version">3.14.4</span>
+                  </div>
+                  <div class="stack-item">
+                    <span class="stack-name">Node.js / npm</span>
+                    <span class="stack-version">26.0.0 / 11.12.1</span>
+                  </div>
+                  <div class="stack-item">
+                    <span class="stack-name">GitHub CLI</span>
+                    <span class="stack-version">2.92.0</span>
+                  </div>
+                  <div class="stack-item">
+                    <span class="stack-name">Docker Desktop</span>
+                    <span class="stack-version">4.72.0</span>
+                  </div>
+                  <div class="stack-item">
+                    <span class="stack-name">mlx-lm</span>
+                    <span class="stack-version">0.31.3</span>
+                  </div>
+                </div>
+
+                <h2 style="font-size:1.1rem;margin-top:1.5rem;">AI Runtimes</h2>
+                <div class="stack-grid" style="grid-template-columns:1fr;">
+                  <div class="stack-item">
+                    <span class="stack-name">Ollama</span>
+                    <span class="stack-version">0.23.1 · MLX + Flash Attention + q8_0 KV cache</span>
+                  </div>
+                  <div class="stack-item">
+                    <span class="stack-name">LM Studio</span>
+                    <span class="stack-version">0.4.12 · MLX v1.6.0 backend</span>
+                  </div>
+                  <div class="stack-item">
+                    <span class="stack-name">Open WebUI</span>
+                    <span class="stack-version">Docker · localhost:3000</span>
+                  </div>
+                  <div class="stack-item">
+                    <span class="stack-name">mlx-lm</span>
+                    <span class="stack-version">0.31.3 · 139 tok/s on Phi-4 mini</span>
+                  </div>
+                </div>
+
+                <h2 style="font-size:1.1rem;margin-top:1.5rem;">Storage Architecture</h2>
+                <div class="decision-list" style="font-size:0.8rem;">
+                  <div class="decision-item" style="font-size:0.78rem;">
+                    <span class="decision-key">Ollama models</span>
+                    <code style="font-family:var(--font-mono);font-size:0.78em;color:var(--color-fg);">/Volumes/OKH-Local/07_Local_LLMs/ollama/models</code>
+                  </div>
+                  <div class="decision-item" style="font-size:0.78rem;">
+                    <span class="decision-key">LM Studio models</span>
+                    <code style="font-family:var(--font-mono);font-size:0.78em;color:var(--color-fg);">/Volumes/OKH-Local/07_Local_LLMs/lm-studio/models</code>
+                  </div>
+                  <div class="decision-item" style="font-size:0.78rem;">
+                    <span class="decision-key">HuggingFace cache</span>
+                    <code style="font-family:var(--font-mono);font-size:0.78em;color:var(--color-fg);">/Volumes/OKH-Local/07_Local_LLMs/huggingface-cache</code>
+                  </div>
+                </div>
+              </div>
+
+              <!-- KEY DECISIONS -->
+              <div class="content-block" id="decisions" style="margin-top:2rem;">
+                <div class="section-label">Architecture</div>
+                <h2 style="font-size:1.1rem;">Key Decisions</h2>
+                <div class="decision-list">
+                  <div class="decision-item">
+                    <span class="decision-key">Default runtime</span>
+                    <span class="decision-val">Ollama for API/headless, LM Studio for GUI/MLX testing, mlx-lm for max performance</span>
+                  </div>
+                  <div class="decision-item">
+                    <span class="decision-key">Daily driver models</span>
+                    <span class="decision-val">phi4:14b (speed) · gemma3:27b (quality) · codestral:22b (code)</span>
+                  </div>
+                  <div class="decision-item">
+                    <span class="decision-key">Model policy</span>
+                    <span class="decision-val">Western-lab only — Meta, Google, Mistral, Microsoft. No Chinese cloud services.</span>
+                  </div>
+                  <div class="decision-item">
+                    <span class="decision-key">Token governance</span>
+                    <span class="decision-val">Local models → Notion AI → Claude/ChatGPT base → Perplexity/Copilot → Replit (spec must be complete first)</span>
+                  </div>
+                  <div class="decision-item">
+                    <span class="decision-key">Git workflow</span>
+                    <span class="decision-val">Primary commits from Replit, Claude Code, Codex, Mac Studio. Secondary machine is read-mostly via OneDrive sync.</span>
+                  </div>
+                  <div class="decision-item">
+                    <span class="decision-key">Directory conventions</span>
+                    <span class="decision-val">All model weights on OKH-Local external NVMe. Repos in OneDrive OKH folder. Workspace file at OKH root.</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- PROJECT SURFACES (full-width) -->
+          <div class="content-block" id="links">
+            <div class="section-label">Project Surfaces</div>
+            <h2>Links</h2>
+            <div class="surface-grid">
+              <a href="https://github.com/OKHP3/mac-studio-local-ai-workbench" target="_blank" rel="noopener noreferrer" class="surface-card">
+                <span class="surface-card-icon">⚙️</span>
+                <span class="surface-card-label">GitHub Repository</span>
+                <span class="surface-card-desc">Source, scripts, and documentation for the workbench build.</span>
+              </a>
+              <a href="https://www.notion.so/overkillhill/Mac-Studio-Local-AI-Setup-Journey-5b2691f1d7f5403aa1a6670d80344bb7" target="_blank" rel="noopener noreferrer" class="surface-card">
+                <span class="surface-card-icon">📓</span>
+                <span class="surface-card-label">Notion Build Journal</span>
+                <span class="surface-card-desc">Full setup journal — daily logs, environment blueprint, decisions, and next-phase tracking.</span>
+              </a>
+              <a href="https://replit.com/t/overkill-hill/repls/OverKill-Hill" target="_blank" rel="noopener noreferrer" class="surface-card">
+                <span class="surface-card-icon">🔁</span>
+                <span class="surface-card-label">Replit Build Surface</span>
+                <span class="surface-card-desc">This page's source — part of the OverKill Hill P³™ main site.</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-column">
+          <h3>The OverKill&nbsp;Hill&nbsp;P³™</h3>
+          <p>The digital forge for protocol-driven power prompts and custom GPT systems that can withstand real-world complexity.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="/#forge">The Forge</a></li>
+            <li><a href="/universe/">P³ Universe</a></li>
+            <li><a href="/manifesto/">The Manifesto</a></li>
+            <li><a href="/projects/">Our Projects</a></li>
+            <li><a href="/writings/">Writings</a></li>
+            <li><a href="/about/">About OKH P³</a></li>
+            <li><a href="/contact/">Contact OKH P³</a></li>
+            <li><a href="/legal/">Legal</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
+            <li><a href="https://ko-fi.com/overkillhillp3" target="_blank" rel="noopener noreferrer">Ko-fi</a></li>
+            <li><a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener noreferrer">Fiverr</a></li>
+            <li><a href="https://www.linkedin.com/company/overkillhillp3" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://facebook.com/OverKillHillP3/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://x.com/OverKillHillP3" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+            <li><a href="https://www.youtube.com/@OverKillHillP3" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
+        <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">
+          Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a>
+        </span>
+        <p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³™. All rights reserved.</p>
+        <span></span>
+      </div>
+    </footer>
+
+    <script src="/assets/js/app.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VJ1BKXS27H');
+    </script>
+  </body>
 </html>
