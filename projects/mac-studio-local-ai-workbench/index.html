@@ -12,7 +12,7 @@
        METADATA: Primary Title & Description
        ======================================== -->
     <title>Mac Studio Local AI Workbench | OverKill Hill P³™</title>
-    <meta name="description" content="A 10-day build journal: Mac Studio M4 Max configured as a production-grade personal AI workstation — Ollama, LM Studio, Open WebUI, mlx-lm, 11 MCP servers, and 10 local models. Baseline complete 2026-05-12." />
+    <meta name="description" content="A 10-day build journal: Mac Studio M4 Max local AI workstation — 10 models, 11 MCP servers, governed storage, verified benchmarks, and a zero-cost inference tier for the Council of AIs workflow. Baseline complete 2026-05-12. Published project page live." />
     <meta name="keywords" content="Mac Studio M4 Max, local AI, Ollama, LM Studio, Open WebUI, mlx-lm, MCP servers, local LLM, AI workbench, OverKill Hill P³™" />
     <meta name="author" content="OverKill Hill P³™" />
     <meta name="creator" content="OverKill Hill P³™" />
@@ -22,7 +22,7 @@
        METADATA: Open Graph (Social Sharing)
        ======================================== -->
     <meta property="og:title" content="Mac Studio Local AI Workbench | OverKill Hill P³™" />
-    <meta property="og:description" content="10 days. 10 models. 11 MCP servers. A production-grade personal AI workstation built on Mac Studio M4 Max — local-first, governed, benchmarked, and archived." />
+    <meta property="og:description" content="10 days. 10 models. 11 MCP servers. A production-grade personal AI workstation — local-first, governed, benchmarked, and published. Built on Mac Studio M4 Max for $2,250 in hardware and $0 in software." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://overkillhill.com/projects/mac-studio-local-ai-workbench/" />
     <meta property="og:image" content="https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png" />
@@ -38,7 +38,7 @@
        ======================================== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Mac Studio Local AI Workbench | OverKill Hill P³™" />
-    <meta name="twitter:description" content="10 days. 10 models. 11 MCP servers. A production-grade personal AI workstation — local-first, governed, benchmarked, and archived." />
+    <meta name="twitter:description" content="10 days. 10 models. 11 MCP servers. A production-grade personal AI workstation — local-first, governed, benchmarked, and published. $2,250 hardware. $0 software." />
     <meta name="twitter:image" content="https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png" />
     <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³™ illustration" />
     <meta name="twitter:site" content="@OverKillHillP3" />
@@ -603,6 +603,24 @@
         color: #d1fae5;
       }
       .callout-icon { font-size: 1.1rem; flex-shrink: 0; padding-top: 0.05rem; }
+      .callout--info {
+        background: rgba(99, 179, 237, 0.07);
+        border: 1px solid rgba(99, 179, 237, 0.22);
+        color: var(--color-fg);
+      }
+      .callout--value {
+        background: rgba(196, 106, 44, 0.08);
+        border: 1px solid rgba(196, 106, 44, 0.28);
+        color: var(--color-fg);
+        align-items: flex-start;
+      }
+      .status-date {
+        font-size: 0.68rem;
+        font-weight: 600;
+        color: var(--okh-amber);
+        white-space: nowrap;
+        opacity: 0.85;
+      }
 
       /* ── Project-body wrapper ───────────────────────────────────── */
       .project-body {
@@ -700,7 +718,7 @@
 
           <div class="project-hero-inner">
             <div>
-              <div class="status-badge status-badge--complete">✅ Baseline complete · 2026-05-12</div>
+              <div class="status-badge status-badge--complete">✅ Baseline complete · 2026-05-12 · Updated 2026-05-13</div>
               <h1>Mac Studio Local AI Workbench</h1>
               <p class="hero-sub">Production-grade personal AI workstation — local-first, governed, documented, and restorable. Built in 10 days on Apple Silicon.</p>
               <div class="hw-spec-row" aria-label="Hardware specification">
@@ -730,6 +748,31 @@
               <strong>BASELINE COMPLETE</strong> — Build finished, normalized, benchmarked, and archived on 2026-05-12.
               System is in a known-good, restorable state.
               Archive: <code style="font-family:var(--font-mono);font-size:0.85em;">/Volumes/OKH-Local/05_Research_Vault/mac-studio-setup_DONE_2026-05-12.tar.gz</code>
+              <br/><span style="font-size:0.85em;opacity:0.75;margin-top:0.4rem;display:inline-block;">2026-05-13 post-baseline: Ollama plist corrected, Open WebUI updated to latest, Edge PWA resolved. Project page published.</span>
+            </div>
+          </div>
+
+          <!-- WHAT THIS IS WORTH -->
+          <div class="content-block" id="value-framing" style="margin-bottom:2.5rem;">
+            <div class="section-label">Value Framing</div>
+            <h2>What This Is Worth</h2>
+            <div class="callout callout--value" role="note">
+              <span class="callout-icon">💡</span>
+              <div style="display:flex;flex-direction:column;gap:0.9rem;">
+                <p style="margin:0;line-height:1.7;">In May 2026, a Facebook Marketplace listing offered an M1 Mac Studio 32GB with "PageSpace AI pre-installed" for $7,500. PageSpace is open-source and free. An M1 Mac Studio 32GB sells for $600–$900 on the secondary market.</p>
+                <p style="margin:0;line-height:1.7;">This workbench runs on a Mac Studio M4 Max — three to four generations newer, with substantially more memory and compute. It runs 10 local models across three inference runtimes. It connects to 11 live MCP servers. It has a documented operating model, governance policies, restore scripts, verified benchmarks, and an offsite backup strategy.</p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+                  <div style="padding:0.9rem 1rem;background:rgba(0,0,0,0.25);border-radius:var(--radius-sm);text-align:center;">
+                    <div style="font-size:1.75rem;font-weight:700;color:var(--okh-amber);font-family:var(--font-heading);line-height:1;">$2,250</div>
+                    <div style="font-size:0.72rem;color:var(--color-muted);margin-top:0.3rem;">Hardware cost</div>
+                  </div>
+                  <div style="padding:0.9rem 1rem;background:rgba(0,0,0,0.25);border-radius:var(--radius-sm);text-align:center;">
+                    <div style="font-size:1.75rem;font-weight:700;color:#4ade80;font-family:var(--font-heading);line-height:1;">$0</div>
+                    <div style="font-size:0.72rem;color:var(--color-muted);margin-top:0.3rem;">Software cost — all open-source, free, or covered by existing subscriptions</div>
+                  </div>
+                </div>
+                <p style="margin:0;line-height:1.7;font-weight:600;border-top:1px solid rgba(255,255,255,0.1);padding-top:0.75rem;">The $7,500 listing was selling the box. This build is the operating model.</p>
+              </div>
             </div>
           </div>
 
@@ -762,6 +805,9 @@
                   <div class="status-item"><span class="check">✓</span> Git identity configured, VSCode Settings Sync active across machines</div>
                   <div class="status-item"><span class="check">✓</span> 28 GitHub repos mapped, SSH remotes updated</div>
                   <div class="status-item"><span class="check">✓</span> OneDrive sync active, OKH alias configured in <code>.zprofile</code></div>
+                  <div class="status-item"><span class="check">✓</span> Ollama plist path corrected to canonical location <span class="status-date">· 2026-05-13</span></div>
+                  <div class="status-item"><span class="check">✓</span> Open WebUI updated to latest — container recreated, v0.9.5 resolved <span class="status-date">· 2026-05-13</span></div>
+                  <div class="status-item"><span class="check">✓</span> Edge PWA localhost auth resolved — Open WebUI pinned as standalone Edge app <span class="status-date">· 2026-05-13</span></div>
                 </div>
               </div>
 
@@ -1002,6 +1048,27 @@
                     </div>
                   </div>
 
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 13<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>Post-baseline hardening and publication</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Corrected Ollama plist path — the Homebrew launchd service had been pointing at the pre-normalization path via symlink rather than the canonical <code>/Volumes/OKH-Local/07_Local_LLMs/ollama/models</code>. Edited plist directly, restarted service, confirmed all 6 models visible. Updated Open WebUI — stopped and removed old container, pulled latest image, recreated container with original run parameters. The v0.9.5 update banner resolved. Resolved Edge PWA localhost authentication — Open WebUI pinned as standalone Edge app. Confirmed access at <code>localhost:3000</code> without login prompt. Project page published to overkillhill.com.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">All three punch list blockers resolved. Ollama service confirmed running on canonical path. Open WebUI loading cleanly as Edge PWA. Project page live and indexed.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label broke">Broke</span>
+                          <span class="timeline-row-content">Nothing during this session. Plist correction and container recreation both executed cleanly.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
 
@@ -1096,8 +1163,21 @@
                 </div>
                 <p style="font-size:0.8rem;color:var(--color-muted);margin-top:0.75rem;">
                   Note: llama3.3:70b (42 GB) was attempted and removed — exceeds the 36 GB ceiling with apps running.
-                  Model selection policy: Western-lab models only (Meta, Google, Mistral, Microsoft).
                 </p>
+              </div>
+
+              <!-- MODEL SELECTION POLICY -->
+              <div class="content-block" id="model-policy">
+                <div class="section-label">Governance</div>
+                <h2>Model Selection Policy</h2>
+                <div class="callout callout--info" role="note">
+                  <span class="callout-icon">🛡️</span>
+                  <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                    <p style="margin:0;line-height:1.7;"><strong>Western-lab models only.</strong> Every model in this workbench comes from a Western-lab open-weight release: Meta (Llama), Google (Gemma), Mistral AI (Mistral, Codestral), and Microsoft (Phi).</p>
+                    <p style="margin:0;line-height:1.7;">This is a deliberate policy, not a default. Chinese cloud AI services operate under PRC data law. Open-weight models from any lab are architecturally isolated once downloaded — weights are inert files with no network access — but maintaining a clean Western-only boundary is simpler to reason about and easier to defend.</p>
+                    <p style="margin:0;line-height:1.7;font-size:0.85em;color:var(--color-muted);"><strong style="color:var(--color-fg);">Models excluded:</strong> Any cloud-connected Chinese AI service. DeepSeek, Qwen, and similar open-weight releases are technically capable but fall outside this policy's boundary.</p>
+                  </div>
+                </div>
               </div>
 
               <!-- BENCHMARKS -->
@@ -1150,17 +1230,43 @@
                 </p>
               </div>
 
+              <!-- THE OPERATING MODEL -->
+              <div class="content-block" id="operating-model">
+                <div class="section-label">Strategic Context</div>
+                <h2>The Operating Model</h2>
+                <div class="callout callout--info" role="note">
+                  <span class="callout-icon">⚙️</span>
+                  <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                    <p style="margin:0;line-height:1.7;">The Mac Studio M4 Max is not a replacement for frontier AI. It is the zero-cost inference tier at the bottom of a deliberate token routing hierarchy.</p>
+                    <p style="margin:0;line-height:1.7;">The Council of AIs workflow pairs Claude and ChatGPT as blind-iterating collaborators in Notion, uses Replit for execution against locked specs, and GitHub as the versioned source of truth. Every part of that workflow has a cost. Local models handle the parts where cost should be zero: bulk processing, first-pass summarization, RAG queries against personal knowledge, and repetitive validation checks.</p>
+                    <p style="margin:0;line-height:1.7;font-style:italic;font-weight:600;color:var(--okh-amber);">Cheap tokens think broadly. Expensive tokens act precisely.</p>
+                    <p style="margin:0;line-height:1.7;">This workbench is what makes that economics work at a $40/month total subscription budget.</p>
+                  </div>
+                </div>
+              </div>
+
               <!-- NEXT PHASE -->
               <div class="content-block" id="next-phase">
                 <div class="section-label">What's Next</div>
                 <h2>Next Phase</h2>
                 <div class="next-phase-list">
-                  <div class="next-phase-item">Backup archive to OneDrive, GitHub private repo, and Time Machine</div>
-                  <div class="next-phase-item">Strict prompt benchmark pass — same 5 tests with tighter prompting before declaring models inadequate</div>
-                  <div class="next-phase-item">Benchmark remaining models: gemma3:12b, gemma3:27b, mistral-small3.1:24b, codestral:22b</div>
-                  <div class="next-phase-item">Open WebUI as Edge PWA — resolve Edge localhost authentication</div>
-                  <div class="next-phase-item">Build tiny RAG corpus against OKH GitHub content</div>
+                  <div class="next-phase-item">Execute ChatGPT content update — populate all GitHub repository stub docs</div>
+                  <div class="next-phase-item">Backup baseline archive to OneDrive and Time Machine</div>
+                  <div class="next-phase-item">Run strict prompt benchmark — all 6 Ollama models, same 5 tests with tighter prompts</div>
+                  <div class="next-phase-item">Benchmark remaining 4 models: gemma3:12b, gemma3:27b, mistral-small3.1:24b, codestral:22b</div>
+                  <div class="next-phase-item">Deploy RAG stack: nomic-embed-text + Qdrant + Open WebUI Knowledge corpus</div>
                   <div class="next-phase-item">ASUS VSCode extension cleanup (uninstall commands ready, not yet executed)</div>
+                </div>
+                <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.6rem;">
+                  <span style="text-decoration:line-through;opacity:0.55;">Open WebUI as Edge PWA — resolve Edge localhost authentication</span> <span style="color:#4ade80;">✓ Completed 2026-05-13</span>
+                </p>
+                <div class="callout callout--info" role="note" style="margin-top:1.25rem;">
+                  <span class="callout-icon">🧠</span>
+                  <div style="display:flex;flex-direction:column;gap:0.6rem;">
+                    <p style="margin:0;line-height:1.65;"><strong>RAG Roadmap</strong> — The baseline is complete. The next phase is the retrieval layer.</p>
+                    <p style="margin:0;line-height:1.65;">nomic-embed-text + Qdrant + Open WebUI Knowledge will turn this workbench into a local AI that knows the author's actual work — not just its training data. Personal writing, GitHub repos, conversation archives, and workspace exports will be chunked, embedded, and indexed locally. The model will retrieve before it generates.</p>
+                    <p style="margin:0;line-height:1.65;font-weight:600;color:var(--okh-amber);">This is how a generic local AI becomes a genuine second brain.</p>
+                  </div>
                 </div>
               </div>
 
@@ -1259,11 +1365,11 @@
                   </div>
                   <div class="stack-item">
                     <span class="stack-name">LM Studio</span>
-                    <span class="stack-version">0.4.12 · MLX v1.6.0 backend</span>
+                    <span class="stack-version">0.4.12 · MLX v1.6.0 backend · server port 1234</span>
                   </div>
                   <div class="stack-item">
                     <span class="stack-name">Open WebUI</span>
-                    <span class="stack-version">Docker · localhost:3000</span>
+                    <span class="stack-version">Docker · localhost:3000 · updated 2026-05-13</span>
                   </div>
                   <div class="stack-item">
                     <span class="stack-name">mlx-lm</span>
@@ -1328,11 +1434,12 @@
             <div class="section-label">Project Surfaces</div>
             <h2>Links</h2>
             <div class="surface-grid">
-              <a href="https://github.com/OKHP3/mac-studio-local-ai-workbench" target="_blank" rel="noopener noreferrer" class="surface-card">
+              <!-- GitHub repo link will be added here once OKHP3/mac-studio-local-ai-workbench is made public -->
+              <div class="surface-card" style="opacity:0.45;cursor:default;pointer-events:none;" aria-hidden="true">
                 <span class="surface-card-icon">⚙️</span>
                 <span class="surface-card-label">GitHub Repository</span>
-                <span class="surface-card-desc">Source, scripts, and documentation for the workbench build.</span>
-              </a>
+                <span class="surface-card-desc">Source, scripts, and documentation — coming soon.</span>
+              </div>
               <a href="https://replit.com/t/overkill-hill/repls/OverKill-Hill" target="_blank" rel="noopener noreferrer" class="surface-card">
                 <span class="surface-card-icon">🔁</span>
                 <span class="surface-card-label">Replit Build Surface</span>
