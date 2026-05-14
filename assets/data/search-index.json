@@ -478,12 +478,15 @@
       "url": "/projects/mac-studio-local-ai-workbench/",
       "title": "Mac Studio Local AI Workbench | OverKill Hill P³™",
       "category": "Project",
-      "description": "A 10-day build journal: Mac Studio M4 Max configured as a production-grade personal AI workstation — Ollama, LM Studio, Open WebUI, mlx-lm, 11 MCP servers, and 10 local models. Baseline complete 2026-05-12.",
+      "description": "A 10-day build journal: Mac Studio M4 Max local AI workstation — 10 models, 11 MCP servers, governed storage, verified benchmarks, and a zero-cost inference tier for the Council of AIs workflow. Baseline complete 2026-05-12. Published project page live.",
       "headings": [
+        "What This Is Worth",
         "Status Board",
         "Timeline",
         "Model Inventory",
+        "Model Selection Policy",
         "Benchmark Snapshot",
+        "The Operating Model",
         "Next Phase",
         "Core Toolchain",
         "AI Runtimes",
@@ -501,9 +504,10 @@
         "VSCode extension audit across machines",
         "Git workspace, OneDrive sync, and repos",
         "Normalization, benchmarking, and baseline archive",
+        "Post-baseline hardening and publication",
         "Quick Facts"
       ],
-      "body": "Skip to main content OverKill Hill P³™ › Projects › Mac Studio Local AI Workbench ✅ Baseline complete · 2026-05-12 Mac Studio Local AI Workbench Production-grade personal AI workstation — local-first, governed, documented, and restorable. Built in 10 days on Apple Silicon. M4 Max 36GB unified memory 512GB internal SSD 1TB OKH-Local NVMe macOS Sequoia 10 local models 11 MCP servers ✅ BASELINE COMPLETE — Build finished, normalized, benchmarked, and archived on 2026-05-12. System is in a known-good, restorable state."
+      "body": "Skip to main content OverKill Hill P³™ › Projects › Mac Studio Local AI Workbench ✅ Baseline complete · 2026-05-12 · Updated 2026-05-13 Mac Studio Local AI Workbench Production-grade personal AI workstation — local-first, governed, documented, and restorable. Built in 10 days on Apple Silicon. M4 Max 36GB unified memory 512GB internal SSD 1TB OKH-Local NVMe macOS Sequoia 10 local models 11 MCP servers ✅ BASELINE COMPLETE — Build finished, normalized, benchmarked, and archived on 2026-05-12. System is in a known-good, restorable state."
     },
     {
       "url": "/projects/mermaid-theme-builder/",
