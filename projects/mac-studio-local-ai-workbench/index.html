@@ -598,7 +598,7 @@
       .callout--success {
         background: rgba(34, 197, 94, 0.08);
         border: 1px solid rgba(34, 197, 94, 0.22);
-        color: #d1fae5;
+        color: var(--color-fg);
       }
       .callout-icon { font-size: 1.1rem; flex-shrink: 0; padding-top: 0.05rem; }
       .callout--info {
@@ -623,6 +623,40 @@
       /* ── Project-body wrapper ───────────────────────────────────── */
       .project-body {
         padding: 0 0 4rem;
+      }
+
+      /* ── Light-mode: override dark-only hardcoded colours ───────── */
+      html[data-theme="light"] body .callout--success {
+        background: rgba(34, 197, 94, 0.09);
+        border-color: rgba(34, 197, 94, 0.32);
+      }
+      html[data-theme="light"] body .callout--info {
+        background: rgba(37, 99, 235, 0.06);
+        border-color: rgba(37, 99, 235, 0.22);
+      }
+      html[data-theme="light"] body .callout--value {
+        background: rgba(154, 52, 18, 0.06);
+        border-color: rgba(154, 52, 18, 0.22);
+      }
+      html[data-theme="light"] body .status-badge--complete {
+        color: #15803d;
+        background: rgba(34, 197, 94, 0.13);
+        border-color: rgba(34, 197, 94, 0.32);
+      }
+      html[data-theme="light"] body .status-item .check { color: #15803d; }
+      html[data-theme="light"] body .timeline-row-label.worked { color: #15803d; }
+      html[data-theme="light"] body .timeline-row-label.broke { color: #b91c1c; }
+      html[data-theme="light"] body .bench-pass { color: #15803d; }
+      html[data-theme="light"] body .bench-warn { color: #92400e; }
+      html[data-theme="light"] body .bench-fail { color: #b91c1c; }
+      html[data-theme="light"] body .status-date { color: #92400e; }
+      html[data-theme="light"] body .data-table tr:nth-child(even) td {
+        background: rgba(0, 0, 0, 0.03);
+      }
+      html[data-theme="light"] body .data-table code,
+      html[data-theme="light"] body .status-item code {
+        background: rgba(0, 0, 0, 0.07);
+        color: var(--color-fg);
       }
     </style>
 
