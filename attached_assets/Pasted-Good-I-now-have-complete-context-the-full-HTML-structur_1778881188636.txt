@@ -1,0 +1,675 @@
+Good. I now have complete context: the full HTML structure, the Notion v0.4 content, the thread archive lineage, and the version roadmap through v1.0. Writing the full PRD now.
+
+# REPLIT EXECUTION DIRECTIVE
+## v0.4 Release — The First Diagram Is Usually a Liar
+## overkillhill.com/writings/first-diagram-is-a-liar/
+
+---
+
+## DOCUMENT CONTROL
+
+| Field | Value |
+|---|---|
+| Directive version | 1.0 |
+| Prepared by | Claude (Council member — structural analyst) |
+| Authorized by | Jamie Hill, OverKill Hill P³™ |
+| Date | May 15, 2026 |
+| Article current state | v0.3.3 — Tie-Off |
+| Article target state | v0.4 — The Council of AIs |
+| Primary file | writings/first-diagram-is-a-liar/index.html |
+| Repository | OKHP3/OverKill-Hill (GitHub Pages) |
+| Live URL | https://overkillhill.com/writings/first-diagram-is-a-liar/ |
+
+---
+
+## SCOPE STATEMENT
+
+This directive instructs Replit to execute all changes required to
+advance the article from v0.3.3 to v0.4. v0.4 is a prose addition
+release. No new diagram files, slide deck assets, or GitHub
+repository content (OKHP3/first-diagram-is-a-liar) are part of
+this release. All changes are confined to the single HTML file
+identified above.
+
+v0.4 introduces five new article sections that expand the existing
+thin Council of AIs section into a full narrative arc: why one
+model is not enough, the crude manual process, co-opetition as the
+governing dynamic, why each council seat existed, and what the
+synthesis produced that no single model could have been. These
+additions total approximately 700 words of new prose.
+
+---
+
+## PRE-FLIGHT VERIFICATION
+
+Before making any changes, confirm the following conditions are
+true in the current file. If any condition fails, stop and report
+the discrepancy before proceeding.
+
+- [ ] PF-01: File path resolves correctly:
+      writings/first-diagram-is-a-liar/index.html
+
+- [ ] PF-02: File is 2,699 lines and approximately 156 KB in size.
+
+- [ ] PF-03: The string "v0.3.3 — Tie-Off" appears in the file.
+      Confirm at minimum two occurrences: one in the site-specials
+      banner and one in the protoform-notice block.
+
+- [ ] PF-04: The string "v0.3 is complete" appears in the meta
+      description tags.
+
+- [ ] PF-05: The anchor id="council" exists and is attached to an
+      h2 element.
+
+- [ ] PF-06: The anchor id="round1" exists and is attached to an
+      h2 element.
+
+- [ ] PF-07: The string "The Council scoring layer and interviews
+      are coming in v0.4 and v0.5" appears in the protoform-notice
+      block.
+
+- [ ] PF-08: No section with id="why-one-model" exists yet.
+      This confirms v0.4 content has not been partially applied.
+
+- [ ] PF-09: The version history table contains a row referencing
+      v0.3.3 and the Scoring Debrief.
+
+- [ ] PF-10: The article eyebrow span reads "Article v0.3.3 —
+      Tie-Off".
+
+All ten pre-flight checks must pass before proceeding.
+
+---
+
+## CHANGES
+
+Changes are numbered sequentially. Execute them in order.
+Each change includes: FIND, REPLACE WITH, and VERIFY.
+HTML entities must be preserved exactly as written.
+Do not auto-format, minify, or reformat surrounding code.
+
+---
+
+### CHANGE 01 — Meta: Primary description tag
+
+**File:** writings/first-diagram-is-a-liar/index.html
+**Action:** Find and replace
+
+**FIND (exact string):**
+
+
+<meta name="description" content="v0.3 is complete. The deck is live, the polls have closed, and the v0.3.3 scoring debrief is posted. The First Diagram Is Usually a Liar covers ROY, Mermaid.ai, and what seven AI models revealed about the real cost of visual communication." />
+```REPLACE WITH:
+
+<meta name="description" content="v0.4 is live. The First Diagram Is Usually a Liar now covers why a Council of AIs produces better structure than any single model, the co-opetition dynamic that makes it work, and the crude manual process behind the method. ROY, Mermaid, and the story behind the story." />
+
+
+VERIFY: Page source shows updated description in the
+<meta name="description"> tag. Old string “v0.3 is complete”
+no longer appears in this tag.
+	•	CHANGE 01 COMPLETE
+
+CHANGE 02 — Meta: Open Graph description tag
+File: writings/first-diagram-is-a-liar/index.html
+Action: Find and replace
+FIND (exact string):
+
+<meta property="og:description" content="v0.3 is complete. The deck is live, the polls have closed, and the v0.3.3 scoring debrief is posted. The First Diagram Is Usually a Liar covers ROY, Mermaid.ai, and what seven AI models revealed about the real cost of visual communication." />
+
+
+REPLACE WITH:
+
+<meta property="og:description" content="v0.4 is live. The First Diagram Is Usually a Liar now covers why a Council of AIs produces better structure than any single model, the co-opetition dynamic that makes it work, and the crude manual process behind the method. ROY, Mermaid, and the story behind the story." />
+
+
+VERIFY: og:description reflects v0.4 language.
+Old string absent from this tag.
+	•	CHANGE 02 COMPLETE
+
+CHANGE 03 — Meta: Twitter Card description tag
+File: writings/first-diagram-is-a-liar/index.html
+Action: Find and replace
+FIND (exact string):
+
+<meta name="twitter:description" content="v0.3 is complete. The deck is live, the polls have closed, and the v0.3.3 scoring debrief is posted. The First Diagram Is Usually a Liar covers ROY, Mermaid.ai, and what seven AI models revealed about the real cost of visual communication." />
+
+
+REPLACE WITH:
+
+<meta name="twitter:description" content="v0.4 is live. The First Diagram Is Usually a Liar now covers why a Council of AIs produces better structure than any single model, the co-opetition dynamic that makes it work, and the crude manual process behind the method. ROY, Mermaid, and the story behind the story." />
+
+
+VERIFY: twitter:description reflects v0.4 language.
+All three description meta tags now read identically.
+	•	CHANGE 03 COMPLETE
+
+CHANGE 04 — Site specials banner: text content
+File: writings/first-diagram-is-a-liar/index.html
+Action: Find and replace (text node only, inside the <a> tag)
+FIND (exact string):
+
+v0.3.3 is live: the polls closed, the field held, and the architect lane delivered. →
+
+
+REPLACE WITH:
+
+v0.4 is live: the story behind the Council of AIs — why disagreement between models is signal, not noise. →
+
+
+VERIFY: Banner text visible in browser header reflects
+the v0.4 message. Old “polls closed” language is gone.
+	•	CHANGE 04 COMPLETE
+
+CHANGE 05 — Site specials banner: href target
+File: writings/first-diagram-is-a-liar/index.html
+Action: Find and replace (href attribute on the site-specials link)
+FIND (exact string):
+
+href="/writings/first-diagram-is-a-liar/#ideation-to-evaluation"
+
+
+Note: This specific href appears on the <a class="site-specials-link"> element.
+Confirm you are editing ONLY that element, not other links
+that may share this anchor.
+REPLACE WITH:
+
+href="/writings/first-diagram-is-a-liar/#why-one-model"
+
+
+VERIFY: Clicking the banner link navigates to the new
+#why-one-model section rather than #ideation-to-evaluation.
+	•	CHANGE 05 COMPLETE
+
+CHANGE 06 — Article eyebrow: version label span
+File: writings/first-diagram-is-a-liar/index.html
+Action: Find and replace
+FIND (exact string):
+
+<span>Article v0.3.3 — Tie-Off</span>
+
+
+REPLACE WITH:
+
+<span>Article v0.4 — The Council of AIs</span>
+
+
+VERIFY: Article eyebrow line reads:
+“Precision · Protocol · Promptcraft | ROY · Mermaid · Council of AIs |
+Article v0.4 — The Council of AIs”
+	•	CHANGE 06 COMPLETE
+
+CHANGE 07 — Article subtitle paragraph
+File: writings/first-diagram-is-a-liar/index.html
+Action: Find and replace
+FIND (exact string):
+
+This is the v0.3 cut — what happened when one LinkedIn post became a Mermaid competition, a Council of AIs, and a better theory of visual communication.
+
+
+REPLACE WITH:
+
+Now at v0.4 — what happened when one LinkedIn post became a Mermaid competition, a Council of AIs, a public scoring experiment, and a better theory of visual communication. The story behind the method is now in the article.
+
+
+VERIFY: Article subtitle paragraph reflects v0.4 language.
+The phrase “v0.3 cut” no longer appears in the subtitle.
+	•	CHANGE 07 COMPLETE
+
+CHANGE 08 — Article meta: publication date
+File: writings/first-diagram-is-a-liar/index.html
+Action: Find and replace
+FIND (exact string):
+
+<time datetime="2026-04-07">April 2026</time>
+
+
+REPLACE WITH:
+
+<time datetime="2026-05-15">May 2026</time>
+
+
+VERIFY: Article meta line reflects May 2026.
+	•	CHANGE 08 COMPLETE
+
+CHANGE 09 — Article meta: estimated read time
+File: writings/first-diagram-is-a-liar/index.html
+Action: Find and replace
+FIND (exact string):
+
+<span>~18 min read</span>
+
+
+REPLACE WITH:
+
+<span>~21 min read</span>
+
+
+VERIFY: Read time estimate updated. The additional ~700
+words of v0.4 prose advances the estimate from 18 to 21 minutes
+at a standard 230 words per minute reading rate.
+	•	CHANGE 09 COMPLETE
+
+CHANGE 10 — Protoform notice block
+File: writings/first-diagram-is-a-liar/index.html
+Action: Find and replace (entire inner content of the
+protoform-notice div)
+FIND (exact string):
+
+<strong class="text-amber">v0.3.3 — Tie-Off</strong>
+              The deck is public. The polls ran April 22–May 7 and have closed. The v0.3.3 scoring debrief is now live on LinkedIn. The architect lane delivered: Copilot won Round 1 at the renderer level; Claude won Round 2 by making the revision loops honest. The Council scoring layer and interviews are coming in v0.4 and v0.5.
+
+
+Note: Match indentation and whitespace exactly as it appears
+in the file. If indentation differs, match what is actually
+in the file.
+REPLACE WITH:
+
+<strong class="text-amber">v0.4 — The Council of AIs</strong>
+              The story behind the method is now in the article: why I used multiple models instead of one, what co-opetition means in practice, and the crude four-step process that produced the synthesized result. v0.3.3 scoring results are archived in the sections below. Council-assisted scoring and individual member interviews are coming in v0.5.
+
+
+VERIFY: Protoform notice reads v0.4 language. The phrase
+“The Council scoring layer and interviews are coming in v0.4”
+no longer appears — that promise has been delivered.
+	•	CHANGE 10 COMPLETE
+
+CHANGE 11 — Insert five new v0.4 article sections
+File: writings/first-diagram-is-a-liar/index.html
+Action: Insert new HTML block
+LOCATE: Find this exact string in the file, which marks
+the boundary between the existing Council section and
+Round 1:
+
+				<hr />
+
+				<h2 id="round1">Round 1 — The Clean Lie</h2>
+
+
+INSERT THE FOLLOWING BLOCK immediately before that <hr />.
+Do not replace the <hr /> or the Round 1 heading.
+Insert the block so it sits between the end of the current
+Council section content and the <hr /> that precedes Round 1.
+INSERT THIS EXACT HTML:
+
+				<!-- === v0.4 — THE COUNCIL OF AIs ========================= -->
+
+				<section id="why-one-model" class="article-section">
+					<h3>Why One Model Is Not Enough</h3>
+					<p>
+						There is a reasonable argument that you should find the best model for a given task and stop there. Efficient. Practical. For most tasks, correct.
+					</p>
+					<p>
+						Diagramming is not one of those tasks.
+					</p>
+					<p>
+						When a single model diagrams a process, it makes hundreds of invisible decisions: what to include, what to compress, what to call a decision point, and what to treat as a straight-through path. Those decisions stay invisible until a different model makes different ones. The second model introduces a feedback loop the first one skipped. The third surfaces an ambiguous handoff neither of the others named. The fourth invents an actor you forgot to include, and turns out to be right.
+					</p>
+					<div class="pull-quote">
+						<p>That is not a failure mode. That is the mechanism.</p>
+					</div>
+					<p>
+						Each model carries its own instincts about what good structure looks like, shaped by training, architecture, and whatever the platform has optimized for. None of them are neutral. None of them are complete. Run the same brief through all of them and look at what differs. You stop seeing AI outputs and start seeing the shape of your own thinking reflected back at you from multiple angles.
+					</p>
+					<p>
+						That is when the diagram stops being fog with confident nouns.
+					</p>
+				</section>
+
+				<section id="crude-manual-process" class="article-section">
+					<h3>The Crude Manual Process</h3>
+					<p>
+						What I was doing early in this experiment was not elegant. Here is what it actually looked like, because the honest version is more useful than the polished one.
+					</p>
+					<p>
+						I would write a brief. The same brief, as closely as I could manage. I would run it through ChatGPT, then Claude, then Copilot, then Perplexity, then Gemini, then Notion. I would collect the outputs in a running document, read all six side by side, and look specifically for where they diverged. Then I would pick the strongest elements from each &#8212; a framing from one, a loop structure from another, a label from a third &#8212; and synthesize them into something I could not have reached alone.
+					</p>
+					<p>The process had four steps:</p>
+					<ol>
+						<li><strong>Fan out</strong> &#8212; same brief, independent runs, no cross-contamination between models</li>
+						<li><strong>Compare</strong> &#8212; side by side, looking for divergence, not consensus</li>
+						<li><strong>Adjudicate</strong> &#8212; decide which differences revealed something true versus which were just noise</li>
+						<li><strong>Synthesize</strong> &#8212; build the hybrid that none of the originals could have been</li>
+					</ol>
+					<p>
+						That loop is not complicated. It is also not automated. The fan-out required discipline not to anchor on the first result. The comparison required knowing the subject well enough to evaluate the differences. The adjudication required resisting the most confident-looking output. The synthesis required building something coherent from pieces that were never designed to fit together.
+					</p>
+					<p>
+						That is the work. And for a certain class of problem &#8212; the kind where you are not sure what shape the answer should take &#8212; it is exactly the right work to do.
+					</p>
+				</section>
+
+				<section id="co-opetition" class="article-section">
+					<h3>Co-opetition and What the Platforms Are Now Building</h3>
+					<p>
+						There is a term for the dynamic I was running: co-opetition. Competitors collaborating and competing simultaneously, depending on context. Each model was working against the others on the same brief and contributing to a synthesis none of them could have reached independently. The council was not a relay race where one model handed off to the next. It was a parallel competition with a shared goal: find the structure that no single voice could see on its own.
+					</p>
+					<p>
+						That dynamic has aged interestingly in the months since this experiment ran. What I was doing manually, several platforms have started building natively. Perplexity has moved in this direction explicitly, offering multi-model querying in its premium tiers &#8212; submit one question, receive results from multiple models, choose between them or take a synthesized composite. Other providers are experimenting with multi-model routing, where a question gets sent to several models in parallel and the answers are normalized into a single response. When I ran the council, those features were not available at the tier I was working at.
+					</p>
+					<div class="pull-quote">
+						<p>The automated versions optimize for efficiency. What I was doing optimized for visibility. Those are not the same goal.</p>
+					</div>
+					<p>
+						There is a version of council methodology that belongs in a workflow automation tool. There is a version that belongs in a deliberate, human-in-the-loop process for hard problems. Collapsing them loses something important. Automated multi-model tools tend to homogenize toward consensus, which is precisely the opposite of what makes a council valuable. A council&#8217;s value is in the disagreement. The synthesis is just the output. The disagreement is where you actually learn something.
+					</p>
+				</section>
+
+				<section id="council-seats" class="article-section">
+					<h3>Why Each Seat Existed</h3>
+					<p>
+						The council was not random. Each member was there because its instincts differed from the others in ways that were meaningful rather than arbitrary.
+					</p>
+					<p>
+						<strong>ChatGPT</strong> was the workbench &#8212; most configured, most context-loaded, fastest at velocity ideation. <strong>Claude</strong> was the structural analyst, precise and willing to push back on framing it disagreed with. <strong>Perplexity</strong> was the synthesizer, grounded, compact, and externally sourced. <strong>Copilot</strong> was the integrationist, Microsoft-native by design, thinking in terms of tools already in the workflow. <strong>Gemini</strong> was the skeptic, most likely to reduce a diagram to its essential shape &#8212; the question always being whether that simplicity was insight or just restraint. <strong>Notion</strong> was the documentarian. Not the loudest seat. The one that kept the record and made sure nothing got lost in the synthesis.
+					</p>
+					<p>
+						<strong>Replit</strong> arrived late and under-briefed. That unfamiliarity showed in its outputs in ways that were not entirely fair to the platform. It gets its own section later in this series, because the lesson of running an unfamiliar tool in a high-context experiment is worth examining on its own terms.
+					</p>
+					<p>
+						The council was not assembled to find a winner. It was assembled to generate a field of perspectives wide enough that the synthesis could be honest rather than just confident.
+					</p>
+				</section>
+
+				<section id="council-synthesis" class="article-section">
+					<h3>What the Council Produced That a Single Model Could Not</h3>
+					<p>
+						No single council submission was better than the synthesized result. Not one. The synthesis borrowed structure from Copilot, framing from Claude, loop logic from ChatGPT, business clarity from Perplexity, and reduction instincts from Gemini. Notion held the record of all of it.
+					</p>
+					<p>
+						The winning diagram did not exist in any single output. It emerged from the process of comparing all of them.
+					</p>
+					<p>
+						That is the argument for councils as a method, not just as a curiosity. If you are working on a problem where the shape of the answer matters as much as the answer itself &#8212; architecture, process design, communication strategy, anything where shape determines clarity &#8212; a council run will surface something a single-model run will not.
+					</p>
+					<p>The manual overhead is real. The discipline required is real. The payoff, when the problem warrants it, is also real.</p>
+					<div class="pull-quote">
+						<p>The question worth asking before your next hard problem: is this the kind of question where one answer is sufficient, or is this the kind where seeing six different answers would tell you something none of the six could tell you alone?</p>
+					</div>
+				</section>
+
+
+
+VERIFY: Five new sections appear between the end of the
+existing Council of AIs content and the Round 1 <hr /> divider.
+Confirm in browser:
+	•	Section heading “Why One Model Is Not Enough” is visible
+	•	Section heading “The Crude Manual Process” is visible
+with a numbered list of four steps
+	•	Section heading “Co-opetition and What the Platforms Are
+Now Building” is visible with three paragraphs
+	•	Section heading “Why Each Seat Existed” is visible with
+the council member role descriptions
+	•	Section heading “What the Council Produced That a Single
+Model Could Not” is visible with the pull-quote
+	•	All five sections render before “Round 1 — The Clean Lie”
+	•	The Round 1 heading and <hr /> divider are intact and
+unchanged
+	•	CHANGE 11 COMPLETE
+
+CHANGE 12 — On This Page sidebar: add five new anchor links
+File: writings/first-diagram-is-a-liar/index.html
+Action: Find and insert
+The sidebar navigation “On This Page” contains an anchor link
+to #council. Locate the list item for that anchor:
+FIND (exact string):
+
+<li><a href="#council">Council of AIs</a></li>
+
+
+REPLACE WITH (adds five new entries immediately after
+the Council of AIs link, before the Round 1 link):
+
+<li><a href="#council">Council of AIs</a></li>
+<li><a href="#why-one-model">Why One Model Is Not Enough</a></li>
+<li><a href="#crude-manual-process">The Crude Manual Process</a></li>
+<li><a href="#co-opetition">Co-opetition and What&#8217;s Being Built</a></li>
+<li><a href="#council-seats">Why Each Seat Existed</a></li>
+<li><a href="#council-synthesis">What the Council Produced</a></li>
+
+
+VERIFY: Sidebar “On This Page” navigation lists all five
+new section links. Clicking each link scrolls to the correct
+section. The Round 1 link remains below these new entries.
+	•	CHANGE 12 COMPLETE
+
+CHANGE 13 — Version history table: add v0.4 row
+File: writings/first-diagram-is-a-liar/index.html
+Action: Find and insert
+Locate the version history table. Find the final <tr>
+that references v0.3.3 or the Scoring Debrief row.
+The row will look approximately like this:
+FIND (exact string — match whatever the last existing
+<tr> in the version history table reads, which references
+the v0.3.3 scoring debrief):
+
+<tr><td>05/2026</td><td>v0.3.3</td><td>Scoring Debrief</td><td>Post ✓</td><td>Audience lane: 5 votes / 1,735 impressions (funnel friction). Architect lane: Copilot V1 Round 1, Claude V2 Round 2. Council lane: held for v0.5.</td></tr>
+
+
+REPLACE WITH (adds a new v0.4 row after the v0.3.3 row):
+
+<tr><td>05/2026</td><td>v0.3.3</td><td>Scoring Debrief</td><td>Post ✓</td><td>Audience lane: 5 votes / 1,735 impressions (funnel friction). Architect lane: Copilot V1 Round 1, Claude V2 Round 2. Council lane: held for v0.5.</td></tr>
+<tr><td>05/2026</td><td>v0.4</td><td>The Council of AIs</td><td>Article + Post + Comment</td><td>Story behind the method: co-opetition, the crude manual process (fan out / compare / adjudicate / synthesize), why each council seat existed, and what the synthesis produced that no single model could have reached independently.</td></tr>
+
+
+VERIFY: Version history table now shows a v0.4 row as the
+final entry. The v0.3.3 row is intact above it.
+	•	CHANGE 13 COMPLETE
+
+CHANGE 14 — Polling schedule table: add v0.4 row
+File: writings/first-diagram-is-a-liar/index.html
+Action: Find and insert
+Locate the polling windows / schedule table. It currently has
+a “Next” or placeholder row that references v0.4 as upcoming.
+FIND (exact string):
+
+<tr><td>Next</td><td>v0.4</td><td>The Council of AIs</td><td>Post</td><td>Origin story and rationale: why the Council exists, why disagreement between models is useful</td></tr>
+
+
+REPLACE WITH:
+
+<tr><td>05/2026</td><td>v0.4</td><td>The Council of AIs</td><td>Article + Post + Comment ✓</td><td>Five new sections added: Why One Model Is Not Enough, The Crude Manual Process, Co-opetition and What the Platforms Are Now Building, Why Each Seat Existed, What the Council Produced. ~700 words of new prose. Companion LinkedIn post and comment published.</td></tr>
+
+
+VERIFY: Polling/schedule table v0.4 row reads as delivered
+(with ✓) rather than upcoming. The word “Next” in the date
+column is replaced with the actual date.
+	•	CHANGE 14 COMPLETE
+
+CHANGE 15 — Scoring lanes: Council-assisted lane status text
+File: writings/first-diagram-is-a-liar/index.html
+Action: Find and replace
+The Council-assisted scoring lane currently says it is reserved
+for v0.5 with the explanation that the audience meets the Council
+in v0.4. That framing was correct before v0.4. Now that v0.4 has
+shipped and introduced the Council, the status note should be
+updated to reflect the current state.
+FIND (exact string):
+
+Reserved for v0.5. The audience meets the Council in v0.4 before the Council&#8217;s own verdicts are released.
+
+
+REPLACE WITH:
+
+Reserved for v0.5. v0.4 introduced the Council, the co-opetition dynamic, and the crude manual process behind the method. The Council&#8217;s own verdicts on each other&#8217;s diagrams are the next layer, coming in v0.5.
+
+
+VERIFY: Council-assisted scoring lane description reflects
+that v0.4 has been delivered and v0.5 is the next milestone.
+	•	CHANGE 15 COMPLETE
+
+CHANGE 16 — v0.3.3 tie-off closing paragraph: update forward reference
+File: writings/first-diagram-is-a-liar/index.html
+Action: Find and replace
+The v0.3.3 section ends with a paragraph that promises v0.4 as
+coming. Now that v0.4 has shipped, this sentence should be
+updated to confirm delivery rather than preview.
+FIND (exact string):
+
+Next comes v0.4, which is the story behind the story: why I used a Council at all, why disagreement between models is useful, and why one AI is rarely enough if the goal is better thinking.
+
+
+REPLACE WITH:
+
+v0.4 is now in the article: the story behind the story. Why I used a Council at all, why disagreement between models is useful, and why the crude manual process produced something no single model could have reached alone. The Council-assisted scoring layer and individual member interviews are coming in v0.5.
+
+
+VERIFY: The forward reference to v0.4 as “coming” is gone.
+The text confirms v0.4 as delivered and points forward to v0.5.
+	•	CHANGE 16 COMPLETE
+
+POST-EXECUTION VERIFICATION CHECKLIST
+After all 16 changes are committed and the site has rebuilt,
+perform the following verification steps on the live URL:
+https://overkillhill.com/writings/first-diagram-is-a-liar/
+Browser rendering checks
+	•	PEV-01: Page loads without errors. No broken layout.
+No missing sections. No JavaScript console errors
+related to the article body.
+	•	PEV-02: Site banner reads “v0.4 is live: the story
+behind the Council of AIs — why disagreement between
+models is signal, not noise. →” and clicking it scrolls
+to the #why-one-model section.
+	•	PEV-03: Article eyebrow reads “Article v0.4 — The
+Council of AIs” as the third segment of the three-part
+eyebrow line.
+	•	PEV-04: Article subtitle reflects v0.4 language.
+The phrase “v0.3 cut” does not appear in the subtitle.
+	•	PEV-05: Article meta shows “May 2026” and “~21 min read”.
+	•	PEV-06: Protoform notice reads “v0.4 — The Council of AIs”
+in amber text and describes the new content correctly.
+The phrase “Council scoring layer and interviews are
+coming in v0.4” does not appear anywhere on the page.
+	•	PEV-07: The five new sections appear in the article body
+in this exact order:
+1. Why One Model Is Not Enough
+2. The Crude Manual Process
+3. Co-opetition and What the Platforms Are Now Building
+4. Why Each Seat Existed
+5. What the Council Produced That a Single Model Could Not
+	•	PEV-08: All five new sections appear BEFORE the “Round 1
+— The Clean Lie” section. The Round 1 section is intact
+with its horizontal rule divider.
+	•	PEV-09: The pull-quote blocks inside the new sections
+render with the site’s standard pull-quote styling.
+Confirm at minimum: “That is not a failure mode. That
+is the mechanism.” and “The automated versions optimize
+for efficiency. What I was doing optimized for visibility.
+Those are not the same goal.”
+	•	PEV-10: The numbered list in The Crude Manual Process
+section renders correctly:
+1. Fan out
+2. Compare
+3. Adjudicate
+4. Synthesize
+	•	PEV-11: All anchor links in the new sections are
+reachable. Test each:
+/writings/first-diagram-is-a-liar/#why-one-model
+/writings/first-diagram-is-a-liar/#crude-manual-process
+/writings/first-diagram-is-a-liar/#co-opetition
+/writings/first-diagram-is-a-liar/#council-seats
+/writings/first-diagram-is-a-liar/#council-synthesis
+	•	PEV-12: Sidebar “On This Page” navigation lists all five
+new section links. They appear between the Council of AIs
+link and the Round 1 link.
+	•	PEV-13: Version history table shows a v0.4 row as the
+most recent entry. The v0.3.3 row is directly above it.
+	•	PEV-14: Polling/schedule table v0.4 row shows “✓” in the
+artifact column and does not use the word “Next” in the
+date column.
+	•	PEV-15: Council-assisted scoring lane description
+references v0.5 as the next milestone and does not
+describe v0.4 as coming.
+	•	PEV-16: The v0.3.3 tie-off section closing paragraph
+confirms v0.4 as delivered. The phrase “Next comes v0.4”
+does not appear.
+Source and SEO checks
+	•	PEV-17: View page source. Confirm <meta name="description">
+contains the v0.4 description string. The phrase “v0.3 is
+complete” does not appear in any of the three description
+meta tags.
+	•	PEV-18: View page source. Confirm <meta property="og:description">
+matches the primary description tag exactly.
+	•	PEV-19: View page source. Confirm <meta name="twitter:description">
+matches the primary description tag exactly.
+	•	PEV-20: <link rel="canonical"> is unchanged:
+https://overkillhill.com/writings/first-diagram-is-a-liar/
+	•	PEV-21: All existing sections from v0.1 through v0.3.3
+are intact and unchanged. Spot-check:
+- “AutoCAD R10” origin paragraph is present
+- ROY formula block is present
+- Mermaid syntax vs platform section is present
+- “Hold. Hold. Hold. Go.” pull-quote is present
+- All diagram gallery cards are present and linked
+- Copilot V1 and Claude V2 round winner sections are present
+- v0.3.3 tie-off section is present with poll data table
+	•	PEV-22: No broken internal anchor links. All links in
+the sidebar “On This Page” list resolve to visible
+sections on the page.
+	•	PEV-23: No broken external links introduced by this
+release. (No new external links were added in v0.4, so
+this is a null check — confirm no existing links were
+accidentally disrupted.)
+
+DO NOT TOUCH
+The following elements must not be modified under any
+circumstances during this release:
+	•	Any content in the OKHP3/first-diagram-is-a-liar repository.
+That repo holds the diagrams, slide decks, and council brief.
+No changes to that repo are part of this release.
+	•	The Copilot V1 and Claude V2 embedded Mermaid diagram blocks
+and their static image counterparts.
+	•	Any of the v1-diagrams or v2-diagrams gallery sections and
+their Mermaid.ai links.
+	•	The field guide links to /v03/v1-heat-a/, /v03/v1-heat-b/,
+/v03/v2-heat-a/, /v03/v2-heat-b/ — these pages are separate
+files and are not touched in this release.
+	•	The existing poll schedule table rows for v0.3 through v0.3.2.2.
+	•	The existing scoring lane content for Audience and Architect
+lanes, including the specific vote counts and impression data.
+	•	The v0.3.3 tie-off section content and its poll data table.
+Only the forward-reference closing paragraph in that section
+is updated (CHANGE 16). All poll data, impressions counts,
+and scoring results are preserved exactly.
+	•	The <link rel="canonical"> tag.
+	•	The favicon and manifest link tags.
+	•	The structured data / JSON-LD BreadcrumbList block.
+	•	The Mermaid CDN preload and module import tags.
+	•	The site header navigation structure.
+	•	The site footer content.
+	•	The Google Tag Manager or analytics tags if present.
+	•	The CSS file reference: /assets/css/theme.css
+
+COMMIT MESSAGE
+Use the following commit message when pushing changes:
+
+feat(article): v0.4 — The Council of AIs
+
+Adds five new article sections expanding the Council of AIs
+narrative: Why One Model Is Not Enough, The Crude Manual
+Process (fan out / compare / adjudicate / synthesize),
+Co-opetition and What the Platforms Are Now Building,
+Why Each Seat Existed, and What the Council Produced That
+a Single Model Could Not. Approximately 700 words of new prose.
+
+Updates meta descriptions (primary, OG, Twitter), site banner,
+article eyebrow, subtitle, date (April → May 2026), read time
+(18 → 21 min), protoform notice, version history table,
+polling schedule table, sidebar navigation, and Council-assisted
+scoring lane status text.
+
+Resolves forward references to v0.4 as coming. Points forward
+to v0.5 for Council-assisted scoring and member interviews.
+
+
+ESCALATION
+If any pre-flight check fails, or if any FIND string does not
+produce an exact match in the file, stop work and report the
+specific check number and the actual string found at that
+location. Do not attempt to fuzzy-match or approximate.
+Exact string matching is required throughout this directive.
+If the file has been modified since this directive was prepared
+and the current line count differs significantly from 2,699 lines,
+report the actual line count before proceeding.
+
+End of directive. 16 changes. 23 post-execution verification
+checks. All changes confined to a single file.
