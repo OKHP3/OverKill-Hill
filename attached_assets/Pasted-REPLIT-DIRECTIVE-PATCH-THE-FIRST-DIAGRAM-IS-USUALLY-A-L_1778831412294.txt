@@ -1,0 +1,360 @@
+REPLIT DIRECTIVE — PATCH “THE FIRST DIAGRAM IS USUALLY A LIAR” FOR v0.3.3 TIE-OFF STATE
+
+You are updating this specific page and its source so that the live article, the GitHub source, and the Replit preview all reflect the current post-series state after the full v0.3.x cycle has run:
+
+Live page:
+https://overkillhill.com/writings/first-diagram-is-a-liar/
+
+GitHub source:
+https://github.com/OKHP3/OverKill-Hill/blob/main/writings/first-diagram-is-a-liar/index.html
+
+Replit preview target:
+https://8d538331-be4e-4d59-9e80-5e0d128e06ce-00-1u8emebadtd8j.picard.replit.dev/writings/first-diagram-is-a-liar/
+
+This is not a redesign. This is a status-alignment and narrative-accuracy patch.
+
+The page is already strong. The problem now is that parts of it still read like the polls are live or like the full three-lane scoring reveal is imminent. That is no longer true.
+
+The page needs to move from:
+- v0.3 launch mode
+to:
+- v0.3.3 tie-off mode
+
+The new truth is:
+- the deck is out
+- all four polls ran
+- the field is built
+- the audience lane came back thin
+- the poll mechanic under-converted
+- the architect lane still holds
+- the Council layer is intentionally deferred until v0.4 because the audience has not yet been properly introduced to the Council of AIs
+
+==================================================
+PRIMARY OBJECTIVE
+==================================================
+
+Update the article page so it no longer implies:
+- the polls are open
+- the scoring bracket is still actively running
+- the full three-lane scoring comparison is the next immediate reveal
+
+Instead, the page should clearly communicate:
+- v0.3.3 tie-off / recap state
+- the poll results and funnel findings
+- that this was a funnel problem, not a reach problem
+- that the field itself remains the durable output
+- that v0.4 is next, and v0.4 introduces the Council before any Council scoring reveal
+
+==================================================
+DO THIS FIRST
+==================================================
+
+Before making edits:
+1. Inspect the live page
+2. Inspect the Replit preview
+3. Inspect the source file in the repo
+4. Find every place where the page still uses “polls are open” or similar active-phase language
+5. Find every place where the page still implies full audience + architect + Council scoring comparison is imminent
+6. Find the hero, banner, metadata, version/changelog, schedule, and any tie-off-related sections
+
+Do not guess. Review the actual page structure and patch surgically.
+
+==================================================
+CRITICAL CONTENT CHANGES
+==================================================
+
+1. UPDATE BANNER / SPECIALS / ACTIVE PHASE LANGUAGE
+
+Any site-specials, hero, status badge, or banner language that currently implies the polls are active must be updated.
+
+Replace language like:
+- “The polls are open”
+- “The scoring bracket is public and running”
+- “The polls are live”
+- “Vote now”
+- “The polls are next”
+
+With language more like:
+- “The diagrams are in. The field is built. The recap is live.”
+- “v0.3.3 — Tie-Off Live”
+- “The polls ran. The field held. The vote did not scale.”
+- “The deck is live. The field is public. The recap is now part of the article.”
+
+Preferred short banner copy:
+“The diagrams are in. The field is built. The recap is live. →”
+
+If there is a short promo line, keep it punchy but sentence-based, not slogan clutter.
+
+2. UPDATE META DESCRIPTION / OG / TWITTER DESCRIPTION
+
+The metadata likely still says some version of:
+“the deck is live, the polls are open, and the scoring bracket is public”
+
+That must be updated.
+
+New preferred meta description:
+“v0.3.3 — Tie-Off: The deck ran, the polls closed, and the field held. The First Diagram Is Usually a Liar now includes the poll recap, funnel findings, and the bridge to v0.4.”
+
+New preferred OG/Twitter description:
+“v0.3.3 tie-off: the field got attention, the vote did not scale, and the next phase explains why the Council exists at all.”
+
+Do not overstuff keywords.
+
+3. ADD A NEW SECTION NEAR THE TOP OF THE ARTICLE
+
+Add a new section near the top of the article, after the v0.3 framing and before the deeper body if possible.
+
+Section title:
+v0.3.3 — What the Polls Were Actually For
+
+This section should function as the recap/tie-off and should reflect the actual post-series outcome.
+
+Use copy close to this:
+
+---
+v0.3.3 — What the Polls Were Actually For
+
+v0.3 is complete. The deck is out. The four polls ran. The field is built.
+
+What I learned is more precise than “the polls underperformed.”
+
+The field got attention. The vote did not scale.
+
+Across the four poll posts, the series pulled 1,735 impressions and produced 5 total votes. That is an overall vote-conversion rate of roughly 0.29%.
+
+Comment-1, which carried the field-guide link and deeper context, drew 247 total impressions across the four polls. That means only about 14% of poll-post viewers ever even reached the routing layer.
+
+That is not a reach problem. It is a funnel problem.
+
+The scoring instrument asked too much of a feed-based interaction:
+see poll → open comments → find the field guide → leave LinkedIn → inspect diagrams elsewhere → return → vote
+
+That is a high-friction funnel attached to a low-bandwidth action.
+
+In ROY terms, the Return on Your Words for the poll mechanic was weak.
+
+The audience showed up to look. They did not move far enough down the funnel to adjudicate.
+
+That does not invalidate the work. It clarifies what the work actually is.
+
+The real output of v0.3 is not a crowned winner. It is the field itself: side-by-side artifacts that make visual communication more inspectable, more comparable, and less vibe-based.
+---
+
+Style note:
+Keep this in the OverKill Hill voice. Direct. Systems-minded. Clean. No apology. No self-pity.
+
+4. ADD THE ACTUAL NUMBERS TO THE PAGE
+
+Create a compact visible table or stat block for the real v0.3.x interaction data.
+
+Use exactly these numbers:
+
+V1 Heat A
+- Poll impressions: 602
+- Votes: 2
+- Comment-1 impressions: 78
+
+V1 Heat B
+- Poll impressions: 422
+- Votes: 1
+- Comment-1 impressions: 79
+
+V2 Heat A
+- Poll impressions: 346
+- Votes: 1
+- Comment-1 impressions: 58
+
+V2 Heat B
+- Poll impressions: 365
+- Votes: 1
+- Comment-1 impressions: 32
+
+Totals:
+- Poll impressions: 1,735
+- Votes: 5
+- Comment-1 impressions: 247
+
+Derived indicators:
+- Vote conversion: ~0.29%
+- Comment-1 reach vs poll impressions: ~14.2%
+
+If the page design supports a proper table, use a table.
+If not, use card blocks or a clean stat list.
+Do not make it ugly.
+
+5. UPDATE THE INTERPRETATION OF THE SCORING MODEL
+
+The page should no longer imply that all three scoring lanes are being fully revealed right now.
+
+The correct narrative now is:
+
+- audience lane = thin / low-confidence
+- architect lane = intact
+- Council lane = intentionally deferred until v0.4 because the audience has not yet been properly introduced to the Council
+
+Use wording close to this:
+
+“The audience lane came back thin. The architect lane still holds. The deeper Council layer comes next, because before I show how the Council scored the work, I need to show why I built a Council at all.”
+
+Important:
+Do not reveal Council self-scoring.
+Do not surface Council judgment.
+Do not force v0.3.3 to carry the Council reveal.
+That belongs to v0.4 and later.
+
+6. UPDATE ANY SCHEDULE / TIMELINE / VERSION HISTORY THAT TREATS v0.3.3 AS FUTURE
+
+Find any schedule, roadmap, or changelog entry that still frames v0.3.3 as upcoming.
+
+Update it to show that:
+- v0.3 deck launched
+- v0.3.1.x polls ran
+- v0.3.2 bridge post happened
+- v0.3.3 is now the tie-off / recap
+- v0.4 is next
+
+If a schedule table exists, revise the final row to something like:
+“v0.3.3 — Tie-Off / Poll Recap — complete”
+
+And add a next-step row or note:
+“v0.4 — The Council of AIs: origin story and rationale”
+
+7. PRESERVE THE FIELD GUIDE AND ASSET LINKS
+
+Do not remove:
+- deck links
+- Mermaid links
+- heat guide links
+- prompt section
+- diagram galleries
+- sidebars
+- artifact repository links
+
+These are still useful and part of the durable field.
+
+The purpose of this patch is not to remove the experiment. It is to describe it accurately now that the active polling phase is over.
+
+8. KEEP THE ARCHITECTURAL WINNER LOGIC LIGHT
+
+If the page already names architect-lane top reads or round winners, that is acceptable, but do not over-expand it here.
+
+Do not add a giant adjudication essay to the page.
+Do not dump the full winner logic into v0.3.3.
+Keep the recap focused on:
+- the funnel finding
+- the field as durable output
+- the sequence into v0.4
+
+If existing round-top-performer content is already there and consistent, leave it unless it directly conflicts with the new sequencing.
+
+9. UPDATE CTA LANGUAGE
+
+Any CTA that currently says:
+- vote now
+- polls are open
+- score them now
+
+should be changed.
+
+Preferred CTA now:
+- “Pick one diagram that communicated best and tell me why.”
+- “If you only do one thing, inspect the field and leave one sentence on why one diagram worked.”
+- “Reasons compound. Votes don’t.”
+
+This is important because comments now produce more useful signal than an expired poll mechanic.
+
+10. ADD A CLEAR BRIDGE INTO v0.4
+
+End the tie-off area with a clean bridge to the next phase.
+
+Preferred direction:
+“Next comes v0.4, which is the story behind the story: why I used a Council at all, why disagreement between models is useful, and why one AI is rarely enough if the goal is better thinking.”
+
+This is essential.
+Do not skip it.
+
+==================================================
+HTML / STRUCTURE REQUIREMENTS
+==================================================
+
+- Preserve the existing design language, typography, spacing, and article structure
+- Do not redesign the page
+- Do not break navigation
+- Do not break anchors or heat-guide links
+- Do not remove current deck or field-guide assets
+- Keep the page performant
+- Keep markup clean
+- Fix any invalid nesting if found while editing
+- Use semantic headings
+- Maintain mobile readability
+
+If you add a new recap section, give it a stable anchor id, for example:
+id="v03-3-tie-off"
+
+If the field guide already has a stable anchor, preserve it.
+
+==================================================
+SPECIFIC COPY DIRECTION
+==================================================
+
+Use the following tone:
+- sharp
+- honest
+- analytical
+- not apologetic
+- not salesy
+- sentence-based and paragraph-based
+- no em-dashes
+- no gimmick copy
+- no overexplaining
+
+Avoid:
+- “unfortunately”
+- “sadly”
+- “despite low engagement”
+- “help me decide”
+- “please vote”
+- “winner announcement”
+- “Council scoring reveal” in v0.3.3
+
+This is not a postmortem. It is an architectural readout.
+
+==================================================
+ACCEPTANCE CRITERIA
+==================================================
+
+The patch is complete only if all of the following are true:
+
+1. The page no longer says or implies that the polls are open
+2. Metadata no longer says the polls are open
+3. A new v0.3.3 tie-off section exists on the page
+4. The actual poll and Comment-1 numbers are present
+5. The page explicitly states this was a funnel problem, not a reach problem
+6. The page explicitly states that the audience lane came back thin
+7. The page explicitly preserves the field itself as the durable output
+8. The page does not reveal Council self-scoring
+9. The page explicitly says the Council layer comes next in v0.4
+10. The schedule/changelog no longer treats v0.3.3 as future
+11. The field guide, deck, and diagram resources still work
+12. The page still renders correctly in the Replit preview
+13. The GitHub source file reflects the changes
+14. The live-path version and repo source are aligned
+15. Mobile layout remains clean
+
+==================================================
+REQUIRED OUTPUT AFTER YOU PATCH
+==================================================
+
+After making the updates, report back with:
+
+1. The exact sections you changed
+2. The exact old phrases you replaced
+3. The new recap/tie-off section heading and anchor id
+4. Whether metadata was updated
+5. Whether schedule/changelog was updated
+6. Whether any existing anchors or sidebars were adjusted
+7. Whether any HTML cleanup was performed
+8. Confirmation that the Replit preview matches the source
+9. Any remaining recommended improvements that should wait for v0.4
+
+Do not stop at analysis. Make the edits.
