@@ -1,0 +1,108 @@
+Let me read the full homepage before writing anything.​​​​​​​​​​​​​​​​
+
+Good. I have everything. Two files, three issues. Here’s the directive.
+
+Update two files in the OKHP3/OverKill-Hill repository.
+
+File 1: /index.html (homepage)
+File 2: /writings/first-diagram-is-a-liar/index.html (article page)
+
+Make every change listed below using exact find-and-replace. Do not 
+modify any markup, CSS, layout, links, or content not explicitly listed.
+
+---
+
+FILE 1: /index.html
+
+CHANGE 1 — Homepage banner (line 160)
+
+Find:
+          v0.3 Visual Edition: The First Diagram Is Usually a Liar →
+
+Replace with:
+          v0.3.3 — The First Diagram Is Usually a Liar: Series tied off →
+
+Keep the existing href and all surrounding markup unchanged.
+
+---
+
+CHANGE 2 — Fresh from the Forge card body (line 247)
+
+Find:
+            v0.3 — The Visual Edition: the Etch-AI-Sketch deck is live 
+(18 slides, square and wide), the polls are open, and the scoring 
+bracket is public. Audience, architect, and Council scores will be 
+compared in the v0.3.x debrief.
+
+Replace with:
+            v0.3.3 — The scoring debrief is live. The polls ran 
+April 22–30 and closed with 1,735 impressions and 5 votes — a funnel 
+problem, not a reach problem. The architect lane delivered its verdict. 
+The Council speaks in v0.5, after v0.4 introduces them.
+
+---
+
+FILE 2: /writings/first-diagram-is-a-liar/index.html
+
+CHANGE 3 — Remove Notion link from LinkedIn Post v0.3.3 artifact card (line 2292)
+
+Find:
+                  <p class="small-note">Tie-Off post. Funnel diagnosis, 
+architect lane results, and bridge to v0.4. <a href="https://www.notion.so/overkillhill/LinkedIn-Post-v0-3-3-Tie-Off-What-the-Polls-Are-Actually-For-84dc68e7237a479fb6da07e931a2de4a" 
+target="_blank" rel="noopener">Notion source &#8599;</a></p>
+
+Replace with:
+                  <p class="small-note">Tie-Off post. Funnel diagnosis, 
+architect lane results, and bridge to v0.4.</p>
+
+---
+
+CHANGE 4 — Remove Notion link from LinkedIn Comment v0.3.3 artifact card (line 2323)
+
+Find:
+                  <p class="small-note">First comment on the v0.3.3 post. 
+Funnel summary, redirect CTA, and v0.4 preview. <a href="https://www.notion.so/overkillhill/LinkedIn-Comment-1-v0-3-3-Tie-Off-361812e0ced481879ab8e9acef822a62" 
+target="_blank" rel="noopener">Notion source &#8599;</a></p>
+
+Replace with:
+                  <p class="small-note">First comment on the v0.3.3 post. 
+Funnel summary, redirect CTA, and v0.4 preview.</p>
+
+---
+
+PRE-PUSH VERIFICATION
+
+Before committing, verify in the Replit dev preview:
+https://8d538331-be4e-4d59-9e80-5e0d128e06ce-00-1u8emebadtd8j.picard.replit.dev/
+
+Homepage checks:
+- [ ] Banner reads: "v0.3.3 — The First Diagram Is Usually a Liar: Series tied off →"
+- [ ] Fresh from the Forge card says "polls ran April 22–30 and closed" — no "polls are open"
+- [ ] No "scoring bracket is public" language visible
+
+Article page checks:
+https://8d538331-be4e-4d59-9e80-5e0d128e06ce-00-1u8emebadtd8j.picard.replit.dev/writings/first-diagram-is-a-liar/
+
+- [ ] LinkedIn Post v0.3.3 artifact card: description text only, no link
+- [ ] LinkedIn Comment v0.3.3 artifact card: description text only, no link
+- [ ] Zero notion.so URLs anywhere on the page (run a page search for "notion.so" — must return zero results)
+
+Only commit and push to GitHub after both pages pass all checks.
+
+---
+
+ACCEPTANCE CRITERIA — POST-DEPLOYMENT
+
+- [ ] Homepage banner updated in live site and repo
+- [ ] Fresh from the Forge card updated in live site and repo
+- [ ] Zero notion.so links in article page
+- [ ] Zero notion.so links in homepage
+- [ ] GitHub Pages build completes without errors
+- [ ] overkillhill.com and overkillhill.com/writings/first-diagram-is-a-liar/ confirmed live
+
+POST-DEPLOYMENT REPORT:
+1. Confirm all four changes applied
+2. Confirm notion.so search on both pages returns zero results
+3. Confirm GitHub Pages build status
+4. Flag any other external links to private or internal tooling found during 
+   implementation not covered by this directive
