@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 53,
+  "count": 58,
   "entries": [
     {
       "url": "/",
@@ -104,7 +104,7 @@
       "url": "/writings/first-diagram-is-a-liar/",
       "title": "The First Diagram Is Usually a Liar — v0.4 Council of AIs | OverKill Hill P³™",
       "category": "Article",
-      "description": "v0.4 introduces the Council of AIs methodology behind The First Diagram Is Usually a Liar: why multiple models, disagreement, co-opetition, and human synthesis produce better structural thinking than one &#8220;best&#8221; AI answer.",
+      "description": "v0.4 is live. The First Diagram Is Usually a Liar now covers why a Council of AIs produces better structure than any single model, the co-opetition dynamic that makes it work, and the crude manual process behind the method. ROY, Mermaid, and the story behind the story.",
       "headings": [
         "From Drawing to Modeling",
         "ROY: Return on Your Words",
@@ -138,6 +138,11 @@
         "V1 Reads",
         "V2 Reads",
         "Same brief. Different strengths. Better synthesis.",
+        "Why One Model Is Not Enough",
+        "The Crude Manual Process",
+        "Co-opetition and What the Platforms Are Now Building",
+        "Why Each Seat Existed",
+        "What the Council Produced That a Single Model Could Not",
         "Velocity, iteration, and vibe over premature prompt perfection",
         "The brief was consistent. The conditions were not.",
         "Prompt 01 — The Seed",
@@ -172,7 +177,7 @@
         "Bring me the problem where one answer is not enough",
         "Version History"
       ],
-      "body": "Skip to main content OverKill Hill P³™ › Writings › The First Diagram Is Usually a Liar Precision · Protocol · Promptcraft | ROY · Mermaid · Council of AIs | Article v0.4 — Council Origin Arc The First Diagram Is Usually a Liar A picture is not automatically worth 1,000 words. The real metric is ROY — Return on Your Words : the clarity, compression, and shared understanding extracted per word invested. This is the v0.3 cut — what happened when one LinkedIn post became a Mermaid competition, a Council of AIs, and a better theory of visual communication. Jamie Hill OverKill Hill P³™ April 2026 ~18 min read 📋 v0.4 — The Council Origin Arc v0.3 showed the diagrams."
+      "body": "Skip to main content OverKill Hill P³™ › Writings › The First Diagram Is Usually a Liar Precision · Protocol · Promptcraft | ROY · Mermaid · Council of AIs | Article v0.4 — The Council of AIs The First Diagram Is Usually a Liar A picture is not automatically worth 1,000 words. The real metric is ROY — Return on Your Words : the clarity, compression, and shared understanding extracted per word invested. Now at v0.4 — what happened when one LinkedIn post became a Mermaid competition, a Council of AIs, a public scoring experiment, and a better theory of visual communication. The story behind the method is now in the article."
     },
     {
       "url": "/writings/first-diagram-is-a-liar/#artifacts",
@@ -190,6 +195,15 @@
       "description": "People do not fail to read because they are lazy. They fail to read because their capacity to absorb meaning is finite and the workday is a relentless attention shredder.",
       "headings": [],
       "body": "People do not fail to read because they are lazy. They fail to read because their capacity to absorb meaning is finite and the workday is a relentless attention shredder. Every meeting, every notification, every summary that is really just a longer version of the thing it was supposed to replace &#8212; they all draw from the same account. By the time someone reaches your explanation, they may already be overdrawn. Text handles nuance and precision well. What it handles poorly is flow. A paragraph can describe a process sequentially, but the reader has to do all the structural work themselves &#8212; building the mental model one sentence at a time, inferring the branches, guessing where the loops are, deciding which steps are parallel and which are dependent.",
+      "parent": "/writings/first-diagram-is-a-liar/"
+    },
+    {
+      "url": "/writings/first-diagram-is-a-liar/#co-opetition",
+      "title": "Co-opetition and What the Platforms Are Now Building — The First Diagram Is Usually a Liar — v0.4 Council of AIs | OverKill Hill P³™",
+      "category": "Article Section",
+      "description": "Co-opetition and What the Platforms Are Now Building There is a term for the dynamic I was running: co-opetition. Competitors collaborating and competing simultaneously, depending on context.",
+      "headings": [],
+      "body": "Co-opetition and What the Platforms Are Now Building There is a term for the dynamic I was running: co-opetition. Competitors collaborating and competing simultaneously, depending on context. Each model was working against the others on the same brief and contributing to a synthesis none of them could have reached independently. The council was not a relay race where one model handed off to the next. It was a parallel competition with a shared goal: find the structure that no single voice could see on its own. That dynamic has aged interestingly in the months since this experiment ran. What I was doing manually, several platforms have started building natively.",
       "parent": "/writings/first-diagram-is-a-liar/"
     },
     {
@@ -217,6 +231,33 @@
       "description": "v0.4 &#8212; Why I Built a Council of AIs By the time I had a working draft of the first diagram, I had already run the same brief through several AI platforms. That was not the original plan. It started as impatience.",
       "headings": [],
       "body": "v0.4 &#8212; Why I Built a Council of AIs By the time I had a working draft of the first diagram, I had already run the same brief through several AI platforms. That was not the original plan. It started as impatience. I asked one model for a Mermaid diagram of the ideation process behind a LinkedIn post. It came back too clean. Too linear. Too confident. It looked like a happy path, and I have spent enough time around real processes to know that happy paths are a form of fiction. So I asked another model. Then another. At some point I stopped pretending this was troubleshooting and admitted it was a method. What I was running was a Council. Not counsel, though that is what it eventually produced. A council is the body. Counsel is the output.",
+      "parent": "/writings/first-diagram-is-a-liar/"
+    },
+    {
+      "url": "/writings/first-diagram-is-a-liar/#council-seats",
+      "title": "Why Each Seat Existed — The First Diagram Is Usually a Liar — v0.4 Council of AIs | OverKill Hill P³™",
+      "category": "Article Section",
+      "description": "Why Each Seat Existed The council was not random. Each member was there because its instincts differed from the others in ways that were meaningful rather than arbitrary.",
+      "headings": [],
+      "body": "Why Each Seat Existed The council was not random. Each member was there because its instincts differed from the others in ways that were meaningful rather than arbitrary. ChatGPT was the workbench &#8212; most configured, most context-loaded, fastest at velocity ideation. Claude was the structural analyst, precise and willing to push back on framing it disagreed with. Perplexity was the synthesizer, grounded, compact, and externally sourced. Copilot was the integrationist, Microsoft-native by design, thinking in terms of tools already in the workflow. Gemini was the skeptic, most likely to reduce a diagram to its essential shape &#8212; the question always being whether that simplicity was insight or just restraint. Notion was the documentarian. Not the loudest seat.",
+      "parent": "/writings/first-diagram-is-a-liar/"
+    },
+    {
+      "url": "/writings/first-diagram-is-a-liar/#council-synthesis",
+      "title": "What the Council Produced That a Single Model Could Not — The First Diagram Is Usually a Liar — v0.4 Council of AIs | OverKill Hill P³™",
+      "category": "Article Section",
+      "description": "What the Council Produced That a Single Model Could Not No single council submission was better than the synthesized result. Not one. The synthesis borrowed structure from Copilot, framing from Claude, loop logic from…",
+      "headings": [],
+      "body": "What the Council Produced That a Single Model Could Not No single council submission was better than the synthesized result. Not one. The synthesis borrowed structure from Copilot, framing from Claude, loop logic from ChatGPT, business clarity from Perplexity, and reduction instincts from Gemini. Notion held the record of all of it. The winning diagram did not exist in any single output. It emerged from the process of comparing all of them. That is the argument for councils as a method, not just as a curiosity. If you are working on a problem where the shape of the answer matters as much as the answer itself &#8212; architecture, process design, communication strategy, anything where shape determines clarity &#8212; a council run will surface something a single-model run will not.",
+      "parent": "/writings/first-diagram-is-a-liar/"
+    },
+    {
+      "url": "/writings/first-diagram-is-a-liar/#crude-manual-process",
+      "title": "The Crude Manual Process — The First Diagram Is Usually a Liar — v0.4 Council of AIs | OverKill Hill P³™",
+      "category": "Article Section",
+      "description": "The Crude Manual Process What I was doing early in this experiment was not elegant. Here is what it actually looked like, because the honest version is more useful than the polished one. I would write a brief.",
+      "headings": [],
+      "body": "The Crude Manual Process What I was doing early in this experiment was not elegant. Here is what it actually looked like, because the honest version is more useful than the polished one. I would write a brief. The same brief, as closely as I could manage. I would run it through ChatGPT, then Claude, then Copilot, then Perplexity, then Gemini, then Notion. I would collect the outputs in a running document, read all six side by side, and look specifically for where they diverged. Then I would pick the strongest elements from each &#8212; a framing from one, a loop structure from another, a label from a third &#8212; and synthesize them into something I could not have reached alone.",
       "parent": "/writings/first-diagram-is-a-liar/"
     },
     {
@@ -288,7 +329,7 @@
       "category": "Article Section",
       "description": "Polling Windows Date Version Public Label Artifact Purpose 04/21/2026 v0.3 Visual Edition Deck / document carousel Launch the visual field 04/22/2026 v0.3.1.1 V1 Heat A Poll Begin first-pass audience scoring 04/23/2026…",
       "headings": [],
-      "body": "Polling Windows Date Version Public Label Artifact Purpose 04/21/2026 v0.3 Visual Edition Deck / document carousel Launch the visual field 04/22/2026 v0.3.1.1 V1 Heat A Poll Begin first-pass audience scoring 04/23/2026 v0.3.1.2 V1 Heat B Poll Complete V1 voting 04/28/2026 v0.3.2 V2 Bridge Post Explain revision as adaptation 04/29/2026 v0.3.2.1 V2 Heat A Poll Begin revised-output scoring 04/30/2026 v0.3.2.2 V2 Heat B Poll Complete V2 voting 05/2026 v0.3.3 Scoring Debrief Post ✓ Audience lane: 5 votes / 1,735 impressions (funnel friction). Architect lane: Copilot V1 Round 1, Claude V2 Round 2. Council lane: held for v0.5. 05/2026 v0.4 The Council Origin Arc Article + Post &#10003; Explains why the Council exists, how co-opetition works, and why model disagreement is useful signal.",
+      "body": "Polling Windows Date Version Public Label Artifact Purpose 04/21/2026 v0.3 Visual Edition Deck / document carousel Launch the visual field 04/22/2026 v0.3.1.1 V1 Heat A Poll Begin first-pass audience scoring 04/23/2026 v0.3.1.2 V1 Heat B Poll Complete V1 voting 04/28/2026 v0.3.2 V2 Bridge Post Explain revision as adaptation 04/29/2026 v0.3.2.1 V2 Heat A Poll Begin revised-output scoring 04/30/2026 v0.3.2.2 V2 Heat B Poll Complete V2 voting 05/2026 v0.3.3 Scoring Debrief Post ✓ Audience lane: 5 votes / 1,735 impressions (funnel friction). Architect lane: Copilot V1 Round 1, Claude V2 Round 2. Council lane: held for v0.5.",
       "parent": "/writings/first-diagram-is-a-liar/"
     },
     {
@@ -385,9 +426,9 @@
       "url": "/writings/first-diagram-is-a-liar/#version-history",
       "title": "Version History — The First Diagram Is Usually a Liar — v0.4 Council of AIs | OverKill Hill P³™",
       "category": "Article Section",
-      "description": "Version History v0.4 &#8212; The Council Origin Arc Date: May 2026 Changes: Added Council of AIs methodology section. Clarified that v0.3 was the visual evidence layer and v0.4 is the method layer.",
+      "description": "Version History v0.4 &#8212; The Council of AIs Date: May 2026 Changes: Added Council of AIs methodology section. Clarified that v0.3 was the visual evidence layer and v0.4 is the method layer.",
       "headings": [],
-      "body": "Version History v0.4 &#8212; The Council Origin Arc Date: May 2026 Changes: Added Council of AIs methodology section. Clarified that v0.3 was the visual evidence layer and v0.4 is the method layer. Introduced co-opetition as the pattern: independent model competition followed by human-led synthesis. Explained the manual Council loop: fan out, compare, adjudicate, synthesize. Connected the manual workflow to emerging premium multi-model comparison tools without overstating equivalence. Added Council membership roles and what each model contributed. Reaffirmed that Council-assisted scoring and model interviews are reserved for v0.5. Added v0.4 LinkedIn post and comment copy.",
+      "body": "Version History v0.4 &#8212; The Council of AIs Date: May 2026 Changes: Added Council of AIs methodology section. Clarified that v0.3 was the visual evidence layer and v0.4 is the method layer. Introduced co-opetition as the pattern: independent model competition followed by human-led synthesis. Explained the manual Council loop: fan out, compare, adjudicate, synthesize. Connected the manual workflow to emerging premium multi-model comparison tools without overstating equivalence. Added Council membership roles and what each model contributed. Reaffirmed that Council-assisted scoring and model interviews are reserved for v0.5. Added v0.4 LinkedIn post and comment copy.",
       "parent": "/writings/first-diagram-is-a-liar/"
     },
     {
@@ -397,6 +438,15 @@
       "description": "Mermaid is not AI. That sentence needs to land before anything else in this article makes sense, because if you carry the wrong assumption into the council comparison, the entire experiment looks like something it…",
       "headings": [],
       "body": "Mermaid is not AI. That sentence needs to land before anything else in this article makes sense, because if you carry the wrong assumption into the council comparison, the entire experiment looks like something it isn’t. A Mermaid diagram is text. Structured syntax. A specific grammar that a JavaScript library reads and renders into a visual diagram inside a browser. When I say I put AI platforms through the same diagramming exercise, I’m not talking about image generation. I’m not talking about a model painting a flowchart. I’m talking about plain text that follows rules, and the diagram that appears on screen is what that text decided to be. The closest analogy is an SVG file. An SVG isn’t a photograph. It isn’t a rendered image.",
+      "parent": "/writings/first-diagram-is-a-liar/"
+    },
+    {
+      "url": "/writings/first-diagram-is-a-liar/#why-one-model",
+      "title": "Why One Model Is Not Enough — The First Diagram Is Usually a Liar — v0.4 Council of AIs | OverKill Hill P³™",
+      "category": "Article Section",
+      "description": "Why One Model Is Not Enough There is a reasonable argument that you should find the best model for a given task and stop there. Efficient. Practical. For most tasks, correct. Diagramming is not one of those tasks.",
+      "headings": [],
+      "body": "Why One Model Is Not Enough There is a reasonable argument that you should find the best model for a given task and stop there. Efficient. Practical. For most tasks, correct. Diagramming is not one of those tasks. When a single model diagrams a process, it makes hundreds of invisible decisions: what to include, what to compress, what to call a decision point, and what to treat as a straight-through path. Those decisions stay invisible until a different model makes different ones. The second model introduces a feedback loop the first one skipped. The third surfaces an ambiguous handoff neither of the others named. The fourth invents an actor you forgot to include, and turns out to be right. That is not a failure mode. That is the mechanism.",
       "parent": "/writings/first-diagram-is-a-liar/"
     },
     {
