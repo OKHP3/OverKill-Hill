@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 51,
+  "count": 52,
   "entries": [
     {
       "url": "/",
@@ -104,7 +104,7 @@
       "url": "/writings/first-diagram-is-a-liar/",
       "title": "The First Diagram Is Usually a Liar | OverKill Hill P³™",
       "category": "Article",
-      "description": "v0.3 — The Visual Edition: The deck is live, the polls are open, and the scoring bracket is public. The First Diagram Is Usually a Liar covers ROY, Mermaid.ai, and what seven AI models revealed about the real cost of visual communication.",
+      "description": "v0.3.3 — Tie-Off: The deck ran, the polls closed, and the field held. The First Diagram Is Usually a Liar now includes the poll recap, funnel findings, and the bridge to v0.4.",
       "headings": [
         "From Drawing to Modeling",
         "ROY: Return on Your Words",
@@ -114,6 +114,7 @@
         "The One That Should Have Won",
         "Ideation to Evaluation: You Judge",
         "Diagramming Shootout Deck",
+        "v0.3.3 — What the Polls Were Actually For",
         "The Council of AIs",
         "Round 1 — The Clean Lie",
         "Round 2 — Honestly Messy",
@@ -161,7 +162,7 @@
         "Bring me your lowest-ROY artifact",
         "Version History"
       ],
-      "body": "Skip to main content OverKill Hill P³™ › Writings › The First Diagram Is Usually a Liar Precision · Protocol · Promptcraft | ROY · Mermaid · Council of AIs | Article v0.3 — Visual Edition The First Diagram Is Usually a Liar A picture is not automatically worth 1,000 words. The real metric is ROY — Return on Your Words : the clarity, compression, and shared understanding extracted per word invested. This is the v0.3 cut — what happened when one LinkedIn post became a Mermaid competition, a Council of AIs, and a better theory of visual communication."
+      "body": "Skip to main content OverKill Hill P³™ › Writings › The First Diagram Is Usually a Liar Precision · Protocol · Promptcraft | ROY · Mermaid · Council of AIs | Article v0.3.3 — Tie-Off The First Diagram Is Usually a Liar A picture is not automatically worth 1,000 words. The real metric is ROY — Return on Your Words : the clarity, compression, and shared understanding extracted per word invested. This is the v0.3 cut — what happened when one LinkedIn post became a Mermaid competition, a Council of AIs, and a better theory of visual communication. Jamie Hill OverKill Hill P³™ April 2026 ~18 min read 📋 v0.3.3 — Tie-Off The deck ran. The four polls closed. The field held."
     },
     {
       "url": "/writings/first-diagram-is-a-liar/#artifacts",
@@ -185,9 +186,9 @@
       "url": "/writings/first-diagram-is-a-liar/#contender-pre-reads",
       "title": "Contender Pre-Reads — The First Diagram Is Usually a Liar | OverKill Hill P³™",
       "category": "Article Section",
-      "description": "Contender Pre-Reads The deck includes my first-pass read on each platform. These are not final audience results. They are the starting layer before public polling and Council-assisted rubric review.",
+      "description": "Contender Pre-Reads The deck includes my first-pass read on each platform. These are architect-lane reads, independent of the audience poll results.",
       "headings": [],
-      "body": "Contender Pre-Reads The deck includes my first-pass read on each platform. These are not final audience results. They are the starting layer before public polling and Council-assisted rubric review. V1 Reads Copilot V1 &#8212; Presentation-ready system thinking; clear phases and deliverable feel. Claude V1 &#8212; Elegant storyteller; strong framing, maybe too polished. Perplexity V1 &#8212; Pragmatic, grounded, business-first utility. ChatGPT V1 &#8212; Clarity, hierarchy, strong loop logic, a little swagger. Gemini V1 &#8212; Restrained synthesis; simplifies without flattening. Notion V1 &#8212; Quiet, minimalist, useful; shows the shape without theater. Replit V1 &#8212; Builder&#8217;s eye; asks whether it ships, renders, and survives the IDE.",
+      "body": "Contender Pre-Reads The deck includes my first-pass read on each platform. These are architect-lane reads, independent of the audience poll results. V1 Reads Copilot V1 &#8212; Presentation-ready system thinking; clear phases and deliverable feel. Claude V1 &#8212; Elegant storyteller; strong framing, maybe too polished. Perplexity V1 &#8212; Pragmatic, grounded, business-first utility. ChatGPT V1 &#8212; Clarity, hierarchy, strong loop logic, a little swagger. Gemini V1 &#8212; Restrained synthesis; simplifies without flattening. Notion V1 &#8212; Quiet, minimalist, useful; shows the shape without theater. Replit V1 &#8212; Builder&#8217;s eye; asks whether it ships, renders, and survives the IDE. V2 Reads Copilot V2 &#8212; Boardroom-ready if flair does not damage structure.",
       "parent": "/writings/first-diagram-is-a-liar/"
     },
     {
@@ -212,9 +213,9 @@
       "url": "/writings/first-diagram-is-a-liar/#field-guide",
       "title": "Competitor Close-ups — The First Diagram Is Usually a Liar | OverKill Hill P³™",
       "category": "Article Section",
-      "description": "Competitor Close-ups The LinkedIn deck compresses the visual field. These guides give each poll heat its own page with higher-resolution diagram links and context for each competitor before you vote.",
+      "description": "Competitor Close-ups The LinkedIn deck compresses the visual field. These guides give each poll heat its own page with higher-resolution diagram links and context for each competitor and the full field.",
       "headings": [],
-      "body": "Competitor Close-ups The LinkedIn deck compresses the visual field. These guides give each poll heat its own page with higher-resolution diagram links and context for each competitor before you vote. V1 Heat A First-pass diagrams: ChatGPT, Claude, Gemini, Perplexity View V1 Heat A field guide &#8594; V1 Heat B First-pass diagrams: Copilot, Notion, Replit View V1 Heat B field guide &#8594; V2 Heat A Revised diagrams: ChatGPT, Copilot, Gemini, Notion View V2 Heat A field guide &#8594; V2 Heat B Revised diagrams: ChatGPT Pro, Claude, Replit, Perplexity View V2 Heat B field guide &#8594;",
+      "body": "Competitor Close-ups The LinkedIn deck compresses the visual field. These guides give each poll heat its own page with higher-resolution diagram links and context for each competitor and the full field. V1 Heat A First-pass diagrams: ChatGPT, Claude, Gemini, Perplexity View V1 Heat A field guide &#8594; V1 Heat B First-pass diagrams: Copilot, Notion, Replit View V1 Heat B field guide &#8594; V2 Heat A Revised diagrams: ChatGPT, Copilot, Gemini, Notion View V2 Heat A field guide &#8594; V2 Heat B Revised diagrams: ChatGPT Pro, Claude, Replit, Perplexity View V2 Heat B field guide &#8594;",
       "parent": "/writings/first-diagram-is-a-liar/"
     },
     {
@@ -268,7 +269,7 @@
       "category": "Article Section",
       "description": "Polling Windows Date Version Public Label Artifact Purpose 04/21/2026 v0.3 Visual Edition Deck / document carousel Launch the visual field 04/22/2026 v0.3.1.1 V1 Heat A Poll Begin first-pass audience scoring 04/23/2026…",
       "headings": [],
-      "body": "Polling Windows Date Version Public Label Artifact Purpose 04/21/2026 v0.3 Visual Edition Deck / document carousel Launch the visual field 04/22/2026 v0.3.1.1 V1 Heat A Poll Begin first-pass audience scoring 04/23/2026 v0.3.1.2 V1 Heat B Poll Complete V1 voting 04/28/2026 v0.3.2 V2 Bridge Post Explain revision as adaptation 04/29/2026 v0.3.2.1 V2 Heat A Poll Begin revised-output scoring 04/30/2026 v0.3.2.2 V2 Heat B Poll Complete V2 voting After polls close v0.3.3 Scoring Debrief Post Compare audience vs. Jamie vs. Council scoring",
+      "body": "Polling Windows Date Version Public Label Artifact Purpose 04/21/2026 v0.3 Visual Edition Deck / document carousel Launch the visual field 04/22/2026 v0.3.1.1 V1 Heat A Poll Begin first-pass audience scoring 04/23/2026 v0.3.1.2 V1 Heat B Poll Complete V1 voting 04/28/2026 v0.3.2 V2 Bridge Post Explain revision as adaptation 04/29/2026 v0.3.2.1 V2 Heat A Poll Begin revised-output scoring 04/30/2026 v0.3.2.2 V2 Heat B Poll Complete V2 voting 05/2026 v0.3.3 Tie-Off / Poll Recap Post + article update Funnel finding, audience lane assessment, field as durable output — complete Next v0.4 The Council of AIs Post Origin story and rationale: why the Council exists, why disagreement between models is useful",
       "parent": "/writings/first-diagram-is-a-liar/"
     },
     {
@@ -311,18 +312,18 @@
       "url": "/writings/first-diagram-is-a-liar/#scoring-bracket",
       "title": "Scoring Bracket — The First Diagram Is Usually a Liar | OverKill Hill P³™",
       "category": "Article Section",
-      "description": "Scoring Brackets V1 Heat A: ChatGPT, Claude, Gemini, Perplexity V1 Heat B: Copilot, Notion, Replit V2 Heat A: ChatGPT, Copilot, Gemini, Notion V2 Heat B: ChatGPT Pro, Claude, Replit, Perplexity The audience vote will…",
+      "description": "Scoring Brackets V1 Heat A: ChatGPT, Claude, Gemini, Perplexity V1 Heat B: Copilot, Notion, Replit V2 Heat A: ChatGPT, Copilot, Gemini, Notion V2 Heat B: ChatGPT Pro, Claude, Replit, Perplexity The audience vote was not…",
       "headings": [],
-      "body": "Scoring Brackets V1 Heat A: ChatGPT, Claude, Gemini, Perplexity V1 Heat B: Copilot, Notion, Replit V2 Heat A: ChatGPT, Copilot, Gemini, Notion V2 Heat B: ChatGPT Pro, Claude, Replit, Perplexity The audience vote will not be treated as the only answer. It will be treated as one signal. After the polls close, the scoring breakdown will compare three lanes: Audience scoring &#8212; what communicated best to human viewers Architect scoring &#8212; judgment against fidelity, clarity, structure, and usefulness Council-assisted scoring &#8212; model-assisted rubric review across the full field The gap between those scores is probably where the interesting lesson lives.",
+      "body": "Scoring Brackets V1 Heat A: ChatGPT, Claude, Gemini, Perplexity V1 Heat B: Copilot, Notion, Replit V2 Heat A: ChatGPT, Copilot, Gemini, Notion V2 Heat B: ChatGPT Pro, Claude, Replit, Perplexity The audience vote was not treated as the only answer. It was treated as one signal. The polls ran. That signal came back thin. Across the three scoring lanes: Audience scoring &#8212; thin. 1,735 impressions, 5 votes, 0.29% conversion. The field got attention. The vote did not scale. Architect scoring &#8212; intact. Judgment against fidelity, clarity, structure, and usefulness holds. The field is comparable and inspectable. Council-assisted scoring &#8212; deferred to v0.4. The audience has not yet been introduced to the Council of AIs. That context comes before the Council scoring reveal.",
       "parent": "/writings/first-diagram-is-a-liar/"
     },
     {
       "url": "/writings/first-diagram-is-a-liar/#scoring-model",
       "title": "Scoring Model — The First Diagram Is Usually a Liar | OverKill Hill P³™",
       "category": "Article Section",
-      "description": "Scoring Model The final v0.3.x debrief will compare three scoring methodologies: Audience Scoring What communicated best to human viewers across LinkedIn polls.",
+      "description": "Scoring Model — Status The v0.3.x cycle compared three scoring lanes. Here is where each one landed: Audience Scoring Thin. The polls ran across four heats. 1,735 impressions produced 5 votes total.",
       "headings": [],
-      "body": "Scoring Model The final v0.3.x debrief will compare three scoring methodologies: Audience Scoring What communicated best to human viewers across LinkedIn polls. Architect Scoring Evaluated against: First-glance comprehension Semantic fidelity Diagram structure Visual hierarchy Theming discipline Iteration improvement (V1&#8594;V2) Usefulness as thinking artifact Council-Assisted Scoring Each AI evaluated the others&#8217; outputs using the same rubric.",
+      "body": "Scoring Model — Status The v0.3.x cycle compared three scoring lanes. Here is where each one landed: Audience Scoring Thin. The polls ran across four heats. 1,735 impressions produced 5 votes total. The field got attention. The vote did not convert. This was a funnel problem, not a reach problem. Architect Scoring Intact. Evaluated against: First-glance comprehension Semantic fidelity Diagram structure Visual hierarchy Theming discipline Iteration improvement (V1&#8594;V2) Usefulness as thinking artifact The field is comparable and the architect reads hold. Council-Assisted Scoring Deferred to v0.4. Before showing how the Council scored the work, the audience needs to understand why the Council exists. That context is the next piece.",
       "parent": "/writings/first-diagram-is-a-liar/"
     },
     {
@@ -332,6 +333,15 @@
       "description": "A picture can absolutely be worth more than the words that prompted it into existence. Not because the words disappeared. Not because reading stopped mattering.",
       "headings": [],
       "body": "A picture can absolutely be worth more than the words that prompted it into existence. Not because the words disappeared. Not because reading stopped mattering. But because the words were invested in a form that improved assimilation. That is the work I keep circling back to at OverKill&nbsp;Hill&nbsp;P³™ : words → structure → systems → leverage . The tools will keep changing. The interfaces will keep changing. The models will keep changing. The question underneath them is not going away. When is meaning best delivered as words — and when is it better delivered as the visual shape those words can bring into existence? This page is not the last version. It is the first version that has earned its permanence.",
+      "parent": "/writings/first-diagram-is-a-liar/"
+    },
+    {
+      "url": "/writings/first-diagram-is-a-liar/#v03-3-tie-off",
+      "title": "v0.3.3 — What the Polls Were Actually For — The First Diagram Is Usually a Liar | OverKill Hill P³™",
+      "category": "Article Section",
+      "description": "v0.3.3 — What the Polls Were Actually For v0.3 is complete. The deck is out. The four polls ran. The field is built. What I learned is more precise than \"the polls underperformed.\" The field got attention.",
+      "headings": [],
+      "body": "v0.3.3 — What the Polls Were Actually For v0.3 is complete. The deck is out. The four polls ran. The field is built. What I learned is more precise than \"the polls underperformed.\" The field got attention. The vote did not scale. That is not a reach problem. It is a funnel problem. Across the four poll posts, the series pulled 1,735 impressions and produced 5 total votes. That is an overall vote-conversion rate of roughly 0.29%. Comment-1, which carried the field-guide link and deeper context, drew 247 total impressions across the four polls. That means only about 14.2% of poll-post viewers ever even reached the routing layer.",
       "parent": "/writings/first-diagram-is-a-liar/"
     },
     {
