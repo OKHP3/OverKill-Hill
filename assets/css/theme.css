@@ -112,10 +112,26 @@ html[data-theme="light"] body {
 }
 
 /* ===== SCROLL OFFSET (sticky header compensation) ===================== */
-/* Prevents anchor targets from landing beneath the sticky site header + banner */
+/* Prevents anchor targets from landing beneath the sticky site header + banner.
+   On mobile the site-specials banner wraps to multiple lines, making the
+   sticky header significantly taller — override values compensate for that. */
 
 html {
   scroll-padding-top: 8.5rem;
+}
+
+/* Mid-range: banner wraps to ~2 lines */
+@media (max-width: 767px) {
+  html {
+    scroll-padding-top: 10rem;
+  }
+}
+
+/* Mobile: banner wraps to 3+ lines on narrow viewports */
+@media (max-width: 599px) {
+  html {
+    scroll-padding-top: 14rem;
+  }
 }
 
 /* ── Light mode: elements with hardcoded dark backgrounds ──────────────
