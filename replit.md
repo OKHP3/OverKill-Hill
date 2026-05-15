@@ -57,19 +57,25 @@ After running the reorg, copy `assets/css/theme.css` and `assets/js/app.js` to t
 
 Path: `/writings/first-diagram-is-a-liar/`
 
-**Version:** v0.3 — The Visual Edition (2026-04-21)
+**Version:** v0.4 — The Council of AIs (2026-05-15)
 
 ### Article Sections
 - `#visual-edition` — v0.3 Visual Edition overview (deck framing, scoring bracket, what v0.3 adds)
-- `#poll-schedule` — 7-row poll schedule table (Apr 21–after polls close)
+- `#poll-schedule` — 9-row poll schedule table (Apr 21 through v0.4)
 - `#scoring-model` — 3-lane scoring grid (Audience / Architect / Council)
 - `#pivot` — From Drawing to Modeling (intro)
 - `#roy` — ROY: Return on Your Words
 - `#what-mermaid-actually-is` — What a Mermaid diagram actually is
 - `#mermaid-syntax-vs-platform` — Mermaid vs Mermaid.ai distinction
 - `#one-that-should-have-won` — Mermaid.ai premature rendering analysis
+- `#council-origin` — v0.4: Why I Built a Council of AIs (added Task #15)
+- `#council` — Council of AIs (scorecard table + roles)
+- `#why-one-model` — Why One Model Is Not Enough ← NEW in v0.4
+- `#crude-manual-process` — The Crude Manual Process (fan out / compare / adjudicate / synthesize) ← NEW in v0.4
+- `#co-opetition` — Co-opetition and What the Platforms Are Now Building ← NEW in v0.4
+- `#council-seats` — Why Each Seat Existed ← NEW in v0.4
+- `#council-synthesis` — What the Council Produced That a Single Model Could Not ← NEW in v0.4
 - `#round1` — Round 1: Copilot
-- `#council` — Council of AIs
 - `#round2` — Round 2: Claude
 - `#prompts` — Prompts in the Wild
 - `#v1-diagrams` — V1 First-Pass diagram gallery (7 cards, confirmed Mermaid.ai links)
@@ -85,7 +91,7 @@ Path: `/writings/first-diagram-is-a-liar/`
 - `/writings/first-diagram-is-a-liar/v03/v2-heat-a/` — ChatGPT, Copilot, Gemini, Notion (V2)
 - `/writings/first-diagram-is-a-liar/v03/v2-heat-b/` — ChatGPT Pro, Claude, Replit, Perplexity (V2)
 
-All 15 confirmed Mermaid.ai diagram links are real (no placeholders). Poll URLs are TODO placeholders (not yet published on LinkedIn).
+All 15 confirmed Mermaid.ai diagram links are real (no placeholders). Poll URLs are TODO placeholders (not yet published on LinkedIn). v0.4 adds ~700 words of new prose across 5 sections. Search index is at 58 entries.
 
 ### Sidebar Widgets
 1. About This Article (series badge)
@@ -97,8 +103,8 @@ All 15 confirmed Mermaid.ai diagram links are real (no placeholders). Poll URLs 
 
 ## Site-Wide Banner
 All 19 non-article pages + the article page itself have a site-wide "HOT OFF THE FORGE" banner.
-- **Non-article pages (19):** Link to `/writings/first-diagram-is-a-liar/`, text: "v0.3 Visual Edition: The First Diagram Is Usually a Liar →"
-- **Article page:** Links to `#visual-edition`, text: "The diagrams are in. The polls are open. The deck is live. →"
+- **Non-article pages (19):** Link to `/writings/first-diagram-is-a-liar/`, text: "v0.4 is live: The Council of AIs — read it here →" (updated Task #17)
+- **Article page:** Links to `#why-one-model`, text: "v0.4 is live: the story behind the Council of AIs — why disagreement between models is signal, not noise. →"
 
 ## Internal Search Engine
 
@@ -107,7 +113,7 @@ Static, client-side search across the entire site. Consolidated 2026-05-03.
 - `/search/` — dedicated results page (URL-shareable: `/search/?q=foo`). Body class `search-page` activates the JS page initialiser.
 - **All search logic lives in `assets/js/app.js` Section 5** (consolidated from the retired `assets/js/search.js`). Ctrl/Cmd+K or `/` opens overlay; Esc closes; ↑↓ navigate; ↵ follows.
 - **All search CSS lives in `assets/css/theme.css`** under the `SECTION · OKH SEARCH` banner (consolidated from the retired `assets/css/search.css`).
-- `assets/data/search-index.json` — generated index (47 entries as of 2026-05-04). `INDEX_URL` in `app.js` points to `/assets/data/search-index.json`.
+- `assets/data/search-index.json` — generated index (58 entries as of 2026-05-15). `INDEX_URL` in `app.js` points to `/assets/data/search-index.json`.
 - `assets/scripts/build-search-index.py` — Python re-builder. Walks all `*.html`, skips `noindex`, extracts title + description + headings + body excerpt, plus per-section deep links for the FDIAL article. Re-run any time content changes:
   ```
   python3 assets/scripts/build-search-index.py
