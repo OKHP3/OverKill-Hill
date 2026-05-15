@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 58,
+  "count": 48,
   "entries": [
     {
       "url": "/",
@@ -98,7 +98,7 @@
         "The Magnus Saga",
         "Biases as Constants"
       ],
-      "body": "Skip to main content OverKill Hill P³™ Writings from the Hill Essays, articles, and speculative fiction from the forge. Some are arguments. Some are experiments. All of them earned their space. Latest from the Forge Latest from the Forge Featured · v1.0 Live The First Diagram Is Usually a Liar The First Diagram Is Usually a Liar Why the first diagram almost always lies — and what ROY (Return on Your Words) means for visual communication. v0.3.3 Tie-Off: the deck is live, the polls have closed, and the scoring debrief is published. The architect lane delivered: Copilot won Round 1, Claude won Round 2. v0.4 is next."
+      "body": "Skip to main content OverKill Hill P³™ Writings from the Hill Essays, articles, and speculative fiction from the forge. Some are arguments. Some are experiments. All of them earned their space. Latest from the Forge Latest from the Forge Featured · v1.0 Live The First Diagram Is Usually a Liar The First Diagram Is Usually a Liar Why the first diagram almost always lies — and what ROY (Return on Your Words) means for visual communication. v0.4 is live: The Council of AIs — why disagreement between models is useful signal, and what that means for how you prompt."
     },
     {
       "url": "/writings/first-diagram-is-a-liar/",
@@ -590,22 +590,6 @@
     },
     {
       "url": "/projects/mermaid-theme-builder/",
-      "title": "Mermaid Theme Builder — OverKill Hill P³",
-      "category": "Project",
-      "description": "A visual, no-prompt Mermaid.js theme builder from OverKill Hill P³. Pick colors, preview diagrams live, and export production-ready CSS variables — no LLM guessing required.",
-      "headings": [],
-      "body": ""
-    },
-    {
-      "url": "/projects/mermaid-theme-builder/",
-      "title": "Mermaid Theme Builder — OverKill Hill P³",
-      "category": "Project",
-      "description": "A visual, no-prompt Mermaid.js theme builder from OverKill Hill P³. Pick colors, preview diagrams live, and export production-ready CSS variables — no LLM guessing required.",
-      "headings": [],
-      "body": ""
-    },
-    {
-      "url": "/projects/mermaid-theme-builder/",
       "title": "Mermaid Theme Builder | OverKill Hill P³™",
       "category": "Project",
       "description": "Visual governance for AI-generated Mermaid diagrams. Define your theme once, apply it to any diagram, export styled Mermaid code and LLM prompt scaffolds. Free, browser-only, MIT licensed.",
@@ -628,106 +612,10 @@
       "body": "Skip to main content overkillhill.com / projects / mermaid-theme-builder Community Tool Open Source V0.3 → V0.5 Active Mermaid Theme Builder Visual. Instant. Yours. A free, open-source visual governance utility for AI-generated Mermaid diagrams. Define your theme once, apply it to any Mermaid code, and export styled output with LLM prompt scaffolds — one round trip instead of six. Use the Tool Now View Source on GitHub Live Tool · okhp3.github.io ↺ Reload ⤢ Full Screen ⤢ Open Mermaid Theme Builder Full Screen Loading Mermaid Theme Builder… Taking longer than expected? Open the tool in a new tab → Embedded from okhp3.github.io/mermaid-theme-builder — open in a new tab for the best experience…"
     },
     {
-      "url": "/assets/templates/template--article-study.html",
-      "title": "[[PAGE-TITLE]]",
-      "category": "Page",
-      "description": "[[PAGE-DESCRIPTION]]",
-      "headings": [],
-      "body": "Skip to main content OverKill Hill P³™ › Writings › [[PARENT-ARTICLE-TITLE]] › [[BREADCRUMB-LABEL]] [[ARTICLE-EYEBROW-SERIES]] | [[ARTICLE-EYEBROW-HEAT]] | [[ARTICLE-EYEBROW-VERSION]] [[HERO-HEADING]] [[HERO-SUBTITLE]] [[POLL-QUESTION-LABEL]] [[POLL-QUESTION]] [[POLL-COPY]] [[CARD-OR-ARTICLE-TITLE]] [[BODY-COPY]] [[CTA-LABEL]] ↗ [[CTA-LABEL]] ↗ [[MERMAID-DIAGRAM-CODE]] [[CARD-OR-ARTICLE-TITLE]] [[BODY-COPY]] [[CTA-LABEL]] ↗ [[CTA-LABEL]] ↗ [[MERMAID-DIAGRAM-CODE]] ← Back to the full article: [[PARENT-ARTICLE-TITLE]] → [[CTA-LABEL]]: [[CTA-LABEL]] →"
-    },
-    {
-      "url": "/assets/templates/template--article.html",
-      "title": "[[PAGE-TITLE]]",
-      "category": "Page",
-      "description": "[[PAGE-DESCRIPTION]]",
-      "headings": [
-        "[[SECTION-HEADING]]",
-        "[[SECTION-HEADING]]",
-        "[[TOC-HEADING]]"
-      ],
-      "body": "Skip to main content OverKill Hill P³™ › Writings › [[BREADCRUMB-LABEL]] [[ARTICLE-EYEBROW-SERIES]] | [[ARTICLE-EYEBROW-TAGS]] | [[ARTICLE-EYEBROW-VERSION]] [[HERO-HEADING]] [[HERO-SUBTITLE]] [[ARTICLE-AUTHOR]] OverKill Hill P³™ [[ARTICLE-DATE-DISPLAY]] [[ARTICLE-READ-TIME]] [[BODY-COPY]] [[BODY-COPY]] [[ARTICLE-PULL-QUOTE]] [[BODY-COPY]] [[SECTION-HEADING]] [[SECTION-HEADING]] [[BODY-COPY]] [[BODY-COPY]] [[SECTION-HEADING]] [[SECTION-HEADING]] [[BODY-COPY]] [[BODY-COPY]] [[TOC-HEADING]] [[TOC-HEADING]] [[SECTION-HEADING]] [[SECTION-HEADING]] [[SECTION-HEADING]]"
-    },
-    {
-      "url": "/assets/templates/template--homepage.html",
-      "title": "[[PAGE-TITLE]]",
-      "category": "Page",
-      "description": "[[PAGE-DESCRIPTION]]",
-      "headings": [
-        "[[SECTION-HEADING]]",
-        "[[SECTION-HEADING]]",
-        "[[SECTION-HEADING]]",
-        "[[SECTION-HEADING]]",
-        "[[CARD-OR-ARTICLE-TITLE]]",
-        "[[CARD-OR-ARTICLE-TITLE]]",
-        "[[CARD-OR-ARTICLE-TITLE]]",
-        "[[CARD-OR-ARTICLE-TITLE]]",
-        "[[CARD-OR-ARTICLE-TITLE]]",
-        "[[CARD-OR-ARTICLE-TITLE]]",
-        "[[CARD-OR-ARTICLE-TITLE]]",
-        "[[CARD-OR-ARTICLE-TITLE]]"
-      ],
-      "body": "Skip to main content [[BREADCRUMB-LABEL]] [[HERO-HEADING]] [[HERO-SUBTITLE]] [[HERO-TAGLINE]] [[STATUS-EYEBROW]] [[STATUS-BODY]] [[CTA-LABEL]] [[CTA-LABEL]] [[CARD-OR-ARTICLE-TITLE]] [[CARD-OR-ARTICLE-TITLE]] [[BODY-COPY]] [[SECTION-HEADING]] [[SECTION-HEADING]] [[BODY-COPY]] [[CARD-OR-ARTICLE-TITLE]] [[CARD-OR-ARTICLE-TITLE]] [[CARD-OR-ARTICLE-TITLE]] [[BODY-COPY]] [[CTA-LABEL]] [[SECTION-HEADING]] [[SECTION-HEADING]] [[BODY-COPY]] [[CARD-OR-ARTICLE-TITLE]] [[CARD-OR-ARTICLE-TITLE]] [[BODY-COPY]] [[CARD-OR-ARTICLE-TITLE]] [[CARD-OR-ARTICLE-TITLE]] [[BODY-COPY]] [[CARD-OR-ARTICLE-TITLE]] [[CARD-OR-ARTICLE-TITLE]] [[BODY-COPY]] [[SECTION-HEADING]] [[SECTION-HEADING]] [[BODY-COPY]]…"
-    },
-    {
-      "url": "/assets/templates/template--hub.html",
-      "title": "[[PAGE-TITLE]]",
-      "category": "Page",
-      "description": "[[PAGE-DESCRIPTION]]",
-      "headings": [
-        "[[SECTION-HEADING]]",
-        "[[CARD-OR-ARTICLE-TITLE]]",
-        "[[CARD-OR-ARTICLE-TITLE]]",
-        "[[CARD-OR-ARTICLE-TITLE]]"
-      ],
-      "body": "Skip to main content [[BREADCRUMB-LABEL]] [[HERO-HEADING]] [[HERO-TAGLINE]] [[SECTION-HEADING]] [[SECTION-HEADING]] [[HUB-ITEM-LABEL]] [[CARD-OR-ARTICLE-TITLE]] [[CARD-OR-ARTICLE-TITLE]] [[BODY-COPY]] [[CTA-LABEL]] [[HUB-ITEM-LABEL]] [[CARD-OR-ARTICLE-TITLE]] [[CARD-OR-ARTICLE-TITLE]] [[BODY-COPY]] [[CTA-LABEL]] [[HUB-ITEM-LABEL]] [[CARD-OR-ARTICLE-TITLE]] [[CARD-OR-ARTICLE-TITLE]] [[BODY-COPY]] [[CTA-LABEL]]"
-    },
-    {
-      "url": "/assets/templates/template--interior-form.html",
-      "title": "[[PAGE-TITLE]]",
-      "category": "Page",
-      "description": "[[PAGE-DESCRIPTION]]",
-      "headings": [
-        "[[SECTION-HEADING]]",
-        "[[SECTION-HEADING]]",
-        "[[CARD-OR-ARTICLE-TITLE]]"
-      ],
-      "body": "Skip to main content [[BREADCRUMB-LABEL]] [[HERO-HEADING]] [[HERO-TAGLINE]] [[SECTION-HEADING]] [[SECTION-HEADING]] [[BODY-COPY]] [[CONTACT-FIELD-LABEL]]: [[CONTACT-FIELD-VALUE]] [[CONTACT-FIELD-LABEL]]: [[CONTACT-FIELD-VALUE]] [[BODY-COPY]] [[CTA-LABEL]] [[SECTION-HEADING]] [[SECTION-HEADING]] [[BODY-COPY]] [[BODY-COPY]] [[BODY-COPY]] [[BODY-COPY]] [[CARD-OR-ARTICLE-TITLE]] [[CARD-OR-ARTICLE-TITLE]] [[BODY-COPY]] [[CTA-LABEL]]"
-    },
-    {
-      "url": "/assets/templates/template--interior-single.html",
-      "title": "[[PAGE-TITLE]]",
-      "category": "Page",
-      "description": "[[PAGE-DESCRIPTION]]",
-      "headings": [
-        "[[SECTION-HEADING]]",
-        "[[SECTION-HEADING]]",
-        "[[SECTION-HEADING]]"
-      ],
-      "body": "Skip to main content [[BREADCRUMB-LABEL]] [[HERO-HEADING]] [[HERO-TAGLINE]] [[CTA-LABEL]] [[CTA-LABEL]] [[SECTION-HEADING]] [[SECTION-HEADING]] [[BODY-COPY]] [[BODY-COPY]] [[BODY-COPY]] [[SECTION-HEADING]] [[SECTION-HEADING]] [[BODY-COPY]] [[BODY-COPY]] [[SECTION-HEADING]] [[SECTION-HEADING]] [[BODY-COPY]] [[BODY-COPY]]"
-    },
-    {
-      "url": "/assets/templates/template--project-detail.html",
-      "title": "[[PAGE-TITLE]]",
-      "category": "Page",
-      "description": "[[PAGE-DESCRIPTION]]",
-      "headings": [
-        "[[SECTION-HEADING]]"
-      ],
-      "body": "Skip to main content [[WIP-COPY]] [[WIP-DISMISS-LABEL]] [[HERO-HEADING]] [[HERO-SUBTITLE]] [[SECTION-HEADING]] [[SECTION-HEADING]] [[BODY-COPY]] [[BODY-COPY]]"
-    },
-    {
-      "url": "/assets/templates/template--utility.html",
-      "title": "[[PAGE-TITLE]]",
-      "category": "Page",
-      "description": "[[PAGE-DESCRIPTION]]",
-      "headings": [],
-      "body": "Skip to main content [[BREADCRUMB-LABEL]] [[HERO-HEADING]] [[HERO-SUBTITLE]] [[TOOL-INTERFACE-HTML]]"
-    },
-    {
       "url": "/search/",
       "title": "Search the Forge | OverKill Hill P³™",
       "category": "Page",
-      "description": "Search OverKill Hill P³™ — articles, projects, manifesto, and the Council archives. Find anything from ROY to Mermaid to the v0.3 Visual Edition without hunting through menus.",
+      "description": "Search OverKill Hill P³™ — articles, projects, manifesto, and the Council archives. Find anything from ROY to Mermaid to the Council of AIs without hunting through menus.",
       "headings": [],
       "body": "Skip to main content OverKill Hill Search Search the Forge One box. Every page, project, and section of the article. Hit Esc any time to bail out, ↵ to follow. Loading index…"
     }
