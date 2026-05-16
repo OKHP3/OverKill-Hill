@@ -1,0 +1,232 @@
+Updating Notion first, then building the Replit directive.
+
+Notion updated. Now the Replit directive.
+
+# REPLIT EXECUTION DIRECTIVE — ADDENDUM B
+## Co-opetition Section Expansion — Perplexity Model Council
+## writings/first-diagram-is-a-liar/index.html
+
+---
+
+## DOCUMENT CONTROL
+
+| Field | Value |
+|---|---|
+| Addendum | B — single targeted section expansion |
+| Parent PRD | v0.4 Release PRD (17 changes, 2 files) |
+| Change number | CHANGE 18 |
+| Authorized by | Jamie Hill, OverKill Hill P³™ |
+| Date | May 16, 2026 |
+| File target | writings/first-diagram-is-a-liar/index.html |
+| Section target | Co-opetition and What the Platforms Are Now Building |
+
+---
+
+## SCOPE STATEMENT
+
+This directive expands the existing Perplexity paragraph in the
+"Co-opetition and What the Platforms Are Now Building" section to
+include specific detail on Perplexity's Model Council launch —
+product name, launch date, architecture, pricing context, and the
+critical distinction between their synthesizer-first approach and
+the human-in-the-loop visibility approach documented in this article.
+
+The expansion adds approximately 350 words of new prose to the
+existing section. No other sections are affected.
+
+---
+
+## PRE-FLIGHT VERIFICATION
+
+- [ ] PF-01: File resolves:
+      writings/first-diagram-is-a-liar/index.html
+
+- [ ] PF-02: Section id="co-opetition" exists in the file.
+
+- [ ] PF-03: The string "Perplexity has moved in this direction
+      explicitly" appears in that section.
+
+- [ ] PF-04: The string "Model Council" does NOT yet appear
+      in the file. This confirms the expansion has not been
+      partially applied.
+
+- [ ] PF-05: The string "February 5, 2026" does NOT yet appear
+      in the file.
+
+All five pre-flight checks must pass before proceeding.
+
+---
+
+## CHANGE 18 — Co-opetition section: Perplexity paragraph expansion
+
+**File:** writings/first-diagram-is-a-liar/index.html
+**Action:** Find and replace
+
+### FIND (exact string):
+
+```html
+					<p>
+						That dynamic has aged interestingly in the months since this experiment ran. What I was doing manually, several platforms have started building natively. Perplexity has moved in this direction explicitly, offering multi-model querying in its premium tiers &#8212; submit one question, receive results from multiple models, choose between them or take a synthesized composite. Other providers are experimenting with multi-model routing, where a question gets sent to several models in parallel and the answers are normalized into a single response. When I ran the council, those features were not available at the tier I was working at.
+					</p>
+
+
+Note: If indentation or whitespace differs from the above,
+match on this unique anchor string within that paragraph:
+“Perplexity has moved in this direction explicitly”
+
+REPLACE WITH (exact HTML — preserve indentation pattern
+
+of surrounding file):
+
+					<p>
+						That dynamic has aged interestingly in the months since this experiment ran. What I was doing manually, several platforms have started building natively &#8212; and Perplexity moved fastest and most explicitly in the direction I had been navigating by hand.
+					</p>
+					<p>
+						On February 5, 2026, Perplexity launched <a href="https://www.perplexity.ai/hub/blog/introducing-model-council" target="_blank" rel="noopener">Model Council</a> &#8212; a feature they describe as a way to help &#8220;surface blind spots any single model might have.&#8221; The architecture is worth understanding precisely, because it reveals both the validation and the limitation at the same time. One prompt gets dispatched to three frontier models in parallel: GPT&#8209;5.2, Claude Opus 4.6, and Gemini 3.0, running independently. Then a fourth model &#8212; a &#8220;chair&#8221; model, Claude Opus 4.5 by default &#8212; reads all three outputs and produces a single synthesized answer. The system explicitly flags where the models converge and where they diverge, giving the user a confidence signal based on independent agreement.
+					</p>
+					<p>
+						The timing matters. Model Council launched behind a $200&#8209;per&#8209;month subscription tier called Perplexity Max &#8212; web only at launch, mobile support still pending. When I ran my council experiment manually in early 2026, this product either did not exist yet or was locked behind a premium tier I was not on. The method I was using &#8212; the same brief, six platforms, collect everything, read the divergence yourself &#8212; was producing what is now a $200&#8209;a&#8209;month feature through manual labor and deliberate discipline. That is not a complaint. It is a data point about where the industry was heading and what the instinct was worth.
+					</p>
+					<p>
+						That said, the architecture reveals something important about the difference between automated multi-model synthesis and the kind of council methodology I was running. Perplexity&#8217;s chair model resolves the disagreement before you see it. The synthesis is the product. The divergence is an input to that synthesis, not the output itself. In my process, the divergence &#8212; the raw, unresolved disagreement between six independently generated outputs &#8212; was exactly what I was reading. I was not looking for a synthesized answer. I was looking at the shape of the disagreement and making my own judgment about what it revealed.
+					</p>
+					<p>
+						Other providers have followed similar instincts. Multi-model routing &#8212; where a question gets sent to several models in parallel and the answers are normalized into a single response &#8212; is becoming a standard feature of premium AI tiers. The question is no longer whether multi-model approaches are useful. The industry has answered that. The question is whether you want the synthesis handed to you or whether you want to do the adjudication yourself.
+					</p>
+
+
+VERIFY (after making the change):
+
+	•	C18-V01: Section id=“co-opetition” still present
+and intact. The section heading
+“Co-opetition and What the Platforms Are Now Building”
+is unchanged.
+	•	C18-V02: The string “Model Council” now appears in the
+file. Confirm it is a hyperlink to:
+https://www.perplexity.ai/hub/blog/introducing-model-council
+	•	C18-V03: The string “February 5, 2026” appears in the
+section prose.
+	•	C18-V04: The string “surface blind spots any single model
+might have” appears, rendered as a quoted phrase
+(with “ and ” HTML entities for curly quotes).
+	•	C18-V05: The string “$200” appears in the section
+rendered as dollar amounts (subscription context).
+	•	C18-V06: The string “Perplexity Max” appears in the
+section prose.
+	•	C18-V07: The chair model reference (“Claude Opus 4.5
+by default”) appears in the section prose.
+	•	C18-V08: The three frontier model names appear:
+“GPT‑5.2”, “Claude Opus 4.6”, “Gemini 3.0”
+Note: use non-breaking hyphens (‑) in model
+version numbers to prevent line-break at the hyphen.
+	•	C18-V09: The pull-quote block
+“The automated versions optimize for efficiency.
+What I was doing optimized for visibility.
+Those are not the same goal.”
+is still present and intact immediately after the
+new paragraphs. It must not have been displaced
+or deleted.
+	•	C18-V10: The two closing paragraphs of the section
+(about council value being in disagreement, and
+the synthesis being just the output) remain intact
+and unchanged below the pull-quote.
+	•	C18-V11: The new hyperlink to the Perplexity blog
+uses target=”_blank” and rel=“noopener” for safe
+external link behavior.
+	•	C18-V12: No new JavaScript errors appear in the
+browser console after the change. The Mermaid
+rendering on the page is unaffected.
+	•	C18-V13: The read time display (~35 min read) should
+be updated to ~37 min read to account for the
+additional ~350 words added by this expansion.
+Apply this update in the same file.
+
+Find:    ~35 min read
+Replace: ~37 min read
+
+
+	•	CHANGE 18 COMPLETE
+
+POST-EXECUTION VERIFICATION — LIVE SITE
+
+After committing and rebuilding, verify on the live URL:
+https://overkillhill.com/writings/first-diagram-is-a-liar/#co-opetition
+
+	•	PEV-01: Navigating to the #co-opetition anchor
+lands correctly in the section.
+	•	PEV-02: The section now contains five paragraphs
+of prose before the pull-quote, not two.
+	•	PEV-03: The Model Council hyperlink is clickable
+and resolves to the correct Perplexity URL.
+	•	PEV-04: The quote “surface blind spots any single
+model might have” renders with proper curly quotes,
+not straight quotes or raw HTML entities.
+	•	PEV-05: Model version numbers (GPT-5.2, Claude
+Opus 4.6, Gemini 3.0) render without line breaks
+at the hyphen.
+	•	PEV-06: The pull-quote renders correctly in its
+styled block after the new prose paragraphs.
+	•	PEV-07: Article read time shows ~37 min read
+in the article meta line.
+	•	PEV-08: All existing content in sections before
+and after co-opetition is intact. Spot-check:
+“The Crude Manual Process” section is present
+immediately before; “Why Each Seat Existed”
+section is present immediately after.
+
+DO NOT TOUCH
+
+	•	The section heading: “Co-opetition and What the
+Platforms Are Now Building” — unchanged.
+	•	The pull-quote block and its content.
+	•	The two closing paragraphs about council value
+being in disagreement.
+	•	Any other section of the article file.
+	•	The homepage index.html.
+	•	The OKHP3/first-diagram-is-a-liar companion repo.
+
+COMMIT MESSAGE
+
+feat(article): expand co-opetition section with Perplexity Model Council detail
+
+Adds ~350 words to the Co-opetition section documenting Perplexity's
+Model Council launch (February 5, 2026) as industry validation of the
+manual council methodology described in the article.
+
+Includes: product name, launch date, architecture (3 frontier models +
+chair synthesizer), pricing context (Perplexity Max, $200/month, web-
+only at launch), the Perplexity quote on blind spots, and the critical
+distinction between synthesizer-first automated tools and the human-in-
+the-loop divergence-reading approach the article documents.
+
+Updates read time: 35 min → 37 min.
+Adds external link to perplexity.ai/hub/blog/introducing-model-council.
+
+
+ESCALATION
+
+If the FIND string does not produce an exact match,
+locate the paragraph by its unique anchor string:
+“Perplexity has moved in this direction explicitly”
+Report the surrounding HTML before making any changes.
+
+End of Addendum B. 1 change. 13 change-level checks.
+8 post-execution checks. 1 file.
+
+Combined directive total (all addenda): 18 changes
+across 2 files.
+
+
+---
+
+**Summary of what changed and why:**
+
+The Notion article (LinkedIn) gets the lean version — Perplexity quote, February launch date, chair model distinction, counter-argument. Fits the LinkedIn character economics without feeling padded.
+
+The website gets the full five-paragraph expansion that earns the "bleeding edge" framing by making three specific arguments:
+
+One: The timeline. Model Council launched February 5, 2026. When Jamie ran the experiment, this feature either didn't exist or was a $200/month paywall. What he was doing by hand was ahead of what became a premium product.
+
+Two: The architecture detail. GPT-5.2, Claude Opus 4.6, Gemini 3.0 running in parallel with Claude Opus 4.5 as the chair — named, specific, citable. The website can carry that weight in a way a LinkedIn article struggles to.
+
+Three: The sharpened thesis. Perplexity's synthesizer resolves disagreement before you see it. Jamie's method treated the raw, unresolved divergence as the signal. That distinction is the whole argument — the website expansion gives it room to breathe.

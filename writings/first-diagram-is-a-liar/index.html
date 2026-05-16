@@ -261,7 +261,7 @@
             <span class="article-meta-dot"></span>
             <time datetime="2026-05-15">May 2026</time>
             <span class="article-meta-dot"></span>
-            <span>~35 min read</span>
+            <span>~37 min read</span>
           </div>
 
         </div>
@@ -994,7 +994,19 @@
                   There is a term for the dynamic I was running: co-opetition. Competitors collaborating and competing simultaneously, depending on context. Each model was working against the others on the same brief and contributing to a synthesis none of them could have reached independently. The council was not a relay race where one model handed off to the next. It was a parallel competition with a shared goal: find the structure that no single voice could see on its own.
                 </p>
                 <p>
-                  That dynamic has aged interestingly in the months since this experiment ran. What I was doing manually, several platforms have started building natively. Perplexity has moved in this direction explicitly, offering multi-model querying in its premium tiers &#8212; submit one question, receive results from multiple models, choose between them or take a synthesized composite. Other providers are experimenting with multi-model routing, where a question gets sent to several models in parallel and the answers are normalized into a single response. When I ran the council, those features were not available at the tier I was working at.
+                  That dynamic has aged interestingly in the months since this experiment ran. What I was doing manually, several platforms have started building natively &#8212; and Perplexity moved fastest and most explicitly in the direction I had been navigating by hand.
+                </p>
+                <p>
+                  On February 5, 2026, Perplexity launched <a href="https://www.perplexity.ai/hub/blog/introducing-model-council" target="_blank" rel="noopener">Model Council</a> &#8212; a feature they describe as a way to help &#8220;surface blind spots any single model might have.&#8221; The architecture is worth understanding precisely, because it reveals both the validation and the limitation at the same time. One prompt gets dispatched to three frontier models in parallel: GPT&#8209;5.2, Claude Opus 4.6, and Gemini 3.0, running independently. Then a fourth model &#8212; a &#8220;chair&#8221; model, Claude Opus 4.5 by default &#8212; reads all three outputs and produces a single synthesized answer. The system explicitly flags where the models converge and where they diverge, giving the user a confidence signal based on independent agreement.
+                </p>
+                <p>
+                  The timing matters. Model Council launched behind a $200&#8209;per&#8209;month subscription tier called Perplexity Max &#8212; web only at launch, mobile support still pending. When I ran my council experiment manually in early 2026, this product either did not exist yet or was locked behind a premium tier I was not on. The method I was using &#8212; the same brief, six platforms, collect everything, read the divergence yourself &#8212; was producing what is now a $200&#8209;a&#8209;month feature through manual labor and deliberate discipline. That is not a complaint. It is a data point about where the industry was heading and what the instinct was worth.
+                </p>
+                <p>
+                  That said, the architecture reveals something important about the difference between automated multi-model synthesis and the kind of council methodology I was running. Perplexity&#8217;s chair model resolves the disagreement before you see it. The synthesis is the product. The divergence is an input to that synthesis, not the output itself. In my process, the divergence &#8212; the raw, unresolved disagreement between six independently generated outputs &#8212; was exactly what I was reading. I was not looking for a synthesized answer. I was looking at the shape of the disagreement and making my own judgment about what it revealed.
+                </p>
+                <p>
+                  Other providers have followed similar instincts. Multi-model routing &#8212; where a question gets sent to several models in parallel and the answers are normalized into a single response &#8212; is becoming a standard feature of premium AI tiers. The question is no longer whether multi-model approaches are useful. The industry has answered that. The question is whether you want the synthesis handed to you or whether you want to do the adjudication yourself.
                 </p>
                 <div class="pull-quote">
                   <p>The automated versions optimize for efficiency. What I was doing optimized for visibility. Those are not the same goal.</p>
