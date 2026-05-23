@@ -681,6 +681,160 @@
       @media (max-width: 640px) {
         .embed-toolbar { flex-direction: column; align-items: flex-start; }
       }
+
+      /* ── What It Is / What It Is Not grid ────────────────────────────── */
+      .is-isnot-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      @media (max-width: 640px) { .is-isnot-grid { grid-template-columns: 1fr; } }
+      .is-isnot-col {
+        background: var(--color-surface-soft);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1.25rem 1.5rem;
+      }
+      .is-isnot-col--is { border-color: rgba(196,106,44,0.3); }
+      .is-isnot-header {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+      }
+      .is-isnot-header--is { color: var(--okh-orange); }
+      .is-isnot-header--isnot { color: var(--color-muted); }
+      .is-isnot-col ul { list-style: none; padding: 0; margin: 0; }
+      .is-isnot-col li {
+        font-size: 0.85rem;
+        color: var(--color-muted);
+        padding: 0.3rem 0;
+        border-bottom: 1px solid rgba(249,250,251,0.05);
+        line-height: 1.5;
+        display: flex;
+        gap: 0.5rem;
+      }
+      .is-isnot-col li:last-child { border-bottom: 0; }
+      .is-isnot-col li .bullet { flex-shrink: 0; }
+      .is-isnot-col--is li .bullet { color: var(--okh-orange); }
+      .is-isnot-col--isnot li .bullet { color: var(--color-muted); opacity: 0.5; }
+
+      /* ── Relationship cards ───────────────────────────────────────────── */
+      .relationship-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      @media (max-width: 640px) { .relationship-grid { grid-template-columns: 1fr; } }
+      .relationship-card {
+        background: var(--color-surface-soft);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1.1rem 1.25rem;
+      }
+      .relationship-card .rel-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--okh-orange);
+        display: block;
+        margin-bottom: 0.35rem;
+      }
+      .relationship-card h3 {
+        font-size: 0.9rem;
+        font-weight: 600;
+        font-family: var(--font-body);
+        margin: 0 0 0.4rem;
+        color: var(--color-fg);
+      }
+      .relationship-card p {
+        font-size: 0.83rem;
+        color: var(--color-muted);
+        margin: 0;
+        line-height: 1.55;
+      }
+
+      /* ── Diagram family taxonomy ──────────────────────────────────────── */
+      .family-taxonomy { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.75rem; }
+      .family-tier {
+        background: var(--color-surface-soft);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-sm);
+        padding: 0.75rem 1rem;
+      }
+      .family-tier-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.67rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--okh-orange);
+        margin-bottom: 0.4rem;
+      }
+      .family-tier p { font-size: 0.81rem; color: var(--color-muted); margin: 0.2rem 0 0; line-height: 1.5; }
+      .family-chips { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.4rem; }
+      .family-chip {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.68rem;
+        padding: 0.15rem 0.5rem;
+        border-radius: 3px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid var(--color-border-subtle);
+        color: var(--color-fg);
+      }
+      .family-chip--beta { border-color: rgba(234,179,8,0.3); color: #eab308; background: rgba(234,179,8,0.07); }
+      .family-chip--ext { border-color: rgba(196,106,44,0.35); color: var(--okh-orange); background: rgba(196,106,44,0.08); }
+      .family-chip--proposal { border-color: rgba(96,165,250,0.3); color: #60a5fa; background: rgba(96,165,250,0.07); }
+
+      /* ── SKILL.md block ───────────────────────────────────────────────── */
+      .skill-block {
+        background: rgba(196,106,44,0.04);
+        border: 1px solid rgba(196,106,44,0.25);
+        border-radius: var(--radius-md);
+        padding: 1.5rem 1.75rem;
+      }
+      .skill-block h3 { font-size: 1rem; font-weight: 600; font-family: var(--font-body); margin: 0 0 0.6rem; }
+      .skill-block p { font-size: 0.875rem; color: var(--color-muted); margin: 0 0 0.6rem; line-height: 1.6; }
+      .skill-block ul { padding-left: 1.1rem; margin: 0.35rem 0 0.6rem; }
+      .skill-block li { font-size: 0.875rem; color: var(--color-muted); margin-bottom: 0.3rem; line-height: 1.5; }
+      .skill-note {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--color-muted);
+        margin-top: 0.75rem;
+        border-top: 1px solid rgba(196,106,44,0.2);
+        padding-top: 0.75rem;
+      }
+
+      /* ── Mobile experience split ──────────────────────────────────────── */
+      .mobile-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.75rem; }
+      @media (max-width: 640px) { .mobile-split { grid-template-columns: 1fr; } }
+      .mobile-mode {
+        background: var(--color-surface-soft);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1.1rem 1.25rem;
+      }
+      .mobile-mode-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.67rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      .mobile-mode-label--desktop { color: var(--okh-orange); }
+      .mobile-mode-label--mobile { color: #60a5fa; }
+      .mobile-mode h3 { font-size: 0.88rem; font-weight: 600; font-family: var(--font-body); margin: 0 0 0.4rem; }
+      .mobile-mode ul { padding-left: 1rem; margin: 0; }
+      .mobile-mode li { font-size: 0.82rem; color: var(--color-muted); margin-bottom: 0.25rem; line-height: 1.5; }
     </style>
       <script type="speculationrules">
     {
@@ -804,19 +958,20 @@
           <div class="tag-row">
             <span class="tag">Community Tool</span>
             <span class="tag">Open Source</span>
-            <span class="tag tag--accent">V0.3 → V0.5 Active</span>
+            <span class="tag tag--accent">v0.5.x Alpha Active</span>
           </div>
 
           <h1>Mermaid Theme Builder</h1>
-          <p class="hero-sub">Visual. Instant. Yours.</p>
+          <p class="hero-sub">Governance Workbench. Renderer-Aware. Brand-Enforced.</p>
 
           <p>
-            A free, open-source visual governance utility for AI-generated Mermaid diagrams. Define your theme once, apply it to any Mermaid code, and export styled output with LLM prompt scaffolds — one round trip instead of six.
+            A visual governance workbench for Mermaid diagram-as-code styling, renderer-aware export, brand palette enforcement, and AI prompt scaffold generation. Define your theme once — get consistent output across every renderer, every AI tool, and every diagram family it touches.
           </p>
 
           <div class="hero-ctas">
-            <a href="#embed-tool" class="btn btn-primary">Use the Tool Now</a>
+            <a href="https://okhp3.github.io/mermaid-theme-builder/#compose" target="_blank" rel="noopener noreferrer" class="btn btn-primary">⤢ Open the Workbench</a>
             <a href="https://github.com/OKHP3/mermaid-theme-builder" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">View Source on GitHub</a>
+            <a href="/projects/bpmn-for-mermaid/" class="btn btn-quiet">Sibling: BPMN for Mermaid</a>
           </div>
         </section>
 
@@ -875,6 +1030,36 @@
               </p>
             </div>
 
+            <!-- WHAT IT IS / IS NOT ──────────────────────────── -->
+            <div class="content-block">
+              <div class="section-label">What This Is</div>
+              <h2>A governance workbench, not a diagram editor</h2>
+              <div class="is-isnot-grid">
+                <div class="is-isnot-col is-isnot-col--is">
+                  <div class="is-isnot-header is-isnot-header--is">What It Is</div>
+                  <ul>
+                    <li><span class="bullet">◆</span>A visual workbench for defining and enforcing Mermaid diagram themes</li>
+                    <li><span class="bullet">◆</span>A renderer-aware export tool — flags what breaks in GitHub, GitLab, Obsidian, Notion, Confluence</li>
+                    <li><span class="bullet">◆</span>A brand palette enforcer — presets for OKH P³, Glee-fully, AskJamie, and Neutral Enterprise</li>
+                    <li><span class="bullet">◆</span>A prompt scaffold generator — AI tools stay on-brand from the first generation</li>
+                    <li><span class="bullet">◆</span>A SKILL.md-packaged agent skill for headless diagram-governance workflows</li>
+                    <li><span class="bullet">◆</span>An open-source community contribution to the Mermaid.js ecosystem. MIT licensed. Free always.</li>
+                  </ul>
+                </div>
+                <div class="is-isnot-col is-isnot-col--isnot">
+                  <div class="is-isnot-header is-isnot-header--isnot">What It Is Not</div>
+                  <ul>
+                    <li><span class="bullet">—</span>Not a diagram editor — it governs style, not structure</li>
+                    <li><span class="bullet">—</span>Not a Mermaid syntax generator — you bring the code</li>
+                    <li><span class="bullet">—</span>Not affiliated with Mermaid.ai or any commercial Mermaid product</li>
+                    <li><span class="bullet">—</span>Not a replacement for Mermaid.js — a governance layer on top of it</li>
+                    <li><span class="bullet">—</span>Not a SaaS, not a subscription, not a freemium gate</li>
+                    <li><span class="bullet">—</span>Not collecting any data — 100% client-side, no server, no analytics</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
             <!-- WHY THIS EXISTS ──────────────────────────────── -->
             <div class="content-block card">
               <div class="section-label">Why This Exists</div>
@@ -886,14 +1071,14 @@
                     <span class="why-mark why-mark--no">✗</span>
                     <h3>Prompting an LLM</h3>
                   </div>
-                  <p>Generates CSS variable blobs you paste and re-prompt until something looks right. No live preview, no iteration feedback, result varies by model.</p>
+                  <p>Generates CSS variable blobs you paste and re-prompt until something looks right. No live preview, no iteration feedback, result varies by model. No renderer awareness — you find out what breaks when you paste it.</p>
                 </div>
                 <div class="why-col">
                   <div class="why-col-header">
                     <span class="why-mark why-mark--yes">✓</span>
                     <h3>Mermaid Theme Builder</h3>
                   </div>
-                  <p>Pick a color, see every diagram type update instantly. Export as CSS variables, a Markdown style bootstrap, or a prompt scaffold that keeps AI tools on-brand from the first generation.</p>
+                  <p>Pick a color, see every diagram type update instantly. Export as a <code>themeVariables</code> block, a Markdown style bootstrap, or a renderer-aware prompt scaffold. AI tools stay on-brand from the first generation — not the sixth.</p>
                 </div>
               </div>
 
@@ -965,7 +1150,28 @@
                   </div>
                 </div>
                 <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⊕</div>
+                  <div>
+                    <h3>Pan / Zoom Canvas</h3>
+                    <p>Navigate complex diagrams without losing context. Pan and zoom the preview canvas — useful for dense flowcharts and class diagrams that don't fit the initial viewport.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⚙</div>
+                  <div>
+                    <h3>Forge UI System</h3>
+                    <p>The builder's interface runs on OKH Forge design tokens — the same design system used across OKH P³, Glee-fully, and AskJamie. Style consistency from the workbench itself outward.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
                   <div class="feature-icon" aria-hidden="true">◻</div>
+                  <div>
+                    <h3>SKILL.md Package</h3>
+                    <p>The governance logic is being packaged as a machine-readable agent skill. AI tools and coding assistants can apply brand palettes and renderer profiles without opening the visual app.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◈</div>
                   <div>
                     <h3>Open Source, MIT License</h3>
                     <p>Fork it, remix it, embed it. Full source on GitHub. Contributions welcome.</p>
@@ -974,38 +1180,212 @@
               </div>
             </div>
 
+            <!-- RELATIONSHIPS ────────────────────────────────────── -->
+            <div class="content-block">
+              <div class="section-label">Relationships</div>
+              <h2>How it fits the ecosystem</h2>
+              <div class="relationship-grid">
+                <div class="relationship-card">
+                  <span class="rel-tag">Foundation</span>
+                  <h3>Mermaid.js</h3>
+                  <p>The open-source diagram rendering engine. Mermaid Theme Builder is a governance layer that wraps and extends the Mermaid.js <code>themeVariables</code> system. No affiliation — an independent ecosystem contribution built on top of the same open library.</p>
+                </div>
+                <div class="relationship-card">
+                  <span class="rel-tag">Distinct Product — No Affiliation</span>
+                  <h3>Mermaid.ai</h3>
+                  <p>A commercial AI-first diagram generation platform. Completely separate — no affiliation, no integration, no dependency. MTB works with the open Mermaid.js library directly. The distinction matters: Mermaid.js is the open standard; Mermaid.ai is a commercial product built on it.</p>
+                </div>
+                <div class="relationship-card">
+                  <span class="rel-tag">Sibling Project — OKH P³</span>
+                  <h3>BPMN for Mermaid</h3>
+                  <p>The structural sibling. BPMN for Mermaid extends Mermaid syntax toward BPMN-aligned diagram patterns. MTB is the styling and governance layer; BPMN for Mermaid is the structural extension layer. They are complementary — style what BPMN for Mermaid produces. <a href="/projects/bpmn-for-mermaid/" style="color:var(--okh-orange);">See the project →</a></p>
+                </div>
+                <div class="relationship-card">
+                  <span class="rel-tag">Agent Layer — In Development</span>
+                  <h3>SKILL.md / Agent Workflows</h3>
+                  <p>MTB is being packaged as a reusable agent skill. The SKILL.md format exposes its governance logic — palette definitions, renderer profiles, prompt scaffold patterns — as a machine-readable workflow that AI agents and coding assistants can consume without the visual UI.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- DIAGRAM FAMILY TAXONOMY ──────────────────────────── -->
+            <div class="content-block">
+              <div class="section-label">Diagram Families</div>
+              <h2>Support taxonomy — not all families are equal</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.5rem;">Mermaid.js does not treat all diagram types with equal stability or renderer support. MTB reflects this — it does not imply uniform support across all families.</p>
+              <div class="family-taxonomy">
+                <div class="family-tier">
+                  <div class="family-tier-label">Stable — well-supported across renderers</div>
+                  <div class="family-chips">
+                    <span class="family-chip">flowchart</span>
+                    <span class="family-chip">sequenceDiagram</span>
+                    <span class="family-chip">classDiagram</span>
+                    <span class="family-chip">stateDiagram-v2</span>
+                    <span class="family-chip">erDiagram</span>
+                    <span class="family-chip">gantt</span>
+                    <span class="family-chip">pie</span>
+                  </div>
+                  <p>These families have the most consistent support across Mermaid.js versions and hosted renderers (GitHub, GitLab, Obsidian, Confluence). Safe for production use in most contexts.</p>
+                </div>
+                <div class="family-tier">
+                  <div class="family-tier-label">Beta / Experimental — support varies by Mermaid.js version</div>
+                  <div class="family-chips">
+                    <span class="family-chip family-chip--beta">sankey</span>
+                    <span class="family-chip family-chip--beta">block</span>
+                    <span class="family-chip family-chip--beta">kanban</span>
+                    <span class="family-chip family-chip--beta">timeline</span>
+                    <span class="family-chip family-chip--beta">xychart-beta</span>
+                    <span class="family-chip family-chip--beta">mindmap</span>
+                  </div>
+                  <p>These families exist in recent Mermaid.js releases but are marked beta or have inconsistent renderer support. Hosted renderers (GitHub, Confluence, Notion) may not support them yet. Verify before deploying.</p>
+                </div>
+                <div class="family-tier">
+                  <div class="family-tier-label">Renderer-dependent — behavior varies significantly by platform</div>
+                  <div class="family-chips">
+                    <span class="family-chip family-chip--beta">themeVariables</span>
+                    <span class="family-chip family-chip--beta">%%{init:…}%%</span>
+                    <span class="family-chip family-chip--beta">custom CSS</span>
+                  </div>
+                  <p>The Mermaid <code>%%{init:…}%%</code> directive and CSS-level overrides work in browser Mermaid.js but are stripped or ignored by many hosted renderers. MTB flags known breakpoints — the export profiles are built around this constraint.</p>
+                </div>
+                <div class="family-tier">
+                  <div class="family-tier-label">OKH P³ semantic templates — brand conventions, not syntax extensions</div>
+                  <div class="family-chips">
+                    <span class="family-chip family-chip--ext">OKH brand palette</span>
+                    <span class="family-chip family-chip--ext">Glee-fully palette</span>
+                    <span class="family-chip family-chip--ext">AskJamie palette</span>
+                    <span class="family-chip family-chip--ext">Neutral Enterprise</span>
+                  </div>
+                  <p>Brand-specific scaffolding patterns that apply OKH conventions to standard diagram families. Not extensions of Mermaid syntax — conventions applied on top of valid Mermaid.</p>
+                </div>
+                <div class="family-tier">
+                  <div class="family-tier-label">BPMN for Mermaid — sibling proposal work</div>
+                  <div class="family-chips">
+                    <span class="family-chip family-chip--proposal">bpmn-task</span>
+                    <span class="family-chip family-chip--proposal">bpmn-gateway</span>
+                    <span class="family-chip family-chip--proposal">bpmn-event</span>
+                    <span class="family-chip family-chip--proposal">bpmn-pool</span>
+                  </div>
+                  <p>Structural diagram patterns from the sibling BPMN for Mermaid project. These extend Mermaid toward BPMN-aligned semantics. MTB can style BPMN-for-Mermaid outputs — they share the same theming contract. <a href="/projects/bpmn-for-mermaid/" style="color:var(--okh-orange);">See BPMN for Mermaid →</a></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- WHY RENDERER-AWARE MATTERS ───────────────────────── -->
+            <div class="content-block">
+              <div class="section-label">Renderer Awareness</div>
+              <h2>Why renderer-aware output matters</h2>
+              <p style="font-size:0.9rem;color:var(--color-muted);line-height:1.7;">Mermaid.js can render a diagram that GitHub Markdown, Notion, or Obsidian cannot. The same <code>themeVariables</code> object that works perfectly in a browser may fail silently — or break layout — in a hosted renderer.</p>
+              <p style="font-size:0.9rem;color:var(--color-muted);line-height:1.7;">MTB tracks known renderer compatibility and flags styling choices that break in common deployment targets — GitHub Pages, GitHub Markdown, GitLab, Obsidian, Notion, and Confluence. The export profiles are built around these constraints. You find out before you paste, not after.</p>
+              <p style="font-size:0.9rem;color:var(--color-muted);line-height:1.7;">For AI-generated diagrams this matters even more. An AI tool generating Mermaid has no renderer context — it produces valid Mermaid.js that may be useless in the target environment. A renderer-aware prompt scaffold closes that gap before generation begins.</p>
+            </div>
+
+            <!-- SKILL.MD ─────────────────────────────────────────── -->
+            <div class="content-block">
+              <div class="section-label">Agent Layer</div>
+              <h2>SKILL.md — headless diagram governance</h2>
+              <div class="skill-block">
+                <h3>What the SKILL.md package does</h3>
+                <p>Mermaid Theme Builder is being packaged as a reusable agent skill — a machine-readable <code>SKILL.md</code> that exposes the tool's governance logic in a format AI agents and coding assistants can consume directly, without opening the visual app.</p>
+                <p>The skill covers:</p>
+                <ul>
+                  <li>Palette definition and brand token mapping</li>
+                  <li>Renderer profile selection — GitHub, GitLab, Obsidian, Notion, Confluence</li>
+                  <li>Mermaid <code>themeVariables</code> assembly for a target renderer</li>
+                  <li>Prompt scaffold generation with embedded palette and renderer constraints</li>
+                  <li>Diagram family classification and renderer-safe export rules</li>
+                </ul>
+                <p>Intended for: AI coding assistants, local agent workflows, CI/CD diagram validation pipelines, and headless diagram-governance scripts that need to apply consistent brand and renderer rules without human review at each step.</p>
+                <div class="skill-note">Status: In development as part of the v0.5.x trust-sprint baseline. The visual app ships first; the SKILL.md package formalizes the same logic for agent consumption.</div>
+              </div>
+            </div>
+
+            <!-- MOBILE EXPERIENCE ────────────────────────────────── -->
+            <div class="content-block">
+              <div class="section-label">Mobile Experience</div>
+              <h2>Desktop-first. Mobile companion mode.</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.75rem;">This is an honest description, not an apology. The workbench is a power tool — the full experience is designed for a desktop viewport with room for controls, preview, and output side by side.</p>
+              <div class="mobile-split">
+                <div class="mobile-mode">
+                  <span class="mobile-mode-label mobile-mode-label--desktop">Desktop</span>
+                  <h3>Full power-user experience</h3>
+                  <ul>
+                    <li>Full color picker suite — HSL, RGB, hex</li>
+                    <li>Live multi-diagram preview across families</li>
+                    <li>Pan / zoom canvas for complex diagrams</li>
+                    <li>All export formats — themeVariables, Markdown, prompt scaffold</li>
+                    <li>Renderer profile selection and compatibility flags</li>
+                    <li>Dense diagram inspection at full fidelity</li>
+                  </ul>
+                </div>
+                <div class="mobile-mode">
+                  <span class="mobile-mode-label mobile-mode-label--mobile">Mobile — Companion Mode</span>
+                  <h3>Useful subset, honestly scoped</h3>
+                  <ul>
+                    <li>Browse palette presets and examples</li>
+                    <li>Copy prompt scaffolds for pasting into AI tools</li>
+                    <li>Check renderer-safe export output</li>
+                    <li>Light diagram preview at smaller scale</li>
+                    <li>Review renderer compatibility notes</li>
+                  </ul>
+                  <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.6rem;">Heavy code editing and dense diagram inspection remain desktop-first. Mobile hardening is on the v0.6.x validation sprint roadmap.</p>
+                </div>
+              </div>
+            </div>
+
             <!-- BUILD PROGRESS ───────────────────────────────────── -->
             <div class="content-block">
-              <div class="section-label">Build Progress</div>
-              <h2>Where the project is</h2>
-              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.5rem;">Actively shipping from V0.3 toward V0.5. Each increment tightens the visual governance story and expands the export options.</p>
+              <div class="section-label">Roadmap</div>
+              <h2>Where the project is and where it's going</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.75rem;">Each phase tightens the visual governance story, expands renderer coverage, and moves the project toward a stable, documented v1 release.</p>
               <ul class="progress-track">
                 <li class="progress-phase">
                   <span class="progress-marker progress-marker--done">✓</span>
                   <div class="progress-phase-content">
-                    <p class="progress-phase-title">V0.1 – V0.3 Alpha <span class="phase-pill phase-pill--shipped">Shipped</span></p>
-                    <p class="progress-phase-desc">Core loop: paste Mermaid → apply palette → preview live → export. Diagram family detection, prompt scaffold modal, brand palette presets (OKH P³, Glee-fully, AskJamie, Neutral Enterprise), and renderer capability notes. Live at <a href="https://okhp3.github.io/mermaid-theme-builder/" target="_blank" rel="noopener noreferrer">okhp3.github.io/mermaid-theme-builder</a>.</p>
+                    <p class="progress-phase-title">v0.1–v0.3 Initial Alpha <span class="phase-pill phase-pill--shipped">Shipped</span></p>
+                    <p class="progress-phase-desc">Core loop: paste Mermaid → apply palette → preview live → export. Diagram family detection, prompt scaffold modal, brand palette presets (OKH P³, Glee-fully, AskJamie, Neutral Enterprise), renderer capability notes. Live at <a href="https://okhp3.github.io/mermaid-theme-builder/" target="_blank" rel="noopener noreferrer">okhp3.github.io/mermaid-theme-builder</a>.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--done">✓</span>
+                  <div class="progress-phase-content">
+                    <p class="progress-phase-title">v0.4.x Renderer + Palette Sprint <span class="phase-pill phase-pill--shipped">Shipped</span></p>
+                    <p class="progress-phase-desc">Renderer profiles, palette stabilization, structured export formats, prompt scaffold improvements. Multi-format export, dark/light preview toggle, renderer compatibility matrix scaffolding.</p>
                   </div>
                 </li>
                 <li class="progress-phase">
                   <span class="progress-marker progress-marker--active">→</span>
                   <div class="progress-phase-content">
-                    <p class="progress-phase-title">V0.3.1 <span class="phase-pill phase-pill--active">In Progress</span></p>
-                    <p class="progress-phase-desc">Brand alignment sprint: OKH light-mode UI skin using production design tokens, corrected palette presets sourced from production theme.css, deployment stabilization.</p>
+                    <p class="progress-phase-title">v0.5.x Trust Sprint — Current <span class="phase-pill phase-pill--active">Active</span></p>
+                    <p class="progress-phase-desc">Forge UI System, SKILL.md package, pan/zoom canvas, security posture hardening, renderer-aware scaffolding, client-side governance layer. The v0.5.x baseline is what the live app currently ships.</p>
                   </div>
                 </li>
                 <li class="progress-phase">
                   <span class="progress-marker progress-marker--planned">○</span>
                   <div class="progress-phase-content">
-                    <p class="progress-phase-title">V0.4 <span class="phase-pill phase-pill--planned">Planned</span></p>
-                    <p class="progress-phase-desc">Multi-format export improvements, renderer compatibility matrix, dark/light preview toggle.</p>
+                    <p class="progress-phase-title">v0.6.x Validation Sprint <span class="phase-pill phase-pill--planned">Planned</span></p>
+                    <p class="progress-phase-desc">Test fixtures, renderer parity checks, mobile hardening, accessibility review, stronger documentation alignment. Goal: every export claim is verified against its target renderer.</p>
                   </div>
                 </li>
                 <li class="progress-phase">
                   <span class="progress-marker progress-marker--planned">○</span>
                   <div class="progress-phase-content">
-                    <p class="progress-phase-title">V0.5 Trust Sprint <span class="phase-pill phase-pill--planned">Planned</span></p>
-                    <p class="progress-phase-desc">Maximum Compatibility Mode, prompt scaffold education layer, example trust levels, research-backed positioning page, and target renderer export profiles (GitHub, GitLab, Obsidian, Notion, Confluence).</p>
+                    <p class="progress-phase-title">v0.7.x Workflow Sprint <span class="phase-pill phase-pill--planned">Planned</span></p>
+                    <p class="progress-phase-desc">Preset management, import/export bundles, saved local palettes, diagram-family templates, stronger examples gallery. Goal: a user can pick up a preset, adapt it, and save it — no re-entry needed.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--planned">○</span>
+                  <div class="progress-phase-content">
+                    <p class="progress-phase-title">v0.8.x Agentic / Tooling Sprint <span class="phase-pill phase-pill--planned">Planned</span></p>
+                    <p class="progress-phase-desc">Expanded SKILL.md, CLI-friendly outputs, reusable prompt packs, documentation automation. Possible MCP/API-adjacent packaging if the workflow patterns justify it.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--planned">○</span>
+                  <div class="progress-phase-content">
+                    <p class="progress-phase-title">v1.x Stable Public Release <span class="phase-pill phase-pill--planned">Planned</span></p>
+                    <p class="progress-phase-desc">Versioned schema, stable support matrix, polished onboarding, stable renderer compatibility contract, full public documentation set. The point at which the tool is safe to hand to anyone without a walkthrough.</p>
                   </div>
                 </li>
               </ul>
@@ -1153,8 +1533,8 @@
                       <p class="faq-a">Yes. The exported themeVariables object is standard Mermaid config — it works anywhere Mermaid.js is used. Check your platform's docs on how to pass themeVariables.</p>
                     </div>
                     <div class="faq-item">
-                      <p class="faq-q">Why doesn't it support dark/light mode toggle in the builder itself?</p>
-                      <p class="faq-a">Dark/light preview toggle is on the active roadmap for V0.4. For now, set your background color to match your target mode — the contrast preview is accurate for any background you choose.</p>
+                      <p class="faq-q">Does it support dark/light mode preview toggle?</p>
+                      <p class="faq-a">Yes — dark/light preview toggle shipped in v0.4.x. Set your target mode in the preview panel and the live preview reflects it. The contrast preview is accurate for any background you choose.</p>
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">Can I save and share my theme?</p>
@@ -1186,9 +1566,9 @@
             <div class="builder-note" style="border-color: rgba(196,106,44,0.35);">
               <div class="section-label">Development Update</div>
               <blockquote>
-                <p>The tool shipped with more than the minimum viable loop. Diagram family detection, prompt scaffold generation, renderer capability notes, and brand palettes for the full OKH ecosystem (OKH P³, Glee-fully, AskJamie) are all live.</p>
-                <p>V0.3.1 is tightening the visual alignment — the app UI is being reskinned to OKH light-mode tokens so the builder looks like it belongs to the brand it serves. Palette presets are being corrected against production CSS.</p>
-                <p><em>V0.5 is the trust sprint: renderer compatibility mode, example quality tiers, and a full research-backed positioning page. The goal is a tool you can hand to someone else and trust them to get value from immediately.</em></p>
+                <p>The v0.5.x baseline is the current live state. The Forge UI System is in — the builder now runs on the same design tokens as the rest of OKH P³. Pan/zoom is live. Security posture has been reviewed. Renderer-aware scaffolding is the active work.</p>
+                <p>The SKILL.md package is the next meaningful structural addition. The visual app ships the governance logic first; the SKILL.md formalizes the same rules for agent consumption — AI tools that need to apply brand palettes and renderer profiles without opening a browser.</p>
+                <p><em>The v0.6.x validation sprint is the next gate: test fixtures, renderer parity checks, mobile hardening. The goal is that every export claim can be verified against its target renderer — not just described.</em></p>
               </blockquote>
               <p class="builder-sig">— May 2026 · OverKill Hill P³</p>
             </div>
@@ -1213,11 +1593,11 @@
               <div class="meta-row">
                 <div class="meta-item">
                   <span class="meta-key">Status</span>
-                  <span class="meta-val"><span class="status-dot"></span>V0.3 → V0.5 Active</span>
+                  <span class="meta-val"><span class="status-dot"></span>v0.5.x Alpha Active</span>
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">Build Phase</span>
-                  <span class="meta-val">V0.3.1 in progress</span>
+                  <span class="meta-val">v0.5.x — Trust Sprint</span>
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">License</span>
@@ -1257,10 +1637,13 @@
             <div class="sidebar-related">
               <div class="section-label">Related Resources</div>
               <ul>
+                <li><a href="https://okhp3.github.io/mermaid-theme-builder/#compose" target="_blank" rel="noopener noreferrer">Live App — Compose Tab ↗</a></li>
+                <li><a href="https://github.com/OKHP3/mermaid-theme-builder" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a></li>
+                <li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid (sibling)</a></li>
                 <li><a href="https://mermaid.js.org/config/theming.html" target="_blank" rel="noopener noreferrer">Mermaid.js Theming Docs ↗</a></li>
                 <li><a href="https://mermaid.js.org/config/theming.html#theme-variables" target="_blank" rel="noopener noreferrer">themeVariables Reference ↗</a></li>
-                <li><a href="/projects/">All OverKill Hill Projects</a></li>
                 <li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
+                <li><a href="/projects/">All OverKill Hill Projects</a></li>
               </ul>
             </div>
 

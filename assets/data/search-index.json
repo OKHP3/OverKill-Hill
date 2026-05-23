@@ -589,9 +589,15 @@
       "category": "Project",
       "description": "Visual governance for AI-generated Mermaid diagrams. Define your theme once, apply it to any diagram, export styled Mermaid code and LLM prompt scaffolds. Free, browser-only, MIT licensed.",
       "headings": [
+        "A governance workbench, not a diagram editor",
         "What you get here that you don't get from prompting an LLM",
         "What the builder does",
-        "Where the project is",
+        "How it fits the ecosystem",
+        "Support taxonomy — not all families are equal",
+        "Why renderer-aware output matters",
+        "SKILL.md — headless diagram governance",
+        "Desktop-first. Mobile companion mode.",
+        "Where the project is and where it's going",
         "Prompting an LLM",
         "Mermaid Theme Builder",
         "Live Diagram Preview",
@@ -602,9 +608,19 @@
         "Brand Palette Presets",
         "Precise Color Controls",
         "Browser-Only — No Server",
-        "Open Source, MIT License"
+        "Pan / Zoom Canvas",
+        "Forge UI System",
+        "SKILL.md Package",
+        "Open Source, MIT License",
+        "Mermaid.js",
+        "Mermaid.ai",
+        "BPMN for Mermaid",
+        "SKILL.md / Agent Workflows",
+        "What the SKILL.md package does",
+        "Full power-user experience",
+        "Useful subset, honestly scoped"
       ],
-      "body": "Skip to main content overkillhill.com / projects / mermaid-theme-builder Community Tool Open Source V0.3 → V0.5 Active Mermaid Theme Builder Visual. Instant. Yours. A free, open-source visual governance utility for AI-generated Mermaid diagrams. Define your theme once, apply it to any Mermaid code, and export styled output with LLM prompt scaffolds — one round trip instead of six. Use the Tool Now View Source on GitHub Live Tool · okhp3.github.io ↺ Reload ⤢ Full Screen ⤢ Open Mermaid Theme Builder Full Screen Loading Mermaid Theme Builder… Taking longer than expected? Open the tool in a new tab → Embedded from okhp3.github.io/mermaid-theme-builder — open in a new tab for the best experience…"
+      "body": "Skip to main content overkillhill.com / projects / mermaid-theme-builder Community Tool Open Source v0.5.x Alpha Active Mermaid Theme Builder Governance Workbench. Renderer-Aware. Brand-Enforced. A visual governance workbench for Mermaid diagram-as-code styling, renderer-aware export, brand palette enforcement, and AI prompt scaffold generation. Define your theme once — get consistent output across every renderer, every AI tool, and every diagram family it touches."
     },
     {
       "url": "/search/",
