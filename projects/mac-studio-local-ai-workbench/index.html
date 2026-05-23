@@ -626,6 +626,23 @@
         padding: 0 0 4rem;
       }
 
+      /* ── Mobile overflow hardening ──────────────────────────────── */
+      /* Prevent any descendant from causing horizontal body scroll    */
+      @media (max-width: 768px) {
+        /* timeline date: remove nowrap so it wraps inside its 2.5rem column */
+        .timeline-date { white-space: normal; }
+        /* grid children need min-width:0 or they blow out their track */
+        .timeline-body { min-width: 0; overflow: hidden; }
+        /* callout flex children: long paragraphs need min-width:0 + wrap */
+        .callout > div { min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
+        /* status-item code paths can be long — force wrap */
+        .status-item { overflow-wrap: anywhere; word-break: break-word; }
+        /* next-phase items: long strings without natural break points */
+        .next-phase-item { overflow-wrap: anywhere; word-break: break-word; }
+        /* decision-val already has min-width:0 but be explicit */
+        .decision-val { min-width: 0; overflow-wrap: anywhere; }
+      }
+
       /* ── Light-mode: override dark-only hardcoded colours ───────── */
       html[data-theme="light"] body .callout--success {
         background: rgba(34, 197, 94, 0.09);
