@@ -627,12 +627,19 @@
       }
 
       /* ── Mobile overflow hardening ──────────────────────────────── */
-      /* Prevent any descendant from causing horizontal body scroll    */
+      /* Hard containment: clip anything wider than the main viewport. */
+      /* overflow-x:clip (not hidden) avoids creating a scroll container */
+      /* so sticky positioning of inner elements is unaffected.          */
+      main { overflow-x: clip; }
+
       @media (max-width: 768px) {
         /* timeline date: remove nowrap so it wraps inside its 2.5rem column */
         .timeline-date { white-space: normal; }
         /* grid children need min-width:0 or they blow out their track */
-        .timeline-body { min-width: 0; overflow: hidden; }
+        .timeline-body { min-width: 0; }
+        /* timeline row content: long prose + code must wrap */
+        .timeline-row-content { overflow-wrap: anywhere; word-break: break-word; min-width: 0; }
+        .timeline-row-content code { word-break: break-all; overflow-wrap: anywhere; }
         /* callout flex children: long paragraphs need min-width:0 + wrap */
         .callout > div { min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
         /* status-item code paths can be long — force wrap */
