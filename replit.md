@@ -106,7 +106,7 @@ All 15 confirmed Mermaid.ai diagram links are real (no placeholders). Poll URLs 
 ## Site-Wide Banner
 All 19 non-article pages + the article page itself have a site-wide "HOT OFF THE FORGE" banner.
 - **Non-article pages (19):** Link to `/writings/first-diagram-is-a-liar/#council-scoring`, text: "v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →" (updated Task #28)
-- **Article page:** Links to `#council-scoring`, text: "v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →" (update pending — see Task #32)
+- **Article page:** Links to `#council-scoring`, text: "v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →"
 
 ## Internal Search Engine
 
