@@ -981,14 +981,14 @@
                   <button class="embed-btn" id="bpmn-reload-btn" title="Reload playground" aria-label="Reload playground">
                     ↺ Reload
                   </button>
-                  <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer" class="embed-btn embed-btn--primary">
+                  <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer" class="embed-btn embed-btn--primary">
                     ⤢ Full Screen
                   </a>
                 </div>
               </div>
 
               <div class="embed-fallback-cta">
-                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer">
+                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer">
                   ⤢ Open BPMN Playground Full Screen
                 </a>
               </div>
@@ -999,12 +999,12 @@
                   <span class="iframe-loading-text">Loading BPMN Playground…</span>
                   <div class="iframe-slow-fallback" id="bpmn-iframe-fallback">
                     <span class="iframe-loading-text" style="opacity:0.6;">Taking longer than expected?</span>
-                    <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer">Open the playground in a new tab →</a>
+                    <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer">Open the playground in a new tab →</a>
                   </div>
                 </div>
                 <iframe
                   id="bpmn-tool-iframe"
-                  src="https://okhp3.github.io/mermaid-diagram-bpmn/playground"
+                  src="https://okhp3.github.io/mermaid-diagram-bpmn/"
                   title="BPMN for Mermaid — Live Playground"
                   loading="lazy"
                   allow="clipboard-read; clipboard-write; fullscreen"
@@ -1014,7 +1014,7 @@
               </div>
 
               <p class="embed-note">
-                Embedded from <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer">okhp3.github.io/mermaid-diagram-bpmn/playground</a>
+                Embedded from <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer">okhp3.github.io/mermaid-diagram-bpmn</a>
                 — open in a new tab for the full experience
               </p>
             </div>
@@ -1068,7 +1068,7 @@
 
               <p class="dsl-note">
                 Paste this into the live playground →
-                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer">okhp3.github.io/mermaid-diagram-bpmn/playground</a>
+                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer">okhp3.github.io/mermaid-diagram-bpmn</a>
               </p>
             </div>
 
@@ -1077,7 +1077,7 @@
               <div class="section-label">Project Surfaces</div>
               <h2>Where to find the project</h2>
               <div class="surfaces-grid">
-                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer" class="surface-card">
+                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer" class="surface-card">
                   <span class="surface-icon" aria-hidden="true">▶</span>
                   <span>
                     <span class="surface-card-label">Try the Playground</span>
@@ -1174,7 +1174,7 @@
                   <div class="feature-icon" aria-hidden="true">◆</div>
                   <div>
                     <h3>BPMN 2.0 Correct Shapes</h3>
-                    <p>Start/end/intermediate events, user/service/script tasks, XOR/AND/OR gateways — rendered with correct BPMN visual notation, not flowchart approximations.</p>
+                    <p>Start/end events, user/service/script/receive/send tasks, XOR/AND/OR gateways — rendered with correct BPMN visual notation, not flowchart approximations. Intermediate events and timer/message/error markers are on the roadmap.</p>
                   </div>
                 </div>
                 <div class="feature-item">
@@ -1195,7 +1195,7 @@
                   <div class="feature-icon" aria-hidden="true">🎨</div>
                   <div>
                     <h3>Mermaid Theme Integration</h3>
-                    <p>Honors Mermaid theme variables. Diagrams aren't visual outliers in existing Mermaid-themed documents. Theme Builder palettes apply here too.</p>
+                    <p>Prototype uses theme-aware SVG styling; full Mermaid <code>getStyles</code>/theme-variable integration is planned for plugin packaging. Theme Builder palettes will apply once the theming hook is wired in.</p>
                   </div>
                 </div>
                 <div class="feature-item">
@@ -1245,7 +1245,7 @@
                   <span class="progress-marker progress-marker--done">✓</span>
                   <div class="progress-phase-content">
                     <p class="progress-phase-title">Prototype <span class="phase-pill phase-pill--shipped">Shipped</span></p>
-                    <p class="progress-phase-desc">Hand-written line parser, heuristic topological layout, hand-written SVG renderer (no bpmn-js), four canonical example diagrams, six-page React app (Home, Playground, DSL Reference, Architecture, Roadmap, About). Validates the core thesis: a Mermaid-native readable BPMN DSL can render BPMN-correct shapes without bpmn-js.</p>
+                    <p class="progress-phase-desc">Hand-written line parser, heuristic topological layout, hand-written SVG renderer (no bpmn-js), five canonical example diagrams (linear process, gateway decision, pool/lane collaboration, multi-event order, parallel split), six-page React app (Home, Playground, DSL Reference, Architecture, Roadmap, About). Validates the core thesis: a Mermaid-native readable BPMN DSL can render BPMN-correct shapes without bpmn-js.</p>
                   </div>
                 </li>
                 <li class="progress-phase">
@@ -1295,9 +1295,9 @@
                       <tbody>
                         <tr><td class="dsl-kwd">start</td><td class="dsl-desc">Start event (none)</td><td class="dsl-desc">Thin circle</td></tr>
                         <tr><td class="dsl-kwd">end</td><td class="dsl-desc">End event (none)</td><td class="dsl-desc">Thick circle</td></tr>
-                        <tr><td class="dsl-kwd">event:message</td><td class="dsl-desc">Message intermediate event</td><td class="dsl-desc">Circle + envelope</td></tr>
-                        <tr><td class="dsl-kwd">event:timer</td><td class="dsl-desc">Timer intermediate event</td><td class="dsl-desc">Circle + clock</td></tr>
-                        <tr><td class="dsl-kwd">event:error</td><td class="dsl-desc">Error end event</td><td class="dsl-desc">Thick circle + lightning</td></tr>
+                        <tr><td class="dsl-kwd" style="opacity:0.55;">event:message</td><td class="dsl-desc" style="opacity:0.55;">Message intermediate event <span style="font-size:0.7em;color:#eab308;font-family:'JetBrains Mono',monospace;">[planned]</span></td><td class="dsl-desc" style="opacity:0.55;">Circle + envelope</td></tr>
+                        <tr><td class="dsl-kwd" style="opacity:0.55;">event:timer</td><td class="dsl-desc" style="opacity:0.55;">Timer intermediate event <span style="font-size:0.7em;color:#eab308;font-family:'JetBrains Mono',monospace;">[planned]</span></td><td class="dsl-desc" style="opacity:0.55;">Circle + clock</td></tr>
+                        <tr><td class="dsl-kwd" style="opacity:0.55;">event:error</td><td class="dsl-desc" style="opacity:0.55;">Error end event <span style="font-size:0.7em;color:#eab308;font-family:'JetBrains Mono',monospace;">[planned]</span></td><td class="dsl-desc" style="opacity:0.55;">Thick circle + lightning</td></tr>
                       </tbody>
                     </table>
                   </div>
@@ -1313,6 +1313,8 @@
                         <tr><td class="dsl-kwd">task:user</td><td class="dsl-desc">User task</td><td class="dsl-desc">Person icon</td></tr>
                         <tr><td class="dsl-kwd">task:service</td><td class="dsl-desc">Service task</td><td class="dsl-desc">Gear icon</td></tr>
                         <tr><td class="dsl-kwd">task:script</td><td class="dsl-desc">Script task</td><td class="dsl-desc">Scroll icon</td></tr>
+                        <tr><td class="dsl-kwd">task:receive</td><td class="dsl-desc">Receive task</td><td class="dsl-desc">Envelope icon</td></tr>
+                        <tr><td class="dsl-kwd">task:send</td><td class="dsl-desc">Send task</td><td class="dsl-desc">Filled envelope icon</td></tr>
                       </tbody>
                     </table>
                   </div>
@@ -1339,10 +1341,10 @@
                       </thead>
                       <tbody>
                         <tr><td class="dsl-kwd">--&gt;</td><td class="dsl-desc">Sequence flow</td></tr>
-                        <tr><td class="dsl-kwd">--&gt; : "label"</td><td class="dsl-desc">Conditional sequence flow with label</td></tr>
+                        <tr><td class="dsl-kwd">source --&gt; target: "label"</td><td class="dsl-desc">Conditional sequence flow with label</td></tr>
                         <tr><td class="dsl-kwd">==&gt;</td><td class="dsl-desc">Default sequence flow</td></tr>
                         <tr><td class="dsl-kwd">~~&gt;</td><td class="dsl-desc">Message flow (cross-pool only, declared at top level)</td></tr>
-                        <tr><td class="dsl-kwd">---</td><td class="dsl-desc">Association (to text annotations)</td></tr>
+                        <tr><td class="dsl-kwd" style="opacity:0.55;">---</td><td class="dsl-desc" style="opacity:0.55;">Association (to text annotations) <span style="font-size:0.7em;color:#eab308;font-family:'JetBrains Mono',monospace;">[planned — not yet rendered]</span></td></tr>
                       </tbody>
                     </table>
                   </div>
@@ -1428,7 +1430,7 @@
             <!-- CTA -->
             <div class="sidebar-cta">
               <div class="section-label">Get Started</div>
-              <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                 ▶ Try the Playground
               </a>
               <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">
@@ -1443,7 +1445,7 @@
               <div class="meta-row">
                 <div class="meta-item">
                   <span class="meta-key">Status</span>
-                  <span class="meta-val"><span class="status-dot"></span>Prototype → v0.1 Active</span>
+                  <span class="meta-val"><span class="status-dot"></span>Prototype shipped; v0.1 hardening and plugin path in progress</span>
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">Build Phase</span>
@@ -1479,7 +1481,7 @@
                 </div>
               </div>
               <div class="sidebar-links">
-                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/playground" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer" class="sidebar-link">
                   ▶ Live Playground
                 </a>
                 <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="sidebar-link">
