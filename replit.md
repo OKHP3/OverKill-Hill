@@ -57,7 +57,7 @@ After running the reorg, copy `assets/css/theme.css` and `assets/js/app.js` to t
 
 Path: `/writings/first-diagram-is-a-liar/`
 
-**Version:** v0.4 — The Council of AIs (2026-05-15)
+**Version:** v0.5 — The Council Scores the Field (2026-05-24)
 
 ### Article Sections
 - `#visual-edition` — v0.3 Visual Edition overview (deck framing, scoring bracket, what v0.3 adds)
@@ -82,6 +82,8 @@ Path: `/writings/first-diagram-is-a-liar/`
 - `#v2-diagrams` — V2 Revised diagram gallery (8 cards, confirmed Mermaid.ai links)
 - `#v03-deck` — Download deck (Square + Wide, PDF + PPTX)
 - `#v03-field-guide` — Heat guide cards (links to 4 static heat guide pages)
+- `#council-scoring` — The Council Scores the Field ← NEW in v0.5
+- `#model-interviews` — The Models Interview Themselves ← NEW in v0.5
 - `#artifacts` — Launch Artifacts (LinkedIn artifact cards)
 - `#thesis` — Thesis
 
@@ -91,7 +93,7 @@ Path: `/writings/first-diagram-is-a-liar/`
 - `/writings/first-diagram-is-a-liar/v03/v2-heat-a/` — ChatGPT, Copilot, Gemini, Notion (V2)
 - `/writings/first-diagram-is-a-liar/v03/v2-heat-b/` — ChatGPT Pro, Claude, Replit, Perplexity (V2)
 
-All 15 confirmed Mermaid.ai diagram links are real (no placeholders). Poll URLs are TODO placeholders (not yet published on LinkedIn). v0.4 adds ~700 words of new prose across 5 sections. Search index is at 58 entries.
+All 15 confirmed Mermaid.ai diagram links are real (no placeholders). Poll URLs are TODO placeholders (not yet published on LinkedIn). v0.4 added ~700 words of new prose across 5 sections; v0.5 adds #council-scoring and #model-interviews. Search index is at 58 entries.
 
 ### Sidebar Widgets
 1. About This Article (series badge)
@@ -104,7 +106,7 @@ All 15 confirmed Mermaid.ai diagram links are real (no placeholders). Poll URLs 
 ## Site-Wide Banner
 All 19 non-article pages + the article page itself have a site-wide "HOT OFF THE FORGE" banner.
 - **Non-article pages (19):** Link to `/writings/first-diagram-is-a-liar/#council-scoring`, text: "v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →" (updated Task #28)
-- **Article page:** Links to `#why-one-model`, text: "v0.4 is live: the story behind the Council of AIs — why disagreement between models is signal, not noise. →"
+- **Article page:** Links to `#council-scoring`, text: "v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →" (update pending — see Task #32)
 
 ## Internal Search Engine
 
