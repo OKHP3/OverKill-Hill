@@ -1,0 +1,46 @@
+You are updating the OverKill Hill public project page for BPMN for Mermaid at /projects/bpmn-for-mermaid.
+
+Primary objective:
+Bring the public marketing page into exact alignment with the current GitHub repository and prototype implementation for https://github.com/OKHP3/mermaid-diagram-bpmn.
+
+Canonical implementation sources:
+- GitHub repo: https://github.com/OKHP3/mermaid-diagram-bpmn
+- Current DSL spec: artifacts/mermaid-diagram-bpmn/docs/dsl-spec.md
+- Current app support matrix: artifacts/mermaid-diagram-bpmn/src/pages/Home.tsx
+- Current parser: artifacts/mermaid-diagram-bpmn/src/lib/bpmn-parser.ts
+- Current examples: artifacts/mermaid-diagram-bpmn/src/lib/bpmn-examples.ts
+
+Required updates:
+1. Fix the playground link issue.
+   - Verify whether https://okhp3.github.io/mermaid-diagram-bpmn/playground works.
+   - If it does not resolve, either:
+     a) update all page links/iframe src values to the working root GitHub Pages URL, or
+     b) update the GitHub Pages app routing so /playground resolves correctly.
+   - The public page must not advertise a broken playground URL.
+
+2. Update example count.
+   - Replace references to “four canonical example diagrams” with “five canonical example diagrams.”
+   - The five examples are: linear process, gateway decision, pool/lane collaboration, multi-event order, and parallel split.
+
+3. Correct implementation claims.
+   - Mark intermediate events, timer/message/error markers, associations, text annotations, Langium grammar, Mermaid External Diagram API packaging, and full getStyles theme integration as planned/roadmap, not current.
+   - Keep pools, lanes, message flows, pool/lane layout, and cross-pool routing marked as experimental.
+   - Keep start/end events, generic/user/service/script/receive/send tasks, XOR/AND/OR gateways, sequence flows, conditional labels, default flow marker, accTitle/accDescr, auto left-to-right layout, and theme-aware SVG styling as implemented.
+
+4. Fix DSL tables.
+   - Remove `event:message`, `event:timer`, and `event:error` from implemented/current DSL tables.
+   - Add `task:receive` and `task:send` to task keyword tables.
+   - Mark `---` association as planned, not rendered.
+   - Keep conditional syntax as `source --> target: "label"`.
+
+5. Correct theme wording.
+   - Replace “Honors Mermaid theme variables” with: “Prototype uses theme-aware SVG styling; full Mermaid getStyles/theme-variable integration is planned for plugin packaging.”
+
+6. Clarify product status.
+   - Use status: “Prototype shipped; v0.1 hardening and plugin path in progress.”
+   - Avoid implying production Mermaid plugin status.
+   - Keep the honest scope statement: not executable BPMN, not XML round-tripping, not full BPMN 2.0 conformance, not upstreamed yet.
+
+7. Preserve OverKill Hill P³ styling and page tone.
+   - Keep the OKH light-mode styling, rust-orange accents, industrial/forge language, and sibling alignment with Mermaid Theme Builder.
+   - Do not reduce the page to a dry README clone. This is the public project advertisement page.
