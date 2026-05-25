@@ -12,8 +12,8 @@
        METADATA: Primary Title & Description
        ======================================== -->
     <title>BPMN for Mermaid | OverKill Hill P³™</title>
-    <meta name="description" content="A Mermaid-native bpmn-beta diagram type for readable, version-controllable BPMN process diagrams. No XML, no heavyweight tools. Text-first, Git-native, AI-generatable." />
-    <meta name="keywords" content="BPMN, Mermaid.js, bpmn-beta, business process modeling, DSL, process modeling, diagram type, open source, BPMN 2.0, OverKill Hill, process diagrams, Mermaid plugin, GitHub playground, bpmn-beta DSL" />
+    <meta name="description" content="A text-first bpmn-beta diagram type for Mermaid, plus BP-SKILL -- a 15-skill Business Process Agent Skill Suite aligned to BABOK v3, BPM CBOK v4.0, APQC PCF v7.4, BPMN 2.0.2, DMN 1.4, and ISO 9001:2015. No XML. No heavyweight tools. Text-first, Git-native, AI-generatable." />
+    <meta name="keywords" content="BPMN, Mermaid.js, bpmn-beta, business process modeling, DSL, process modeling, diagram type, open source, BPMN 2.0, OverKill Hill, process diagrams, Mermaid plugin, GitHub playground, bpmn-beta DSL, agent skills, SKILL.md, agentskills.io, BP-SKILL, business process agent skills, BABOK agent skills, BPM CBOK, APQC PCF, DMN 1.4, ISO 9001, process narrative specification, PNS.md, Claude Code skills, OpenAI Codex skills, GitHub Copilot skills" />
     <meta name="author" content="OverKill Hill P³™" />
     <meta name="creator" content="OverKill Hill P³™" />
     <meta name="publisher" content="OverKill Hill P³™" />
@@ -22,7 +22,7 @@
        METADATA: Open Graph (Social Sharing)
        ======================================== -->
     <meta property="og:title" content="BPMN for Mermaid | OverKill Hill P³™" />
-    <meta property="og:description" content="A Mermaid-native bpmn-beta diagram type for readable, version-controllable BPMN process diagrams. No XML, no heavyweight tools, no bpmn-js dependency." />
+    <meta property="og:description" content="bpmn-beta is the visual output layer of a complete business process methodology. BP-SKILL packages 15 Agent Skills conforming to BABOK v3, BPM CBOK v4.0, BPMN 2.0.2, and ISO 9001:2015. No XML required." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://overkillhill.com/projects/bpmn-for-mermaid/" />
     <meta property="og:image" content="https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png" />
@@ -38,7 +38,7 @@
        ======================================== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="BPMN for Mermaid | OverKill Hill P³™" />
-    <meta name="twitter:description" content="Mermaid has flowcharts, sequence, Gantt. But no BPMN. bpmn-beta is the bridge — text-first, Git-native, AI-generatable BPMN process diagrams. No XML required." />
+    <meta name="twitter:description" content="Skills are the AI analogue of SOPs. BP-SKILL is 15 SKILL.md agent skills for the full business process lifecycle. bpmn-beta is the visual output layer. Works with Claude Code, Codex, Copilot, and more." />
     <meta name="twitter:image" content="https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png" />
     <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³ illustration" />
     <meta name="twitter:site" content="@OverKillHillP3" />
@@ -947,19 +947,21 @@
 
           <div class="tag-row">
             <span class="tag">Open Source</span>
-            <span class="tag">Mermaid Contribution</span>
-            <span class="tag tag--accent">bpmn-beta · Active</span>
+            <span class="tag">bpmn-beta DSL</span>
+            <span class="tag">BP-SKILL Agent Suite</span>
+            <span class="tag tag--accent">Active</span>
           </div>
 
           <h1>BPMN for Mermaid</h1>
-          <p class="hero-sub">Text-first. Standards-aware. Git-native.</p>
+          <p class="hero-sub">Text-first. Standards-aware. Git-native. Agent-ready.</p>
 
           <p>
-            A Mermaid-native <code style="font-family:'JetBrains Mono',monospace;font-size:0.92rem;color:var(--okh-orange);">bpmn-beta</code> diagram type for readable, version-controllable BPMN process diagrams — no XML, no heavyweight tools, no bpmn-js runtime dependency. Write process models as text, render them as correct BPMN shapes, commit them alongside your code.
+            Two things live in this project. First: <code style="font-family:'JetBrains Mono',monospace;font-size:0.92rem;color:var(--okh-orange);">bpmn-beta</code> — a text-first DSL for BPMN process diagrams, designed as a Mermaid diagram-type contribution. No XML, no heavyweight tools, no bpmn-js. Second: BP-SKILL — a 15-skill Business Process Agent Skill Suite that uses bpmn-beta as its visual output layer, packaged in the Agent Skills open standard and compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor.
           </p>
 
           <div class="hero-ctas">
             <a href="#embed-playground" class="btn btn-primary">Try the Playground →</a>
+            <a href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background:rgba(196,106,44,0.15);border:1px solid rgba(196,106,44,0.5);color:var(--okh-orange);">Explore the Agent Skills →</a>
             <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">View on GitHub</a>
           </div>
         </section>
@@ -1105,7 +1107,146 @@
                     <span class="surface-card-desc">PRD, DSL spec, architecture decisions, and deliverables tracker.</span>
                   </span>
                 </a>
+                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" target="_blank" rel="noopener noreferrer" class="surface-card">
+                  <span class="surface-icon" aria-hidden="true">⬡</span>
+                  <span>
+                    <span class="surface-card-label">Agent Skills Browser</span>
+                    <span class="surface-card-desc">Browse, explore, and download all 15 BP-SKILL agent skills. Individual SKILL.md downloads, full suite zip, and variable layer templates.</span>
+                  </span>
+                </a>
               </div>
+            </div>
+
+            <!-- BP-SKILL AGENT SKILL SUITE ───────────────────── -->
+            <div class="content-block" id="bp-skill" style="scroll-margin-top:8rem;">
+              <div class="section-label">Business Process Agent Skill Suite</div>
+              <h2>BP-SKILL</h2>
+
+              <h3 style="font-size:1rem;margin:1.25rem 0 0.5rem;font-family:var(--font-body);">What it is</h3>
+              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.7;">
+                Skills are the AI analogue of SOPs -- executable, version-controlled, platform-portable instruction sets that auto-activate on semantic match. The Agent Skills open standard (<a href="https://agentskills.io" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">agentskills.io</a>) defines the SKILL.md format. Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, Cursor, and VS Code all support it as of May 2026.
+              </p>
+              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">
+                The public Agent Skills ecosystem has over 89,000 skills. Zero implement a BABOK knowledge area. BP-SKILL is the first standards-conformant, lifecycle-complete business process agent skill suite.
+              </p>
+
+              <h3 style="font-size:1rem;margin:0 0 0.5rem;font-family:var(--font-body);">Why bpmn-beta is the visual output layer, not the whole product</h3>
+              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">
+                Most process work never reaches the diagram. Discovery, elicitation, stakeholder mapping, narrative documentation, gap analysis, controls definition, SOP generation, RACI matrices, and SIPOC charts all come before the diagram -- and most of them come after it too. bpmn-beta covers the visual modeling step. BP-SKILL covers the lifecycle.
+              </p>
+
+              <h3 style="font-size:1rem;margin:0 0 0.5rem;font-family:var(--font-body);">The 15 skills -- grouped by layer</h3>
+              <div style="overflow-x:auto;margin-bottom:1.5rem;">
+                <table class="dsl-table">
+                  <thead>
+                    <tr><th style="width:130px;">Layer</th><th>Skill</th><th style="width:80px;">Status</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;">Discovery</td>
+                      <td class="dsl-desc">Process Intake &amp; Scope</td>
+                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+                    </tr>
+                    <tr>
+                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;">Discovery</td>
+                      <td class="dsl-desc">Stakeholder &amp; Role Mapping</td>
+                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+                    </tr>
+                    <tr>
+                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;">Discovery</td>
+                      <td class="dsl-desc">Elicitation &amp; Interview Facilitation</td>
+                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+                    </tr>
+                    <tr>
+                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Narrative</td>
+                      <td class="dsl-desc">As-Is Process Capture</td>
+                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+                    </tr>
+                    <tr>
+                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Narrative</td>
+                      <td class="dsl-desc">Process Narrative Authoring</td>
+                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+                    </tr>
+                    <tr>
+                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Narrative</td>
+                      <td class="dsl-desc">Gap &amp; Exception Analysis</td>
+                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+                    </tr>
+                    <tr>
+                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Narrative</td>
+                      <td class="dsl-desc">Future-State &amp; Change Strategy</td>
+                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--color-muted);">Extension</span></td>
+                    </tr>
+                    <tr>
+                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Narrative</td>
+                      <td class="dsl-desc">Validation &amp; Quality Scoring</td>
+                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+                    </tr>
+                    <tr>
+                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;">Visual Modeling</td>
+                      <td class="dsl-desc">Visual Process Modeling <em style="font-size:0.7rem;opacity:0.6;">(uses bpmn-beta)</em></td>
+                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+                    </tr>
+                    <tr>
+                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;">Visual Modeling</td>
+                      <td class="dsl-desc">Decision Model Authoring</td>
+                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--color-muted);">Extension</span></td>
+                    </tr>
+                    <tr>
+                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Operational</td>
+                      <td class="dsl-desc">Measures &amp; Controls Definition</td>
+                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--color-muted);">Extension</span></td>
+                    </tr>
+                    <tr>
+                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Operational</td>
+                      <td class="dsl-desc">SOP &amp; Work Instruction Generation</td>
+                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+                    </tr>
+                    <tr>
+                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Governance</td>
+                      <td class="dsl-desc">RACI &amp; Governance Matrix</td>
+                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+                    </tr>
+                    <tr>
+                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Governance</td>
+                      <td class="dsl-desc">SIPOC Generation</td>
+                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+                    </tr>
+                    <tr>
+                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Publication</td>
+                      <td class="dsl-desc">Publication &amp; Handoff Packaging</td>
+                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3 style="font-size:1rem;margin:0 0 0.5rem;font-family:var(--font-body);">The standards it aligns to</h3>
+              <div style="overflow-x:auto;margin-bottom:1.5rem;">
+                <table class="dsl-table">
+                  <thead>
+                    <tr><th>Standard</th><th style="width:70px;">Body</th><th>What it governs</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td class="dsl-kwd">BABOK v3</td><td class="dsl-desc">IIBA</td><td class="dsl-desc">Elicitation, requirements analysis</td></tr>
+                    <tr><td class="dsl-kwd">BPM CBOK v4.0</td><td class="dsl-desc">ABPMP</td><td class="dsl-desc">Process lifecycle, knowledge areas</td></tr>
+                    <tr><td class="dsl-kwd">APQC PCF v7.4</td><td class="dsl-desc">APQC</td><td class="dsl-desc">Process taxonomy and classification</td></tr>
+                    <tr><td class="dsl-kwd">BPMN 2.0.2</td><td class="dsl-desc">OMG</td><td class="dsl-desc">Visual process notation</td></tr>
+                    <tr><td class="dsl-kwd">DMN 1.4</td><td class="dsl-desc">OMG</td><td class="dsl-desc">Decision model notation</td></tr>
+                    <tr><td class="dsl-kwd">ISO 9001:2015</td><td class="dsl-desc">ISO</td><td class="dsl-desc">Documented information requirements</td></tr>
+                    <tr><td class="dsl-kwd">IEEE/ISO/IEC 29148:2018</td><td class="dsl-desc">IEEE/ISO</td><td class="dsl-desc">Requirements information quality</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3 style="font-size:1rem;margin:0 0 0.5rem;font-family:var(--font-body);">Install the suite</h3>
+              <pre class="dsl-inline">curl -L https://okhp3.github.io/mermaid-diagram-bpmn/downloads/bp-skill-suite-v0.3.zip \
+  -o bp-skill-suite-v0.3.zip &amp;&amp; unzip bp-skill-suite-v0.3.zip -d skills/</pre>
+              <!-- Note: download URL active after React app deployment to GitHub Pages completes. -->
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-top:0.75rem;">
+                Or browse individual skills:
+                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">okhp3.github.io/mermaid-diagram-bpmn/skills →</a>
+              </p>
             </div>
 
             <!-- PROTOTYPE STATUS ─────────────────────────────── -->
@@ -1119,6 +1260,9 @@
                   <li><span class="s-ok">✓</span> Renders SVG directly, with no bpmn-js dependency.</li>
                   <li><span class="s-warn">⚠</span> Pool/lane/message-flow support is experimental — verify output in the playground before relying on it.</li>
                   <li><span class="s-road">○</span> Langium grammar, Mermaid External Diagram API packaging, parser validation, and <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">getStyles</code> integration are roadmap items — not yet implemented.</li>
+                  <li><span class="s-ok">✓</span> BP-SKILL v0.3 agent skill suite -- 15 SKILL.md files, 9 variable layer templates, Process Narrative Specification schema, eval suite. Compatible with all Agent Skills-conformant platforms.</li>
+                  <li><span class="s-ok">✓</span> Agent Skills browser -- browsable and downloadable from the playground app at /skills.</li>
+                  <li><span class="s-ok">✓</span> Full suite download -- bp-skill-suite-v0.3.zip packages all 15 skills and context templates.</li>
                 </ul>
               </div>
             </div>
@@ -1153,7 +1297,7 @@
             <!-- FEATURES ─────────────────────────────────────── -->
             <div class="content-block">
               <div class="section-label">Features</div>
-              <h2>What the prototype does</h2>
+              <h2>What the project does</h2>
 
               <div class="feature-grid">
                 <div class="feature-item">
@@ -1212,6 +1356,20 @@
                     <p>Fork it, extend it, propose it upstream. The spec, architecture decisions, and all source are on GitHub. Community feedback shapes the DSL before it locks.</p>
                   </div>
                 </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⬡</div>
+                  <div>
+                    <h3>15 Agent Skills -- BP-SKILL Suite</h3>
+                    <p>Fifteen SKILL.md files package the full business process lifecycle as portable agent instructions. Compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor. Standards-aligned to BABOK v3, BPM CBOK v4.0, APQC PCF v7.4, BPMN 2.0.2, DMN 1.4, and ISO 9001:2015.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">📋</div>
+                  <div>
+                    <h3>Process Narrative Specification</h3>
+                    <p>PNS.md is the central handoff artifact that flows through the entire suite. Every skill either reads or enriches it, creating a validated pipeline from discovery through publication. The schema is aligned to ISO 9001 §4.4.1 and IEEE/ISO/IEC 29148.</p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -1225,10 +1383,14 @@
                   <li><span class="scope-yes">✓</span> A readable DSL for the BPMN 2.0 Descriptive Conformance subset — start/end events, tasks, gateways, flows, pools, and lanes.</li>
                   <li><span class="scope-yes">✓</span> Text-first, Git-native, works inside a Markdown code fence.</li>
                   <li><span class="scope-yes">✓</span> AI-generatable — designed to be writable by LLMs without syntax repair.</li>
+                  <li><span class="scope-yes">✓</span> The visual output layer of a complete business process documentation methodology (BP-SKILL).</li>
+                  <li><span class="scope-yes">✓</span> A domain extension to the Agent Skills open standard (agentskills.io).</li>
+                  <li><span class="scope-yes">✓</span> Compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, Cursor, VS Code, and all other Agent Skills-conformant platforms.</li>
                   <li><span class="scope-no">✗</span> Not executable BPMN — no process engine, no token simulation, no runtime semantics.</li>
                   <li><span class="scope-no">✗</span> Not BPMN XML round-tripping — no import or export of BPMN 2.0 XML files.</li>
                   <li><span class="scope-no">✗</span> Not full BPMN 2.0 conformance — choreography, conversation, boundary events, transactions, and data objects are out of scope for v1.</li>
                   <li><span class="scope-no">✗</span> Not a production Mermaid plugin yet — the upstream contribution path comes after the DSL stabilizes and the Langium parser is built.</li>
+                  <li><span class="scope-no">✗</span> A replacement for BABOK, BPM CBOK, APQC, or any other body of knowledge -- it references these standards but does not reproduce them.</li>
                 </ul>
               </div>
             </div>
@@ -1267,6 +1429,27 @@
                   <div class="progress-phase-content">
                     <p class="progress-phase-title">Upstream Proposal <span class="phase-pill phase-pill--planned">Future</span></p>
                     <p class="progress-phase-desc">Mermaid core PR after v1.0 syntax stabilizes and community feedback from issue #7699 is incorporated. Requires maintainer acceptance, full docs, and a parity test corpus between the hand-written and Langium parsers.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--done">✓</span>
+                  <div class="progress-phase-content">
+                    <p class="progress-phase-title">BP-SKILL v0.3 -- 15-skill Agent Skill Suite <span class="phase-pill phase-pill--shipped">Shipped</span></p>
+                    <p class="progress-phase-desc">15 SKILL.md files, 9 variable layer templates, Process Narrative Specification schema, eval suite, agent skills browser in the React app, full suite download. Proposed domain extension to agentskills.io.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--planned">○</span>
+                  <div class="progress-phase-content">
+                    <p class="progress-phase-title">agentskills.io Formal Submission <span class="phase-pill phase-pill--planned">Planned</span></p>
+                    <p class="progress-phase-desc">Submit BP-SKILL as a formal domain extension proposal to the Agent Skills community governance repository.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--planned">○</span>
+                  <div class="progress-phase-content">
+                    <p class="progress-phase-title">IIBA / ABPMP Practitioner Outreach <span class="phase-pill phase-pill--planned">Planned</span></p>
+                    <p class="progress-phase-desc">Publish BP-SKILL practitioner articles in IIBA and ABPMP community publications to build awareness in the business analysis community.</p>
                   </div>
                 </li>
               </ul>
@@ -1433,6 +1616,9 @@
               <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                 ▶ Try the Playground
               </a>
+              <a href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" target="_blank" rel="noopener noreferrer" class="btn btn-quiet" style="width:100%;justify-content:center;margin-bottom:0.5rem;">
+                ⬡ Explore Agent Skills
+              </a>
               <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">
                 ◻ View on GitHub
               </a>
@@ -1483,6 +1669,9 @@
               <div class="sidebar-links">
                 <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer" class="sidebar-link">
                   ▶ Live Playground
+                </a>
+                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                  ⬡ Agent Skills Browser
                 </a>
                 <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="sidebar-link">
                   ◻ GitHub Repo

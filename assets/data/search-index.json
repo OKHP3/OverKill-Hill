@@ -551,15 +551,21 @@
       "url": "/projects/bpmn-for-mermaid/",
       "title": "BPMN for Mermaid | OverKill Hill P³™",
       "category": "Project",
-      "description": "A Mermaid-native bpmn-beta diagram type for readable, version-controllable BPMN process diagrams. No XML, no heavyweight tools. Text-first, Git-native, AI-generatable.",
+      "description": "A text-first bpmn-beta diagram type for Mermaid, plus BP-SKILL -- a 15-skill Business Process Agent Skill Suite aligned to BABOK v3, BPM CBOK v4.0, APQC PCF v7.4, BPMN 2.0.2, DMN 1.4, and ISO 9001:2015. No XML. No heavyweight tools. Text-first, Git-native, AI-generatable.",
       "headings": [
         "What bpmn-beta looks like",
         "Where to find the project",
+        "BP-SKILL",
         "What's working, what's not",
         "The gap Mermaid has always had",
-        "What the prototype does",
+        "What the project does",
         "What this is — and isn't",
         "Where the project is",
+        "What it is",
+        "Why bpmn-beta is the visual output layer, not the whole product",
+        "The 15 skills -- grouped by layer",
+        "The standards it aligns to",
+        "Install the suite",
         "The current options",
         "bpmn-beta",
         "Mermaid-Native DSL",
@@ -569,9 +575,11 @@
         "No bpmn-js Dependency",
         "Mermaid Theme Integration",
         "Playground & DSL Reference",
-        "Open Source, MIT License"
+        "Open Source, MIT License",
+        "15 Agent Skills -- BP-SKILL Suite",
+        "Process Narrative Specification"
       ],
-      "body": "Skip to main content overkillhill.com / projects / bpmn-for-mermaid Open Source Mermaid Contribution bpmn-beta · Active BPMN for Mermaid Text-first. Standards-aware. Git-native. A Mermaid-native bpmn-beta diagram type for readable, version-controllable BPMN process diagrams — no XML, no heavyweight tools, no bpmn-js runtime dependency. Write process models as text, render them as correct BPMN shapes, commit them alongside your code."
+      "body": "Skip to main content overkillhill.com / projects / bpmn-for-mermaid Open Source bpmn-beta DSL BP-SKILL Agent Suite Active BPMN for Mermaid Text-first. Standards-aware. Git-native. Agent-ready. Two things live in this project. First: bpmn-beta — a text-first DSL for BPMN process diagrams, designed as a Mermaid diagram-type contribution. No XML, no heavyweight tools, no bpmn-js. Second: BP-SKILL — a 15-skill Business Process Agent Skill Suite that uses bpmn-beta as its visual output layer, packaged in the Agent Skills open standard and compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor."
     },
     {
       "url": "/projects/mac-studio-local-ai-workbench/",
