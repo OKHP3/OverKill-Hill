@@ -326,6 +326,9 @@
         background: rgba(255,255,255,0.05);
         padding: 0.1em 0.3em;
         border-radius: 3px;
+        word-break: break-all;
+        overflow-wrap: anywhere;
+        white-space: normal;
       }
 
       /* ── Timeline ───────────────────────────────────────────────── */
@@ -420,11 +423,15 @@
       /* ── Data tables ────────────────────────────────────────────── */
       .data-table-wrap {
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        max-width: 100%;
         border-radius: var(--radius-md);
         border: 1px solid var(--color-border-subtle);
       }
       .data-table {
         width: 100%;
+        min-width: 500px;
         border-collapse: collapse;
         font-size: 0.85rem;
       }
@@ -454,6 +461,9 @@
         background: rgba(255,255,255,0.06);
         padding: 0.1em 0.35em;
         border-radius: 3px;
+        word-break: break-all;
+        overflow-wrap: anywhere;
+        white-space: normal;
       }
       .bench-pass  { color: #4ade80; font-weight: 600; }
       .bench-warn  { color: var(--okh-amber); font-weight: 600; }
