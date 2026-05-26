@@ -1,0 +1,156 @@
+You are working in the OverKill-Hill Replit project connected to https://github.com/OKHP3/OverKill-Hill.
+
+Mission:
+Fully update the Mermaid Theme Builder project page at /projects/mermaid-theme-builder/ so it matches the current v0.5.x state of the Mermaid Theme Builder app, the Notion source of truth, and the deployed GitHub Pages workbench.
+
+Production target:
+- Source file: projects/mermaid-theme-builder/index.html
+- Live URL: https://overkillhill.com/projects/mermaid-theme-builder/
+- Preview URL may be Replit’s current Picard preview for this page
+- Deployed app: https://okhp3.github.io/mermaid-theme-builder/
+- App repo: https://github.com/OKHP3/mermaid-theme-builder
+- Notion source: https://www.notion.so/overkillhill/Mermaid-Theme-Builder-7bc611bd57454d9185fadccdae11a93f
+- Canonical site CSS: assets/css/theme.css
+
+Important:
+Do not create a separate design system for this page. Use the existing OverKill Hill P³ site structure, typography, navigation, buttons, cards, callouts, and CSS tokens. The page should look like it belongs to overkillhill.com first, while accurately advertising the app.
+
+Current source-of-truth facts to reflect:
+- Product name: Mermaid Theme Builder
+- Current status: v0.5.0 shipped / v0.5.x Alpha Active
+- Current sprint: v0.5.x SKILL.md Hardening
+- Product category: visual governance workbench for Mermaid diagram-as-code styling
+- Core value: renderer-aware export, brand palette enforcement, AI prompt scaffold generation, and reusable visual governance
+- Live tool: https://okhp3.github.io/mermaid-theme-builder/
+- App repo: https://github.com/OKHP3/mermaid-theme-builder
+- Relationship to BPMN for Mermaid: sibling project; Theme Builder governs visual style, BPMN for Mermaid explores structural/notation extension
+- Relationship to Mermaid.js: independent community tool using open Mermaid.js theming surfaces
+- Relationship to Mermaid.ai / Mermaid Chart: no affiliation; independent and not a competitor claim
+- Runtime posture: browser-only, no backend, no account, no user data collection
+- Licensing: MIT / open source
+- Mobile posture: desktop-first workbench, mobile companion mode
+
+Current shipped capability claims to include:
+- Live diagram preview
+- Diagram family detection
+- Multi-format export
+- Prompt scaffold generator
+- Renderer capability notes / renderer parity matrix
+- Brand palette presets: OverKill Hill P³, Glee-fully, AskJamie, Neutral Enterprise, and original utility palettes
+- Precise color controls
+- Pan / zoom canvas
+- OKH Forge UI System
+- SKILL.md package / agent skill
+- Reference tab with 27+ diagram-family capability registry
+- Five export formats
+- Vitest 4 test suite
+- Multi-diagram splitting
+- Shareable URL state encoding
+- Mermaid v11.15.0 look API support: Classic, Neo, Hand-Drawn with renderer warnings
+
+Required page updates:
+1. Replace stale hero copy.
+   Remove:
+   - “Visual. Instant. Yours.”
+   - “V0.3 Public Alpha”
+   - “free visual editor” as the primary positioning
+   Replace with:
+   - “Governance Workbench. Renderer-Aware. Brand-Enforced.”
+   - “v0.5.x Alpha Active”
+   - “A visual governance workbench for Mermaid diagram-as-code styling, renderer-aware export, brand palette enforcement, and AI prompt scaffold generation.”
+
+2. Update all feature sections.
+   The page should describe the current app, not the old v0.3 alpha.
+
+3. Add or preserve the embedded live workbench.
+   Keep the iframe/embedded GitHub Pages tool if it currently works.
+   Include a prominent “Open the Workbench” CTA and a fallback “Open in new tab” link.
+
+4. Add a “Current Release Snapshot” section.
+   Include:
+   - v0.5.0 shipped May 2026
+   - v0.5.x SKILL.md Hardening Sprint
+   - GitHub repo
+   - Live tool
+   - Open-source / MIT
+   - Browser-only / no backend
+
+5. Add a “What changed since v0.3” section.
+   Use concise cards or bullets:
+   - Renderer intelligence
+   - Look API support
+   - Reference capability registry
+   - SKILL.md agent packaging
+   - Multi-diagram splitting
+   - Shareable URL state
+   - Test suite hardening
+
+6. Add a “Renderer Awareness” section.
+   Explain that Mermaid.js support differs across GitHub, GitLab, Obsidian, Notion, Confluence, Mermaid Live, and Mermaid Chart.
+   State that the tool helps users find known renderer breakpoints before pasting output.
+
+7. Add a “SKILL.md / Agent Layer” section.
+   Explain that the app’s governance logic is being packaged as a portable agent skill for Claude Code, Cursor, GitHub Copilot, and VS Code.
+   Make clear that SKILL.md is a headless companion to the visual workbench.
+
+8. Add a “Sibling Project Relationship” section.
+   Explain:
+   - Mermaid Theme Builder handles visual governance
+   - BPMN for Mermaid handles structural/notation exploration
+   - They should share OKH Forge design language and theming contracts
+   - Link to /projects/bpmn-for-mermaid/
+
+9. Update FAQ.
+   Remove stale answers:
+   - “dark/light preview toggle is on the roadmap”
+   - “shareable theme not yet”
+   - “tested against Mermaid v10 and v11” if too generic
+   Replace with current answers:
+   - dark/light/system mode exists if true from repo/app
+   - shareable URL state encoding exists if true from repo/app
+   - Mermaid v11.15.0 is the current reviewed target if true
+   - hosted renderer support varies and the app warns accordingly
+
+10. Add a roadmap section aligned to Notion:
+   - v0.5.x SKILL.md Hardening
+   - v0.6.x Native Capability + Ko-fi Artifacts
+   - v0.7.x Session Persistence + Multi-Diagram Canvas
+   - v0.8.x Collaboration + Governance Hardening
+   - v1.0 Production Release
+
+11. Salvage check for Project-Page-Mermaid-Theme-Tool:
+   If this Replit workspace has any accessible references, notes, generated HTML, markdown, or prior project-page drafts from Project-Page-Mermaid-Theme-Tool, compare them against the current page before finalizing.
+   Extract only unique, still-current value.
+   Do not preserve stale v0.3 claims.
+   Do not preserve claims contradicted by the Notion v0.5.0 source.
+   If no access exists, state that in the final Replit summary.
+
+12. Brand/styling requirements:
+   - Use existing assets/css/theme.css classes and tokens.
+   - Do not add large one-off CSS blocks unless absolutely necessary.
+   - Use existing OKH page patterns: hero, cards, callouts, project metadata, accordions/details, CTAs, footer.
+   - Keep mobile readable.
+   - Avoid horizontal overflow.
+   - Validate the embedded app fallback on small screens.
+
+13. Validation:
+   - Open the page locally in Replit preview.
+   - Check mobile, tablet, and desktop widths.
+   - Confirm all links resolve:
+     - Live tool
+     - GitHub repo
+     - BPMN sibling page
+     - Mermaid docs links if present
+     - Project index
+   - Confirm no references to BFS or employer-owned branding.
+   - Confirm no false affiliation with Mermaid.ai, Mermaid Chart, Mermaid.js maintainers, or any third-party brand.
+   - Confirm no stale v0.3 status remains except in a clearly labeled history section.
+
+Acceptance criteria:
+- The project page reflects v0.5.x, not v0.3.
+- The page is aligned with Notion’s current project truth.
+- The live app embed remains usable or has a graceful fallback.
+- The page uses the OverKill Hill P³ visual system from theme.css.
+- The page clearly explains why the project matters, what it does, and how it relates to BPMN for Mermaid.
+- The page is promotion-ready for Mermaid outreach, LinkedIn references, GitHub repo traffic, and Ko-fi artifact positioning.
+- Replit’s final summary must list what was updated, what stale claims were removed, and whether anything useful was salvageable from Project-Page-Mermaid-Theme-Tool.
