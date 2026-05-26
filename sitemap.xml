@@ -22,18 +22,6 @@
   </url>
 
   <url>
-    <loc>https://overkillhill.com/writings/biases-as-constants/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://overkillhill.com/writings/magnus-saga/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
     <loc>https://overkillhill.com/manifesto/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
@@ -63,12 +51,6 @@
   </url>
 
   <url>
-    <loc>https://overkillhill.com/prompt-forge/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
     <loc>https://overkillhill.com/universe/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
@@ -92,20 +74,8 @@
     <priority>0.4</priority>
   </url>
 
-  <!-- ===== DISCOVERED PAGES — flagged for human review =====
-       These pages exist in the repo but are not in the canonical spec list.
-       Assigned priority 0.5 / monthly per sprint-2 policy.
-       Review each: either promote to the spec list or add a noindex meta tag.
-  -->
+  <!-- ===== v0.3 HEAT FIELD GUIDE SUB-PAGES ===== -->
 
-  <!-- FLAG: found-ry — brand/portfolio page; confirm indexability -->
-  <url>
-    <loc>https://overkillhill.com/found-ry/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- FLAG: v0.3 heat field guide sub-pages (4) -->
   <url>
     <loc>https://overkillhill.com/writings/first-diagram-is-a-liar/v03/v1-heat-a/</loc>
     <changefreq>monthly</changefreq>
@@ -130,38 +100,16 @@
     <priority>0.5</priority>
   </url>
 
-  <!-- FLAG: secondary project pages — confirm indexability for each -->
+  <!-- ===== ADDITIONAL INDEXABLE PAGES ===== -->
+
   <url>
     <loc>https://overkillhill.com/projects/bfs-framing-intelligent-futures/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>
 
-  <url>
-    <loc>https://overkillhill.com/projects/abrahamic-reference-engine/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
+  <!-- ===== UTILITY ===== -->
 
-  <url>
-    <loc>https://overkillhill.com/projects/hometools/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://overkillhill.com/projects/pathscrib-r/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://overkillhill.com/projects/un-nocked-truth/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- FLAG: site search — confirm if /search/ should be indexed -->
   <url>
     <loc>https://overkillhill.com/search/</loc>
     <changefreq>monthly</changefreq>

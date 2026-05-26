@@ -31,8 +31,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 
-ROOT = Path(__file__).resolve().parent.parent
-SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "dist", "templates"}
+ROOT = Path(__file__).resolve().parent.parent.parent
+SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "dist", "templates", ".agents"}
 SITEMAP = ROOT / "sitemap.xml"
 SITE_ORIGIN = "https://overkillhill.com"
 
@@ -191,6 +191,24 @@ def validate_page(path: Path, sitemap_urls: set[str]) -> list[Finding]:
             if "github.com/OKHP3" not in chunk and "OKHP3" not in chunk:
                 findings.append(Finding("ERROR", rel, f"'P3' without superscript in {m.group(1)} tag — brand violation"))
 
+    # footer brand name: must be OverKill&nbsp;Hill&nbsp;P³™ (not missing ™ or prefixed with "The ")
+    if re.search(r"<h3>OverKill&nbsp;Hill&nbsp;P³</h3>", raw):
+        findings.append(Finding("ERROR", rel, "footer brand name missing ™ — should be 'OverKill&nbsp;Hill&nbsp;P³™'"))
+    if re.search(r"<h3>The OverKill&nbsp;Hill&nbsp;P³", raw):
+        findings.append(Finding("WARN", rel, "footer brand name has 'The ' prefix — canonical form has no 'The'"))
+
+    # GA4 tag presence
+    if "G-VJ1BKXS27H" not in raw:
+        findings.append(Finding("WARN", rel, "GA4 tag (G-VJ1BKXS27H) not found"))
+
+    # og:title comma-separator (brand standard is middot · or pipe |, not comma)
+    m_og = re.search(r'property="og:title"\s+content="([^"]+)"', raw)
+    if m_og:
+        og_val = m_og.group(1)
+        # only flag if it looks like the middot terms but uses comma between them
+        if re.search(r"Precision,\s*Protocol", og_val):
+            findings.append(Finding("ERROR", rel, f"og:title uses comma between brand terms — use middot · (found: {og_val!r})"))
+
     # placeholder hrefs
     for m in re.finditer(r'href="(#|javascript:[^"]*|)"', raw):
         # bare "#" anchor used as a placeholder (not a real fragment) — flag.
@@ -223,10 +241,14 @@ def validate_page(path: Path, sitemap_urls: set[str]) -> list[Finding]:
         findings.append(Finding("WARN", rel, "no JSON-LD structured data"))
 
     # sitemap inclusion (non-noindex, non-utility pages only)
+    canonical_url = SITE_ORIGIN + html_to_route(path)
     if not parser.is_noindex and rel not in ("404.html", "under-construction.html"):
-        canonical_url = SITE_ORIGIN + html_to_route(path)
         if canonical_url not in sitemap_urls:
             findings.append(Finding("ERROR", rel, f"missing from sitemap.xml ({canonical_url})"))
+
+    # noindex pages must NOT be in sitemap
+    if parser.is_noindex and canonical_url in sitemap_urls:
+        findings.append(Finding("ERROR", rel, f"noindex page listed in sitemap.xml — remove it ({canonical_url})"))
 
     # internal link + asset existence
     for ref in parser.asset_refs:
