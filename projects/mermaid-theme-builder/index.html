@@ -97,7 +97,7 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Mermaid Theme Builder",
-      "description": "A visual, no-prompt Mermaid.js theme builder. Pick colors, preview diagrams live, and export production-ready CSS variables.",
+      "description": "A visual governance workbench for Mermaid diagram-as-code styling. Renderer-aware export, brand palette enforcement, prompt scaffold generation, and a SKILL.md agent layer. Browser-only, MIT licensed.",
       "url": "https://okhp3.github.io/mermaid-theme-builder/",
       "author": {
         "@type": "Organization",
@@ -934,7 +934,7 @@
       </div>
 
       <section class="site-specials site-specials--okh" aria-label="Forge update">
-        <span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
+        <span class="site-specials-label">🔥 Hot off the FORGE ⚒️</span>
         <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
           v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →
         </a>
@@ -1030,6 +1030,38 @@
               </p>
             </div>
 
+            <!-- CURRENT RELEASE SNAPSHOT ───────────────────────── -->
+            <div class="content-block card" id="release">
+              <div class="section-label">Current Release</div>
+              <h2>v0.5.0 — Shipped May 2026</h2>
+              <div class="meta-row" style="margin-bottom:0;">
+                <div class="meta-item">
+                  <span class="meta-key">Version</span>
+                  <span class="meta-val"><span class="status-dot"></span>v0.5.0 — shipped May 2026</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Active Sprint</span>
+                  <span class="meta-val">v0.5.x SKILL.md Hardening</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">License</span>
+                  <span class="meta-val">MIT — free always</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Runtime</span>
+                  <span class="meta-val">Browser-only · no server · no account</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Live Tool</span>
+                  <span class="meta-val"><a href="https://okhp3.github.io/mermaid-theme-builder/" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">okhp3.github.io/mermaid-theme-builder ↗</a></span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Source</span>
+                  <span class="meta-val"><a href="https://github.com/OKHP3/mermaid-theme-builder" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">github.com/OKHP3/mermaid-theme-builder ↗</a></span>
+                </div>
+              </div>
+            </div>
+
             <!-- WHAT IT IS / IS NOT ──────────────────────────── -->
             <div class="content-block">
               <div class="section-label">What This Is</div>
@@ -1084,6 +1116,63 @@
 
               <div class="why-note">
                 This is a <strong>visual governance layer</strong> for the Mermaid.js ecosystem — not a commercial product, not a SaaS, not a competitor to Mermaid.ai. It runs entirely in your browser. No account. No data collected.
+              </div>
+            </div>
+
+            <!-- WHAT CHANGED SINCE v0.3 ─────────────────────── -->
+            <div class="content-block" id="since-v03">
+              <div class="section-label">Since v0.3</div>
+              <h2>What changed between v0.3 and v0.5</h2>
+              <div class="feature-grid">
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⚐</div>
+                  <div>
+                    <h3>Renderer Intelligence</h3>
+                    <p>Moved from capability notes to active renderer profiles. The workbench now selects export rules based on your target renderer — not just flags what might fail.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◑</div>
+                  <div>
+                    <h3>Look API Support</h3>
+                    <p>Mermaid v11.15.0 look API — Classic, Neo, and Hand-Drawn modes — with per-renderer warnings where support is inconsistent. New in v0.5.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◫</div>
+                  <div>
+                    <h3>Reference Capability Registry</h3>
+                    <p>27+ diagram-family capability matrix covering renderer × family × version combinations. Was implicit in v0.3; now a dedicated Reference tab.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◻</div>
+                  <div>
+                    <h3>SKILL.md Agent Packaging</h3>
+                    <p>Governance logic is being extracted into a machine-readable SKILL.md for Claude Code, Cursor, GitHub Copilot, and VS Code. Not in v0.3.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⊞</div>
+                  <div>
+                    <h3>Multi-Diagram Splitting</h3>
+                    <p>Paste compound Mermaid blocks and the tool splits, themes, and exports each diagram independently. Not available in v0.3.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⌁</div>
+                  <div>
+                    <h3>Shareable URL State</h3>
+                    <p>Your full theme configuration is encoded in the URL. Bookmark it, share it, or return to it later. v0.3 had no persistent state between sessions.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◱</div>
+                  <div>
+                    <h3>Vitest 4 Test Suite</h3>
+                    <p>Export integrity, themeVariable completeness, and renderer profile accuracy verified by Vitest 4. Every export claim is now testable. v0.3 had no test suite.</p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -1175,6 +1264,34 @@
                   <div>
                     <h3>Open Source, MIT License</h3>
                     <p>Fork it, remix it, embed it. Full source on GitHub. Contributions welcome.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◑</div>
+                  <div>
+                    <h3>Look API — Classic, Neo, Hand-Drawn</h3>
+                    <p>Supports Mermaid v11.15.0 look API. Switch between Classic, Neo, and Hand-Drawn rendering modes — with renderer warnings where support is inconsistent across platforms.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◫</div>
+                  <div>
+                    <h3>Reference Tab — 27+ Family Registry</h3>
+                    <p>A built-in capability registry covering 27+ diagram families. Documents which features are supported per renderer, per family, per Mermaid version — the reference stays open alongside your workspace.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⊞</div>
+                  <div>
+                    <h3>Multi-Diagram Splitting</h3>
+                    <p>Paste compound or multi-block Mermaid code and the tool splits it into individual diagrams, applies your theme to each, and exports them independently. No manual untangling.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◱</div>
+                  <div>
+                    <h3>Vitest 4 Test Suite</h3>
+                    <p>Export integrity, theme-variable completeness, and renderer-profile accuracy are verified by a Vitest 4 test suite. Every export claim is testable against its target renderer — not just described.</p>
                   </div>
                 </div>
               </div>
@@ -1296,7 +1413,7 @@
                   <li>Diagram family classification and renderer-safe export rules</li>
                 </ul>
                 <p>Intended for: AI coding assistants, local agent workflows, CI/CD diagram validation pipelines, and headless diagram-governance scripts that need to apply consistent brand and renderer rules without human review at each step.</p>
-                <div class="skill-note">Status: In development as part of the v0.5.x trust-sprint baseline. The visual app ships first; the SKILL.md package formalizes the same logic for agent consumption.</div>
+                <div class="skill-note">Status: Active development — part of the v0.5.x SKILL.md Hardening Sprint. The visual app ships the governance logic first; the SKILL.md package formalizes the same rules for agent consumption without a browser.</div>
               </div>
             </div>
 
@@ -1331,6 +1448,74 @@
                   <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.6rem;">Heavy code editing and dense diagram inspection remain desktop-first. Mobile hardening is on the v0.6.x validation sprint roadmap.</p>
                 </div>
               </div>
+            </div>
+
+            <!-- ROADMAP ──────────────────────────────────────── -->
+            <div class="content-block" id="roadmap">
+              <div class="section-label">Roadmap</div>
+              <h2>Where the build is going</h2>
+              <ul class="progress-track">
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--done">✓</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      v0.5.0 — Baseline Shipped
+                      <span class="phase-pill phase-pill--shipped">Shipped</span>
+                    </div>
+                    <p class="progress-phase-desc">Forge UI System, pan/zoom canvas, renderer-aware export, brand palette presets, Look API (Classic/Neo/Hand-Drawn), multi-diagram splitting, shareable URL state, Reference tab with 27+ family registry.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--active">▶</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      v0.5.x — SKILL.md Hardening
+                      <span class="phase-pill phase-pill--active">Active</span>
+                    </div>
+                    <p class="progress-phase-desc">Extract governance logic into a portable SKILL.md agent skill for Claude Code, Cursor, GitHub Copilot, and VS Code. Vitest 4 test suite hardening. Renderer profile verification fixtures.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--planned">○</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      v0.6.x — Native Capability + Ko-fi Artifacts
+                      <span class="phase-pill phase-pill--planned">Planned</span>
+                    </div>
+                    <p class="progress-phase-desc">Native renderer capability checking. Ko-fi artifact packaging for purchasable theme packs and brand kits. Mobile hardening sprint.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--planned">○</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      v0.7.x — Session Persistence + Multi-Diagram Canvas
+                      <span class="phase-pill phase-pill--planned">Planned</span>
+                    </div>
+                    <p class="progress-phase-desc">Local storage persistence for sessions across browser restarts. Multi-diagram canvas — manage, compare, and export multiple themed diagrams in one workspace.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--planned">○</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      v0.8.x — Collaboration + Governance Hardening
+                      <span class="phase-pill phase-pill--planned">Planned</span>
+                    </div>
+                    <p class="progress-phase-desc">Shareable governance profiles. Team-level palette enforcement. Governance audit log — tracks which themes were applied to which diagrams, when, and by which export format.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--planned">○</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      v1.0 — Production Release
+                      <span class="phase-pill phase-pill--planned">Planned</span>
+                    </div>
+                    <p class="progress-phase-desc">Stable API surface, production-grade test coverage, full documentation, and formal governance contract for downstream consumers (BPMN for Mermaid, SKILL.md, Ko-fi artifacts).</p>
+                  </div>
+                </li>
+              </ul>
             </div>
 
             <!-- COLLAPSIBLE SECTIONS ─────────────────────────── -->
@@ -1468,7 +1653,7 @@
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">Which Mermaid.js versions does it support?</p>
-                      <p class="faq-a">Tested against Mermaid.js v10 and v11. The themeVariables API has been stable across these versions.</p>
+                      <p class="faq-a">Mermaid v11.15.0 is the current reviewed target. The tool also surfaces known renderer breakpoints — the same code that works in the browser may fail silently in GitHub, Notion, or Confluence. The workbench flags those conflicts before you paste.</p>
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">Can I use the exported theme with Docusaurus, VitePress, or GitHub?</p>
@@ -1539,7 +1724,7 @@
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">Build Phase</span>
-                  <span class="meta-val">v0.5.x — Trust Sprint</span>
+                  <span class="meta-val">v0.5.x SKILL.md Hardening</span>
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">License</span>
@@ -1559,7 +1744,7 @@
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">Mermaid.js compat</span>
-                  <span class="meta-val">v10, v11+</span>
+                  <span class="meta-val">v11.15.0</span>
                 </div>
               </div>
               <div class="sidebar-links">
