@@ -503,6 +503,7 @@
       }
       @media (max-width: 600px) {
         .decision-item { grid-template-columns: 1fr; gap: 0.25rem; }
+        .decision-item > code { min-width: 0; overflow-wrap: anywhere; word-break: break-all; display: block; }
       }
       .decision-key {
         font-size: 0.7rem;
@@ -512,7 +513,7 @@
         color: var(--okh-orange);
         padding-top: 0.1rem;
       }
-      .decision-val { color: var(--color-fg); line-height: 1.5; min-width: 0; }
+      .decision-val { color: var(--color-fg); line-height: 1.5; min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
       .decision-item code { word-break: break-all; overflow-wrap: anywhere; min-width: 0; }
 
       /* ── Next phase ─────────────────────────────────────────────── */
