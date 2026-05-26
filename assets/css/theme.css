@@ -215,12 +215,19 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+pre {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: pre;
 }
 
 a {
@@ -364,6 +371,7 @@ button {
   transition: transform 0.15s ease, box-shadow 0.15s ease,
     background 0.15s ease, border-color 0.15s ease;
   text-decoration: none;
+  min-height: 44px;
 }
 
 .btn-primary {
@@ -746,6 +754,8 @@ button {
   cursor: pointer;
   align-items: center;
   justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
 }
 
 /* three-bar hamburger */
