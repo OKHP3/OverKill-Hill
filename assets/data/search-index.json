@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 50,
+  "count": 53,
   "entries": [
     {
       "url": "/",
@@ -507,13 +507,16 @@
       "category": "Project",
       "description": "Explore the innovative projects and systems crafted at the OverKill Hill P³™ forge — from custom GPT systems to AI tools for real-world complexity.",
       "headings": [
+        "Built at the Hill",
+        "External Tools & Platforms",
+        "Mermaid Theme Builder",
+        "BPMN for Mermaid",
+        "Mac Studio Local AI Workbench",
         "Glee-fully Personalizable Tools",
         "AskJamie",
-        "Protocol Libraries",
-        "Mermaid Theme Builder",
-        "BPMN for Mermaid"
+        "Protocol Libraries"
       ],
-      "body": "Skip to main content Projects from the Hill A sampling of the systems currently being forged at The OverKill Hill P³™ — some public-facing, some internal client work, all built with the same protocol-driven mindset. Glee-fully Personalizable Tools Glee-fully Personalizable Tools A whole-life ecosystem of custom GPTs focused on emotional design, gentle structure and playful metaphors. Visit Glee-fully → AskJamie AskJamie A mid-century modern AI helpdesk with a carefully crafted tone: friendly, technically literate and unhurried in all the right ways."
+      "body": "Skip to main content Projects from the Hill A sampling of the systems currently being forged at OverKill Hill P³™ — some public-facing, some internal client work, all built with the same protocol-driven mindset. Built at the Hill Built at the Hill Hosted tools and documented builds — designed, shipped, and maintained here. Mermaid Theme Builder Mermaid Theme Builder A visual theme builder for Mermaid diagrams — configure colors, fonts and styles with a live preview and export production-ready init config blocks. Open Theme Builder → BPMN for Mermaid BPMN for Mermaid A Mermaid-native bpmn-beta diagram type for readable, version-controllable BPMN process diagrams."
     },
     {
       "url": "/projects/bfs-framing-intelligent-futures/",
@@ -541,7 +544,7 @@
         "Culture, reviews, and investor lens",
         "AskJamie™ — the articulate lens maker",
         "BrandGuard™ — protecting stories in the model era",
-        "OverKill Hill P³ — People, Protocols, Prototypes",
+        "OverKill Hill P³™ — People, Protocols, Prototypes",
         "For Builders FirstSource & close partners",
         "For other brands staring at the same horizon"
       ],
@@ -622,16 +625,26 @@
       "category": "Project",
       "description": "Visual governance for AI-generated Mermaid diagrams. Define your theme once, apply it to any diagram, export styled Mermaid code and LLM prompt scaffolds. Free, browser-only, MIT licensed.",
       "headings": [
+        "v0.5.0 — Shipped May 2026",
         "A governance workbench, not a diagram editor",
         "What you get here that you don't get from prompting an LLM",
+        "What changed between v0.3 and v0.5",
         "What the builder does",
         "How it fits the ecosystem",
         "Support taxonomy — not all families are equal",
         "Why renderer-aware output matters",
         "SKILL.md — headless diagram governance",
         "Desktop-first. Mobile companion mode.",
+        "Where the build is going",
         "Prompting an LLM",
         "Mermaid Theme Builder",
+        "Renderer Intelligence",
+        "Look API Support",
+        "Reference Capability Registry",
+        "SKILL.md Agent Packaging",
+        "Multi-Diagram Splitting",
+        "Shareable URL State",
+        "Vitest 4 Test Suite",
         "Live Diagram Preview",
         "Diagram Family Detection",
         "Multi-Format Export",
@@ -644,6 +657,10 @@
         "Forge UI System",
         "SKILL.md Package",
         "Open Source, MIT License",
+        "Look API — Classic, Neo, Hand-Drawn",
+        "Reference Tab — 27+ Family Registry",
+        "Multi-Diagram Splitting",
+        "Vitest 4 Test Suite",
         "Mermaid.js",
         "Mermaid.ai",
         "BPMN for Mermaid",
@@ -653,6 +670,33 @@
         "Useful subset, honestly scoped"
       ],
       "body": "Skip to main content overkillhill.com / projects / mermaid-theme-builder Community Tool Open Source v0.5.x Alpha Active Mermaid Theme Builder Governance Workbench. Renderer-Aware. Brand-Enforced. A visual governance workbench for Mermaid diagram-as-code styling, renderer-aware export, brand palette enforcement, and AI prompt scaffold generation. Define your theme once — get consistent output across every renderer, every AI tool, and every diagram family it touches."
+    },
+    {
+      "url": "/projects/mermaid-theme-builder/#release",
+      "title": "v0.5.0 — Shipped May 2026 — Mermaid Theme Builder | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Current Release v0.5.0 — Shipped May 2026 Version v0.5.0 — shipped May 2026 Active Sprint v0.5.x SKILL.md Hardening License MIT — free always Runtime Browser-only · no server · no account Live Tool…",
+      "headings": [],
+      "body": "Current Release v0.5.0 — Shipped May 2026 Version v0.5.0 — shipped May 2026 Active Sprint v0.5.x SKILL.md Hardening License MIT — free always Runtime Browser-only · no server · no account Live Tool okhp3.github.io/mermaid-theme-builder ↗ Source github.com/OKHP3/mermaid-theme-builder ↗ </div",
+      "parent": "/projects/mermaid-theme-builder/"
+    },
+    {
+      "url": "/projects/mermaid-theme-builder/#roadmap",
+      "title": "Where the build is going — Mermaid Theme Builder | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Roadmap Where the build is going ✓ v0.5.0 — Baseline Shipped Shipped Forge UI System, pan/zoom canvas, renderer-aware export, brand palette presets, Look API (Classic/Neo/Hand-Drawn), multi-diagram splitting, shareable…",
+      "headings": [],
+      "body": "Roadmap Where the build is going ✓ v0.5.0 — Baseline Shipped Shipped Forge UI System, pan/zoom canvas, renderer-aware export, brand palette presets, Look API (Classic/Neo/Hand-Drawn), multi-diagram splitting, shareable URL state, Reference tab with 27+ family registry. ▶ v0.5.x — SKILL.md Hardening Active Extract governance logic into a portable SKILL.md agent skill for Claude Code, Cursor, GitHub Copilot, and VS Code. Vitest 4 test suite hardening. Renderer profile verification fixtures. ○ v0.6.x — Native Capability + Ko-fi Artifacts Planned Native renderer capability checking. Ko-fi artifact packaging for purchasable theme packs and brand kits. Mobile hardening sprint.",
+      "parent": "/projects/mermaid-theme-builder/"
+    },
+    {
+      "url": "/projects/mermaid-theme-builder/#since-v03",
+      "title": "What changed between v0.3 and v0.5 — Mermaid Theme Builder | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Since v0.3 What changed between v0.3 and v0.5 ⚐ Renderer Intelligence Moved from capability notes to active renderer profiles. The workbench now selects export rules based on your target renderer — not just flags what…",
+      "headings": [],
+      "body": "Since v0.3 What changed between v0.3 and v0.5 ⚐ Renderer Intelligence Moved from capability notes to active renderer profiles. The workbench now selects export rules based on your target renderer — not just flags what might fail. ◑ Look API Support Mermaid v11.15.0 look API — Classic, Neo, and Hand-Drawn modes — with per-renderer warnings where support is inconsistent. New in v0.5. ◫ Reference Capability Registry 27+ diagram-family capability matrix covering renderer × family × version combinations. Was implicit in v0.3; now a dedicated Reference tab. ◻ SKILL.md Agent Packaging Governance logic is being extracted into a machine-readable SKILL.md for Claude Code, Cursor, GitHub Copilot, and VS Code. Not in v0.3.",
+      "parent": "/projects/mermaid-theme-builder/"
     },
     {
       "url": "/search/",

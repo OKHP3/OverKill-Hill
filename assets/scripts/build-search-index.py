@@ -304,6 +304,74 @@ def extract_article_sections(html: str, base_url: str, base_title: str) -> list[
     return out
 
 
+def extract_div_sections(html: str, base_url: str, base_title: str,
+                          section_ids: list[str]) -> list[dict]:
+    """Emit one search entry per named <div id="..."> content-block section.
+
+    Used for project pages that organise sections as divs rather than <section>.
+    Only the IDs listed in `section_ids` are extracted.
+    """
+    out: list[dict] = []
+    for sec_id in section_ids:
+        # Find the opening tag for this id
+        open_re = re.compile(
+            r'<div\b[^>]*\bid=["\']' + re.escape(sec_id) + r'["\'][^>]*>',
+            re.I,
+        )
+        m = open_re.search(html)
+        if not m:
+            continue
+        # Walk forward to find the matching closing </div>
+        start = m.end()
+        depth = 1
+        pos = start
+        while pos < len(html) and depth > 0:
+            next_open = html.find("<div", pos)
+            next_close = html.find("</div", pos)
+            if next_open != -1 and (next_close == -1 or next_open < next_close):
+                depth += 1
+                pos = next_open + 4
+            elif next_close != -1:
+                depth -= 1
+                pos = next_close + 5
+            else:
+                break
+        body = html[start:pos]
+
+        # Pull the first h2 (or h3) as the section title
+        title_match = re.search(r"<h[23][^>]*>(.*?)</h[23]>", body, re.S | re.I)
+        if title_match:
+            sec_title = re.sub(r"<[^>]+>", "", title_match.group(1))
+            sec_title = re.sub(r"\s+", " ", sec_title).strip()
+        else:
+            sec_title = sec_id.replace("-", " ").title()
+
+        # Plaintext
+        plain = re.sub(r"<script.*?</script>", " ", body, flags=re.S | re.I)
+        plain = re.sub(r"<style.*?</style>", " ", plain, flags=re.S | re.I)
+        plain = re.sub(r"<[^>]+>", " ", plain)
+        plain = re.sub(r"\s+", " ", plain).strip()
+        if len(plain) < 60:
+            continue
+
+        out.append({
+            "url": f"{base_url}#{sec_id}",
+            "title": f"{sec_title} — {base_title}",
+            "category": "Project",
+            "description": excerpt(plain, 220),
+            "headings": [],
+            "body": excerpt(plain, 800),
+            "parent": base_url,
+        })
+    return out
+
+
+# Map of project URL paths → section IDs to deep-link
+PROJECT_DEEP_LINK_SECTIONS: dict[str, list[str]] = {
+    "/projects/mermaid-theme-builder/": ["release", "since-v03", "roadmap"],
+}
+
+
 def process_file(path: Path) -> list[dict]:
     rel = path.relative_to(ROOT).as_posix()
     if path.name in SKIP_FILES:
@@ -342,6 +410,12 @@ def process_file(path: Path) -> list[dict]:
     # Article deep-link entries
     if url_path == "/writings/first-diagram-is-a-liar/":
         out.extend(extract_article_sections(html, url_path, title))
+
+    # Project page deep-link entries
+    if url_path in PROJECT_DEEP_LINK_SECTIONS:
+        out.extend(extract_div_sections(
+            html, url_path, title, PROJECT_DEEP_LINK_SECTIONS[url_path]
+        ))
 
     return out
 
