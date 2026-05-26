@@ -1,7 +1,7 @@
 # OverKill Hill P³™ — 2026 Static-Site Mitigation Log
 
 **Date:** 2026-05-26  
-**Linked audit:** `AUDIT_OVERKILL_HILL_2026_STATIC_SITE.md`  
+**Linked audit:** `_replit/audit-overkill-hill-2026.md`  
 **Sprint:** Task #35 — Sprint 4  
 **Operator:** Replit agent (Build mode)
 
