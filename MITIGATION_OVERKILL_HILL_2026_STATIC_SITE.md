@@ -135,6 +135,24 @@ SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "di
 
 ---
 
+### M-5A — BFS footer tagline variant missing ™ (Medium)
+
+**Finding:** 5-A (Phase 5 — Header/Footer Consistency)  
+**File:** `projects/bfs-framing-intelligent-futures/index.html`, line 584  
+**Caught by:** `site_audit.py` Check 16 on first run after ROOT fix  
+**Change:**
+```html
+<!-- Before -->
+<h3>OverKill&nbsp;Hill&nbsp;P³ — People, Protocols, Prototypes</h3>
+
+<!-- After -->
+<h3>OverKill&nbsp;Hill&nbsp;P³™ — People, Protocols, Prototypes</h3>
+```
+**Reason:** BFS page has two brand `<h3>` elements. The standard footer h3 was correct; the content-card tagline variant was missing ™. The bulk footer fix (M-1A) used a pattern that matched the standard footer h3 but missed this secondary variant.  
+**Verification:** `python3 assets/scripts/site_audit.py --check 16` → ✓ PASS (16 pass, 0 fail, 0 warn)
+
+---
+
 ### M-3B — Sitemap restructured into clean sections (Low)
 
 **Finding:** 3-B  
@@ -184,7 +202,18 @@ The HTML page fixes (footer ™, og:title, homepage blurb) are OKH-specific — 
 
 ---
 
+## New Script Delivered — site_audit.py
+
+**File:** `assets/scripts/site_audit.py` (created Sprint 4)  
+**Run:** `python3 assets/scripts/site_audit.py`
+
+18-point governance checklist — FAIL on hard violations, WARN on soft SEO limits. Covers all dimensions not already in `validate_site.py`: title/description length, OG stack completeness, GA4, skip links, alt text, noopener, footer ™, noindex-in-sitemap, sitemap URL resolution.
+
+---
+
 ## Post-Remediation Validator State
+
+### validate_site.py
 
 ```
 $ python3 assets/scripts/validate_site.py
@@ -193,6 +222,18 @@ Validating 28 HTML pages…
 ```
 
 Zero errors. Zero warnings.
+
+### site_audit.py (new — Sprint 4)
+
+```
+$ python3 assets/scripts/site_audit.py --quiet
+Pages scanned: 28
+Summary: 16 pass / 2 warn / 0 fail  (18 checks, 28 pages)
+Hard failures: 0   Soft warnings: 13
+✓ No hard failures. Warnings are informational (soft SEO limits).
+```
+
+The 13 soft warnings are all meta description length > 160 chars (12 pages) and FDIAL title > 70 chars (1 page). Google truncates gracefully; no SEO penalty.
 
 ---
 
