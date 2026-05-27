@@ -31,6 +31,19 @@ dist/
 build/
 *.log
 .tmp/
+.next/
+.vite/
+
+# Test output
+test-results/
+playwright-report/
+coverage/
 
 # Audit output
 tools/audit-report.md
+
+# Replit working-buffer artifacts (Repository Hygiene Standard §3.1)
+attached_assets/
+attached-assets/
+_unused/
+unused/
