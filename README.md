@@ -93,7 +93,7 @@ Utility: `/404.html`, `/under-construction.html`
 ## Validation
 
 ```bash
-python3 assets/scripts/validate_site.py
+python3 assets/scripts/validate-site.py
 ```
 
 Checks every HTML page for: title, meta description, canonical, single H1, JSON-LD, sitemap inclusion, broken internal links, broken asset references, external `target="_blank"` links missing `rel="noopener"`, placeholder hrefs, `P3` (without superscript) brand violations, and old-tagline regressions. Run before every commit.
@@ -104,20 +104,20 @@ All scripts in `assets/scripts/` are pure Python, dependency-light (Pillow + bs4
 
 | Script | Purpose |
 |---|---|
-| `validate_site.py` | Editorial + structural validator (run before every commit) |
-| `png_to_webp.py` | Bulk PNG → WebP conversion (q=82, method=6) for assets ≥ 200 KB |
-| `picture_upgrade.py` | Wraps `<img src=".png">` in `<picture>` with a `<source type="image/webp">` sibling |
-| `cache_bust.py` | Appends `?v=<sha256[:8]>` to local CSS/JS refs in HTML |
-| `extract_templates.py` | Derives stripped layout templates into `/assets/templates/` from one donor per layout; `--check` runs conformance asserts |
-| `build_search_index.py` | Refreshes `/assets/search-index.json` from live HTML (preserves hand-curated anchor entries); `--check` for CI |
-| `modernize_pages.py` | Idempotently injects 2026 baselines into every page: `color-scheme` meta, skip-link, Speculation Rules API prefetch, jsdelivr preconnect + mermaid `modulepreload` (mermaid pages only); `--check` for CI |
-| `move_orphans_to_library.py` | Moves any unreferenced asset under `assets/img/` into `assets/img/library/` (preserves the file as a media-kit archive, removes from deploy hot path); `--check` for CI |
+| `validate-site.py` | Editorial + structural validator (run before every commit) |
+| `png-to-webp.py` | Bulk PNG → WebP conversion (q=82, method=6) for assets ≥ 200 KB |
+| `picture-upgrade.py` | Wraps `<img src=".png">` in `<picture>` with a `<source type="image/webp">` sibling |
+| `cache-bust.py` | Appends `?v=<sha256[:8]>` to local CSS/JS refs in HTML |
+| `extract-templates.py` | Derives stripped layout templates into `/assets/templates/` from one donor per layout; `--check` runs conformance asserts |
+| `build-search-index.py` | Refreshes `/assets/data/search-index.json` from live HTML; `--check` for CI |
+| `modernize-pages.py` | Idempotently injects 2026 baselines into every page: `color-scheme` meta, skip-link, Speculation Rules API prefetch, jsdelivr preconnect + mermaid `modulepreload` (mermaid pages only); `--check` for CI |
+| `move-orphans-to-library.py` | Moves any unreferenced asset under `assets/img/` into `assets/img/library/` (preserves the file as a media-kit archive, removes from deploy hot path); `--check` for CI |
 
-Templates produced by `extract_templates.py` are **scaffolds, not pages** — they're disallowed in `robots.txt` and skipped by `validate_site.py`.
+Templates produced by `extract-templates.py` are **scaffolds, not pages** — they're disallowed in `robots.txt` and skipped by `validate-site.py`.
 
 ### Continuous integration
 
-`.github/workflows/validate.yml` runs `validate_site.py`, `extract_templates.py --check`, and `build_search_index.py --check` on every push and pull request to `main`. All three must pass green for the build to be considered deploy-safe.
+`.github/workflows/validate.yml` runs `validate-site.py`, `extract-templates.py --check`, and `build-search-index.py --check` on every push and pull request to `main`. All three must pass green for the build to be considered deploy-safe.
 
 ## Editing guidance
 
