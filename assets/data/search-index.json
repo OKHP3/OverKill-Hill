@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 56,
+  "count": 57,
   "entries": [
     {
       "url": "/",
@@ -34,7 +34,7 @@
         "Why the Hill exists",
         "How we work with you"
       ],
-      "body": "Skip to main content The Forge About OverKill Hill P³™ OverKill Hill P³™ is where design, precision, and automation converge — between the idea and the system that makes it real, between “we should automate this” and “we trust what we’ve built together.” Explore the projects Back to the forge Who’s on the Hill Who’s on the Hill At OverKill Hill P³™, we specialize in crafting custom GPT systems designed to tackle complex, real-world challenges. Our approach combines deep industry knowledge with cutting-edge AI technology to deliver solutions that are not only innovative but also practical and reliable."
+      "body": "Skip to main content The Forge About OverKill Hill P³™ OverKill Hill P³™ is where design, precision, and automation converge — between the idea and the system that makes it real, between “we should automate this” and “we trust what we’ve built together.” Explore the projects Back to the forge Who’s on the Hill Who’s on the Hill At OverKill Hill P³™, I specialize in crafting custom GPT systems designed to tackle complex, real-world challenges. My approach combines deep industry knowledge with cutting-edge AI technology to deliver solutions that are not only innovative but also practical and reliable."
     },
     {
       "url": "/contact/",
@@ -72,6 +72,26 @@
         "05. Everything is an invitation to refine"
       ],
       "body": "Skip to main content The Forge Manifesto of OKHP³™ A hill is something you choose to stand on. OverKill Hill P³™ is ours — the place where we stake out what we believe about systems, prompts and the humans using them. Explore the projects Back to the forge Rigor over vibes Rigor over vibes “If you’re going to let a system make or shape real decisions, you owe it the same level of design rigor as a physical structure. No vibes-only scaffolding.” 01. Overkill is about responsibility, not complexity 01. Overkill is about responsibility, not complexity OverKill doesn’t mean over-complicating things."
+    },
+    {
+      "url": "/prompt-forge/",
+      "title": "Prompt Forge | OverKill Hill P³™",
+      "category": "Brand",
+      "description": "Prompt Forge is OverKill Hill P³™'s workshop for turning prompts into governed AI protocols, audit contracts, Custom GPT scaffolds, and Replit-ready specs.",
+      "headings": [
+        "Prompts Are Not the Artifact",
+        "What Makes a Prompt a Protocol",
+        "Six Flagship Prompt Systems",
+        "The Prompt Forge Anatomy",
+        "From Raw Intent to Working Protocol",
+        "The Prompt Vault",
+        "Council of AIs: Critique Before Execution",
+        "What Gets Published — and What Does Not",
+        "Related Paths",
+        "Bring a Messy Prompt to the Forge",
+        "The Workflow"
+      ],
+      "body": "Skip to main content Promptcraft Workshop Prompt Forge Raw prompts are disposable. Prompt protocols are reusable instruments. Prompt Forge is the OverKill Hill P³™ workshop for turning messy intent into governed AI workflows, reusable Custom GPT scaffolds, audit contracts, Replit execution specs, Notion knowledge systems, and public-facing promptcraft patterns. Explore the Six Flagship Systems Read the Prompt Anatomy Visit the Writings Library The Thesis Prompts Are Not the Artifact Prompts Are Not the Artifact A prompt is the interface layer between intent, context, constraints, tools, memory, and execution. Weak prompts ask for output."
     },
     {
       "url": "/universe/",
@@ -177,6 +197,7 @@
         "LinkedIn Post — v0.5",
         "LinkedIn Comment — v0.5",
         "Bring me the problem where one answer is not enough",
+        "Support the Forge",
         "Version History"
       ],
       "body": "Skip to main content OverKill Hill P³™ › Writings › The First Diagram Is Usually a Liar Precision · Protocol · Promptcraft | ROY · Mermaid · Council of AIs | Article v0.5 — Council-Assisted Scoring The First Diagram Is Usually a Liar A picture is not automatically worth 1,000 words. The real metric is ROY — Return on Your Words : the clarity, compression, and shared understanding extracted per word invested. Now at v0.5 — what happened when the Council of AIs scored each other’s diagrams, every model was asked to interrogate its own work, and the most honest reads came from the models themselves."
@@ -580,7 +601,8 @@
         "Playground & DSL Reference",
         "Open Source, MIT License",
         "15 Agent Skills -- BP-SKILL Suite",
-        "Process Narrative Specification"
+        "Process Narrative Specification",
+        "Need process architecture built to spec?"
       ],
       "body": "Skip to main content overkillhill.com / projects / bpmn-for-mermaid Open Source bpmn-beta DSL BP-SKILL Agent Suite Active BPMN for Mermaid Text-first. Standards-aware. Git-native. Agent-ready. Two things live in this project. First: bpmn-beta — a text-first DSL for BPMN process diagrams, designed as a Mermaid diagram-type contribution. No XML, no heavyweight tools, no bpmn-js. Second: BP-SKILL — a 15-skill Business Process Agent Skill Suite that uses bpmn-beta as its visual output layer, packaged in the Agent Skills open standard and compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor."
     },
@@ -615,7 +637,8 @@
         "Git workspace, OneDrive sync, and repos",
         "Normalization, benchmarking, and baseline archive",
         "Post-baseline hardening and publication",
-        "Quick Facts"
+        "Quick Facts",
+        "Need a local AI workbench designed for your workflow?"
       ],
       "body": "Skip to main content OverKill Hill P³™ › Projects › Mac Studio Local AI Workbench ✅ Baseline complete · 2026-05-12 · Updated 2026-05-13 Mac Studio Local AI Workbench Production-grade personal AI workstation — local-first, governed, documented, and restorable. Built in 10 days on Apple Silicon. M4 Max 36GB unified memory 512GB internal SSD 1TB OKH-Local NVMe macOS Sequoia 10 local models 11 MCP servers ✅ BASELINE COMPLETE — Build finished, normalized, benchmarked, and archived on 2026-05-12. System is in a known-good, restorable state."
     },
@@ -667,7 +690,8 @@
         "SKILL.md / Agent Workflows",
         "What the SKILL.md package does",
         "Full power-user experience",
-        "Useful subset, honestly scoped"
+        "Useful subset, honestly scoped",
+        "Need a Mermaid governance layer for your stack?"
       ],
       "body": "Skip to main content overkillhill.com / projects / mermaid-theme-builder Community Tool Open Source v0.5.x Alpha Active Mermaid Theme Builder Governance Workbench. Renderer-Aware. Brand-Enforced. A visual governance workbench for Mermaid diagram-as-code styling, renderer-aware export, brand palette enforcement, and AI prompt scaffold generation. Define your theme once — get consistent output across every renderer, every AI tool, and every diagram family it touches."
     },
