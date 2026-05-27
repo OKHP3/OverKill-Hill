@@ -355,7 +355,23 @@ def extract_div_sections(html: str, base_url: str, base_title: str,
             sec_title = re.sub(r"<[^>]+>", "", title_match.group(1))
             sec_title = re.sub(r"\s+", " ", sec_title).strip()
         else:
-            sec_title = sec_id.replace("-", " ").title()
+            # Fall back to aria-labelledby: find the referenced element in the
+            # full HTML and use its text (strips <br>/<small> siblings cleanly).
+            opening_tag = m.group(0)
+            aria_match = re.search(r'aria-labelledby=["\']([^"\']+)["\']', opening_tag, re.I)
+            if aria_match:
+                label_id = aria_match.group(1).strip()
+                label_el = re.search(
+                    r'id=["\']' + re.escape(label_id) + r'["\'][^>]*>(.*?)</',
+                    html, re.S | re.I,
+                )
+                if label_el:
+                    raw = re.sub(r"<[^>]+>", " ", label_el.group(1))
+                    sec_title = re.sub(r"\s+", " ", raw).strip()
+                else:
+                    sec_title = sec_id.replace("-", " ").title()
+            else:
+                sec_title = sec_id.replace("-", " ").title()
 
         # Plaintext
         plain = re.sub(r"<script.*?</script>", " ", body, flags=re.S | re.I)
