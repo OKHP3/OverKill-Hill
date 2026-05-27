@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 53,
+  "count": 56,
   "entries": [
     {
       "url": "/",
@@ -672,6 +672,15 @@
       "body": "Skip to main content overkillhill.com / projects / mermaid-theme-builder Community Tool Open Source v0.5.x Alpha Active Mermaid Theme Builder Governance Workbench. Renderer-Aware. Brand-Enforced. A visual governance workbench for Mermaid diagram-as-code styling, renderer-aware export, brand palette enforcement, and AI prompt scaffold generation. Define your theme once — get consistent output across every renderer, every AI tool, and every diagram family it touches."
     },
     {
+      "url": "/projects/mermaid-theme-builder/#features",
+      "title": "What the builder does — Mermaid Theme Builder | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Features What the builder does ⚡ Live Diagram Preview Every color change reflects instantly across multiple diagram types — flowchart, sequence, class, Gantt, and more. What you see is what you get.",
+      "headings": [],
+      "body": "Features What the builder does ⚡ Live Diagram Preview Every color change reflects instantly across multiple diagram types — flowchart, sequence, class, Gantt, and more. What you see is what you get. ⟳ Diagram Family Detection Automatically identifies your diagram type and applies family-appropriate transformations. Not all Mermaid families behave the same — the tool knows the difference. &lt;/&gt; Multi-Format Export Export as a complete themeVariables block, a Markdown style bootstrap you paste before any diagram, or a model-specific LLM prompt scaffold. ◎ Prompt Scaffold Generator Generates LLM-ready prompt prefixes with your theme embedded. AI tools produce on-brand Mermaid on the first try — no follow-up styling cycles needed.",
+      "parent": "/projects/mermaid-theme-builder/"
+    },
+    {
       "url": "/projects/mermaid-theme-builder/#release",
       "title": "v0.5.0 — Shipped May 2026 — Mermaid Theme Builder | OverKill Hill P³™",
       "category": "Project",
@@ -696,6 +705,24 @@
       "description": "Since v0.3 What changed between v0.3 and v0.5 ⚐ Renderer Intelligence Moved from capability notes to active renderer profiles. The workbench now selects export rules based on your target renderer — not just flags what…",
       "headings": [],
       "body": "Since v0.3 What changed between v0.3 and v0.5 ⚐ Renderer Intelligence Moved from capability notes to active renderer profiles. The workbench now selects export rules based on your target renderer — not just flags what might fail. ◑ Look API Support Mermaid v11.15.0 look API — Classic, Neo, and Hand-Drawn modes — with per-renderer warnings where support is inconsistent. New in v0.5. ◫ Reference Capability Registry 27+ diagram-family capability matrix covering renderer × family × version combinations. Was implicit in v0.3; now a dedicated Reference tab. ◻ SKILL.md Agent Packaging Governance logic is being extracted into a machine-readable SKILL.md for Claude Code, Cursor, GitHub Copilot, and VS Code. Not in v0.3.",
+      "parent": "/projects/mermaid-theme-builder/"
+    },
+    {
+      "url": "/projects/mermaid-theme-builder/#what-it-is",
+      "title": "A governance workbench, not a diagram editor — Mermaid Theme Builder | OverKill Hill P³™",
+      "category": "Project",
+      "description": "What This Is A governance workbench, not a diagram editor What It Is ◆ A visual workbench for defining and enforcing Mermaid diagram themes ◆ A renderer-aware export tool — flags what breaks in GitHub, GitLab, Obsidian,…",
+      "headings": [],
+      "body": "What This Is A governance workbench, not a diagram editor What It Is ◆ A visual workbench for defining and enforcing Mermaid diagram themes ◆ A renderer-aware export tool — flags what breaks in GitHub, GitLab, Obsidian, Notion, Confluence ◆ A brand palette enforcer — presets for OKH P³, Glee-fully, AskJamie, and Neutral Enterprise ◆ A prompt scaffold generator — AI tools stay on-brand from the first generation ◆ A SKILL.md-packaged agent skill for headless diagram-governance workflows ◆ An open-source community contribution to the Mermaid.js ecosystem. MIT licensed. Free always.",
+      "parent": "/projects/mermaid-theme-builder/"
+    },
+    {
+      "url": "/projects/mermaid-theme-builder/#why-this-exists",
+      "title": "What you get here that you don't get from prompting an LLM — Mermaid Theme Builder | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Why This Exists What you get here that you don't get from prompting an LLM ✗ Prompting an LLM Generates CSS variable blobs you paste and re-prompt until something looks right.",
+      "headings": [],
+      "body": "Why This Exists What you get here that you don't get from prompting an LLM ✗ Prompting an LLM Generates CSS variable blobs you paste and re-prompt until something looks right. No live preview, no iteration feedback, result varies by model. No renderer awareness — you find out what breaks when you paste it. ✓ Mermaid Theme Builder Pick a color, see every diagram type update instantly. Export as a themeVariables block, a Markdown style bootstrap, or a renderer-aware prompt scaffold. AI tools stay on-brand from the first generation — not the sixth. This is a visual governance layer for the Mermaid.js ecosystem — not a commercial product, not a SaaS, not a competitor to Mermaid.ai. It runs entirely in your browser. No account. No data collected. </div",
       "parent": "/projects/mermaid-theme-builder/"
     },
     {

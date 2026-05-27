@@ -368,7 +368,9 @@ def extract_div_sections(html: str, base_url: str, base_title: str,
 
 # Map of project URL paths → section IDs to deep-link
 PROJECT_DEEP_LINK_SECTIONS: dict[str, list[str]] = {
-    "/projects/mermaid-theme-builder/": ["release", "since-v03", "roadmap"],
+    "/projects/mermaid-theme-builder/": [
+        "release", "what-it-is", "why-this-exists", "since-v03", "features", "roadmap"
+    ],
 }
 
 

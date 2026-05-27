@@ -123,8 +123,8 @@ Path: `/projects/mermaid-theme-builder/`
 |---|---|---|
 | `#embed-tool` | *(embedded iframe)* | Live tool iframe at top of page; reload button included |
 | `#release` | Current Release | v0.5.0 metadata card — version, active sprint, license, runtime, live tool link, source link |
-| *(no ID)* | A governance workbench, not a diagram editor | Is/Is-Not grid — two-column comparison of what the tool is and isn't |
-| *(no ID)* | What you get here that you don't get from prompting an LLM | Why-grid — LLM prompting vs. MTB side-by-side |
+| `#what-it-is` | A governance workbench, not a diagram editor | Is/Is-Not grid — two-column comparison of what the tool is and isn't |
+| `#why-this-exists` | What you get here that you don't get from prompting an LLM | Why-grid — LLM prompting vs. MTB side-by-side |
 | `#since-v03` | What changed between v0.3 and v0.5 | 7 change cards: Renderer Intelligence, Look API Support, Reference Capability Registry, SKILL.md Agent Packaging, Multi-Diagram Splitting, Shareable URL State, Vitest 4 Test Suite |
 | `#features` | What the builder does | Feature card grid — 16 cards covering all major capabilities |
 | `#roadmap` | Where the build is going | Progress track: v0.5.0 Shipped ✓, v0.5.x SKILL.md Hardening ▶ (active), v0.6.x Ko-fi Artifacts, v0.7.x Session Persistence, v0.8.x Collaboration (planned) |
