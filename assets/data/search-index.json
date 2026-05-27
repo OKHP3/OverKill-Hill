@@ -870,7 +870,6 @@
         "Precise Color Controls",
         "Browser-Only — No Server",
         "Pan / Zoom Canvas",
-        "Forge UI System",
         "SKILL.md Package",
         "Open Source, MIT License",
         "Look API — Classic, Neo, Hand-Drawn",
@@ -882,11 +881,12 @@
         "BPMN for Mermaid",
         "SKILL.md / Agent Workflows",
         "What the SKILL.md package does",
+        "Install in your AI coding assistant",
         "Full power-user experience",
         "Useful subset, honestly scoped",
         "Need a Mermaid governance layer for your stack?"
       ],
-      "body": "Skip to main content overkillhill.com / projects / mermaid-theme-builder Community Tool Open Source v0.5.x Alpha Active Mermaid Theme Builder Governance Workbench. Renderer-Aware. Brand-Enforced. A visual governance workbench for Mermaid diagram-as-code styling, renderer-aware export, brand palette enforcement, and AI prompt scaffold generation. Define your theme once — get consistent output across every renderer, every AI tool, and every diagram family it touches."
+      "body": "Skip to main content overkillhill.com / projects / mermaid-theme-builder Community Tool Open Source v0.5.0 Shipped SKILL.md Sprint Active Mermaid Theme Builder Governance Workbench. Renderer-Aware. Brand-Enforced. A visual governance workbench for Mermaid diagram-as-code styling, renderer-aware export, brand palette enforcement, and AI prompt scaffold generation. Define your theme once — get consistent output across every renderer, every AI tool, and every diagram family it touches."
     },
     {
       "url": "/projects/mermaid-theme-builder/#features",
@@ -910,9 +910,9 @@
       "url": "/projects/mermaid-theme-builder/#roadmap",
       "title": "Where the build is going — Mermaid Theme Builder | OverKill Hill P³™",
       "category": "Project",
-      "description": "Roadmap Where the build is going ✓ v0.5.0 — Baseline Shipped Shipped Forge UI System, pan/zoom canvas, renderer-aware export, brand palette presets, Look API (Classic/Neo/Hand-Drawn), multi-diagram splitting, shareable…",
+      "description": "Roadmap Where the build is going ✓ V0.1 — Proof of Concept Shipped Initial browser-only prototype. Live color pickers, basic themeVariables export, single flowchart preview.",
       "headings": [],
-      "body": "Roadmap Where the build is going ✓ v0.5.0 — Baseline Shipped Shipped Forge UI System, pan/zoom canvas, renderer-aware export, brand palette presets, Look API (Classic/Neo/Hand-Drawn), multi-diagram splitting, shareable URL state, Reference tab with 27+ family registry. ▶ v0.5.x — SKILL.md Hardening Active Extract governance logic into a portable SKILL.md agent skill for Claude Code, Cursor, GitHub Copilot, and VS Code. Vitest 4 test suite hardening. Renderer profile verification fixtures. ○ v0.6.x — Native Capability + Ko-fi Artifacts Planned Native renderer capability checking. Ko-fi artifact packaging for purchasable theme packs and brand kits. Mobile hardening sprint.",
+      "body": "Roadmap Where the build is going ✓ V0.1 — Proof of Concept Shipped Initial browser-only prototype. Live color pickers, basic themeVariables export, single flowchart preview. Established the direct-manipulation model over prompt-driven iteration. ✓ V0.2 — Multi-Family Preview Shipped Expanded diagram preview to cover flowchart, sequence, class, Gantt, ER, and pie families. Brand palette presets introduced. Prompt scaffold generation MVP. ✓ V0.3 — Renderer Awareness Shipped First renderer capability notes — GitHub, GitLab, Obsidian, Notion, Confluence. Multi-format export (themeVariables, Markdown bootstrap, prompt scaffold). OKH P³ brand palette. ✓ V0.4 — Dark/Light Preview + URL State Shipped Dark/light mode preview toggle.",
       "parent": "/projects/mermaid-theme-builder/"
     },
     {

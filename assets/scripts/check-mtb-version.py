@@ -78,7 +78,7 @@ EXPECTED = {
 
     "hero tag":
         ("projects/mermaid-theme-builder/index.html",
-         f"{sp} Alpha Active"),
+         f"{v} Shipped"),
 
     "roadmap · shipped phase title":
         ("projects/mermaid-theme-builder/index.html",
@@ -94,7 +94,7 @@ EXPECTED = {
 
     "sidebar · Status meta-val":
         ("projects/mermaid-theme-builder/index.html",
-         f"{sp} Alpha Active"),
+         f"{v} Shipped"),
 
     "sidebar · Build Phase meta-val":
         ("projects/mermaid-theme-builder/index.html",
@@ -155,11 +155,11 @@ REPLACEMENTS = {
         rf'\g<1>{sp} {spn}\2',
     ),
 
-    # <span class="tag tag--accent">v0.5.x Alpha Active</span>
+    # <span class="tag tag--accent">v0.5.0 Shipped</span>
     "hero tag": (
         _HTML,
-        r'(class="tag tag--accent">)v\d+\.\d+\.x Alpha Active(</span>)',
-        rf'\g<1>{sp} Alpha Active\2',
+        r'(class="tag tag--accent">)v\d+\.\d+\.\d+ Shipped(</span>)',
+        rf'\g<1>{v} Shipped\2',
     ),
 
     # v0.5.0 — Baseline Shipped   (plain text inside <li>, no HTML tags around value)
@@ -176,11 +176,11 @@ REPLACEMENTS = {
         f"{sp} — {spn}",
     ),
 
-    # <span class="meta-val"><span class="status-dot"></span>v0.5.x Alpha Active</span>
+    # <span class="meta-val"><span class="status-dot"></span>v0.5.0 Shipped</span>
     "sidebar · Status meta-val": (
         _HTML,
-        r'(status-dot"></span>)v\d+\.\d+\.x Alpha Active(</span>)',
-        rf'\g<1>{sp} Alpha Active\2',
+        r'(status-dot"></span>)v\d+\.\d+\.\d+ Shipped(</span>)',
+        rf'\g<1>{v} Shipped\2',
     ),
 
     # sidebar · Build Phase shares same pattern as release card · Active Sprint —

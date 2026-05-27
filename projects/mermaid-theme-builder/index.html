@@ -964,7 +964,8 @@
           <div class="tag-row">
             <span class="tag">Community Tool</span>
             <span class="tag">Open Source</span>
-            <span class="tag tag--accent">v0.5.x Alpha Active</span>
+            <span class="tag tag--accent">v0.5.0 Shipped</span>
+            <span class="tag tag--accent">SKILL.md Sprint Active</span>
           </div>
 
           <h1>Mermaid Theme Builder</h1>
@@ -977,7 +978,7 @@
           <div class="hero-ctas">
             <a href="https://okhp3.github.io/mermaid-theme-builder/#compose" target="_blank" rel="noopener noreferrer" class="btn btn-primary">⤢ Open the Workbench</a>
             <a href="https://github.com/OKHP3/mermaid-theme-builder" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">View Source on GitHub</a>
-            <a href="/projects/bpmn-for-mermaid/" class="btn btn-quiet">Sibling: BPMN for Mermaid</a>
+            <a href="/projects/bpmn-for-mermaid/" class="btn btn-quiet">BPMN for Mermaid</a>
           </div>
         </section>
 
@@ -1021,7 +1022,7 @@
                 </div>
                 <iframe
                   id="tool-iframe"
-                  src="https://okhp3.github.io/mermaid-theme-builder/"
+                  src="https://okhp3.github.io/mermaid-theme-builder/?embed=1"
                   title="Mermaid Theme Builder"
                   loading="lazy"
                   allow="clipboard-read; clipboard-write; fullscreen"
@@ -1252,13 +1253,6 @@
                   </div>
                 </div>
                 <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">⚙</div>
-                  <div>
-                    <h3>Forge UI System</h3>
-                    <p>The builder's interface runs on OKH Forge design tokens — the same design system used across OKH P³, Glee-fully, and AskJamie. Style consistency from the workbench itself outward.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
                   <div class="feature-icon" aria-hidden="true">◻</div>
                   <div>
                     <h3>SKILL.md Package</h3>
@@ -1399,7 +1393,14 @@
               <div class="section-label">Renderer Awareness</div>
               <h2>Why renderer-aware output matters</h2>
               <p style="font-size:0.9rem;color:var(--color-muted);line-height:1.7;">Mermaid.js can render a diagram that GitHub Markdown, Notion, or Obsidian cannot. The same <code>themeVariables</code> object that works perfectly in a browser may fail silently — or break layout — in a hosted renderer.</p>
-              <p style="font-size:0.9rem;color:var(--color-muted);line-height:1.7;">MTB tracks known renderer compatibility and flags styling choices that break in common deployment targets — GitHub Pages, GitHub Markdown, GitLab, Obsidian, Notion, and Confluence. The export profiles are built around these constraints. You find out before you paste, not after.</p>
+              <ul style="font-size:0.875rem;color:var(--color-muted);line-height:1.7;margin:0.75rem 0 1rem;padding-left:1.25rem;">
+                <li>The <code>%%{init:…}%%</code> directive is stripped by most hosted renderers — it only works in browser Mermaid.js.</li>
+                <li>Custom CSS overrides work in the browser but are ignored by GitHub, GitLab, and Confluence.</li>
+                <li>The Look API (Classic/Neo/Hand-Drawn) is Mermaid.js 11.x — hosted renderers pin older versions and may not support it.</li>
+                <li>Beta diagram families (sankey, kanban, block) exist in the library but are not supported by most hosted renderers yet.</li>
+                <li>Mermaid.js version pinning varies by host — the same code behaves differently in GitHub vs. Obsidian vs. Confluence.</li>
+              </ul>
+              <p style="font-size:0.9rem;color:var(--color-muted);line-height:1.7;">MTB tracks known renderer compatibility and flags styling choices that break in common deployment targets. The export profiles are built around these constraints. You find out before you paste, not after.</p>
               <p style="font-size:0.9rem;color:var(--color-muted);line-height:1.7;">For AI-generated diagrams this matters even more. An AI tool generating Mermaid has no renderer context — it produces valid Mermaid.js that may be useless in the target environment. A renderer-aware prompt scaffold closes that gap before generation begins.</p>
             </div>
 
@@ -1419,7 +1420,26 @@
                   <li>Diagram family classification and renderer-safe export rules</li>
                 </ul>
                 <p>Intended for: AI coding assistants, local agent workflows, CI/CD diagram validation pipelines, and headless diagram-governance scripts that need to apply consistent brand and renderer rules without human review at each step.</p>
-                <div class="skill-note">Status: Active development — part of the v0.5.x SKILL.md Hardening Sprint. The visual app ships the governance logic first; the SKILL.md package formalizes the same rules for agent consumption without a browser.</div>
+                <h3 style="margin-top:1rem;">Install in your AI coding assistant</h3>
+                <p>Once the SKILL.md is published, drop it into your agent's skill directory. The file is self-contained — no dependencies beyond the Mermaid.js spec.</p>
+                <p><strong>Claude Code</strong></p>
+                <pre style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .claude/skills/mermaid-theme-builder.md
+# Point Claude Code at the published SKILL.md raw URL or local copy
+curl -o .claude/skills/mermaid-theme-builder.md \
+  https://raw.githubusercontent.com/OKHP3/mermaid-theme-builder/main/SKILL.md</pre>
+                <p><strong>Cursor</strong></p>
+                <pre style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .cursor/rules/mermaid-theme-builder.mdc
+# Add to Cursor project rules — paste contents of SKILL.md
+# or reference via @mermaid-theme-builder in Cursor chat</pre>
+                <p><strong>GitHub Copilot</strong></p>
+                <pre style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .github/copilot-instructions.md
+# Append the SKILL.md contents under a "Mermaid Diagram Governance" heading
+# Copilot picks up repo-level instructions automatically in VS Code</pre>
+                <p><strong>VS Code (any agent via workspace context)</strong></p>
+                <pre style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .vscode/mermaid-theme-builder.md  (add to workspace context)
+# Reference in any chat-mode prompt: "Apply the Mermaid Theme Builder
+# governance rules for [renderer] before generating diagram code."</pre>
+                <div class="skill-note">Status: Active development — part of the v0.5.x SKILL.md Hardening Sprint. The visual app ships the governance logic first; the SKILL.md package formalizes the same rules for agent consumption without a browser. Source: <a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/SKILL.md" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">github.com/OKHP3/mermaid-theme-builder/blob/main/SKILL.md ↗</a></div>
               </div>
             </div>
 
@@ -1461,6 +1481,46 @@
               <div class="section-label">Roadmap</div>
               <h2>Where the build is going</h2>
               <ul class="progress-track">
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--done">✓</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      V0.1 — Proof of Concept
+                      <span class="phase-pill phase-pill--shipped">Shipped</span>
+                    </div>
+                    <p class="progress-phase-desc">Initial browser-only prototype. Live color pickers, basic themeVariables export, single flowchart preview. Established the direct-manipulation model over prompt-driven iteration.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--done">✓</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      V0.2 — Multi-Family Preview
+                      <span class="phase-pill phase-pill--shipped">Shipped</span>
+                    </div>
+                    <p class="progress-phase-desc">Expanded diagram preview to cover flowchart, sequence, class, Gantt, ER, and pie families. Brand palette presets introduced. Prompt scaffold generation MVP.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--done">✓</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      V0.3 — Renderer Awareness
+                      <span class="phase-pill phase-pill--shipped">Shipped</span>
+                    </div>
+                    <p class="progress-phase-desc">First renderer capability notes — GitHub, GitLab, Obsidian, Notion, Confluence. Multi-format export (themeVariables, Markdown bootstrap, prompt scaffold). OKH P³ brand palette.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--done">✓</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      V0.4 — Dark/Light Preview + URL State
+                      <span class="phase-pill phase-pill--shipped">Shipped</span>
+                    </div>
+                    <p class="progress-phase-desc">Dark/light mode preview toggle. Shareable URL state — full theme configuration encoded in the URL. Security posture review. Glee-fully and AskJamie brand presets.</p>
+                  </div>
+                </li>
                 <li class="progress-phase">
                   <span class="progress-marker progress-marker--done">✓</span>
                   <div class="progress-phase-content">
@@ -1686,6 +1746,18 @@
                       <p class="faq-a">Theme state is preserved in the URL, so you can bookmark or share your current configuration directly. For permanent storage, export your themeVariables JSON and commit it to your project.</p>
                     </div>
                     <div class="faq-item">
+                      <p class="faq-q">Is this the same as Mermaid Chart?</p>
+                      <p class="faq-a">No. Mermaid Chart is a separate commercial product (mermaidchart.com). Mermaid Theme Builder has no affiliation with Mermaid Chart, Mermaid.ai, or any commercial Mermaid product. It is an independent community contribution built on the open-source Mermaid.js library.</p>
+                    </div>
+                    <div class="faq-item">
+                      <p class="faq-q">What is SKILL.md and can I use it without the visual app?</p>
+                      <p class="faq-a">SKILL.md is a machine-readable agent skill — a file you drop into Claude Code, Cursor, GitHub Copilot, or VS Code that exposes the builder's governance logic without opening the visual app. The agent can apply brand palettes, select renderer profiles, and generate prompt scaffolds in headless workflows. The SKILL.md is under active development as part of the v0.5.x sprint.</p>
+                    </div>
+                    <div class="faq-item">
+                      <p class="faq-q">What is the relationship between Mermaid Theme Builder and BPMN for Mermaid?</p>
+                      <p class="faq-a">They are sibling projects from OKH P³. BPMN for Mermaid extends Mermaid syntax toward BPMN-aligned structural patterns. Mermaid Theme Builder is the styling and governance layer. They are complementary — use MTB to govern the visual output of what BPMN for Mermaid produces. <a href="/projects/bpmn-for-mermaid/" style="color:var(--okh-orange);">See BPMN for Mermaid →</a></p>
+                    </div>
+                    <div class="faq-item">
                       <p class="faq-q">How do I contribute or file a bug?</p>
                       <p class="faq-a">Open an issue or PR on <a href="https://github.com/OKHP3/mermaid-theme-builder" target="_blank" rel="noopener noreferrer">GitHub</a>. Community feedback is actively used to shape the roadmap.</p>
                     </div>
@@ -1709,11 +1781,11 @@
 
             <!-- DEVELOPMENT UPDATE ───────────────────────────── -->
             <div class="builder-note" style="border-color: rgba(196,106,44,0.35);">
-              <div class="section-label">Development Update</div>
+              <div class="section-label">Development Update — May 2026</div>
               <blockquote>
-                <p>The v0.5.x baseline is the current live state. The Forge UI System is in — the builder now runs on the same design tokens as the rest of OKH P³. Pan/zoom is live. Security posture has been reviewed. Renderer-aware scaffolding is the active work.</p>
-                <p>The SKILL.md package is the next meaningful structural addition. The visual app ships the governance logic first; the SKILL.md formalizes the same rules for agent consumption — AI tools that need to apply brand palettes and renderer profiles without opening a browser.</p>
-                <p><em>The v0.6.x validation sprint is the next gate: test fixtures, renderer parity checks, mobile hardening. The goal is that every export claim can be verified against its target renderer — not just described.</em></p>
+                <p>v0.5.0 is the current live state. The Forge UI System is in, pan/zoom is live, and the Look API (Classic/Neo/Hand-Drawn) shipped with full renderer compatibility notes. The Reference tab carries 27+ diagram family entries. Every export format is renderer-profiled — you get a GitHub-safe export if you target GitHub, a browser export if you target browser Mermaid.js.</p>
+                <p>The active sprint is v0.5.x SKILL.md Hardening. The governance logic that powers the visual app is being extracted into a machine-readable <code>SKILL.md</code> — the same palette definitions, renderer profiles, and prompt scaffold patterns, in a format Claude Code, Cursor, Copilot, and VS Code can consume directly without opening the browser tool.</p>
+                <p><em>The v0.6.x sprint follows: native renderer capability checking, Ko-fi artifact packaging, and mobile hardening. The goal is that every export claim is verifiable against its target renderer — not just described.</em></p>
               </blockquote>
               <p class="builder-sig">— May 2026 · OverKill Hill P³</p>
             </div>
@@ -1738,7 +1810,7 @@
               <div class="meta-row">
                 <div class="meta-item">
                   <span class="meta-key">Status</span>
-                  <span class="meta-val"><span class="status-dot"></span>v0.5.x Alpha Active</span>
+                  <span class="meta-val"><span class="status-dot"></span>v0.5.0 Shipped</span>
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">Build Phase</span>
@@ -1761,8 +1833,12 @@
                   <span class="meta-val"><a href="https://overkillhill.com">OverKill Hill P³</a></span>
                 </div>
                 <div class="meta-item">
-                  <span class="meta-key">Mermaid.js compat</span>
-                  <span class="meta-val">v11.15.0</span>
+                  <span class="meta-key">Mermaid.js</span>
+                  <span class="meta-val">Target: v11.15.0</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Compatibility</span>
+                  <span class="meta-val">Renderer-dependent v10/v11 portability</span>
                 </div>
               </div>
               <div class="sidebar-links">
@@ -1795,7 +1871,9 @@
               <div class="section-label">Related Resources</div>
               <ul>
                 <li><a href="https://okhp3.github.io/mermaid-theme-builder/#compose" target="_blank" rel="noopener noreferrer">Live App — Compose Tab ↗</a></li>
+                <li><a href="https://okhp3.github.io/mermaid-theme-builder/#apply" target="_blank" rel="noopener noreferrer">Live App — Apply Tab ↗</a></li>
                 <li><a href="https://github.com/OKHP3/mermaid-theme-builder" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a></li>
+                <li><a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/SKILL.md" target="_blank" rel="noopener noreferrer">SKILL.md Source ↗</a></li>
                 <li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid (sibling)</a></li>
                 <li><a href="https://mermaid.js.org/config/theming.html" target="_blank" rel="noopener noreferrer">Mermaid.js Theming Docs ↗</a></li>
                 <li><a href="https://mermaid.js.org/config/theming.html#theme-variables" target="_blank" rel="noopener noreferrer">themeVariables Reference ↗</a></li>
