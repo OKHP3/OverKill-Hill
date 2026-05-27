@@ -1,0 +1,792 @@
+You are working inside the OverKill Hill website repository.
+
+Repository:
+https://github.com/OKHP3/OverKill-Hill
+
+Replit project:
+https://replit.com/t/overkill-hill/repls/OverKill-Hill
+
+Live site:
+https://overkillhill.com/
+
+Target live page:
+https://overkillhill.com/projects/mermaid-theme-builder/
+
+Target source file:
+projects/mermaid-theme-builder/index.html
+
+Canonical global stylesheet:
+assets/css/theme.css
+
+Theme Builder app repo:
+https://github.com/OKHP3/mermaid-theme-builder
+
+Theme Builder live app:
+https://okhp3.github.io/mermaid-theme-builder/
+
+Theme Builder embedded app target:
+https://okhp3.github.io/mermaid-theme-builder/?embed=1
+
+Sibling project page:
+https://overkillhill.com/projects/bpmn-for-mermaid/
+
+Legacy donor Replit:
+https://replit.com/t/overkill-hill/repls/Project-Page-Mermaid-Theme-Tool
+
+TASK TYPE:
+Public page correction and synchronization.
+
+MODE:
+Content and page-specific update only. Do not alter global site architecture.
+
+PRIMARY OBJECTIVE:
+Update projects/mermaid-theme-builder/index.html so the public OverKill Hill project page accurately reflects the current Mermaid Theme Builder product state, the v0.5.0 shipped baseline, the active v0.5.x SKILL.md Hardening Sprint, the deployed application, the Notion master build plan, and the shared OKH Forge design vision from assets/css/theme.css.
+
+This page is the public narrative, SEO, trust, routing, and product-positioning layer.
+It is not the app itself.
+
+Do not replace the page with the app.
+Do not redesign the global site.
+Do not modify unrelated project pages.
+
+CURRENT LIVE DRIFT TO FIX:
+The live page currently contains some good updates, but it still shows outdated or inconsistent state labels and compatibility wording.
+
+Fix these patterns wherever present:
+- v0.5.x Alpha Active
+- v0.5.x Trust Sprint if not aligned to SKILL.md Hardening Sprint
+- Mermaid.js compat v10, v11+
+- FAQ answer saying only v10 and v11
+- any wording implying v0.5.x is the shipped app version instead of v0.5.0 shipped plus v0.5.x hardening
+
+TARGET STATUS MODEL:
+Use this consistently:
+
+Status:
+v0.5.0 Shipped
+
+Active Sprint:
+v0.5.x SKILL.md Hardening Sprint
+
+Mermaid target:
+Target: Mermaid.js 11.15.0
+
+Compatibility nuance:
+Exports rely on Mermaid-native themeVariables and are generally portable across Mermaid v10/v11-compatible renderers, but renderer support varies by platform.
+
+Do not use vague primary labels:
+- v10, v11+
+- v10 and v11
+- Alpha Active
+- Trust Sprint without explaining SKILL.md hardening
+
+SOURCE REVIEW REQUIRED BEFORE EDITING:
+Review these before changing the file:
+
+1. assets/css/theme.css
+   Confirm canonical fonts, palette, radius, card, buttons, footer, Mermaid theme variables.
+
+2. projects/mermaid-theme-builder/index.html
+   Identify all outdated content and version drift.
+
+3. Theme Builder app repo
+   Confirm package version, feature state, SKILL.md location, Mermaid dependency, token file, and available routes.
+
+4. Theme Builder live app
+   Confirm the current public app opens and supports the expected top-level workflow.
+
+5. Legacy donor Replit:
+   https://replit.com/t/overkill-hill/repls/Project-Page-Mermaid-Theme-Tool
+
+   This is a salvage donor, not an authority.
+
+   You must inspect it and extract every remaining useful idea:
+   - copy fragments
+   - section structure
+   - feature language
+   - FAQ phrasing
+   - iframe wrapper behavior
+   - fallback handling
+   - diagrams taxonomy wording
+   - mobile companion language
+   - builder note language
+   - roadmap language
+
+   You must reject:
+   - stale status labels
+   - stale URLs
+   - placeholder copy
+   - generic SaaS language
+   - duplicate sections
+   - content that contradicts v0.5.0
+   - anything that weakens the OKH Forge voice
+   - any temporary Replit preview URL as a production target
+
+DOCUMENT SALVAGE:
+Create or update:
+docs/project-page-mermaid-theme-builder-salvage.md
+
+Include:
+- donor source inspected
+- date inspected
+- useful items salvaged
+- items rejected
+- reason for rejection
+- final authority order used
+
+Authority order:
+1. assets/css/theme.css
+2. Theme Builder repo current state
+3. Theme Builder live app
+4. Notion master build plan if available
+5. current production page
+6. donor Replit
+
+PAGE DESIGN CONSTRAINTS:
+Use the existing OverKill Hill page style.
+Use assets/css/theme.css.
+Do not edit global theme tokens.
+Do not add a page-local design system that conflicts with theme.css.
+Do not import random fonts.
+Do not add Tailwind to the static page if it is not already used.
+Do not create visual drift from other project pages.
+
+Brand values:
+- Alfa Slab One for major headings through existing CSS
+- DM Sans for body
+- JetBrains Mono for code, badges, and technical labels
+- rust-orange accent #c46a2c
+- teal #1c3a34
+- warm paper #f6f2ee where light cards are used
+- dark forge surfaces for OKH identity
+- radius from theme.css
+- no generic SaaS gloss
+
+BRAND FIREWALL:
+This page must not contain:
+- BFS
+- Builders FirstSource
+- employer references
+- employer color systems
+- employer workflows
+- employer examples
+- implied enterprise customer claims
+
+AFFILIATION FIREWALL:
+This page must clearly state:
+- not affiliated with Mermaid
+- not affiliated with Mermaid Chart
+- not affiliated with Mermaid.ai
+- independent community contribution
+- built on Mermaid.js theming surfaces
+- not a renderer replacement
+- not official Mermaid product
+
+PAGE UPDATE REQUIREMENTS:
+
+SECTION 1: HEAD AND META
+
+Update title:
+Mermaid Theme Builder | OverKill Hill P³™
+
+Update meta description:
+Visual governance workbench for AI-generated Mermaid diagrams. Renderer-aware export, brand palette enforcement, prompt scaffold generation. v0.5.0 shipped. Browser-only, MIT licensed.
+
+Update og:title:
+Mermaid Theme Builder | OverKill Hill P³™
+
+Update og:description:
+same as meta description
+
+Update twitter:title:
+Mermaid Theme Builder | OverKill Hill P³™
+
+Update twitter:description:
+Stop re-prompting for styles. Mermaid Theme Builder v0.5.0: governance workbench with renderer profiles, 5 export formats, and SKILL.md agent skill.
+
+Update structured data if present:
+- version or softwareVersion: 0.5.0 if field exists
+- applicationCategory: DeveloperApplication
+- operatingSystem: Web
+- license: MIT
+- codeRepository: https://github.com/OKHP3/mermaid-theme-builder
+- url: https://okhp3.github.io/mermaid-theme-builder/
+
+SECTION 2: STATUS BADGES
+
+Near the breadcrumb or top of hero, replace outdated badges.
+
+Required badges:
+- Community Tool
+- Open Source
+- v0.5.0 Shipped
+- SKILL.md Sprint Active
+
+Do not use:
+- V0.3 to V0.5 Active
+- v0.5.x Alpha Active
+- Alpha Active
+
+Badge styling:
+- v0.5.0 Shipped uses amber or primary brand accent
+- SKILL.md Sprint Active uses teal or secondary forge accent
+- do not invent new brand colors
+
+SECTION 3: HERO
+
+Hero title:
+Mermaid Theme Builder
+
+Hero headline:
+Governance Workbench. Renderer-Aware. Brand-Enforced.
+
+Hero body:
+A visual governance workbench for Mermaid diagram-as-code styling, renderer-aware export, brand palette enforcement, and AI prompt scaffold generation. Define your theme once, then export consistent Mermaid styling across the renderers, AI tools, and diagram families your workflow touches.
+
+CTAs:
+1. Open the Workbench
+   href: https://okhp3.github.io/mermaid-theme-builder/
+   primary style
+
+2. View Source on GitHub
+   href: https://github.com/OKHP3/mermaid-theme-builder
+   quiet or secondary style
+
+3. Sibling: BPMN for Mermaid
+   href: /projects/bpmn-for-mermaid/
+   quiet or secondary style
+
+SECTION 4: EMBEDDED TOOL
+
+Embed source:
+https://okhp3.github.io/mermaid-theme-builder/?embed=1
+
+If the app does not yet support ?embed=1, still set the iframe target to that URL so the app repo has a visible contract to satisfy.
+
+The embed section must include:
+- accessible iframe title
+- loading overlay
+- reload button
+- open full screen button
+- slow-load fallback link
+- note that iframe CSS is self-contained
+- recommendation to open in a new tab for full workspace
+
+Do not use:
+- Replit preview URL
+- temporary picard URL
+- local dev URL
+- old GitHub Pages URL without embed parameter unless embed mode is unavailable and documented
+
+SECTION 5: WHAT THIS IS AND WHAT THIS IS NOT
+
+Preserve or update this section.
+
+What it is:
+- visual governance workbench
+- renderer-aware export tool
+- brand palette enforcer
+- prompt scaffold generator
+- Mermaid themeVariables workbench
+- SKILL.md-packaged agent governance layer
+- open-source community utility
+- browser-only static app
+
+What it is not:
+- not Mermaid.ai
+- not Mermaid Chart
+- not official Mermaid product
+- not a Mermaid renderer replacement
+- not a diagram editor
+- not a SaaS
+- not a subscription product
+- not data collecting
+- not employer work
+
+SECTION 6: FEATURES GRID
+
+Feature grid must contain at least these cards.
+
+1. Live Diagram Preview
+   Body:
+   Every color change reflects instantly across representative Mermaid diagram families. The point is not decoration. The point is fast visual governance.
+
+2. Diagram Family Detection
+   Body:
+   Automatically identifies the diagram family and applies family-aware styling constraints. Not every Mermaid diagram family supports the same styling surfaces.
+
+3. Multi-Format Export
+   Body:
+   Five export formats: complete themeVariables block, Markdown style bootstrap, renderer-aware prompt scaffold, diff view output, and raw CSS variable block. Each format maps to a different workflow: paste into LLMs, drop into mermaid.initialize(), or commit to a repo.
+
+4. Prompt Scaffold Generator
+   Body:
+   Generates LLM-ready prompt prefixes with palette, renderer, and diagram-family constraints embedded before generation begins.
+
+5. Renderer Capability Notes
+   Body:
+   Flags where styling choices break or degrade across GitHub, GitLab, Obsidian, Notion, Confluence, Mermaid Live, and CLI-style renderer contexts.
+
+6. Brand Palette Presets
+   Body:
+   Presets include Ocean Depth, Forest Sage, Slate Ember, Violet Mist, OverKill Hill P³, Glee-fully, AskJamie, and Neutral Enterprise. Utility palettes are for general use. Brand palettes are governed conventions.
+
+7. Precise Color Controls
+   Body:
+   Color controls expose exact values and visual feedback. The goal is governed iteration, not prompt-by-prompt guessing.
+
+8. Browser-Only
+   Body:
+   Runs client-side in the browser. No login, no backend, no analytics, no server-side theme storage.
+
+9. Pan / Zoom Canvas
+   Body:
+   Navigate dense diagrams without losing context. Useful for complex flowcharts, class diagrams, and multi-section diagrams that do not fit the initial viewport.
+
+10. Forge UI System
+   Body:
+   The interface runs on OKH Forge design tokens aligned to overkillhill.com. The workbench itself demonstrates the same visual governance it produces.
+
+11. Dark / Light / System Mode
+   Body:
+   Full dark, light, and system-preference modes with persistent preference. Preview context should reflect the selected mode.
+
+12. Mermaid Look API
+   Body:
+   Classic, Neo, and Hand-Drawn looks, with renderer support warnings where applicable. The page must not imply every renderer supports every look.
+
+13. Diff View
+   Body:
+   Side-by-side or equivalent comparison of original and themed Mermaid code so users can audit exactly what changed.
+
+14. SKILL.md Agent Skill
+   Body:
+   Governance logic packaged for AI coding assistants and agent workflows. The visual app is the workbench. SKILL.md is the headless enforcement layer.
+
+15. Open Source, MIT License
+   Body:
+   Source available on GitHub. Free to inspect, fork, adapt, and improve under the license terms.
+
+SECTION 7: BUILD HISTORY AND ACTIVE SPRINT
+
+Replace the build progress section with:
+
+Title:
+Build History + Active Sprint
+
+Entries:
+
+1. V0.1 Foundation
+Status: Shipped
+Text:
+Core paste, detect, palette, preview, export loop. Four utility palettes. Basic diagram family detection. Prompt scaffold modal. GitHub Pages deployment.
+
+2. V0.2 Brand System
+Status: Shipped
+Text:
+OverKill Hill P³, Glee-fully, and AskJamie brand palettes. Renderer capability notes. Family-specific theming overlays. Extract mode to pull and replace an existing theme.
+
+3. V0.3 Architecture Hardening
+Status: Shipped
+Text:
+React 19, Vite 8, TypeScript 5.9, pnpm workspaces. Compose tab with five-tier typography hierarchy. OKH P³ Forge design language applied to the builder UI.
+
+4. V0.4 Renderer Intelligence
+Status: Shipped
+Text:
+Seven renderer profiles with parity matrix. Mermaid Look API support for Classic, Neo, and Hand-Drawn where supported. Dark, light, and system mode. 26+ examples. Diff view.
+
+5. V0.5.0 Governance Layer + Agent Skill
+Status: Shipped, May 2026
+Text:
+Reference tab with 27+ diagram family capability registry, renderer parity matrix, and class library. Five export formats. SKILL.md agent skill for Claude Code, Copilot, Cursor, and VS Code. Vitest 4 test suite. Multi-diagram splitting. Shareable URL state encoding. Pan/zoom canvas.
+
+6. v0.5.x SKILL.md Hardening Sprint
+Status: Active
+Text:
+Close gaps between SKILL.md documentation and repo reality. YAML frontmatter conformance. Version parity from skill 0.3.0 to 0.5.0. Look API documentation. references, assets, scripts, and tests directories verified and populated. Test suite passing.
+
+7. v0.6.x Native Capability + Ko-fi Artifacts
+Status: Planned target, Q3 2026
+Text:
+Capacitor.js exploration for iOS and Android. Files app import. Share Sheet export. Clipboard detection on launch. PWA manifest hardening. Ko-fi downloadable artifacts such as PPTX templates, prompt scaffold pack PDF, palette JSON and CSS bundle.
+
+8. v0.7.x Session Persistence + Multi-Diagram Canvas
+Status: Planned target, Q4 2026
+Text:
+Named theme sessions with localStorage. Multi-diagram batch theming. Theme drift detector. Theme version history with rollback. Mermaid Chart enterprise API integration if viable.
+
+9. v0.8.x Collaboration + Governance Hardening
+Status: Planned target, Q1 2027
+Text:
+Shareable theme packages. Team import/export. Repository-scale diagram audit mode. Custom palette builder with WCAG AA enforcement. classDef library builder.
+
+10. v1.0 Production Release Path
+Status: Planned target, H1 2027
+Text:
+Stability commitment for export formats and SKILL.md API. Possible native release path. Community palette registry. Verified renderer compatibility claims.
+
+Avoid overpromising future native app store release. Use planned target language.
+
+SECTION 8: SKILL.md AGENT SKILL SECTION
+
+Add or update a full section after Features and before Build History.
+
+Heading:
+SKILL.md: Headless Diagram Governance
+
+Subheading:
+The same governance logic without opening the visual app.
+
+Body:
+Mermaid Theme Builder is packaged as a reusable agent skill. The visual app is the workbench. The SKILL.md package is the headless governance layer for AI coding assistants, repo workflows, and agentic documentation pipelines.
+
+The skill covers:
+- palette definition and brand token mapping
+- renderer profile selection
+- Mermaid themeVariables assembly
+- prompt scaffold generation
+- diagram family classification
+- renderer-safe export rules
+- OKH Forge design-token discipline
+
+Install examples:
+Claude Code:
+cp -r skills/okhp3-mermaid-theme-builder ~/.claude/skills/
+
+Cursor:
+cp skills/okhp3-mermaid-theme-builder/SKILL.md .cursor/rules/mermaid-theme-builder.mdc
+
+GitHub Copilot:
+cp -r skills/okhp3-mermaid-theme-builder .github/skills/
+
+VS Code:
+same path pattern as Copilot if using workspace skill conventions
+
+Status note:
+v0.5.x hardening closes documentation, version, reference-file, and test parity gaps before external promotion.
+
+SECTION 9: SUPPORT TAXONOMY
+
+Add or update a section.
+
+Heading:
+Support Taxonomy: Not All Mermaid Families Are Equal
+
+Include these tiers:
+
+1. Stable families
+Examples:
+flowchart, sequenceDiagram, classDiagram, stateDiagram-v2, erDiagram, gantt, pie
+Text:
+Most consistent across Mermaid.js versions and common hosted renderers.
+
+2. Beta or experimental families
+Examples:
+sankey, block, kanban, timeline, xychart-beta, mindmap
+Text:
+Available in recent Mermaid versions, but hosted renderer support varies.
+
+3. Renderer-dependent surfaces
+Examples:
+themeVariables, %%{init:...}%%, custom CSS
+Text:
+Useful in browser Mermaid.js and some controlled renderers. Often stripped, ignored, or constrained in hosted Markdown systems.
+
+4. OKH P³ semantic templates
+Examples:
+OverKill Hill P³, Glee-fully, AskJamie, Neutral Enterprise
+Text:
+Brand and governance conventions layered on valid Mermaid syntax. Not syntax extensions.
+
+5. BPMN for Mermaid sibling work
+Examples:
+bpmn-beta, bpmn-task, bpmn-gateway, bpmn-event, bpmn-pool
+Text:
+Structural sibling project. Not official Mermaid core. Theme Builder can style its outputs once compatible theming hooks exist.
+
+SECTION 10: RENDERER AWARENESS
+
+Add or update section.
+
+Heading:
+Why Renderer-Aware Output Matters
+
+Required points:
+- Mermaid.js support varies by host.
+- GitHub, GitLab, Notion, Obsidian, Confluence, Mermaid Live, and CLI pipelines may pin different Mermaid versions.
+- A diagram can be valid Mermaid.js and still fail in the deployment target.
+- The tool provides warnings, profiles, and prompt scaffolds.
+- The tool does not guarantee all renderers support all styling features.
+- This is governance, not magic.
+
+SECTION 11: MOBILE EXPERIENCE
+
+Add or update section.
+
+Heading:
+Desktop-First. Mobile Companion Mode.
+
+Desktop:
+- full color picker suite
+- multi-diagram preview
+- pan/zoom
+- all export formats
+- renderer profile selection
+- dense inspection
+
+Mobile companion:
+- browse palette presets
+- copy prompt scaffolds
+- check renderer-safe export output
+- review compatibility notes
+- light preview and sharing
+
+Required tone:
+Honest scoping. Do not apologize. Do not overpromise full mobile authoring.
+
+SECTION 12: FAQ CORRECTIONS
+
+Fix or add these FAQ entries.
+
+Q: Is this affiliated with Mermaid.ai?
+A:
+No. This is an independent community contribution built around open Mermaid.js theming concepts. It is not affiliated with Mermaid.ai, Mermaid Chart, or any commercial Mermaid product.
+
+Q: Is this official Mermaid?
+A:
+No. It is an independent OverKill Hill P³ community tool. It exports Mermaid-compatible theme configuration, but it is not an official Mermaid project.
+
+Q: Does it cost anything?
+A:
+No. It is free and MIT licensed.
+
+Q: Does it collect data?
+A:
+No. The app is client-side. No login, no backend, no analytics, and no server-side theme storage.
+
+Q: Which Mermaid.js version does it target?
+A:
+Target: Mermaid.js 11.15.0. Exports rely on Mermaid-native themeVariables and are generally portable across Mermaid v10/v11-compatible renderers, but renderer support varies by platform.
+
+Q: Can I use the exported theme with GitHub, Notion, Obsidian, Docusaurus, or VitePress?
+A:
+Often, but with renderer-specific constraints. The point of the tool is to flag those constraints before you paste the output.
+
+Q: Does it support dark, light, and system mode?
+A:
+Yes. Dark, light, and system mode shipped before v0.5.0. The preview context should respect the selected mode.
+
+Q: Can I save and share my theme?
+A:
+Yes. Shareable URL state encoding shipped in v0.5.0. Bookmarking or sharing the URL can preserve the working configuration. Permanent governance artifacts should still be exported and committed to a repo.
+
+Q: Why not just ask an AI for colors?
+A:
+Because an AI can generate plausible styling without renderer context, contrast discipline, or repeatable governance. This tool gives the model a contract before generation starts.
+
+Q: How does this relate to BPMN for Mermaid?
+A:
+BPMN for Mermaid is the structural sibling. It explores a text-first bpmn-beta diagram type. Mermaid Theme Builder is the styling and governance layer.
+
+Q: What is SKILL.md here?
+A:
+SKILL.md packages the same governance rules for agent workflows. The app is interactive. SKILL.md is headless.
+
+SECTION 13: BUILDER NOTE
+
+Keep the existing personal itch story if present.
+
+Add or update the development update block.
+
+Required text, adjust only for grammar and page fit:
+
+The v0.5.0 baseline is shipped. The Forge UI System is in. The builder now runs on the same design tokens as the rest of OKH P³. Pan/zoom is live. The SKILL.md agent skill is packaged and ready for external promotion after the open backlog closes.
+
+The v0.5.x hardening sprint is the active work: SKILL.md documentation parity, version alignment, reference-file verification, and test suite validation. The v0.6.x sprint moves toward native-device exploration and Ko-fi artifacts, the first practical step toward sustainable open-source distribution.
+
+May 2026 · OverKill Hill P³
+
+SECTION 14: PROJECT INFO SIDEBAR
+
+Update the sidebar to:
+
+Status:
+v0.5.0 Shipped
+
+Build Phase:
+v0.5.x SKILL.md Hardening Sprint
+
+License:
+MIT
+
+Type:
+Community Contribution
+
+Cost:
+Free / Open Source
+
+Maintained by:
+OverKill Hill P³
+
+Mermaid.js target:
+11.15.0
+
+Compatibility:
+Renderer-dependent v10/v11 portability
+
+Primary repo:
+https://github.com/OKHP3/mermaid-theme-builder
+
+Live app:
+https://okhp3.github.io/mermaid-theme-builder/
+
+Issue tracker:
+https://github.com/OKHP3/mermaid-theme-builder/issues
+
+SECTION 15: RELATED RESOURCES
+
+Ensure related resources include:
+
+- Live App: Compose Tab
+  https://okhp3.github.io/mermaid-theme-builder/#compose
+
+- Live App: Apply Tab
+  https://okhp3.github.io/mermaid-theme-builder/#apply
+
+- GitHub Repository
+  https://github.com/OKHP3/mermaid-theme-builder
+
+- SKILL.md Source
+  https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/okhp3-mermaid-theme-builder/SKILL.md
+
+- BPMN for Mermaid
+  /projects/bpmn-for-mermaid/
+
+- Mermaid.js Theming Docs
+  keep existing if already present
+
+- The First Diagram Is Usually a Liar
+  keep existing if already present
+
+SECTION 16: COPY STYLE GUARDRAILS
+
+Do not use:
+- seamlessly
+- robust
+- powerful
+- effortlessly
+- elevate
+- unleash
+- revolutionary
+- game-changing
+
+Avoid generic SaaS language.
+
+Use:
+- governance
+- renderer-aware
+- brand-enforced
+- diagram-as-code
+- themeVariables
+- prompt scaffold
+- visual contract
+- exported artifact
+- client-side
+- browser-only
+- MIT licensed
+
+No employer references.
+No BFS.
+No Builders FirstSource.
+
+SECTION 17: VISUAL VALIDATION
+
+Check:
+- page renders in desktop and mobile widths
+- no horizontal overflow
+- iframe still loads
+- iframe uses ?embed=1
+- all CTAs work
+- sibling BPMN link works
+- GitHub links work
+- SKILL.md link works or is clearly marked if unavailable
+- status badges wrap cleanly on mobile
+- feature cards remain readable
+- FAQ accordions still work if accordions are used
+- theme toggle does not break the page
+- light mode remains readable
+- dark mode remains readable
+- no temporary Replit URLs remain
+- no picard.replit.dev URLs remain
+- no local dev URLs remain
+
+SECTION 18: REQUIRED GREP CHECKS
+
+Before final report, grep for:
+
+Outdated status:
+- Alpha Active
+- V0.3
+- v0.5.x Alpha
+- Trust Sprint
+
+Outdated compatibility:
+- v10, v11+
+- v10 and v11
+
+Forbidden links:
+- picard.replit.dev
+- localhost
+- 127.0.0.1
+
+Forbidden brand leakage:
+- BFS
+- Builders FirstSource
+
+Forbidden filler:
+- seamlessly
+- robust
+- powerful
+- effortlessly
+- elevate
+- unleash
+
+Every hit must be:
+- removed
+- justified as unrelated/global
+- or listed as a blocker
+
+SECTION 19: REQUIRED OUTPUT
+
+Return a factual report in this order:
+
+1. Source review:
+   list each source inspected and whether accessible.
+
+2. Donor salvage report:
+   what was extracted from Project-Page-Mermaid-Theme-Tool.
+   what was rejected.
+   where the salvage note was saved.
+
+3. Files changed:
+   path, change category, reason.
+
+4. Content corrections:
+   old value, new value.
+
+5. Validation checklist:
+   item, result, notes.
+
+6. Grep report:
+   each query, remaining hits, action.
+
+7. Final publication statement:
+   say whether the Mermaid Theme Builder page is now aligned to v0.5.0, the active v0.5.x SKILL.md sprint, and assets/css/theme.css.
+
+STYLE RULES FOR YOUR REPORT:
+- no em dashes
+- no marketing filler
+- factual and dry
+- include exact file paths
+- include exact values changed
