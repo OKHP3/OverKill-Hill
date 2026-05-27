@@ -142,53 +142,54 @@ The static HTML at `projects/mermaid-theme-builder/index.html` **is** the live p
 
 ### MTB release update procedure
 
-On every MTB version bump, update these locations in **`projects/mermaid-theme-builder/index.html`** and **`replit.md`**, then run the version-check script to confirm nothing was missed.
+On every MTB version bump, run the one-command release helper — it patches `VERSION_CONFIG`, auto-fixes all 11 structured version strings, promotes roadmap pills, and verifies everything in a single invocation.
 
-**Script (single source of truth):**
+**One-command release (preferred):**
 
 ```
-assets/scripts/check-mtb-version.py
+python3 assets/scripts/release-mtb.py \
+    --version v0.6.0 \
+    --date "August 2026" \
+    --sprint v0.6.x \
+    --sprint-name "Ko-fi Artifacts" \
+    --prev-sprint v0.5.x
 ```
 
-Open the file and edit the `VERSION_CONFIG` block at the top (the only block you touch on each release). Key fields:
-
-| Field | Purpose |
+| Flag | Purpose |
 |---|---|
-| `current_version` | Released version tag, e.g. `"v0.6.0"` |
-| `shipped_date` | Month + year shipped, e.g. `"August 2026"` |
-| `active_sprint` | New active sprint label, e.g. `"v0.6.x"` |
-| `active_sprint_name` | Sprint short name, e.g. `"Ko-fi Artifacts"` |
-| `prev_sprint` | Sprint being closed out, e.g. `"v0.5.x"` — leave `""` if no sprint promotion this release |
+| `--version` | Released version tag, e.g. `"v0.6.0"` |
+| `--date` | Month + year shipped, e.g. `"August 2026"` |
+| `--sprint` | New active sprint series, e.g. `"v0.6.x"` |
+| `--sprint-name` | Sprint short name, e.g. `"Ko-fi Artifacts"` |
+| `--prev-sprint` | Sprint being closed out — triggers roadmap pill promotion (omit if no sprint change) |
+| `--dry-run` | Preview all changes without writing any files |
 
-Then run:
+The script: (1) rewrites `VERSION_CONFIG` in `check-mtb-version.py`, then (2) delegates to `check-mtb-version.py --update` to patch all target files and verify all 11 checks. Exits 0 only when everything passes.
 
-```
-python3 assets/scripts/check-mtb-version.py
-```
-
-The script checks 11 structured version strings across the project page and `replit.md` and exits non-zero if any are stale.
-
-**To also auto-promote the roadmap pills** (old sprint → Shipped, new sprint → Active):
+**Lower-level tool (check only / manual fix):**
 
 ```
+python3 assets/scripts/check-mtb-version.py              # check only
+python3 assets/scripts/check-mtb-version.py --update     # backup + patch + re-verify
 python3 assets/scripts/check-mtb-version.py --update --prev-sprint v0.5.x
+python3 assets/scripts/check-mtb-version.py --dry-run    # preview fixes, no writes
 ```
 
-`--prev-sprint` can also be set permanently in `VERSION_CONFIG["prev_sprint"]` so `--update` alone is sufficient. The `--dry-run` flag previews all changes without writing any files.
+The `--update` flag auto-promotes the roadmap pills when `--prev-sprint` is supplied. `--prev-sprint` can also be set permanently in `VERSION_CONFIG["prev_sprint"]`.
 
-**Manual checklist — locations to update in `index.html`:**
+**Manual checklist — locations auto-patched by the release script:**
 
-| Location | What to change |
+| Location | What changes |
 |---|---|
-| Hero tag (line ~961) | `v{sprint} Alpha Active` |
-| `#release` card `<h2>` (line ~1036) | `v{version} — Shipped {Month YYYY}` |
-| `#release` Version meta-val (line ~1040) | `v{version} — shipped {Month YYYY}` |
-| `#release` Active Sprint meta-val (line ~1044) | `v{sprint} {sprint-name}` |
-| `#roadmap` — move `▶` marker + `Active` pill to the new phase; mark the previous phase `✓` + `Shipped` | **Auto-fixed by `--update --prev-sprint {old-sprint}`**. Marker classes: `progress-marker--active` / `progress-marker--done`; pill classes: `phase-pill--active` / `phase-pill--shipped` |
-| Sidebar Project Info · Status meta-val (line ~1723) | `v{sprint} Alpha Active` |
-| Sidebar Project Info · Build Phase meta-val (line ~1727) | `v{sprint} {sprint-name}` |
+| Hero tag | `v{sprint} Alpha Active` |
+| `#release` card `<h2>` | `v{version} — Shipped {Month YYYY}` |
+| `#release` Version meta-val | `v{version} — shipped {Month YYYY}` |
+| `#release` Active Sprint meta-val | `v{sprint} {sprint-name}` |
+| `#roadmap` — `▶` marker + `Active` pill | Auto-promoted via `--prev-sprint`. Marker classes: `progress-marker--active` / `progress-marker--done`; pill classes: `phase-pill--active` / `phase-pill--shipped` |
+| Sidebar · Status meta-val | `v{sprint} Alpha Active` |
+| Sidebar · Build Phase meta-val | `v{sprint} {sprint-name}` |
 
-**Also update in `replit.md`:**
+**Also update in `replit.md` (not auto-patched — edit manually):**
 
 - The `**Current version:**` line in this section (line ~116)
 - The `#release` row in the Page Sections table (line ~125)
