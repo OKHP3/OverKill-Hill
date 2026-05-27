@@ -662,8 +662,11 @@
       .callout p { overflow-wrap: anywhere; word-break: break-word; }
       .callout code { word-break: break-all; overflow-wrap: anywhere; white-space: normal; }
 
-      /* Status-item text column */
+      /* Status-item text column — the wrapper span is the second grid item
+         (col 2 = minmax(0,1fr)); min-width:0 lets the track shrink so the
+         inline code inside can break rather than blowing out col 1. */
       .status-item { overflow-wrap: anywhere; word-break: break-word; }
+      .status-item > span:not(.check) { min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
 
       /* Next-phase items: long strings without natural break points */
       .next-phase-item { overflow-wrap: anywhere; word-break: break-word; }
@@ -869,28 +872,28 @@
                 <div class="section-label">Completion Checklist</div>
                 <h2>Status Board</h2>
                 <div class="status-board">
-                  <div class="status-item"><span class="check">✓</span> Hardware unboxed — KVM, Satechi stand, SN7100 NVMe, Logitech Brio MX</div>
-                  <div class="status-item"><span class="check">✓</span> macOS Sequoia updated, Apple Watch Auto Unlock configured</div>
-                  <div class="status-item"><span class="check">✓</span> Homebrew 5.1.8 installed, PATH configured</div>
-                  <div class="status-item"><span class="check">✓</span> Git 2.54.0, Python 3.14.4, Node.js 26.0.0, GitHub CLI 2.92.0</div>
-                  <div class="status-item"><span class="check">✓</span> GitHub SSH key (ed25519) configured and verified</div>
-                  <div class="status-item"><span class="check">✓</span> Ollama 0.23.1 with MLX acceleration, Flash Attention, <code>q8_0</code> KV cache</div>
-                  <div class="status-item"><span class="check">✓</span> Model storage normalized to <code>/Volumes/OKH-Local/07_Local_LLMs/ollama/models</code></div>
-                  <div class="status-item"><span class="check">✓</span> LM Studio 0.4.12 with MLX backend active</div>
-                  <div class="status-item"><span class="check">✓</span> Open WebUI running in Docker on <code>localhost:3000</code></div>
-                  <div class="status-item"><span class="check">✓</span> VSCode 1.119.0 + 43 extensions + Continue.dev 1.2.22</div>
-                  <div class="status-item"><span class="check">✓</span> Claude Desktop + 11 MCP servers (Notion, GitHub, PageSpace, Mermaid, Google suite, M365, more)</div>
-                  <div class="status-item"><span class="check">✓</span> ChatGPT Desktop, Codex, and ChatGPT Atlas installed</div>
-                  <div class="status-item"><span class="check">✓</span> Microsoft Office suite, OneDrive, Edge, Notion, Perplexity installed</div>
-                  <div class="status-item"><span class="check">✓</span> mlx-lm 0.31.3 installed — 139 tok/s on Phi-4 mini via direct Apple Silicon inference</div>
-                  <div class="status-item"><span class="check">✓</span> HuggingFace cache normalized to <code>/Volumes/OKH-Local/07_Local_LLMs/huggingface-cache</code></div>
-                  <div class="status-item"><span class="check">✓</span> Storage baseline normalized, verified, benchmarked, and archived</div>
-                  <div class="status-item"><span class="check">✓</span> Git identity configured, VSCode Settings Sync active across machines</div>
-                  <div class="status-item"><span class="check">✓</span> 28 GitHub repos mapped, SSH remotes updated</div>
-                  <div class="status-item"><span class="check">✓</span> OneDrive sync active, OKH alias configured in <code>.zprofile</code></div>
-                  <div class="status-item"><span class="check">✓</span> Ollama plist path corrected to canonical location <span class="status-date">· 2026-05-13</span></div>
-                  <div class="status-item"><span class="check">✓</span> Open WebUI updated to latest — container recreated, v0.9.5 resolved <span class="status-date">· 2026-05-13</span></div>
-                  <div class="status-item"><span class="check">✓</span> Edge PWA localhost auth resolved — Open WebUI pinned as standalone Edge app <span class="status-date">· 2026-05-13</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Hardware unboxed — KVM, Satechi stand, SN7100 NVMe, Logitech Brio MX</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> macOS Sequoia updated, Apple Watch Auto Unlock configured</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Homebrew 5.1.8 installed, PATH configured</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Git 2.54.0, Python 3.14.4, Node.js 26.0.0, GitHub CLI 2.92.0</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> GitHub SSH key (ed25519) configured and verified</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Ollama 0.23.1 with MLX acceleration, Flash Attention, <code>q8_0</code> KV cache</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Model storage normalized to <code>/Volumes/OKH-Local/07_Local_LLMs/ollama/models</code></span></div>
+                  <div class="status-item"><span class="check">✓</span><span> LM Studio 0.4.12 with MLX backend active</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Open WebUI running in Docker on <code>localhost:3000</code></span></div>
+                  <div class="status-item"><span class="check">✓</span><span> VSCode 1.119.0 + 43 extensions + Continue.dev 1.2.22</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Claude Desktop + 11 MCP servers (Notion, GitHub, PageSpace, Mermaid, Google suite, M365, more)</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> ChatGPT Desktop, Codex, and ChatGPT Atlas installed</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Microsoft Office suite, OneDrive, Edge, Notion, Perplexity installed</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> mlx-lm 0.31.3 installed — 139 tok/s on Phi-4 mini via direct Apple Silicon inference</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> HuggingFace cache normalized to <code>/Volumes/OKH-Local/07_Local_LLMs/huggingface-cache</code></span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Storage baseline normalized, verified, benchmarked, and archived</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Git identity configured, VSCode Settings Sync active across machines</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> 28 GitHub repos mapped, SSH remotes updated</span></div>
+                  <div class="status-item"><span class="check">✓</span><span> OneDrive sync active, OKH alias configured in <code>.zprofile</code></span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Ollama plist path corrected to canonical location <span class="status-date">· 2026-05-13</span></span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Open WebUI updated to latest — container recreated, v0.9.5 resolved <span class="status-date">· 2026-05-13</span></span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Edge PWA localhost auth resolved — Open WebUI pinned as standalone Edge app <span class="status-date">· 2026-05-13</span></span></div>
                 </div>
               </div>
 
