@@ -257,7 +257,7 @@
         gap: 2rem;
         align-items: start;
       }
-      @media (max-width: 900px) {
+      @media (max-width: 1024px) {
         .two-col { grid-template-columns: 1fr; }
       }
 
@@ -647,27 +647,33 @@
       }
 
       /* ── Mobile overflow hardening ──────────────────────────────── */
-      /* Hard containment: clip anything wider than the main viewport. */
-      /* overflow-x:clip (not hidden) avoids creating a scroll container */
-      /* so sticky positioning of inner elements is unaffected.          */
-      main { overflow-x: clip; }
+      /* Component-level fixes only — no page-container suppression.  */
+      /* Wrapping rules apply at all widths; they only engage when     */
+      /* content would otherwise overflow its containing track.        */
+
+      /* Grid track containment — grid items must have min-width:0 to
+         shrink below their auto (min-content) size                    */
+      .timeline-body { min-width: 0; }
+      .timeline-row-content { overflow-wrap: anywhere; word-break: break-word; min-width: 0; }
+      .timeline-row-content code { word-break: break-all; overflow-wrap: anywhere; }
+
+      /* Callout flex children */
+      .callout > div { min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
+      .callout p { overflow-wrap: anywhere; word-break: break-word; }
+      .callout code { word-break: break-all; overflow-wrap: anywhere; white-space: normal; }
+
+      /* Status-item text column */
+      .status-item { overflow-wrap: anywhere; word-break: break-word; }
+
+      /* Next-phase items: long strings without natural break points */
+      .next-phase-item { overflow-wrap: anywhere; word-break: break-word; }
+
+      /* Decision value */
+      .decision-val { min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
 
       @media (max-width: 768px) {
-        /* timeline date: remove nowrap so it wraps inside its 2.5rem column */
+        /* timeline date: remove nowrap so it wraps inside its narrow column */
         .timeline-date { white-space: normal; }
-        /* grid children need min-width:0 or they blow out their track */
-        .timeline-body { min-width: 0; }
-        /* timeline row content: long prose + code must wrap */
-        .timeline-row-content { overflow-wrap: anywhere; word-break: break-word; min-width: 0; }
-        .timeline-row-content code { word-break: break-all; overflow-wrap: anywhere; }
-        /* callout flex children: long paragraphs need min-width:0 + wrap */
-        .callout > div { min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
-        /* status-item code paths can be long — force wrap */
-        .status-item { overflow-wrap: anywhere; word-break: break-word; }
-        /* next-phase items: long strings without natural break points */
-        .next-phase-item { overflow-wrap: anywhere; word-break: break-word; }
-        /* decision-val already has min-width:0 but be explicit */
-        .decision-val { min-width: 0; overflow-wrap: anywhere; }
       }
 
       /* ── Light-mode: override dark-only hardcoded colours ───────── */
