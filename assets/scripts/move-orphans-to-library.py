@@ -92,7 +92,7 @@ def main(check: bool = False) -> int:
         readme.write_text(
             "# Brand image library\n\n"
             "Generated brand-image variants and unused source renders, archived from the\n"
-            "live tree on 2026-05-03 by `scripts/move_orphans_to_library.py`. None of\n"
+            "live tree on 2026-05-03 by `scripts/move-orphans-to-library.py`. None of\n"
             "these files are referenced by any production page.\n\n"
             "**Disposition options:**\n\n"
             "- Keep here as a media kit (current state).\n"

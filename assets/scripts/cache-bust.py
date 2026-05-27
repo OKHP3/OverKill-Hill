@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-cache_bust.py — derive cache-bust query suffixes from file content hashes.
+cache-bust.py — derive cache-bust query suffixes from file content hashes.
 
 Scans every production HTML file for `<link rel="stylesheet" href=".../theme.css?v=N">`
 or `<script src=".../mermaid-init.js?v=N">` style references and rewrites the `?v=`
 suffix to a short content hash of the referenced asset on disk.
 
 Usage:
-    python3 assets/scripts/cache_bust.py            # rewrite in place
-    python3 assets/scripts/cache_bust.py --check    # exit 1 if anything would change
+    python3 assets/scripts/cache-bust.py            # rewrite in place
+    python3 assets/scripts/cache-bust.py --check    # exit 1 if anything would change
 
 Conventions:
 - Only rewrites refs whose path resolves to a real file under the repo root.

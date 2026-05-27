@@ -19,7 +19,7 @@ Checks every production HTML page for:
   - old tagline "Precision. Power. Presence." anywhere (brand regression)
 
 Exits 0 if no errors. Exits 1 if any errors. Warnings do not fail the build.
-Run from repo root:  python3 assets/scripts/validate_site.py
+Run from repo root:  python3 assets/scripts/validate-site.py
 """
 
 from __future__ import annotations
@@ -115,7 +115,7 @@ def find_html_files() -> list[Path]:
         if parts & SKIP_DIRS:
             continue
         # /assets/templates/ holds stripped template scaffolds with [PLACEHOLDER]
-        # tokens — not live pages. They're parsed separately by extract_templates.py.
+        # tokens — not live pages. They're parsed separately by extract-templates.py.
         rel_posix = rel.as_posix()
         if rel_posix.startswith("assets/templates/"):
             continue

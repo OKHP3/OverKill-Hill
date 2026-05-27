@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-audit_meta_versions.py
+audit-meta-versions.py
 Scans all HTML files for stale version strings (v0.1, v0.2, v0.3) in meta
 name="description", og:description, and meta name="keywords" fields.
 
 Usage:
-    python3 assets/scripts/audit_meta_versions.py
-    python3 assets/scripts/audit_meta_versions.py --fail-on-stale
+    python3 assets/scripts/audit-meta-versions.py
+    python3 assets/scripts/audit-meta-versions.py --fail-on-stale
 
 Exit codes:
     0 — clean (no stale version references found)

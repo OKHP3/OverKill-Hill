@@ -1,7 +1,7 @@
 # Brand image library
 
 Generated brand-image variants and unused source renders, archived from the
-live tree on 2026-05-03 by `scripts/move_orphans_to_library.py`. None of
+live tree on 2026-05-03 by `scripts/move-orphans-to-library.py`. None of
 these files are referenced by any production page.
 
 **Disposition options:**

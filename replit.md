@@ -290,7 +290,7 @@ The shared `app.js` sets `data-theme` on the `<html>` element (`document.documen
 Path: `assets/templates/`
 
 10 production-ready HTML templates following the `template--[slug].html` naming
-convention. Index and full token reference: `assets/templates/INDEX.md`.
+convention. Index and full token reference: `assets/templates/index.md`.
 
 | Template | Slug | Key Pages |
 |----------|------|-----------|
@@ -306,7 +306,7 @@ convention. Index and full token reference: `assets/templates/INDEX.md`.
 | `template--holding.html` | holding | under-construction.html |
 
 **Validation exclusion:** `assets/templates/` is in `SKIP_DIRS` inside
-`assets/scripts/validate_site.py` so `[[token]]` placeholders don't cause false
+`assets/scripts/validate-site.py` so `[[token]]` placeholders don't cause false
 positives during the site audit.
 
 **Status:** Complete (2026-05-04). Post-audit fixes applied:
