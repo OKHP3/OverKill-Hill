@@ -3637,6 +3637,20 @@ html[data-theme="light"] .article-body h2 {
    ║  SECTION · PROMPT FORGE — /prompt-forge/ page components                   ║
    ╚════════════════════════════════════════════════════════════════════════════╝ */
 
+/* Defensive overflow: all PF card types must stay inside their grid column.
+   min-width:0 overrides the default min-width:auto on grid/flex items so the
+   track can actually shrink; overflow-wrap:break-word stops any long unbroken
+   string from blowing out the card width. */
+.pf-proto-card,
+.pf-system-card,
+.pf-step,
+.pf-vault-item,
+.pf-boundary-card,
+.pf-related-card {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
 /* Protocol anatomy cards — 10-item grid */
 .pf-card-grid {
   display: grid;
