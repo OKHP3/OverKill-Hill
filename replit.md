@@ -140,6 +140,42 @@ Path: `/projects/mermaid-theme-builder/`
 
 The static HTML at `projects/mermaid-theme-builder/index.html` **is** the live page. The React app at `_replit/mermaid-theme-builder-preview/` is a dev-only prototyping tool — its build output is never deployed. See Architecture section above for run instructions.
 
+### MTB release update procedure
+
+On every MTB version bump, update these locations in **`projects/mermaid-theme-builder/index.html`** and **`replit.md`**, then run the version-check script to confirm nothing was missed.
+
+**Script (single source of truth):**
+
+```
+assets/scripts/check-mtb-version.py
+```
+
+Open the file and edit the `VERSION_CONFIG` block at the top (the only block you touch on each release). Then run:
+
+```
+python3 assets/scripts/check-mtb-version.py
+```
+
+The script checks 11 structured version strings across the project page and `replit.md` and exits non-zero if any are stale.
+
+**Manual checklist — locations to update in `index.html`:**
+
+| Location | What to change |
+|---|---|
+| Hero tag (line ~961) | `v{sprint} Alpha Active` |
+| `#release` card `<h2>` (line ~1036) | `v{version} — Shipped {Month YYYY}` |
+| `#release` Version meta-val (line ~1040) | `v{version} — shipped {Month YYYY}` |
+| `#release` Active Sprint meta-val (line ~1044) | `v{sprint} {sprint-name}` |
+| `#roadmap` — move `▶` marker + `Active` pill to the new phase; mark the previous phase `✓` + `Shipped` | marker classes: `progress-marker--active` / `progress-marker--done`; pill classes: `phase-pill--active` / `phase-pill--shipped` |
+| Sidebar Project Info · Status meta-val (line ~1723) | `v{sprint} Alpha Active` |
+| Sidebar Project Info · Build Phase meta-val (line ~1727) | `v{sprint} {sprint-name}` |
+
+**Also update in `replit.md`:**
+
+- The `**Current version:**` line in this section (line ~116)
+- The `#release` row in the Page Sections table (line ~125)
+- The `#roadmap` row in the Page Sections table (line ~130)
+
 ## Internal Search Engine
 
 Static, client-side search across the entire site. Consolidated 2026-05-03.
