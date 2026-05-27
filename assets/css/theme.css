@@ -3932,6 +3932,19 @@ html[data-theme="light"] .article-body h2 {
 }
 .pf-vault-status--available { color: #4ade80; }
 .pf-vault-status--coming    { color: var(--color-muted); }
+
+/* Light-mode overrides: status labels and pills use dark-theme palette by
+   default; these ensure readable contrast on the light mode surface (#f6f2ee) */
+html[data-theme="light"] .pf-vault-status--available          { color: #15803d; }
+
+html[data-theme="light"] .pf-status--public     { background: rgba(21, 128, 61, 0.12);  color: #15803d; }
+html[data-theme="light"] .pf-status--publicsafe { background: rgba(146, 64, 14, 0.10);  color: #92400e; }
+html[data-theme="light"] .pf-status--private    { background: rgba(71,  85, 105, 0.10); color: #475569; }
+html[data-theme="light"] .pf-status--internal   { background: rgba(196, 106, 44, 0.12); color: #9a4a10; }
+
+html[data-theme="light"] .pf-boundary-label--public     { color: #15803d; }
+html[data-theme="light"] .pf-boundary-label--publicsafe { color: #92400e; }
+html[data-theme="light"] .pf-boundary-label--private    { color: #475569; }
 .pf-vault-item__name {
   font-size: 0.95rem;
   font-weight: 600;
