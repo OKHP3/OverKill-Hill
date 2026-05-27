@@ -512,7 +512,7 @@
       }
       .decision-item {
         display: grid;
-        grid-template-columns: 10rem 1fr;
+        grid-template-columns: 10rem minmax(0, 1fr);
         gap: 0 1rem;
         padding: 0.75rem 1rem;
         background: var(--color-surface);
@@ -520,9 +520,16 @@
         border-radius: var(--radius-sm);
         font-size: 0.85rem;
       }
+      /* code paths as direct grid values must break at all widths, not just mobile */
+      .decision-item > code {
+        min-width: 0;
+        overflow-wrap: anywhere;
+        word-break: break-all;
+        white-space: normal;
+      }
       @media (max-width: 600px) {
         .decision-item { grid-template-columns: 1fr; gap: 0.25rem; }
-        .decision-item > code { min-width: 0; overflow-wrap: anywhere; word-break: break-all; display: block; }
+        .decision-item > code { display: block; }
       }
       .decision-key {
         font-size: 0.7rem;
