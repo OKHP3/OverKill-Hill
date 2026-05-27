@@ -1884,9 +1884,9 @@ body.construction-dismissed .construction-overlay,
   }
 }
 
-/* "Active Build Zone" card — dark bg, keep text light */
+/* "Active Build Zone" card — hardcoded dark bg; keep text white in light mode */
 html[data-theme="light"] body:not(.glee-main):not(.askjamie-main) .site-status {
-  color: var(--color-fg);
+  color: #f9fafb;
 }
 
 /* ===== HEADINGS VARIANTS ================================================= */
@@ -1939,6 +1939,13 @@ body:not(.glee-main):not(.askjamie-main) .latest-pill {
   color: #f9fafb;
 }
 
+/* Light mode: --color-surface is warm paper (#f6f2ee) — white text goes invisible.
+   Use the brand orange as the pill background so it stands out on light cards. */
+html[data-theme="light"] body:not(.glee-main):not(.askjamie-main) .latest-pill {
+  background: var(--okh-orange);
+  color: #fff;
+}
+
 /* Default OKH P³ look (body without askjamie-main / glee-main) */
 body:not(.askjamie-main):not(.glee-main) .mermaid svg {
   width: 100%;
@@ -1986,9 +1993,10 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
 
 
 
-/* Hero-forge-card ("What happens at the Hill?") — hardcoded dark gradient bg */
+/* Hero-forge-card ("What happens at the Hill?") — hardcoded dark gradient bg;
+   keep text white in light mode so it stays readable against the dark card */
 html[data-theme="light"] .hero-forge-card {
-  color: var(--color-fg);
+  color: #f9fafb;
 }
 
 /* ===== "LATEST MILESTONE" HIGHLIGHT SECTION ========================= */
