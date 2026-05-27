@@ -26,6 +26,7 @@ from __future__ import annotations
 
 import os
 import re
+import subprocess
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -273,6 +274,22 @@ def validate_page(path: Path, sitemap_urls: set[str]) -> list[Finding]:
     return findings
 
 
+def run_mtb_version_check() -> int:
+    """Run check-mtb-version.py and stream its output. Returns its exit code."""
+    script = Path(__file__).resolve().parent / "check-mtb-version.py"
+    print("── MTB Version Check ──────────────────────────────────────────────")
+    result = subprocess.run(
+        [sys.executable, str(script)],
+        capture_output=True,
+        text=True,
+    )
+    if result.stdout:
+        print(result.stdout, end="")
+    if result.stderr:
+        print(result.stderr, end="")
+    return result.returncode
+
+
 def main() -> int:
     sitemap_urls = load_sitemap_urls()
     if not sitemap_urls:
@@ -306,7 +323,10 @@ def main() -> int:
     else:
         print(f"✖ {len(errors)} error(s), {len(warnings)} warning(s).")
 
-    return 1 if errors else 0
+    print()
+    mtb_exit = run_mtb_version_check()
+
+    return 1 if (errors or mtb_exit != 0) else 0
 
 
 if __name__ == "__main__":
