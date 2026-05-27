@@ -19,7 +19,8 @@ Python simple HTTP server via `server.py` — serves the static site from root.
 - `/writings/` — article pages
 - `/projects/` — project pages (`mermaid-theme-builder/`, `bpmn-for-mermaid/`)
 - `/universe/`, `/manifesto/`, `/about/`, `/contact/`, `/legal/` — brand pages
-- `/_replit/` — non-served dev tooling. **Not** part of the static site; the deployment `publicDir = "."` setting still serves it as files but it has no inbound links. See `_replit/mermaid-theme-builder-preview/` for the React + Vite + Tailwind v4 preview app for the mermaid theme builder project page (migrated 2026-05-03 from the retired `Project-Page-Mermaid-Theme-Tool` Repl). Standalone — not in a pnpm workspace. Run with `cd _replit/mermaid-theme-builder-preview && npm install && PORT=5173 BASE_PATH=/ npm run dev`. Build verified working (vite 6). Source of truth for the live page remains `projects/mermaid-theme-builder/index.html`; the React app's build output is **not** deployed.
+- `/_replit/` — non-served dev tooling. **Not** part of the static site; the deployment `publicDir = "."` setting still serves it as files but it has no inbound links.
+  - `_replit/mermaid-theme-builder-preview/` — **dev preview app only** (React + Vite + Tailwind v4). Used for local prototyping of the MTB project page layout; migrated 2026-05-03 from the retired `Project-Page-Mermaid-Theme-Tool` Repl. Standalone — not in a pnpm workspace. Run with `cd _replit/mermaid-theme-builder-preview && npm install && PORT=5173 BASE_PATH=/ npm run dev`. Build verified working (vite 6). **The React app's build output is never deployed** — the live project page is the static HTML at `projects/mermaid-theme-builder/index.html`.
 
 ## Key CSS Design Tokens (theme.css)
 
@@ -107,6 +108,37 @@ All 15 confirmed Mermaid.ai diagram links are real (no placeholders). Poll URLs 
 All 19 non-article pages + the article page itself have a site-wide "HOT OFF THE FORGE" banner.
 - **Non-article pages (19):** Link to `/writings/first-diagram-is-a-liar/#council-scoring`, text: "v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →" (updated Task #28)
 - **Article page:** Links to `#council-scoring`, text: "v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →"
+
+## Mermaid Theme Builder Project Page
+
+Path: `/projects/mermaid-theme-builder/`
+
+**Current version:** v0.5.0 — shipped May 2026. Active sprint: v0.5.x SKILL.md Hardening.
+
+**Live tool:** `okhp3.github.io/mermaid-theme-builder/` — browser-only, no login, MIT licensed.
+
+### Page Sections
+
+| Section ID | Heading | Notes |
+|---|---|---|
+| `#embed-tool` | *(embedded iframe)* | Live tool iframe at top of page; reload button included |
+| `#release` | Current Release | v0.5.0 metadata card — version, active sprint, license, runtime, live tool link, source link |
+| *(no ID)* | A governance workbench, not a diagram editor | Is/Is-Not grid — two-column comparison of what the tool is and isn't |
+| *(no ID)* | What you get here that you don't get from prompting an LLM | Why-grid — LLM prompting vs. MTB side-by-side |
+| `#since-v03` | What changed between v0.3 and v0.5 | 7 change cards: Renderer Intelligence, Look API Support, Reference Capability Registry, SKILL.md Agent Packaging, Multi-Diagram Splitting, Shareable URL State, Vitest 4 Test Suite |
+| `#features` | What the builder does | Feature card grid — 16 cards covering all major capabilities |
+| `#roadmap` | Where the build is going | Progress track: v0.5.0 Shipped ✓, v0.5.x SKILL.md Hardening ▶ (active), v0.6.x Ko-fi Artifacts, v0.7.x Session Persistence, v0.8.x Collaboration (planned) |
+| *(no ID)* | *(relationships / closing)* | BPMN for Mermaid sibling link, builder sign-off |
+
+### Sidebar Widgets
+
+1. **Start Now** — CTA button linking to the live GitHub Pages tool
+2. **Project Info** — meta card: Status, Build Phase, License, Type, Cost, Maintained by, Mermaid.js compat (v11.15.0); GitHub links (View, Issues, Contribute)
+3. **Related Resources** — live app (Compose tab), GitHub repo, BPMN for Mermaid, Mermaid.js theming docs, themeVariables reference, FDIAL article, all projects
+
+### Dev preview vs. live page
+
+The static HTML at `projects/mermaid-theme-builder/index.html` **is** the live page. The React app at `_replit/mermaid-theme-builder-preview/` is a dev-only prototyping tool — its build output is never deployed. See Architecture section above for run instructions.
 
 ## Internal Search Engine
 
