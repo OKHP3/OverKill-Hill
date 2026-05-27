@@ -1,0 +1,413 @@
+The failure mode is classic: mobile grid/flex children are refusing to shrink, and long inline strings like model paths, toolchain versions, and status rows are forcing the viewport wider than the screen. The uploaded HTML confirms the affected range includes the status-board, timeline entries, tables, model-policy callout, sidebar quick facts, stack grid, and decision-item blocks before PROJECT SURFACES.  
+
+Paste this directly into Replit against OverKill-Hill.
+
+You are working in the Replit project:
+https://replit.com/t/overkill-hill/repls/OverKill-Hill
+Target repo:
+https://github.com/OKHP3/OverKill-Hill
+Target live page:
+https://overkillhill.com/projects/mac-studio-local-ai-workbench/
+Target file:
+projects/mac-studio-local-ai-workbench/index.html
+There is an unresolved mobile rendering and text-wrapping defect on this page. The issue begins around the “Completion Checklist” / “Status Board” section, approximately line 840, and continues through the “Project Surfaces” section, approximately line 1488.
+The visual defect: on mobile-width screens, content in this region overflows horizontally off the right edge of the viewport. Text, cards, rows, inline code, long file paths, model names, and sidebar blocks are not wrapping or shrinking correctly. The user can see clipped text and off-screen content on mobile devices. This must be fixed at the source, not hidden cosmetically.
+Primary affected structures include:
+- Completion Checklist / Status Board
+- Timeline
+- Model Inventory
+- Model Selection Policy
+- Benchmark Snapshot
+- Operating Model
+- Next Phase
+- Quick Facts sidebar
+- Core Toolchain
+- AI Runtimes
+- Storage Architecture
+- Key Decisions
+- Transition into Project Surfaces
+Known high-risk content patterns:
+- Long status rows
+- Long inline `<code>` paths such as `/Volumes/OKH-Local/07_Local_LLMs/ollama/models`
+- Long tool/version strings
+- Long decision values
+- Flex/grid children without `min-width: 0`
+- Tables without safe horizontal scroll wrappers
+- Sidebar/content grid not collapsing early enough
+- Inline styles overriding responsive behavior
+- Cards or callouts with fixed/min widths
+- The “Hot off the Forge” banner/header area may also need verification for width containment
+Your job is to fully diagnose and fix the mobile overflow/wrapping problem.
+Do not merely add `overflow-x:hidden` to the body and call it fixed. That is forbidden as a primary fix. You may use overflow containment on specific scrollable components such as tables, but the actual layout must become responsive and readable.
+====================================================================
+REQUIRED DIAGNOSTIC STEPS
+====================================================================
+1. Open and inspect:
+   projects/mac-studio-local-ai-workbench/index.html
+2. Inspect all CSS affecting this page, including:
+   - Inline `<style>` blocks in the page
+   - Shared CSS under `/assets/`
+   - Any page-specific CSS
+   - Header/nav/banner CSS
+   - Footer CSS
+   - Grid/flex layout rules
+   - Table wrappers
+   - Code styling
+   - Card/callout/sidebar styling
+3. Find every selector that affects the affected region, especially:
+   - `.content-block`
+   - `.status-board`
+   - `.status-item`
+   - `.timeline`
+   - `.timeline-entry`
+   - `.timeline-body`
+   - `.timeline-row`
+   - `.timeline-row-content`
+   - `.data-table-wrap`
+   - `.data-table`
+   - `.callout`
+   - `.next-phase-list`
+   - `.next-phase-item`
+   - `.quick-facts`
+   - `.fact-row`
+   - `.fact-value`
+   - `.stack-grid`
+   - `.stack-item`
+   - `.stack-name`
+   - `.stack-version`
+   - `.decision-list`
+   - `.decision-item`
+   - `.decision-key`
+   - `.decision-val`
+   - any parent grid wrapping the main content and sidebar
+   - any `.container`, `.section`, `.page`, `.project`, `.layout`, or `.grid` wrapper above this region
+4. Determine the actual root cause. Likely root causes include:
+   - Parent grid column has `min-width:auto`
+   - Grid/flex children lack `min-width:0`
+   - Long inline code cannot wrap
+   - Tables force intrinsic width
+   - Status rows use flex without shrink handling
+   - Sidebar is not collapsing to one column soon enough
+   - Fixed width or min-width exists somewhere in a child card
+   - `white-space: nowrap` is being applied too broadly
+   - Inline styles prevent responsive wrapping
+5. Confirm behavior at these viewport widths:
+   - 320px
+   - 360px
+   - 375px
+   - 390px
+   - 414px
+   - 768px
+   - 1024px
+6. Confirm there is no horizontal scroll on mobile after the fix except inside intentional table wrappers.
+====================================================================
+REQUIRED FIX STRATEGY
+====================================================================
+Apply a robust responsive fix using CSS. Prefer adding/adjusting page-specific CSS for this project page if the problem is isolated. If the same patterns are shared site-wide, update shared CSS carefully under `/assets/`.
+The fix must include these principles:
+1. Global containment for this page’s content region:
+   - All major wrappers must have `max-width: 100%`
+   - Grid/flex children must use `min-width: 0`
+   - Text containers must be allowed to shrink
+2. Mobile grid collapse:
+   Any two-column layout containing main content and sidebar must collapse to a single column on mobile/tablet.
+   Use a breakpoint no later than 900px, and possibly 1024px if the sidebar still crowds content.
+3. Long text wrapping:
+   Apply safe wrapping to:
+   - status items
+   - timeline rows
+   - callout text
+   - fact values
+   - stack versions
+   - decision values
+   - next phase items
+   - inline code
+   - table cells where appropriate
+4. Inline code handling:
+   Inline `<code>` must not force horizontal page overflow.
+   Use CSS similar to:
+   - `white-space: normal`
+   - `overflow-wrap: anywhere`
+   - `word-break: break-word`
+   - `max-width: 100%`
+   For long paths, wrapping is acceptable and preferred over clipping.
+5. Tables:
+   Tables may scroll horizontally inside `.data-table-wrap`, but the whole page must not scroll horizontally.
+   Ensure:
+   - `.data-table-wrap { overflow-x: auto; max-width: 100%; }`
+   - `.data-table { width: 100%; }`
+   - On very small screens, table cells may wrap unless preserving tabular scroll is more readable.
+6. Status board:
+   Convert `.status-item` to a mobile-safe layout.
+   Recommended pattern:
+   - Use CSS grid: `grid-template-columns: auto minmax(0, 1fr);`
+   - The checkmark column stays fixed.
+   - The text column wraps.
+   - Ensure nested `<code>` wraps.
+7. Timeline:
+   Timeline rows must not overflow.
+   Recommended pattern:
+   - On desktop, preserve current visual structure.
+   - On mobile, stack timeline date above body if needed.
+   - Timeline row labels can remain compact, but content must wrap.
+   - Ensure `.timeline-body`, `.timeline-row-content`, and children have `min-width: 0`.
+8. Sidebar:
+   The Quick Facts / Core Toolchain / Decisions sidebar must collapse below the main content on narrower screens.
+   No sidebar card may maintain desktop width on mobile.
+9. Cards/callouts:
+   Cards and callouts must wrap text and stay inside viewport.
+10. Header/banner verification:
+   Check that the “Hot off the Forge” banner and mobile nav do not introduce independent horizontal overflow.
+====================================================================
+SUGGESTED CSS PATCH DIRECTION
+====================================================================
+Do not blindly paste this if the existing selectors differ, but use this as the target behavior.
+Add or adapt rules like these:
+```css
+/* Mac Studio Workbench mobile overflow hardening */
+.project-page,
+.project-page *,
+.mac-studio-page,
+.mac-studio-page * {
+  box-sizing: border-box;
+}
+.project-page,
+.mac-studio-page,
+.project-main,
+.project-content,
+.content-block,
+.quick-facts,
+.callout,
+.status-board,
+.timeline,
+.next-phase-list,
+.decision-list,
+.stack-grid {
+  max-width: 100%;
+}
+.project-content,
+.project-layout,
+.project-grid,
+.content-grid,
+.two-column-layout,
+.content-block,
+.quick-facts,
+.timeline-body,
+.timeline-row,
+.timeline-row-content,
+.status-item,
+.fact-row,
+.fact-value,
+.stack-item,
+.stack-name,
+.stack-version,
+.decision-item,
+.decision-key,
+.decision-val,
+.next-phase-item,
+.callout,
+.callout > div {
+  min-width: 0;
+}
+.status-item,
+.timeline-row-content,
+.fact-value,
+.stack-version,
+.decision-val,
+.next-phase-item,
+.callout p,
+.content-block p,
+.content-block li,
+.content-block code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.content-block code,
+.quick-facts code,
+.decision-item code,
+.stack-item code,
+.timeline-row code,
+.status-item code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
+}
+.status-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+}
+.status-item .check {
+  flex: 0 0 auto;
+}
+.data-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.data-table {
+  width: 100%;
+  max-width: 100%;
+}
+.data-table th,
+.data-table td {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+@media (max-width: 1024px) {
+  .project-grid,
+  .content-grid,
+  .two-column-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .quick-facts {
+    width: 100%;
+  }
+}
+@media (max-width: 640px) {
+  .timeline-entry {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .timeline-date {
+    width: auto;
+    max-width: 100%;
+  }
+  .timeline-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.4rem;
+  }
+  .timeline-row-label {
+    width: fit-content;
+    max-width: 100%;
+  }
+  .fact-row,
+  .stack-item,
+  .decision-item {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .content-block {
+    padding-left: clamp(1rem, 4vw, 1.25rem);
+    padding-right: clamp(1rem, 4vw, 1.25rem);
+  }
+}
+
+Use the actual class names present in the file. If the page does not use .project-page or .mac-studio-page, do not invent broad selectors that have no effect. Either add a page-level wrapper class safely or target existing wrappers.
+
+====================================================================
+INLINE STYLE CLEANUP
+
+This affected region contains several inline styles. Audit whether any inline style is contributing to the overflow.
+
+Where practical, move repeated inline styles into CSS classes.
+
+Examples to check:
+
+* style="display:flex;flex-direction:column;gap:0.75rem;"
+* style="font-size:0.8rem;color:var(--color-muted);margin-top:0.75rem;"
+* style="grid-template-columns:1fr;"
+* style="font-size:1.1rem;"
+* inline code font sizing
+* inline color/font/margin styles
+
+Do not perform a huge stylistic refactor if it creates risk, but remove inline styles that are directly interfering with responsive behavior or repeated enough to justify CSS class extraction.
+
+====================================================================
+VALIDATION REQUIREMENTS
+
+After applying fixes, validate the page.
+
+Use local preview and/or browser tooling.
+
+Test:
+
+https://overkillhill.com/projects/mac-studio-local-ai-workbench/
+
+or local equivalent.
+
+Viewport checks:
+
+* 320px wide
+* 360px wide
+* 375px wide
+* 390px wide
+* 414px wide
+* 768px wide
+* 1024px wide
+* desktop width
+
+At each viewport confirm:
+
+1. No page-level horizontal scroll.
+2. Status Board rows wrap cleanly.
+3. Long file paths wrap cleanly.
+4. Inline code does not push the viewport.
+5. Timeline entries wrap cleanly.
+6. Tables are readable and, if needed, scroll only inside their table wrapper.
+7. Quick Facts sidebar collapses below main content.
+8. Core Toolchain cards wrap.
+9. Storage Architecture paths wrap.
+10. Key Decisions wrap.
+11. Project Surfaces begins cleanly below the two-column section.
+12. Header and Hot off the Forge banner do not create horizontal overflow.
+13. Footer remains aligned.
+14. No console errors are introduced.
+
+Also run a quick overflow detection script in the browser console if possible:
+
+[...document.querySelectorAll('*')]
+  .filter(el => el.scrollWidth > document.documentElement.clientWidth)
+  .map(el => ({
+    tag: el.tagName,
+    class: el.className,
+    id: el.id,
+    scrollWidth: el.scrollWidth,
+    clientWidth: el.clientWidth,
+    text: el.textContent?.trim().slice(0, 120)
+  }));
+
+Use the output to identify any remaining offending elements.
+
+====================================================================
+DO NOT DO THIS
+
+Do not fix by only adding:
+
+body { overflow-x: hidden; }
+
+That hides the symptom and leaves inaccessible clipped content.
+
+Do not remove content to make the page fit.
+
+Do not shorten technical paths unless absolutely necessary.
+
+Do not break desktop layout.
+
+Do not break shared site styling.
+
+Do not introduce a framework.
+
+Do not add JavaScript just to solve wrapping unless there is no CSS alternative.
+
+====================================================================
+DELIVERABLE
+
+When complete, provide:
+
+1. Root cause found.
+2. Exact files changed.
+3. CSS selectors changed or added.
+4. Any HTML structure changed.
+5. Screens or viewport widths tested.
+6. Confirmation that page-level horizontal overflow is gone.
+7. Confirmation that tables, code paths, status rows, sidebar cards, and decision rows now wrap correctly.
+8. Any remaining risks or follow-up recommendations.
+
+Also add a short comment near any new page-specific CSS explaining why the mobile overflow hardening exists.
+
+Proceed with the fix now.
+
+Strong opinion: this should be treated as a **layout containment defect**, not a content problem. Replit needs to fix the shrink/wrap rules around the grid, flex rows, and inline code. Shortening the text would just hide a weak responsive system.

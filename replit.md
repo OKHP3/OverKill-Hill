@@ -150,13 +150,31 @@ On every MTB version bump, update these locations in **`projects/mermaid-theme-b
 assets/scripts/check-mtb-version.py
 ```
 
-Open the file and edit the `VERSION_CONFIG` block at the top (the only block you touch on each release). Then run:
+Open the file and edit the `VERSION_CONFIG` block at the top (the only block you touch on each release). Key fields:
+
+| Field | Purpose |
+|---|---|
+| `current_version` | Released version tag, e.g. `"v0.6.0"` |
+| `shipped_date` | Month + year shipped, e.g. `"August 2026"` |
+| `active_sprint` | New active sprint label, e.g. `"v0.6.x"` |
+| `active_sprint_name` | Sprint short name, e.g. `"Ko-fi Artifacts"` |
+| `prev_sprint` | Sprint being closed out, e.g. `"v0.5.x"` — leave `""` if no sprint promotion this release |
+
+Then run:
 
 ```
 python3 assets/scripts/check-mtb-version.py
 ```
 
 The script checks 11 structured version strings across the project page and `replit.md` and exits non-zero if any are stale.
+
+**To also auto-promote the roadmap pills** (old sprint → Shipped, new sprint → Active):
+
+```
+python3 assets/scripts/check-mtb-version.py --update --prev-sprint v0.5.x
+```
+
+`--prev-sprint` can also be set permanently in `VERSION_CONFIG["prev_sprint"]` so `--update` alone is sufficient. The `--dry-run` flag previews all changes without writing any files.
 
 **Manual checklist — locations to update in `index.html`:**
 
@@ -166,7 +184,7 @@ The script checks 11 structured version strings across the project page and `rep
 | `#release` card `<h2>` (line ~1036) | `v{version} — Shipped {Month YYYY}` |
 | `#release` Version meta-val (line ~1040) | `v{version} — shipped {Month YYYY}` |
 | `#release` Active Sprint meta-val (line ~1044) | `v{sprint} {sprint-name}` |
-| `#roadmap` — move `▶` marker + `Active` pill to the new phase; mark the previous phase `✓` + `Shipped` | marker classes: `progress-marker--active` / `progress-marker--done`; pill classes: `phase-pill--active` / `phase-pill--shipped` |
+| `#roadmap` — move `▶` marker + `Active` pill to the new phase; mark the previous phase `✓` + `Shipped` | **Auto-fixed by `--update --prev-sprint {old-sprint}`**. Marker classes: `progress-marker--active` / `progress-marker--done`; pill classes: `phase-pill--active` / `phase-pill--shipped` |
 | Sidebar Project Info · Status meta-val (line ~1723) | `v{sprint} Alpha Active` |
 | Sidebar Project Info · Build Phase meta-val (line ~1727) | `v{sprint} {sprint-name}` |
 
