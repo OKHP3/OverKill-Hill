@@ -28,4 +28,11 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+echo "Post-merge: running full site validator..."
+python3 assets/scripts/validate_site.py
+if [ $? -ne 0 ]; then
+  echo "ERROR: Site validation failed — stale or broken pages detected." >&2
+  exit 1
+fi
+
 echo "Post-merge: all checks passed."
