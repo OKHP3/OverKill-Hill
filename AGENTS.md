@@ -1,4 +1,4 @@
-# Agent rules (Jamie)
+# Agent Guidelines — OverKill Hill P³
 
 - Work in small steps. Ask before large refactors.
 - Prefer adding tests before changing logic if risk is medium/high.
@@ -27,6 +27,8 @@ Do NOT change the following where spelling is externally defined or technically 
 - URLs, file names, route names
 - API fields, schema keys, code identifiers
 - Generated lockfiles or external standards
+
+**Identifier rule:** en-US applies to identifiers authored in *new* code. Renaming *existing* identifiers (variables, functions, types, exported symbols) is a breaking change and falls under the same renaming policy as files in Section 1: update every importer in the same commit, run the build and tests after, and set up a redirect if anything external depends on the old name. Do not run a blanket find-and-replace across existing identifiers without explicit instruction.
 
 US English compliance is a required QA/QC gate. It is not a stylistic preference.
 Any output that fails this standard is a defect.
@@ -254,6 +256,53 @@ When the repo accumulates the artifacts above, run the following short command a
 
 ---
 
-## 6. Why this is committed into the repo
+## 6. Brand contract — OverKill Hill P³ Forge
 
-A spec that lives only in chat history evaporates the moment the next session starts. A spec that lives in `AGENTS.md` is loaded by Replit Agent automatically on every session for this repo, and it travels with the code. Editing it once in the canonical upstream and syncing it into every sibling is what makes the convention stick.
+This repo serves the OverKill Hill P³ Forge motif. Canonical reference:
+`https://raw.githubusercontent.com/OKHP3/OverKill-Hill/main/assets/css/theme.css`
+
+| Aspect | Value |
+|---|---|
+| Body scope class | NONE — this is the default brand; pages set no body class |
+| Display font | Alfa Slab One |
+| Body font | DM Sans |
+| Mono font | JetBrains Mono |
+| Primary accent | rust-orange `#c46a2c` |
+| Secondary accent | amber `#e6a03c` |
+| Header surface | teal `#1c3a34` |
+| Light page bg | `#f0ebe5` (warm paper) |
+| Light ink | `#0f172a` (deep navy) |
+| Dark mode | espresso/slate-blue family (hue ~224) |
+| Base radius | `0.75rem` |
+| Mermaid accent | `#c46a2c` lines and borders |
+
+**Forbidden in this brand's design system:**
+- Coral `#d94f63` — that is the glee-fully brand
+- Aqua `#2d6f7e` — that is the AskJamie brand
+- Olive hue family in dark mode
+- Fraunces, Inter, or any font not in Alfa Slab One / DM Sans / JetBrains Mono
+
+**Note on BFS content:** The site hosts a legitimate client project page at
+`/projects/bfs-framing-intelligent-futures/`. BFS brand colors, images, and copy
+on that page are intentional content, not violations. The prohibition above applies
+to OverKill Hill's own design system and brand expression, not to documented client work.
+
+---
+
+## 7. Universal guardrails
+
+These apply in every session, regardless of task:
+
+- No em dashes anywhere — in code, comments, copy, or commit messages. Use periods or restructure the sentence.
+- No AI filler in copy or comments: not "seamlessly," "robust," "powerful," "effortlessly," "elevate," "unleash."
+- Tailwind v4 only in companion apps: no `tailwind.config.js` (tokens live in CSS via `@theme inline`).
+- No new dependencies unless explicitly requested.
+- All user-facing content must use US English per the Language Standard in Section 0. UK and Commonwealth spellings are defects, not stylistic variants.
+
+---
+
+## 8. US English audit command (reusable instruction)
+
+When the repo accumulates UK or Commonwealth spellings, send this message to Replit Agent:
+
+> **Run the US English audit per the Language Standard in `AGENTS.md` Section 0.** Produce a QA summary first; execute corrections only after I say "go." Cover: UI copy, docs, README, release notes, human-readable comments, prompts, tooltips, error and validation messages, and QA/QC reports. Apply protected exceptions in Section 0. For existing code identifiers with UK spellings, list them as renaming candidates but do not auto-rename without confirmation. Output: (1) files scanned, (2) files changed, (3) UK spellings found with location, (4) US-EN replacements proposed, (5) protected exceptions intentionally left unchanged with reason, (6) identifier renaming candidates flagged for separate handling, (7) final confirmation that the report itself contains no UK spellings. Wait for "go." No em dashes.
