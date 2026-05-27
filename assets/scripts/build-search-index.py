@@ -47,6 +47,7 @@ CATEGORY_RULES = [
     ("/legal/", "Brand"),
     ("/found-ry/", "Brand"),
     ("/prompt-forge/", "Brand"),
+    ("/vault/", "Brand"),
 ]
 
 
