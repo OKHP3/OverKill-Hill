@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 75,
+  "count": 78,
   "entries": [
     {
       "url": "/",
@@ -112,6 +112,15 @@
       "parent": "/prompt-forge/"
     },
     {
+      "url": "/prompt-forge/#boundary",
+      "title": "What Gets Published — and What Does Not — Prompt Forge | OverKill Hill P³™",
+      "category": "Brand",
+      "description": "Transparency What Gets Published — and What Does Not Prompt Forge publishes reusable patterns, not private machinery. Some systems can be shown openly. Some can only be summarized. Some remain internal canon.",
+      "headings": [],
+      "body": "Transparency What Gets Published — and What Does Not Prompt Forge publishes reusable patterns, not private machinery. Some systems can be shown openly. Some can only be summarized. Some remain internal canon. Public Safe to publish directly. Architecture, full purpose, method, and examples are available. Examples: GPT Interrogation Agent, PromptAscend-R, Council of AIs workflow, Prompt Anatomy skeleton. Public-Safe Summary Architecture and lessons can be shown. Raw prompt text or private context stays internal. Examples: ArcSyntrixo-Rᵧ (theory and architecture described; internal synthesis logic is not published). Private Pattern Useful as proof of capability, but details stay off the public web. Anonymized descriptions only.",
+      "parent": "/prompt-forge/"
+    },
+    {
       "url": "/prompt-forge/#council",
       "title": "Council of AIs: Critique Before Execution — Prompt Forge | OverKill Hill P³™",
       "category": "Brand",
@@ -166,12 +175,30 @@
       "parent": "/prompt-forge/"
     },
     {
+      "url": "/prompt-forge/#protocols",
+      "title": "What Makes a Prompt a Protocol — Prompt Forge | OverKill Hill P³™",
+      "category": "Brand",
+      "description": "Anatomy What Makes a Prompt a Protocol A disposable prompt asks a question. A protocol defines the operating envelope. These ten elements separate prompts that work once from prompts that work every time.",
+      "headings": [],
+      "body": "Anatomy What Makes a Prompt a Protocol A disposable prompt asks a question. A protocol defines the operating envelope. These ten elements separate prompts that work once from prompts that work every time. Intent What the user is actually trying to accomplish — not just what they typed. Failure: the model answers the words but misses the job. Role What the model is being asked to become for this task — expert, auditor, synthesizer, critic. Failure: generic outputs with no specialized stance. Context Source facts, constraints, business setting, prior state, and domain vocabulary the model must know. Failure: the model hallucinates what it was never given. Boundaries What must not happen — topics to avoid, actions to refuse, outputs that are out of scope.",
+      "parent": "/prompt-forge/"
+    },
+    {
       "url": "/prompt-forge/#scaffrosto",
       "title": "ScafFrosto-Rᵧ Canon Ruling Order · DataLedger v3 — Prompt Forge | OverKill Hill P³™",
       "category": "Brand",
       "description": "ScafFrosto-Rᵧ Canon Ruling Order · DataLedger v3 Internal canon Purpose: Ledger governance, state recovery, and canonical export simulation.",
       "headings": [],
       "body": "ScafFrosto-Rᵧ Canon Ruling Order · DataLedger v3 Internal canon Purpose: Ledger governance, state recovery, and canonical export simulation. Solves the statelessness problem by forcing read → audit → simulate-merge → verify → export discipline. Turns model drift and hallucinated deltas into a verifiable workflow. This is not a prompt. It is a state-management doctrine. It recognizes that prompts need lifecycle governance, not just clever phrasing. ledger governance context engineering recursive salvage audit trail mega-prompt See the anatomy this system uses → </article",
+      "parent": "/prompt-forge/"
+    },
+    {
+      "url": "/prompt-forge/#thesis",
+      "title": "Prompts Are Not the Artifact — Prompt Forge | OverKill Hill P³™",
+      "category": "Brand",
+      "description": "The Thesis Prompts Are Not the Artifact A prompt is the interface layer between intent, context, constraints, tools, memory, and execution. Weak prompts ask for output.",
+      "headings": [],
+      "body": "The Thesis Prompts Are Not the Artifact A prompt is the interface layer between intent, context, constraints, tools, memory, and execution. Weak prompts ask for output. Strong prompts define the operating conditions under which useful output can exist. OverKill Hill P³™ treats promptcraft as architecture: define the role, bind the context, declare the boundaries, shape the output, test the result, and route the artifact to the next system. Most prompts are disposable. OverKill Hill treats prompts as durable instruments. A strong prompt carries context, role, boundaries, test criteria, failure modes, output shape, and revision logic. The best prompts become protocols. The best protocols become systems. The best systems become reusable public methods. The best prompt is not clever.",
       "parent": "/prompt-forge/"
     },
     {

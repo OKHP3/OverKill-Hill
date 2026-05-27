@@ -478,7 +478,8 @@ def process_file(path: Path) -> list[dict]:
     # Sections are <section id="..."> elements; system cards are <article id="...">
     if url_path == "/prompt-forge/":
         pf_section_ids = [
-            "flagship-systems", "anatomy", "operating-model", "vault", "council",
+            "thesis", "protocols", "flagship-systems", "anatomy",
+            "operating-model", "vault", "council", "boundary",
         ]
         out.extend(extract_div_sections(
             html, url_path, title, pf_section_ids, tag="section", category="Brand",
