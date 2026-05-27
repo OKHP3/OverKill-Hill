@@ -305,35 +305,45 @@ def extract_article_sections(html: str, base_url: str, base_title: str) -> list[
 
 
 def extract_div_sections(html: str, base_url: str, base_title: str,
-                          section_ids: list[str]) -> list[dict]:
-    """Emit one search entry per named <div id="..."> content-block section.
+                          section_ids: list[str], tag: str = "div",
+                          category: str = "Project") -> list[dict]:
+    """Emit one search entry per named block element with the given id.
 
-    Used for project pages that organise sections as divs rather than <section>.
+    `tag` controls which HTML element to match (default "div"; also accepts
+    "section", "article", etc.).  `category` sets the search result category
+    label (default "Project").
+
+    Used for project pages that organise sections as divs rather than <section>,
+    and for Prompt Forge pages that use <section> / <article> elements.
     Only the IDs listed in `section_ids` are extracted.
     """
     out: list[dict] = []
+    open_tag = tag.lower()
+    close_tag = f"</{open_tag}"
+    open_sentinel = f"<{open_tag}"
+
     for sec_id in section_ids:
         # Find the opening tag for this id
         open_re = re.compile(
-            r'<div\b[^>]*\bid=["\']' + re.escape(sec_id) + r'["\'][^>]*>',
+            r'<' + re.escape(open_tag) + r'\b[^>]*\bid=["\']' + re.escape(sec_id) + r'["\'][^>]*>',
             re.I,
         )
         m = open_re.search(html)
         if not m:
             continue
-        # Walk forward to find the matching closing </div>
+        # Walk forward to find the matching closing tag
         start = m.end()
         depth = 1
         pos = start
         while pos < len(html) and depth > 0:
-            next_open = html.find("<div", pos)
-            next_close = html.find("</div", pos)
+            next_open = html.find(open_sentinel, pos)
+            next_close = html.find(close_tag, pos)
             if next_open != -1 and (next_close == -1 or next_open < next_close):
                 depth += 1
-                pos = next_open + 4
+                pos = next_open + len(open_sentinel)
             elif next_close != -1:
                 depth -= 1
-                pos = next_close + 5
+                pos = next_close + len(close_tag)
             else:
                 break
         body = html[start:pos]
@@ -357,7 +367,7 @@ def extract_div_sections(html: str, base_url: str, base_title: str,
         out.append({
             "url": f"{base_url}#{sec_id}",
             "title": f"{sec_title} — {base_title}",
-            "category": "Project",
+            "category": category,
             "description": excerpt(plain, 220),
             "headings": [],
             "body": excerpt(plain, 800),
@@ -417,6 +427,22 @@ def process_file(path: Path) -> list[dict]:
     if url_path in PROJECT_DEEP_LINK_SECTIONS:
         out.extend(extract_div_sections(
             html, url_path, title, PROJECT_DEEP_LINK_SECTIONS[url_path]
+        ))
+
+    # Prompt Forge section deep-links
+    # Sections are <section id="..."> elements; system cards are <article id="...">
+    if url_path == "/prompt-forge/":
+        pf_section_ids = [
+            "flagship-systems", "anatomy", "operating-model", "vault", "council",
+        ]
+        out.extend(extract_div_sections(
+            html, url_path, title, pf_section_ids, tag="section", category="Brand",
+        ))
+        pf_card_ids = [
+            "scaffrosto", "arcsyntrixo", "gpt-audit", "promptascend", "flowpilot",
+        ]
+        out.extend(extract_div_sections(
+            html, url_path, title, pf_card_ids, tag="article", category="Brand",
         ))
 
     return out
