@@ -198,7 +198,7 @@ python3 assets/scripts/check-mtb-version.py --update --prev-sprint v0.5.x
 
 Static, client-side search across the entire site. Consolidated 2026-05-03.
 
-- `/search/` — dedicated results page (URL-shareable: `/search/?q=foo`). Body class `search-page` activates the JS page initialiser.
+- `/search/` — dedicated results page (URL-shareable: `/search/?q=foo`). Body class `search-page` activates the JS page initializer.
 - **All search logic lives in `assets/js/app.js` Section 5** (consolidated from the retired `assets/js/search.js`). Ctrl/Cmd+K or `/` opens overlay; Esc closes; ↑↓ navigate; ↵ follows.
 - **All search CSS lives in `assets/css/theme.css`** under the `SECTION · OKH SEARCH` banner (consolidated from the retired `assets/css/search.css`).
 - `assets/data/search-index.json` — generated index (48 entries as of 2026-05-15). `INDEX_URL` in `app.js` points to `/assets/data/search-index.json`.

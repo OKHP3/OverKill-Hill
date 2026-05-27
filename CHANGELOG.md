@@ -162,7 +162,7 @@ All notable changes to the **OverKill Hill P³™** public repository should be 
 - Bulk PNG → WebP conversion: **123.9 MB → 11.4 MB (-91%)** across 55 images
 - `assets/js/mermaid-init.js` rewritten to lazy-render via `IntersectionObserver` (rootMargin 400 px)
 - Homepage eyebrow softened: ⚠ "Active build zone" → ⚙ "Forge in motion — actively iterated, not under construction"
-- Standardised email to `contact@overkillhill.com` everywhere
+- Standardized email to `contact@overkillhill.com` everywhere
 - `robots.txt` now disallows `/assets/templates/` for every crawler group
 - `sitemap.xml` lastmod bumped to 2026-05-03 across the board
 
