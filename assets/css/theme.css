@@ -585,7 +585,7 @@ button {
   padding: 0.25rem 0;
 }
 
-/* Desktop dropdown behaviour */
+/* Desktop dropdown behavior */
 @media (min-width: 768px) {
   .primary-nav .has-submenu > .submenu {
     position: absolute;
@@ -1457,7 +1457,7 @@ body.construction-dismissed .construction-overlay,
 }
 
 /* ----------------------------------------
-   Mermaid: isolate diagram labels from page colour inheritance.
+   Mermaid: isolate diagram labels from page color inheritance.
    Prevents --color-fg (near-white) leaking into HTML foreignObject
    labels on light-themed diagrams.
    ---------------------------------------- */

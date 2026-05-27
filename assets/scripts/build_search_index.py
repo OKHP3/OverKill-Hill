@@ -2,7 +2,7 @@
 """
 Refresh assets/search-index.json against current HTML.
 
-Behaviour:
+Behavior:
   - For every entry whose `url` does NOT contain `#`, re-derive
     `title`, `description`, `headings`, `body` from the live HTML.
   - For every top-level page on disk not present in the index,

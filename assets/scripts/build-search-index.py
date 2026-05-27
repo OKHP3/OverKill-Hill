@@ -314,7 +314,7 @@ def extract_div_sections(html: str, base_url: str, base_title: str,
     "section", "article", etc.).  `category` sets the search result category
     label (default "Project").
 
-    Used for project pages that organise sections as divs rather than <section>,
+    Used for project pages that organize sections as divs rather than <section>,
     and for Prompt Forge pages that use <section> / <article> elements.
     Only the IDs listed in `section_ids` are extracted.
     """

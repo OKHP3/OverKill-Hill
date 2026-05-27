@@ -11,7 +11,7 @@ match themselves).
 
 Usage:
     python3 assets/scripts/extract_templates.py            # build all templates
-    python3 assets/scripts/extract_templates.py --check    # dry-run, summarise diffs
+    python3 assets/scripts/extract_templates.py --check    # dry-run, summarize diffs
 """
 from __future__ import annotations
 import argparse
