@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 68,
+  "count": 75,
   "entries": [
     {
       "url": "/",
@@ -707,6 +707,69 @@
         "Need process architecture built to spec?"
       ],
       "body": "Skip to main content overkillhill.com / projects / bpmn-for-mermaid Open Source bpmn-beta DSL BP-SKILL Agent Suite Active BPMN for Mermaid Text-first. Standards-aware. Git-native. Agent-ready. Two things live in this project. First: bpmn-beta — a text-first DSL for BPMN process diagrams, designed as a Mermaid diagram-type contribution. No XML, no heavyweight tools, no bpmn-js. Second: BP-SKILL — a 15-skill Business Process Agent Skill Suite that uses bpmn-beta as its visual output layer, packaged in the Agent Skills open standard and compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor."
+    },
+    {
+      "url": "/projects/bpmn-for-mermaid/#bp-skill",
+      "title": "BP-SKILL — BPMN for Mermaid | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Business Process Agent Skill Suite BP-SKILL What it is Skills are the AI analogue of SOPs -- executable, version-controlled, platform-portable instruction sets that auto-activate on semantic match.",
+      "headings": [],
+      "body": "Business Process Agent Skill Suite BP-SKILL What it is Skills are the AI analogue of SOPs -- executable, version-controlled, platform-portable instruction sets that auto-activate on semantic match. The Agent Skills open standard ( agentskills.io ) defines the SKILL.md format. Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, Cursor, and VS Code all support it as of May 2026. The public Agent Skills ecosystem has over 89,000 skills. Zero implement a BABOK knowledge area. BP-SKILL is the first standards-conformant, lifecycle-complete business process agent skill suite. Why bpmn-beta is the visual output layer, not the whole product Most process work never reaches the diagram.",
+      "parent": "/projects/bpmn-for-mermaid/"
+    },
+    {
+      "url": "/projects/bpmn-for-mermaid/#build-progress",
+      "title": "Where the project is — BPMN for Mermaid | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Build Progress Where the project is The prototype validates the core thesis. The next phase closes the gap to a complete External Diagram plugin that can be proposed upstream.",
+      "headings": [],
+      "body": "Build Progress Where the project is The prototype validates the core thesis. The next phase closes the gap to a complete External Diagram plugin that can be proposed upstream. ✓ Prototype Shipped Hand-written line parser, heuristic topological layout, hand-written SVG renderer (no bpmn-js), five canonical example diagrams (linear process, gateway decision, pool/lane collaboration, multi-event order, parallel split), six-page React app (Home, Playground, DSL Reference, Architecture, Roadmap, About). Validates the core thesis: a Mermaid-native readable BPMN DSL can render BPMN-correct shapes without bpmn-js.",
+      "parent": "/projects/bpmn-for-mermaid/"
+    },
+    {
+      "url": "/projects/bpmn-for-mermaid/#dsl-showcase",
+      "title": "What bpmn-beta looks like — BPMN for Mermaid | OverKill Hill P³™",
+      "category": "Project",
+      "description": "DSL Example What bpmn-beta looks like The canonical purchase order approval flow — three participants, a gateway, and a rejection path — in 20 lines of text. No XML, no drag-and-drop, no proprietary format.",
+      "headings": [],
+      "body": "DSL Example What bpmn-beta looks like The canonical purchase order approval flow — three participants, a gateway, and a rejection path — in 20 lines of text. No XML, no drag-and-drop, no proprietary format. bpmn-beta · Canonical Example ⎘ Copy bpmn-beta accTitle : Purchase Order Approval pool company \"Company\" { lane requester \"Requester\" { start s1 \"Need Identified\" task:user t1 \"Submit Purchase Request\" } lane manager \"Manager\" { task:user t2 \"Review Request\" xor g1 \"Approved?\" end e2 \"Rejected\" } lane procurement \"Procurement\" { task:service t3 \"Create Purchase Order\" end e1 \"PO Issued\" } s1 --&gt; t1 t1 --&gt; t2 t2 --&gt; g1 g1 --&gt; t3 : \"yes\" g1 --&gt; e2 : \"no\" t3 --&gt; e1 } Paste this into the live playground → okhp3.github.io/mermaid-diagram-bpmn </div",
+      "parent": "/projects/bpmn-for-mermaid/"
+    },
+    {
+      "url": "/projects/bpmn-for-mermaid/#features",
+      "title": "What the project does — BPMN for Mermaid | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Features What the project does 🔷 Mermaid-Native DSL Starts with bpmn-beta — the diagram type keyword. Reads like every other Mermaid diagram. No boilerplate, no XML, no schema to import.",
+      "headings": [],
+      "body": "Features What the project does 🔷 Mermaid-Native DSL Starts with bpmn-beta — the diagram type keyword. Reads like every other Mermaid diagram. No boilerplate, no XML, no schema to import. ⊞ Pools &amp; Lanes experimental Pool and lane containment syntax is defined in the DSL spec. Rendering is experimental in the current prototype — verify output in the playground before relying on it. ◆ BPMN 2.0 Correct Shapes Start/end events, user/service/script/receive/send tasks, XOR/AND/OR gateways — rendered with correct BPMN visual notation, not flowchart approximations. Intermediate events and timer/message/error markers are on the roadmap. 🤖 AI-Generatable Syntax Clean enough for LLMs to produce valid bpmn-beta on first try. Readable enough for non-experts to write directly.",
+      "parent": "/projects/bpmn-for-mermaid/"
+    },
+    {
+      "url": "/projects/bpmn-for-mermaid/#honest-scope",
+      "title": "What this is — and isn't — BPMN for Mermaid | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Honest Scope What this is — and isn't This is a Mermaid-native BPMN descriptive subset proposal. ✓ A readable DSL for the BPMN 2.0 Descriptive Conformance subset — start/end events, tasks, gateways, flows, pools, and…",
+      "headings": [],
+      "body": "Honest Scope What this is — and isn't This is a Mermaid-native BPMN descriptive subset proposal. ✓ A readable DSL for the BPMN 2.0 Descriptive Conformance subset — start/end events, tasks, gateways, flows, pools, and lanes. ✓ Text-first, Git-native, works inside a Markdown code fence. ✓ AI-generatable — designed to be writable by LLMs without syntax repair. ✓ The visual output layer of a complete business process documentation methodology (BP-SKILL). ✓ A domain extension to the Agent Skills open standard (agentskills.io). ✓ Compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, Cursor, VS Code, and all other Agent Skills-conformant platforms. ✗ Not executable BPMN — no process engine, no token simulation, no runtime semantics.",
+      "parent": "/projects/bpmn-for-mermaid/"
+    },
+    {
+      "url": "/projects/bpmn-for-mermaid/#project-surfaces",
+      "title": "Where to find the project — BPMN for Mermaid | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Project Surfaces Where to find the project ▶ Try the Playground Live in-browser parser and SVG renderer. Paste bpmn-beta, see output. ◻ GitHub Repo Full source, DSL spec, architecture notes, and decision log.",
+      "headings": [],
+      "body": "Project Surfaces Where to find the project ▶ Try the Playground Live in-browser parser and SVG renderer. Paste bpmn-beta, see output. ◻ GitHub Repo Full source, DSL spec, architecture notes, and decision log. ⬡ Agent Skills Browser Browse, explore, and download all 15 BP-SKILL agent skills. Individual SKILL.md downloads, full suite zip, and variable layer templates. </div",
+      "parent": "/projects/bpmn-for-mermaid/"
+    },
+    {
+      "url": "/projects/bpmn-for-mermaid/#prototype-status",
+      "title": "What's working, what's not — BPMN for Mermaid | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Current Prototype Status What's working, what's not ✓ Supports core BPMN primitives in the playground — start/end events, tasks, gateways, sequence flows.",
+      "headings": [],
+      "body": "Current Prototype Status What's working, what's not ✓ Supports core BPMN primitives in the playground — start/end events, tasks, gateways, sequence flows. ✓ Uses a hand-written prototype parser (line-by-line, not Langium). ✓ Renders SVG directly, with no bpmn-js dependency. ⚠ Pool/lane/message-flow support is experimental — verify output in the playground before relying on it. ○ Langium grammar, Mermaid External Diagram API packaging, parser validation, and getStyles integration are roadmap items — not yet implemented. ✓ BP-SKILL v0.3 agent skill suite -- 15 SKILL.md files, 9 variable layer templates, Process Narrative Specification schema, eval suite. Compatible with all Agent Skills-conformant platforms.",
+      "parent": "/projects/bpmn-for-mermaid/"
     },
     {
       "url": "/projects/mac-studio-local-ai-workbench/",
