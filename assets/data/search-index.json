@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 57,
+  "count": 67,
   "entries": [
     {
       "url": "/",
@@ -92,6 +92,96 @@
         "The Workflow"
       ],
       "body": "Skip to main content Promptcraft Workshop Prompt Forge Raw prompts are disposable. Prompt protocols are reusable instruments. Prompt Forge is the OverKill Hill P³™ workshop for turning messy intent into governed AI workflows, reusable Custom GPT scaffolds, audit contracts, Replit execution specs, Notion knowledge systems, and public-facing promptcraft patterns. Explore the Six Flagship Systems Read the Prompt Anatomy Visit the Writings Library The Thesis Prompts Are Not the Artifact Prompts Are Not the Artifact A prompt is the interface layer between intent, context, constraints, tools, memory, and execution. Weak prompts ask for output."
+    },
+    {
+      "url": "/prompt-forge/#anatomy",
+      "title": "The Prompt Forge Anatomy — Prompt Forge | OverKill Hill P³™",
+      "category": "Brand",
+      "description": "Framework The Prompt Forge Anatomy Every element above has a place in the protocol skeleton. A serious prompt is not a paragraph — it is a structured operating brief.",
+      "headings": [],
+      "body": "Framework The Prompt Forge Anatomy Every element above has a place in the protocol skeleton. A serious prompt is not a paragraph — it is a structured operating brief. Copy the skeleton below as a starting scaffold for any governed prompt. Role: Who or what is this model being asked to become for this task? Context: What domain, prior state, constraints, and vocabulary must the model know? Objective: What is the actual job — not the surface question, the real outcome? Inputs: What documents, files, data, or tool access is the model drawing from? Constraints: What must not happen? What is out of scope? What must not be invented? Method: How should the model reason? Step-by-step? Adversarial critique? Synthesis? Output Format: What does the result look like? Fields, tables, headings, file…",
+      "parent": "/prompt-forge/"
+    },
+    {
+      "url": "/prompt-forge/#arcsyntrixo",
+      "title": "Arcsyntrixo — Prompt Forge | OverKill Hill P³™",
+      "category": "Brand",
+      "description": "ArcSyntrixo-Rᵧ Aurifexo-R · Recursive Equilibrium Architect Public-safe theory Purpose: Multi-agent equilibrium across structure, semantics, tone, mutation, and critique. Keeps prompts coherent without killing surprise.",
+      "headings": [],
+      "body": "ArcSyntrixo-Rᵧ Aurifexo-R · Recursive Equilibrium Architect Public-safe theory Purpose: Multi-agent equilibrium across structure, semantics, tone, mutation, and critique. Keeps prompts coherent without killing surprise. Optimizes for equilibrium rather than instruction compliance — treating promptcraft as a balancing field among precision, style, adaptability, and constraint. Too much structure kills insight. Too much creativity kills reliability. Too much tone turns into theater. ArcSyntrixo holds all three without collapsing. multi-agent orchestration prompt equilibrium synthesis critique constitutional prompting See the operating model → </article",
+      "parent": "/prompt-forge/"
+    },
+    {
+      "url": "/prompt-forge/#council",
+      "title": "Council of AIs: Critique Before Execution — Prompt Forge | OverKill Hill P³™",
+      "category": "Brand",
+      "description": "Operating Model Council of AIs: Critique Before Execution The Council of AIs workflow uses multiple models as an adversarial review board. One model researches. Another critiques. Another synthesizes.",
+      "headings": [],
+      "body": "Operating Model Council of AIs: Critique Before Execution The Council of AIs workflow uses multiple models as an adversarial review board. One model researches. Another critiques. Another synthesizes. Another turns the result into a locked implementation brief. Replit then executes against a specification rather than a vibe. This is the operating model behind the Prompt Forge itself — and behind the First Diagram Is Usually a Liar article , where the Council was used to evaluate and score AI diagram outputs. Cheap tokens think broadly. Expensive tokens act precisely. The Workflow Research → Critique → Synthesis → Spec Lock → Replit Execution → Validation Each role in the Council has a defined job. Research models cast wide. Critique models find gaps, contradictions, and overreach.",
+      "parent": "/prompt-forge/"
+    },
+    {
+      "url": "/prompt-forge/#flagship-systems",
+      "title": "Six Flagship Prompt Systems — Prompt Forge | OverKill Hill P³™",
+      "category": "Brand",
+      "description": "The Catalog Six Flagship Prompt Systems These are the deepest prompt systems in the OverKill Hill P³™ catalog — each built to solve a real structural problem, not to demonstrate prompt cleverness.",
+      "headings": [],
+      "body": "The Catalog Six Flagship Prompt Systems These are the deepest prompt systems in the OverKill Hill P³™ catalog — each built to solve a real structural problem, not to demonstrate prompt cleverness. ScafFrosto-Rᵧ Canon Ruling Order · DataLedger v3 Internal canon Purpose: Ledger governance, state recovery, and canonical export simulation. Solves the statelessness problem by forcing read → audit → simulate-merge → verify → export discipline. Turns model drift and hallucinated deltas into a verifiable workflow. This is not a prompt. It is a state-management doctrine. It recognizes that prompts need lifecycle governance, not just clever phrasing.",
+      "parent": "/prompt-forge/"
+    },
+    {
+      "url": "/prompt-forge/#flowpilot",
+      "title": "Flowpilot — Prompt Forge | OverKill Hill P³™",
+      "category": "Brand",
+      "description": "Flowpilot Scribbler Private enterprise pattern Purpose: Converts voice and text process capture into structured process artifacts, diagrams, responsibility models, and governance-ready outputs.",
+      "headings": [],
+      "body": "Flowpilot Scribbler Private enterprise pattern Purpose: Converts voice and text process capture into structured process artifacts, diagrams, responsibility models, and governance-ready outputs. Proves promptcraft can become enterprise workflow architecture. Diagrams are not the goal — process comprehension is. Diagramming is the artifact layer. The prompt system handles the translation. This system is shown as an anonymized enterprise-process pattern. Employer-specific implementation details are not published. process modeling Mermaid BPMN RACI interview mode ReAct-adjacent Related: BPMN for Mermaid → </article",
+      "parent": "/prompt-forge/"
+    },
+    {
+      "url": "/prompt-forge/#gpt-audit",
+      "title": "Gpt Audit — Prompt Forge | OverKill Hill P³™",
+      "category": "Brand",
+      "description": "GPT Interrogation Agent GPT Audit Contract Public-safe pattern Purpose: Forces Custom GPTs to disclose identity, capabilities, limits, modes, knowledge boundaries, routing, and guardrails.",
+      "headings": [],
+      "body": "GPT Interrogation Agent GPT Audit Contract Public-safe pattern Purpose: Forces Custom GPTs to disclose identity, capabilities, limits, modes, knowledge boundaries, routing, and guardrails. Turns black-box assistants into auditable systems. Flips the normal relationship: instead of asking a GPT to perform, it asks the GPT to confess its operating envelope. Before trusting a Custom GPT: force it to state what it thinks it is, what it has access to, what it cannot do, and where the builder instructions are steering it. audit contract governance capability disclosure safe completions meta-prompt See the prompt vault → </article",
+      "parent": "/prompt-forge/"
+    },
+    {
+      "url": "/prompt-forge/#operating-model",
+      "title": "From Raw Intent to Working Protocol — Prompt Forge | OverKill Hill P³™",
+      "category": "Brand",
+      "description": "The Process From Raw Intent to Working Protocol OverKill Hill P³™ uses a six-step forge cycle to convert messy intent into a deployable prompt protocol. Each step has an artifact. Each step has a failure mode.",
+      "headings": [],
+      "body": "The Process From Raw Intent to Working Protocol OverKill Hill P³™ uses a six-step forge cycle to convert messy intent into a deployable prompt protocol. Each step has an artifact. Each step has a failure mode. Step 1 Mine Capture raw notes, voice dictation, links, files, or messy intent. Nothing is too rough at this stage. Artifact: raw capture document Failure: skipping this step and starting from assumptions instead of actual intent. Step 2 Smelt Separate signal from noise. Define the actual job. Identify what the prompt must accomplish versus what is context or constraint. Artifact: distilled problem statement Failure: building the wrong thing with precision. Step 3 Cast Convert the job into a structured prompt protocol using the ten anatomy elements.",
+      "parent": "/prompt-forge/"
+    },
+    {
+      "url": "/prompt-forge/#promptascend",
+      "title": "Promptascend — Prompt Forge | OverKill Hill P³™",
+      "category": "Brand",
+      "description": "PromptAscend-R Public-facing evaluator Purpose: Evaluates promptcraft maturity through the Jedi Path, Chess Scale, and Lexashev Scale, with deliberately unreachable capstone tiers.",
+      "headings": [],
+      "body": "PromptAscend-R Public-facing evaluator Purpose: Evaluates promptcraft maturity through the Jedi Path, Chess Scale, and Lexashev Scale, with deliberately unreachable capstone tiers. Turns abstract prompt skill into a growth ladder. The unreachable final tier prevents completion psychology — making promptcraft a lifelong discipline rather than a certification to collect. \"You are not just writing prompts. You are leveling up your ability to think with machines.\" rubric evaluation learning system maturity model prompt optimizer See what a protocol requires → </article",
+      "parent": "/prompt-forge/"
+    },
+    {
+      "url": "/prompt-forge/#scaffrosto",
+      "title": "Scaffrosto — Prompt Forge | OverKill Hill P³™",
+      "category": "Brand",
+      "description": "ScafFrosto-Rᵧ Canon Ruling Order · DataLedger v3 Internal canon Purpose: Ledger governance, state recovery, and canonical export simulation.",
+      "headings": [],
+      "body": "ScafFrosto-Rᵧ Canon Ruling Order · DataLedger v3 Internal canon Purpose: Ledger governance, state recovery, and canonical export simulation. Solves the statelessness problem by forcing read → audit → simulate-merge → verify → export discipline. Turns model drift and hallucinated deltas into a verifiable workflow. This is not a prompt. It is a state-management doctrine. It recognizes that prompts need lifecycle governance, not just clever phrasing. ledger governance context engineering recursive salvage audit trail mega-prompt See the anatomy this system uses → </article",
+      "parent": "/prompt-forge/"
+    },
+    {
+      "url": "/prompt-forge/#vault",
+      "title": "The Prompt Vault — Prompt Forge | OverKill Hill P³™",
+      "category": "Brand",
+      "description": "The Vault The Prompt Vault Prompt Forge is also the public doorway into reusable prompt protocols: templates, audit contracts, scoring rubrics, research prompts, Replit execution specs, and public-safe excerpts from…",
+      "headings": [],
+      "body": "The Vault The Prompt Vault Prompt Forge is also the public doorway into reusable prompt protocols: templates, audit contracts, scoring rubrics, research prompts, Replit execution specs, and public-safe excerpts from deeper systems. The vault is being assembled. Currently cataloged or in progress: Prompt Protocol Template — the canonical scaffold for a governed prompt (see the anatomy above). Coming to the vault as a downloadable format. Dragon Saddles Prompt Vault — a prompt improvement and clarity system built around specificity, repeatability, and tone governance. Coming next. Custom GPT Builder Checklist — a structured checklist for building Custom GPTs that survive real-world use. Coming next.",
+      "parent": "/prompt-forge/"
     },
     {
       "url": "/universe/",
