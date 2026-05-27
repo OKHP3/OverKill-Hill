@@ -3903,6 +3903,58 @@ html[data-theme="light"] .article-body h2 {
   margin-top: 1.5rem;
 }
 
+/* Prompt Vault item grid */
+.pf-vault-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.pf-vault-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.pf-vault-item--available {
+  border-color: rgba(196, 106, 44, 0.35);
+}
+.pf-vault-status {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.1rem;
+}
+.pf-vault-status--available { color: #4ade80; }
+.pf-vault-status--coming    { color: var(--color-muted); }
+.pf-vault-item__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-fg);
+  margin: 0;
+}
+.pf-vault-item__desc {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+.pf-vault-item__cta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--okh-orange);
+  text-decoration: none;
+  margin-top: 0.25rem;
+  align-self: flex-start;
+}
+.pf-vault-item__cta:hover { text-decoration: underline; }
+
 /* ╔════════════════════════════════════════════════════════════════════════════╗
    ║  SECTION · GLEE                                                            ║
    ║  glee-fully.tools — scoped via .glee-main                                  ║
