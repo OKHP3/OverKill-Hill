@@ -377,12 +377,34 @@ def extract_div_sections(html: str, base_url: str, base_title: str,
     return out
 
 
-# Map of project URL paths → section IDs to deep-link
-PROJECT_DEEP_LINK_SECTIONS: dict[str, list[str]] = {
-    "/projects/mermaid-theme-builder/": [
-        "release", "what-it-is", "why-this-exists", "since-v03", "features", "roadmap"
-    ],
-}
+def discover_sentinel_sections(html: str) -> list[tuple[str, str]]:
+    """Return (tag, id) for every element marked with data-search-index that has an id.
+
+    Page authors add ``data-search-index`` to any content-block div (or section /
+    article) they want surfaced as an independent search result.  The script
+    discovers them automatically — no manual dict maintenance required.
+
+    Convention: add the attribute to the opening tag of the section you want indexed:
+        <div class="content-block" id="features" data-search-index>
+
+    The attribute value is ignored; its presence is the signal.
+    """
+    sentinel_re = re.compile(r"<(\w+)\b([^>]*)>", re.I)
+    results: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    for m in sentinel_re.finditer(html):
+        attrs_str = m.group(2)
+        if "data-search-index" not in attrs_str.lower():
+            continue
+        id_m = re.search(r"""\bid\s*=\s*["']([^"']+)["']""", attrs_str, re.I)
+        if not id_m:
+            continue
+        sec_id = id_m.group(1)
+        if sec_id in seen:
+            continue
+        seen.add(sec_id)
+        results.append((m.group(1).lower(), sec_id))
+    return results
 
 
 def process_file(path: Path) -> list[dict]:
@@ -424,11 +446,17 @@ def process_file(path: Path) -> list[dict]:
     if url_path == "/writings/first-diagram-is-a-liar/":
         out.extend(extract_article_sections(html, url_path, title))
 
-    # Project page deep-link entries
-    if url_path in PROJECT_DEEP_LINK_SECTIONS:
-        out.extend(extract_div_sections(
-            html, url_path, title, PROJECT_DEEP_LINK_SECTIONS[url_path]
-        ))
+    # Project page deep-link entries — auto-detected via data-search-index attribute.
+    # To index a new section, add data-search-index to its opening tag in the HTML:
+    #   <div class="content-block" id="my-section" data-search-index>
+    # No script edit is required.
+    if categorise(url_path) == "Project":
+        sentinels = discover_sentinel_sections(html)
+        by_tag: dict[str, list[str]] = {}
+        for stag, sec_id in sentinels:
+            by_tag.setdefault(stag, []).append(sec_id)
+        for stag, ids in by_tag.items():
+            out.extend(extract_div_sections(html, url_path, title, ids, tag=stag))
 
     # Prompt Forge section deep-links
     # Sections are <section id="..."> elements; system cards are <article id="...">

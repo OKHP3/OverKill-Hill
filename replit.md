@@ -206,6 +206,17 @@ Static, client-side search across the entire site. Consolidated 2026-05-03.
   ```
   python3 assets/scripts/build-search-index.py
   ```
+
+### Adding deep-link entries for project page sections
+
+The script **auto-detects** which sections to index on any `/projects/*/` page. No code changes are needed — just add `data-search-index` to the opening tag of any `content-block` div (or section/article) you want surfaced as an independent search result:
+
+```html
+<div class="content-block" id="my-section" data-search-index>
+```
+
+The attribute value is ignored; its presence is the signal. The script discovers all such elements across all project pages on every run. See `discover_sentinel_sections()` in the script for implementation details.
+
 - Sitelinks Searchbox JSON-LD (`SearchAction`) on every page points at `/search/?q={search_term_string}`.
 
 ### Cross-site search prompt
