@@ -12,8 +12,8 @@
        METADATA: Primary Title & Description
        ======================================== -->
     <title>The Manifesto | OverKill Hill P³™</title>
-    <meta name="description" content="The OverKill Hill P³ manifesto: rigor over vibes, prompts as protocols, and building AI systems that withstand real-world complexity." />
-    <meta name="keywords" content="AI, GPT, prompts, protocols, custom GPT systems, power prompts, OverKill Hill P³, AI manifesto, promptcraft" />
+    <meta name="description" content="Three generations of overdoing things. Twelve load-bearing principles. One refusal to confuse fast with finished, simple with true, or clean with correct. The OverKill Hill P³™ manifesto." />
+    <meta name="keywords" content="AI, GPT, prompts, protocols, custom GPT systems, power prompts, OverKill Hill P³, AI manifesto, promptcraft, precision protocol promptcraft" />
     <meta name="author" content="OverKill Hill P³™" />
     <meta name="creator" content="OverKill Hill P³™" />
     <meta name="publisher" content="OverKill Hill P³™" />
@@ -22,10 +22,10 @@
        METADATA: Open Graph (Social Sharing)
        ======================================== -->
     <meta property="og:title" content="The Manifesto | OverKill Hill P³™" />
-    <meta property="og:description" content="The OverKill Hill P³ manifesto: rigor over vibes, prompts as protocols, and building AI systems that withstand real-world complexity." />
+    <meta property="og:description" content="Three generations of overdoing things. Twelve load-bearing principles. One refusal to confuse fast with finished, simple with true, or clean with correct." />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2025-02-01" />
-    <meta property="article:modified_time" content="2026-05-01" />
+    <meta property="article:modified_time" content="2026-05-28" />
     <meta property="article:author" content="Jamie Hill" />
     <meta property="article:section" content="Brand Philosophy" />
     <meta property="article:tag" content="AI philosophy, prompt engineering, systems design" />
@@ -43,7 +43,7 @@
        ======================================== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="The Manifesto | OverKill Hill P³™" />
-    <meta name="twitter:description" content="The OverKill Hill P³ manifesto: rigor over vibes, prompts as protocols, and building AI systems that withstand real-world complexity." />
+    <meta name="twitter:description" content="Three generations of overdoing things. Twelve load-bearing principles. One refusal to confuse fast with finished." />
     <meta name="twitter:image" content="https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png" />
     <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³ illustration" />
     <meta name="twitter:site" content="@OverKillHillP3" />
@@ -90,9 +90,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&display=swap" />
-    <link rel="stylesheet" href="/assets/css/theme.css" />
+    <link rel="stylesheet" href="/assets/css/theme.css?v=16" />
 
-      <script type="speculationrules">
+    <script type="speculationrules">
     {
       "prefetch": [
         { "source": "document", "where": { "and": [
@@ -103,7 +103,7 @@
       ]
     }
     </script>
-  
+
     <!-- ========================================
        STRUCTURED DATA: BreadcrumbList
        ======================================== -->
@@ -127,7 +127,8 @@
       ]
     }
     </script>
-      <!-- Google tag (gtag.js) -->
+
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -135,9 +136,254 @@
       gtag('js', new Date());
       gtag('config', 'G-VJ1BKXS27H');
     </script>
+
+    <style>
+/* ===== MANIFESTO PAGE ENHANCEMENTS ===== */
+
+.reading-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: var(--color-accent, #c46a2c); z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* ---- Generational table ---- */
+.gen-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.88rem; }
+.gen-table th {
+  background: var(--color-surface-soft, #181f26);
+  color: var(--color-muted, #6b7280);
+  text-transform: uppercase; letter-spacing: 0.1em;
+  font-size: 0.72rem; padding: 0.7rem 1rem;
+  text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.gen-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  color: var(--color-fg, #e5e7eb); vertical-align: top;
+}
+.gen-table tr:last-child td { border-bottom: none; }
+.gen-version { font-weight: 700; color: var(--color-accent, #c46a2c); white-space: nowrap; }
+
+/* ---- OG Manifesto blockquote ---- */
+.manifesto-og {
+  border-left: 4px solid var(--color-accent, #c46a2c);
+  padding: 1.5rem 2rem;
+  background: var(--color-surface-soft, #181f26);
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: italic; line-height: 1.9; margin: 1.5rem 0;
+}
+.manifesto-og p { margin: 0 0 1rem; }
+.manifesto-og p:last-child { margin-bottom: 0; }
+.manifesto-og-label {
+  font-style: normal; font-size: 0.7rem;
+  text-transform: uppercase; letter-spacing: 0.18em;
+  color: var(--color-muted, #6b7280); margin-bottom: 1rem; display: block;
+}
+.manifesto-og strong { color: var(--color-fg, #e5e7eb); font-style: normal; }
+
+/* ---- Anchor badge ---- */
+.section-anchor-badge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.18em;
+  color: var(--color-muted, #6b7280);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 2rem; padding: 0.2rem 0.65rem;
+  margin-bottom: 0.75rem; text-decoration: none; transition: color 0.15s;
+}
+.section-anchor-badge:hover { color: var(--color-accent, #c46a2c); }
+
+/* ---- Pull quote ---- */
+.pull-quote-okh {
+  border-left: 3px solid var(--color-accent, #c46a2c);
+  padding: 1rem 1.5rem; margin: 1.75rem 0;
+  background: rgba(196,106,44,0.06);
+  border-radius: 0 0.4rem 0.4rem 0;
+}
+.pull-quote-okh p {
+  margin: 0; font-size: 1.05rem; font-style: italic;
+  color: var(--color-fg, #e5e7eb); line-height: 1.7;
+}
+
+/* ---- Prompt snippet ---- */
+.prompt-evolution-block { margin: 2rem 0; }
+.prompt-iteration-label {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.16em;
+  color: var(--color-accent, #c46a2c); margin-bottom: 0.5rem;
+}
+.prompt-iteration-label span.iter-badge {
+  background: var(--color-accent, #c46a2c); color: #0f172a;
+  font-weight: 700; font-size: 0.65rem; padding: 0.1rem 0.45rem;
+  border-radius: 0.25rem; letter-spacing: 0.05em;
+}
+.prompt-snippet-okh {
+  background: #020617;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(196,106,44,0.25);
+  padding: 1.1rem 1.25rem;
+  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+               "Courier New", monospace;
+  font-size: 0.79rem; line-height: 1.65; color: #d1d5db;
+  overflow-x: auto; white-space: pre-wrap; word-break: break-word;
+  position: relative;
+}
+.prompt-snippet-okh::before {
+  content: "prompt";
+  position: absolute; top: 0.5rem; right: 0.8rem;
+  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.14em;
+  color: rgba(196,106,44,0.5);
+}
+.prompt-result-note {
+  font-size: 0.8rem; color: var(--color-muted, #6b7280);
+  margin-top: 0.5rem; font-style: italic; padding-left: 0.5rem;
+}
+
+/* ---- MurderBird grid ---- */
+.murderbird-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem; align-items: start; margin: 2rem 0;
+}
+@media (max-width: 768px) { .murderbird-grid { grid-template-columns: 1fr; } }
+.murderbird-img-wrap img {
+  width: 100%; border-radius: 0.75rem;
+  border: 1px solid rgba(196,106,44,0.3); display: block;
+}
+.murderbird-caption {
+  font-size: 0.8rem; color: var(--color-muted, #6b7280);
+  margin-top: 0.75rem; font-style: italic; line-height: 1.55;
+}
+
+/* ---- MurderBird reading list ---- */
+.murderbird-reading-list { list-style: none; padding: 0; margin: 1.5rem 0; }
+.murderbird-reading-list li {
+  padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.murderbird-reading-list li:last-child { border-bottom: none; }
+.reading-anchor-quote {
+  font-weight: 600; color: var(--color-fg, #e5e7eb);
+  margin-bottom: 0.4rem; display: block;
+}
+.reading-body { color: var(--color-muted, #6b7280); font-size: 0.91rem; line-height: 1.7; margin: 0; }
+
+/* ---- The Line divider ---- */
+.manifesto-divider-wrap { position: relative; text-align: center; padding: 3rem 0; }
+.manifesto-divider-inner {
+  position: relative; padding: 3.5rem 2.5rem;
+  border-radius: 1rem; border: 1px solid rgba(148,163,184,0.25);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  background: linear-gradient(to right,
+    rgba(30,64,175,0.35),
+    rgba(15,23,42,0.95),
+    rgba(148,27,12,0.4));
+}
+.manifesto-divider-label {
+  text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.7rem;
+  color: var(--color-muted, #6b7280); margin-bottom: 0.75rem; display: block;
+}
+.manifesto-divider-inner h2 { margin-bottom: 0.75rem; }
+.manifesto-divider-inner p { max-width: 560px; margin: 0 auto 1.5rem; color: var(--color-muted, #6b7280); }
+.manifesto-divider-actions {
+  display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;
+}
+
+/* ---- Living manifesto layout ---- */
+.manifesto-layout {
+  display: grid; grid-template-columns: 1fr 280px;
+  gap: 4rem; align-items: start;
+}
+@media (max-width: 1024px) {
+  .manifesto-layout { grid-template-columns: 1fr; }
+  .manifesto-sidebar { display: none; }
+}
+.manifesto-sidebar { position: sticky; top: 6rem; }
+.sidebar-toc-box {
+  background: var(--color-surface-soft, #181f26);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 0.75rem; padding: 1.25rem;
+}
+.sidebar-toc-box h4 {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em;
+  color: var(--color-muted, #6b7280); margin: 0 0 1rem;
+}
+.toc-manifesto { list-style: none; padding: 0; margin: 0; }
+.toc-manifesto a {
+  display: block; padding: 0.28rem 0; font-size: 0.8rem;
+  color: var(--color-muted, #6b7280); text-decoration: none;
+  line-height: 1.4; transition: color 0.15s;
+  border-left: 2px solid transparent; padding-left: 0.75rem;
+}
+.toc-manifesto a:hover { color: var(--color-fg, #e5e7eb); }
+.toc-manifesto a.toc-active {
+  color: var(--color-accent, #c46a2c);
+  border-left-color: var(--color-accent, #c46a2c);
+}
+.toc-section-label {
+  font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em;
+  color: rgba(107,114,128,0.5); padding: 0.6rem 0 0.2rem 0.75rem;
+  display: block;
+}
+
+/* ---- Principle blocks ---- */
+.principle-block { margin-bottom: 3.25rem; padding-bottom: 3.25rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.principle-block:last-of-type { border-bottom: none; margin-bottom: 0; }
+.principle-number {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em;
+  color: var(--color-accent, #c46a2c); margin-bottom: 0.4rem; display: block;
+}
+.principle-block h3 { margin-top: 0; margin-bottom: 1.1rem; font-size: 1.3rem; }
+.principle-block p { line-height: 1.82; margin-bottom: 1rem; }
+.principle-block p:last-child { margin-bottom: 0; }
+
+/* ---- Cross-link callout ---- */
+.cross-link-callout {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1.1rem 1.25rem; margin: 1.5rem 0;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 0.5rem; text-decoration: none;
+}
+.cross-link-callout:hover { background: rgba(196,106,44,0.07); border-color: rgba(196,106,44,0.3); }
+.cross-link-callout .callout-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+.cross-link-callout .callout-body { flex: 1; }
+.cross-link-callout .callout-label {
+  font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em;
+  color: var(--color-accent, #c46a2c); margin-bottom: 0.25rem; display: block;
+}
+.cross-link-callout .callout-title { font-weight: 600; color: var(--color-fg, #e5e7eb); font-size: 0.9rem; margin-bottom: 0.2rem; display: block; }
+.cross-link-callout .callout-desc { font-size: 0.82rem; color: var(--color-muted, #6b7280); line-height: 1.5; }
+
+/* ---- Closing ---- */
+.manifesto-closing {
+  text-align: center; padding: 4rem 2rem;
+  border-top: 1px solid rgba(255,255,255,0.07); margin-top: 2rem;
+}
+.manifesto-closing .closing-tagline {
+  font-size: 1.5rem; font-weight: 700; color: var(--color-accent, #c46a2c);
+  letter-spacing: 0.04em; margin: 1rem 0 0.5rem;
+}
+.manifesto-closing .closing-final {
+  font-size: 0.9rem; color: var(--color-muted, #6b7280); font-style: italic;
+}
+
+/* ---- P3 dual meaning info box ---- */
+.p3-meaning-box {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;
+}
+@media (max-width: 600px) { .p3-meaning-box { grid-template-columns: 1fr; } }
+.p3-meaning-card {
+  padding: 1.25rem; background: var(--color-surface-soft, #181f26);
+  border: 1px solid rgba(255,255,255,0.07); border-radius: 0.5rem;
+}
+.p3-meaning-card h4 {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em;
+  color: var(--color-accent, #c46a2c); margin: 0 0 0.5rem;
+}
+.p3-meaning-card p { font-size: 0.88rem; color: var(--color-fg, #e5e7eb); margin: 0; line-height: 1.6; }
+    </style>
   </head>
 
   <body>
+    <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
     <a class="okh-skip-link" href="#main">Skip to main content</a>
     <header class="site-header" id="top">
       <div class="container">
@@ -156,7 +402,7 @@
               <ul class="submenu">
                 <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
                 <li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
-                                <li><a href="/projects/mac-studio-local-ai-workbench/">Mac Studio Local AI Workbench</a></li>
+                <li><a href="/projects/mac-studio-local-ai-workbench/">Mac Studio Local AI Workbench</a></li>
               </ul>
             </li>
             <!-- Writings cluster: Manifesto / Promptcraft / FDIAL -->
@@ -191,116 +437,1120 @@
       <section class="site-specials site-specials--okh" aria-label="Forge update">
         <span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
         <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
-          v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →
+          v0.5 is live: the Council of AIs scored each other -- every model was harder on itself than the architect was. Read it →
         </a>
       </section>
 
     </header>
 
     <main id="main">
+
       <!-- HERO -->
       <section class="hero" id="manifesto" aria-labelledby="hero-title">
         <div class="hero-blueprint-bg"></div>
         <div class="brand-stripes brand-stripes--okh" aria-hidden="true"></div>
-
         <div class="container hero-inner reveal-on-scroll">
           <div class="hero-grid">
             <div>
-              <p class="hero-eyebrow">
-                <a href="/#forge">The Forge</a>
-              </p>
+              <p class="hero-eyebrow"><a href="/#forge">The Forge</a></p>
               <h1 id="hero-title">Manifesto of OKHP³™</h1>
               <p class="hero-tagline">
-                A hill is something you choose to stand on. OverKill&nbsp;Hill&nbsp;P³™ is ours —
-                the place where we stake out what we believe about systems, prompts and
-                the humans using them.
+                If something is worth doing, it is worth overdoing.
+                These are not talking points. They are the load-bearing walls.
+                Built from three generations of not knowing when to stop,
+                and a compulsion to ask: yeah, but what if we built it better?
               </p>
               <div class="hero-actions">
-                <a href="/projects/" class="btn btn-primary">
-                  Explore the projects
-                </a>
-                <a href="/#forge" class="btn btn-quiet">
-                  Back to the forge
-                </a>
+                <a href="#og-manifesto" class="btn btn-primary">Read the origin</a>
+                <a href="#living-manifesto" class="btn btn-quiet">Jump to the manifesto</a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- MANIFESTO CONTENT -->
-      <section class="content-section container reveal-on-scroll">
+      <!-- OG MANIFESTO: locked origin, never to be revised -->
+      <section class="content-section container reveal-on-scroll" id="og-manifesto" aria-labelledby="og-title">
+
         <header class="section-header">
-          <h2 id="no-vibes">Rigor over vibes</h2>
-        </header>
-        <article class="card">
+          <a href="#og-manifesto" class="section-anchor-badge">#og-manifesto</a>
+          <h2 id="og-title">The First Statement</h2>
           <p>
-            “If you’re going to let a system make or shape real decisions, you owe it
-            the same level of design rigor as a physical structure. No vibes-only
-            scaffolding.”
+            This is the origin fragment. The text that came out first, unfiltered, at some unreasonable hour
+            fueled by black coffee and the particular clarity that only arrives when everyone else has
+            gone to sleep. It is locked. It will not be revised. Everything else on this page grew from here.
           </p>
-        </article>
-        </div>
-        <header class="section-header">
-          <h2 id="responsibility">01. Overkill is about responsibility, not complexity</h2>
         </header>
-        <div class="about-grid">
-          <article class="card">
+
+        <div class="card">
+          <span class="manifesto-og-label">Original statement -- version 1 -- circa early 2025</span>
+          <div class="manifesto-og">
             <p>
-              OverKill doesn’t mean over-complicating things. It means going deep enough
-              into the layers that the people using the system can safely lean on it,
-              even when they can’t see every bolt.
+              I am the result of thousands of hours of nights and weekends fueled by countless cuts of
+              black coffee, borderline autism spectrum disorder, and endless curiosity to see how deep
+              the rabbit hole goes, an unbridled ADD Hyperfocus, a lack of other hobbies, and an
+              amazingly understanding wife.
             </p>
-          </article>
-        </div>
-        <header class="section-header">
-          <h2 id="protocols">02. Prompts are protocols</h2>
-        </header>
-        <div class="about-grid">
-          <article class="card">
             <p>
-              We don’t treat prompts like spells you whisper to a model. We treat them as
-              protocols: structured, documented, testable. Inputs, outputs, failure
-              modes, expectations — all explicit. That precision is what <a href="/writings/first-diagram-is-a-liar/#roy">ROY — Return on Your Words</a> measures: how much understanding a given investment of words actually delivers.
+              The scene is part Lego geek, not a gamer, steampunk, dystopian, AI fueled enthusiast,
+              massive tinkerer, someone who needs to take something apart to see how it works, can't
+              accept things on faith alone, enjoys astronomy, biology, lives and dies by metaphor and
+              analogy, and is basically like a pitbull latched onto an arm and won't let go until it
+              is torn free of the shoulder.
             </p>
-          </article>
-        </div>
-        <header class="section-header">
-          <h2 id="design">03. Ambiguity deserves design, not blame</h2>
-        </header>
-        <div class="about-grid">
-          <article class="card">
+          </div>
+
+          <p style="color: var(--color-muted); font-size: 0.85rem; margin: 2rem 0 0.5rem; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem;">
+            Refined, a few weeks later. Same core. Better vocabulary.
+          </p>
+          <div class="manifesto-og" style="border-left-color: rgba(196,106,44,0.45);">
             <p>
-              Real life is messy. People don’t always know exactly what they’re asking
-              for. Our job is to design GPT systems that can hold space for that
-              ambiguity without collapsing or making users feel foolish.
+              I am the product of thousands of nights and weekends, stitched together with
+              borderline-spectrum obsession, unrelenting curiosity, and gallons of jet-black coffee.
+              Fueled by a hyperfocus that borders on feral, with no patience for surface-level answers,
+              and no interest in half-baked truths.
             </p>
-          </article>
+            <p>
+              This was not born from balance. It was born from <strong>compulsion</strong>.
+            </p>
+            <p>
+              I am not a gamer. I am a <strong>tinkerer</strong>. A metaphor-obsessed, steampunk-souled,
+              AI-fueled engineer of the absurdly possible. A distiller of systems. A pitbull mind that
+              bites down and <strong>does not let go</strong> until the shoulder comes off with it.
+            </p>
+            <p>
+              I take things apart to see what was hidden. I don't accept the manual. I break the default
+              to find the edge. I learn by dissection, build with obsession, and document with the same
+              fury that made me start in the first place.
+            </p>
+            <p>
+              This project? Part Lego logic, part dystopian curiosity, part celestial nerd-out, part
+              madness, and 100% made possible by the patience and magic of an <strong>incredibly
+              understanding wife</strong>.
+            </p>
+            <p>
+              OKHP³™ is not a brand.
+              It is a battle cry for those who can't stop asking,
+              <strong>"Yeah, but what if we built it better?"</strong>
+            </p>
+          </div>
         </div>
+
+      </section>
+
+      <!-- THE HILL BEFORE THE HILL: generational origin -->
+      <section class="content-section container reveal-on-scroll" id="the-forge-before" aria-labelledby="forge-before-title">
+
         <header class="section-header">
-          <h2 id="growth">04. Tools should grow with the humans using them</h2>
+          <a href="#the-forge-before" class="section-anchor-badge">#the-forge-before</a>
+          <h2 id="forge-before-title">The Fires Were Already Burning</h2>
+          <p>
+            OverKill Hill did not start with a brand name, a website, a domain registration, or a
+            custom GPT. The fires of the Forge were already burning two generations before the first
+            prompt was ever written. None of the people who lit them called it OverKill. They called
+            it showing up.
+          </p>
         </header>
-          <div class="about-grid">
-            <article class="card">
-              <p>
-                We build systems that are teachable and extensible. Over time, they should
-                reflect the people and organizations using them — not lock them into
-                someone else’s idea of “best.”
+
+        <div class="card" style="margin-bottom: 2rem;">
+
+          <h3 style="margin-top: 0;">Ralph Hill -- v0.0 (The Prototype)</h3>
+          <p>
+            Ralph Hill lived to roughly 92 years old. He was the sole income earner in a household of
+            six or more children. He held three jobs simultaneously, not as a grind-culture statement
+            but as a simple arithmetic response to a family that needed feeding. His entire output was
+            pointed outward: family and church. Zero energy retained for self. Zero theory of what he
+            was doing. He just did it because the alternative was not doing it, and that was not
+            acceptable.
+          </p>
+          <p>
+            He was the pre-release. No framework, no brand, no self-optimization loop. Raw, unrelenting
+            output from a man who had never heard the word "system" used the way I use it. The prototype
+            that proved the core engine works.
+          </p>
+          <p>
+            Ralph did not theorize about overdoing things. He overdid them because he had to.
+          </p>
+
+          <div class="pull-quote-okh">
+            <p>Ralph v0.0: Worked his whole life away for family and church.</p>
+          </div>
+
+          <h3>Vyrle Hill -- v1.0 (First Production Release)</h3>
+          <p>
+            Vyrle Hill was born in 1950 and grew up poor in that same crowded household. In the early
+            1970s he lived at and worked for the Raymond, Washington fire department while simultaneously
+            pumping gas at a gas station and attending Grays Harbor Community College for Computer
+            Science. He earned his associate degree. His first job out of school was a computer data
+            entry role for Pacific County in Washington State.
+          </p>
+          <p>
+            Over the following thirty-plus years he worked his way to County Administrator for Pacific
+            County. On that same associate degree. He also continued working and volunteering with the
+            Raymond Fire Department throughout that entire period, eventually retiring from fire service
+            after well over 35 years. He is still doing well at 75.
+          </p>
+          <p>
+            Vyrle took the same engine Ralph ran and added a second driver: ego. Not ego in the
+            pejorative sense. Ego as the force that pushes a data entry clerk to run the county. The
+            upgrade was real: Ralph worked his life away. Vyrle worked toward something. That is a
+            meaningful distinction. But the work was still measured in hours, and the validation was
+            still partly external.
+          </p>
+          <p>
+            He said something to me that I have never stopped carrying.
+          </p>
+
+          <div class="pull-quote-okh">
+            <p>"If something is worth doing, it is worth overdoing."</p>
+          </div>
+
+          <p>
+            He did not invent it. His father had said essentially the same thing, in different words,
+            while holding three jobs for six kids. Two generations of the same operating principle,
+            neither of them ever naming it, neither of them ever stopping to theorize it. They just
+            lived it because the alternative was falling behind.
+          </p>
+
+          <div class="pull-quote-okh">
+            <p>Vyrle v1.0: Worked his whole life to provide for his wife and family and to feed his ego.</p>
+          </div>
+
+          <h3>Jamie Hill -- v2.0 (Architectural Rewrite)</h3>
+          <p>
+            I was born in 1975. I am 50 years old. Given that Ralph lived to roughly 92 and Vyrle is
+            still doing well at 75, the actuarial math is not complicated. More than two-thirds of my
+            life is behind me.
+          </p>
+          <p>
+            I have done the hourly grind. Fourteen years at a Fortune 500 company. Twenty-five years
+            bridging construction and enterprise technology. Twenty-eight certifications earned one at
+            a time. I can run the v1.0 playbook.
+          </p>
+          <p>
+            But the spreadsheet is clear. Another 20 years of linear effort will not compound the way
+            the first 30 did for Vyrle. Inflation, rising costs, and a thousand counter-pressures mean
+            the law of diminishing returns now overpowers brute-force hourly toiling. The math that
+            worked for Ralph and Vyrle has broken. Hours as currency is a legacy model.
+          </p>
+          <p>
+            So v2.0 is an architectural rewrite, not a patch. The shift is from hours-as-currency to
+            leverage-as-architecture. The leverage points are already under construction: frameworks
+            that deploy once and serve many, a brand that compounds reputation, creative IP that
+            exists independent of my hourly presence, teachable methods that scale without cloning me,
+            and AI workflows that force-multiply cognition.
+          </p>
+          <p>
+            None of those are hourly. All of them compound.
+          </p>
+          <p>
+            My father's phrase was "if something is worth doing, it is worth overdoing." My
+            internalization is more calibrated: if you think people expect a level 7, and you are
+            capable of delivering an 8.5, attempt to deliver a 12. Always exceed the expectation
+            ceiling by enough margin that even your worst day still clears their best day.
+          </p>
+          <p>
+            Same engine. Different fuel. Different architecture.
+          </p>
+
+          <div class="pull-quote-okh">
+            <p>Jamie v2.0: Built the systems that make the work outlive the worker.</p>
+          </div>
+
+          <h3>Rylee Hill -- v3.0 (Next Generation)</h3>
+          <p>
+            TBD. The whole version history only has meaning if v3.0 ships with the accumulated wisdom
+            baked in rather than just the work ethic. The question is whether Rylee inherits the drive
+            without needing the survival pressure or the ego fuel. Whether the OS comes pre-installed.
+          </p>
+          <p>
+            Ralph's inheritance to Vyrle was a work ethic. Vyrle's inheritance to me was ambition.
+            My inheritance to Rylee should not be either of those things alone. It should be an
+            infrastructure. The generational shift is not from poor to rich. It is from effort as
+            survival to systems as compounding legacy.
+          </p>
+        </div>
+
+        <!-- GENERATIONAL EQUATION TABLE -->
+        <table class="gen-table" aria-label="Generational versioning">
+          <thead>
+            <tr>
+              <th>Version</th>
+              <th>Equation</th>
+              <th>Driver</th>
+              <th>One-liner</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="gen-version">Ralph v0.0</td>
+              <td>hours x jobs = survival</td>
+              <td>necessity</td>
+              <td>Worked his whole life away for family and church.</td>
+            </tr>
+            <tr>
+              <td class="gen-version">Vyrle v1.0</td>
+              <td>hours x ambition = career</td>
+              <td>ego / external validation</td>
+              <td>Worked to provide and to prove the point.</td>
+            </tr>
+            <tr>
+              <td class="gen-version">Jamie v2.0</td>
+              <td>leverage x systems = legacy</td>
+              <td>intentional design</td>
+              <td>Built the systems that make the work outlive the worker.</td>
+            </tr>
+            <tr>
+              <td class="gen-version">Rylee v3.0</td>
+              <td>TBD</td>
+              <td>TBD</td>
+              <td>Should inherit infrastructure, not just pressure.</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </section>
+
+      <!-- MURDERBIRD: the visual manifestation, with prompt evolution -->
+      <section class="content-section container reveal-on-scroll" id="murderbird-genesis" aria-labelledby="murderbird-title">
+
+        <header class="section-header">
+          <a href="#murderbird-genesis" class="section-anchor-badge">#murderbird-genesis</a>
+          <h2 id="murderbird-title">The MurderBird -- Origin of the Sigil</h2>
+          <p>
+            Every manifesto needs a visual. Most get a logo. This one got a mechanical murder bird
+            perched on obsolete hardware against a blueprint sky. That difference is not accidental.
+            The image was not designed by a graphic artist. It was specified through iterative prompt
+            refinement, the same recursive discipline that drives the rest of the OverKill Hill P³™
+            methodology. The prompt evolved the way all good work evolves: wrong first, then less wrong,
+            then exactly right.
+          </p>
+        </header>
+
+        <!-- PROMPT EVOLUTION SEQUENCE -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <h3 style="margin-top: 0;">How the Bird Was Built</h3>
+          <p>
+            The request was simple at first: a mechanical bird on old tech. What came back was a crow
+            on a terminal. Technically correct. Completely wrong. A crow is tidy, urban, clever-looking.
+            The OKH P³ mascot needed to be something that looked like it would win a fight with a
+            server rack.
+          </p>
+          <p>
+            So the specification got sharper. Each iteration tightened the brief until the rendering
+            matched the doctrine. This is promptcraft in practice: not typing once and accepting what
+            arrives, but treating the output as material that needs pressure, heat, and rework.
+          </p>
+
+          <a href="/prompt-forge/" class="cross-link-callout">
+            <span class="callout-icon">⚒️</span>
+            <span class="callout-body">
+              <span class="callout-label">Cross-reference: Prompt Forge</span>
+              <span class="callout-title">The Prompt Forge at OKHP³™</span>
+              <span class="callout-desc">
+                The iterative refinement process used to build the MurderBird prompt is the same
+                recursive methodology documented in the Prompt Forge. Treat prompts as protocols,
+                not wishes. The first output is ore, not steel.
+              </span>
+            </span>
+          </a>
+
+          <!-- ITERATION 01 -->
+          <div class="prompt-evolution-block">
+            <div class="prompt-iteration-label">
+              <span class="iter-badge">ITER 01</span>
+              First attempt
+            </div>
+            <pre class="prompt-snippet-okh">A 2D digital illustration of a mechanical bird perched on a vintage computer terminal.
+Steampunk style. Blueprint grid background.</pre>
+            <p class="prompt-result-note">
+              Result: a mechanical crow on a beige desk terminal. Clean. Wrong species.
+              The silhouette was too gentle. The machine looked like something from an
+              antique shop, not a forge.
+            </p>
+          </div>
+
+          <!-- ITERATION 02 -->
+          <div class="prompt-evolution-block">
+            <div class="prompt-iteration-label">
+              <span class="iter-badge">ITER 02</span>
+              Specifying the threat level
+            </div>
+            <pre class="prompt-snippet-okh">A highly detailed 2D digital illustration in blueprint-infused steampunk style,
+featuring a mechanical bird inspired by prehistoric murder birds and raptors.
+The bird is perched menacingly on top of a retro CRT computer with visible wiring,
+vents, and a classic keyboard.
+The bird is built from rough-edged metallic feathers, bolts, rivets, and dark gray
+metal plating with glowing orange mechanical eyes.
+The background is made of wide, horizontal textured stripes in carbon, rust orange,
+purple, olive, and teal, with an overlaid blueprint grid and faint technical
+schematics throughout.</pre>
+            <p class="prompt-result-note">
+              Result: much closer. The raptor posture was right. The stripe background
+              was right. The blueprint overlay worked. The text placement still needed
+              control and the overall tone was too dark to read well at smaller sizes.
+            </p>
+          </div>
+
+          <!-- ITERATION 03 -->
+          <div class="prompt-evolution-block">
+            <div class="prompt-iteration-label">
+              <span class="iter-badge">ITER 03</span>
+              Brightness, text, and the stencil requirement
+            </div>
+            <pre class="prompt-snippet-okh">A highly detailed 2D digital illustration in blueprint-infused steampunk style,
+featuring a mechanical bird inspired by prehistoric murder birds and raptors. The
+bird is perched aggressively on top of a retro CRT computer with a glowing monitor,
+detailed wiring, and a classic keyboard. The bird is constructed from jagged metal
+feathers, riveted armor plates, and clawed talons, with glowing orange cybernetic eyes.
+The overall palette is metallic gray and olive with distressed texture.
+
+The background features wide, horizontal stripes in mechanical tones: carbon green,
+rust orange, faded mustard, dark plum, and slate teal. Overlay a clean, visible
+blueprint grid and schematic line work texture across the full image, bright enough
+to feel engineered but not overwhelming. Brighten the whole image to enhance contrast
+without losing the industrial depth.
+
+In the bottom right corner, the text appears in two staggered rows using a bold,
+retro-style stencil font:
+
+OverKill
+       Hill P³™
+
+The font is rendered in distressed blood-orange tones with a slight metallic flake
+or glow, as if screen-printed onto aged tech casing. The layout should feel
+structured, militant, and industrial, a badge for a rogue prompt-engineer's
+personal OS.</pre>
+            <p class="prompt-result-note">
+              Result: this is it. The aggression, the palette, the text placement, the
+              stencil quality. This version became the canonical visual grammar spec.
+              All future OKH P³™ visual assets use this as the reference document.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- VISUAL + ANALYSIS GRID -->
+        <div class="murderbird-grid">
+
+          <div class="murderbird-img-wrap">
+            <img
+              src="/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png"
+              alt="Mechanical raptor perched on a glowing retro CRT computer against horizontal industrial
+                   stripes with blueprint grid overlay. Jagged metal feathers, riveted armor plates,
+                   clawed talons, glowing orange cybernetic eyes. Text in staggered rows: OverKill /
+                   Hill P3, in distressed blood-orange stencil font at lower right."
+              loading="lazy"
+            />
+            <p class="murderbird-caption">
+              The OKH P³™ MurderBird. Not decorative. A compressed visual doctrine: part sentinel,
+              part scavenger, part overbuilt mascot. Patron creature of prompt overkill and protocol obsession.
+            </p>
+          </div>
+
+          <div>
+            <h3 style="margin-top: 0;">What the Image Actually Is</h3>
+            <p>
+              The MurderBird is not a logo. It is a visual argument. Every compositional decision maps
+              directly back to the OG manifesto statement. The blueprint grid is the protocol layer.
+              The horizontal stripes are categorical strata: physics, design, emotion, myth, and madness
+              stacked in visible order. The mechanical body is the tinkerer's instinct to disassemble
+              and reconstruct. The CRT is the old web being repurposed rather than replaced. The orange
+              glow is the only warmth in the frame, which is accurate.
+            </p>
+            <p>
+              The posture is not incidental either. The bird does not sit. It occupies. Its talons grip
+              the keyboard the way a pitbull grips the thing it decided to understand before letting go.
+            </p>
+            <p>
+              The MurderBird is not cute. It is the part of the forge that watches the output and asks
+              whether the system actually held.
+            </p>
+
+            <!-- P3 DUAL MEANING -->
+            <div style="margin-top: 1.5rem;">
+              <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-muted);">P³: what the exponent means</p>
+              <div class="p3-meaning-box">
+                <div class="p3-meaning-card">
+                  <h4>Brand tagline</h4>
+                  <p>Precision · Protocol · Promptcraft</p>
+                </div>
+                <div class="p3-meaning-card">
+                  <h4>Methodology</h4>
+                  <p>Protocol-Driven Power Prompts</p>
+                </div>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--color-muted);">
+                P³ is not P+P+P. It is cubic. The exponent marks the shift from surface to
+                structure, from flat understanding to volumetric seeing. Both meanings are
+                canonical. Neither replaces the other.
               </p>
-            </article>
+            </div>
+
+            <a href="/prompt-forge/" class="cross-link-callout" style="margin-top: 1.5rem;">
+              <span class="callout-icon">🔁</span>
+              <span class="callout-body">
+                <span class="callout-label">Related: Prompt Forge</span>
+                <span class="callout-title">Protocol-Driven Power Prompts</span>
+                <span class="callout-desc">
+                  The same iterative refinement process that built the MurderBird
+                  across three prompt iterations is the core method behind every
+                  P³-grade tool. The Prompt Forge documents how that works at scale.
+                </span>
+              </span>
+            </a>
+          </div>
+
         </div>
+
+        <!-- MURDERBIRD READS ITSELF -->
+        <div class="card" style="margin-top: 3rem;">
+          <h3 style="margin-top: 0;">The MurderBird Reads the Manifesto</h3>
+          <p>
+            The image was built from the manifesto. But the manifesto also reads the image.
+            A bullet-by-bullet match of the visual against the original OG statement, line by line.
+            The art was not designed to illustrate the words. The words came first and the art
+            followed independently. They arrived at the same place anyway.
+          </p>
+          <ul class="murderbird-reading-list">
+            <li>
+              <span class="reading-anchor-quote">
+                "Thousands of hours of nights and weekends..."
+              </span>
+              <p class="reading-body">
+                The dark, blueprint-lit palette captures the obsessive, sleep-deprived engineer at work.
+                Alone in a bunker of ideas, wire-clipping in the glow of cathode tubes. The whole image
+                feels like a workbench that never truly powers down. The ambient light is the color of
+                something still running at 2am.
+              </p>
+            </li>
+            <li>
+              <span class="reading-anchor-quote">
+                "Borderline autism spectrum disorder... ADHD hyperfocus..."
+              </span>
+              <p class="reading-body">
+                The mechanical MurderBird perched on ancient tech is the visual metaphor for
+                neurodivergent ferocity. It does not just sit. It hunts, repurposes, and dominates the
+                machine. A brain that does not turn off. That dissects reality with talons until the
+                pattern gives itself up.
+              </p>
+            </li>
+            <li>
+              <span class="reading-anchor-quote">
+                "Not a gamer. A tinkerer. Needs to take something apart..."
+              </span>
+              <p class="reading-body">
+                The CRT terminal, scarred and worn but repurposed into something dangerous, says this
+                is not nostalgia. This is surgical salvage. The gear-rigged bird looks built from
+                scraps, not for show, because building it from scraps was the only honest way to make it
+                real.
+              </p>
+            </li>
+            <li>
+              <span class="reading-anchor-quote">
+                "Enjoys astronomy, biology... lives and dies by metaphor and analogy..."
+              </span>
+              <p class="reading-body">
+                The layered schematics, stripes, and blueprint texture suggest a universe mapped, not
+                just observed. The stripes are not just color bands. They are categorical strata: physics,
+                design, emotion, myth, and madness stacked in visible sequence. Disciplined chaos.
+                A sky of gridlines and glyphs.
+              </p>
+            </li>
+            <li>
+              <span class="reading-anchor-quote">
+                "Pitbull latched onto an arm and won't let go..."
+              </span>
+              <p class="reading-body">
+                The bird does not sit politely. It owns the frame. Brutal, purpose-built, wired for
+                function, and impossible to ignore. Its talons clamp the keyboard the way a mind clamps
+                a problem it has decided to fully understand before releasing it. That is not aggression
+                for its own sake. That is how the work gets done.
+              </p>
+            </li>
+            <li>
+              <span class="reading-anchor-quote">
+                "Made possible by an incredibly understanding wife..."
+              </span>
+              <p class="reading-body">
+                There is something deeply solitary but focused about the composition, crafted in monastic
+                isolation with the only warmth in the frame being the orange glow against steel. The text
+                placement, the analog-digital collision, the soft light amid cold machine surfaces: it
+                reads like an emotional love letter disguised as a lab diagram. Which is an accurate
+                description of most of what happens at the Hill.
+              </p>
+            </li>
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- PROMPTCRAFT: recursive thinking cross-reference -->
+      <section class="content-section container reveal-on-scroll" id="promptcraft-connection" aria-labelledby="promptcraft-title">
+
         <header class="section-header">
-          <h2 id="refine">05. Everything is an invitation to refine</h2>
+          <a href="#promptcraft-connection" class="section-anchor-badge">#promptcraft-connection</a>
+          <h2 id="promptcraft-title">The Recursive Thinking Behind the Machine</h2>
+          <p>
+            The MurderBird prompt did not arrive fully formed. It took three iterations, each one
+            tightening the brief, correcting the posture, specifying what "wrong" meant so the next
+            pass could be more right. That process is not incidental to what OverKill Hill P³™ is.
+            That process IS what OverKill Hill P³™ is.
+          </p>
         </header>
-        <div class="about-grid">
-          <article class="card">
+
+        <div class="card">
+          <p>
+            Every system built under the P³™ framework follows the same iterative logic that produced
+            the MurderBird. You do not write the perfect prompt on the first pass. You write something
+            that reveals what was unclear, then you tighten it. Then you tighten it again. Then you
+            sit with it and decide whether it has earned the right to call itself done.
+          </p>
+          <p>
+            This is not how most people use AI. Most people type once and accept whatever arrives.
+            The first answer is often useful. It is rarely the answer. It is ore, not steel. It still
+            needs pressure, heat, questioning, comparison, and sometimes a complete trip back through
+            the furnace before it becomes something load-bearing.
+          </p>
+
+          <div class="pull-quote-okh">
             <p>
-            The Hill is not a monument. It’s a forge. Every project is a chance to
-            learn, refactor and tighten the protocols that hold everything together.
+              A prompt is not a question. A protocol is not a suggestion.
+              Promptcraft is protocol design: behavioral specifications with defined inputs, outputs, failure modes, and expectations.
+              All explicit. No vibes-only scaffolding.
             </p>
-          </article>
+          </div>
+
+          <p>
+            The P³ in OverKill Hill P³™ has always carried two simultaneous meanings, both canonical.
+            Precision, Protocol, Promptcraft: the brand tagline, the three-part operating doctrine.
+            Protocol-Driven Power Prompts: the underlying methodology, the architectural approach to
+            treating prompts the way an engineer treats a system specification.
+          </p>
+          <p>
+            These are not in conflict. They describe the same thing from two angles. The exponent is
+            not three separate Ps stacked. It is cubic. Dimensional. Depth that generates its own light.
+          </p>
+          <p>
+            The Prompt Forge is where this methodology lives at full resolution: the ledgers, the
+            schemas, the naming conventions, the lifecycle stages, the reusability patterns, and the
+            recursive audit loops that make prompts compounds rather than single-use artifacts.
+          </p>
+
+          <a href="/prompt-forge/" class="cross-link-callout">
+            <span class="callout-icon">⚙️</span>
+            <span class="callout-body">
+              <span class="callout-label">Go deeper: Prompt Forge</span>
+              <span class="callout-title">The OKHP³™ Prompt Forge</span>
+              <span class="callout-desc">
+                Protocol-Driven Power Prompts at full specification: versioned prompt architectures,
+                named protocols, recursive audit patterns, and the ledger system that keeps the canon
+                intact across every tool and thread.
+              </span>
+            </span>
+          </a>
+
+          <p style="margin-top: 1.5rem;">
+            The manifesto and the Prompt Forge point at the same wall from opposite sides of the same
+            room. The manifesto is the doctrine. The Forge is the practice. Neither is complete
+            without the other.
+          </p>
+          <p>
+            The MurderBird was built using the Forge method: start with an imprecise brief, let the
+            output reveal the gaps, tighten the spec, generate again. Three iterations from crow to
+            raptor. That is the hill in miniature. That is what happens when you treat every output
+            as a first draft and every first draft as material for the second.
+          </p>
+        </div>
+
+      </section>
+
+      <!-- THE LINE: canonical above, living below -->
+      <section class="content-section container" id="living-divider">
+        <div class="manifesto-divider-wrap">
+          <div class="manifesto-divider-inner">
+            <span class="manifesto-divider-label">Below this line, the manifesto lives</span>
+            <h2>The Canon Ends. The Living Hill Begins.</h2>
+            <p>
+              Everything above this line is locked as origin, visual canon, and generational record.
+              Everything below is intentionally in flux: extended, revised, and expanded as the forge
+              stays hot. The seed phrase does not change. Everything else earns its place.
+            </p>
+            <div class="manifesto-divider-actions">
+              <a href="#top" class="btn btn-quiet">Back to the top</a>
+              <a href="#living-manifesto" class="btn btn-primary">Enter the Living Manifesto</a>
+            </div>
+          </div>
         </div>
       </section>
+
+      <!-- LIVING MANIFESTO: 12 principles + sidebar TOC -->
+      <div class="content-section" id="living-manifesto">
+        <div class="container">
+
+          <header class="section-header" style="margin-bottom: 2.5rem;">
+            <a href="#living-manifesto" class="section-anchor-badge">#living-manifesto</a>
+            <h2>The Living OverKill Hill P³™ Manifesto</h2>
+            <p>
+              Not a company values page. Not brand brochure copy. The field manual for how OverKill
+              Hill P³™ thinks about prompts, systems, AI, and the humans using all of it.
+              Twelve load-bearing principles. One refusal to confuse fast with finished.
+              12+ minute read.
+            </p>
+          </header>
+
+          <div class="manifesto-layout">
+
+            <!-- MAIN CONTENT -->
+            <article>
+
+              <!-- INTRO -->
+              <div class="principle-block" id="intro-overkill">
+                <div class="pull-quote-okh" style="margin-bottom: 1.5rem;">
+                  <p>Some people hear "overkill" and think waste. I hear discipline.</p>
+                </div>
+                <p>
+                  I hear the refusal to stop at the first answer just because it arrived quickly.
+                  I hear the unwillingness to confuse clean with correct, simple with true, or efficient
+                  with finished. I hear the part of me that looks at a half-built thought, a lazy diagram,
+                  a brittle prompt, a duct-taped workflow and says:
+                </p>
+                <p><em>No. Not yet.</em></p>
+                <p>
+                  That is not overkill. That is care with its sleeves rolled up.
+                </p>
+                <p>
+                  OverKill Hill P³™ exists because I do not believe the first version of almost anything
+                  is usually good enough. The first answer is often useful. The first diagram may be
+                  persuasive. The first prompt may produce something shiny.
+                </p>
+                <p>
+                  Useful is not final. Persuasive is not honest. Shiny is not structurally sound.
+                  And intelligent-sounding is where a lot of bad work hides.
+                </p>
+              </div>
+
+              <!-- PRINCIPLE 01 -->
+              <div class="principle-block" id="not-minimalism">
+                <span class="principle-number">Principle 01</span>
+                <h3>This Is Not Minimalism</h3>
+                <p>
+                  Minimalism has its place. So does restraint. So does elegance. So does the beautiful
+                  little sentence that lands exactly where it should.
+                </p>
+                <p>
+                  But somewhere along the way, too many people confused "simple" with "done." They
+                  cut the context, then called it clarity. They removed the nuance, then called it
+                  strategy. They flattened the human, then called it professional. They deleted the
+                  weird part, the useful part, the hard-earned part, the part that actually explained
+                  why the thing mattered, and then wondered why the result sounded like every other
+                  beige rectangle on the internet.
+                </p>
+                <div class="pull-quote-okh">
+                  <p>OverKill Hill P³™ is not anti-simple. It is anti-premature-simple.</p>
+                </div>
+                <p>
+                  There is a difference. A mature system can become simple after it has survived contact
+                  with complexity. A weak system starts simple because nobody did the hard work of
+                  understanding what needed to be preserved. Mature simplicity is earned. Weak simplicity
+                  is deletion with better branding.
+                </p>
+                <p>
+                  Overkill is not excess. It is responsibility under load. When the stakes are real,
+                  "good enough" is a liability. When people lean on a system, it owes them more than a
+                  shrug and a first draft.
+                </p>
+              </div>
+
+              <!-- PRINCIPLE 02 -->
+              <div class="principle-block" id="first-answer">
+                <span class="principle-number">Principle 02</span>
+                <h3>The First Answer Is Usually a Draft</h3>
+                <p>
+                  AI made first drafts cheap. That is useful. It is also dangerous.
+                </p>
+                <p>
+                  Because when something appears quickly, cleanly, and confidently, people are tempted
+                  to treat it like a finished artifact instead of what it usually is: a plausible
+                  opening move.
+                </p>
+                <div class="pull-quote-okh">
+                  <p>The first answer is not the answer. The first answer is the material. It is ore, not steel.</p>
+                </div>
+                <p>
+                  It still needs pressure, heat, questioning, comparison, contradiction, failure, salvage,
+                  and sometimes a complete trip back through the furnace. That is promptcraft. Not typing
+                  a clever sentence into a box. Not asking for "make it better" seven times and hoping
+                  the machine develops taste.
+                </p>
+                <p>
+                  Promptcraft is the discipline of shaping thought through language, constraints, context,
+                  iteration, and judgment. The prompt is not the magic. The human judgment around the
+                  prompt is the craft.
+                </p>
+                <a href="/prompt-forge/" class="cross-link-callout">
+                  <span class="callout-icon">⚒️</span>
+                  <span class="callout-body">
+                    <span class="callout-label">Applied here: Prompt Forge</span>
+                    <span class="callout-title">Promptcraft at full resolution</span>
+                    <span class="callout-desc">
+                      The Prompt Forge documents how to treat prompts as protocols with versions,
+                      contracts, and failure handlers. The same methodology that took the MurderBird
+                      from crow to raptor in three iterations.
+                    </span>
+                  </span>
+                </a>
+              </div>
+
+              <!-- PRINCIPLE 03 -->
+              <div class="principle-block" id="words-infrastructure">
+                <span class="principle-number">Principle 03</span>
+                <h3>Words Are Infrastructure</h3>
+                <p>
+                  I care about words because words become systems.
+                </p>
+                <p>
+                  A sloppy sentence becomes a sloppy requirement. A sloppy requirement becomes a sloppy
+                  workflow. A sloppy workflow becomes a brittle tool. A brittle tool becomes a support
+                  ticket, a workaround, a meeting, a spreadsheet, a shadow process, and eventually a mess
+                  that everyone quietly hates but nobody has time to fix.
+                </p>
+                <div class="pull-quote-okh">
+                  <p>Words are not decoration. Words are upstream architecture. If the words are vague, the system inherits the fog.</p>
+                </div>
+                <p>
+                  They define what the machine believes it is supposed to do. They define what a team
+                  thinks it agreed to build. They define what a customer thinks they were promised. They
+                  define what an AI system retrieves, summarizes, ignores, hallucinates, or distorts.
+                </p>
+                <p>
+                  If the words are lazy, the work becomes expensive later. If the words are precise,
+                  the machine has a fighting chance.
+                </p>
+                <p>
+                  Return on Your Words. That is the metric. How much understanding does a given investment
+                  of words actually deliver? A vague paragraph that spawns a week of clarifying conversations
+                  is a catastrophic ROY score. A precise brief that unlocks ten hours of uninterrupted
+                  execution is what precision actually costs and what it actually saves.
+                </p>
+                <a href="/writings/first-diagram-is-a-liar/#roy" class="cross-link-callout">
+                  <span class="callout-icon">📐</span>
+                  <span class="callout-body">
+                    <span class="callout-label">In the article</span>
+                    <span class="callout-title">ROY: Return on Your Words</span>
+                    <span class="callout-desc">
+                      The full ROY framework: how to measure whether your prompts, briefs, and diagrams
+                      are actually compounding understanding or just generating motion.
+                    </span>
+                  </span>
+                </a>
+              </div>
+
+              <!-- PRINCIPLE 04 -->
+              <div class="principle-block" id="ai-power-tool">
+                <span class="principle-number">Principle 04</span>
+                <h3>AI Is a Power Tool, Not a Priest</h3>
+                <p>
+                  I do not worship AI. I use it. That distinction matters.
+                </p>
+                <p>
+                  AI can accelerate thought, expose options, challenge phrasing, generate variants,
+                  simulate reviewers, compress research, draft diagrams, and help one person punch above
+                  their weight class.
+                </p>
+                <p>
+                  It can also hallucinate with excellent posture. It can agree too easily. It can sand
+                  the personality off an idea until the result sounds safe, sterile, and dead behind the
+                  eyes. It can produce something that looks finished long before it has earned that status.
+                </p>
+                <div class="pull-quote-okh">
+                  <p>I treat AI like a table saw. Powerful. Useful. Dangerous when handled casually. Better with guards. Better with skill. Better when the operator respects what can go wrong.</p>
+                </div>
+                <p>
+                  Not an oracle. Not a priest. A tool with a specific set of affordances, a specific set
+                  of failure modes, and a specific requirement that the human using it knows both.
+                </p>
+              </div>
+
+              <!-- PRINCIPLE 05 -->
+              <div class="principle-block" id="council-oracle">
+                <span class="principle-number">Principle 05</span>
+                <h3>The Council Beats the Oracle</h3>
+                <p>
+                  One model gives you an answer. A council gives you contrast.
+                </p>
+                <p>
+                  That is why I like running ideas through multiple systems, voices, reviewers, diagrams,
+                  and interpretations. Not because more output automatically means better output. It does
+                  not. More output can just mean a larger landfill.
+                </p>
+                <div class="pull-quote-okh">
+                  <p>The value is in the disagreement. The council is not there to vote. The council is there to reveal the shape of the problem.</p>
+                </div>
+                <p>
+                  The value is in watching where one model simplifies, another expands, another misses
+                  the point, another finds the hidden hinge, and another accidentally tells the truth by
+                  failing in an interesting way.
+                </p>
+                <p>
+                  The human still has to judge. That is the part nobody gets to outsource.
+                </p>
+                <a href="/writings/first-diagram-is-a-liar/#council-scoring" class="cross-link-callout">
+                  <span class="callout-icon">🤖</span>
+                  <span class="callout-body">
+                    <span class="callout-label">See it in action</span>
+                    <span class="callout-title">The Council Scores the Field</span>
+                    <span class="callout-desc">
+                      The Council of AIs scored each other's diagramming performance -- every model
+                      was harder on itself than the architect was. This is what happens when you
+                      run the council instead of trusting the oracle.
+                    </span>
+                  </span>
+                </a>
+              </div>
+
+              <!-- PRINCIPLE 06 -->
+              <div class="principle-block" id="diagrams-pay-rent">
+                <span class="principle-number">Principle 06</span>
+                <h3>Diagrams Must Pay Rent</h3>
+                <p>
+                  A diagram is not automatically clearer than prose. Sometimes the first diagram is just
+                  a lie with arrows.
+                </p>
+                <p>
+                  It looks organized because boxes are obedient. It looks logical because lines imply
+                  causality. It looks strategic because someone used a clean palette and a confident title.
+                </p>
+                <div class="pull-quote-okh">
+                  <p>A diagram that hides loops, exceptions, tradeoffs, handoffs, ambiguity, or human friction is not clarity. It is interior decorating.</p>
+                </div>
+                <p>
+                  A good diagram pays back the words spent creating it. It reduces cognitive load. It
+                  preserves the truth of the problem. It helps people see what was previously trapped in
+                  paragraphs, meetings, assumptions, or vibes.
+                </p>
+                <p>
+                  A picture is only worth the words it saves, the ambiguity it kills, and the momentum
+                  it creates. If a diagram cannot do that, it does not deserve the slide.
+                </p>
+                <a href="/writings/first-diagram-is-a-liar/" class="cross-link-callout">
+                  <span class="callout-icon">📐</span>
+                  <span class="callout-body">
+                    <span class="callout-label">Related article</span>
+                    <span class="callout-title">The First Diagram Is Usually a Liar</span>
+                    <span class="callout-desc">
+                      The ROY formula (Return on Your Words), the Council of AIs diagramming
+                      shootout, and why the first clean flowchart is almost always a premature
+                      lie. Full argument with the receipts.
+                    </span>
+                  </span>
+                </a>
+              </div>
+
+              <!-- PRINCIPLE 07 -->
+              <div class="principle-block" id="systems-need-soul">
+                <span class="principle-number">Principle 07</span>
+                <h3>Systems Need Soul</h3>
+                <p>
+                  I build systems because systems protect intent. But systems without soul become
+                  bureaucracy. Soul without systems becomes vibes. I want both.
+                </p>
+                <p>
+                  I want the ledger and the metaphor. The schema and the sentence. The naming convention
+                  and the grin. The governance model and the weird little phrase that makes the whole
+                  thing feel alive.
+                </p>
+                <div class="pull-quote-okh">
+                  <p>Precision keeps the work sharp. Protocol keeps the work repeatable. Promptcraft keeps the work human enough to matter.</p>
+                </div>
+                <p>
+                  That is why OverKill Hill P³™ has all three. And why the cubic exponent is not
+                  decoration. It is a topology of cognition: perception, process, and protocol raised
+                  to depth.
+                </p>
+              </div>
+
+              <!-- PRINCIPLE 08 -->
+              <div class="principle-block" id="joy-discipline">
+                <span class="principle-number">Principle 08</span>
+                <h3>Joy Is Not the Enemy of Discipline</h3>
+                <p>
+                  Glee-fully Personalizable Tools exists because productivity does not have to feel like
+                  punishment.
+                </p>
+                <div class="pull-quote-okh">
+                  <p>Joy is not fluff. Joy is adoption strategy.</p>
+                </div>
+                <p>
+                  If a tool makes people feel stupid, tired, scolded, or unseen, they will avoid it
+                  unless forced. If a tool feels clear, kind, useful, and a little alive, people come
+                  back. That is not childish. That is design.
+                </p>
+                <p>
+                  Glee-fully takes the same architectural discipline behind OverKill Hill and turns it
+                  toward ordinary life: careers, collections, meals, travel, organization, wellness, and
+                  identity. It proves that structure does not need to be gray to be serious. Productivity
+                  without pressure. Structure without stiffness. Technology that sparkles, not shouts.
+                  The butterfly may be cute. The wings are engineered.
+                </p>
+              </div>
+
+              <!-- PRINCIPLE 09 -->
+              <div class="principle-block" id="governance-scale">
+                <span class="principle-number">Principle 09</span>
+                <h3>Governance Is How Meaning Survives Scale</h3>
+                <p>
+                  People hear governance and think handcuffs. I hear load-bearing structure.
+                </p>
+                <p>
+                  Without governance, a system starts drifting the moment it grows. Names mutate. Tone
+                  slips. Files fork. Prompts contradict each other. A useful experiment becomes a junk
+                  drawer with a logo.
+                </p>
+                <div class="pull-quote-okh">
+                  <p>Meaning decays when nobody maintains it. Good governance does not kill creativity. It keeps creativity from becoming landfill.</p>
+                </div>
+                <p>
+                  That is why I care about ledgers, schemas, naming laws, lifecycle tags, reusable
+                  patterns, and canon. Not because I enjoy administrative theater. Because the larger the
+                  ecosystem gets, the more it needs rules that protect the original intent without
+                  suffocating future invention.
+                </p>
+              </div>
+
+              <!-- PRINCIPLE 10 -->
+              <div class="principle-block" id="refuses-flatten">
+                <span class="principle-number">Principle 10</span>
+                <h3>Build the Thing That Refuses to Flatten You</h3>
+                <p>
+                  AskJamie began with a problem I could not shake: what if a resume could talk?
+                </p>
+                <p>
+                  Not because resumes are bad, but because they are brutally compressed. They take a
+                  person with history, pattern, judgment, scars, taste, projects, failures, pivots, and
+                  hard-won context, then squeeze all of that into a page that pretends compression is
+                  the same as clarity.
+                </p>
+                <p>
+                  AskJamie pushes back. It exists to unfold depth, personality, and clarity in digital
+                  communication, helping people and organizations speak in full color, not grayscale.
+                </p>
+                <div class="pull-quote-okh">
+                  <p>The future is going to keep asking humans to compress themselves for machines. I am interested in the opposite.</p>
+                </div>
+                <p>
+                  I want machines that help humans expand without becoming noise. I want tools that
+                  preserve depth instead of shaving it off for convenience.
+                </p>
+              </div>
+
+              <!-- PRINCIPLE 11 -->
+              <div class="principle-block" id="what-okh-is">
+                <span class="principle-number">Principle 11</span>
+                <h3>What OverKill Hill P³™ Actually Is</h3>
+                <p>
+                  OverKill Hill P³™ is a forge for the kind of work that refuses to stay flat.
+                </p>
+                <p>
+                  Part brand, part lab, part writing desk, part diagram shop, part promptcraft foundry,
+                  part systems architecture notebook, and part stubborn personal doctrine.
+                </p>
+                <div class="pull-quote-okh">
+                  <p>It is where prompts become tools, tools become systems, systems become brands, brands become trust, and trust becomes leverage.</p>
+                </div>
+                <p>
+                  And how one person, using modern AI with enough stubbornness and structure, can build
+                  things that used to require a department, a budget cycle, a committee, and three
+                  meetings nobody wanted.
+                </p>
+                <p>
+                  OverKill Hill is not about doing more for the sake of more. It is about doing enough
+                  that the thing finally becomes what it was trying to be.
+                </p>
+              </div>
+
+              <!-- PRINCIPLE 12: THE LINE -->
+              <div class="principle-block" id="line-in-concrete">
+                <span class="principle-number">Principle 12</span>
+                <h3>The Line in the Concrete</h3>
+                <p>
+                  This is my statement of intent.
+                </p>
+                <p>
+                  I would rather overbuild the scaffold than watch the roof collapse. I would rather
+                  revise the sentence until it carries weight than publish something hollow because it
+                  was "good enough." I would rather ask the second, third, fourth, and fifth question
+                  than mistake the first answer for truth. I would rather make the system strange,
+                  specific, and alive than sand it into something nobody can object to and nobody
+                  can remember.
+                </p>
+                <p>
+                  That is the hill. That is the work.
+                </p>
+                <p>
+                  Ralph did it on necessity. Vyrle did it on ambition. I am doing it on intention.
+                </p>
+                <p>
+                  The intention is this: build systems that outlast the hours that made them. Create
+                  leverage where there used to be just labor. Leave behind infrastructure instead of
+                  just effort. Make the thing worth doing, then overdo it until it becomes what it
+                  was always trying to be.
+                </p>
+              </div>
+
+              <!-- CLOSING -->
+              <div class="manifesto-closing">
+                <p style="color: var(--color-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">
+                  Precision · Protocol · Promptcraft
+                </p>
+                <p class="closing-tagline">
+                  If something is worth doing, it is worth overdoing.
+                </p>
+                <p class="closing-final">
+                  Yeah, but what if we built it better?
+                </p>
+                <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                  <a href="/projects/" class="btn btn-primary">Explore the forge</a>
+                  <a href="/writings/first-diagram-is-a-liar/" class="btn btn-quiet">The First Diagram Is a Liar</a>
+                  <a href="/prompt-forge/" class="btn btn-quiet">The Prompt Forge</a>
+                  <a href="/contact/" class="btn btn-quiet">Contact OverKill Hill</a>
+                </div>
+              </div>
+
+            </article>
+
+            <!-- SIDEBAR TOC -->
+            <aside class="manifesto-sidebar" aria-label="Table of contents">
+              <div class="sidebar-toc-box">
+                <h4>On This Page</h4>
+                <ul class="toc-manifesto" id="toc-list">
+                  <li><span class="toc-section-label">Origin</span></li>
+                  <li><a href="#og-manifesto">The First Statement</a></li>
+                  <li><a href="#the-forge-before">The Fires Were Already Burning</a></li>
+                  <li><a href="#murderbird-genesis">The MurderBird</a></li>
+                  <li><a href="#promptcraft-connection">The Recursive Thinking</a></li>
+                  <li><span class="toc-section-label">The Manifesto</span></li>
+                  <li><a href="#intro-overkill">If Something Is Worth Doing...</a></li>
+                  <li><a href="#not-minimalism">01: Not Minimalism</a></li>
+                  <li><a href="#first-answer">02: First Answer Is a Draft</a></li>
+                  <li><a href="#words-infrastructure">03: Words Are Infrastructure</a></li>
+                  <li><a href="#ai-power-tool">04: AI Is a Power Tool</a></li>
+                  <li><a href="#council-oracle">05: Council Beats Oracle</a></li>
+                  <li><a href="#diagrams-pay-rent">06: Diagrams Must Pay Rent</a></li>
+                  <li><a href="#systems-need-soul">07: Systems Need Soul</a></li>
+                  <li><a href="#joy-discipline">08: Joy and Discipline</a></li>
+                  <li><a href="#governance-scale">09: Governance at Scale</a></li>
+                  <li><a href="#refuses-flatten">10: Refuses to Flatten You</a></li>
+                  <li><a href="#what-okh-is">11: What OKH P³™ Is</a></li>
+                  <li><a href="#line-in-concrete">12: The Line in the Concrete</a></li>
+                </ul>
+              </div>
+            </aside>
+
+          </div><!-- /.manifesto-layout -->
+        </div><!-- /.container -->
+      </div><!-- /#living-manifesto -->
+
     </main>
 
     <footer class="site-footer">
@@ -336,35 +1586,80 @@
         </div>
       </div>
       <div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
-        <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a></span>
+        <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a></span>
         <p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³™. All rights reserved.</p>
         <span></span>
       </div>
     </footer>
 
     <script src="/assets/js/app.js"></script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "OverKill Hill P³™",
-        "url": "https://overkillhill.com",
-        "description": "OverKill Hill P³™ is the digital forge where custom GPT systems are architected, tempered and polished for real-world performance.",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://overkillhill.com/search/?q={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
+
+    <script>
+      /* Reading progress bar */
+      (function () {
+        var bar = document.getElementById('reading-progress');
+        if (!bar) return;
+        function update() {
+          var doc = document.documentElement;
+          var top = doc.scrollTop || document.body.scrollTop;
+          var height = doc.scrollHeight - doc.clientHeight;
+          bar.style.width = height ? Math.min(100, (top / height) * 100) + '%' : '0%';
         }
-      }
+        window.addEventListener('scroll', update, { passive: true });
+        update();
+      })();
+
+      /* TOC scrollspy */
+      (function () {
+        var links = Array.from(document.querySelectorAll('#toc-list a'));
+        if (!links.length) return;
+        var ids = links.map(function (a) { return a.getAttribute('href').replace('#', ''); });
+        var targets = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+        function setActive() {
+          var triggerY = window.scrollY + window.innerHeight * 0.22;
+          var activeId = null;
+          targets.forEach(function (el) {
+            if (el.getBoundingClientRect().top + window.scrollY <= triggerY) activeId = el.id;
+          });
+          links.forEach(function (a) {
+            a.classList.toggle('toc-active', a.getAttribute('href').replace('#', '') === activeId);
+          });
+        }
+        window.addEventListener('scroll', setActive, { passive: true });
+        setTimeout(setActive, 100);
+      })();
+
+      /* Auto-year in footer */
+      var yearEl = document.getElementById('current-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Manifesto of OKHP³™",
+      "description": "Three generations of overdoing things. Twelve load-bearing principles. One refusal to confuse fast with finished, simple with true, or clean with correct.",
+      "author": {
+        "@type": "Person",
+        "name": "Jamie Hill",
+        "url": "https://www.linkedin.com/in/jamiehill75"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "OverKill Hill P³™",
+        "url": "https://overkillhill.com"
+      },
+      "datePublished": "2025-02-01",
+      "dateModified": "2026-05-28",
+      "url": "https://overkillhill.com/manifesto/",
+      "image": "https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png"
+    }
     </script>
 
     <script type="module">
       import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
 
-      // Pull final, brand-specific tokens (OKH / AskJamie / Glee) from computed styles
       const styles = getComputedStyle(document.body);
 
       const surface = styles.getPropertyValue("--color-surface").trim() || "#111827";
@@ -378,14 +1673,14 @@
 
       mermaid.initialize({
         startOnLoad: true,
-        securityLevel: "loose",   // required for clickable links in diagrams
-        theme: "base",            // modifiable theme
+        securityLevel: "loose",
+        theme: "base",
         themeVariables: {
-          primaryColor: surface,        // node background
+          primaryColor: surface,
           primaryTextColor: fg,
           primaryBorderColor: accent,
           lineColor: accent,
-          secondaryColor: surfaceSoft,  // secondary fills / highlights
+          secondaryColor: surfaceSoft,
           tertiaryColor: surfaceSoft,
           textColor: fg,
           fontFamily: fontBody,
