@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 80,
+  "count": 83,
   "entries": [
     {
       "url": "/",
@@ -792,6 +792,15 @@
       "parent": "/projects/bpmn-for-mermaid/"
     },
     {
+      "url": "/projects/bpmn-for-mermaid/#get-started",
+      "title": "Get Started — BPMN for Mermaid | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Get Started ▶ Try the Playground ⬡ Explore Agent Skills ◻ View on GitHub Live playground on GitHub Pages. No install, no login. </div",
+      "headings": [],
+      "body": "Get Started ▶ Try the Playground ⬡ Explore Agent Skills ◻ View on GitHub Live playground on GitHub Pages. No install, no login. </div",
+      "parent": "/projects/bpmn-for-mermaid/"
+    },
+    {
       "url": "/projects/bpmn-for-mermaid/#honest-scope",
       "title": "What this is — and isn't — BPMN for Mermaid | OverKill Hill P³™",
       "category": "Project",
@@ -816,6 +825,15 @@
       "description": "Current Prototype Status What's working, what's not ✓ Supports core BPMN primitives in the playground — start/end events, tasks, gateways, sequence flows.",
       "headings": [],
       "body": "Current Prototype Status What's working, what's not ✓ Supports core BPMN primitives in the playground — start/end events, tasks, gateways, sequence flows. ✓ Uses a hand-written prototype parser (line-by-line, not Langium). ✓ Renders SVG directly, with no bpmn-js dependency. ⚠ Pool/lane/message-flow support is experimental — verify output in the playground before relying on it. ○ Langium grammar, Mermaid External Diagram API packaging, parser validation, and getStyles integration are roadmap items — not yet implemented. ✓ BP-SKILL v0.3 agent skill suite -- 15 SKILL.md files, 9 variable layer templates, Process Narrative Specification schema, eval suite. Compatible with all Agent Skills-conformant platforms.",
+      "parent": "/projects/bpmn-for-mermaid/"
+    },
+    {
+      "url": "/projects/bpmn-for-mermaid/#related-resources",
+      "title": "Related Resources — BPMN for Mermaid | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Related Mermaid Theme Builder ↗ Mermaid.js Theming Docs ↗ BPMN.org ↗ OMG BPMN 2.0 Spec ↗ Mermaid GitHub ↗ All OverKill Hill Projects </div",
+      "headings": [],
+      "body": "Related Mermaid Theme Builder ↗ Mermaid.js Theming Docs ↗ BPMN.org ↗ OMG BPMN 2.0 Spec ↗ Mermaid GitHub ↗ All OverKill Hill Projects </div",
       "parent": "/projects/bpmn-for-mermaid/"
     },
     {
@@ -935,6 +953,15 @@
       "description": "Features What the builder does ⚡ Live Diagram Preview Every color change reflects instantly across multiple diagram types — flowchart, sequence, class, Gantt, and more. What you see is what you get.",
       "headings": [],
       "body": "Features What the builder does ⚡ Live Diagram Preview Every color change reflects instantly across multiple diagram types — flowchart, sequence, class, Gantt, and more. What you see is what you get. ⟳ Diagram Family Detection Automatically identifies your diagram type and applies family-appropriate transformations. Not all Mermaid families behave the same — the tool knows the difference. &lt;/&gt; Multi-Format Export Export as a complete themeVariables block, a Markdown style bootstrap you paste before any diagram, or a model-specific LLM prompt scaffold. ◎ Prompt Scaffold Generator Generates LLM-ready prompt prefixes with your theme embedded. AI tools produce on-brand Mermaid on the first try — no follow-up styling cycles needed.",
+      "parent": "/projects/mermaid-theme-builder/"
+    },
+    {
+      "url": "/projects/mermaid-theme-builder/#related-resources",
+      "title": "Related Resources — Mermaid Theme Builder | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Related Resources Live App — Compose Tab ↗ Live App — Apply Tab ↗ GitHub Repository ↗ SKILL.md Source ↗ BPMN for Mermaid (sibling) Mermaid.js Theming Docs ↗ themeVariables Reference ↗ The First Diagram is a Liar All…",
+      "headings": [],
+      "body": "Related Resources Live App — Compose Tab ↗ Live App — Apply Tab ↗ GitHub Repository ↗ SKILL.md Source ↗ BPMN for Mermaid (sibling) Mermaid.js Theming Docs ↗ themeVariables Reference ↗ The First Diagram is a Liar All OverKill Hill Projects </div",
       "parent": "/projects/mermaid-theme-builder/"
     },
     {
