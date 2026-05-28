@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 83,
+  "count": 86,
   "entries": [
     {
       "url": "/",
@@ -876,6 +876,15 @@
       "body": "Skip to main content OverKill Hill P³™ › Projects › Mac Studio Local AI Workbench ✅ Baseline complete · 2026-05-12 · Updated 2026-05-13 Mac Studio Local AI Workbench Production-grade personal AI workstation — local-first, governed, documented, and restorable. Built in 10 days on Apple Silicon. M4 Max 36GB unified memory 512GB internal SSD 1TB OKH-Local NVMe macOS Sequoia 10 local models 11 MCP servers 1 autonomous agent ✅ BASELINE COMPLETE — Build finished, normalized, benchmarked, and archived on 2026-05-12. System is in a known-good, restorable state."
     },
     {
+      "url": "/projects/mac-studio-local-ai-workbench/#decisions",
+      "title": "Key Decisions — Mac Studio Local AI Workbench | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Architecture Key Decisions Default runtime Ollama for API/headless, LM Studio for GUI/MLX testing, mlx-lm for max performance Daily driver models phi4:14b (speed) · gemma3:27b (quality) · codestral:22b (code) Model…",
+      "headings": [],
+      "body": "Architecture Key Decisions Default runtime Ollama for API/headless, LM Studio for GUI/MLX testing, mlx-lm for max performance Daily driver models phi4:14b (speed) · gemma3:27b (quality) · codestral:22b (code) Model policy Western-lab only — Meta, Google, Mistral, Microsoft. No Chinese cloud services. Token governance Local models → Notion AI → Claude/ChatGPT base → Perplexity/Copilot → Replit (spec must be complete first) Git workflow Primary commits from Replit, Claude Code, Codex, Mac Studio. Secondary machine is read-mostly via OneDrive sync. Directory conventions All model weights on OKH-Local external NVMe. Repos in OneDrive OKH folder. Workspace file at OKH root. </div",
+      "parent": "/projects/mac-studio-local-ai-workbench/"
+    },
+    {
       "url": "/projects/mac-studio-local-ai-workbench/#links",
       "title": "Build Your Own — Mac Studio Local AI Workbench | OverKill Hill P³™",
       "category": "Project",
@@ -891,6 +900,24 @@
       "description": "Autonomous Agent Tier Meet Larry Larry is an OpenClaw autonomous agent running on the Mac Studio M4 Max. He doesn't wait for a prompt.",
       "headings": [],
       "body": "Autonomous Agent Tier Meet Larry Larry is an OpenClaw autonomous agent running on the Mac Studio M4 Max. He doesn't wait for a prompt. He runs in the background, starts at login, and handles the zero-cost tier of the Council of AIs workflow: background tasks, Apple Notes, Reminders, file operations, RAG queries, scheduled jobs, and first-pass summarization. The baseline stack — Ollama, LM Studio, Open WebUI, mlx-lm — is infrastructure. Open WebUI is a chat interface. You open it, you type, you get a response. Larry is something different. The original Larry the Lobster — SpongeBob's friend from Bikini Bottom — was the lifeguard at Goo Lagoon. He was the only thing standing between the residents and a watery grave.",
+      "parent": "/projects/mac-studio-local-ai-workbench/"
+    },
+    {
+      "url": "/projects/mac-studio-local-ai-workbench/#quick-facts",
+      "title": "Quick Facts — Mac Studio Local AI Workbench | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Quick Facts Machine Mac Studio M4 Max (2025) Memory 36GB unified memory Storage 512GB internal SSD 1TB WD Black SN7100 NVMe (via Satechi Stand Hub, mounted as /Volumes/OKH-Local ) macOS Sequoia (latest · 2026-05-04)…",
+      "headings": [],
+      "body": "Quick Facts Machine Mac Studio M4 Max (2025) Memory 36GB unified memory Storage 512GB internal SSD 1TB WD Black SN7100 NVMe (via Satechi Stand Hub, mounted as /Volumes/OKH-Local ) macOS Sequoia (latest · 2026-05-04) Build window 2026-05-03 → 2026-05-12 (10 days) Status ✅ Baseline complete Primary goals Local LLMs · MCP orchestration · RAG corpus · Council of AIs workflow Models 10 local models MCP servers 11 active in Claude Desktop Max throughput 139 tok/s North star Production-grade personal AI workstation — functional, governed, documented, restorable </aside",
+      "parent": "/projects/mac-studio-local-ai-workbench/"
+    },
+    {
+      "url": "/projects/mac-studio-local-ai-workbench/#stack",
+      "title": "Core Toolchain — Mac Studio Local AI Workbench | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Environment Blueprint Core Toolchain Homebrew 5.1.8 Git (Homebrew) 2.54.0 Python 3.14.4 Node.js / npm 26.0.0 / 11.12.1 GitHub CLI 2.92.0 Docker Desktop 4.72.0 mlx-lm 0.31.3 AI Runtimes Ollama 0.23.1 · MLX + Flash…",
+      "headings": [],
+      "body": "Environment Blueprint Core Toolchain Homebrew 5.1.8 Git (Homebrew) 2.54.0 Python 3.14.4 Node.js / npm 26.0.0 / 11.12.1 GitHub CLI 2.92.0 Docker Desktop 4.72.0 mlx-lm 0.31.3 AI Runtimes Ollama 0.23.1 · MLX + Flash Attention + q8_0 KV cache LM Studio 0.4.12 · MLX v1.6.0 backend · server port 1234 Open WebUI Docker · localhost:3000 · updated 2026-05-13 mlx-lm 0.31.3 · 139 tok/s on Phi-4 mini Storage Architecture Ollama models /Volumes/OKH-Local/07_Local_LLMs/ollama/models LM Studio models /Volumes/OKH-Local/07_Local_LLMs/lm-studio/models HuggingFace cache /Volumes/OKH-Local/07_Local_LLMs/huggingface-cache </div",
       "parent": "/projects/mac-studio-local-ai-workbench/"
     },
     {
