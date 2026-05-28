@@ -223,7 +223,7 @@ The attribute value is ignored; its presence is the signal. The script discovers
 
 ### Cross-site search prompt
 
-`.local/cross-site-search-prompt.md` — a self-contained prompt (740 lines) for the Glee-fully.tools and AskJamie.bot Replit agents to implement functionally identical search on their sites. Covers: index builder adaptation, CORS setup, `app.js` tuning, CSS brand-color overrides, the `/search/` page template, and the peer-results feature (each site shows its own results first, then a secondary section of top results from the other two sibling sites with absolute cross-domain links).
+`docs/cross-site-search-prompt.md` — a self-contained prompt (780+ lines) for the Glee-fully.tools and AskJamie.bot Replit agents to implement functionally identical search on their sites. Covers: index builder adaptation, CORS setup, `app.js` tuning, CSS brand-color overrides, the `/search/` page template, and the peer-results feature (each site shows its own results first, then a secondary section of top results from the other two sibling sites with absolute cross-domain links).
 
 ## SEO / Metadata Status
 
