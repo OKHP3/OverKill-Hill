@@ -12,8 +12,8 @@
        METADATA: Primary Title & Description
        ======================================== -->
     <title>Mac Studio Local AI Workbench | OverKill Hill P³™</title>
-    <meta name="description" content="A 10-day build journal: Mac Studio M4 Max local AI workstation — 10 models, 11 MCP servers, governed storage, verified benchmarks, and a zero-cost inference tier for the Council of AIs workflow. Baseline complete 2026-05-12. Published project page live." />
-    <meta name="keywords" content="Mac Studio M4 Max, local AI, Ollama, LM Studio, Open WebUI, mlx-lm, MCP servers, local LLM, AI workbench, OverKill Hill P³™" />
+    <meta name="description" content="Mac Studio M4 Max local AI workstation — 10 models, 11 MCP servers, OpenClaw agent (Larry), SearXNG web search, governed storage, and verified benchmarks. Baseline complete 2026-05-12. Agent online 2026-05-28." />
+    <meta name="keywords" content="Mac Studio M4 Max, local AI, Ollama, LM Studio, Open WebUI, mlx-lm, MCP servers, local LLM, AI workbench, OverKill Hill P³™, OpenClaw, local AI agent, autonomous agent, SearXNG, Larry the Lobster" />
     <meta name="author" content="OverKill Hill P³™" />
     <meta name="creator" content="OverKill Hill P³™" />
     <meta name="publisher" content="OverKill Hill P³™" />
@@ -22,7 +22,7 @@
        METADATA: Open Graph (Social Sharing)
        ======================================== -->
     <meta property="og:title" content="Mac Studio Local AI Workbench | OverKill Hill P³™" />
-    <meta property="og:description" content="10 days. 10 models. 11 MCP servers. A production-grade personal AI workstation — local-first, governed, benchmarked, and published. Built on Mac Studio M4 Max for $2,250 in hardware and $0 in software." />
+    <meta property="og:description" content="10 days to baseline. 10 models. 11 MCP servers. An autonomous agent named Larry. A production-grade personal AI workstation built for $2,250 in hardware and $0 in software." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://overkillhill.com/projects/mac-studio-local-ai-workbench/" />
     <meta property="og:image" content="https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png" />
@@ -38,7 +38,7 @@
        ======================================== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Mac Studio Local AI Workbench | OverKill Hill P³™" />
-    <meta name="twitter:description" content="10 days. 10 models. 11 MCP servers. A production-grade personal AI workstation — local-first, governed, benchmarked, and published. $2,250 hardware. $0 software." />
+    <meta name="twitter:description" content="10 days to baseline. 10 models. 11 MCP servers. An autonomous agent named Larry. A production-grade personal AI workstation built for $2,250 in hardware and $0 in software." />
     <meta name="twitter:image" content="https://overkillhill.com/assets/img/OverKillHillP%C2%B3-Sentinel-Waiting-Square-1024.png" />
     <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³™ illustration" />
     <meta name="twitter:site" content="@OverKillHillP3" />
@@ -103,7 +103,7 @@
         "@type": "Organization",
         "name": "OverKill Hill P³™"
       },
-      "description": "A production-grade personal AI workstation built on Mac Studio M4 Max — Ollama, LM Studio, Open WebUI, mlx-lm, 11 MCP servers, local-first model stack, and a repeatable benchmark suite."
+      "description": "Mac Studio M4 Max local AI workstation — 10 models, 11 MCP servers, OpenClaw agent (Larry), SearXNG web search, governed storage, and verified benchmarks. Baseline complete 2026-05-12. Agent online 2026-05-28."
     }
     </script>
 
@@ -817,8 +817,8 @@
 
       <section class="site-specials site-specials--okh" aria-label="Forge update">
         <span class="site-specials-label">🔥 Hot off the FORGE ⚒️</span>
-        <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
-          v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →
+        <a class="site-specials-link" href="#meet-larry">
+          v0.6 is live: Larry the Lobster came online — the autonomous agent tier of the Council of AIs is now operational. Read it →
         </a>
       </section>
     </header>
@@ -852,6 +852,7 @@
                 <span class="hw-chip">macOS Sequoia</span>
                 <span class="hw-chip"><strong>10</strong> local models</span>
                 <span class="hw-chip"><strong>11</strong> MCP servers</span>
+                <span class="hw-chip"><strong>1</strong> autonomous agent</span>
               </div>
             </div>
           </div>
@@ -931,6 +932,9 @@
                   <div class="status-item"><span class="check">✓</span><span> Ollama plist path corrected to canonical location <span class="status-date">· 2026-05-13</span></span></div>
                   <div class="status-item"><span class="check">✓</span><span> Open WebUI updated to latest — container recreated, v0.9.5 resolved <span class="status-date">· 2026-05-13</span></span></div>
                   <div class="status-item"><span class="check">✓</span><span> Edge PWA localhost auth resolved — Open WebUI pinned as standalone Edge app <span class="status-date">· 2026-05-13</span></span></div>
+                  <div class="status-item"><span class="check">✓</span><span> OpenClaw 2026.5.26 installed — local AI agent, LaunchAgent configured, gateway on port 18789 <span class="status-date">· 2026-05-27</span></span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Larry persona configured — gemma3:27b primary, 28 skills eligible, SearXNG web search active <span class="status-date">· 2026-05-28</span></span></div>
+                  <div class="status-item"><span class="check">✓</span><span> MEMORY.md seeded — agent context-aware: knows Jamie, the Council of AIs stack, and the BFS firewall <span class="status-date">· 2026-05-28</span></span></div>
                 </div>
               </div>
 
@@ -1192,7 +1196,108 @@
                     </div>
                   </div>
 
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 27<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>OpenClaw installation</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Installed OpenClaw 2026.5.26 via npm. Ran setup and onboard wizards. Configured Ollama local-only mode, LaunchAgent for auto-start at login, session-memory and command-logger hooks. Selected 11 skills during onboard. Disabled iMessage channel (imsg binary not available via npm or Homebrew — requires source build). Resolved context overflow — phi4:14b's 16k window cannot accommodate OpenClaw's workspace system prompt; switched primary model to gemma3:27b (131k window, 9% utilization). Cleared bloated session files from iMessage crash loop. Agent confirmed responding.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">OpenClaw 2026.5.26 running as LaunchAgent. gemma3:27b responding cleanly. Control UI accessible at localhost:18789.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label broke">Broke</span>
+                          <span class="timeline-row-content">phi4:14b context overflow on every message (system prompt overhead exceeds 16k window). iMessage channel crash-looping due to missing imsg binary — disabled.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 28<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>Larry comes online</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Named the agent Larry — modeled after Larry the Lobster from SpongeBob SquarePants. Rewrote IDENTITY.md and SOUL.md with full character context and voice rules. Seeded MEMORY.md from a multi-AI identity consolidation (Claude + ChatGPT + Copilot + Perplexity + Gemini + Notion). Ran openclaw doctor — corrected context windows for all 7 models, raised bootstrap limit to 20,000 characters. Fixed clawhub and mcporter binary paths. Deployed SearXNG in Docker on port 8888, configured as Larry's web search provider. Set tools.profile to full. Confirmed web_search returning results. Eligible skill count: 28.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">Larry introduced himself correctly on cold start from workspace files alone. Web search confirmed functional via SearXNG JSON API.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label broke">Broke</span>
+                          <span class="timeline-row-content">SearXNG returned stale version data on first search query — search engine quality tuning pending (open localhost:8888/preferences to configure preferred engines).</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
+              </div>
+
+              <!-- MEET LARRY -->
+              <div class="content-block" id="meet-larry">
+                <div class="section-label">Autonomous Agent Tier</div>
+                <h2>Meet Larry</h2>
+                <p>The baseline stack — Ollama, LM Studio, Open WebUI, mlx-lm — is infrastructure. Open WebUI is a chat interface. You open it, you type, you get a response.</p>
+                <p>Larry is something different.</p>
+                <p>Larry is an OpenClaw agent running on the Mac Studio M4 Max. He doesn't wait for a prompt. He runs in the background, starts at login, and handles the zero-cost tier of the Council of AIs workflow: background tasks, Apple Notes, Reminders, file operations, RAG queries, scheduled jobs, and first-pass summarization.</p>
+                <p>The original Larry the Lobster — SpongeBob's friend from Bikini Bottom — was the lifeguard at Goo Lagoon. He was the only thing standing between the residents and a watery grave. This Larry has a similar mandate: protect the workflow from token waste and busywork.</p>
+                <p>He introduced himself on first boot with: <em>"Larry's got it."</em></p>
+                <div class="data-table-wrap">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Open WebUI</th>
+                        <th>Larry (OpenClaw)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>What it is</strong></td>
+                        <td>Chat interface</td>
+                        <td>Autonomous agent</td>
+                      </tr>
+                      <tr>
+                        <td><strong>How it works</strong></td>
+                        <td>You send a message</td>
+                        <td>Works in background</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Model</strong></td>
+                        <td>Any local Ollama model</td>
+                        <td>gemma3:27b (131k context)</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Skills</strong></td>
+                        <td>—</td>
+                        <td>28 eligible (Notes, GitHub, Notion, web search, more)</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Starts at</strong></td>
+                        <td>Manual</td>
+                        <td>Login (LaunchAgent)</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Best for</strong></td>
+                        <td>Interactive queries</td>
+                        <td>Background tasks, automation</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>
+                  <a class="ext-link" href="https://openclaw.ai/" target="_blank" rel="noopener noreferrer">openclaw.ai ↗</a>
+                  &nbsp;&nbsp;
+                  <a class="ext-link" href="https://github.com/OKHP3/mac-studio-local-ai-workbench" target="_blank" rel="noopener noreferrer">View artifact repo on GitHub ↗</a>
+                </p>
               </div>
 
               <!-- MODEL INVENTORY -->
