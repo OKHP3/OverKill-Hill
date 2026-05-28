@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 78,
+  "count": 79,
   "entries": [
     {
       "url": "/",
@@ -822,11 +822,12 @@
       "url": "/projects/mac-studio-local-ai-workbench/",
       "title": "Mac Studio Local AI Workbench | OverKill Hill P³™",
       "category": "Project",
-      "description": "A 10-day build journal: Mac Studio M4 Max local AI workstation — 10 models, 11 MCP servers, governed storage, verified benchmarks, and a zero-cost inference tier for the Council of AIs workflow. Baseline complete 2026-05-12. Published project page live.",
+      "description": "Mac Studio M4 Max local AI workstation — 10 models, 11 MCP servers, OpenClaw agent (Larry), SearXNG web search, governed storage, and verified benchmarks. Baseline complete 2026-05-12. Agent online 2026-05-28.",
       "headings": [
         "What This Is Worth",
         "Status Board",
         "Timeline",
+        "Meet Larry",
         "Model Inventory",
         "Model Selection Policy",
         "Benchmark Snapshot",
@@ -849,10 +850,21 @@
         "Git workspace, OneDrive sync, and repos",
         "Normalization, benchmarking, and baseline archive",
         "Post-baseline hardening and publication",
+        "OpenClaw installation",
+        "Larry comes online",
         "Quick Facts",
         "Need a local AI workbench designed for your workflow?"
       ],
-      "body": "Skip to main content OverKill Hill P³™ › Projects › Mac Studio Local AI Workbench ✅ Baseline complete · 2026-05-12 · Updated 2026-05-13 Mac Studio Local AI Workbench Production-grade personal AI workstation — local-first, governed, documented, and restorable. Built in 10 days on Apple Silicon. M4 Max 36GB unified memory 512GB internal SSD 1TB OKH-Local NVMe macOS Sequoia 10 local models 11 MCP servers ✅ BASELINE COMPLETE — Build finished, normalized, benchmarked, and archived on 2026-05-12. System is in a known-good, restorable state."
+      "body": "Skip to main content OverKill Hill P³™ › Projects › Mac Studio Local AI Workbench ✅ Baseline complete · 2026-05-12 · Updated 2026-05-13 Mac Studio Local AI Workbench Production-grade personal AI workstation — local-first, governed, documented, and restorable. Built in 10 days on Apple Silicon. M4 Max 36GB unified memory 512GB internal SSD 1TB OKH-Local NVMe macOS Sequoia 10 local models 11 MCP servers 1 autonomous agent ✅ BASELINE COMPLETE — Build finished, normalized, benchmarked, and archived on 2026-05-12. System is in a known-good, restorable state."
+    },
+    {
+      "url": "/projects/mac-studio-local-ai-workbench/#meet-larry",
+      "title": "Meet Larry — Mac Studio Local AI Workbench | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Autonomous Agent Tier Meet Larry The baseline stack — Ollama, LM Studio, Open WebUI, mlx-lm — is infrastructure. Open WebUI is a chat interface. You open it, you type, you get a response. Larry is something different.",
+      "headings": [],
+      "body": "Autonomous Agent Tier Meet Larry The baseline stack — Ollama, LM Studio, Open WebUI, mlx-lm — is infrastructure. Open WebUI is a chat interface. You open it, you type, you get a response. Larry is something different. Larry is an OpenClaw agent running on the Mac Studio M4 Max. He doesn't wait for a prompt. He runs in the background, starts at login, and handles the zero-cost tier of the Council of AIs workflow: background tasks, Apple Notes, Reminders, file operations, RAG queries, scheduled jobs, and first-pass summarization. The original Larry the Lobster — SpongeBob's friend from Bikini Bottom — was the lifeguard at Goo Lagoon. He was the only thing standing between the residents and a watery grave. This Larry has a similar mandate: protect the workflow from token waste and busywork.",
+      "parent": "/projects/mac-studio-local-ai-workbench/"
     },
     {
       "url": "/projects/mermaid-theme-builder/",
