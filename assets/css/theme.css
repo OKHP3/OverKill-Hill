@@ -194,6 +194,20 @@ html[data-theme="light"] .footer-bottom {
   color: rgba(229, 231, 235, 0.45);
 }
 
+/* OKH search trigger — var(--color-fg) and var(--color-border-subtle) flip to
+   dark values in light mode; override so the button stays readable against the
+   always-dark OKH header. Scoped to OKH pages only (.glee-main / .askjamie-main
+   have their own brand headers and are excluded). */
+html[data-theme="light"] body:not(.glee-main):not(.askjamie-main) .okh-search-trigger {
+  color: rgba(229, 231, 235, 0.75);
+  border-color: rgba(148, 163, 184, 0.3);
+}
+html[data-theme="light"] body:not(.glee-main):not(.askjamie-main) .okh-search-trigger kbd {
+  border-color: rgba(148, 163, 184, 0.25);
+  color: rgba(229, 231, 235, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+}
+
 
 /* ===== RESET & BASE ====================================================== */
 
