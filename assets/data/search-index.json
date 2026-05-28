@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 79,
+  "count": 80,
   "entries": [
     {
       "url": "/",
@@ -833,7 +833,7 @@
         "Benchmark Snapshot",
         "The Operating Model",
         "Next Phase",
-        "Links",
+        "Build Your Own",
         "Core Toolchain",
         "AI Runtimes",
         "Storage Architecture",
@@ -856,6 +856,15 @@
         "Need a local AI workbench designed for your workflow?"
       ],
       "body": "Skip to main content OverKill Hill P³™ › Projects › Mac Studio Local AI Workbench ✅ Baseline complete · 2026-05-12 · Updated 2026-05-13 Mac Studio Local AI Workbench Production-grade personal AI workstation — local-first, governed, documented, and restorable. Built in 10 days on Apple Silicon. M4 Max 36GB unified memory 512GB internal SSD 1TB OKH-Local NVMe macOS Sequoia 10 local models 11 MCP servers 1 autonomous agent ✅ BASELINE COMPLETE — Build finished, normalized, benchmarked, and archived on 2026-05-12. System is in a known-good, restorable state."
+    },
+    {
+      "url": "/projects/mac-studio-local-ai-workbench/#links",
+      "title": "Build Your Own — Mac Studio Local AI Workbench | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Build Your Own Build Your Own Everything you need to replicate this stack. 🐙 GitHub Repository Docs, scripts, manifests, and BYOLAI guide 🖥️ Apple Mac Studio Compare models — the hardware foundation 🦙 Ollama Local model…",
+      "headings": [],
+      "body": "Build Your Own Build Your Own Everything you need to replicate this stack. 🐙 GitHub Repository Docs, scripts, manifests, and BYOLAI guide 🖥️ Apple Mac Studio Compare models — the hardware foundation 🦙 Ollama Local model inference server — start here 💬 Open WebUI Browser-based chat interface over Ollama 🦞 OpenClaw Autonomous local AI agent runtime 🎛️ LM Studio Desktop model workspace and GUI </div",
+      "parent": "/projects/mac-studio-local-ai-workbench/"
     },
     {
       "url": "/projects/mac-studio-local-ai-workbench/#meet-larry",
