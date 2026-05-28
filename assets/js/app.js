@@ -66,32 +66,79 @@ document.addEventListener("DOMContentLoaded", () => {
     if (el) el.textContent = year;
   });
 
-  // Theme toggle – only for core OverKill Hill pages
+  // ── Header controls wrapper (holds search + theme toggle) ───────────────────
+  // Created on all pages so injectTrigger() always has a consistent target.
+  let headerControls = null;
+  if (header) {
+    const container = header.querySelector(".container");
+    if (container) {
+      headerControls = document.createElement("div");
+      headerControls.className = "header-controls";
+      const navTogglePre = container.querySelector(".nav-toggle");
+      if (navTogglePre) {
+        container.insertBefore(headerControls, navTogglePre);
+      } else {
+        container.appendChild(headerControls);
+      }
+    }
+  }
+
+  // Theme toggle – only for core OverKill Hill pages (brand-locked sites force light)
   const brandLocked =
     body.classList.contains("glee-main") ||
     body.classList.contains("askjamie-main");
 
   if (!brandLocked) {
+    const STATES      = ["system", "light", "dark"];
+    const STATE_ICONS = {
+      system: '<svg class="tt-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+      light:  '<svg class="tt-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>',
+      dark:   '<svg class="tt-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
+    };
+    const STATE_ARIA  = {
+      system: "Switch to light mode",
+      light:  "Switch to dark mode",
+      dark:   "Switch to system mode",
+    };
+
+    const savedTheme = localStorage.getItem("okh-theme");
+    let currentState = STATES.includes(savedTheme) ? savedTheme : "system";
+
+    function applyThemeState(state) {
+      if (state === "system") {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
+      } else {
+        document.documentElement.setAttribute("data-theme", state);
+      }
+    }
+
+    applyThemeState(currentState);
+
     const themeToggle = document.createElement("button");
     themeToggle.classList.add("theme-toggle");
-    themeToggle.setAttribute("aria-label", "Toggle theme");
-    themeToggle.textContent = "🌓";
+    themeToggle.dataset.state = currentState;
+    themeToggle.setAttribute("aria-label", STATE_ARIA[currentState]);
+    themeToggle.innerHTML = STATE_ICONS[currentState];
 
-    if (header && header.querySelector(".container")) {
+    if (headerControls) {
+      headerControls.appendChild(themeToggle);
+    } else if (header && header.querySelector(".container")) {
       header.querySelector(".container").appendChild(themeToggle);
     }
 
-    const savedTheme = localStorage.getItem("okh-theme");
-    if (savedTheme === "light" || savedTheme === "dark") {
-      document.documentElement.setAttribute("data-theme", savedTheme);
-    }
-
     themeToggle.addEventListener("click", () => {
-      const current =
-        document.documentElement.getAttribute("data-theme") || "dark";
-      const next = current === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("okh-theme", next);
+      const idx    = STATES.indexOf(currentState);
+      currentState = STATES[(idx + 1) % STATES.length];
+      themeToggle.dataset.state = currentState;
+      themeToggle.setAttribute("aria-label", STATE_ARIA[currentState]);
+      themeToggle.innerHTML = STATE_ICONS[currentState];
+      applyThemeState(currentState);
+      localStorage.setItem("okh-theme", currentState);
+    });
+
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+      if (currentState === "system") applyThemeState("system");
     });
   } else {
     // Subsites stay on their brand "light" look
@@ -528,11 +575,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function injectTrigger(openFn) {
     if (document.querySelector(".okh-search-trigger")) return;
-    const isMac   = /Mac|iPod|iPhone|iPad/.test(navigator.platform);
+    const isMac    = /Mac|iPod|iPhone|iPad/.test(navigator.platform);
     const shortcut = isMac ? "⌘K" : "Ctrl+K";
     const btn      = document.createElement("button");
-    btn.type      = "button";
-    btn.className = "okh-search-trigger";
+    btn.type       = "button";
+    btn.className  = "okh-search-trigger";
     btn.setAttribute("aria-label", "Open search (" + shortcut + ")");
     btn.innerHTML = (
       '<svg class="okh-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" ' +
@@ -544,14 +591,13 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     btn.addEventListener("click", (e) => { e.preventDefault(); openFn(); });
 
-    const nav = document.querySelector(".primary-nav ul");
-    if (nav) {
-      const li = document.createElement("li");
-      li.className = "nav-search-item";
-      li.appendChild(btn);
-      nav.appendChild(li);
+    // Primary: prepend into .header-controls so search sits left of theme toggle
+    const controls = document.querySelector(".header-controls");
+    if (controls) {
+      controls.insertBefore(btn, controls.firstChild);
       return;
     }
+    // Fallbacks for pages without .header-controls
     const toggle = document.querySelector(".nav-toggle");
     if (toggle && toggle.parentNode) { toggle.parentNode.insertBefore(btn, toggle); return; }
     const hdr = document.querySelector(".site-header .container, .site-header");
