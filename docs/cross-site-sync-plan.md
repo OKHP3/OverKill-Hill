@@ -2,7 +2,7 @@
 
 **Date:** 2026-05-28  
 **Author:** OverKill Hill P³  
-**Status:** Active — Phase 1 (Audit complete; Phase 2 decisions pending)
+**Status:** Active — Phase 2 (Architecture decisions resolved 2026-05-28; Category B merges pending)
 
 ---
 
@@ -73,15 +73,14 @@ These exist only in sibling repos. OKH must absorb them before the next sync.
 | AskJamie mid-century teal Mermaid | Jamie CSS | (~84 lines) |
 | GPT Hero Card BFS variant | Jamie CSS | (~11 lines) |
 
-#### Category C — Conflicts (human decision required before next sync)
+#### Category C — Conflicts (all resolved 2026-05-28)
 
-| Item | OKH value | Sibling value | Decision needed |
-|------|-----------|---------------|-----------------|
-| Light-mode `--color-bg` | `#eff2f5` (warm grey) | `#f9fafb` (cool grey) | Which shade? |
-| Light-mode `--color-surface` | `#f6f2ee` (warm paper) | `#ffffff` (pure white) | Which? |
-| Light-mode `--color-surface-soft` | `#f0ebe5` (warm) | `#f3f4f6` (cool grey) | Which? |
-| Search CSS class namespace | `okh-search-*` | `glee-search-*` / `site-search-*` | Standardise to one namespace |
-| Section banner format | OKH box-drawing style | Glee / Jamie use different formats | Standardise in OKH reorg script |
+| Item | Decision |
+|------|----------|
+| Light-mode surface warmth | **OKH warm paper is the shared `:root` baseline.** Each sibling overrides via `html[data-theme="light"] .glee-main` / `.askjamie-main`. Brand overrides added to OKH theme.css GLEE + ASKJAMIE sections. |
+| Search CSS class namespace | **Keep site-specific namespaces** (`okh-search-*`, `glee-search-*`, `site-search-*`). Cross-site integration via peer-results feature (see `docs/cross-site-search-prompt.md`), not a shared namespace. |
+| GA4 analytics placement | **Inline in each page's `<head>` only.** No `app.js`, no separate `analytics.js`. OKH: `G-VJ1BKXS27H` (already on all 27 pages). Jamie: `G-MT9Y10YY0G` (action: remove from `app.js`, add to all HTML pages). |
+| Section banner format | Low priority — OKH reorg script normalises banners on its own pages; sibling banner style is cosmetic only. |
 
 ---
 
@@ -100,19 +99,18 @@ These exist only in sibling repos. OKH must absorb them before the next sync.
 
 | Item | Source | Detail |
 |------|--------|--------|
-| GA4 analytics bootstrap | Jamie | `window.dataLayer`, `gtag()`, `gtag('config', 'G-MT9Y10YY0G')` — runs immediately on parse |
-| `_gtag_event()` helper | Jamie | Wraps all gtag calls with a null-guard |
-| GA4 search event tracking | Jamie | `search_open` / `search_submit` events |
+| `_gtag_event()` helper | Jamie | Wraps all gtag calls with a null-guard — absorb into OKH (no-op when gtag absent) |
+| GA4 search event tracking | Jamie | `search_open` / `search_submit` events via `_gtag_event()` |
 | Self-initialising module structure | Jamie | Each feature is an IIFE that runs without DOMContentLoaded wait |
 | Dedicated `/search/` page wiring | Jamie (1b) | Category chips, URL sync — more complete than OKH |
 
-#### Category C — Conflicts (human decision required)
+#### Category C — Conflicts (all resolved 2026-05-28)
 
-| Item | OKH | Sibling | Decision needed |
-|------|-----|---------|-----------------|
-| GA4 tracking ID | Not present | `G-MT9Y10YY0G` (Jamie only) | Does OKH want analytics? Separate file or shared? |
-| Search modal class names | `okh-search-modal` | `glee-search-modal` / `site-search-modal` | Standardise namespace |
-| Module init pattern | DOMContentLoaded wrapper | IIFEs (Jamie) / inline (Glee) | One pattern for all |
+| Item | Decision |
+|------|----------|
+| GA4 analytics placement | **Inline in each page's `<head>` only.** Not in `app.js`. OKH tracking ID: `G-VJ1BKXS27H`. Jamie: `G-MT9Y10YY0G`. Jamie must remove `gtag('config', …)` from `app.js`. |
+| Search modal class names | **Keep site-specific namespaces.** Each site's search UI is independently scoped. Cross-site integration is the peer-results feature, not a shared class name. |
+| Module init pattern | **DOMContentLoaded for DOM-dependent code; IIFEs for self-contained utilities.** Converging gradually — no flag day rewrite. |
 
 ---
 
