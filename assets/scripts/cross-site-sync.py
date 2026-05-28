@@ -157,6 +157,36 @@ CHECKS = [
         "target": "okh",
         "severity": "warning",
     },
+    # ── Architecture decisions (2026-05-28) ─────────────────────────────────
+    {
+        "label": "Warm-paper baseline in OKH CSS light-mode root tokens",
+        "file": "assets/css/theme.css",
+        "pattern": "--color-surface: #f6f2ee",   # warm paper, not cool white
+        "target": "okh",
+        "severity": "error",
+    },
+    {
+        "label": "Glee brand light-mode surface override present in OKH GLEE section",
+        "file": "assets/css/theme.css",
+        "pattern": 'html[data-theme="light"] .glee-main',
+        "target": "okh",
+        "severity": "error",
+    },
+    {
+        "label": "AskJamie brand light-mode surface override present in OKH ASKJAMIE section",
+        "file": "assets/css/theme.css",
+        "pattern": 'html[data-theme="light"] .askjamie-main',
+        "target": "okh",
+        "severity": "error",
+    },
+    {
+        "label": "GA4 bootstrap must NOT live in app.js (belongs inline in HTML <head>)",
+        "file": "assets/js/app.js",
+        "pattern": "gtag('config'",   # this string should NOT appear in app.js
+        "target": "okh",
+        "severity": "error",
+        "invert": True,               # PASS when pattern is absent
+    },
 ]
 
 # ── Size-drift thresholds (sibling vs OKH) ───────────────────────────────────
@@ -308,8 +338,10 @@ def run_audit():
         else:
             sources = {}
 
+        invert = check.get("invert", False)
         for site_label, text in sources.items():
-            found = text is not None and pattern in text
+            present = text is not None and pattern in text
+            found = (not present) if invert else present
             if found:
                 status = green("PASS")
             else:
@@ -332,33 +364,44 @@ def run_audit():
         if warnings:
             print(yellow(f"  ⚠ {warnings} warning(s) — review before the next sync cycle."))
 
-    # 4. Known divergence summary (human-readable highlights)
-    print(f"\n{bold('── Known divergences requiring human decisions ───────────────────────')}")
+    # 4. Architecture decisions (resolved) + remaining open items
+    print(f"\n{bold('── Architecture decisions (2026-05-28) ───────────────────────────────')}")
 
-    divergences = [
-        ("C", "Light-mode surface colors",
-         "OKH uses warm paper (#f6f2ee). Siblings use neutral white (#ffffff).\n"
-         "        Decide which palette becomes the shared default."),
-        ("C", "Search CSS class namespace",
-         "OKH: okh-search-*   Glee: glee-search-*   Jamie: site-search-*\n"
-         "        Standardise to one namespace (recommend okh-search-* as shared base)."),
-        ("C", "GA4 analytics in app.js",
-         "Jamie embeds GA4 bootstrap (G-MT9Y10YY0G) in app.js. OKH + Glee don't.\n"
-         "        Recommended: keep analytics in a separate per-site analytics.js file."),
-        ("B", "Glee-only CSS blocks missing from OKH GLEE section",
+    resolved = [
+        ("✓", "Light-mode surface warmth",
+         "RESOLVED: OKH warm paper is the shared :root baseline.\n"
+         "        Each sibling overrides via html[data-theme=light] .glee-main / .askjamie-main."),
+        ("✓", "Search class namespace",
+         "RESOLVED: Site-specific namespaces are intentional (okh-search-* / glee-search-* /\n"
+         "        site-search-*). Cross-site integration is via peer-results feature, not\n"
+         "        a shared namespace. See docs/cross-site-search-prompt.md."),
+        ("✓", "GA4 analytics placement",
+         "RESOLVED: GA4 inline in each page's <head> only (no app.js, no analytics.js).\n"
+         "        OKH tracking ID: G-VJ1BKXS27H  |  Jamie: G-MT9Y10YY0G\n"
+         "        Jamie action: remove gtag bootstrap from app.js, add to all HTML pages."),
+    ]
+
+    for mark, title, detail in resolved:
+        print(f"\n  [{green(mark)}] {bold(title)}")
+        print(f"        {detail}")
+
+    print(f"\n{bold('── Remaining open items (Category B — sibling additions to absorb) ─────')}")
+
+    open_items = [
+        ("B", "Glee-only CSS blocks not yet in OKH GLEE section",
          "Tool-ette hub cards (.card--tool-ette), refined Mermaid skin,\n"
-         "        cross-site sync utilities block — need merging into OKH theme.css."),
-        ("B", "Jamie-only CSS blocks missing from OKH ASKJAMIE section",
+         "        cross-site sync utilities block — merge into OKH theme.css GLEE section."),
+        ("B", "Jamie-only CSS blocks not yet in OKH ASKJAMIE section",
          "BFS hero (~111 lines), system pages (~231 lines), mid-century teal\n"
-         "        Mermaid skin (~84 lines) — need merging into OKH theme.css."),
-        ("B", "_gtag_event() helper + GA4 search events in Jamie JS",
-         "Wrap calls in guard so OKH can absorb them harmlessly (no-op when\n"
-         "        gtag is not loaded)."),
+         "        Mermaid skin (~84 lines) — merge into OKH theme.css ASKJAMIE section."),
+        ("B", "_gtag_event() GA4 event helper in Jamie JS",
+         "Guard-wrapped helper fires search_open/search_submit events.\n"
+         "        OKH can absorb this — it's a no-op when gtag is not loaded on a page."),
     ]
 
     cat_color = {"A": green, "B": yellow, "C": red}
 
-    for cat, title, detail in divergences:
+    for cat, title, detail in open_items:
         color = cat_color.get(cat, dim)
         print(f"\n  [{color(f'Cat {cat}')}] {bold(title)}")
         print(f"        {detail}")

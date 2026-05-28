@@ -4266,6 +4266,16 @@ html[data-theme="light"] .article-body h2 {
    ╚════════════════════════════════════════════════════════════════════════════╝ */
 
 
+/* ── Light-mode brand surface tones ──────────────────────────────────────────
+   The shared :root[data-theme="light"] sets OKH's warm-paper baseline.
+   Glee-fully uses slightly creamier/warmer tones within its own brand scope.
+   These override the baseline without touching OKH or AskJamie pages. */
+html[data-theme="light"] .glee-main {
+  --color-bg:           #f6f2ee;   /* cream — one tone warmer than OKH baseline */
+  --color-surface:      #fffdfa;   /* near-white with warmth */
+  --color-surface-soft: #fff7f1;   /* soft warm inset */
+}
+
 .site-specials--glee { /* bright & playful */
   background: #ffe8a8;
 }
@@ -5061,6 +5071,15 @@ html:has(
    ║  askjamie.bot — scoped via .askjamie-main                                  ║
    ╚════════════════════════════════════════════════════════════════════════════╝ */
 
+
+/* ── Light-mode brand surface tones ──────────────────────────────────────────
+   AskJamie keeps the warm-paper spirit but uses its own slightly cooler paper
+   variant — still warm, but a touch more neutral than Glee's cream. */
+html[data-theme="light"] .askjamie-main {
+  --color-bg:           #f6f2ee;   /* paper base */
+  --color-surface:      #fdfbf7;   /* near-white with warmth */
+  --color-surface-soft: #f7f3ef;   /* soft paper inset */
+}
 
 .site-specials--jamie { /* muted, mid-century */
   background: #e4f0ee;
