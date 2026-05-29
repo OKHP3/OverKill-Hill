@@ -19,7 +19,7 @@ and current audit state.
 **Brand:** OverKill Hill P³ (Forge / Rust-orange)
 **Body scope class:** none -- this is the default brand; pages set no body class
 **Canonical stylesheet:** https://raw.githubusercontent.com/OKHP3/OverKill-Hill/main/assets/css/theme.css
-**Version:** 2.0
+**Version:** 2.1
 
 This section governs how files and folders are named, what structure all sibling
 repos share, what counts as detritus, and the brand contract this repo serves.
@@ -323,6 +323,9 @@ When the repo accumulates working artifacts, paste this message to Replit Agent:
 > D. RENAME. Wait for "go" before executing.
 
 ---
+
+---
+
 ### 6. Brand contract (OverKill Hill P³)
 
 This repo serves the OverKill Hill P³ brand.
