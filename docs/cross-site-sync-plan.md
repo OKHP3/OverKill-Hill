@@ -23,9 +23,9 @@ into OKH before the next sync cycle.
 The tool for running audits and building sync drops is:
 
 ```
-python3 assets/scripts/cross-site-sync.py --audit
-python3 assets/scripts/cross-site-sync.py --build-drop
-python3 assets/scripts/cross-site-sync.py --build-drop --dry-run
+python3 scripts/cross-site-sync.py --audit
+python3 scripts/cross-site-sync.py --build-drop
+python3 scripts/cross-site-sync.py --build-drop --dry-run
 ```
 
 ---
@@ -140,8 +140,8 @@ sibling-only additions need to be merged into those sections:
 
 1. Audit each Category B block against what OKH already has in its GLEE/ASKJAMIE sections
 2. Paste missing blocks into the appropriate section in OKH's `theme.css`
-3. Run `python3 assets/scripts/reorg-theme-css.py --dry-run` to verify placement
-4. Run `python3 assets/scripts/reorg-theme-css.py` to canonicalise order
+3. Run `python3 scripts/reorg-theme-css.py --dry-run` to verify placement
+4. Run `python3 scripts/reorg-theme-css.py` to canonicalise order
 
 ### 2c. Absorb Category B items into OKH app.js
 
@@ -157,7 +157,7 @@ sibling-only additions need to be merged into those sections:
 Once Phase 2 is complete, the sync drop is a single command:
 
 ```bash
-python3 assets/scripts/cross-site-sync.py --build-drop
+python3 scripts/cross-site-sync.py --build-drop
 ```
 
 This packages `theme.css`, `app.js`, and `mermaid-init.js` from OKH into a zip
@@ -175,8 +175,8 @@ chore(sync): align foundation files with overkillhill.com canonical (YYYY-MM-DD)
 ### Edit workflow (all future changes)
 
 1. Edit `theme.css` / `app.js` in OKH
-2. Run `python3 assets/scripts/cross-site-sync.py --audit` to verify no new drift
-3. Run `python3 assets/scripts/cross-site-sync.py --build-drop` to create sync zip
+2. Run `python3 scripts/cross-site-sync.py --audit` to verify no new drift
+3. Run `python3 scripts/cross-site-sync.py --build-drop` to create sync zip
 4. Commit sibling repos
 
 ### Audit cadence
@@ -206,6 +206,6 @@ detects known-dangerous drift (e.g., siblings missing Sprint-level tokens).
 
 ---
 
-*Tool:* `assets/scripts/cross-site-sync.py`  
+*Tool:* `scripts/cross-site-sync.py`  
 *Audit last run:* 2026-05-28  
 *Next scheduled sync drop:* After Phase 2 decisions resolved

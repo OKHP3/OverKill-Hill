@@ -46,8 +46,8 @@ Python simple HTTP server via `server.py` — serves the static site from root.
 **Maintenance:** edit rules wherever you want, then run
 
 ```
-python3 assets/scripts/reorg-theme-css.py             # in-place reorg
-python3 assets/scripts/reorg-theme-css.py --dry-run   # report classifier output + flag GLOBAL blocks containing brand tokens
+python3 scripts/reorg-theme-css.py             # in-place reorg
+python3 scripts/reorg-theme-css.py --dry-run   # report classifier output + flag GLOBAL blocks containing brand tokens
 ```
 
 The reorg script tokenizes every top-level rule, classifies it by selector, and re-emits in canonical order. Within-brand source order is **always preserved** so cascade winners for same-selector duplicates stay intact. Brace balance is verified after every run.
@@ -148,7 +148,7 @@ On every MTB version bump, run the one-command release helper — it patches `VE
 **One-command release (preferred):**
 
 ```
-python3 assets/scripts/release-mtb.py \
+python3 scripts/release-mtb.py \
     --version v0.6.0 \
     --date "August 2026" \
     --sprint v0.6.x \
@@ -170,10 +170,10 @@ The script: (1) rewrites `VERSION_CONFIG` in `check-mtb-version.py`, then (2) de
 **Lower-level tool (check only / manual fix):**
 
 ```
-python3 assets/scripts/check-mtb-version.py              # check only
-python3 assets/scripts/check-mtb-version.py --update     # backup + patch + re-verify
-python3 assets/scripts/check-mtb-version.py --update --prev-sprint v0.5.x
-python3 assets/scripts/check-mtb-version.py --dry-run    # preview fixes, no writes
+python3 scripts/check-mtb-version.py              # check only
+python3 scripts/check-mtb-version.py --update     # backup + patch + re-verify
+python3 scripts/check-mtb-version.py --update --prev-sprint v0.5.x
+python3 scripts/check-mtb-version.py --dry-run    # preview fixes, no writes
 ```
 
 The `--update` flag auto-promotes the roadmap pills when `--prev-sprint` is supplied. `--prev-sprint` can also be set permanently in `VERSION_CONFIG["prev_sprint"]`.
@@ -204,9 +204,9 @@ Static, client-side search across the entire site. Consolidated 2026-05-03.
 - **All search logic lives in `assets/js/app.js` Section 5** (consolidated from the retired `assets/js/search.js`). Ctrl/Cmd+K or `/` opens overlay; Esc closes; ↑↓ navigate; ↵ follows.
 - **All search CSS lives in `assets/css/theme.css`** under the `SECTION · OKH SEARCH` banner (consolidated from the retired `assets/css/search.css`).
 - `assets/data/search-index.json` — generated index (48 entries as of 2026-05-15). `INDEX_URL` in `app.js` points to `/assets/data/search-index.json`.
-- `assets/scripts/build-search-index.py` — Python re-builder. Walks all `*.html`, skips `noindex`, extracts title + description + headings + body excerpt, plus per-section deep links for the FDIAL article. Re-run any time content changes:
+- `scripts/build-search-index.py` — Python re-builder. Walks all `*.html`, skips `noindex`, extracts title + description + headings + body excerpt, plus per-section deep links for the FDIAL article. Re-run any time content changes:
   ```
-  python3 assets/scripts/build-search-index.py
+  python3 scripts/build-search-index.py
   ```
 
 ### Adding deep-link entries for project page sections
@@ -307,7 +307,7 @@ convention. Index and full token reference: `assets/templates/index.md`.
 | `template--holding.html` | holding | under-construction.html |
 
 **Validation exclusion:** `assets/templates/` is in `SKIP_DIRS` inside
-`assets/scripts/validate-site.py` so `[[token]]` placeholders don't cause false
+`scripts/validate-site.py` so `[[token]]` placeholders don't cause false
 positives during the site audit.
 
 **Status:** Complete (2026-05-04). Post-audit fixes applied:

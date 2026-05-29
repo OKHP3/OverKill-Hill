@@ -4,9 +4,9 @@ OverKill Hill P³™ — Static Site Audit Script
 Covers the 18-point governance checklist from Sprint 4 Phase 16.
 
 Usage:
-    python3 assets/scripts/site-audit.py          # full audit
-    python3 assets/scripts/site-audit.py --quiet  # summary counts only
-    python3 assets/scripts/site-audit.py --check N [N ...]  # specific check(s)
+    python3 scripts/site-audit.py          # full audit
+    python3 scripts/site-audit.py --quiet  # summary counts only
+    python3 scripts/site-audit.py --check N [N ...]  # specific check(s)
 
 Exit codes: 0 = all hard checks pass (warnings allowed), 1 = hard failure(s)
 
@@ -38,7 +38,7 @@ import sys
 import argparse
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent.parent
+ROOT = Path(__file__).resolve().parent.parent
 
 SKIP_DIRS = {
     "_replit", ".local", "node_modules", "attached_assets",

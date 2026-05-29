@@ -6,14 +6,14 @@ Rewrites VERSION_CONFIG in check-mtb-version.py, then delegates to
 check-mtb-version.py --update to patch all target files atomically.
 
 Usage:
-    python3 assets/scripts/release-mtb.py \\
+    python3 scripts/release-mtb.py \\
         --version v0.6.0 \\
         --date "August 2026" \\
         --sprint v0.6.x \\
         --sprint-name "Ko-fi Artifacts"
 
     # With sprint promotion (old sprint → Shipped, new sprint → Active):
-    python3 assets/scripts/release-mtb.py \\
+    python3 scripts/release-mtb.py \\
         --version v0.6.0 \\
         --date "August 2026" \\
         --sprint v0.6.x \\
@@ -21,7 +21,7 @@ Usage:
         --prev-sprint v0.5.x
 
     # Preview all changes without writing any files:
-    python3 assets/scripts/release-mtb.py ... --dry-run
+    python3 scripts/release-mtb.py ... --dry-run
 
 Exit codes:
     0 — VERSION_CONFIG patched and all 11 checks pass

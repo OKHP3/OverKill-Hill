@@ -11,7 +11,7 @@ Build /assets/data/search-index.json from every indexable HTML page on the site.
   become independently searchable.
 
 Re-run any time content changes:
-    python3 assets/scripts/build-search-index.py
+    python3 scripts/build-search-index.py
 """
 
 from __future__ import annotations
@@ -23,7 +23,7 @@ import sys
 from html.parser import HTMLParser
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets" / "data" / "search-index.json"
 SITE = "https://overkillhill.com"
 

@@ -8,8 +8,8 @@ in the new order. Original relative order WITHIN each brand is preserved
 so cascade behavior stays intact.
 
 Usage:
-    python3 assets/scripts/reorg-theme-css.py            # in-place reorg
-    python3 assets/scripts/reorg-theme-css.py --dry-run  # report only
+    python3 scripts/reorg-theme-css.py            # in-place reorg
+    python3 scripts/reorg-theme-css.py --dry-run  # report only
 """
 from __future__ import annotations
 import re
@@ -308,7 +308,7 @@ def main(argv):
         '   │   4. ASKJAMIE      `.askjamie-main`-scoped overrides           │\n'
         '   │                                                                │\n'
         '   │  Maintenance: edit here, then run                              │\n'
-        '   │    python3 assets/scripts/reorg-theme-css.py --dry-run         │\n'
+        '   │    python3 scripts/reorg-theme-css.py --dry-run         │\n'
         '   │  to verify the section a new rule lands in.                    │\n'
         '   └────────────────────────────────────────────────────────────────┘\n'
         '*/\n\n'

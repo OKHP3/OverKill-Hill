@@ -10,8 +10,8 @@ Idempotent: re-running on already-stripped templates is a no-op (placeholders
 match themselves).
 
 Usage:
-    python3 assets/scripts/extract-templates.py            # build all templates
-    python3 assets/scripts/extract-templates.py --check    # dry-run, summarize diffs
+    python3 scripts/extract-templates.py            # build all templates
+    python3 scripts/extract-templates.py --check    # dry-run, summarize diffs
 """
 from __future__ import annotations
 import argparse
@@ -380,7 +380,7 @@ def write_readme(built: list[tuple[str, list[str], str]]) -> None:
         "3. Rename to `index.html`",
         "4. Replace every `[PLACEHOLDER]` token with real content",
         "5. Populate all `<head>` meta, OG tags, and canonical URL",
-        "6. Validate HTML before committing (`python3 assets/scripts/validate-site.py`)",
+        "6. Validate HTML before committing (`python3 scripts/validate-site.py`)",
         "7. Update this README with any new templates added",
         "",
         "## Placeholder Token Reference",

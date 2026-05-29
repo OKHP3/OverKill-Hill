@@ -19,7 +19,7 @@ Checks every production HTML page for:
   - old tagline "Precision. Power. Presence." anywhere (brand regression)
 
 Exits 0 if no errors. Exits 1 if any errors. Warnings do not fail the build.
-Run from repo root:  python3 assets/scripts/validate-site.py
+Run from repo root:  python3 scripts/validate-site.py
 """
 
 from __future__ import annotations
@@ -32,7 +32,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 
-ROOT = Path(__file__).resolve().parent.parent.parent
+ROOT = Path(__file__).resolve().parent.parent
 SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "dist", "templates", ".agents"}
 SITEMAP = ROOT / "sitemap.xml"
 SITE_ORIGIN = "https://overkillhill.com"

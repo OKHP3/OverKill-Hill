@@ -34,7 +34,7 @@ Before doing any work, read:
 
 ## 2 · Index builder — create and run
 
-Create `assets/scripts/build-search-index.py` with the content below, then run it once with `python3 assets/scripts/build-search-index.py` to generate the index.
+Create `scripts/build-search-index.py` with the content below, then run it once with `python3 scripts/build-search-index.py` to generate the index.
 
 **The only parts you must change from the template** are marked with `# ← CHANGE THIS` comments:
 
@@ -44,7 +44,7 @@ Create `assets/scripts/build-search-index.py` with the content below, then run i
 Build assets/data/search-index.json from every indexable HTML page on the site.
 
 Re-run any time content changes:
-    python3 assets/scripts/build-search-index.py
+    python3 scripts/build-search-index.py
 """
 
 from __future__ import annotations
