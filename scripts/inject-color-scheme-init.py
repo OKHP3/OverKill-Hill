@@ -4,16 +4,14 @@ inject-color-scheme-init.py
 
 Injects a tiny blocking inline <script> into every HTML page's <head>
 so the browser applies the user's saved color-scheme preference from
-localStorage BEFORE CSS is painted -- preventing a flash of the wrong theme.
+localStorage BEFORE CSS is painted — preventing a flash of the wrong theme.
 
-The script reads the "okh-theme" localStorage key (written by the theme
-toggle in app.js) and sets data-theme="dark"|"light" on <html>.
-If the stored value is "system" or absent, no attribute is set and the
-page falls through to prefers-color-scheme media queries.
+The script sets data-color-scheme="dark" or "light" on <html> using the
+"glee-color-scheme" localStorage key written by the Glee toggle in app.js.
 
 Injection point  : immediately after <meta charset="utf-8" ...> on the
                    first matching line in <head>.
-Idempotency guard: <!-- AUTOGEN:COLOR-SCHEME-INIT --> marker -- pages that
+Idempotency guard: <!-- AUTOGEN:COLOR-SCHEME-INIT --> marker — pages that
                    already have the marker are skipped.
 
 Run from repo root: python3 scripts/inject-color-scheme-init.py
@@ -29,9 +27,9 @@ MARKER = '<!-- AUTOGEN:COLOR-SCHEME-INIT -->'
 ANTI_FOSC = (
     "<!-- AUTOGEN:COLOR-SCHEME-INIT -->\n"
     "    <script>"
-    "(function(){try{var s=localStorage.getItem('okh-theme');"
+    "(function(){try{var s=localStorage.getItem('glee-color-scheme');"
     "if(s==='dark'||s==='light')"
-    "document.documentElement.setAttribute('data-theme',s);"
+    "document.documentElement.setAttribute('data-color-scheme',s);"
     "}catch(e){}})();"
     "</script>"
 )
