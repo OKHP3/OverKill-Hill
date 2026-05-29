@@ -7,10 +7,10 @@ then run this script to verify every structured version string across the
 project page and replit.md is in sync.
 
 Usage:
-    python3 assets/scripts/check-mtb-version.py              # check only
-    python3 assets/scripts/check-mtb-version.py --dry-run    # preview fixes, no writes
-    python3 assets/scripts/check-mtb-version.py --update     # backup + patch + re-verify
-    python3 assets/scripts/check-mtb-version.py --update --prev-sprint v0.5.x
+    python3 scripts/check-mtb-version.py              # check only
+    python3 scripts/check-mtb-version.py --dry-run    # preview fixes, no writes
+    python3 scripts/check-mtb-version.py --update     # backup + patch + re-verify
+    python3 scripts/check-mtb-version.py --update --prev-sprint v0.5.x
                                                               # also promote roadmap pills
 
 Exit codes:

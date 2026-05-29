@@ -11,8 +11,8 @@ Skips:
 - non-asset paths (only /assets/img/* are touched)
 
 Usage:
-    python3 assets/scripts/picture-upgrade.py            # rewrite in place
-    python3 assets/scripts/picture-upgrade.py --check    # exit 1 if anything would change
+    python3 scripts/picture-upgrade.py            # rewrite in place
+    python3 scripts/picture-upgrade.py --check    # exit 1 if anything would change
 """
 
 from __future__ import annotations

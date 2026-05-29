@@ -90,7 +90,7 @@ the new `{v} Shipped` convention, keeping all 11 checks passing post-edit.
 10. **Sidebar Status**: `v0.5.x Alpha Active` → `v0.5.0 Shipped`
 11. **Sidebar**: added `Compatibility` meta row (`Renderer-dependent v10/v11 portability`); added SKILL.md source and Apply tab links to Related Resources
 
-### Script (`assets/scripts/check-mtb-version.py`)
+### Script (`scripts/check-mtb-version.py`)
 
 - `EXPECTED["hero tag"]`: updated from `f"{sp} Alpha Active"` to `f"{v} Shipped"`
 - `EXPECTED["sidebar · Status meta-val"]`: updated from `f"{sp} Alpha Active"` to `f"{v} Shipped"`

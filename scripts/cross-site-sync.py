@@ -3,9 +3,9 @@
 cross-site-sync.py — OKHP3 Universe cross-site CSS/JS synchronisation tool
 
 Usage:
-  python3 assets/scripts/cross-site-sync.py --audit
-  python3 assets/scripts/cross-site-sync.py --build-drop
-  python3 assets/scripts/cross-site-sync.py --build-drop --dry-run
+  python3 scripts/cross-site-sync.py --audit
+  python3 scripts/cross-site-sync.py --build-drop
+  python3 scripts/cross-site-sync.py --build-drop --dry-run
 
 Modes:
   --audit       Fetch each repo's theme.css and app.js from GitHub, compare

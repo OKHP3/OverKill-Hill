@@ -8,10 +8,10 @@ png-to-webp.py — generate .webp siblings for every PNG in assets/img/.
   via the <picture><source type="image/webp"></picture> pattern.
 
 Usage:
-    python3 assets/scripts/png-to-webp.py                # convert all eligible PNGs
-    python3 assets/scripts/png-to-webp.py --quality 78   # tune quality
-    python3 assets/scripts/png-to-webp.py --min-bytes 200000   # only large files
-    python3 assets/scripts/png-to-webp.py --report-only        # just print savings
+    python3 scripts/png-to-webp.py                # convert all eligible PNGs
+    python3 scripts/png-to-webp.py --quality 78   # tune quality
+    python3 scripts/png-to-webp.py --min-bytes 200000   # only large files
+    python3 scripts/png-to-webp.py --report-only        # just print savings
 """
 
 from __future__ import annotations

@@ -22,14 +22,14 @@ for f in index.html writings/first-diagram-is-a-liar/index.html assets/css/theme
 done
 
 echo "Post-merge: running MTB version consistency check..."
-python3 assets/scripts/check-mtb-version.py
+python3 scripts/check-mtb-version.py
 if [ $? -ne 0 ]; then
   echo "ERROR: MTB version check failed — stale version strings or roadmap drift detected." >&2
   exit 1
 fi
 
 echo "Post-merge: running full site validator..."
-python3 assets/scripts/validate-site.py
+python3 scripts/validate-site.py
 if [ $? -ne 0 ]; then
   echo "ERROR: Site validation failed — stale or broken pages detected." >&2
   exit 1
