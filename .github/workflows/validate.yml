@@ -1,0 +1,42 @@
+name: Site Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    name: Validate site HTML, links, and structure
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install beautifulsoup4
+
+      - name: Run site validator
+        run: python3 scripts/validate-site.py
+
+      - name: Run link checker
+        run: python3 scripts/check-links.py
+
+      - name: Rebuild search index
+        run: python3 scripts/build-search-index.py
+        continue-on-error: false
+
+      - name: Verify search index was built
+        run: |
+          if [ ! -f assets/data/search-index.json ]; then
+            echo "ERROR: search-index.json not found after build step"
+            exit 1
+          fi
+          echo "Search index OK: $(wc -c < assets/data/search-index.json) bytes"
