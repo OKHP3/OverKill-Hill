@@ -106,7 +106,7 @@ All 15 confirmed Mermaid.ai diagram links are real (no placeholders). Poll URLs 
 
 ## Site-Wide Banner
 All 19 non-article pages + the article page itself have a site-wide "HOT OFF THE FORGE" banner.
-- **Non-article pages (19):** Link to `/projects/mac-studio-local-ai-workbench/#meet-larry`, text: "v0.6 is live: Larry the Lobster came online — the autonomous agent tier of the Council of AIs is now operational. Read it →" (updated Task #94)
+- **Non-article pages (19):** Link to `/writings/first-diagram-is-a-liar/#council-scoring`, text: "v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →"
 - **Article page:** Links to `#council-scoring`, text: "v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →"
 
 ## Mermaid Theme Builder Project Page
