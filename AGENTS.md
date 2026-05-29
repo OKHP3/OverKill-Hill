@@ -518,6 +518,8 @@ baseline -- update it here when the inventory changes materially.
 | `assets/img/webp/` | `.gitkeep` only | Run `scripts/convert-hero-webp.py` to populate |
 | `assets/js/` | `app.js`, `mermaid-init.js` | |
 | `assets/templates/` | 11 templates + `index.md` | Article, hub, project-detail, form, and utility types |
+| `dist/` | 2 zip archives + `sync/` staging subdirs | Cross-site sync working area — gitignored but intentional; do not delete |
+| `dist/sync/` | `glee/assets/`, `askjamie/assets/`, `MIGRATION.md` | Staging tree populated by the cross-site sync workflow before zipping |
 | `docs/` | 4 cross-site planning docs | `cross-site-sync-plan.md`, `cross-site-search-dispatch.md`, `cross-site-search-prompt.md`, `project-page-mermaid-theme-builder-salvage.md` |
 | `docs/archive/` | 5 archived sprint and audit docs | Sprint plans from 2026 |
 | `scripts/` | 55 scripts | Full shared + OKH-specific toolchain |
@@ -558,8 +560,10 @@ by default and must be gitignored, moved to a proper home, or deleted.
   committed.
 - **`playwright-report/`**: same.
 - **`coverage/`**: same.
-- **`dist/`**, **`build/`**, **`.next/`**, **`.vite/`**: build output.
-  Gitignore.
+- **`build/`**, **`.next/`**, **`.vite/`**: build output. Gitignore.
+- **`dist/`**: build output on most projects — gitignore. **Exception: OverKill Hill P³.**
+  In this repo `dist/` is the cross-site sync staging area (see section 2.2.1).
+  Its contents are still gitignored, but the directory is intentional; do not delete it.
 - **`node_modules/`**: already gitignored by default; verify.
 
 #### 3.3 IDE and OS junk
