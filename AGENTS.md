@@ -13,14 +13,23 @@ and current audit state.
 - If you need config/secrets, stop and ask. Never invent credentials.
 - Summarize what you changed and why at the end.
 
-> **AGENTS.md sync circuit** — This file is one of three kept in lockstep.
-> Any structural edit to sections 1–5 must be propagated to the other two repos
-> before the session closes. Section 2.2.1 (per-site inventory) is intentionally
-> site-specific and does not need to match line-for-line.
+> **AGENTS.md sync circuit** -- This file is the primary authority for all five
+> OKHP3 repos. Any structural edit to Sections 1-8 must be propagated to the
+> other four repos before the session closes. Section 2.2.1 (per-site inventory)
+> and Section 9 (app-level governance) are intentionally repo-specific and do not
+> need to match line for line.
 >
-> - **OverKill Hill P³:** https://github.com/OKHP3/OverKill-Hill/blob/main/AGENTS.md
-> - **AskJamie™:** https://github.com/OKHP3/AskJamie/blob/main/AGENTS.md
-> - **Glee-fully Tools:** https://github.com/OKHP3/Glee-fullyTools/blob/main/AGENTS.md
+> Static site repos (share Sections 0-8 in full):
+> - **OverKill Hill P3:** <https://github.com/OKHP3/OverKill-Hill/blob/main/AGENTS.md>
+> - **AskJamie:** <https://github.com/OKHP3/AskJamie/blob/main/AGENTS.md>
+> - **Glee-fully Tools:** <https://github.com/OKHP3/Glee-fullyTools/blob/main/AGENTS.md>
+>
+> Web application repos (share Sections 0-8 skeleton; carry repo-specific Section 9):
+> - **BPMN for Mermaid:** <https://github.com/OKHP3/mermaid-diagram-bpmn/blob/main/AGENTS.md>
+> - **Mermaid Theme Builder:** <https://github.com/OKHP3/mermaid-theme-builder/blob/main/AGENTS.md>
+>
+> When a local web app AGENTS.md is silent or ambiguous on any governance matter,
+> defer to this file as the resolution authority.
 
 ---
 
@@ -28,7 +37,7 @@ and current audit state.
 **Brand:** OverKill Hill P³ (Forge / Rust-orange)
 **Body scope class:** none -- this is the default brand; pages set no body class
 **Canonical stylesheet:** https://raw.githubusercontent.com/OKHP3/OverKill-Hill/main/assets/css/theme.css
-**Version:** 2.3
+**Version:** 3.0
 
 This section governs how files and folders are named, what structure all sibling
 repos share, what counts as detritus, and the brand contract this repo serves.
@@ -720,3 +729,190 @@ Replit Agent:
 > intentionally left unchanged with reason, (6) identifier renaming candidates
 > flagged for separate handling, (7) final confirmation the report itself
 > contains no UK spellings. Wait for "go." No em dashes.
+
+---
+ 
+### 2B. Web application repo structural standard
+ 
+Every OKHP3 web application repo (TypeScript / Vite / React / Tailwind v4) shares
+this top-level structure. Web application repos differ from static site repos in
+that source code is compiled, output lands in `dist/`, and GitHub Pages deployment
+is driven by a CI workflow rather than committed HTML files.
+ 
+```
+<repo-root>/
+|-- .agents/                  Replit Agent working memory (committed; canonical)
+|   +-- skills/               agent skills consumed by this app
+|-- .github/
+|   |-- workflows/            GitHub Actions (CI, deploy-pages, e2e, link-check,
+|   |                         release-gate, skill-tests, sync-forge-tokens)
+|   |-- dependabot.yml
+|   |-- FUNDING.yml
+|   +-- copilot-instructions.md
+|-- .gitignore
+|-- .npmrc
+|-- .prettierrc
+|-- .prettierignore
+|-- .replit
+|-- .replitignore
+|-- AGENTS.md                 governance for AI agents working in this repo
+|-- CHANGELOG.md
+|-- LICENSE
+|-- README.md
+|-- docs/                     human-authored design, product, and process docs
+|-- e2e/                      end-to-end tests (Playwright)
+|-- examples/                 .mmd or other reference input files (authoring only;
+|                             not compiled; content may be inlined into src/data/)
+|-- index.html                Vite entry point (at repo root for flat layout)
+|-- package.json              the app package (named @workspace/<app-name>)
+|-- playwright.config.ts
+|-- pnpm-lock.yaml
+|-- pnpm-workspace.yaml       workspace wrapper; retains catalog: version pins and
+|                             Replit artifact registration even in single-app repos
+|-- public/                   static assets copied verbatim into dist/ by Vite
+|-- replit.md                 Replit-specific project notes
+|-- scripts/                  build, maintenance, and authoring scripts
+|-- skills/                   SKILL.md packages this app owns or ships
+|   +-- <skill-name>/         one folder per skill package
+|-- src/                      application source (the app lives here)
+|   |-- __tests__/            unit and component tests (Vitest)
+|   |   +-- __snapshots__/    generated snapshot files (gitignored or regenerable)
+|   |-- components/           PascalCase React components
+|   |-- data/                 static data files (kebab-case filenames)
+|   |-- hooks/                React hooks (camelCase: useFoo.ts)
+|   |-- lib/                  pure logic modules (kebab-case filenames)
+|   |-- pages/                top-level route components (PascalCase)
+|   |   +-- tabs/             tab-level route sub-components
+|   |-- styles/               CSS files including forge-tokens.css
+|   |-- App.tsx               root shell component
+|   |-- index.css             global Tailwind directives and CSS custom properties
+|   |-- main.tsx              Vite entry point (React root mount)
+|   +-- vite-env.d.ts         Vite environment type declarations
+|-- standards/                process standards and reference checklists
+|-- tsconfig.base.json        shared strict TypeScript defaults
+|-- tsconfig.json             app typecheck config (extends tsconfig.base.json)
+|-- vite.config.ts            Vite build config (base path injected via env var)
++-- vitest.config.ts          Vitest unit test config
+```
+ 
+Additional directories that may be present depending on the app:
+ 
+- `artifacts/<app-name>/.replit-artifact/artifact.toml` -- Replit platform
+  registration file. This is a one-file platform token. It is not a pnpm
+  workspace package, it contains no source code, and it must not be deleted.
+  Do not treat the `artifacts/` directory as an indicator that the app source
+  lives there -- in flat-layout repos, `src/` is always at the repo root.
+- `context/` -- variable layer templates (BPMN for Mermaid only)
+- `evals/` -- eval fixtures and rubrics (BPMN for Mermaid only)
+#### 2B.1 Flat layout is the standard
+ 
+Web application repos use a flat layout: `src/` at the repo root. The presence
+of `pnpm-workspace.yaml` and `artifacts/<app-name>/` is Replit scaffolding and
+does not indicate a monorepo. The actual application package is always the root
+`package.json`, named `@workspace/<app-name>`.
+ 
+Do not place application source code under `artifacts/<app-name>/src/`. If it
+is found there, that is a Replit scaffolding artifact requiring correction.
+ 
+#### 2B.2 Build output and deployment
+ 
+Web application repos always gitignore `dist/`. Unlike OverKill Hill P3 (where
+`dist/` is an intentional cross-site sync staging area), `dist/` in web app repos
+is pure Vite build output and must never be committed.
+ 
+Build output path: `dist/public/` (relative to repo root; set in `vite.config.ts`).
+ 
+GitHub Pages deployment is handled by `workflows/deploy-pages.yml`. The base
+path (`/mermaid-theme-builder/`, `/mermaid-diagram-bpmn/`) is injected at build
+time via `BASE_PATH` environment variable -- it is not hardcoded in
+`vite.config.ts`. The config throws if `PORT` or `BASE_PATH` is missing.
+ 
+#### 2B.3 Folders that must not exist at the repo root
+ 
+Same reserved names as static site repos: `_unused/`, `attached_assets/`,
+`attached-assets/`, `_drafts/`, `_scratch/`, `_old/`, `tmp/`, `temp/`, `unused/`.
+ 
+Additionally reserved in web app repos: `build/`, `.next/`, `.vite/` (Vite
+internal cache -- gitignore but do not commit).
+ 
+#### 2B.4 Web app decrapify command (reusable instruction)
+ 
+When the repo accumulates working artifacts, paste this message to Replit Agent:
+ 
+> **Decrapify this repo per the Repository Hygiene Standard in `AGENTS.md`
+> Section 5 and Section 2B.4.** Triage, do not just delete. Produce a plan
+> first, then execute on confirmation. Cover: `attached_assets/` and any hyphen
+> variant, `_unused/`, `test-results/`, `playwright-report/`, `coverage/`,
+> `dist/`, `build/`, `_replit/` (triage contents into `docs/` or
+> `docs/archive/` before deleting), any duplicated sibling-repo content, any
+> file or folder violating the naming rules in Section 1, and any folder name
+> listed as forbidden in Section 2B.3. Do NOT delete `artifacts/<app-name>/
+> .replit-artifact/artifact.toml` -- that is a required Replit platform file.
+> Ensure `.gitignore` covers everything in Section 4 and `git rm -r --cached`
+> anything that became newly-ignored. Output a plain-text plan with: each item,
+> category (gitignore-only, delete, triage-then-delete, rename), justification,
+> and risk. Wait for "go" before executing. No em dashes in the plan.
+ 
+---
+ 
+### 9. App-level governance
+ 
+Sections 0-8 of this file apply to all five OKHP3 repos. Section 9 is different.
+It defines the *slot* for app-level governance content -- content that is
+intentionally local to one repo and must not be synchronized across siblings.
+ 
+Each web application repo carries its own Section 9 with the following subsections.
+Static site repos do not carry a Section 9.
+ 
+#### 9.1 Project identity and brand firewall
+ 
+What this project is. What it is not. Which brand properties it is allowed to
+reference. Which third-party brands are explicitly prohibited. The canonical
+disclaimer to include in README and major docs.
+ 
+#### 9.2 Architecture constraints
+ 
+What this app must never do. Examples: no backend server, no user authentication,
+no AI API calls, no payment processing, no file upload, no analytics that capture
+pasted content, no forked or copied dependencies.
+ 
+#### 9.3 Core workflow
+ 
+The user-facing workflow the app implements. This must be preserved at all times.
+Any change that breaks the core workflow is a defect, regardless of other intent.
+ 
+#### 9.4 Dependency governance
+ 
+Rules for managing the app's primary external dependencies. Which dependencies
+are managed via npm. Which must never be forked or copied into the repo. What
+update and review process applies. Which constants or registry files must be
+manually updated after each dependency version change.
+ 
+#### 9.5 App-specific conventions
+ 
+Rules that apply only to this app's codebase. Examples: which file is the
+canonical data source for a given capability, which generated directories must
+not be hand-edited, which validation commands must pass before commit, which
+naming tokens must be used for UI classes.
+ 
+#### 9.6 Per-app directory inventory
+ 
+Current state of the repo's directories as surveyed on a given date. Format
+matches Section 2.2.1 in the static site repos -- a table of directory, current
+state, and notes. Updated here when the inventory changes materially.
+ 
+#### 9.7 Deprecated files and workflows
+ 
+Files or GitHub Actions workflows that have been superseded and are safe to
+delete. Named explicitly here so agents do not treat them as live.
+ 
+---
+ 
+**Note for agents reading a web app AGENTS.md:** The above subsections (9.1-9.7)
+define the expected structure. Each web app repo fills them with its own content.
+If a subsection is missing from a local AGENTS.md, it should be added on the
+next governance pass -- do not invent content for it.
+
+---
+
+ 
