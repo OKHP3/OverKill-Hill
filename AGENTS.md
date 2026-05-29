@@ -1,4 +1,4 @@
-# Agent Guidelines — OverKill Hill P³
+# Agent Guidelines: OverKill Hill P³
 
 This file is the operating constitution for any AI agent working in this repo.
 Read it before touching any file. It applies equally to Replit Agent, Copilot,
@@ -16,7 +16,6 @@ and current audit state.
 ---
 
 ## Repository Hygiene Standard
-
 **Brand:** OverKill Hill P³ (Forge / Rust-orange)
 **Body scope class:** none -- this is the default brand; pages set no body class
 **Canonical stylesheet:** https://raw.githubusercontent.com/OKHP3/OverKill-Hill/main/assets/css/theme.css
@@ -170,50 +169,50 @@ site-specific content genuinely requires a different layout.
 
 ```
 <repo-root>/
-├── .agents/               Replit Agent working memory (committed; canonical)
-│   └── skills/            agent skills consumed by this app
-├── .github/               GitHub Actions, issue templates
-├── .gitignore
-├── .replit
-├── .replitignore
-├── AGENTS.md              governance for AI agents working in this repo
-├── CHANGELOG.md
-├── CNAME                  GitHub Pages custom domain
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
-├── LICENSE
-├── README.md
-├── ROADMAP.md
-├── SECURITY.md
-├── about/                 /about/ page directory
-├── assets/
-│   ├── css/               stylesheets (theme.css is the canonical shared sheet)
-│   ├── data/              JSON data files (search-index.json, etc.)
-│   ├── docs/              generated documentation and audit artifacts
-│   ├── img/               brand assets and images (kebab-case filenames)
-│   │   └── favicons/      full favicon set
-│   ├── js/                JavaScript (app.js, mermaid-init.js, etc.)
-│   └── templates/         reusable HTML page-shell fragments
-├── contact/               /contact/ page directory
-├── favicon.ico
-├── humans.txt
-├── index.html             site homepage
-├── legal/                 /legal/ page directory
-├── llms.txt               LLM crawler guidance
-├── replit.md              Replit-specific project notes (not for GitHub display)
-├── robots.txt
-├── scripts/               Python build, audit, and maintenance scripts
-├── search/                /search/ page directory
-├── site.webmanifest
-├── sitemap.xml
-├── skills-lock.json
-├── under-construction.html
-└── universe/              /universe/ page directory
+|-- .agents/               Replit Agent working memory (committed; canonical)
+|   +-- skills/            agent skills consumed by this app
+|-- .github/               GitHub Actions, issue templates
+|-- .gitignore
+|-- .replit
+|-- .replitignore
+|-- AGENTS.md              governance for AI agents working in this repo
+|-- CHANGELOG.md
+|-- CNAME                  GitHub Pages custom domain
+|-- CODE_OF_CONDUCT.md
+|-- CONTRIBUTING.md
+|-- LICENSE
+|-- README.md
+|-- ROADMAP.md
+|-- SECURITY.md
+|-- about/                 /about/ page directory
+|-- assets/
+|   |-- css/               stylesheets (theme.css is the canonical shared sheet)
+|   |-- data/              JSON data files (search-index.json, etc.)
+|   |-- docs/              generated documentation and audit artifacts
+|   |-- img/               brand assets and images (kebab-case filenames)
+|   |   +-- favicons/      full favicon set
+|   |-- js/                JavaScript (app.js, mermaid-init.js, etc.)
+|   +-- templates/         reusable HTML page-shell fragments
+|-- contact/               /contact/ page directory
+|-- favicon.ico
+|-- humans.txt
+|-- index.html             site homepage
+|-- legal/                 /legal/ page directory
+|-- llms.txt               LLM crawler guidance
+|-- replit.md              Replit-specific project notes (not for GitHub display)
+|-- robots.txt
+|-- scripts/               Python build, audit, and maintenance scripts
+|-- search/                /search/ page directory
+|-- site.webmanifest
+|-- sitemap.xml
+|-- skills-lock.json
+|-- under-construction.html
++-- universe/              /universe/ page directory
 ```
-
 Each site also has its own unique content directories (e.g. `writings/`,
-`projects/`, `lens-system/`, `toolbox/`) that are not part of the shared
-standard. Do not remove content directories that are unique to a site.
+`projects/`, `found-ry/`, `manifesto/`, `prompt-forge/`, `vault/` for
+OverKill Hill) that are not part of the shared standard. Do not remove content
+directories that are unique to a site.
 
 #### 2.1 Folders that must not exist at the repo root
 
@@ -304,9 +303,8 @@ node_modules/
 *.log
 ```
 
-If a folder in this list is currently tracked, run
-`git rm -r --cached <folder>` before committing the `.gitignore` change so it
-disappears from the index.
+If a folder in this list is currently tracked, remove it from the index before
+committing the `.gitignore` change so it disappears from tracking.
 
 ---
 
@@ -325,7 +323,6 @@ When the repo accumulates working artifacts, paste this message to Replit Agent:
 > D. RENAME. Wait for "go" before executing.
 
 ---
-
 ### 6. Brand contract (OverKill Hill P³)
 
 This repo serves the OverKill Hill P³ brand.
@@ -349,9 +346,9 @@ OverKill Hill P³ Forge motif declared values:
 | Tone | precise, editorial, forge-mode |
 
 **Forbidden in this brand's design system:**
-- Coral `#d94f63` (that is glee-fully)
+- Coral `#d94f63` (that is Glee-fully)
 - Aqua/teal `#2d6f7e` as a primary accent (that is AskJamie)
-- Fredoka or Baloo 2 headings (those are glee-fully and AskJamie)
+- Fredoka or Baloo 2 headings (those are Glee-fully and AskJamie)
 - Any font outside Alfa Slab One / DM Sans / JetBrains Mono
 
 **Note on BFS content:** The site hosts a legitimate client project page at
