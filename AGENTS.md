@@ -37,7 +37,7 @@ and current audit state.
 **Brand:** OverKill Hill P³ (Forge / Rust-orange)
 **Body scope class:** none -- this is the default brand; pages set no body class
 **Canonical stylesheet:** https://raw.githubusercontent.com/OKHP3/OverKill-Hill/main/assets/css/theme.css
-**Version:** 3.0
+**Version:** 3.1
 
 This section governs how files and folders are named, what structure all sibling
 repos share, what counts as detritus, and the brand contract this repo serves.
@@ -244,7 +244,6 @@ These names are reserved for detritus (see Section 3) and must not be used
 as legitimate folders: `_unused/`, `attached_assets/`, `attached-assets/`,
 `_drafts/`, `_scratch/`, `_old/`, `tmp/`, `temp/`, `unused/`.
 
-#### 2.2 Directory schema and expected contents
 #### 2.2 Directory purposes and expected contents
 
 The definitions below describe the purpose and expected contents of every
@@ -800,8 +799,8 @@ Additional directories that may be present depending on the app:
 - `artifacts/<app-name>/.replit-artifact/artifact.toml` -- Replit platform
   registration file. This is a one-file platform token. It is not a pnpm
   workspace package, it contains no source code, and it must not be deleted.
-  Do not treat the `artifacts/` directory as an indicator that the app source
-  lives there -- in flat-layout repos, `src/` is always at the repo root.
+  Note: MTB retains this at `artifacts/mermaid-theme-builder/.replit-artifact/`.
+  BPMN uses `app/.replit-artifact/` after its migration to the `app/` layout.
 - `context/` -- variable layer templates (BPMN for Mermaid only)
 - `evals/` -- eval fixtures and rubrics (BPMN for Mermaid only)
 #### 2B.1 Flat layout is the standard
