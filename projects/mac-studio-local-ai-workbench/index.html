@@ -12,8 +12,8 @@
        METADATA: Primary Title & Description
        ======================================== -->
     <title>Mac Studio Local AI Workbench | OverKill Hill P³™</title>
-    <meta name="description" content="Mac Studio M4 Max local AI workstation — 10 models, 11 MCP servers, OpenClaw agent (Larry), SearXNG web search, governed storage, and verified benchmarks. Baseline complete 2026-05-12. Agent online 2026-05-28." />
-    <meta name="keywords" content="Mac Studio M4 Max, local AI, Ollama, LM Studio, Open WebUI, mlx-lm, MCP servers, local LLM, AI workbench, OverKill Hill P³™, OpenClaw, local AI agent, autonomous agent, SearXNG, Larry the Lobster, Build Your Own Local AI, BYOLAI" />
+    <meta name="description" content="Mac Studio M4 Max local AI workstation — 29 models, 11 MCP servers, OpenClaw agent (Larry), SearXNG, Qdrant RAG stack, and the full Council of AIs. Baseline 2026-05-12. Agent online 2026-05-28." />
+    <meta name="keywords" content="Mac Studio M4 Max, local AI, Ollama, LM Studio, Open WebUI, mlx-lm, MCP servers, local LLM, AI workbench, OverKill Hill P³™, OpenClaw, local AI agent, autonomous agent, SearXNG, Larry the Lobster, Build Your Own Local AI, BYOLAI, Qdrant, RAG, Council of AIs, Mermaid architecture diagram" />
     <meta name="author" content="OverKill Hill P³™" />
     <meta name="creator" content="OverKill Hill P³™" />
     <meta name="publisher" content="OverKill Hill P³™" />
@@ -22,7 +22,7 @@
        METADATA: Open Graph (Social Sharing)
        ======================================== -->
     <meta property="og:title" content="Mac Studio Local AI Workbench | OverKill Hill P³™" />
-    <meta property="og:description" content="10 days to baseline. 10 models. 11 MCP servers. An autonomous agent named Larry. A production-grade personal AI workstation built for $2,250 in hardware and $0 in software." />
+    <meta property="og:description" content="10 days to baseline. 29 models across 3 runtimes. An autonomous agent named Larry. The full Council of AIs. Built on Mac Studio M4 Max for $2,250 in hardware and $0 in software." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://overkillhill.com/projects/mac-studio-local-ai-workbench/" />
     <meta property="og:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
@@ -38,7 +38,7 @@
        ======================================== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Mac Studio Local AI Workbench | OverKill Hill P³™" />
-    <meta name="twitter:description" content="10 days to baseline. 10 models. 11 MCP servers. An autonomous agent named Larry. A production-grade personal AI workstation built for $2,250 in hardware and $0 in software." />
+    <meta name="twitter:description" content="10 days to baseline. 29 models across 3 runtimes. An autonomous agent named Larry. The full Council of AIs. Built on Mac Studio M4 Max for $2,250 in hardware and $0 in software." />
     <meta name="twitter:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
     <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³™ illustration" />
     <meta name="twitter:site" content="@OverKillHillP3" />
@@ -103,7 +103,7 @@
         "@type": "Organization",
         "name": "OverKill Hill P³™"
       },
-      "description": "Mac Studio M4 Max local AI workstation — 10 models, 11 MCP servers, OpenClaw agent (Larry), SearXNG web search, governed storage, and verified benchmarks. Baseline complete 2026-05-12. Agent online 2026-05-28."
+      "description": "Mac Studio M4 Max local AI workstation — 29 models, 11 MCP servers, OpenClaw agent (Larry), SearXNG, Qdrant RAG stack, and the full Council of AIs. Baseline 2026-05-12. Agent online 2026-05-28."
     }
     </script>
 
@@ -710,6 +710,33 @@
         .timeline-date { white-space: normal; }
       }
 
+      /* ── Mermaid diagram containers ─────────────────────────────── */
+      .mermaid {
+        overflow-x: auto;
+        margin: 0.75rem 0 1.5rem;
+        background: rgba(0,0,0,0.18);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1.25rem;
+        min-height: 80px;
+      }
+      .diagram-block {
+        margin-bottom: 2.5rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--color-border-subtle);
+      }
+      .diagram-block:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .diagram-block p {
+        font-size: 0.88rem;
+        color: var(--color-muted);
+        margin: 0 0 0.75rem;
+        line-height: 1.55;
+      }
+
       /* ── Light-mode: override dark-only hardcoded colors ────────── */
       html[data-theme="light"] body .callout--success {
         background: rgba(34, 197, 94, 0.09);
@@ -764,6 +791,10 @@
       gtag('js', new Date());
       gtag('config', 'G-VJ1BKXS27H');
     </script>
+
+    <!-- Mermaid.js — architecture diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({ startOnLoad: true, theme: 'dark' });</script>
   </head>
 
   <body class="projects-main">
@@ -817,8 +848,8 @@
 
       <section class="site-specials site-specials--okh" aria-label="Forge update">
         <span class="site-specials-label">🔥 Hot off the FORGE ⚒️</span>
-        <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
-          v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →
+        <a class="site-specials-link" href="#how-its-built">
+          v0.6 is live: Larry the Lobster is online and three architecture diagrams now show how it all fits together. Read it →
         </a>
       </section>
     </header>
@@ -1458,6 +1489,115 @@
                 </p>
               </div>
 
+
+
+              <!-- HOW IT'S BUILT -->
+              <div class="content-block" id="how-its-built" data-search-index>
+                <div class="section-label">Architecture · v0.6</div>
+                <h2>How It's Built — Three Views</h2>
+                <p>Three diagrams showing the same workbench from three angles: traffic flow, capability map, and physical deployment. All rendered live from Mermaid source.</p>
+
+                <div class="diagram-block">
+                  <h3>Token Routing — How Requests Flow</h3>
+                  <p>Every query enters through one of the four input surfaces. Local models handle zero-cost inference; cloud models are reserved for precision tasks where cost is justified.</p>
+                  <div class="mermaid">
+flowchart TD
+    A[["🖥️ Input surfaces\nOpen WebUI · Continue.dev · Claude Desktop · Larry"]] --> B{{"Token router"}}
+    B -->|"Zero-cost tier"| C["🦙 Ollama\nphi4:14b · gemma3:27b · codestral:22b\n+ 3 more"]
+    B -->|"Zero-cost tier"| D["🎛️ LM Studio\nGemma 4 E4B / E2B / 26B A4B\n+ MLX models"]
+    B -->|"Zero-cost tier"| E["⚡ mlx-lm\nPhi-4-mini · 139 tok/s"]
+    B -->|"Precision tier"| F["☁️ Cloud frontier\nClaude · ChatGPT · Copilot · Perplexity"]
+    C --> G[["📦 Output\nNotebook · GitHub · Notion · File system"]]
+    D --> G
+    E --> G
+    F --> G
+    style A fill:#2a2320,stroke:#c46a2c,color:#f5f0eb
+    style B fill:#3d2f20,stroke:#c46a2c,color:#f5f0eb
+    style C fill:#1a2a1a,stroke:#4ade80,color:#f5f0eb
+    style D fill:#1a2a1a,stroke:#4ade80,color:#f5f0eb
+    style E fill:#1a2a1a,stroke:#4ade80,color:#f5f0eb
+    style F fill:#1a1a2a,stroke:#7c93d4,color:#f5f0eb
+    style G fill:#2a2320,stroke:#c46a2c,color:#f5f0eb
+                  </div>
+                </div>
+
+                <div class="diagram-block">
+                  <h3>Capability Map — What the Workbench Can Do</h3>
+                  <p>The full capability surface: local inference, protocol orchestration, retrieval, autonomous operation, and the external integrations that complete the Council of AIs workflow.</p>
+                  <div class="mermaid">
+mindmap
+  root((Mac Studio\nM4 Max))
+    Local Inference
+      Ollama 0.23.1
+        phi4:14b
+        gemma3:27b
+        codestral:22b
+      LM Studio 0.4.12
+        Gemma 4 E4B
+        Gemma 4 26B A4B
+      mlx-lm 0.31.3
+        139 tok/s
+    Orchestration
+      Claude Desktop
+        11 MCP servers
+      Open WebUI
+        Docker localhost:3000
+      Continue.dev
+        Codestral autocomplete
+    Autonomous Agent
+      OpenClaw 2026.5.26
+        Larry persona
+        gemma3:27b primary
+        28 skills eligible
+        SearXNG web search
+    Retrieval (next phase)
+      Qdrant vector store
+      nomic-embed-text
+      Open WebUI Knowledge
+    Cloud Tier
+      Council of AIs
+        Claude
+        ChatGPT
+        Copilot
+        Perplexity
+                  </div>
+                </div>
+
+                <div class="diagram-block">
+                  <h3>Physical Architecture — Where Everything Lives</h3>
+                  <p>Hardware topology: what runs on internal SSD, what runs on the external NVMe, and how all services bind together at runtime.</p>
+                  <div class="mermaid">
+architecture-beta
+    group internal(logos:apple)[Internal SSD 512GB]
+    group external(server)[OKH-Local NVMe 1TB]
+    group services(cloud)[Runtime Services]
+    group cloud(internet)[Cloud Tier]
+
+    service apps(logos:macos)[macOS Sequoia] in internal
+    service docker(logos:docker-icon)[Docker Desktop] in internal
+    service ollama(server)[Ollama 0.23.1] in services
+    service lmstudio(server)[LM Studio 0.4.12] in services
+    service openwebui(server)[Open WebUI] in services
+    service larry(server)[Larry / OpenClaw] in services
+
+    service models_ollama(disk)[Ollama Models] in external
+    service models_lms(disk)[LM Studio Models] in external
+    service hf_cache(disk)[HuggingFace Cache] in external
+
+    service claude(cloud)[Claude] in cloud
+    service chatgpt(cloud)[ChatGPT] in cloud
+
+    apps:R --> L:ollama
+    apps:R --> L:lmstudio
+    docker:R --> L:openwebui
+    apps:R --> L:larry
+    ollama:B --> T:models_ollama
+    lmstudio:B --> T:models_lms
+    larry:R --> L:claude
+    larry:R --> L:chatgpt
+                  </div>
+                </div>
+              </div>
               <!-- THE OPERATING MODEL -->
               <div class="content-block" id="operating-model">
                 <div class="section-label">Strategic Context</div>

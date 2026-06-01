@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 86,
+  "count": 87,
   "entries": [
     {
       "url": "/",
@@ -840,7 +840,7 @@
       "url": "/projects/mac-studio-local-ai-workbench/",
       "title": "Mac Studio Local AI Workbench | OverKill Hill P³™",
       "category": "Project",
-      "description": "Mac Studio M4 Max local AI workstation — 10 models, 11 MCP servers, OpenClaw agent (Larry), SearXNG web search, governed storage, and verified benchmarks. Baseline complete 2026-05-12. Agent online 2026-05-28.",
+      "description": "Mac Studio M4 Max local AI workstation — 29 models, 11 MCP servers, OpenClaw agent (Larry), SearXNG, Qdrant RAG stack, and the full Council of AIs. Baseline 2026-05-12. Agent online 2026-05-28.",
       "headings": [
         "What This Is Worth",
         "Status Board",
@@ -849,6 +849,7 @@
         "Model Inventory",
         "Model Selection Policy",
         "Benchmark Snapshot",
+        "How It's Built — Three Views",
         "The Operating Model",
         "Next Phase",
         "Build Your Own",
@@ -870,6 +871,9 @@
         "Post-baseline hardening and publication",
         "OpenClaw installation",
         "Larry comes online",
+        "Token Routing — How Requests Flow",
+        "Capability Map — What the Workbench Can Do",
+        "Physical Architecture — Where Everything Lives",
         "Quick Facts",
         "Need a local AI workbench designed for your workflow?"
       ],
@@ -882,6 +886,15 @@
       "description": "Architecture Key Decisions Default runtime Ollama for API/headless, LM Studio for GUI/MLX testing, mlx-lm for max performance Daily driver models phi4:14b (speed) · gemma3:27b (quality) · codestral:22b (code) Model…",
       "headings": [],
       "body": "Architecture Key Decisions Default runtime Ollama for API/headless, LM Studio for GUI/MLX testing, mlx-lm for max performance Daily driver models phi4:14b (speed) · gemma3:27b (quality) · codestral:22b (code) Model policy Western-lab only — Meta, Google, Mistral, Microsoft. No Chinese cloud services. Token governance Local models → Notion AI → Claude/ChatGPT base → Perplexity/Copilot → Replit (spec must be complete first) Git workflow Primary commits from Replit, Claude Code, Codex, Mac Studio. Secondary machine is read-mostly via OneDrive sync. Directory conventions All model weights on OKH-Local external NVMe. Repos in OneDrive OKH folder. Workspace file at OKH root. </div",
+      "parent": "/projects/mac-studio-local-ai-workbench/"
+    },
+    {
+      "url": "/projects/mac-studio-local-ai-workbench/#how-its-built",
+      "title": "How It's Built — Three Views — Mac Studio Local AI Workbench | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Architecture · v0.6 How It's Built — Three Views Three diagrams showing the same workbench from three angles: traffic flow, capability map, and physical deployment. All rendered live from Mermaid source.",
+      "headings": [],
+      "body": "Architecture · v0.6 How It's Built — Three Views Three diagrams showing the same workbench from three angles: traffic flow, capability map, and physical deployment. All rendered live from Mermaid source. Token Routing — How Requests Flow Every query enters through one of the four input surfaces. Local models handle zero-cost inference; cloud models are reserved for precision tasks where cost is justified. flowchart TD A[[\"🖥️ Input surfaces\\nOpen WebUI · Continue.dev · Claude Desktop · Larry\"]] --> B{{\"Token router\"}} B -->|\"Zero-cost tier\"| C[\"🦙 Ollama\\nphi4:14b · gemma3:27b · codestral:22b\\n+ 3 more\"] B -->|\"Zero-cost tier\"| D[\"🎛️ LM Studio\\nGemma 4 E4B / E2B / 26B A4B\\n+ MLX models\"] B -->|\"Zero-cost tier\"| E[\"⚡ mlx-lm\\nPhi-4-mini · 139 tok/s\"] B -->|\"Precision tier\"| F[\"☁️ Cloud…",
       "parent": "/projects/mac-studio-local-ai-workbench/"
     },
     {
