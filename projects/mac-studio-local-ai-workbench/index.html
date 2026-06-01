@@ -1522,7 +1522,7 @@ flowchart TD
                   <p>The full capability surface: local inference, protocol orchestration, retrieval, autonomous operation, and the external integrations that complete the Council of AIs workflow.</p>
                   <div class="mermaid">
 mindmap
-  root((Mac Studio\nM4 Max))
+  root((Mac Studio M4 Max))
     Local Inference
       Ollama 0.23.1
         phi4:14b
@@ -1563,34 +1563,35 @@ mindmap
                   <h3>Physical Architecture — Where Everything Lives</h3>
                   <p>Hardware topology: what runs on internal SSD, what runs on the external NVMe, and how all services bind together at runtime.</p>
                   <div class="mermaid">
-architecture-beta
-    group internal(logos:apple)[Internal SSD 512GB]
-    group external(server)[OKH-Local NVMe 1TB]
-    group services(cloud)[Runtime Services]
-    group cloud(internet)[Cloud Tier]
+graph TB
+    subgraph INT["\U0001f5a5\ufe0f Internal SSD \u2014 512GB"]
+        apps["macOS Sequoia"]
+        docker["Docker Desktop"]
+    end
+    subgraph SVC["\u2699\ufe0f Runtime Services"]
+        ollama["Ollama 0.23.1"]
+        lmstudio["LM Studio 0.4.12"]
+        openwebui["Open WebUI \u00b7 :3000"]
+        larry["Larry / OpenClaw \u00b7 :18789"]
+    end
+    subgraph EXT["\U0001f4be OKH-Local NVMe \u2014 1TB"]
+        models_ollama["Ollama Models"]
+        models_lms["LM Studio Models"]
+        hf["HuggingFace Cache"]
+    end
+    subgraph CLD["\u2601\ufe0f Cloud Tier"]
+        claude["Claude"]
+        chatgpt["ChatGPT"]
+    end
 
-    service apps(logos:macos)[macOS Sequoia] in internal
-    service docker(logos:docker-icon)[Docker Desktop] in internal
-    service ollama(server)[Ollama 0.23.1] in services
-    service lmstudio(server)[LM Studio 0.4.12] in services
-    service openwebui(server)[Open WebUI] in services
-    service larry(server)[Larry / OpenClaw] in services
-
-    service models_ollama(disk)[Ollama Models] in external
-    service models_lms(disk)[LM Studio Models] in external
-    service hf_cache(disk)[HuggingFace Cache] in external
-
-    service claude(cloud)[Claude] in cloud
-    service chatgpt(cloud)[ChatGPT] in cloud
-
-    apps:R --> L:ollama
-    apps:R --> L:lmstudio
-    docker:R --> L:openwebui
-    apps:R --> L:larry
-    ollama:B --> T:models_ollama
-    lmstudio:B --> T:models_lms
-    larry:R --> L:claude
-    larry:R --> L:chatgpt
+    apps --> ollama
+    apps --> lmstudio
+    docker --> openwebui
+    apps --> larry
+    ollama --> models_ollama
+    lmstudio --> models_lms
+    larry --> claude
+    larry --> chatgpt
                   </div>
                 </div>
               </div>
