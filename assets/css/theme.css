@@ -1507,6 +1507,16 @@ body.construction-dismissed .construction-overlay,
   color: initial;
 }
 
+/* Override color:initial for diagrams that use the OKH dark Mermaid palette.
+   .askjamie-mermaid-shell scopes the universe page map; the higher specificity
+   (2 classes vs 1 class) beats the color:initial rule above without !important. */
+.askjamie-mermaid-shell .mermaid foreignObject,
+.askjamie-mermaid-shell .mermaid foreignObject div,
+.askjamie-mermaid-shell .mermaid foreignObject p,
+.askjamie-mermaid-shell .mermaid foreignObject span {
+  color: var(--mermaid-primary-text-color);
+}
+
 /* Prompts section: h3 subtitle beneath h2 */
 .section-subtitle {
   font-family: var(--font-body);
