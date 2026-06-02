@@ -1507,13 +1507,13 @@ body.construction-dismissed .construction-overlay,
   color: initial;
 }
 
-/* Override color:initial for diagrams that use the OKH dark Mermaid palette.
-   .askjamie-mermaid-shell scopes the universe page map; the higher specificity
+/* Override color:initial for OKH diagrams that use the dark Mermaid palette.
+   .okh-mermaid-shell scopes the universe page map; higher specificity
    (2 classes vs 1 class) beats the color:initial rule above without !important. */
-.askjamie-mermaid-shell .mermaid foreignObject,
-.askjamie-mermaid-shell .mermaid foreignObject div,
-.askjamie-mermaid-shell .mermaid foreignObject p,
-.askjamie-mermaid-shell .mermaid foreignObject span {
+.okh-mermaid-shell .mermaid foreignObject,
+.okh-mermaid-shell .mermaid foreignObject div,
+.okh-mermaid-shell .mermaid foreignObject p,
+.okh-mermaid-shell .mermaid foreignObject span {
   color: var(--mermaid-primary-text-color);
 }
 
@@ -2593,6 +2593,29 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
   padding: 0.25rem 0.6rem;
   font-size: 0.75rem;
   border: 1px solid rgba(148, 163, 184, 0.8);
+}
+
+/* OKH universe map – Mermaid diagram shell (used in universe/index.html) */
+.okh-mermaid-shell {
+  margin: 0;
+  width: 100%;
+  max-width: 960px;
+}
+
+.okh-mermaid-shell .mermaid {
+  width: 100%;
+  min-height: 22rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 18px;
+  background: var(--color-surface);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 640px) {
+  .okh-mermaid-shell .mermaid {
+    min-height: 18rem;
+    padding: 1rem;
+  }
 }
 
 
