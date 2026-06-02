@@ -2546,19 +2546,19 @@ body:not(.askjamie-main):not(.glee-main) .mermaid svg {
   height: auto;
 }
 
-/* Nodes */
+/* Nodes — use stable mermaid tokens so fills stay dark in both page themes */
 body:not(.askjamie-main):not(.glee-main) .mermaid .node rect,
 body:not(.askjamie-main):not(.glee-main) .mermaid .node circle {
   rx: 6px;
   ry: 6px;
-  fill: var(--color-surface-soft);
-  stroke: var(--color-accent);
+  fill: var(--mermaid-primary-color);
+  stroke: var(--mermaid-primary-border-color);
   stroke-width: 1.5px;
 }
 
-/* Labels */
+/* Labels — use stable mermaid tokens so text stays light in both page themes */
 body:not(.askjamie-main):not(.glee-main) .mermaid .label text {
-  fill: var(--color-fg);
+  fill: var(--mermaid-primary-text-color);
   font-family: var(--font-body);
   font-size: 0.9rem;
 }
