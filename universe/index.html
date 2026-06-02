@@ -222,7 +222,6 @@
               <div>
                 <figure class="askjamie-mermaid-shell">
                   <pre class="mermaid">
-                    %%{init: {'theme': 'dark'}}%%
                     graph LR
 
                       OKH["OverKill&nbsp;Hill&nbsp;P³™"]
@@ -568,33 +567,34 @@
     <script type="module">
       import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
 
-      // Pull final, brand-specific tokens (OKH / AskJamie / Glee) from computed styles
-      const styles = getComputedStyle(document.body);
+      // Use the dedicated --mermaid-* tokens from :root — hardcoded OKH dark values
+      // that do NOT flip in light mode, so node/text contrast stays correct in both themes.
+      const styles = getComputedStyle(document.documentElement);
 
-      const surface = styles.getPropertyValue("--color-surface").trim() || "#111827";
-      const surfaceSoft = styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
-      const fg = styles.getPropertyValue("--color-fg").trim() || "#e5e7eb";
-      const accent = styles.getPropertyValue("--color-accent").trim() || "#c46a2c";
-      const muted = styles.getPropertyValue("--color-muted").trim() || "#6b7280";
-      const fontBody =
-        styles.getPropertyValue("--font-body").trim() ||
+      const primary    = styles.getPropertyValue("--mermaid-primary-color").trim()        || "#111827";
+      const primaryTxt = styles.getPropertyValue("--mermaid-primary-text-color").trim()   || "#e5e7eb";
+      const primaryBdr = styles.getPropertyValue("--mermaid-primary-border-color").trim() || "#c46a2c";
+      const lineColor  = styles.getPropertyValue("--mermaid-line-color").trim()           || "#c46a2c";
+      const secondary  = styles.getPropertyValue("--mermaid-secondary-color").trim()      || "#181f26";
+      const tertiary   = styles.getPropertyValue("--mermaid-tertiary-color").trim()       || "#1c3a34";
+      const fontBody   = styles.getPropertyValue("--font-body").trim()                    ||
         '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
 
       mermaid.initialize({
         startOnLoad: true,
         securityLevel: "loose",   // required for clickable links in diagrams
-        theme: "base",            // modifiable theme
+        theme: "base",
         themeVariables: {
-          primaryColor: surface,        // node background
-          primaryTextColor: fg,
-          primaryBorderColor: accent,
-          lineColor: accent,
-          secondaryColor: surfaceSoft,  // secondary fills / highlights
-          tertiaryColor: surfaceSoft,
-          textColor: fg,
-          fontFamily: fontBody,
-          noteBkgColor: surface,
-          noteTextColor: muted
+          primaryColor:       primary,
+          primaryTextColor:   primaryTxt,
+          primaryBorderColor: primaryBdr,
+          lineColor:          lineColor,
+          secondaryColor:     secondary,
+          tertiaryColor:      tertiary,
+          textColor:          primaryTxt,
+          fontFamily:         fontBody,
+          noteBkgColor:       primary,
+          noteTextColor:      primaryTxt
         },
         flowchart: {
           curve: "basis",
