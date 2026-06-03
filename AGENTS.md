@@ -65,7 +65,7 @@ and current audit state.
 **Brand:** OverKill Hill P³ (Forge / Rust-orange)
 **Body scope class:** none -- this is the default brand; pages set no body class
 **Canonical stylesheet:** https://raw.githubusercontent.com/OKHP3/OverKill-Hill/main/assets/css/theme.css
-**Version:** 3.1
+**Version:** 3.2
 
 This section governs how files and folders are named, what structure all sibling
 repos share, what counts as detritus, and the brand contract this repo serves.
