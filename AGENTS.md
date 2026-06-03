@@ -13,23 +13,51 @@ and current audit state.
 - If you need config/secrets, stop and ask. Never invent credentials.
 - Summarize what you changed and why at the end.
 
-> **AGENTS.md sync circuit** -- This file is the primary authority for all five
-> OKHP3 repos. Any structural edit to Sections 1-8 must be propagated to the
-> other four repos before the session closes. Section 2.2.1 (per-site inventory)
-> and Section 9 (app-level governance) are intentionally repo-specific and do not
-> need to match line for line.
+> **AGENTS.md sync circuit** -- This file is the Tier 0 constitutional authority
+> for the OKHP3 repository ecosystem. Structural edits to universal governance
+> sections must be propagated through the sync cycle before the session closes.
 >
-> Static site repos (share Sections 0-8 in full):
-> - **OverKill Hill P3:** <https://github.com/OKHP3/OverKill-Hill/blob/main/AGENTS.md>
+> **Tier 0 -- Golden master authority**
+> - **OverKill Hill P³:** <https://github.com/OKHP3/OverKill-Hill/blob/main/AGENTS.md>
+>
+> **Tier 1 -- FoundRy relay repositories**
+> These repos translate the golden master into brand/domain-specific child-repo
+> scaffolds. They inherit the universal law, but may define relay-specific
+> registries, templates, schemas, and Section 9 governance.
+>
+> - **OverKill Hill FoundRy:** <https://github.com/OKHP3/OverKill-Hill-FoundRy/blob/main/AGENTS.md>
+> - **AskJamie FoundRy:** <https://github.com/OKHP3/AskJamie-FoundRy/blob/main/AGENTS.md>
+> - **Glee-fully Tools FoundRy:** <https://github.com/OKHP3/Glee-fullyTools-FoundRy/blob/main/AGENTS.md>
+>
+> **Tier 2 -- Public static site repositories**
+> These repos share Sections 0-8 in full unless a site-specific override is
+> explicitly documented. Section 2.2.1 and Section 9 remain repo-specific.
+>
 > - **AskJamie:** <https://github.com/OKHP3/AskJamie/blob/main/AGENTS.md>
 > - **Glee-fully Tools:** <https://github.com/OKHP3/Glee-fullyTools/blob/main/AGENTS.md>
 >
-> Web application repos (share Sections 0-8 skeleton; carry repo-specific Section 9):
+> **Tier 2 -- Web application repositories**
+> These repos share the Sections 0-8 skeleton, but carry repo-specific Section 9
+> implementation rules, build commands, and app-level governance.
+>
 > - **BPMN for Mermaid:** <https://github.com/OKHP3/mermaid-diagram-bpmn/blob/main/AGENTS.md>
 > - **Mermaid Theme Builder:** <https://github.com/OKHP3/mermaid-theme-builder/blob/main/AGENTS.md>
 >
-> When a local web app AGENTS.md is silent or ambiguous on any governance matter,
-> defer to this file as the resolution authority.
+> **Tier 2+ -- Child capability repositories**
+> Capability repos inherit from their parent FoundRy relay. Their root
+> `manifest.yaml` must identify `parent_foundry`, `brand_domain`,
+> `governance.naming_pattern`, lifecycle status, and visibility controls.
+>
+> **Propagation rule:** When Sections 0-8 change in this file, update the three
+> FoundRy relay repos first. Relay repos then govern downstream child repos
+> through their `_template/`, `registry/`, `schemas/`, and `docs/` folders.
+>
+> **Override rule:** Section 2.2.1, Section 6 brand contract, and Section 9 may be
+> repo-specific. Sections 0-5, 7, and 8 are universal unless this file explicitly
+> defines an exception.
+>
+> When a child repo, web app, site repo, or relay AGENTS.md is silent or ambiguous
+> on any governance matter, defer to this file as the resolution authority.
 
 ---
 
