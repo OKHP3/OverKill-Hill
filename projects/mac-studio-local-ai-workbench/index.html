@@ -12,7 +12,7 @@
        METADATA: Primary Title & Description
        ======================================== -->
     <title>Mac Studio Local AI Workbench | OverKill Hill P³™</title>
-    <meta name="description" content="Mac Studio M4 Max local AI workstation — 29 models, 11 MCP servers, OpenClaw agent (Larry), SearXNG, Qdrant RAG stack, and the full Council of AIs. Baseline 2026-05-12. Agent online 2026-05-28." />
+    <meta name="description" content="Mac Studio M4 Max local AI workstation — 29 models, 11 MCP servers, OpenClaw agent (Larry), RAG stack, and verified benchmarks. Build complete 2026-05-30." />
     <meta name="keywords" content="Mac Studio M4 Max, local AI, Ollama, LM Studio, Open WebUI, mlx-lm, MCP servers, local LLM, AI workbench, OverKill Hill P³™, OpenClaw, local AI agent, autonomous agent, SearXNG, Larry the Lobster, Build Your Own Local AI, BYOLAI, Qdrant, RAG, Council of AIs, Mermaid architecture diagram" />
     <meta name="author" content="OverKill Hill P³™" />
     <meta name="creator" content="OverKill Hill P³™" />
@@ -22,7 +22,7 @@
        METADATA: Open Graph (Social Sharing)
        ======================================== -->
     <meta property="og:title" content="Mac Studio Local AI Workbench | OverKill Hill P³™" />
-    <meta property="og:description" content="10 days to baseline. 29 models across 3 runtimes. An autonomous agent named Larry. The full Council of AIs. Built on Mac Studio M4 Max for $2,250 in hardware and $0 in software." />
+    <meta property="og:description" content="29 models. 11 MCP servers. An autonomous agent named Larry. A production-grade personal AI workstation built for $2,250 in hardware and $0 in software. Build complete." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://overkillhill.com/projects/mac-studio-local-ai-workbench/" />
     <meta property="og:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
@@ -38,7 +38,7 @@
        ======================================== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Mac Studio Local AI Workbench | OverKill Hill P³™" />
-    <meta name="twitter:description" content="10 days to baseline. 29 models across 3 runtimes. An autonomous agent named Larry. The full Council of AIs. Built on Mac Studio M4 Max for $2,250 in hardware and $0 in software." />
+    <meta name="twitter:description" content="29 models. 11 MCP servers. An autonomous agent named Larry. A production-grade personal AI workstation built for $2,250 in hardware and $0 in software. Build complete." />
     <meta name="twitter:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
     <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³™ illustration" />
     <meta name="twitter:site" content="@OverKillHillP3" />
@@ -901,6 +901,7 @@
               Archive: <code style="font-family:var(--font-mono);font-size:0.85em;">/Volumes/OKH-Local/05_Research_Vault/mac-studio-setup_DONE_2026-05-12.tar.gz</code>
               <br/><span style="font-size:0.85em;opacity:0.75;margin-top:0.4rem;display:inline-block;">2026-05-13 post-baseline: Ollama plist corrected, Open WebUI updated to latest, Edge PWA resolved. Project page published.</span>
               <br/><span style="font-size:0.85em;opacity:0.75;margin-top:0.4rem;display:inline-block;">2026-05-27/28: OpenClaw installed, agent named Larry, MEMORY.md seeded, SearXNG web search live.</span>
+              <br/><span style="font-size:0.85em;opacity:0.75;margin-top:0.4rem;display:inline-block;">2026-05-27 through 2026-05-30: OpenClaw/Larry online, RAG stack deployed, all smoke tests passed, strict benchmark complete, architecture diagrams published. Build declared complete.</span>
             </div>
           </div>
 
@@ -963,6 +964,9 @@
                   <div class="status-item"><span class="check">✓</span><span> OpenClaw 2026.5.26 installed — local AI agent, LaunchAgent configured, gateway on port 18789 <span class="status-date">· 2026-05-27</span></span></div>
                   <div class="status-item"><span class="check">✓</span><span> Larry persona configured — gemma3:27b primary, 28 skills eligible, SearXNG web search active <span class="status-date">· 2026-05-28</span></span></div>
                   <div class="status-item"><span class="check">✓</span><span> MEMORY.md seeded — agent context-aware: knows Jamie, the Council of AIs stack, and the BFS firewall <span class="status-date">· 2026-05-28</span></span></div>
+                  <div class="status-item"><span class="check">✓</span><span> RAG stack deployed — nomic-embed-text + Qdrant + Open WebUI <span class="status-date">· 2026-05-29</span></span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Strict prompt benchmark complete — all 6 models, zero outright failures <span class="status-date">· 2026-05-30</span></span></div>
+                  <div class="status-item"><span class="check">✓</span><span> Architecture diagrams published — flowchart, mind map, and architecture-beta <span class="status-date">· 2026-05-30</span></span></div>
                 </div>
               </div>
 
@@ -1261,6 +1265,40 @@
                         <div class="timeline-row">
                           <span class="timeline-row-label broke">Broke</span>
                           <span class="timeline-row-content">SearXNG returned stale version data on first search query — search engine quality tuning pending (open localhost:8888/preferences to configure preferred engines).</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 29<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>RAG stack + LM Studio consolidation</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Pulled nomic-embed-text embedding model. Deployed Qdrant 1.18.1 in Docker on port 6333. Recreated Open WebUI container with <code>VECTOR_DB=qdrant</code> environment variable. Consolidated LM Studio model storage — 22 models across 3 directories normalized under <code>models/</code>. Configured energy saver — Mac stays awake permanently.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">Qdrant returning <code>{"status":"ok"}</code>. Open WebUI wired to Qdrant. All smoke tests passed.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-entry">
+                    <div class="timeline-date">May 30<br/>2026</div>
+                    <div class="timeline-body">
+                      <h3>Benchmarks + architecture diagrams</h3>
+                      <div class="timeline-rows">
+                        <div class="timeline-row">
+                          <span class="timeline-row-label did">Did</span>
+                          <span class="timeline-row-content">Ran strict prompt benchmark against all 6 Ollama models. Zero outright failures — significant improvement over loose-prompt May 12 baseline. gemma3:12b and gemma3:27b achieved 5/5 clean sweep. Built three architecture diagrams (flowchart, mind map, architecture-beta) covering the full stack including the complete Council of AIs.</span>
+                        </div>
+                        <div class="timeline-row">
+                          <span class="timeline-row-label worked">Worked</span>
+                          <span class="timeline-row-content">All 6 models functional under strict prompting. Diagrams validated in Mermaid Chart Enterprise.</span>
                         </div>
                       </div>
                     </div>
