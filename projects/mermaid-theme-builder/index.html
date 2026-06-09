@@ -969,16 +969,16 @@
           </div>
 
           <h1>Mermaid Theme Builder</h1>
-          <p class="hero-sub">Governance Workbench. Renderer-Aware. Brand-Enforced.</p>
+          <p class="hero-sub">Visual Governance for AI-Generated Technical Diagrams</p>
 
           <p>
-            A visual governance workbench for Mermaid diagram-as-code styling, renderer-aware export, brand palette enforcement, and AI prompt scaffold generation. Define your theme once — get consistent output across every renderer, every AI tool, and every diagram family it touches.
+            LLMs generate Mermaid syntax, but diagrams often arrive as disposable artifacts — default colors, inconsistent styling, invalid theme variables. Mature documents use templates and design systems. AI-generated diagrams need the same kind of reusable visual contract.
           </p>
 
           <div class="hero-ctas">
-            <a href="https://okhp3.github.io/mermaid-theme-builder/#compose" target="_blank" rel="noopener noreferrer" class="btn btn-primary">⤢ Open the Workbench</a>
+            <a href="https://okhp3.github.io/mermaid-theme-builder/#compose" target="_blank" rel="noopener noreferrer" class="btn btn-primary">⤢ Launch Theme Builder</a>
+            <a href="/writings/first-diagram-is-a-liar/" class="btn btn-quiet">Read Research Report</a>
             <a href="https://github.com/OKHP3/mermaid-theme-builder" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">View Source on GitHub</a>
-            <a href="/projects/bpmn-for-mermaid/" class="btn btn-quiet">BPMN for Mermaid</a>
           </div>
         </section>
 
@@ -987,6 +987,43 @@
 
           <!-- MAIN COLUMN ──────────────────────────────────────── -->
           <div>
+
+
+            <!-- PROBLEM STATEMENT ───────────────────────────────── -->
+            <div class="content-block card" id="problem" data-search-index>
+              <div class="section-label">The Problem</div>
+              <h2>The Missing Layer</h2>
+              <div class="feature-grid" style="margin-top:0.75rem;">
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">🎲</div>
+                  <div>
+                    <h3>Every prompt is a fresh roll of the dice</h3>
+                    <p>When ChatGPT, Claude, Copilot, or Gemini generate Mermaid diagrams, each prompt produces different colors, inconsistent styling, and no memory of what worked before.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◫</div>
+                  <div>
+                    <h3>Default styling = brand disconnection</h3>
+                    <p>Mermaid's default theme makes every AI-generated diagram look generic — no relationship to your brand system, your document style, or each other.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⚐</div>
+                  <div>
+                    <h3>Not all diagram types style the same way</h3>
+                    <p>Flowcharts, sequence diagrams, and class diagrams each expose different styling surfaces. What works for one may break another — and AI tools don't know the difference.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">↺</div>
+                  <div>
+                    <h3>3–5 follow-up prompts just to fix styling</h3>
+                    <p>Users routinely spend more time correcting colors, fixing syntax errors from hallucinated theme variables, and chasing consistency than on actual diagram content.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <!-- EMBED TOOL ───────────────────────────────────── -->
             <div class="content-block" id="embed-tool" style="scroll-margin-top: 8rem;">
@@ -1126,6 +1163,50 @@
               </div>
             </div>
 
+
+            <!-- USER PERSONAS ───────────────────────────────────── -->
+            <div class="content-block" id="personas" data-search-index>
+              <div class="section-label">Built For</div>
+              <h2>Who uses Mermaid Theme Builder</h2>
+              <div class="feature-grid" style="margin-top:0.75rem;">
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◈</div>
+                  <div>
+                    <h3>Enterprise Architects</h3>
+                    <p>Need repeatable visual standards across hundreds of diagrams. One governed theme applies consistently — no manual re-styling after every AI generation.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⚡</div>
+                  <div>
+                    <h3>AI Power Users</h3>
+                    <p>Generate 10+ diagrams per week through LLMs. Prompt scaffolds keep every output on-brand from generation one — no follow-up style cycles.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">▤</div>
+                  <div>
+                    <h3>Documentation Teams</h3>
+                    <p>Maintain visual consistency across technical docs at scale. Export a shared theme once, apply it everywhere — GitHub, Confluence, Notion, Obsidian.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◎</div>
+                  <div>
+                    <h3>Product Managers</h3>
+                    <p>Create stakeholder-ready architecture diagrams that look intentional, not auto-generated. Clean presentation styling without manual CSS work.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">&lt;/&gt;</div>
+                  <div>
+                    <h3>Developers</h3>
+                    <p>Document systems with consistent styling baked in. Drop a <code>themeVariables</code> block into your <code>mermaid.initialize()</code> call and every diagram inherits the contract.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <!-- WHAT CHANGED SINCE v0.3 ─────────────────────── -->
             <div class="content-block" id="since-v03" data-search-index>
               <div class="section-label">Since v0.3</div>
@@ -1178,6 +1259,97 @@
                   <div>
                     <h3>Vitest 4 Test Suite</h3>
                     <p>Export integrity, themeVariable completeness, and renderer profile accuracy verified by Vitest 4. Every export claim is now testable. v0.3 had no test suite.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- RESEARCH VALIDATION ─────────────────────────────── -->
+            <div class="content-block card" id="research" data-search-index>
+              <div class="section-label">Research Validation</div>
+              <h2>Hypothesis Validated</h2>
+              <p style="font-size:0.9rem;color:var(--color-muted);line-height:1.7;margin-bottom:1.25rem;">Built against a validated research hypothesis — not shipped on a hunch.</p>
+              <div class="feature-grid" style="margin-top:0;margin-bottom:1.25rem;">
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◉</div>
+                  <div>
+                    <h3>98 sources analyzed</h3>
+                    <p>GitHub issues, Stack Overflow threads, enterprise documentation, and community forums — all pointing to the same gap in the Mermaid ecosystem.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◆</div>
+                  <div>
+                    <h3>Pain is real and documented</h3>
+                    <p>Users across every major LLM tool report the same struggle: Mermaid theming is inconsistent, renderer-dependent, and invisible to AI generation workflows.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⊕</div>
+                  <div>
+                    <h3>No existing tool fills the gap</h3>
+                    <p>No tool combines theme governance + LLM scaffolding + renderer-awareness in a single, free, browser-based workbench. This is the gap MTB fills.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◱</div>
+                  <div>
+                    <h3>Genuine ecosystem gap confirmed</h3>
+                    <p>The product fills a documented gap at the intersection of diagram-as-code and AI generation — not an incremental improvement on an existing tool category.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="why-note">
+                The full research and validation methodology is documented in the <a href="/writings/first-diagram-is-a-liar/" style="color:var(--okh-orange);">First Diagram Is a Liar</a> article series — including 9 rounds of comparative AI testing across ChatGPT, Claude, Copilot, Gemini, Notion, Replit, and Perplexity.
+              </div>
+            </div>
+
+            <!-- TECHNICAL HIGHLIGHTS ────────────────────────────── -->
+            <div class="content-block" id="stack" data-search-index>
+              <div class="section-label">Technical Stack</div>
+              <h2>What it's built on</h2>
+              <div class="feature-grid" style="margin-top:0.75rem;">
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⚛</div>
+                  <div>
+                    <h3>React 19 + Vite 8</h3>
+                    <p>Modern component architecture with fast dev iteration. No framework lock-in — the governance logic is extractable independent of the React layer.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◑</div>
+                  <div>
+                    <h3>Tailwind CSS v4</h3>
+                    <p>Utility-first styling with OKH Forge UI System v0.1.0 design tokens. Consistent visual language across the workbench's controls, previews, and export panels.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◫</div>
+                  <div>
+                    <h3>Mermaid.js 11.15.0</h3>
+                    <p>Pinned to a specific version for reproducible rendering. The Look API, 27+ diagram families, and full themeVariables coverage — all at a known, tested baseline.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◻</div>
+                  <div>
+                    <h3>TypeScript 5.9 (strict)</h3>
+                    <p>Strict mode throughout. Renderer profile types, diagram family unions, and export format contracts are all type-safe — not inferred at runtime.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◱</div>
+                  <div>
+                    <h3>Playwright e2e Tests</h3>
+                    <p>End-to-end test coverage for export integrity, renderer profiles, and diagram family classification. Every claimed behavior is a passing test, not a documented assumption.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">🔒</div>
+                  <div>
+                    <h3>PWA-Ready (Offline Capable)</h3>
+                    <p>Service worker architecture means the workbench functions without a network connection. Your governance workflow doesn't depend on GitHub Pages being reachable.</p>
                   </div>
                 </div>
               </div>
@@ -1613,43 +1785,36 @@ curl -o .claude/skills/mermaid-theme-builder.md \
                     <li class="guide-step">
                       <span class="step-num">01</span>
                       <div class="step-content">
-                        <strong>Open the builder</strong>
-                        <p>Use the embedded tool above or open it in a full tab for maximum workspace. No login required.</p>
+                        <strong>Paste your Mermaid code or start from examples</strong>
+                        <p>Use the embedded tool above or open it in a full tab. No login required. Start from an example diagram or paste your own Mermaid code.</p>
                       </div>
                     </li>
                     <li class="guide-step">
                       <span class="step-num">02</span>
                       <div class="step-content">
-                        <strong>Select a diagram type to preview</strong>
-                        <p>The panel shows multiple Mermaid diagram types. Pick the one most relevant to your use case as your primary reference.</p>
+                        <strong>Select a theme or compose custom colors</strong>
+                        <p>Pick from built-in palettes (Ocean Depth, Forest Sage, Slate Ember, Violet Mist) or build custom colors with HSL pickers. Every change previews instantly across diagram families.</p>
                       </div>
                     </li>
                     <li class="guide-step">
                       <span class="step-num">03</span>
                       <div class="step-content">
-                        <strong>Adjust base colors</strong>
-                        <p>Start with your primary background and node fill colors. Everything else cascades from these. Use the color pickers — HSL sliders give you the most control.</p>
+                        <strong>Preview with instant rendering</strong>
+                        <p>Watch your theme apply across multiple Mermaid diagram types simultaneously. Pan and zoom the canvas for complex diagrams.</p>
                       </div>
                     </li>
                     <li class="guide-step">
                       <span class="step-num">04</span>
                       <div class="step-content">
-                        <strong>Refine edges, text, and accents</strong>
-                        <p>Dial in edge colors, label text colors, and cluster/subgraph backgrounds. Watch the preview update in real time.</p>
+                        <strong>Export styled code, Markdown docs, or AI prompts</strong>
+                        <p>Export a complete <code>themeVariables</code> block, a Markdown style bootstrap, or a renderer-aware prompt scaffold — your context is preserved in the URL for future sessions.</p>
                       </div>
                     </li>
                     <li class="guide-step">
                       <span class="step-num">05</span>
                       <div class="step-content">
-                        <strong>Export your theme</strong>
-                        <p>Hit Export. You get a complete <code>mermaid.themeVariables</code> object ready to drop into your <code>mermaid.initialize()</code> call or mdx frontmatter.</p>
-                      </div>
-                    </li>
-                    <li class="guide-step">
-                      <span class="step-num">06</span>
-                      <div class="step-content">
-                        <strong>Paste and verify</strong>
-                        <p>Drop the exported variables into your project. If anything needs a tweak, return to the builder — your context is preserved in the URL.</p>
+                        <strong>Use prompt scaffolds in ChatGPT, Claude, or Copilot</strong>
+                        <p>Paste the generated prompt scaffold before your next diagram request. AI tools produce on-brand Mermaid from the first generation — no follow-up styling cycles needed.</p>
                       </div>
                     </li>
                   </ol>
