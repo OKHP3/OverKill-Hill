@@ -22,10 +22,6 @@ Thumbs.db
 .replit_cache/
 node_modules/
 
-# GitHub Actions — push via GitHub web UI or a PAT with workflow scope.
-# Replit's OAuth app lacks that scope, so tracking this in git blocks pushes.
-.github/workflows/
-
 # Build / temp
 dist/
 build/
