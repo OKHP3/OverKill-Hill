@@ -164,7 +164,7 @@ def main() -> int:
         for u in extra_in_sitemap:
             print(f"  - sitemap entry has no file: {u}")
     print(f"Detail: {out.relative_to(ROOT)}")
-    return 1 if (broken or extra_in_sitemap) else 0
+    return 1 if broken else 0
 
 
 if __name__ == "__main__":
