@@ -1072,6 +1072,14 @@
                 Embedded from <a href="https://okhp3.github.io/mermaid-theme-builder/" target="_blank" rel="noopener noreferrer">okhp3.github.io/mermaid-theme-builder</a>
                 — open in a new tab for the best experience
               </p>
+
+              <div class="embed-tab-links" style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid var(--color-border-subtle);">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--color-muted);text-transform:uppercase;letter-spacing:0.08em;padding-top:0.2rem;flex-shrink:0;">Open tab:</span>
+                <a href="https://okhp3.github.io/mermaid-theme-builder/#compose" target="_blank" rel="noopener noreferrer" class="embed-btn embed-btn--primary">Compose — design the visual contract</a>
+                <a href="https://okhp3.github.io/mermaid-theme-builder/#apply" target="_blank" rel="noopener noreferrer" class="embed-btn">Apply — paste Mermaid &amp; apply a theme</a>
+                <a href="https://okhp3.github.io/mermaid-theme-builder/#examples" target="_blank" rel="noopener noreferrer" class="embed-btn">Examples — start from sample diagrams</a>
+                <a href="https://okhp3.github.io/mermaid-theme-builder/#reference" target="_blank" rel="noopener noreferrer" class="embed-btn">Reference — inspect diagram families &amp; warnings</a>
+              </div>
             </div>
 
             <!-- CURRENT RELEASE SNAPSHOT ───────────────────────── -->
@@ -1202,6 +1210,58 @@
                   <div>
                     <h3>Developers</h3>
                     <p>Document systems with consistent styling baked in. Drop a <code>themeVariables</code> block into your <code>mermaid.initialize()</code> call and every diagram inherits the contract.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- WHERE THIS HELPS ────────────────────────────────── -->
+            <div class="content-block" id="where-this-helps" data-search-index>
+              <div class="section-label">Where This Helps Today</div>
+              <h2>Six community pain points MTB addresses</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1rem;line-height:1.7;">These aren't invented problems — they come from GitHub issues, Stack Overflow threads, community forums, and AI tool feedback. MTB doesn't fix Mermaid core behavior. It helps users avoid, detect, or route around known styling and renderer pitfalls.</p>
+              <div class="feature-grid">
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">🎨</div>
+                  <div>
+                    <h3>Custom colors and styles</h3>
+                    <p>Users ask how to customize Mermaid node, link, and diagram colors — without re-prompting an AI or editing raw CSS. Theme Builder provides a visual workflow and exportable theme contract.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◈</div>
+                  <div>
+                    <h3>Branded consistency</h3>
+                    <p>Users want Mermaid diagrams to match a consistent visual language across documents, posts, repos, and deliverables. A reusable palette applied once stays consistent across every diagram it touches.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⚐</div>
+                  <div>
+                    <h3>Renderer parity</h3>
+                    <p>Mermaid behaves differently across GitHub, GitLab, Obsidian, Notion, Confluence, Mermaid Live, and other renderers. Theme Builder surfaces renderer-specific warnings before you paste — not after.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">&lt;/&gt;</div>
+                  <div>
+                    <h3>Export fidelity</h3>
+                    <p>Some workflows preview one appearance and export another. Theme Builder preserves the theme contract in source-level Mermaid and Markdown — not just in image export behavior.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◫</div>
+                  <div>
+                    <h3>Diagram-family limits</h3>
+                    <p>Not every Mermaid family supports the same styling mechanisms. Theme Builder warns when <code>classDef</code>, <code>linkStyle</code>, <code>themeVariables</code>, or typography controls are limited for a given family.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◉</div>
+                  <div>
+                    <h3>AI-generated Mermaid drift</h3>
+                    <p>AI tools may generate diagrams that render in one place but fail or look different somewhere else. Prompt scaffolds instruct the AI before generation — preventing renderer-fragile output rather than patching it.</p>
                   </div>
                 </div>
               </div>
@@ -2003,7 +2063,7 @@ curl -o .claude/skills/mermaid-theme-builder.md \
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">Compatibility</span>
-                  <span class="meta-val">Renderer-dependent v10/v11 portability</span>
+                  <span class="meta-val">v11.15.0-aligned capability model</span>
                 </div>
               </div>
               <div class="sidebar-links">
@@ -2023,10 +2083,15 @@ curl -o .claude/skills/mermaid-theme-builder.md \
             <div class="sidebar-related">
               <div class="section-label">On This Page</div>
               <ul class="toc-list">
+                <li><a href="#problem">The Problem</a></li>
+                <li><a href="#release">Current Release</a></li>
                 <li><a href="#what-it-is">What It Is</a></li>
                 <li><a href="#why-this-exists">Why This Exists</a></li>
-                <li><a href="#since-v03">What Changed in v0.5</a></li>
+                <li><a href="#personas">Built For</a></li>
+                <li><a href="#where-this-helps">Where It Helps</a></li>
+                <li><a href="#research">Research Validation</a></li>
                 <li><a href="#features">Features</a></li>
+                <li><a href="#stack">Tech Stack</a></li>
                 <li><a href="#roadmap">Roadmap</a></li>
               </ul>
             </div>
