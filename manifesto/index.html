@@ -1523,9 +1523,9 @@ personal OS.</pre>
 
             <!-- SIDEBAR TOC -->
             <aside class="manifesto-sidebar" aria-label="Table of contents">
-              <div class="sidebar-toc-box">
+              <div class="sidebar-toc-box" id="toc-widget">
                 <h4>On This Page</h4>
-                <ul class="toc-manifesto" id="toc-list">
+                <ul class="toc-list toc-manifesto">
                   <li><span class="toc-section-label">Origin</span></li>
                   <li><a href="#og-manifesto">The First Statement</a></li>
                   <li><a href="#the-forge-before">The Fires Were Already Burning</a></li>
@@ -1611,25 +1611,7 @@ personal OS.</pre>
         update();
       })();
 
-      /* TOC scrollspy */
-      (function () {
-        var links = Array.from(document.querySelectorAll('#toc-list a'));
-        if (!links.length) return;
-        var ids = links.map(function (a) { return a.getAttribute('href').replace('#', ''); });
-        var targets = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
-        function setActive() {
-          var triggerY = window.scrollY + window.innerHeight * 0.22;
-          var activeId = null;
-          targets.forEach(function (el) {
-            if (el.getBoundingClientRect().top + window.scrollY <= triggerY) activeId = el.id;
-          });
-          links.forEach(function (a) {
-            a.classList.toggle('toc-active', a.getAttribute('href').replace('#', '') === activeId);
-          });
-        }
-        window.addEventListener('scroll', setActive, { passive: true });
-        setTimeout(setActive, 100);
-      })();
+
 
       /* Auto-year in footer */
       var yearEl = document.getElementById('current-year');

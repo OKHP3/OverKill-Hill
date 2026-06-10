@@ -229,13 +229,52 @@
       </section>
 
       <!-- TEMPLATE SECTION: Project Body -->
-      <section class="content">
+      <!-- PROJECT LAYOUT: two-column grid (main content + sidebar-rail) -->
+      <!-- Pattern used by all project pages. See projects/mermaid-theme-builder/ for reference. -->
+      <div class="project-body">
         <div class="container">
-          <div class="section-header"><h2>[[SECTION-HEADING]]</h2></div>
-          <p>[[BODY-COPY]]</p>
-          <p>[[BODY-COPY]]</p>
-        </div>
-      </section>
+          <div class="project-layout">
+
+            <!-- MAIN COLUMN -->
+            <div>
+              <div class="content-block" id="[[SECTION-ANCHOR]]" data-search-index>
+                <div class="section-label">[[SECTION-LABEL]]</div>
+                <h2>[[SECTION-HEADING]]</h2>
+                <p>[[BODY-COPY]]</p>
+              </div>
+            </div><!-- /main column -->
+
+            <!-- SIDEBAR -->
+            <aside class="sidebar-rail" aria-label="Project information">
+
+              <!-- On This Page (sticky lerp TOC powered by app.js sections 4 + 4b) -->
+              <div class="sidebar-related" id="toc-widget">
+                <div class="section-label">On This Page</div>
+                <ul class="toc-list">
+                  <li><a href="#[[SECTION-ANCHOR]]">[[SECTION-HEADING]]</a></li>
+                  <!-- add one <li> per major section -->
+                </ul>
+              </div>
+
+              <!-- Project Info -->
+              <div class="sidebar-meta">
+                <div class="section-label">Project Info</div>
+                <!-- meta-row items here -->
+              </div>
+
+              <!-- Related -->
+              <div class="sidebar-related" id="related-resources" data-search-index>
+                <div class="section-label">Related</div>
+                <ul>
+                  <li><a href="[[RELATED-URL]]">[[RELATED-LABEL]] &#x2197;</a></li>
+                </ul>
+              </div>
+
+            </aside><!-- /sidebar-rail -->
+
+          </div><!-- /project-layout -->
+        </div><!-- /container -->
+      </div><!-- /project-body -->
 
     </main>
 
