@@ -3,10 +3,10 @@
 check-links.py — Internal link validator
 =========================================
 Walks every HTML file and validates every internal href against the
-filesystem.  Cross-references the result with `sitemap.xml`.
+filesystem. Cross-references the result with `sitemap.xml`.
 
 Outputs:
-  assets/audit/links-report-2026-05-03.json
+  assets/audit/links-report-YYYY-MM-DD.json
 
 Usage:
     python3 scripts/check-links.py
@@ -16,12 +16,24 @@ from __future__ import annotations
 import json
 import re
 import sys
-from collections import defaultdict
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SKIP_DIRS = {"node_modules", ".local", ".git", "attached_assets", "assets", ".pythonlibs", ".cache", ".agents"}
-SITE = "https://glee-fully.tools"
+SKIP_DIRS = {
+    "node_modules",
+    ".local",
+    ".git",
+    "attached_assets",
+    "assets",
+    ".pythonlibs",
+    ".cache",
+    ".agents",
+    "_replit",
+    "dist",
+}
+SITE = "https://overkillhill.com"
+REPORT_DATE = date.today().isoformat()
 
 
 def is_external(href: str) -> bool:
@@ -107,8 +119,6 @@ def main() -> int:
         rel = p.relative_to(ROOT)
         if any(s in rel.parts for s in SKIP_DIRS):
             continue
-        if rel.parts[0] in {"under-construction.html"}:
-            continue
         if rel.as_posix() == "index.html":
             file_urls.add(f"{SITE}/")
         else:
@@ -121,9 +131,9 @@ def main() -> int:
 
     audit_dir = ROOT / "assets" / "audit"
     audit_dir.mkdir(exist_ok=True)
-    out = audit_dir / "links-report-2026-05-03.json"
+    out = audit_dir / f"links-report-{REPORT_DATE}.json"
     out.write_text(json.dumps({
-        "generated": "2026-05-03",
+        "generated": REPORT_DATE,
         "pages_scanned": len(pages),
         "internal_links": all_internal,
         "external_links": all_external,
