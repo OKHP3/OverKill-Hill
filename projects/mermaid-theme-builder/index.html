@@ -1,3 +1,12 @@
+<!-- ============================================================
+     SOURCE OF TRUTH — Mermaid Theme Builder project page
+     Canonical: projects/mermaid-theme-builder/index.html
+     Live tool:  https://okhp3.github.io/mermaid-theme-builder/
+     Version:    v0.5.0 — Shipped May 2026
+     Sprint:     v0.5.x SKILL.md Hardening (Active)
+     Mermaid.js: 11.15.0 (exact pin in package.json)
+     Last reviewed: 2026-06-10
+     ============================================================ -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -965,14 +974,14 @@
             <span class="tag">Community Tool</span>
             <span class="tag">Open Source</span>
             <span class="tag tag--accent">v0.5.0 Shipped</span>
-            <span class="tag tag--accent">SKILL.md Sprint Active</span>
+            <span class="tag tag--accent">v0.5.x SKILL.md Hardening Active</span>
           </div>
 
           <h1>Mermaid Theme Builder</h1>
-          <p class="hero-sub">Visual Governance for AI-Generated Technical Diagrams</p>
+          <p class="hero-sub">Visual governance for AI-generated Mermaid diagrams.</p>
 
           <p>
-            LLMs generate Mermaid syntax, but diagrams often arrive as disposable artifacts — default colors, inconsistent styling, invalid theme variables. Mature documents use templates and design systems. AI-generated diagrams need the same kind of reusable visual contract.
+            Paste Mermaid, detect the family, apply a reusable theme, preview live, and export renderer-aware code or prompt scaffolds. Browser-only. No login. No backend. No data collection.
           </p>
 
           <div class="hero-ctas">
@@ -1111,6 +1120,10 @@
                   <span class="meta-key">Source</span>
                   <span class="meta-val"><a href="https://github.com/OKHP3/mermaid-theme-builder" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">github.com/OKHP3/mermaid-theme-builder ↗</a></span>
                 </div>
+                <div class="meta-item">
+                  <span class="meta-key">Mermaid.js</span>
+                  <span class="meta-val">v11.15.0; rendering portability varies by host renderer (v10/v11)</span>
+                </div>
               </div>
             </div>
 
@@ -1133,9 +1146,11 @@
                 <div class="is-isnot-col is-isnot-col--isnot">
                   <div class="is-isnot-header is-isnot-header--isnot">What It Is Not</div>
                   <ul>
+                    <li><span class="bullet">—</span>Not Mermaid — it does not generate, parse, or render Mermaid syntax itself</li>
                     <li><span class="bullet">—</span>Not a diagram editor — it governs style, not structure</li>
                     <li><span class="bullet">—</span>Not a Mermaid syntax generator — you bring the code</li>
-                    <li><span class="bullet">—</span>Not affiliated with Mermaid.ai or any commercial Mermaid product</li>
+                    <li><span class="bullet">—</span>Not a BPMN engine — it applies visual themes, not structural process semantics</li>
+                    <li><span class="bullet">—</span>Not affiliated with Mermaid.ai, Mermaid Chart, or any commercial Mermaid product</li>
                     <li><span class="bullet">—</span>Not a replacement for Mermaid.js — a governance layer on top of it</li>
                     <li><span class="bullet">—</span>Not a SaaS, not a subscription, not a freemium gate</li>
                     <li><span class="bullet">—</span>Not collecting any data — 100% client-side, no server, no analytics</li>
@@ -1943,16 +1958,16 @@ curl -o .claude/skills/mermaid-theme-builder.md \
                 <div class="collapsible-body">
                   <div class="faq-list">
                     <div class="faq-item">
-                      <p class="faq-q">Is this affiliated with Mermaid.ai?</p>
-                      <p class="faq-a">No. This is an independent community contribution to the open-source Mermaid.js ecosystem. It has no relationship with Mermaid.ai or any commercial Mermaid product.</p>
+                      <p class="faq-q">Is this affiliated with Mermaid, Mermaid Chart, or Mermaid.ai?</p>
+                      <p class="faq-a">No. Mermaid Theme Builder is an independent community contribution to the open-source Mermaid.js ecosystem. It has no affiliation with Mermaid Chart (mermaidchart.com), Mermaid.ai, or any commercial Mermaid product. It is built on top of the open-source Mermaid.js library.</p>
                     </div>
                     <div class="faq-item">
-                      <p class="faq-q">Does it cost anything?</p>
-                      <p class="faq-a">Nothing. Free now, free always. No subscription, no freemium gate, no ads. MIT licensed.</p>
+                      <p class="faq-q">Is it free?</p>
+                      <p class="faq-a">Yes. Free now, free always. No subscription, no freemium gate, no ads. MIT licensed.</p>
                     </div>
                     <div class="faq-item">
-                      <p class="faq-q">Does it collect any data?</p>
-                      <p class="faq-a">No. The tool is fully client-side. No analytics, no telemetry, no server communication. Your theme stays in your browser.</p>
+                      <p class="faq-q">Does it send my diagrams anywhere?</p>
+                      <p class="faq-a">No. All transforms run locally in the browser. No analytics, no telemetry, no server communication. Your theme and diagrams stay in your browser.</p>
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">Which Mermaid.js versions does it support?</p>
@@ -1968,11 +1983,11 @@ curl -o .claude/skills/mermaid-theme-builder.md \
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">Can I save and share my theme?</p>
-                      <p class="faq-a">Theme state is preserved in the URL, so you can bookmark or share your current configuration directly. For permanent storage, export your themeVariables JSON and commit it to your project.</p>
+                      <p class="faq-a">Yes. Theme state is encoded in the URL, so you can bookmark or share your current configuration directly. For permanent storage, export your themeVariables JSON and commit it to your project.</p>
                     </div>
                     <div class="faq-item">
-                      <p class="faq-q">Is this the same as Mermaid Chart?</p>
-                      <p class="faq-a">No. Mermaid Chart is a separate commercial product (mermaidchart.com). Mermaid Theme Builder has no affiliation with Mermaid Chart, Mermaid.ai, or any commercial Mermaid product. It is an independent community contribution built on the open-source Mermaid.js library.</p>
+                      <p class="faq-q">Does it work on mobile?</p>
+                      <p class="faq-a">Companion mode only. On mobile you can browse palette presets and examples, copy prompt scaffolds, check renderer-safe export output, and review compatibility notes. The full workbench is desktop-first. Mobile hardening is on the v0.6.x roadmap.</p>
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">What is SKILL.md and can I use it without the visual app?</p>
@@ -2081,6 +2096,7 @@ curl -o .claude/skills/mermaid-theme-builder.md \
                 <li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid (sibling)</a></li>
                 <li><a href="https://mermaid.js.org/config/theming.html" target="_blank" rel="noopener noreferrer">Mermaid.js Theming Docs ↗</a></li>
                 <li><a href="https://mermaid.js.org/config/theming.html#theme-variables" target="_blank" rel="noopener noreferrer">themeVariables Reference ↗</a></li>
+                <li><a href="https://mermaid.js.org/intro/syntax-reference.html" target="_blank" rel="noopener noreferrer">Mermaid.js Syntax Reference ↗</a></li>
                 <li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
                 <li><a href="/projects/">All OverKill Hill Projects</a></li>
               </ul>
@@ -2145,6 +2161,11 @@ curl -o .claude/skills/mermaid-theme-builder.md \
             <li><a href="https://www.youtube.com/@OverKillHillP3" target="_blank" rel="noopener noreferrer">YouTube</a></li>
           </ul>
         </div>
+      </div>
+      <div style="border-top:1px solid var(--color-border-subtle);padding:1rem 1rem 0;margin-top:1rem;">
+        <p style="font-size:0.75rem;color:var(--color-muted);line-height:1.6;margin:0;text-align:center;">
+          Mermaid Theme Builder is a personal OverKill Hill P³ project by Jamie Hill. Not affiliated with Builders FirstSource, Mermaid, Mermaid Chart, or Mermaid.ai. User-entered colors representing third-party brands belong to their respective owners. MIT licensed, free always. Last reviewed: 2026-06-10.
+        </p>
       </div>
       <div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
         <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">
