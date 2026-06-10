@@ -770,6 +770,28 @@
         background: rgba(0, 0, 0, 0.07);
         color: var(--color-fg);
       }
+
+      /* ── Mac Studio page sidebar layout ──────────── */
+      .mac-body-with-sidebar {
+        display: grid;
+        grid-template-columns: 1fr 280px;
+        gap: 2rem;
+        align-items: start;
+        margin-top: 1.5rem;
+      }
+      .mac-body-main { min-width: 0; }
+      .mac-toc-sidebar {
+        min-width: 0;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1rem 1.25rem;
+      }
+      .mac-toc-sidebar .section-label { margin-bottom: 0.6rem; }
+      @media (max-width: 1023px) {
+        .mac-body-with-sidebar { grid-template-columns: 1fr; }
+        .mac-toc-sidebar { display: none; }
+      }
     </style>
 
     <script type="speculationrules">
@@ -904,6 +926,9 @@
               <br/><span style="font-size:0.85em;opacity:0.75;margin-top:0.4rem;display:inline-block;">2026-05-27 through 2026-05-30: OpenClaw/Larry online, RAG stack deployed, all smoke tests passed, strict benchmark complete, architecture diagrams published. Build declared complete.</span>
             </div>
           </div>
+
+          <div class="mac-body-with-sidebar">
+            <div class="mac-body-main">
 
           <!-- WHAT THIS IS WORTH -->
           <div class="content-block" id="value-framing" style="margin-bottom:2.5rem;">
@@ -1943,6 +1968,28 @@ mindmap
 
             </div>
           </div>
+
+            </div><!-- /.mac-body-main -->
+
+            <aside class="mac-toc-sidebar" id="toc-widget">
+              <div class="section-label">On This Page</div>
+              <ul class="toc-list">
+                <li><a href="#value-framing">What This Is Worth</a></li>
+                <li><a href="#status-board">Status Board</a></li>
+                <li><a href="#timeline">Build Timeline</a></li>
+                <li><a href="#meet-larry">Meet Larry</a></li>
+                <li><a href="#models">Local Models</a></li>
+                <li><a href="#benchmarks">Benchmarks</a></li>
+                <li><a href="#how-its-built">How It's Built</a></li>
+                <li><a href="#operating-model">Operating Model</a></li>
+                <li><a href="#next-phase">Next Phase</a></li>
+                <li><a href="#stack">Environment Blueprint</a></li>
+                <li><a href="#decisions">Architecture Decisions</a></li>
+              </ul>
+            </aside>
+
+          </div><!-- /.mac-body-with-sidebar -->
+
 
           <!-- WORK WITH ME ─────────────────────────────────── -->
           <aside class="article-footer-cta" id="work-with-me">

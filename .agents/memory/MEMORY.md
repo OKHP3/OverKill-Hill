@@ -1,0 +1,1 @@
+- [Sticky lerp TOC pattern](sticky-toc-pattern.md) — app.js sections 4+4b activate on any id="toc-widget" + .toc-list; NAV_H=112; all CRLF files need Python normalisation before editing.

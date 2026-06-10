@@ -174,7 +174,31 @@
       gtag('js', new Date());
       gtag('config', 'G-VJ1BKXS27H');
     </script>
-  </head>
+  
+  <style>
+    /* Prompt Forge page sidebar layout */
+    .pf-body-with-sidebar {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 2rem;
+      align-items: start;
+    }
+    .pf-body-main { min-width: 0; }
+    .pf-toc-sidebar {
+      min-width: 0;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      margin-top: 2rem;
+    }
+    .pf-toc-sidebar .section-label { margin-bottom: 0.6rem; }
+    @media (max-width: 1023px) {
+      .pf-body-with-sidebar { grid-template-columns: 1fr; }
+      .pf-toc-sidebar { display: none; }
+    }
+  </style>
+</head>
 <body>
     <a class="okh-skip-link" href="#main">Skip to main content</a>
     <header class="site-header" id="top">
@@ -249,6 +273,9 @@
           </div>
         </div>
       </section>
+
+      <div class="pf-body-with-sidebar">
+        <div class="pf-body-main">
 
       <!-- ── 2. FORGE THESIS ─────────────────────────────────────────────── -->
       <section class="content-section" id="thesis" aria-labelledby="pf-thesis-h">
@@ -739,6 +766,24 @@ Handoff:
           </div>
         </div>
       </section>
+
+        </div><!-- /.pf-body-main -->
+
+        <aside class="pf-toc-sidebar" id="toc-widget">
+          <div class="section-label">On This Page</div>
+          <ul class="toc-list">
+            <li><a href="#thesis">Prompts Are Not the Artifact</a></li>
+            <li><a href="#protocols">What Makes a Prompt a Protocol</a></li>
+            <li><a href="#flagship-systems">Six Flagship Systems</a></li>
+            <li><a href="#anatomy">The Prompt Anatomy</a></li>
+            <li><a href="#operating-model">From Raw Intent to Protocol</a></li>
+            <li><a href="#boundary">What Gets Published</a></li>
+            <li><a href="#related">Related Paths</a></li>
+          </ul>
+        </aside>
+
+      </div><!-- /.pf-body-with-sidebar -->
+
 
     </main>
 
