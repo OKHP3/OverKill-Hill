@@ -14,6 +14,7 @@ No per-page JS needed. The container element needs `id="toc-widget"` and the lis
 **Why:** Centralising both behaviours in app.js removes duplicated inline scrollspy scripts from FDIAL and manifesto, and makes it trivially easy to add TOC sidebars to any new page.
 
 **How to apply:**
+- **TOC widget must be the LAST element in any sidebar-rail.** The lerp moves it down via `transform: translateY()` — if static widgets follow it in the DOM, the lerp will slide the TOC over them. All static widgets (CTA, PROJECT INFO, RELATED, etc.) must come before `id="toc-widget"` in the sidebar.
 - Project pages with existing `sidebar-rail`: add `id="toc-widget"` to a `<div class="sidebar-related">` wrapper containing the `.toc-list`.
 - Single-column pages needing a sidebar (Mac Studio, Prompt Forge): add a two-column grid layout wrapping content sections + `<aside id="toc-widget">`. Use the `.two-col` (1fr 340px) or a page-specific grid class. Hide sidebar at <=1023px.
 - NAV_H = 112px covers sticky nav (~64px) + HOT OFF THE FORGE banner (~48px).
