@@ -223,6 +223,10 @@ body {
   padding: 0;
 }
 
+html {
+  overflow-x: hidden; /* iOS Safari: prevents horizontal scroll at root level */
+}
+
 body {
   background: radial-gradient(circle at top, var(--okh-teal), #020617);
   color: var(--color-fg);
@@ -755,6 +759,9 @@ button {
 
 .site-specials-link {
   text-decoration: underline;
+  min-width: 0;           /* flex item: allows shrink below natural text width */
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .site-specials--okh { /* forge / industrial */
