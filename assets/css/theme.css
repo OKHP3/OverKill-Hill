@@ -1,25 +1,25 @@
 /* OverKill Hill P³ — Industrial Blueprint Theme
    Shared layout + motion across overkillhill.com, glee-fully.tools, and askjamie.bot.
 
-   ┌────────────────────────────────────────────────────────────────┐
-   │  STRUCTURE (canonical order — mirror this in sibling repos)    │
-   │   1. GLOBAL        tokens, reset, base, shared utilities,      │
-   │                    components used by all three sites          │
-   │   2. OVERKILL HILL site-specific (default)                     │
-   │   3. GLEE-FULLY    `.glee-main`-scoped overrides               │
-   │   4. ASKJAMIE      `.askjamie-main`-scoped overrides           │
-   │                                                                │
-   │  Maintenance: edit here, then run                              │
-   │    python3 assets/scripts/reorg-theme-css.py --dry-run         │
-   │  to verify the section a new rule lands in.                    │
-   └────────────────────────────────────────────────────────────────┘
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  STRUCTURE (canonical order — mirror this in sibling repos)            │
+   │   1. GLOBAL        tokens, reset, base, shared utilities,               │
+   │                    components used by all three sites                  │
+   │   2. OVERKILL HILL site-specific (default)                             │
+   │   3. GLEE-FULLY    `.glee-main`-scoped overrides                      │
+   │   4. ASKJAMIE      `.askjamie-main`-scoped overrides                  │
+   │                                                                         │
+   │  Maintenance: edit here, then run                                      │
+   │    python3 assets/scripts/reorg-theme-css.py --dry-run                │
+   │  to verify the section a new rule lands in.                           │
+   └─────────────────────────────────────────────────────────────────────────┘
 */
 
 
-/* ╔════════════════════════════════════════════════════════════════════════════╗
-   ║  SECTION · GLOBAL                                                          ║
-   ║  Tokens, reset, base, shared utilities + components                        ║
-   ╚════════════════════════════════════════════════════════════════════════════╝ */
+/* ╔═════════════════════════════════════════════════════════════════════════╗
+   ║  SECTION · GLOBAL                                                      ║
+   ║  Tokens, reset, base, shared utilities + components                    ║
+   ╚═════════════════════════════════════════════════════════════════════════╝ */
 
 /* OverKill Hill P³ – 2025 Industrial Blueprint Theme
    Shared layout + motion for OverKill Hill, Ask Jamie (subsite), and sibling sites.
@@ -58,10 +58,9 @@
   --mermaid-edge-label-bg: #181f26;
 
   /* Typography – OverKill Hill default */
-  --font-heading: "Alfa Slab One", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
-  --font-body: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  --font-heading: "Alfa Slab One", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 
   /* Layout */
   --max-width: 1120px;
@@ -75,7 +74,6 @@
   --color-text-heading:     var(--color-fg);          /* heading text color */
   --color-link:             var(--color-fg);           /* default link color */
   --color-link-hover:       var(--okh-orange);         /* link hover state */
-  --font-mono:              "JetBrains Mono", "Fira Code", ui-monospace, monospace;
   --radius-sm:              4px;
 
   /* --- Spacing scale --- */
@@ -102,7 +100,7 @@
   --color-accent: var(--okh-orange);
 }
 
-/* ── Body background: JS sets data-theme on <html>, not <body> ────────── */
+/* ── Body background: JS sets data-theme on <html>, not <body> ───────────── */
 html[data-theme="dark"] body {
   background: radial-gradient(circle at top, #1f2933, #020617);
 }
