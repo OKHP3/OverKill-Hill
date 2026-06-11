@@ -1105,7 +1105,11 @@ button {
 .project-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+}
+
+.project-card > p:last-child {
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
 /* About */
