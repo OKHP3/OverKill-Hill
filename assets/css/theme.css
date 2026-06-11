@@ -312,11 +312,6 @@ button {
   }
 }
 
-.grid {
-  display: grid;
-  gap: 1.75rem;
-}
-
 /* ===== UTILS & LAYOUT ==================================================== */
 
 .grid {
@@ -326,7 +321,7 @@ button {
 
 /* Define .grid-3 once.  Use a smaller minimum size so a column can shrink on phones. */
 .grid-3 {
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
 }
 
 /* Collapse to a single column sooner (tablet + phone). */
