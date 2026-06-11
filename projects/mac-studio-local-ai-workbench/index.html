@@ -500,7 +500,7 @@
       /* ── Stack grid ─────────────────────────────────────────────── */
       .stack-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 0.75rem;
       }
       .stack-item {
@@ -606,7 +606,7 @@
       /* ── Surface cards (links) ──────────────────────────────────── */
       .surface-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 0.75rem;
       }
       .surface-card {
@@ -792,6 +792,14 @@
         .mac-body-with-sidebar { grid-template-columns: 1fr; }
         .mac-toc-sidebar { display: none; }
       }
+
+      /* ── Price comparison grid – collapses to 1 col on narrow phones ── */
+      .price-compare-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+      }
+      @media (max-width: 480px) { .price-compare-grid { grid-template-columns: 1fr; } }
     </style>
 
     <script type="speculationrules">
@@ -939,7 +947,7 @@
               <div style="display:flex;flex-direction:column;gap:0.9rem;">
                 <p style="margin:0;line-height:1.7;">In May 2026, a Facebook Marketplace listing offered an M1 Mac Studio 32GB with "PageSpace AI pre-installed" for $7,500. PageSpace is open-source and free. An M1 Mac Studio 32GB sells for $600–$900 on the secondary market.</p>
                 <p style="margin:0;line-height:1.7;">This workbench runs on a Mac Studio M4 Max — three to four generations newer, with substantially more memory and compute. It runs 10 local models across three inference runtimes. It connects to 11 live MCP servers. It has a documented operating model, governance policies, restore scripts, verified benchmarks, and an offsite backup strategy.</p>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+                <div class="price-compare-grid">
                   <div style="padding:0.9rem 1rem;background:rgba(0,0,0,0.25);border-radius:var(--radius-sm);text-align:center;">
                     <div style="font-size:1.75rem;font-weight:700;color:var(--okh-amber);font-family:var(--font-heading);line-height:1;">$2,250</div>
                     <div style="font-size:0.72rem;color:var(--color-muted);margin-top:0.3rem;">Hardware cost</div>

@@ -747,7 +747,8 @@
         box-shadow: 0 0 40px rgba(196, 106, 44, 0.06);
         position: relative;
       }
-      .embed-frame-wrapper iframe { display: block; }
+      .embed-frame-wrapper iframe { display: block; min-height: 720px; }
+      @media (max-width: 640px) { .embed-frame-wrapper iframe { min-height: 480px; } }
       .iframe-loading-overlay {
         position: absolute;
         inset: 0;
@@ -1017,7 +1018,7 @@
                   loading="lazy"
                   allow="clipboard-read; clipboard-write; fullscreen"
                   referrerpolicy="no-referrer-when-downgrade"
-                  style="width:100%; min-height:720px; border:0;"
+                  style="width:100%; border:0;"
                 ></iframe>
               </div>
 
