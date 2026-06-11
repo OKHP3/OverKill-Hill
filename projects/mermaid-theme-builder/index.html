@@ -1144,7 +1144,7 @@
                   <ul>
                     <li><span class="bullet">◆</span>A visual workbench for defining and enforcing Mermaid diagram themes</li>
                     <li><span class="bullet">◆</span>A renderer-aware export tool — flags what breaks in GitHub, GitLab, Obsidian, Notion, Confluence</li>
-                    <li><span class="bullet">◆</span>A brand palette enforcer — presets for OverKill Hill P³, Glee-fully, and AskJamie</li>
+                    <li><span class="bullet">◆</span>A brand palette enforcer — presets for OverKill Hill P³, Glee-fully, and AskJamie, plus four utility palettes (Ocean Depth, Forest Sage, Slate Ember, Violet Mist)</li>
                     <li><span class="bullet">◆</span>A prompt scaffold generator — AI tools stay on-brand from the first generation</li>
                     <li><span class="bullet">◆</span>A SKILL.md-packaged agent skill for headless diagram-governance workflows</li>
                     <li><span class="bullet">◆</span>An open-source community contribution to the Mermaid.js ecosystem. MIT licensed. Free always.</li>
@@ -1305,7 +1305,7 @@
                   <div class="feature-icon" aria-hidden="true">◑</div>
                   <div>
                     <h3>Look API Support</h3>
-                    <p>Mermaid v11.15.0 look API — Classic, Neo, and Hand-Drawn modes — with per-renderer warnings where support is inconsistent. New in v0.5.</p>
+                    <p>Mermaid v11.15.0 look API — Classic, Neo, and Hand-Drawn modes — with per-renderer warnings where support is inconsistent. Shipped in v0.4; hardened in v0.5.</p>
                   </div>
                 </div>
                 <div class="feature-item">
@@ -1679,20 +1679,21 @@
                 <pre style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .claude/skills/mermaid-theme-builder.md
 # Point Claude Code at the published SKILL.md raw URL or local copy
 curl -o .claude/skills/mermaid-theme-builder.md \
-  https://raw.githubusercontent.com/OKHP3/mermaid-theme-builder/main/SKILL.md</pre>
+  https://raw.githubusercontent.com/OKHP3/mermaid-theme-builder/main/skills/okhp3-mermaid-theme-builder/SKILL.md</pre>
                 <p><strong>Cursor</strong></p>
                 <pre style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .cursor/rules/mermaid-theme-builder.mdc
-# Add to Cursor project rules — paste contents of SKILL.md
+# Copy skills/okhp3-mermaid-theme-builder/SKILL.md from the cloned repo
 # or reference via @mermaid-theme-builder in Cursor chat</pre>
                 <p><strong>GitHub Copilot</strong></p>
                 <pre style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .github/copilot-instructions.md
-# Append the SKILL.md contents under a "Mermaid Diagram Governance" heading
+# Append contents of skills/okhp3-mermaid-theme-builder/SKILL.md under a "Mermaid Diagram Governance" heading
 # Copilot picks up repo-level instructions automatically in VS Code</pre>
                 <p><strong>VS Code (any agent via workspace context)</strong></p>
                 <pre style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .vscode/mermaid-theme-builder.md  (add to workspace context)
+# Copy skills/okhp3-mermaid-theme-builder/SKILL.md from the cloned repo
 # Reference in any chat-mode prompt: "Apply the Mermaid Theme Builder
 # governance rules for [renderer] before generating diagram code."</pre>
-                <div class="skill-note">Status: Active development — part of the v0.5.x SKILL.md Hardening Sprint. The visual app ships the governance logic first; the SKILL.md package formalizes the same rules for agent consumption without a browser. Source: <a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/SKILL.md" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">github.com/OKHP3/mermaid-theme-builder/blob/main/SKILL.md ↗</a></div>
+                <div class="skill-note">Status: Active development — part of the v0.5.x SKILL.md Hardening Sprint. The visual app ships the governance logic first; the SKILL.md package formalizes the same rules for agent consumption without a browser. Source: <a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/okhp3-mermaid-theme-builder/SKILL.md" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">github.com/OKHP3/mermaid-theme-builder/blob/main/skills/okhp3-mermaid-theme-builder/SKILL.md ↗</a></div>
               </div>
             </div>
 
@@ -1738,40 +1739,40 @@ curl -o .claude/skills/mermaid-theme-builder.md \
                   <span class="progress-marker progress-marker--done">✓</span>
                   <div class="progress-phase-content">
                     <div class="progress-phase-title">
-                      V0.1 — Proof of Concept
+                      V0.1 — Foundation
                       <span class="phase-pill phase-pill--shipped">Shipped</span>
                     </div>
-                    <p class="progress-phase-desc">Initial browser-only prototype. Live color pickers, basic themeVariables export, single flowchart preview. Established the direct-manipulation model over prompt-driven iteration.</p>
+                    <p class="progress-phase-desc">Paste, detect, palette, preview, export. Four utility palettes. Prompt scaffold modal. GitHub Pages deploy.</p>
                   </div>
                 </li>
                 <li class="progress-phase">
                   <span class="progress-marker progress-marker--done">✓</span>
                   <div class="progress-phase-content">
                     <div class="progress-phase-title">
-                      V0.2 — Multi-Family Preview
+                      V0.2 — Brand System
                       <span class="phase-pill phase-pill--shipped">Shipped</span>
                     </div>
-                    <p class="progress-phase-desc">Expanded diagram preview to cover flowchart, sequence, class, Gantt, ER, and pie families. Brand palette presets introduced. Prompt scaffold generation MVP.</p>
+                    <p class="progress-phase-desc">OverKill Hill P³, Glee-fully, and AskJamie brand palettes. Family-specific theming overlays. Extract mode.</p>
                   </div>
                 </li>
                 <li class="progress-phase">
                   <span class="progress-marker progress-marker--done">✓</span>
                   <div class="progress-phase-content">
                     <div class="progress-phase-title">
-                      V0.3 — Renderer Awareness
+                      V0.3 — Architecture Hardening
                       <span class="phase-pill phase-pill--shipped">Shipped</span>
                     </div>
-                    <p class="progress-phase-desc">First renderer capability notes — GitHub, GitLab, Obsidian, Notion, Confluence. Multi-format export (themeVariables, Markdown bootstrap, prompt scaffold). OKH P³ brand palette.</p>
+                    <p class="progress-phase-desc">React 19 + Vite + TypeScript monorepo. Compose tab. 5-tier typography hierarchy.</p>
                   </div>
                 </li>
                 <li class="progress-phase">
                   <span class="progress-marker progress-marker--done">✓</span>
                   <div class="progress-phase-content">
                     <div class="progress-phase-title">
-                      V0.4 — Dark/Light Preview + URL State
+                      V0.4 — Renderer Intelligence
                       <span class="phase-pill phase-pill--shipped">Shipped</span>
                     </div>
-                    <p class="progress-phase-desc">Dark/light mode preview toggle. Shareable URL state — full theme configuration encoded in the URL. Security posture review. Glee-fully and AskJamie brand presets.</p>
+                    <p class="progress-phase-desc">7 renderer profiles with parity matrix. Look API (Classic, Neo, Hand-Drawn). Dark/light/system preview. 26+ example files. Diff view.</p>
                   </div>
                 </li>
                 <li class="progress-phase">
@@ -2098,7 +2099,7 @@ curl -o .claude/skills/mermaid-theme-builder.md \
                 <li><a href="https://okhp3.github.io/mermaid-theme-builder/#compose" target="_blank" rel="noopener noreferrer">Live App — Compose Tab ↗</a></li>
                 <li><a href="https://okhp3.github.io/mermaid-theme-builder/#apply" target="_blank" rel="noopener noreferrer">Live App — Apply Tab ↗</a></li>
                 <li><a href="https://github.com/OKHP3/mermaid-theme-builder" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a></li>
-                <li><a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/SKILL.md" target="_blank" rel="noopener noreferrer">SKILL.md Source ↗</a></li>
+                <li><a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/okhp3-mermaid-theme-builder/SKILL.md" target="_blank" rel="noopener noreferrer">SKILL.md Source ↗</a></li>
                 <li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid (sibling)</a></li>
                 <li><a href="https://mermaid.js.org/config/theming.html" target="_blank" rel="noopener noreferrer">Mermaid.js Theming Docs ↗</a></li>
                 <li><a href="https://mermaid.js.org/config/theming.html#theme-variables" target="_blank" rel="noopener noreferrer">themeVariables Reference ↗</a></li>
