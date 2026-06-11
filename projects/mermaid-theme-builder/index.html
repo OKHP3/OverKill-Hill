@@ -257,7 +257,9 @@
       }
       .embed-frame-wrapper iframe {
         display: block;
+        min-height: 900px;
       }
+      @media (max-width: 640px) { .embed-frame-wrapper iframe { min-height: 480px; } }
       .iframe-loading-overlay {
         position: absolute;
         inset: 0;
@@ -1073,7 +1075,7 @@
                   loading="lazy"
                   allow="clipboard-read; clipboard-write; fullscreen"
                   referrerpolicy="no-referrer-when-downgrade"
-                  style="width:100%; min-height:900px; border:0;"
+                  style="width:100%; border:0;"
                 ></iframe>
               </div>
 
