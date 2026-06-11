@@ -82,7 +82,7 @@ EXPECTED = {
 
     "roadmap · shipped phase title":
         ("projects/mermaid-theme-builder/index.html",
-         f"{v} — Baseline Shipped"),
+         f"{v} — Baseline"),
 
     "roadmap · active phase title":
         ("projects/mermaid-theme-builder/index.html",
