@@ -1,11 +1,16 @@
 <!-- ============================================================
      SOURCE OF TRUTH — Mermaid Theme Builder project page
-     Canonical: projects/mermaid-theme-builder/index.html
-     Live tool:  https://okhp3.github.io/mermaid-theme-builder/
-     Version:    v0.5.0 — Shipped May 2026
-     Sprint:     v0.5.x SKILL.md Hardening (Active)
-     Mermaid.js: 11.15.0 (exact pin in package.json)
+     Canonical:    projects/mermaid-theme-builder/index.html
+     MTB repo:     https://github.com/OKHP3/mermaid-theme-builder
+     Live app:     https://okhp3.github.io/mermaid-theme-builder/
+     Notion plan:  [Notion master plan — add URL]
+     Version:      v0.5.0 — Shipped May 2026
+     Sprint:       v0.5.x SKILL.md Hardening (Active)
+     Mermaid.js:   11.15.0 (exact pin in package.json)
+     TypeScript:   6.0.3 (~6.0.3 in package.json)
      Last reviewed: 2026-06-10
+     Update rule:  Update this page whenever the Notion master plan
+                   version callout or package.json versions change.
      ============================================================ -->
 <!DOCTYPE html>
 <html lang="en">
@@ -1139,7 +1144,7 @@
                   <ul>
                     <li><span class="bullet">◆</span>A visual workbench for defining and enforcing Mermaid diagram themes</li>
                     <li><span class="bullet">◆</span>A renderer-aware export tool — flags what breaks in GitHub, GitLab, Obsidian, Notion, Confluence</li>
-                    <li><span class="bullet">◆</span>A brand palette enforcer — presets for OKH P³, Glee-fully, AskJamie, and Neutral Enterprise</li>
+                    <li><span class="bullet">◆</span>A brand palette enforcer — presets for OverKill Hill P³, Glee-fully, and AskJamie</li>
                     <li><span class="bullet">◆</span>A prompt scaffold generator — AI tools stay on-brand from the first generation</li>
                     <li><span class="bullet">◆</span>A SKILL.md-packaged agent skill for headless diagram-governance workflows</li>
                     <li><span class="bullet">◆</span>An open-source community contribution to the Mermaid.js ecosystem. MIT licensed. Free always.</li>
@@ -1411,7 +1416,7 @@
                 <div class="feature-item">
                   <div class="feature-icon" aria-hidden="true">◻</div>
                   <div>
-                    <h3>TypeScript 5.9 (strict)</h3>
+                    <h3>TypeScript 6.0.3 (strict)</h3>
                     <p>Strict mode throughout. Renderer profile types, diagram family unions, and export format contracts are all type-safe — not inferred at runtime.</p>
                   </div>
                 </div>
@@ -1426,7 +1431,7 @@
                   <div class="feature-icon" aria-hidden="true">🔒</div>
                   <div>
                     <h3>PWA-Ready (Offline Capable)</h3>
-                    <p>Service worker architecture means the workbench functions without a network connection. Your governance workflow doesn't depend on GitHub Pages being reachable.</p>
+                    <p>Service worker and web app manifest are both present in the source repo. The workbench runs without a network connection after the first visit. Installable, works offline after first load.</p>
                   </div>
                 </div>
               </div>
@@ -1620,7 +1625,6 @@
                     <span class="family-chip family-chip--ext">OKH brand palette</span>
                     <span class="family-chip family-chip--ext">Glee-fully palette</span>
                     <span class="family-chip family-chip--ext">AskJamie palette</span>
-                    <span class="family-chip family-chip--ext">Neutral Enterprise</span>
                   </div>
                   <p>Brand-specific scaffolding patterns that apply OKH conventions to standard diagram families. Not extensions of Mermaid syntax — conventions applied on top of valid Mermaid.</p>
                 </div>
@@ -1774,7 +1778,7 @@ curl -o .claude/skills/mermaid-theme-builder.md \
                   <span class="progress-marker progress-marker--done">✓</span>
                   <div class="progress-phase-content">
                     <div class="progress-phase-title">
-                      v0.5.0 — Baseline Shipped
+                      v0.5.0 — Baseline
                       <span class="phase-pill phase-pill--shipped">Shipped</span>
                     </div>
                     <p class="progress-phase-desc">Forge UI System, pan/zoom canvas, renderer-aware export, brand palette presets, Look API (Classic/Neo/Hand-Drawn), multi-diagram splitting, shareable URL state, Reference tab with 27+ family registry.</p>
