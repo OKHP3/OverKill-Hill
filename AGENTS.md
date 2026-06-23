@@ -66,6 +66,10 @@ and current audit state.
 **Body scope class:** none -- this is the default brand; pages set no body class
 **Canonical stylesheet:** https://raw.githubusercontent.com/OKHP3/OverKill-Hill/main/assets/css/theme.css
 **Version:** 3.2
+**GitHub:** https://github.com/OKHP3/OverKill-Hill
+**Notion Anchor:** https://app.notion.com/p/2cc812e0ced480389730dbd833839ae6
+**Local path (Windows):** `C:\Users\jamie\OKH-Local\Websites\overkill-hill`
+**Local path (Mac):** `/Volumes/OKH-Local/04_GitHub_Mirrors/OverKill-Hill`
 
 This section governs how files and folders are named, what structure all sibling
 repos share, what counts as detritus, and the brand contract this repo serves.
@@ -737,6 +741,13 @@ These apply in every session, regardless of task:
 - No new dependencies unless explicitly requested.
 - All user-facing content must use US English per the Language Standard in
   Section 0. UK and Commonwealth spellings are defects, not stylistic variants.
+- Preserve standalone punchy lines in copy -- do not consolidate them into
+  surrounding paragraphs. A one-sentence paragraph is intentional.
+- ROY principle: understanding produced divided by explanation invested --
+  verbosity must earn its space. If a shorter phrasing conveys the same meaning,
+  use it.
+- AutoCAD version in use is R10 -- locked, not negotiable. Do not suggest
+  upgrades or reference features from later releases.
 
 ---
 
