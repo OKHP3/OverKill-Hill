@@ -12,8 +12,8 @@
        METADATA: Primary Title & Description
        ======================================== -->
     <title>Abrahamic Reference Engine | OverKill Hill P³™</title>
-    <meta name="description" content="The Abrahamic Reference Engine is a multi-faith concordance linking texts and traditions of Judaism, Christianity, and Islam." />
-    <meta name="keywords" content="Abrahamic, Reference Engine, concordance, Judaism, Christianity, Islam, OverKill Hill P³" />
+    <meta name="description" content="A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Browse traditions, look up passages, and compare shared themes side-by-side. Browser-only. No login. No preaching." />
+    <meta name="keywords" content="Abrahamic reference engine, scripture lookup, Judaism Christianity Islam, cross-tradition compare, verse lookup, Sefaria, OverKill Hill P³" />
     <meta name="author" content="OverKill Hill P³™" />
     <meta name="creator" content="OverKill Hill P³™" />
     <meta name="publisher" content="OverKill Hill P³™" />
@@ -22,11 +22,11 @@
        METADATA: Open Graph (Social Sharing)
        ======================================== -->
     <meta property="og:title" content="Abrahamic Reference Engine | OverKill Hill P³™" />
-    <meta property="og:description" content="The Abrahamic Reference Engine is a multi-faith concordance linking texts and traditions of Judaism, Christianity, and Islam." />
+    <meta property="og:description" content="A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Find it. Quote it. Compare it. No sermon required." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://overkillhill.com/projects/abrahamic-reference-engine/" />
     <meta property="og:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
-    <meta property="og:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³ illustration" />
+    <meta property="og:image:alt" content="Mechanical raven perched on a vintage computer -- OverKill Hill P³ illustration" />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="1024" />
     <meta property="og:image:type" content="image/png" />
@@ -38,16 +38,19 @@
        ======================================== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Abrahamic Reference Engine | OverKill Hill P³™" />
-    <meta name="twitter:description" content="The Abrahamic Reference Engine is a multi-faith concordance linking texts and traditions of Judaism, Christianity, and Islam." />
+    <meta name="twitter:description" content="A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Find it. Quote it. Compare it. No sermon required." />
     <meta name="twitter:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
-    <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³ illustration" />
+    <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer -- OverKill Hill P³ illustration" />
     <meta name="twitter:site" content="@OverKillHillP3" />
     <meta name="twitter:creator" content="@OverKillHillP3" />
 
     <!-- ========================================
        METADATA: Search & Crawling
        ======================================== -->
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="revisit-after" content="7 days" />
     <link rel="author" href="/humans.txt" />
     <link rel="canonical" href="https://overkillhill.com/projects/abrahamic-reference-engine/" />
     <link rel="alternate" hreflang="en" href="https://overkillhill.com/projects/abrahamic-reference-engine/" />
@@ -77,14 +80,467 @@
     <!-- ========================================
        STYLESHEETS & FONTS
        ======================================== -->
-    <!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body) -->
+    <!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body), JetBrains Mono (code/mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" />
     <link rel="stylesheet" href="/assets/css/theme.css" />
 
-      <script type="speculationrules">
+    <style>
+      /* ── Breadcrumb ───────────────────────────────────────────────────── */
+      .breadcrumb {
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        color: var(--color-muted);
+        margin-bottom: 1.25rem;
+      }
+      .breadcrumb a { color: var(--color-muted); text-decoration: none; }
+      .breadcrumb a:hover { color: var(--color-accent); }
+      .breadcrumb span { margin: 0 0.4rem; }
+
+      /* ── Tag badges ───────────────────────────────────────────────────── */
+      .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
+      .tag {
+        display: inline-block;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.2rem 0.6rem;
+        border-radius: 4px;
+        border: 1px solid var(--color-border-subtle);
+        color: var(--color-muted);
+      }
+      .tag--accent {
+        border-color: rgba(196, 106, 44, 0.35);
+        color: var(--okh-orange);
+      }
+
+      /* ── Hero section (project pages) ────────────────────────────────── */
+      .project-hero {
+        padding: 3rem 0 2.5rem;
+        border-bottom: 1px solid var(--color-border-subtle);
+      }
+      .project-hero h1 {
+        font-size: clamp(2rem, 5vw, 3.25rem);
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+      }
+      .project-hero .hero-sub {
+        font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+        color: var(--okh-orange);
+        font-family: var(--font-heading);
+        margin-bottom: 1rem;
+      }
+      .project-hero p {
+        font-size: 1.05rem;
+        color: var(--color-muted);
+        max-width: 680px;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+      }
+      .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+      /* ── Two-column page layout ───────────────────────────────────────── */
+      .project-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2.5rem 0 4rem;
+      }
+      @media (min-width: 1024px) {
+        .project-layout {
+          grid-template-columns: 1fr 300px;
+          gap: 3rem;
+          align-items: start;
+        }
+      }
+
+      /* ── Content sections ─────────────────────────────────────────────── */
+      .section-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--color-muted);
+        margin-bottom: 0.5rem;
+      }
+      .content-block { margin-bottom: 2.5rem; }
+      .content-block h2 {
+        font-size: 1.35rem;
+        margin-bottom: 1rem;
+      }
+
+      /* ── Feature grid ─────────────────────────────────────────────────── */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+        gap: 1rem;
+      }
+      .feature-item {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem 1.25rem;
+        background: var(--color-surface-soft);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-md);
+        transition: border-color 0.15s;
+      }
+      .feature-item:hover { border-color: rgba(196, 106, 44, 0.3); }
+      .feature-icon {
+        width: 36px; height: 36px;
+        border-radius: 6px;
+        border: 1px solid rgba(196,106,44,0.25);
+        background: rgba(196,106,44,0.07);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        color: var(--okh-orange);
+        font-size: 1.1rem;
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 700;
+      }
+      .feature-item h3 { font-size: 0.9rem; margin: 0 0 0.25rem; font-family: var(--font-body); font-weight: 600; }
+      .feature-item p { font-size: 0.85rem; color: var(--color-muted); margin: 0; line-height: 1.55; }
+
+      /* ── Embed section ────────────────────────────────────────────────── */
+      .embed-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.6rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .embed-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--color-muted);
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .embed-live-dot {
+        display: inline-block;
+        width: 7px; height: 7px;
+        border-radius: 50%;
+        background: var(--okh-orange);
+        animation: pulse-dot 2s ease-in-out infinite;
+      }
+      @keyframes pulse-dot {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.35; }
+      }
+      .embed-actions { display: flex; gap: 0.5rem; }
+      .embed-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 6px;
+        border: 1px solid var(--color-border-subtle);
+        background: transparent;
+        color: var(--color-muted);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        cursor: pointer;
+        text-decoration: none;
+        transition: border-color 0.15s, color 0.15s;
+      }
+      .embed-btn:hover { border-color: var(--color-accent); color: var(--color-accent); text-decoration: none; }
+      .embed-btn--primary {
+        border-color: rgba(196, 106, 44, 0.5);
+        color: var(--okh-orange);
+        background: rgba(196, 106, 44, 0.08);
+      }
+      .embed-btn--primary:hover { background: rgba(196, 106, 44, 0.15); color: var(--okh-orange); }
+      .embed-frame-wrapper {
+        border: 1px solid rgba(196, 106, 44, 0.2);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        background: #090d12;
+        box-shadow: 0 0 40px rgba(196, 106, 44, 0.06);
+        position: relative;
+      }
+      .embed-frame-wrapper iframe { display: block; min-height: 720px; }
+      @media (max-width: 640px) { .embed-frame-wrapper iframe { min-height: 480px; } }
+      .iframe-loading-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        background: #090d12;
+        z-index: 2;
+        transition: opacity 0.4s ease;
+      }
+      .iframe-loading-overlay.loaded { opacity: 0; pointer-events: none; }
+      .iframe-spinner {
+        width: 36px; height: 36px;
+        border: 3px solid rgba(196, 106, 44, 0.2);
+        border-top-color: #c46a2c;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .iframe-loading-text {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: rgba(196, 106, 44, 0.7);
+        letter-spacing: 0.05em;
+      }
+      .iframe-slow-fallback {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      .iframe-slow-fallback.visible { display: flex; }
+      .iframe-slow-fallback a {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.82rem;
+        color: #c46a2c;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .embed-note {
+        margin-top: 0.5rem;
+        font-size: 0.78rem;
+        color: var(--color-muted);
+        font-family: "JetBrains Mono", monospace;
+        text-align: center;
+      }
+      .embed-note a { color: var(--okh-orange); }
+      .embed-fallback-cta {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0.75rem;
+      }
+      .embed-fallback-cta a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
+        padding: 0.65rem 1.4rem;
+        background: var(--okh-orange);
+        color: #fff;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.88rem;
+        font-weight: 600;
+        border-radius: var(--radius-sm);
+        text-decoration: none;
+        letter-spacing: 0.01em;
+        transition: background 0.15s ease, opacity 0.15s ease;
+      }
+      .embed-fallback-cta a:hover { opacity: 0.88; }
+
+      /* ── Relationship cards ───────────────────────────────────────────── */
+      .relationship-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .relationship-grid--three {
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+      }
+      @media (max-width: 640px) { .relationship-grid { grid-template-columns: 1fr; } }
+      .relationship-card {
+        background: var(--color-surface-soft);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1.1rem 1.25rem;
+      }
+      .relationship-card .rel-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--okh-orange);
+        display: block;
+        margin-bottom: 0.35rem;
+      }
+      .relationship-card h3 {
+        font-size: 0.9rem;
+        font-weight: 600;
+        font-family: var(--font-body);
+        margin: 0 0 0.4rem;
+        color: var(--color-fg);
+      }
+      .relationship-card p {
+        font-size: 0.83rem;
+        color: var(--color-muted);
+        margin: 0;
+        line-height: 1.55;
+      }
+
+      /* ── Scope table ──────────────────────────────────────────────────── */
+      .scope-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.84rem;
+        margin: 1rem 0;
+      }
+      .scope-table th {
+        text-align: left;
+        padding: 0.5rem 0.75rem;
+        border-bottom: 1px solid var(--color-border-subtle);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--color-muted);
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .scope-table td {
+        padding: 0.45rem 0.75rem;
+        vertical-align: middle;
+        border-bottom: 1px solid rgba(249,250,251,0.04);
+        color: var(--color-muted);
+        line-height: 1.5;
+      }
+      .scope-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+      .scope-table td:first-child { color: var(--color-fg); font-weight: 500; }
+      .scope-yes {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--okh-orange);
+        font-weight: 700;
+      }
+      .scope-no-cell {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--color-muted);
+        opacity: 0.6;
+      }
+      .scope-meta {
+        font-size: 0.78rem;
+        color: var(--color-muted);
+        margin-top: 0.5rem;
+        font-family: "JetBrains Mono", monospace;
+      }
+      .scope-meta a { color: var(--okh-orange); }
+
+      /* ── What This Is Not list ────────────────────────────────────────── */
+      .isnot-block {
+        background: var(--color-surface-soft);
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .isnot-block ul {
+        list-style: none;
+        padding: 0;
+        margin: 0.75rem 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .isnot-block li {
+        font-size: 0.875rem;
+        color: var(--color-muted);
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
+        line-height: 1.5;
+      }
+      .isnot-dash {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--color-muted);
+        opacity: 0.5;
+        flex-shrink: 0;
+        font-weight: 700;
+      }
+      .isnot-note {
+        font-size: 0.9rem;
+        color: var(--color-fg);
+        margin: 1.25rem 0 0;
+        line-height: 1.7;
+        border-top: 1px solid var(--color-border-subtle);
+        padding-top: 1rem;
+      }
+
+      /* ── Skills CTA link ──────────────────────────────────────────────── */
+      .skills-cta {
+        margin-top: 1.25rem;
+        display: flex;
+        justify-content: flex-start;
+      }
+
+      /* ── Right rail sidebar ───────────────────────────────────────────── */
+      .sidebar-rail { display: flex; flex-direction: column; gap: 1rem; }
+      @media (min-width: 1024px) {
+        .sidebar-rail { position: sticky; top: 6rem; }
+      }
+      .sidebar-meta {
+        border: 1px solid var(--color-border-subtle);
+        background: var(--color-surface-soft);
+        border-radius: var(--radius-md);
+        padding: 1.25rem;
+      }
+      .sidebar-meta .section-label { margin-bottom: 0.75rem; }
+      .meta-row { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.25rem; }
+      .meta-item { font-size: 0.85rem; }
+      .meta-key {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--color-muted);
+        display: block;
+        margin-bottom: 0.15rem;
+      }
+      .meta-val { color: var(--color-fg); }
+      .meta-val a { color: var(--okh-orange); }
+      .status-dot {
+        display: inline-block;
+        width: 8px; height: 8px;
+        border-radius: 50%;
+        background: #eab308;
+        margin-right: 0.35rem;
+        vertical-align: middle;
+      }
+      .sidebar-links {
+        border-top: 1px solid var(--color-border-subtle);
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .sidebar-link {
+        font-size: 0.85rem;
+        color: var(--color-muted);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .sidebar-link:hover { color: var(--okh-orange); text-decoration: none; }
+      .sidebar-related {
+        border: 1px solid var(--color-border-subtle);
+        background: var(--color-surface-soft);
+        border-radius: var(--radius-md);
+        padding: 1.25rem;
+      }
+      .sidebar-related ul { list-style: none; padding: 0; margin: 0.5rem 0 0; }
+      .sidebar-related li { margin-bottom: 0.5rem; font-size: 0.85rem; }
+      .sidebar-related a { color: var(--color-muted); }
+      .sidebar-related a:hover { color: var(--okh-orange); }
+
+      /* ── Mobile stacking ──────────────────────────────────────────────── */
+      @media (max-width: 640px) {
+        .embed-toolbar { flex-direction: column; align-items: flex-start; }
+      }
+    </style>
+
+    <script type="speculationrules">
     {
       "prefetch": [
         { "source": "document", "where": { "and": [
@@ -95,7 +551,38 @@
       ]
     }
     </script>
-      <!-- Google tag (gtag.js) -->
+
+    <!-- ========================================
+       STRUCTURED DATA: BreadcrumbList
+       ======================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "OverKill Hill P³™",
+        "item": "https://overkillhill.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "item": "https://overkillhill.com/projects/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Abrahamic Reference Engine",
+        "item": "https://overkillhill.com/projects/abrahamic-reference-engine/"
+      }
+      ]
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -105,43 +592,16 @@
     </script>
   </head>
 
-  <body>
+  <body class="projects-main">
     <a class="okh-skip-link" href="#main">Skip to main content</a>
-    <!-- 🔧 OKH “under construction” gate -->
-    <div class="construction-overlay"
-         data-wip-key="found-ry">
-      <div class="construction-overlay__card">
-        <picture><source type="image/webp" srcset="/assets/img/over-kill-hill-p3-bird-patrol-comp-left-under-construction-wide-1536.webp"><img
-          src="/assets/img/over-kill-hill-p3-bird-patrol-comp-left-under-construction-wide-1536.png"
-          alt="The Forge — is undergoing construction"
-          class="construction-overlay__image"
-          width="1536"
-          height="768"
-        /></picture>
 
-        <p class="construction-overlay__copy">
-          This Found‑Rᵧ page is still being wired up. Sections may move,
-          links may change, and some flows aren’t ready yet — exploration is at your own risk
-          the MurderBird is in a mood!
-        </p>
-
-        <div class="construction-overlay__actions">
-          <button
-            type="button"
-            class="btn btn-primary construction-overlay__dismiss"
-            data-wip-dismiss
-          >
-            I'm warned — and want to risk it. Let me in!
-          </button>
-        </div>
-      </div>
-    </div>
-    <!-- 🔧 end under‑construction gate -->
-    
+    <!-- ============================================================
+         HEADER
+         ============================================================ -->
     <header class="site-header" id="top">
       <div class="container">
         <div class="logo">
-          <a href="#top">
+          <a href="/">
             <img src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png" alt="OverKill Hill P³ logo" width="40" height="40" />
             <span class="sr-only">OverKill&nbsp;Hill&nbsp;P³™ Home</span>
           </a>
@@ -150,15 +610,16 @@
         <nav class="primary-nav" id="navigation" aria-label="Primary">
           <ul>
             <li><a href="/#forge">The Forge</a></li>
+            <!-- Projects cluster -->
             <li class="has-submenu">
               <a href="/projects/" aria-current="page">Our Projects</a>
               <ul class="submenu">
                 <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
                 <li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
-                                <li><a href="/projects/mac-studio-local-ai-workbench/">Mac Studio Local AI Workbench</a></li>
+                <li><a href="/projects/mac-studio-local-ai-workbench/">Mac Studio Local AI Workbench</a></li>
+                <li><a href="/projects/abrahamic-reference-engine/" class="is-current">Abrahamic Reference Engine</a></li>
               </ul>
             </li>
-            <!-- Writings cluster: Manifesto / Promptcraft / FDIAL -->
             <li class="has-submenu">
               <a href="/writings/">Writings</a>
               <ul class="submenu">
@@ -167,8 +628,6 @@
                 <li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
               </ul>
             </li>
-
-            <!-- About cluster: Universe / About / Contact / Legal -->
             <li class="has-submenu">
               <a href="/about/">About</a>
               <ul class="submenu">
@@ -188,48 +647,428 @@
       </div>
 
       <section class="site-specials site-specials--okh" aria-label="Forge update">
-        <span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
+        <span class="site-specials-label">🔥 Hot off the FORGE ⚒️</span>
         <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
           v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →
         </a>
       </section>
-
     </header>
 
+    <!-- ============================================================
+         MAIN
+         ============================================================ -->
     <main id="main">
-      <!-- HERO -->
-      <section class="hero">
-        <div class="brand-stripes okh" aria-hidden="true"></div>
-        <div class="container">
-          <div class="hero-content">
-            <h1>Abrahamic Reference Engine</h1>
-            <p>
-              A semantic index across the texts and traditions of Judaism,
-              Christianity and Islam.
-            </p>
-          </div>
-        </div>
-      </section>
+      <div class="container">
 
-      <section class="content">
-        <div class="container">
-          <div class="section-header"><h2>Work in Progress</h2></div>
+        <!-- HERO ────────────────────────────────────────────────── -->
+        <section class="project-hero" aria-label="Project overview">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">overkillhill.com</a><span>/</span>
+            <a href="/projects/">projects</a><span>/</span>
+            <span>abrahamic-reference-engine</span>
+          </nav>
+
+          <div class="tag-row">
+            <span class="tag">Foundry Project</span>
+            <span class="tag">Open Source</span>
+            <span class="tag tag--accent">v1.0 Active</span>
+            <span class="tag tag--accent">Agent Skills Available</span>
+          </div>
+
+          <h1>Abrahamic Reference Engine</h1>
+          <p class="hero-sub">Find it. Quote it. Compare it. No sermon required.</p>
+
           <p>
-            The Abrahamic Reference Engine is an early experiment in building a
-            multi‑faith concordance. It aims to link names, places, concepts and
-            narratives across the Torah, Bible and Quran, highlighting common
-            ground and respectful distinctions.
+            A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam.
+            Browse traditions, look up passages from source-aware APIs, and compare shared themes side-by-side.
+            Browser-only. No login. No preaching. No ranking.
           </p>
-          <p>
-            Once complete, users will be able to ask comparative questions and
-            receive responses that are sensitive to context, tradition and
-            audience.
-          </p>
-        </div>
-      </section>
-      
+
+          <div class="hero-ctas">
+            <a href="https://okhp3.github.io/abrahamic-reference-engine/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Launch the Engine</a>
+            <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">Explore Agent Skills</a>
+            <a href="https://github.com/OKHP3/abrahamic-reference-engine" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">View on GitHub</a>
+          </div>
+        </section>
+
+        <!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
+        <div class="project-layout">
+
+          <!-- MAIN COLUMN ──────────────────────────────────────── -->
+          <div>
+
+            <!-- PROBLEM STATEMENT ───────────────────────────────── -->
+            <div class="content-block card" id="problem" data-search-index>
+              <div class="section-label">The Problem</div>
+              <h2>The Reference Gap</h2>
+              <div class="feature-grid" style="margin-top:0.75rem;">
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◑</div>
+                  <div>
+                    <h3>Most scripture tools are built for insiders</h3>
+                    <p>Devotional apps, denominational study tools, and apologetics platforms assume you already belong. If you're secular, unaffiliated, or just trying to understand a reference -- there's almost nothing built for you.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⊕</div>
+                  <div>
+                    <h3>Cross-tradition comparison requires a scholar</h3>
+                    <p>Figuring out how Judaism, Christianity, and Islam treat the same theme -- mercy, justice, covenant, creation -- means switching between six different apps, three translation frameworks, and a denominational minefield.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◎</div>
+                  <div>
+                    <h3>AI models hallucinate scripture</h3>
+                    <p>Ask a language model for a verse and it will confidently invent one. There is no neutral, API-backed, source-first reference layer designed specifically for agents and AI builders to use safely.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◈</div>
+                  <div>
+                    <h3>Translation choice is invisible</h3>
+                    <p>KJV, NABRE, NIV, NRSV, Yusuf Ali, Sahih International -- each carries different denominational assumptions. Most tools pick one silently. This one names the choice and lets you see the difference.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- LIVE DEMO ───────────────────────────────────────── -->
+            <div class="content-block" id="embed-demo" style="scroll-margin-top: 8rem;">
+              <div class="embed-toolbar">
+                <div class="embed-label">
+                  <span class="embed-live-dot"></span>
+                  Live Demo &nbsp;·&nbsp; okhp3.github.io
+                </div>
+                <div class="embed-actions">
+                  <button class="embed-btn" id="are-reload-btn" title="Reload engine" aria-label="Reload engine">
+                    ↺ Reload
+                  </button>
+                  <a href="https://okhp3.github.io/abrahamic-reference-engine/" target="_blank" rel="noopener noreferrer" class="embed-btn embed-btn--primary">
+                    ⤢ Full Screen
+                  </a>
+                </div>
+              </div>
+
+              <div class="embed-fallback-cta">
+                <a href="https://okhp3.github.io/abrahamic-reference-engine/" target="_blank" rel="noopener noreferrer">
+                  ⤢ Open Engine Full Screen
+                </a>
+              </div>
+
+              <div class="embed-frame-wrapper">
+                <div class="iframe-loading-overlay" id="are-iframe-overlay" aria-hidden="true">
+                  <div class="iframe-spinner"></div>
+                  <span class="iframe-loading-text">Loading Abrahamic Reference Engine…</span>
+                  <div class="iframe-slow-fallback" id="are-iframe-fallback">
+                    <span class="iframe-loading-text" style="opacity:0.6;">Taking longer than expected?</span>
+                    <a href="https://okhp3.github.io/abrahamic-reference-engine/" target="_blank" rel="noopener noreferrer">Open the engine in a new tab →</a>
+                  </div>
+                </div>
+                <iframe
+                  id="are-tool-iframe"
+                  src="https://okhp3.github.io/abrahamic-reference-engine/"
+                  title="Abrahamic Reference Engine"
+                  loading="lazy"
+                  allow="clipboard-read; clipboard-write; fullscreen"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  style="width:100%; border:0;"
+                ></iframe>
+              </div>
+
+              <p class="embed-note">
+                Embedded from <a href="https://okhp3.github.io/abrahamic-reference-engine/" target="_blank" rel="noopener noreferrer">okhp3.github.io/abrahamic-reference-engine</a>
+                -- open in a new tab for the full experience
+              </p>
+            </div>
+
+            <!-- THREE MODES ─────────────────────────────────────── -->
+            <div class="content-block" id="three-modes" data-search-index>
+              <div class="section-label">What It Does</div>
+              <h2>Three modes. One engine.</h2>
+              <div class="relationship-grid relationship-grid--three">
+                <div class="relationship-card">
+                  <span class="rel-tag">Browse Traditions</span>
+                  <h3>Browse traditions and denominations</h3>
+                  <p>Explore Judaism, Christianity (five denominational lenses), and Islam with scope notes, canon boundaries, key texts, and neutral summaries. Every tradition gets identical visual dignity -- no ranking.</p>
+                </div>
+                <div class="relationship-card">
+                  <span class="rel-tag">Verse Lookup</span>
+                  <h3>Look up passages from real sources</h3>
+                  <p>Retrieve scripture by reference. Sefaria for Jewish texts. bible-api.com for Christian scripture across translations. Quran.com with AlQuran.cloud fallback for Qur'an. Quote from sources, not model memory.</p>
+                </div>
+                <div class="relationship-card">
+                  <span class="rel-tag">Cross-Tradition Compare</span>
+                  <h3>Compare shared themes across traditions</h3>
+                  <p>Twenty pre-seeded themes -- justice, mercy, creation, covenant, prayer, forgiveness, and more -- shown side-by-side across all three traditions. Similarities matter. Differences matter. The nuance gremlins are the whole point.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- AGENT SKILLS ────────────────────────────────────── -->
+            <div class="content-block card" id="agent-skills" data-search-index>
+              <div class="section-label">Agent Skills</div>
+              <h2>Built for humans. Packaged for agents.</h2>
+              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">
+                ARE ships three reusable Markdown skill files so any AI agent can use the same reference logic.
+                No API key. No backend dependency. Compatible with Claude Code, GitHub Copilot, Cursor, Windsurf, and any platform that supports skill injection.
+                Distributed via <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">OKHP3/skillz</a>.
+              </p>
+              <div class="relationship-grid relationship-grid--three">
+                <div class="relationship-card">
+                  <span class="rel-tag">Skill</span>
+                  <h3>okhp3-verse-lookup</h3>
+                  <p>Fetch scripture from Sefaria, bible-api.com, or Quran.com by tradition and reference. Includes endpoint patterns, translation ID map, fallback logic, and normalization rules.</p>
+                </div>
+                <div class="relationship-card">
+                  <span class="rel-tag">Skill</span>
+                  <h3>okhp3-tradition-reference</h3>
+                  <p>Compact structured metadata for all three traditions and five Christian denominations. Canon scope, key texts, US Pew share, API provider, out-of-scope table.</p>
+                </div>
+                <div class="relationship-card">
+                  <span class="rel-tag">Skill</span>
+                  <h3>okhp3-cross-tradition-compare</h3>
+                  <p>Twenty pre-seeded cross-tradition themes with passage references for all three traditions, a neutral bridging note style guide, and the proportional representation rule.</p>
+                </div>
+              </div>
+              <div class="skills-cta">
+                <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">Browse All Skills on GitHub</a>
+              </div>
+            </div>
+
+            <!-- SCOPE ───────────────────────────────────────────── -->
+            <div class="content-block" id="scope" data-search-index>
+              <div class="section-label">Scope</div>
+              <h2>Why these three traditions?</h2>
+              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.5rem;line-height:1.7;">
+                The scope is set by two criteria that must both be met.
+                A tradition must have Abrahamic lineage AND represent approximately 1% or more of the US population per Pew Research Center.
+              </p>
+              <div style="overflow-x:auto;">
+                <table class="scope-table">
+                  <thead>
+                    <tr>
+                      <th>Tradition</th>
+                      <th>US Share</th>
+                      <th>In Scope</th>
+                      <th>Notes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Christianity</td>
+                      <td>~63%</td>
+                      <td><span class="scope-yes">Yes</span></td>
+                      <td>Five denominational lenses</td>
+                    </tr>
+                    <tr>
+                      <td>Judaism</td>
+                      <td>~2%</td>
+                      <td><span class="scope-yes">Yes</span></td>
+                      <td>Tanakh / Jewish textual reference</td>
+                    </tr>
+                    <tr>
+                      <td>Islam</td>
+                      <td>~1%</td>
+                      <td><span class="scope-yes">Yes</span></td>
+                      <td>Qur'an-focused reference</td>
+                    </tr>
+                    <tr>
+                      <td>Hinduism</td>
+                      <td>~1%</td>
+                      <td><span class="scope-no-cell">No</span></td>
+                      <td>Important -- not Abrahamic</td>
+                    </tr>
+                    <tr>
+                      <td>Buddhism</td>
+                      <td>~1%</td>
+                      <td><span class="scope-no-cell">No</span></td>
+                      <td>Important -- not Abrahamic</td>
+                    </tr>
+                    <tr>
+                      <td>Baha'i</td>
+                      <td>~0.1%</td>
+                      <td><span class="scope-no-cell">No</span></td>
+                      <td>Abrahamic -- below threshold</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="scope-meta">
+                Source: <a href="https://www.pewresearch.org/religion/religious-landscape-study/" target="_blank" rel="noopener noreferrer">Pew Research Center, Religious Landscape Study</a>
+              </p>
+              <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.5rem;font-style:italic;">
+                Exclusion is a methodological boundary, not a judgment of worth.
+              </p>
+            </div>
+
+            <!-- DESIGN PRINCIPLES ───────────────────────────────── -->
+            <div class="content-block" id="principles" data-search-index>
+              <div class="section-label">Principles</div>
+              <h2>The rules the engine runs on.</h2>
+              <div class="feature-grid" style="margin-top:0.75rem;">
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">1</div>
+                  <div>
+                    <h3>Neutrality first</h3>
+                    <p>No winners, no losers, no superior doctrines. Every tradition is presented with identical visual dignity and identical structural respect.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">2</div>
+                  <div>
+                    <h3>Attribution always</h3>
+                    <p>Every passage includes translation, source, provider, and licensing context. The engine cites its sources the same way a library does.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">3</div>
+                  <div>
+                    <h3>Context without preaching</h3>
+                    <p>The project may explain how a passage is commonly understood. It does not tell you what to believe or how to live.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">4</div>
+                  <div>
+                    <h3>Difference is data</h3>
+                    <p>When traditions disagree, the engine names the difference plainly and respectfully. Similarity does not mean sameness.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">5</div>
+                  <div>
+                    <h3>Free and open where possible</h3>
+                    <p>All APIs are free and anonymous. No account required, no data collected, no paywall. MIT license throughout.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- WHAT THIS IS NOT ─────────────────────────────────── -->
+            <div class="content-block" id="what-is-not" data-search-index>
+              <div class="section-label">What This Is Not</div>
+              <h2>A reference engine. Not a religion.</h2>
+              <div class="isnot-block">
+                <p style="font-size:0.875rem;color:var(--color-fg);margin:0;font-weight:600;">This project is not:</p>
+                <ul>
+                  <li><span class="isnot-dash">--</span>a devotional assistant</li>
+                  <li><span class="isnot-dash">--</span>a preacher or a moral authority</li>
+                  <li><span class="isnot-dash">--</span>an apologetics engine or debate platform</li>
+                  <li><span class="isnot-dash">--</span>a tradition-ranking tool</li>
+                  <li><span class="isnot-dash">--</span>a replacement for clergy, scholars, or religious communities</li>
+                  <li><span class="isnot-dash">--</span>a claim that all traditions mean the same thing</li>
+                </ul>
+                <p class="isnot-note">
+                  It is a reference engine. It helps you find text, compare themes, and understand context. What you do with that is up to you.
+                </p>
+              </div>
+            </div>
+
+          </div><!-- /main column -->
+
+          <!-- SIDEBAR ──────────────────────────────────────────── -->
+          <aside class="sidebar-rail" aria-label="Project information">
+
+            <!-- Project Info -->
+            <div class="sidebar-meta">
+              <div class="section-label">Project Info</div>
+              <div class="meta-row">
+                <div class="meta-item">
+                  <span class="meta-key">Status</span>
+                  <span class="meta-val"><span class="status-dot"></span>Active / v1.0</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Build Phase</span>
+                  <span class="meta-val">v1.0 SPA + Skills Package</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">GitHub</span>
+                  <span class="meta-val"><a href="https://github.com/OKHP3/abrahamic-reference-engine" target="_blank" rel="noopener noreferrer">OKHP3/abrahamic-reference-engine ↗</a></span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Live URL</span>
+                  <span class="meta-val"><a href="https://okhp3.github.io/abrahamic-reference-engine/" target="_blank" rel="noopener noreferrer">okhp3.github.io/abrahamic-reference-engine ↗</a></span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">License</span>
+                  <span class="meta-val">MIT</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Type</span>
+                  <span class="meta-val">Community Tool</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Cost</span>
+                  <span class="meta-val">Free / Open Source</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Maintained by</span>
+                  <span class="meta-val"><a href="https://overkillhill.com">OverKill Hill P³</a></span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Suite</span>
+                  <span class="meta-val">FoundRy</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Agent Skills</span>
+                  <span class="meta-val">3 skills via <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer">OKHP3/skillz ↗</a></span>
+                </div>
+              </div>
+              <div class="sidebar-links">
+                <a href="https://okhp3.github.io/abrahamic-reference-engine/" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                  ▶ Launch the Engine
+                </a>
+                <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                  ⬡ Agent Skills Hub
+                </a>
+                <a href="https://github.com/OKHP3/abrahamic-reference-engine" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                  ◻ GitHub Repo
+                </a>
+                <a href="https://github.com/OKHP3/abrahamic-reference-engine/issues" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                  ⚐ Open an Issue
+                </a>
+              </div>
+            </div>
+
+            <!-- Related -->
+            <div class="sidebar-related" id="related-resources" data-search-index>
+              <div class="section-label">Related</div>
+              <ul>
+                <li><a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer">OKHP3/skillz -- Agent Skills Hub ↗</a></li>
+                <li><a href="https://sefaria.org" target="_blank" rel="noopener noreferrer">Sefaria -- Jewish Texts ↗</a></li>
+                <li><a href="https://bible-api.com" target="_blank" rel="noopener noreferrer">bible-api.com -- Christian Scripture ↗</a></li>
+                <li><a href="https://quran.com" target="_blank" rel="noopener noreferrer">Quran.com -- Qur'an Reference ↗</a></li>
+                <li><a href="https://www.pewresearch.org/religion/religious-landscape-study/" target="_blank" rel="noopener noreferrer">Pew Religious Landscape Study ↗</a></li>
+                <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
+                <li><a href="/projects/">All OverKill Hill Projects</a></li>
+              </ul>
+            </div>
+
+            <!-- On This Page -->
+            <div class="sidebar-related" id="toc-widget">
+              <div class="section-label">On This Page</div>
+              <ul class="toc-list">
+                <li><a href="#problem">The Reference Gap</a></li>
+                <li><a href="#embed-demo">Live Demo</a></li>
+                <li><a href="#three-modes">Three Modes</a></li>
+                <li><a href="#agent-skills">Agent Skills</a></li>
+                <li><a href="#scope">Scope</a></li>
+                <li><a href="#principles">Design Principles</a></li>
+                <li><a href="#what-is-not">What This Is Not</a></li>
+              </ul>
+            </div>
+
+          </aside>
+
+        </div><!-- /project-layout -->
+
+      </div><!-- /container -->
     </main>
 
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-column">
@@ -263,68 +1102,57 @@
         </div>
       </div>
       <div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
-        <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a></span>
+        <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">
+          Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a>
+        </span>
         <p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³™. All rights reserved.</p>
         <span></span>
       </div>
     </footer>
 
+    <!-- ============================================================
+         SCRIPTS
+         ============================================================ -->
     <script src="/assets/js/app.js"></script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "OverKill Hill P³™",
-        "url": "https://overkillhill.com",
-        "description": "OverKill Hill P³™ is the digital forge where custom GPT systems are architected, tempered and polished for real-world performance.",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://overkillhill.com/search/?q={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
+
+    <!-- ARE iframe loading overlay + reload control -->
+    <script>
+      (function () {
+        var btn = document.getElementById('are-reload-btn');
+        var iframe = document.getElementById('are-tool-iframe');
+        var overlay = document.getElementById('are-iframe-overlay');
+        var fallback = document.getElementById('are-iframe-fallback');
+
+        if (!iframe) return;
+
+        var slowTimer = null;
+
+        function showLoading() {
+          if (overlay) overlay.classList.remove('loaded');
+          if (fallback) fallback.classList.remove('visible');
+          clearTimeout(slowTimer);
+          slowTimer = setTimeout(function () {
+            if (fallback) fallback.classList.add('visible');
+          }, 8000);
         }
-      }
-    </script>
 
-    <script type="module">
-      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-
-      // Pull final, brand-specific tokens (OKH / AskJamie / Glee) from computed styles
-      const styles = getComputedStyle(document.body);
-
-      const surface = styles.getPropertyValue("--color-surface").trim() || "#111827";
-      const surfaceSoft = styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
-      const fg = styles.getPropertyValue("--color-fg").trim() || "#e5e7eb";
-      const accent = styles.getPropertyValue("--color-accent").trim() || "#c46a2c";
-      const muted = styles.getPropertyValue("--color-muted").trim() || "#6b7280";
-      const fontBody =
-        styles.getPropertyValue("--font-body").trim() ||
-        '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
-
-      mermaid.initialize({
-        startOnLoad: true,
-        securityLevel: "loose",   // required for clickable links in diagrams
-        theme: "base",            // modifiable theme
-        themeVariables: {
-          primaryColor: surface,        // node background
-          primaryTextColor: fg,
-          primaryBorderColor: accent,
-          lineColor: accent,
-          secondaryColor: surfaceSoft,  // secondary fills / highlights
-          tertiaryColor: surfaceSoft,
-          textColor: fg,
-          fontFamily: fontBody,
-          noteBkgColor: surface,
-          noteTextColor: muted
-        },
-        flowchart: {
-          curve: "basis",
-          nodeSpacing: 60,
-          rankSpacing: 70
+        function hideLoading() {
+          clearTimeout(slowTimer);
+          if (overlay) overlay.classList.add('loaded');
+          if (fallback) fallback.classList.remove('visible');
         }
-      });
+
+        iframe.addEventListener('load', hideLoading);
+
+        if (btn) {
+          btn.addEventListener('click', function () {
+            showLoading();
+            iframe.src = iframe.src;
+          });
+        }
+
+        showLoading();
+      })();
     </script>
-</body>
+  </body>
 </html>

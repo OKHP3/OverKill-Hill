@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 87,
+  "count": 99,
   "entries": [
     {
       "url": "/",
@@ -241,7 +241,7 @@
         "AskJamie™",
         "Glee‑fully Tools™"
       ],
-      "body": "Skip to main content OKHP³™ Universe Systems, stories & GPT ecosystems on one map. Blueprint of the Hill OverKill Hill P³™ sits at the center of a network of sibling brands, experimental GPT stacks and narrative worlds. This map shows how those layers are wired together — the forge, the friendly faces and the deliberately weird experiments. Explore the projects Back to the forge graph LR OKH[\"OverKill Hill P³™\"] GPT[\"Glee‑fully Personalizable Tools™\"] GTTB00[\"00 — Glee‑fully Toolbox\"] GTDC01[\"01 — Discovered Careers\"] GTTF02[\"02 — Treasured Finds\"] GTTT03[\"03 — Tasty Tracker\"] GTTG04[\"04 — Traveler’s Guide\"] GTOL05[\"05 — Organized Life\"] GTHB06[\"06 — Healthy Bee‑ing\"] GTIK07[\"07 — Identity…"
+      "body": "Skip to main content OKHP³™ Universe Systems, stories & GPT ecosystems on one map. Blueprint of the Hill OverKill Hill P³™ sits at the center of a network of sibling brands, experimental GPT stacks and narrative worlds. This map shows how those layers are wired together — the forge, the friendly faces and the deliberately weird experiments. Explore the projects Back to the forge %%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#111827', 'primaryTextColor': '#e5e7eb', 'primaryBorderColor': '#c46a2c', 'lineColor': '#c46a2c', 'secondaryColor': '#181f26', 'tertiaryColor': '#1c3a34', 'textColor': '#e5e7eb'}}}%% graph LR OKH[\"OverKill Hill P³™\"] GPT[\"Glee‑fully Personalizable…"
     },
     {
       "url": "/vault/",
@@ -689,6 +689,99 @@
       "body": "Skip to main content Projects from the Hill A sampling of the systems currently being forged at OverKill Hill P³™ — some public-facing, some internal client work, all built with the same protocol-driven mindset. Built at the Hill Built at the Hill Hosted tools and documented builds — designed, shipped, and maintained here. Mermaid Theme Builder Mermaid Theme Builder A visual theme builder for Mermaid diagrams — configure colors, fonts and styles with a live preview and export production-ready init config blocks. Open Theme Builder → BPMN for Mermaid BPMN for Mermaid A Mermaid-native bpmn-beta diagram type for readable, version-controllable BPMN process diagrams."
     },
     {
+      "url": "/projects/abrahamic-reference-engine/",
+      "title": "Abrahamic Reference Engine | OverKill Hill P³™",
+      "category": "Project",
+      "description": "A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Browse traditions, look up passages, and compare shared themes side-by-side. Browser-only. No login. No preaching.",
+      "headings": [
+        "The Reference Gap",
+        "Three modes. One engine.",
+        "Built for humans. Packaged for agents.",
+        "Why these three traditions?",
+        "The rules the engine runs on.",
+        "A reference engine. Not a religion.",
+        "Most scripture tools are built for insiders",
+        "Cross-tradition comparison requires a scholar",
+        "AI models hallucinate scripture",
+        "Translation choice is invisible",
+        "Browse traditions and denominations",
+        "Look up passages from real sources",
+        "Compare shared themes across traditions",
+        "okhp3-verse-lookup",
+        "okhp3-tradition-reference",
+        "okhp3-cross-tradition-compare",
+        "Neutrality first",
+        "Attribution always",
+        "Context without preaching",
+        "Difference is data",
+        "Free and open where possible"
+      ],
+      "body": "Skip to main content overkillhill.com / projects / abrahamic-reference-engine Foundry Project Open Source v1.0 Active Agent Skills Available Abrahamic Reference Engine Find it. Quote it. Compare it. No sermon required. A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Browse traditions, look up passages from source-aware APIs, and compare shared themes side-by-side. Browser-only. No login. No preaching. No ranking."
+    },
+    {
+      "url": "/projects/abrahamic-reference-engine/#agent-skills",
+      "title": "Built for humans. Packaged for agents. — Abrahamic Reference Engine | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Agent Skills Built for humans. Packaged for agents. ARE ships three reusable Markdown skill files so any AI agent can use the same reference logic. No API key. No backend dependency.",
+      "headings": [],
+      "body": "Agent Skills Built for humans. Packaged for agents. ARE ships three reusable Markdown skill files so any AI agent can use the same reference logic. No API key. No backend dependency. Compatible with Claude Code, GitHub Copilot, Cursor, Windsurf, and any platform that supports skill injection. Distributed via OKHP3/skillz . Skill okhp3-verse-lookup Fetch scripture from Sefaria, bible-api.com, or Quran.com by tradition and reference. Includes endpoint patterns, translation ID map, fallback logic, and normalization rules. Skill okhp3-tradition-reference Compact structured metadata for all three traditions and five Christian denominations. Canon scope, key texts, US Pew share, API provider, out-of-scope table.",
+      "parent": "/projects/abrahamic-reference-engine/"
+    },
+    {
+      "url": "/projects/abrahamic-reference-engine/#principles",
+      "title": "The rules the engine runs on. — Abrahamic Reference Engine | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Principles The rules the engine runs on. 1 Neutrality first No winners, no losers, no superior doctrines. Every tradition is presented with identical visual dignity and identical structural respect.",
+      "headings": [],
+      "body": "Principles The rules the engine runs on. 1 Neutrality first No winners, no losers, no superior doctrines. Every tradition is presented with identical visual dignity and identical structural respect. 2 Attribution always Every passage includes translation, source, provider, and licensing context. The engine cites its sources the same way a library does. 3 Context without preaching The project may explain how a passage is commonly understood. It does not tell you what to believe or how to live. 4 Difference is data When traditions disagree, the engine names the difference plainly and respectfully. Similarity does not mean sameness. 5 Free and open where possible All APIs are free and anonymous. No account required, no data collected, no paywall. MIT license throughout. </div",
+      "parent": "/projects/abrahamic-reference-engine/"
+    },
+    {
+      "url": "/projects/abrahamic-reference-engine/#problem",
+      "title": "The Reference Gap — Abrahamic Reference Engine | OverKill Hill P³™",
+      "category": "Project",
+      "description": "The Problem The Reference Gap ◑ Most scripture tools are built for insiders Devotional apps, denominational study tools, and apologetics platforms assume you already belong.",
+      "headings": [],
+      "body": "The Problem The Reference Gap ◑ Most scripture tools are built for insiders Devotional apps, denominational study tools, and apologetics platforms assume you already belong. If you're secular, unaffiliated, or just trying to understand a reference -- there's almost nothing built for you. ⊕ Cross-tradition comparison requires a scholar Figuring out how Judaism, Christianity, and Islam treat the same theme -- mercy, justice, covenant, creation -- means switching between six different apps, three translation frameworks, and a denominational minefield. ◎ AI models hallucinate scripture Ask a language model for a verse and it will confidently invent one. There is no neutral, API-backed, source-first reference layer designed specifically for agents and AI builders to use safely.",
+      "parent": "/projects/abrahamic-reference-engine/"
+    },
+    {
+      "url": "/projects/abrahamic-reference-engine/#related-resources",
+      "title": "Related Resources — Abrahamic Reference Engine | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Related OKHP3/skillz -- Agent Skills Hub ↗ Sefaria -- Jewish Texts ↗ bible-api.com -- Christian Scripture ↗ Quran.com -- Qur'an Reference ↗ Pew Religious Landscape Study ↗ Mermaid Theme Builder All OverKill Hill…",
+      "headings": [],
+      "body": "Related OKHP3/skillz -- Agent Skills Hub ↗ Sefaria -- Jewish Texts ↗ bible-api.com -- Christian Scripture ↗ Quran.com -- Qur'an Reference ↗ Pew Religious Landscape Study ↗ Mermaid Theme Builder All OverKill Hill Projects </div",
+      "parent": "/projects/abrahamic-reference-engine/"
+    },
+    {
+      "url": "/projects/abrahamic-reference-engine/#scope",
+      "title": "Why these three traditions? — Abrahamic Reference Engine | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Scope Why these three traditions? The scope is set by two criteria that must both be met. A tradition must have Abrahamic lineage AND represent approximately 1% or more of the US population per Pew Research Center.",
+      "headings": [],
+      "body": "Scope Why these three traditions? The scope is set by two criteria that must both be met. A tradition must have Abrahamic lineage AND represent approximately 1% or more of the US population per Pew Research Center. Tradition US Share In Scope Notes Christianity ~63% Yes Five denominational lenses Judaism ~2% Yes Tanakh / Jewish textual reference Islam ~1% Yes Qur'an-focused reference Hinduism ~1% No Important -- not Abrahamic Buddhism ~1% No Important -- not Abrahamic Baha'i ~0.1% No Abrahamic -- below threshold Source: Pew Research Center, Religious Landscape Study Exclusion is a methodological boundary, not a judgment of worth. </div",
+      "parent": "/projects/abrahamic-reference-engine/"
+    },
+    {
+      "url": "/projects/abrahamic-reference-engine/#three-modes",
+      "title": "Three modes. One engine. — Abrahamic Reference Engine | OverKill Hill P³™",
+      "category": "Project",
+      "description": "What It Does Three modes. One engine. Browse Traditions Browse traditions and denominations Explore Judaism, Christianity (five denominational lenses), and Islam with scope notes, canon boundaries, key texts, and…",
+      "headings": [],
+      "body": "What It Does Three modes. One engine. Browse Traditions Browse traditions and denominations Explore Judaism, Christianity (five denominational lenses), and Islam with scope notes, canon boundaries, key texts, and neutral summaries. Every tradition gets identical visual dignity -- no ranking. Verse Lookup Look up passages from real sources Retrieve scripture by reference. Sefaria for Jewish texts. bible-api.com for Christian scripture across translations. Quran.com with AlQuran.cloud fallback for Qur'an. Quote from sources, not model memory. Cross-Tradition Compare Compare shared themes across traditions Twenty pre-seeded themes -- justice, mercy, creation, covenant, prayer, forgiveness, and more -- shown side-by-side across all three traditions. Similarities matter. Differences matter.",
+      "parent": "/projects/abrahamic-reference-engine/"
+    },
+    {
+      "url": "/projects/abrahamic-reference-engine/#what-is-not",
+      "title": "A reference engine. Not a religion. — Abrahamic Reference Engine | OverKill Hill P³™",
+      "category": "Project",
+      "description": "What This Is Not A reference engine. Not a religion. This project is not: -- a devotional assistant -- a preacher or a moral authority -- an apologetics engine or debate platform -- a tradition-ranking tool -- a…",
+      "headings": [],
+      "body": "What This Is Not A reference engine. Not a religion. This project is not: -- a devotional assistant -- a preacher or a moral authority -- an apologetics engine or debate platform -- a tradition-ranking tool -- a replacement for clergy, scholars, or religious communities -- a claim that all traditions mean the same thing It is a reference engine. It helps you find text, compare themes, and understand context. What you do with that is up to you. </div",
+      "parent": "/projects/abrahamic-reference-engine/"
+    },
+    {
       "url": "/projects/bfs-framing-intelligent-futures/",
       "title": "BFS Framing Intelligent Futures | OverKill Hill P³™",
       "category": "Project",
@@ -792,15 +885,6 @@
       "parent": "/projects/bpmn-for-mermaid/"
     },
     {
-      "url": "/projects/bpmn-for-mermaid/#get-started",
-      "title": "Get Started — BPMN for Mermaid | OverKill Hill P³™",
-      "category": "Project",
-      "description": "Get Started ▶ Try the Playground ⬡ Explore Agent Skills ◻ View on GitHub Live playground on GitHub Pages. No install, no login. </div",
-      "headings": [],
-      "body": "Get Started ▶ Try the Playground ⬡ Explore Agent Skills ◻ View on GitHub Live playground on GitHub Pages. No install, no login. </div",
-      "parent": "/projects/bpmn-for-mermaid/"
-    },
-    {
       "url": "/projects/bpmn-for-mermaid/#honest-scope",
       "title": "What this is — and isn't — BPMN for Mermaid | OverKill Hill P³™",
       "category": "Project",
@@ -840,7 +924,7 @@
       "url": "/projects/mac-studio-local-ai-workbench/",
       "title": "Mac Studio Local AI Workbench | OverKill Hill P³™",
       "category": "Project",
-      "description": "Mac Studio M4 Max local AI workstation — 29 models, 11 MCP servers, OpenClaw agent (Larry), SearXNG, Qdrant RAG stack, and the full Council of AIs. Baseline 2026-05-12. Agent online 2026-05-28.",
+      "description": "Mac Studio M4 Max local AI workstation — 29 models, 11 MCP servers, OpenClaw agent (Larry), RAG stack, and verified benchmarks. Build complete 2026-05-30.",
       "headings": [
         "What This Is Worth",
         "Status Board",
@@ -871,13 +955,15 @@
         "Post-baseline hardening and publication",
         "OpenClaw installation",
         "Larry comes online",
+        "RAG stack + LM Studio consolidation",
+        "Benchmarks + architecture diagrams",
         "Token Routing — How Requests Flow",
         "Capability Map — What the Workbench Can Do",
         "Physical Architecture — Where Everything Lives",
         "Quick Facts",
         "Need a local AI workbench designed for your workflow?"
       ],
-      "body": "Skip to main content OverKill Hill P³™ › Projects › Mac Studio Local AI Workbench ✅ Baseline complete · 2026-05-12 · Updated 2026-05-13 Mac Studio Local AI Workbench Production-grade personal AI workstation — local-first, governed, documented, and restorable. Built in 10 days on Apple Silicon. M4 Max 36GB unified memory 512GB internal SSD 1TB OKH-Local NVMe macOS Sequoia 10 local models 11 MCP servers 1 autonomous agent ✅ BASELINE COMPLETE — Build finished, normalized, benchmarked, and archived on 2026-05-12. System is in a known-good, restorable state."
+      "body": "Skip to main content OverKill Hill P³™ › Projects › Mac Studio Local AI Workbench ✅ Baseline complete · 2026-05-12 · Updated 2026-05-30 Mac Studio Local AI Workbench Production-grade personal AI workstation — local-first, governed, documented, and restorable. Built in 10 days on Apple Silicon. M4 Max 36GB unified memory 512GB internal SSD 1TB OKH-Local NVMe macOS Sequoia 10 local models 11 MCP servers 1 autonomous agent ✅ BASELINE COMPLETE — Build finished, normalized, benchmarked, and archived on 2026-05-12. System is in a known-good, restorable state."
     },
     {
       "url": "/projects/mac-studio-local-ai-workbench/#decisions",
@@ -894,7 +980,7 @@
       "category": "Project",
       "description": "Architecture · v0.6 How It's Built — Three Views Three diagrams showing the same workbench from three angles: traffic flow, capability map, and physical deployment. All rendered live from Mermaid source.",
       "headings": [],
-      "body": "Architecture · v0.6 How It's Built — Three Views Three diagrams showing the same workbench from three angles: traffic flow, capability map, and physical deployment. All rendered live from Mermaid source. Token Routing — How Requests Flow Every query enters through one of the four input surfaces. Local models handle zero-cost inference; cloud models are reserved for precision tasks where cost is justified. flowchart TD A[[\"🖥️ Input surfaces\\nOpen WebUI · Continue.dev · Claude Desktop · Larry\"]] --> B{{\"Token router\"}} B -->|\"Zero-cost tier\"| C[\"🦙 Ollama\\nphi4:14b · gemma3:27b · codestral:22b\\n+ 3 more\"] B -->|\"Zero-cost tier\"| D[\"🎛️ LM Studio\\nGemma 4 E4B / E2B / 26B A4B\\n+ MLX models\"] B -->|\"Zero-cost tier\"| E[\"⚡ mlx-lm\\nPhi-4-mini · 139 tok/s\"] B -->|\"Precision tier\"| F[\"☁️ Cloud…",
+      "body": "Architecture · v0.6 How It's Built — Three Views Three diagrams showing the same workbench from three angles: traffic flow, capability map, and physical deployment. All rendered live from Mermaid source. Token Routing — How Requests Flow Every query enters through one of the four input surfaces. Local models handle zero-cost inference; cloud models are reserved for precision tasks where cost is justified. %%{init: {'theme': 'dark'}}%% flowchart TD A[[\"🖥️ Input surfaces\\nOpen WebUI · Continue.dev · Claude Desktop · Larry\"]] --> B{{\"Token router\"}} B -->|\"Zero-cost tier\"| C[\"🦙 Ollama\\nphi4:14b · gemma3:27b · codestral:22b\\n+ 3 more\"] B -->|\"Zero-cost tier\"| D[\"🎛️ LM Studio\\nGemma 4 E4B / E2B / 26B A4B\\n+ MLX models\"] B -->|\"Zero-cost tier\"| E[\"⚡ mlx-lm\\nPhi-4-mini · 139 tok/s\"] B…",
       "parent": "/projects/mac-studio-local-ai-workbench/"
     },
     {
@@ -939,10 +1025,15 @@
       "category": "Project",
       "description": "Visual governance for AI-generated Mermaid diagrams. Define your theme once, apply it to any diagram, export styled Mermaid code and LLM prompt scaffolds. Free, browser-only, MIT licensed.",
       "headings": [
+        "The Missing Layer",
         "v0.5.0 — Shipped May 2026",
         "A governance workbench, not a diagram editor",
         "What you get here that you don't get from prompting an LLM",
-        "What changed between v0.3 and v0.5",
+        "Who uses Mermaid Theme Builder",
+        "Six community pain points MTB addresses",
+        "What shipped in v0.4 and v0.5",
+        "Hypothesis Validated",
+        "What it's built on",
         "What the builder does",
         "How it fits the ecosystem",
         "Support taxonomy — not all families are equal",
@@ -950,8 +1041,23 @@
         "SKILL.md — headless diagram governance",
         "Desktop-first. Mobile companion mode.",
         "Where the build is going",
+        "Every prompt is a fresh roll of the dice",
+        "Default styling = brand disconnection",
+        "Not all diagram types style the same way",
+        "3–5 follow-up prompts just to fix styling",
         "Prompting an LLM",
         "Mermaid Theme Builder",
+        "Enterprise Architects",
+        "AI Power Users",
+        "Documentation Teams",
+        "Product Managers",
+        "Developers",
+        "Custom colors and styles",
+        "Branded consistency",
+        "Renderer parity",
+        "Export fidelity",
+        "Diagram-family limits",
+        "AI-generated Mermaid drift",
         "Renderer Intelligence",
         "Look API Support",
         "Reference Capability Registry",
@@ -959,6 +1065,16 @@
         "Multi-Diagram Splitting",
         "Shareable URL State",
         "Vitest 4 Test Suite",
+        "98 sources analyzed",
+        "Pain is real and documented",
+        "No existing tool fills the gap",
+        "Genuine ecosystem gap confirmed",
+        "React 19 + Vite 8",
+        "Tailwind CSS v4",
+        "Mermaid.js 11.15.0",
+        "TypeScript 6.0.3 (strict)",
+        "Playwright e2e Tests",
+        "PWA-Ready (Offline Capable)",
         "Live Diagram Preview",
         "Diagram Family Detection",
         "Multi-Format Export",
@@ -984,7 +1100,7 @@
         "Useful subset, honestly scoped",
         "Need a Mermaid governance layer for your stack?"
       ],
-      "body": "Skip to main content overkillhill.com / projects / mermaid-theme-builder Community Tool Open Source v0.5.0 Shipped SKILL.md Sprint Active Mermaid Theme Builder Governance Workbench. Renderer-Aware. Brand-Enforced. A visual governance workbench for Mermaid diagram-as-code styling, renderer-aware export, brand palette enforcement, and AI prompt scaffold generation. Define your theme once — get consistent output across every renderer, every AI tool, and every diagram family it touches."
+      "body": "Skip to main content overkillhill.com / projects / mermaid-theme-builder Community Tool Open Source v0.5.0 Shipped v0.5.x SKILL.md Hardening Active Mermaid Theme Builder Visual governance for AI-generated Mermaid diagrams. Paste Mermaid, detect the family, apply a reusable theme, preview live, and export renderer-aware code or prompt scaffolds. Browser-only. No login. No backend. No data collection. ⤢ Launch Theme Builder Read Research Report View Source on GitHub The Problem The Missing Layer The Missing Layer 🎲 Every prompt is a fresh roll of the dice Every prompt is a fresh roll of the dice When ChatGPT, Claude, Copilot, or Gemini generate Mermaid diagrams, each prompt produces different…"
     },
     {
       "url": "/projects/mermaid-theme-builder/#features",
@@ -996,12 +1112,30 @@
       "parent": "/projects/mermaid-theme-builder/"
     },
     {
+      "url": "/projects/mermaid-theme-builder/#personas",
+      "title": "Who uses Mermaid Theme Builder — Mermaid Theme Builder | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Built For Who uses Mermaid Theme Builder ◈ Enterprise Architects Need repeatable visual standards across hundreds of diagrams. One governed theme applies consistently — no manual re-styling after every AI generation.",
+      "headings": [],
+      "body": "Built For Who uses Mermaid Theme Builder ◈ Enterprise Architects Need repeatable visual standards across hundreds of diagrams. One governed theme applies consistently — no manual re-styling after every AI generation. ⚡ AI Power Users Generate 10+ diagrams per week through LLMs. Prompt scaffolds keep every output on-brand from generation one — no follow-up style cycles. ▤ Documentation Teams Maintain visual consistency across technical docs at scale. Export a shared theme once, apply it everywhere — GitHub, Confluence, Notion, Obsidian. ◎ Product Managers Create stakeholder-ready architecture diagrams that look intentional, not auto-generated. Clean presentation styling without manual CSS work. &lt;/&gt; Developers Document systems with consistent styling baked in.",
+      "parent": "/projects/mermaid-theme-builder/"
+    },
+    {
+      "url": "/projects/mermaid-theme-builder/#problem",
+      "title": "The Missing Layer — Mermaid Theme Builder | OverKill Hill P³™",
+      "category": "Project",
+      "description": "The Problem The Missing Layer 🎲 Every prompt is a fresh roll of the dice When ChatGPT, Claude, Copilot, or Gemini generate Mermaid diagrams, each prompt produces different colors, inconsistent styling, and no memory of…",
+      "headings": [],
+      "body": "The Problem The Missing Layer 🎲 Every prompt is a fresh roll of the dice When ChatGPT, Claude, Copilot, or Gemini generate Mermaid diagrams, each prompt produces different colors, inconsistent styling, and no memory of what worked before. ◫ Default styling = brand disconnection Mermaid's default theme makes every AI-generated diagram look generic — no relationship to your brand system, your document style, or each other. ⚐ Not all diagram types style the same way Flowcharts, sequence diagrams, and class diagrams each expose different styling surfaces. What works for one may break another — and AI tools don't know the difference.",
+      "parent": "/projects/mermaid-theme-builder/"
+    },
+    {
       "url": "/projects/mermaid-theme-builder/#related-resources",
       "title": "Related Resources — Mermaid Theme Builder | OverKill Hill P³™",
       "category": "Project",
-      "description": "Related Resources Live App — Compose Tab ↗ Live App — Apply Tab ↗ GitHub Repository ↗ SKILL.md Source ↗ BPMN for Mermaid (sibling) Mermaid.js Theming Docs ↗ themeVariables Reference ↗ The First Diagram is a Liar All…",
+      "description": "Related Resources Live App — Compose Tab ↗ Live App — Apply Tab ↗ GitHub Repository ↗ SKILL.md Source ↗ BPMN for Mermaid (sibling) Mermaid.js Theming Docs ↗ themeVariables Reference ↗ Mermaid.js Syntax Reference ↗ The…",
       "headings": [],
-      "body": "Related Resources Live App — Compose Tab ↗ Live App — Apply Tab ↗ GitHub Repository ↗ SKILL.md Source ↗ BPMN for Mermaid (sibling) Mermaid.js Theming Docs ↗ themeVariables Reference ↗ The First Diagram is a Liar All OverKill Hill Projects </div",
+      "body": "Related Resources Live App — Compose Tab ↗ Live App — Apply Tab ↗ GitHub Repository ↗ SKILL.md Source ↗ BPMN for Mermaid (sibling) Mermaid.js Theming Docs ↗ themeVariables Reference ↗ Mermaid.js Syntax Reference ↗ The First Diagram is a Liar All OverKill Hill Projects </div",
       "parent": "/projects/mermaid-theme-builder/"
     },
     {
@@ -1010,25 +1144,43 @@
       "category": "Project",
       "description": "Current Release v0.5.0 — Shipped May 2026 Version v0.5.0 — shipped May 2026 Active Sprint v0.5.x SKILL.md Hardening License MIT — free always Runtime Browser-only · no server · no account Live Tool…",
       "headings": [],
-      "body": "Current Release v0.5.0 — Shipped May 2026 Version v0.5.0 — shipped May 2026 Active Sprint v0.5.x SKILL.md Hardening License MIT — free always Runtime Browser-only · no server · no account Live Tool okhp3.github.io/mermaid-theme-builder ↗ Source github.com/OKHP3/mermaid-theme-builder ↗ </div",
+      "body": "Current Release v0.5.0 — Shipped May 2026 Version v0.5.0 — shipped May 2026 Active Sprint v0.5.x SKILL.md Hardening License MIT — free always Runtime Browser-only · no server · no account Live Tool okhp3.github.io/mermaid-theme-builder ↗ Source github.com/OKHP3/mermaid-theme-builder ↗ Mermaid.js v11.15.0; rendering portability varies by host renderer (v10/v11) </div",
+      "parent": "/projects/mermaid-theme-builder/"
+    },
+    {
+      "url": "/projects/mermaid-theme-builder/#research",
+      "title": "Hypothesis Validated — Mermaid Theme Builder | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Research Validation Hypothesis Validated Built against a validated research hypothesis — not shipped on a hunch. ◉ 98 sources analyzed GitHub issues, Stack Overflow threads, enterprise documentation, and community…",
+      "headings": [],
+      "body": "Research Validation Hypothesis Validated Built against a validated research hypothesis — not shipped on a hunch. ◉ 98 sources analyzed GitHub issues, Stack Overflow threads, enterprise documentation, and community forums — all pointing to the same gap in the Mermaid ecosystem. ◆ Pain is real and documented Users across every major LLM tool report the same struggle: Mermaid theming is inconsistent, renderer-dependent, and invisible to AI generation workflows. ⊕ No existing tool fills the gap No tool combines theme governance + LLM scaffolding + renderer-awareness in a single, free, browser-based workbench. This is the gap MTB fills.",
       "parent": "/projects/mermaid-theme-builder/"
     },
     {
       "url": "/projects/mermaid-theme-builder/#roadmap",
       "title": "Where the build is going — Mermaid Theme Builder | OverKill Hill P³™",
       "category": "Project",
-      "description": "Roadmap Where the build is going ✓ V0.1 — Proof of Concept Shipped Initial browser-only prototype. Live color pickers, basic themeVariables export, single flowchart preview.",
+      "description": "Roadmap Where the build is going ✓ V0.1 — Foundation Shipped Paste, detect, palette, preview, export. Four utility palettes. Prompt scaffold modal. GitHub Pages deploy.",
       "headings": [],
-      "body": "Roadmap Where the build is going ✓ V0.1 — Proof of Concept Shipped Initial browser-only prototype. Live color pickers, basic themeVariables export, single flowchart preview. Established the direct-manipulation model over prompt-driven iteration. ✓ V0.2 — Multi-Family Preview Shipped Expanded diagram preview to cover flowchart, sequence, class, Gantt, ER, and pie families. Brand palette presets introduced. Prompt scaffold generation MVP. ✓ V0.3 — Renderer Awareness Shipped First renderer capability notes — GitHub, GitLab, Obsidian, Notion, Confluence. Multi-format export (themeVariables, Markdown bootstrap, prompt scaffold). OKH P³ brand palette. ✓ V0.4 — Dark/Light Preview + URL State Shipped Dark/light mode preview toggle.",
+      "body": "Roadmap Where the build is going ✓ V0.1 — Foundation Shipped Paste, detect, palette, preview, export. Four utility palettes. Prompt scaffold modal. GitHub Pages deploy. ✓ V0.2 — Brand System Shipped OverKill Hill P³, Glee-fully, and AskJamie brand palettes. Family-specific theming overlays. Extract mode. ✓ V0.3 — Architecture Hardening Shipped React 19 + Vite + TypeScript monorepo. Compose tab. 5-tier typography hierarchy. ✓ V0.4 — Renderer Intelligence Shipped 7 renderer profiles with parity matrix. Look API (Classic, Neo, Hand-Drawn). Dark/light/system preview. 26+ example files. Diff view.",
       "parent": "/projects/mermaid-theme-builder/"
     },
     {
       "url": "/projects/mermaid-theme-builder/#since-v03",
-      "title": "What changed between v0.3 and v0.5 — Mermaid Theme Builder | OverKill Hill P³™",
+      "title": "What shipped in v0.4 and v0.5 — Mermaid Theme Builder | OverKill Hill P³™",
       "category": "Project",
-      "description": "Since v0.3 What changed between v0.3 and v0.5 ⚐ Renderer Intelligence Moved from capability notes to active renderer profiles. The workbench now selects export rules based on your target renderer — not just flags what…",
+      "description": "Since Architecture Hardening (V0.3) What shipped in v0.4 and v0.5 ⚐ Renderer Intelligence Moved from capability notes to active renderer profiles.",
       "headings": [],
-      "body": "Since v0.3 What changed between v0.3 and v0.5 ⚐ Renderer Intelligence Moved from capability notes to active renderer profiles. The workbench now selects export rules based on your target renderer — not just flags what might fail. ◑ Look API Support Mermaid v11.15.0 look API — Classic, Neo, and Hand-Drawn modes — with per-renderer warnings where support is inconsistent. New in v0.5. ◫ Reference Capability Registry 27+ diagram-family capability matrix covering renderer × family × version combinations. Was implicit in v0.3; now a dedicated Reference tab. ◻ SKILL.md Agent Packaging Governance logic is being extracted into a machine-readable SKILL.md for Claude Code, Cursor, GitHub Copilot, and VS Code. Not in v0.3.",
+      "body": "Since Architecture Hardening (V0.3) What shipped in v0.4 and v0.5 ⚐ Renderer Intelligence Moved from capability notes to active renderer profiles. The workbench now selects export rules based on your target renderer — not just flags what might fail. ◑ Look API Support Mermaid v11.15.0 look API — Classic, Neo, and Hand-Drawn modes — with per-renderer warnings where support is inconsistent. Shipped in v0.4; hardened in v0.5. ◫ Reference Capability Registry 27+ diagram-family capability matrix covering renderer × family × version combinations. Was implicit in v0.3; now a dedicated Reference tab. ◻ SKILL.md Agent Packaging Governance logic is being extracted into a machine-readable SKILL.md for Claude Code, Cursor, GitHub Copilot, and VS Code. Not in v0.3.",
+      "parent": "/projects/mermaid-theme-builder/"
+    },
+    {
+      "url": "/projects/mermaid-theme-builder/#stack",
+      "title": "What it's built on — Mermaid Theme Builder | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Technical Stack What it's built on ⚛ React 19 + Vite 8 Modern component architecture with fast dev iteration. No framework lock-in — the governance logic is extractable independent of the React layer.",
+      "headings": [],
+      "body": "Technical Stack What it's built on ⚛ React 19 + Vite 8 Modern component architecture with fast dev iteration. No framework lock-in — the governance logic is extractable independent of the React layer. ◑ Tailwind CSS v4 Utility-first styling with OKH Forge UI System v0.1.0 design tokens. Consistent visual language across the workbench's controls, previews, and export panels. ◫ Mermaid.js 11.15.0 Pinned to a specific version for reproducible rendering. The Look API, 27+ diagram families, and full themeVariables coverage — all at a known, tested baseline. ◻ TypeScript 6.0.3 (strict) Strict mode throughout. Renderer profile types, diagram family unions, and export format contracts are all type-safe — not inferred at runtime.",
       "parent": "/projects/mermaid-theme-builder/"
     },
     {
@@ -1037,7 +1189,16 @@
       "category": "Project",
       "description": "What This Is A governance workbench, not a diagram editor What It Is ◆ A visual workbench for defining and enforcing Mermaid diagram themes ◆ A renderer-aware export tool — flags what breaks in GitHub, GitLab, Obsidian,…",
       "headings": [],
-      "body": "What This Is A governance workbench, not a diagram editor What It Is ◆ A visual workbench for defining and enforcing Mermaid diagram themes ◆ A renderer-aware export tool — flags what breaks in GitHub, GitLab, Obsidian, Notion, Confluence ◆ A brand palette enforcer — presets for OKH P³, Glee-fully, AskJamie, and Neutral Enterprise ◆ A prompt scaffold generator — AI tools stay on-brand from the first generation ◆ A SKILL.md-packaged agent skill for headless diagram-governance workflows ◆ An open-source community contribution to the Mermaid.js ecosystem. MIT licensed. Free always.",
+      "body": "What This Is A governance workbench, not a diagram editor What It Is ◆ A visual workbench for defining and enforcing Mermaid diagram themes ◆ A renderer-aware export tool — flags what breaks in GitHub, GitLab, Obsidian, Notion, Confluence ◆ A brand palette enforcer — presets for OverKill Hill P³, Glee-fully, and AskJamie, plus four utility palettes (Ocean Depth, Forest Sage, Slate Ember, Violet Mist) ◆ A prompt scaffold generator — AI tools stay on-brand from the first generation ◆ A SKILL.md-packaged agent skill for headless diagram-governance workflows ◆ An open-source community contribution to the Mermaid.js ecosystem. MIT licensed. Free always.",
+      "parent": "/projects/mermaid-theme-builder/"
+    },
+    {
+      "url": "/projects/mermaid-theme-builder/#where-this-helps",
+      "title": "Six community pain points MTB addresses — Mermaid Theme Builder | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Where This Helps Today Six community pain points MTB addresses These aren't invented problems — they come from GitHub issues, Stack Overflow threads, community forums, and AI tool feedback.",
+      "headings": [],
+      "body": "Where This Helps Today Six community pain points MTB addresses These aren't invented problems — they come from GitHub issues, Stack Overflow threads, community forums, and AI tool feedback. MTB doesn't fix Mermaid core behavior. It helps users avoid, detect, or route around known styling and renderer pitfalls. 🎨 Custom colors and styles Users ask how to customize Mermaid node, link, and diagram colors — without re-prompting an AI or editing raw CSS. Theme Builder provides a visual workflow and exportable theme contract. ◈ Branded consistency Users want Mermaid diagrams to match a consistent visual language across documents, posts, repos, and deliverables. A reusable palette applied once stays consistent across every diagram it touches.",
       "parent": "/projects/mermaid-theme-builder/"
     },
     {
