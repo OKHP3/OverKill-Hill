@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 99,
+  "count": 100,
   "entries": [
     {
       "url": "/",
@@ -695,11 +695,12 @@
       "description": "A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Browse traditions, look up passages, and compare shared themes side-by-side. Browser-only. No login. No preaching.",
       "headings": [
         "The Reference Gap",
-        "Three modes. One engine.",
+        "Four modes. One engine.",
         "Built for humans. Packaged for agents.",
         "Why these three traditions?",
         "The rules the engine runs on.",
         "A reference engine. Not a religion.",
+        "Where it came from.",
         "Most scripture tools are built for insiders",
         "Cross-tradition comparison requires a scholar",
         "AI models hallucinate scripture",
@@ -707,24 +708,35 @@
         "Browse traditions and denominations",
         "Look up passages from real sources",
         "Compare shared themes across traditions",
+        "Track religious holidays across all three traditions",
         "okhp3-verse-lookup",
         "okhp3-tradition-reference",
         "okhp3-cross-tradition-compare",
+        "okhp3-tradition-observance-calendar",
         "Neutrality first",
         "Attribution always",
         "Context without preaching",
         "Difference is data",
         "Free and open where possible"
       ],
-      "body": "Skip to main content overkillhill.com / projects / abrahamic-reference-engine Foundry Project Open Source v1.0 Active Agent Skills Available Abrahamic Reference Engine Find it. Quote it. Compare it. No sermon required. A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Browse traditions, look up passages from source-aware APIs, and compare shared themes side-by-side. Browser-only. No login. No preaching. No ranking."
+      "body": "Skip to main content overkillhill.com / projects / abrahamic-reference-engine Foundry Project Open Source v1.1 Active Agent Skills Available Abrahamic Reference Engine Find it. Quote it. Compare it. No sermon required. A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Browse traditions, look up passages from source-aware APIs, and compare shared themes side-by-side. Browser-only. No login. No preaching. No ranking."
     },
     {
       "url": "/projects/abrahamic-reference-engine/#agent-skills",
       "title": "Built for humans. Packaged for agents. — Abrahamic Reference Engine | OverKill Hill P³™",
       "category": "Project",
-      "description": "Agent Skills Built for humans. Packaged for agents. ARE ships three reusable Markdown skill files so any AI agent can use the same reference logic. No API key. No backend dependency.",
+      "description": "Agent Skills Built for humans. Packaged for agents. ARE ships four reusable Markdown skill files so any AI agent can use the same reference logic. No API key. No backend dependency.",
       "headings": [],
-      "body": "Agent Skills Built for humans. Packaged for agents. ARE ships three reusable Markdown skill files so any AI agent can use the same reference logic. No API key. No backend dependency. Compatible with Claude Code, GitHub Copilot, Cursor, Windsurf, and any platform that supports skill injection. Distributed via OKHP3/skillz . Skill okhp3-verse-lookup Fetch scripture from Sefaria, bible-api.com, or Quran.com by tradition and reference. Includes endpoint patterns, translation ID map, fallback logic, and normalization rules. Skill okhp3-tradition-reference Compact structured metadata for all three traditions and five Christian denominations. Canon scope, key texts, US Pew share, API provider, out-of-scope table.",
+      "body": "Agent Skills Built for humans. Packaged for agents. ARE ships four reusable Markdown skill files so any AI agent can use the same reference logic. No API key. No backend dependency. Compatible with Claude Code, GitHub Copilot, Cursor, Windsurf, and any platform that supports skill injection. Distributed via OKHP3/skillz . Skill okhp3-verse-lookup Fetch scripture from Sefaria, bible-api.com, or Quran.com by tradition and reference. Includes endpoint patterns, translation ID map, fallback logic, and normalization rules. Skill okhp3-tradition-reference Compact structured metadata for all three traditions and five Christian denominations. Canon scope, key texts, US Pew share, API provider, out-of-scope table.",
+      "parent": "/projects/abrahamic-reference-engine/"
+    },
+    {
+      "url": "/projects/abrahamic-reference-engine/#origin",
+      "title": "Where it came from. — Abrahamic Reference Engine | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Origin Where it came from. ARE began as a GPT design conversation in October 2025 -- a single-session sprint that produced the full product architecture: scope decisions, API strategy, knowledge-file allocation, brand…",
+      "headings": [],
+      "body": "Origin Where it came from. ARE began as a GPT design conversation in October 2025 -- a single-session sprint that produced the full product architecture: scope decisions, API strategy, knowledge-file allocation, brand placement, denomination logic, tone constraints, and a 27-file asset bundle. That bundle is the concrete v0.1 prototype. The SPA you are using now is the direct production descendant of what was designed there. Design Thread Summary Full executive summary of the origin conversation. Scope decisions, API strategy, brand placement rationale, knowledge allocation, competitive positioning, and functional requirements.",
       "parent": "/projects/abrahamic-reference-engine/"
     },
     {
@@ -749,9 +761,9 @@
       "url": "/projects/abrahamic-reference-engine/#related-resources",
       "title": "Related Resources — Abrahamic Reference Engine | OverKill Hill P³™",
       "category": "Project",
-      "description": "Related OKHP3/skillz -- Agent Skills Hub ↗ Sefaria -- Jewish Texts ↗ bible-api.com -- Christian Scripture ↗ Quran.com -- Qur'an Reference ↗ Pew Religious Landscape Study ↗ Mermaid Theme Builder All OverKill Hill…",
+      "description": "Related OKHP3/skillz -- Agent Skills Hub ↗ Pew Religious Landscape Study ↗ Mermaid Theme Builder All OverKill Hill Projects </div",
       "headings": [],
-      "body": "Related OKHP3/skillz -- Agent Skills Hub ↗ Sefaria -- Jewish Texts ↗ bible-api.com -- Christian Scripture ↗ Quran.com -- Qur'an Reference ↗ Pew Religious Landscape Study ↗ Mermaid Theme Builder All OverKill Hill Projects </div",
+      "body": "Related OKHP3/skillz -- Agent Skills Hub ↗ Pew Religious Landscape Study ↗ Mermaid Theme Builder All OverKill Hill Projects </div",
       "parent": "/projects/abrahamic-reference-engine/"
     },
     {
@@ -765,11 +777,11 @@
     },
     {
       "url": "/projects/abrahamic-reference-engine/#three-modes",
-      "title": "Three modes. One engine. — Abrahamic Reference Engine | OverKill Hill P³™",
+      "title": "Four modes. One engine. — Abrahamic Reference Engine | OverKill Hill P³™",
       "category": "Project",
-      "description": "What It Does Three modes. One engine. Browse Traditions Browse traditions and denominations Explore Judaism, Christianity (five denominational lenses), and Islam with scope notes, canon boundaries, key texts, and…",
+      "description": "What It Does Four modes. One engine. Browse Traditions Browse traditions and denominations Explore Judaism, Christianity (five denominational lenses), and Islam with scope notes, canon boundaries, key texts, and neutral…",
       "headings": [],
-      "body": "What It Does Three modes. One engine. Browse Traditions Browse traditions and denominations Explore Judaism, Christianity (five denominational lenses), and Islam with scope notes, canon boundaries, key texts, and neutral summaries. Every tradition gets identical visual dignity -- no ranking. Verse Lookup Look up passages from real sources Retrieve scripture by reference. Sefaria for Jewish texts. bible-api.com for Christian scripture across translations. Quran.com with AlQuran.cloud fallback for Qur'an. Quote from sources, not model memory. Cross-Tradition Compare Compare shared themes across traditions Twenty pre-seeded themes -- justice, mercy, creation, covenant, prayer, forgiveness, and more -- shown side-by-side across all three traditions. Similarities matter. Differences matter.",
+      "body": "What It Does Four modes. One engine. Browse Traditions Browse traditions and denominations Explore Judaism, Christianity (five denominational lenses), and Islam with scope notes, canon boundaries, key texts, and neutral summaries. Every tradition gets identical visual dignity -- no ranking. Verse Lookup Look up passages from real sources Retrieve scripture by reference. Sefaria for Jewish texts. bible-api.com for Christian scripture across translations. Quran.com with AlQuran.cloud fallback for Qur'an. Quote from sources, not model memory. Cross-Tradition Compare Compare shared themes across traditions Twenty pre-seeded themes -- justice, mercy, creation, covenant, prayer, forgiveness, and more -- shown side-by-side across all three traditions. Similarities matter. Differences matter.",
       "parent": "/projects/abrahamic-reference-engine/"
     },
     {
