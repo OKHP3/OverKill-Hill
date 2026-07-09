@@ -68,7 +68,7 @@ and current audit state.
 **Version:** 3.2
 **GitHub:** https://github.com/OKHP3/OverKill-Hill
 **Notion Anchor:** https://app.notion.com/p/2cc812e0ced480389730dbd833839ae6
-**Local path (Windows):** `C:\Users\jamie\OKH-Local\Websites\overkill-hill`
+**Local path (Windows):** `C:\Users\jamie\OKH-Local\04_GitHub_Mirrors\overkill-hill`
 **Local path (Mac):** `/Volumes/OKH-Local/04_GitHub_Mirrors/OverKill-Hill`
 
 This section governs how files and folders are named, what structure all sibling
