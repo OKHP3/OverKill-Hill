@@ -25,7 +25,7 @@ The repo also serves as the public artifact archive for OverKill Hill P³ writin
 | Styling | Hand-authored CSS in `assets/css/theme.css` (token-driven) |
 | Scripting | Vanilla JS (`assets/js/app.js`, `mermaid-init.js`) |
 | Diagrams | [Mermaid](https://mermaid.js.org/) loaded from CDN on the v0.3 article |
-| Search | Client-side index in `assets/search-index.json` |
+| Search | Client-side index in `assets/data/search-index.json` |
 | Hosting | GitHub Pages with `CNAME` + Cloudflare |
 | Local preview | `python3 server.py` (port 5000, no-cache headers) |
 
@@ -73,7 +73,7 @@ The server is dev-only. It serves the repo root with no caching so edits are imm
 │   ├── img/                         Logos, hero images, favicons
 │   ├── data/search-index.json       Generated search index
 │   ├── templates/                   10 production HTML scaffolds
-│   └── scripts/                     All dev + CI maintenance scripts
+├── scripts/                         All dev + CI maintenance scripts
 ├── sitemap.xml                      All canonical public URLs
 ├── robots.txt                       Crawler policy + AI-bot opt-ins
 ├── site.webmanifest                 PWA manifest
@@ -137,7 +137,7 @@ Templates produced by `extract-templates.py` are **scaffolds, not pages** — th
 
 - No automated image-format optimization yet (everything is PNG; WebP conversion is a follow-up task).
 - No CSP header set at the edge yet (recommendation in `.local/AUDIT_OVERKILL_HILL_REPLIT_PASS.md`).
-- Search index (`assets/search-index.json`) is committed; regenerate when adding new pages.
+- Search index (`assets/data/search-index.json`) is committed; regenerate when adding new pages.
 
 ## Contact
 

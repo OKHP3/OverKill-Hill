@@ -3,7 +3,7 @@
 > **Brand:** OverKill Hill P³™ · Precision · Protocol · Promptcraft  
 > **Theme:** Espresso `#2a2320`  
 > **Created:** 2026-05-04  
-> **Spec:** `attached_assets/TEMPLATE-SYSTEM-PROMPT_1777919852480.md`
+> **Spec:** This file is the current template inventory and token reference.
 
 ---
 

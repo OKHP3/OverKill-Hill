@@ -7,6 +7,85 @@ Claude, and any other AI assistant.
 Cross-reference `replit.md` for site-specific architecture, script inventory,
 and current audit state.
 
+## Current Project Context
+
+This section records the repository facts verified during the 2026-07-13
+context-alignment pass. Update it when the project shape, entry points, or
+validation workflow changes.
+
+### Identity and scope
+
+- Confirmed: this is one Git repository for the OverKill Hill P³™ public static
+  site and its public writings, project pages, and supporting artifacts.
+- Confirmed: the production-facing site is hand-authored HTML, one shared CSS
+  file, and browser JavaScript. There is no root `package.json` or root build
+  system.
+- Confirmed: `_replit/mermaid-theme-builder-preview/` is a separate,
+  standalone React/Vite prototype used for local page prototyping. It is not
+  the live project page and its build output is not deployed.
+- Scope boundary: do not treat the nested preview as a monorepo workspace or
+  as the production application.
+
+### Purpose and users
+
+- Confirmed from `README.md` and the homepage: the site is a public portfolio
+  and artifact archive for protocol-driven promptcraft, custom GPT
+  architecture, AI systems design, and structured visual communication.
+- Inferred: primary audiences are prospective collaborators or clients,
+  readers of the site's writings, and visitors exploring related projects.
+- Unknown: no separate owner brief or formal product requirements document is
+  present in this checkout. Do not invent business goals, guarantees, or a
+  roadmap beyond the published pages and project documents.
+
+### Architecture and entry points
+
+- `index.html` is the homepage and root of the published static tree.
+- `server.py` provides the local no-cache preview server on port 5000.
+- `assets/css/theme.css` is the canonical shared stylesheet for the OKH,
+  GLEE, and ASKJAMIE brand scopes.
+- `assets/js/app.js` provides shared browser interactions, including
+  navigation, theme switching, scroll behavior, and site search.
+  `mermaid-init.js` is used on pages that render Mermaid diagrams.
+- `assets/data/search-index.json` is generated from indexable HTML by
+  `scripts/build-search-index.py` and currently contains 100 entries.
+- `scripts/` contains Python and shell maintenance, audit, and release tools.
+- Deployment metadata points at a static directory. The public domain and
+  hosting arrangement are documented in `README.md`, `CNAME`, and
+  `.replit`.
+
+### Validation status
+
+- Confirmed: `python3 scripts/validate-site.py` passes and validates 29
+  production HTML pages. The validator also runs the Mermaid Theme Builder
+  version checks, which currently pass for v0.5.0 and the v0.5.x SKILL.md
+  Hardening sprint.
+- Confirmed: the repository has 41 HTML files when authoring templates and the
+  nested preview are counted. Templates and preview files are excluded from
+  the production validator.
+- Confirmed: there is no root unit-test or application test runner.
+- Limitation: `python3 scripts/extract-templates.py --check` requires the
+  `beautifulsoup4` package, which is not installed in the current local
+  runtime. CI installs it before running the template check.
+- Limitation: `scripts/build-search-index.py` is a generator and does not
+  implement a read-only `--check` mode. Run it after content changes and
+  review the generated JSON diff.
+- Open risk: `python3 scripts/check-links.py` reports zero broken links but
+  identifies six live pages that are not currently listed in `sitemap.xml`.
+  Resolve sitemap coverage in a separate content-maintenance change.
+- Open risk: `.github/workflows/sedMiHLjD` is tracked without a YAML extension
+  and contains stale underscored script paths. GitHub Actions does not treat it
+  as an active workflow. Do not delete or repair it without owner direction.
+- Open risk: `scripts/post-merge.sh` uses CRLF line endings, so direct
+  execution through `sh` fails before its checks run. Normalize line endings in
+  a separate script-maintenance change if Replit post-merge execution is used.
+
+### Guidance scope note
+
+The static-site rules in Sections 0 through 8 apply here. The generic web-app
+reference in Section 2B and the app-level Section 9 slot describe sibling
+TypeScript/Vite repositories and do not describe this static site. Do not use
+their `src/`, pnpm, Vite deployment, or app-governance requirements here.
+
 - Work in small steps. Ask before large refactors.
 - Prefer adding tests before changing logic if risk is medium/high.
 - Keep changes localized. Avoid touching unrelated files.
@@ -541,7 +620,8 @@ Script categories:
 When adapting a script for a sibling repo, update these per-site constants:
 `SITE` / `SITE_ORIGIN`, `GA4_ID`, `EXPECTED_THEME_COLOR`, any hardcoded
 localStorage key, and any brand-specific image filename lists.
-See `assets/docs/sister-site-sync.md` (AskJamie) for the full constant map.
+See `docs/cross-site-sync-plan.md` for the local cross-site sync plan and
+foundation-file workflow.
 
 Scripts that mutate HTML must carry an `<!-- AUTOGEN:<MARKER> -->` comment for
 idempotency so re-runs are no-ops on already-processed pages.
@@ -551,27 +631,26 @@ Do not place application source code, HTML templates (those go in
 
 #### 2.2.1 Per-site directory inventory (OverKill Hill P3)
 
-Current state of shared directories as surveyed 2026-05-29. Use this as the
+Current state of shared directories as surveyed 2026-07-13. Use this as the
 baseline -- update it here when the inventory changes materially.
 
 | Directory | Current state | Notes |
 |---|---|---|
-| `assets/audit/` | `.gitkeep` only | Populate by running `scripts/validate-site.py`, `check-links.py`, `viewport-qa.py` |
+| `assets/audit/` | `.gitkeep` plus one links report | Populate by running `scripts/validate-site.py`, `check-links.py`, `viewport-qa.py` |
 | `assets/css/` | `theme.css` (136 KB) | Single canonical stylesheet |
-| `assets/data/` | `search-index.json` | Rebuild after content changes |
+| `assets/data/` | `search-index.json` (100 entries) | Rebuild after content changes |
 | `assets/downloads/` | `okh-prompt-protocol-template.md` | User-facing prompt protocol download |
 | `assets/docs/` | `.gitkeep` only | Add audit and evaluation reports here |
-| `assets/img/` | 15 brand PNG/WebP files + subdirs | Includes Sentinel and BirdPatrol hero images |
-| `assets/img/favicons/` | 7 files (PNG set, no SVG master yet) | Add SVG master if a vector source exists |
+| `assets/img/` | 14 direct image files plus subdirectories | Includes Sentinel, BirdPatrol, and cross-site reference assets |
+| `assets/img/favicons/` | 8 files | PNG set plus root and vector favicon references |
 | `assets/img/library/` | 99 files (49 PNG + 49 WebP + README) | Full brand library with WebP pairs |
 | `assets/img/webp/` | `.gitkeep` only | Run `scripts/convert-hero-webp.py` to populate |
 | `assets/js/` | `app.js`, `mermaid-init.js` | |
-| `assets/templates/` | 11 templates + `index.md` | Article, hub, project-detail, form, and utility types |
-| `dist/` | 2 zip archives + `sync/` staging subdirs | Cross-site sync working area — gitignored but intentional; do not delete |
-| `dist/sync/` | `glee/assets/`, `askjamie/assets/`, `MIGRATION.md` | Staging tree populated by the cross-site sync workflow before zipping |
+| `assets/templates/` | 10 HTML templates plus `index.md` | Article, hub, project-detail, form, and utility types |
+| `dist/` | Not present in this checkout | Reserved, ignored cross-site sync staging area when the sync workflow is run |
 | `docs/` | 4 cross-site planning docs | `cross-site-sync-plan.md`, `cross-site-search-dispatch.md`, `cross-site-search-prompt.md`, `project-page-mermaid-theme-builder-salvage.md` |
 | `docs/archive/` | 5 archived sprint and audit docs | Sprint plans from 2026 |
-| `scripts/` | 55 scripts | Full shared + OKH-specific toolchain |
+| `scripts/` | 57 scripts | Full shared plus OKH-specific toolchain |
 
 **OKH-specific sub-folders under `assets/img/`:**
 - `assets/img/library/` -- fully populated; 49 PNG + 49 WebP project/article images
