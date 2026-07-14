@@ -954,3 +954,5 @@ next governance pass -- do not invent content for it.
 ---
 
  
+
+## Imported Claude Cowork project instructions
