@@ -203,7 +203,7 @@ Static, client-side search across the entire site. Consolidated 2026-05-03.
 - `/search/` — dedicated results page (URL-shareable: `/search/?q=foo`). Body class `search-page` activates the JS page initializer.
 - **All search logic lives in `assets/js/app.js` Section 5** (consolidated from the retired `assets/js/search.js`). Ctrl/Cmd+K or `/` opens overlay; Esc closes; ↑↓ navigate; ↵ follows.
 - **All search CSS lives in `assets/css/theme.css`** under the `SECTION · OKH SEARCH` banner (consolidated from the retired `assets/css/search.css`).
-- `assets/data/search-index.json` — generated index (48 entries as of 2026-05-15). `INDEX_URL` in `app.js` points to `/assets/data/search-index.json`.
+- `assets/data/search-index.json` — generated index (100 entries as of 2026-07-13). `INDEX_URL` in `app.js` points to `/assets/data/search-index.json`.
 - `scripts/build-search-index.py` — Python re-builder. Walks all `*.html`, skips `noindex`, extracts title + description + headings + body excerpt, plus per-section deep links for the FDIAL article. Re-run any time content changes:
   ```
   python3 scripts/build-search-index.py
@@ -314,7 +314,7 @@ positives during the site audit.
 - `template--project-detail.html` — `robots` corrected from `noindex, nofollow` to the standard `index, follow` block (+ googlebot / bingbot / revisit-after), matching published project pages.
 - `template--article-study.html` — About submenu fixed to canonical 4-item cluster (Universe / About / Contact / Legal); Contact and Legal were erroneously top-level nav items.
 
-**Spec:** `attached_assets/TEMPLATE-SYSTEM-PROMPT_1777919852480.md`
+**Spec:** `assets/templates/index.md` is the current template inventory and token reference.
 
 ## Out of Scope for This Session
 - LinkedIn poll URLs (not yet published; TODO comments in heat pages)
