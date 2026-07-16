@@ -134,7 +134,7 @@ Path: `/projects/mermaid-theme-builder/`
 ### Sidebar Widgets
 
 1. **Start Now** — CTA button linking to the live GitHub Pages tool
-2. **Project Info** — meta card: Status, Build Phase, License, Type, Cost, Maintained by, Mermaid.js compat (v11.15.0); GitHub links (View, Issues, Contribute)
+2. **Project Info** — meta card: Status, Build Phase, License, Type, Cost, Maintained by, Mermaid.js compat (v11.16.0); GitHub links (View, Issues, Contribute)
 3. **Related Resources** — live app (Compose tab), GitHub repo, BPMN for Mermaid, Mermaid.js theming docs, themeVariables reference, FDIAL article, all projects
 
 ### Dev preview vs. live page

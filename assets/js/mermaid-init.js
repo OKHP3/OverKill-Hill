@@ -6,7 +6,7 @@
 // Performance: on pages with many diagrams (e.g. the v0.3 article) we use
 // IntersectionObserver to defer rendering until each diagram approaches the
 // viewport. Falls back to immediate render where the API is unavailable.
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs";
 
 mermaid.initialize({
   startOnLoad: false,
