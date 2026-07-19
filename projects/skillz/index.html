@@ -1,0 +1,1173 @@
+<!-- ============================================================
+     SOURCE OF TRUTH — Skillz Forge flagship project page
+     Canonical:    projects/skillz/index.html
+     Live app:     https://okhp3.github.io/skillz/
+     Source repo:  https://github.com/OKHP3/skillz
+     Last reviewed: 2026-07-19
+     ============================================================ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ========================================
+       METADATA: Core Document & Character Set
+       ======================================== -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="language" content="English" />
+
+    <!-- ========================================
+       METADATA: Primary Title & Description
+       ======================================== -->
+    <title>Skillz Forge | OverKill Hill P³™</title>
+    <meta name="description" content="Skillz Forge is the flagship OverKill Hill P³™ workbench for discovering, inspecting, composing, installing, and improving reusable Agent Skills." />
+    <meta name="keywords" content="Skillz Forge, Agent Skills, SKILL.md, AI agent skills, reusable AI capabilities, prompt protocols, OverKill Hill, AI governance, agentic AI, skill catalog, AI systems design" />
+    <meta name="author" content="OverKill Hill P³™" />
+    <meta name="creator" content="OverKill Hill P³™" />
+    <meta name="publisher" content="OverKill Hill P³™" />
+
+    <!-- ========================================
+       METADATA: Open Graph (Social Sharing)
+       ======================================== -->
+    <meta property="og:title" content="Skillz Forge | OverKill Hill P³™" />
+    <meta property="og:description" content="Skillz Forge is the flagship OverKill Hill P³™ workbench for discovering, inspecting, composing, installing, and improving reusable Agent Skills." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://overkillhill.com/projects/skillz/" />
+    <meta property="og:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
+    <meta property="og:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³ illustration" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:site_name" content="OverKill Hill P³™" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ========================================
+       METADATA: Twitter Card (X Social)
+       ======================================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Skillz Forge | OverKill Hill P³™" />
+    <meta name="twitter:description" content="Reusable Agent Skills from the OverKill Hill P³™ forge. SKILL.md contracts that agents can load, compose, and improve." />
+    <meta name="twitter:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
+    <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³ illustration" />
+    <meta name="twitter:site" content="@OverKillHillP3" />
+    <meta name="twitter:creator" content="@OverKillHillP3" />
+
+    <!-- ========================================
+       METADATA: Search & Crawling
+       ======================================== -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="revisit-after" content="30 days" />
+    <link rel="author" href="/humans.txt" />
+    <link rel="canonical" href="https://overkillhill.com/projects/skillz/" />
+    <link rel="alternate" hreflang="en" href="https://overkillhill.com/projects/skillz/" />
+
+    <!-- ========================================
+       METADATA: Color Scheme & Theme
+       ======================================== -->
+    <meta name="theme-color" content="#2a2320" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- ========================================
+       METADATA: Web App & PWA
+       ======================================== -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- ========================================
+       FAVICONS: Multi-Format Icon Support
+       ======================================== -->
+    <link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180" type="image/png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ========================================
+       STYLESHEETS & FONTS
+       ======================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body), JetBrains Mono (code) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" />
+    <link rel="stylesheet" href="/assets/css/theme.css?v=15" />
+
+    <script type="speculationrules">
+    {
+      "prefetch": [
+        { "source": "document", "where": { "and": [
+          { "href_matches": "/*" },
+          { "not": { "selector_matches": "[rel~=nofollow]" } },
+          { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
+        ]}, "eagerness": "moderate" }
+      ]
+    }
+    </script>
+
+    <!-- ========================================
+       STRUCTURED DATA: BreadcrumbList
+       ======================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "OverKill Hill P³™",
+        "item": "https://overkillhill.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "item": "https://overkillhill.com/projects/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Skillz Forge",
+        "item": "https://overkillhill.com/projects/skillz/"
+      }
+      ]
+    }
+    </script>
+
+    <!-- ========================================
+       STRUCTURED DATA: SoftwareApplication
+       ======================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Skillz Forge",
+      "description": "A public Agent Skills discovery workbench. Discover, inspect, compose, and install reusable SKILL.md contracts for AI agents. Browse by family, filter by maturity, copy installation URLs, and explore curated stacks. Browser-only. No login. Open source.",
+      "url": "https://okhp3.github.io/skillz/",
+      "author": {
+        "@type": "Organization",
+        "name": "OverKill Hill P³",
+        "url": "https://overkillhill.com"
+      },
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "codeRepository": "https://github.com/OKHP3/skillz",
+      "license": "https://opensource.org/licenses/MIT"
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VJ1BKXS27H');
+    </script>
+  </head>
+
+  <body class="projects-main">
+    <a class="okh-skip-link" href="#main">Skip to main content</a>
+
+    <!-- ============================================================
+         HEADER
+         ============================================================ -->
+    <header class="site-header" id="top">
+      <div class="container">
+        <div class="logo">
+          <a href="/">
+            <img src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png" alt="OverKill Hill P³ logo" width="40" height="40" />
+            <span class="sr-only">OverKill&nbsp;Hill&nbsp;P³™ Home</span>
+          </a>
+        </div>
+
+        <nav class="primary-nav" id="navigation" aria-label="Primary">
+          <ul>
+            <li><a href="/#forge">The Forge</a></li>
+            <!-- Projects cluster -->
+            <li class="has-submenu">
+              <a href="/projects/" aria-current="page">Our Projects</a>
+              <ul class="submenu">
+                <li><a href="/projects/skillz/" class="is-current">Skillz Forge</a></li>
+                <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
+                <li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
+                <li><a href="/projects/mac-studio-local-ai-workbench/">Mac Studio Local AI Workbench</a></li>
+                <li><a href="/projects/abrahamic-reference-engine/">Abrahamic Reference Engine</a></li>
+                <li><a href="/projects/glee-fully-chai-chasers/">Glee-fully Chai Chasers</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="/writings/">Writings</a>
+              <ul class="submenu">
+                <li><a href="/manifesto/">The Manifesto</a></li>
+                <li><a href="/prompt-forge/">The Prompt Forge</a></li>
+                <li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="/about/">About</a>
+              <ul class="submenu">
+                <li><a href="/universe/">OKHP³™ Universe</a></li>
+                <li><a href="/about/">About OKHP³™</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/legal/">Legal</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="nav-toggle" aria-controls="navigation" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+
+      <section class="site-specials site-specials--okh" aria-label="Forge update">
+        <span class="site-specials-label">🔥 Hot off the FORGE ⚒️</span>
+        <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
+          v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →
+        </a>
+      </section>
+    </header>
+
+    <!-- ============================================================
+         MAIN
+         ============================================================ -->
+    <main id="main">
+      <div class="container">
+
+        <!-- HERO ────────────────────────────────────────────────── -->
+        <section class="project-hero" aria-label="Project overview">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">overkillhill.com</a><span>/</span>
+            <a href="/projects/">projects</a><span>/</span>
+            <span>skillz</span>
+          </nav>
+
+          <div class="tag-row">
+            <span class="tag">Flagship Project</span>
+            <span class="tag">Open Source</span>
+            <span class="tag tag--accent">Agent Skills Catalog</span>
+            <span class="tag tag--accent">Skillz Forge Live</span>
+            <span class="tag">GitHub-Native</span>
+            <span class="tag">Active Build</span>
+          </div>
+
+          <h1>Skillz Forge</h1>
+          <p class="hero-sub">Reusable capabilities from the OverKill Hill P³™ forge.</p>
+
+          <p>
+            Skillz turns recurring AI methods into portable, inspectable, versioned <code>SKILL.md</code> contracts that agents can load, compose, and improve. Discover, inspect, install, and contribute — entirely through the browser and GitHub.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
+               onclick="gtag('event','skillz_live_app_open',{event_category:'cta',event_label:'hero'});">⤢ Enter Skillz Forge</a>
+            <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" class="btn btn-quiet"
+               onclick="gtag('event','skillz_github_open',{event_category:'cta',event_label:'hero'});">View Source on GitHub</a>
+            <a href="/prompt-forge/" class="btn btn-quiet"
+               onclick="gtag('event','skillz_prompt_forge_open',{event_category:'cta',event_label:'hero'});">Return to Prompt Forge</a>
+          </div>
+        </section>
+
+        <!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
+        <div class="project-layout">
+
+          <!-- MAIN COLUMN ──────────────────────────────────────── -->
+          <div>
+
+            <!-- PROBLEM STATEMENT ───────────────────────────────── -->
+            <div class="content-block card" id="problem" data-search-index>
+              <div class="section-label">The Problem</div>
+              <h2>The prompt is not the artifact. The durable method is.</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1rem;line-height:1.7;">Every recurring AI task deserves a governed method. Most get a prompt buried in chat history instead.</p>
+              <div class="feature-grid" style="margin-top:0.75rem;">
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">💬</div>
+                  <div>
+                    <h3>Disposable prompts in chat history</h3>
+                    <p>A prompt that works today is not findable tomorrow. It lives in a chat window — no version, no review, no handoff. Every collaborator re-invents it from scratch.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">📋</div>
+                  <div>
+                    <h3>Prompt protocols that define conditions</h3>
+                    <p>A governed prompt protocol specifies its role, context, inputs, boundaries, and failure modes. It is writable, reviewable, and testable — but it still lives in a document, not a repository.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⚙️</div>
+                  <div>
+                    <h3>Reusable skills that package methods</h3>
+                    <p>A SKILL.md packages a governed method as a delegation contract for an AI agent. The agent loads the file, activates on trigger, and follows the specified method — without re-prompting for the instructions every time.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◻</div>
+                  <div>
+                    <h3>GitHub repositories that preserve the method</h3>
+                    <p>GitHub stores the source, history, issues, discussions, and pull requests. The method becomes a durable artifact — versioned, forkable, improvable, and attributable. That is the gap Skillz closes.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- WHAT IS A SKILL.MD ───────────────────────────────── -->
+            <div class="content-block" id="what-is-skill-md" data-search-index>
+              <div class="section-label">The Contract</div>
+              <h2>What is a SKILL.md?</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1rem;line-height:1.7;">A <code>SKILL.md</code> is a plain-text delegation contract for an AI agent. Drop it into your agent's skill directory — Claude Code, Cursor, GitHub Copilot, VS Code, Replit Agent — and the agent gains the defined capability without requiring a re-prompt for every task.</p>
+
+              <div class="feature-grid" style="margin-top:0.75rem;">
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◈</div>
+                  <div>
+                    <h3>Activation triggers</h3>
+                    <p>Specific phrases or task types that cause the agent to load and execute this skill rather than improvising a response.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◎</div>
+                  <div>
+                    <h3>Role and context</h3>
+                    <p>Who the agent is acting as, what environment it is operating in, and what governing authority the skill carries.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">▤</div>
+                  <div>
+                    <h3>Inputs and method</h3>
+                    <p>What information the skill expects, what steps it follows, and what decisions it is authorized to make without asking.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⊘</div>
+                  <div>
+                    <h3>Boundaries and failure handling</h3>
+                    <p>What the skill must not do, what it does when inputs are missing or ambiguous, and how it signals a handoff back to the operator.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⊕</div>
+                  <div>
+                    <h3>Outputs and validation</h3>
+                    <p>What the skill produces, what a correct output looks like, and how the result can be verified against the contract.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⟳</div>
+                  <div>
+                    <h3>Companion skills</h3>
+                    <p>Related skills in the same family — upstream skills that feed this one, or downstream skills that consume its output.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="skill-note" style="margin-top:1.25rem;">
+                Skills live in the <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">OKHP3/skillz repository ↗</a> and are browsable in the <a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">live Skillz Forge application ↗</a>. Each skill file is a raw-installable GitHub asset — no build step, no registry, no account required.
+              </div>
+            </div>
+
+            <!-- IS / IS NOT ──────────────────────────────────────── -->
+            <div class="content-block" id="what-it-is" data-search-index>
+              <div class="section-label">Honest Scope</div>
+              <h2>A discovery workbench, not a marketplace</h2>
+              <div class="is-isnot-grid">
+                <div class="is-isnot-col is-isnot-col--is">
+                  <div class="is-isnot-header is-isnot-header--is">Skillz Forge Is</div>
+                  <ul>
+                    <li><span class="bullet">◆</span>A public Agent Skills discovery workbench</li>
+                    <li><span class="bullet">◆</span>A generated catalog of repository skill content</li>
+                    <li><span class="bullet">◆</span>A way to inspect and install <code>SKILL.md</code> files</li>
+                    <li><span class="bullet">◆</span>A way to compose curated or local skill stacks</li>
+                    <li><span class="bullet">◆</span>A GitHub collaboration bridge — issues, PRs, discussions</li>
+                    <li><span class="bullet">◆</span>Open source, browser-only, no login, free always</li>
+                  </ul>
+                </div>
+                <div class="is-isnot-col is-isnot-col--isnot">
+                  <div class="is-isnot-header is-isnot-header--isnot">Skillz Forge Is Not</div>
+                  <ul>
+                    <li><span class="bullet">—</span>Not a replacement for GitHub</li>
+                    <li><span class="bullet">—</span>Not an authenticated social network</li>
+                    <li><span class="bullet">—</span>Not a hosted agent runtime</li>
+                    <li><span class="bullet">—</span>Not a guarantee that every skill is production-ready</li>
+                    <li><span class="bullet">—</span>Not a marketplace requiring payment or account creation</li>
+                    <li><span class="bullet">—</span>Not a second Prompt Forge</li>
+                    <li><span class="bullet">—</span>Not a claim that all skills are complete or validated</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- LIVE TOOL EMBED ──────────────────────────────────── -->
+            <div class="content-block" id="embed-tool" style="scroll-margin-top: 8rem;">
+              <div class="embed-toolbar">
+                <div class="embed-label">
+                  <span class="embed-live-dot"></span>
+                  Live Tool &nbsp;·&nbsp; okhp3.github.io
+                </div>
+                <div class="embed-actions">
+                  <button class="embed-btn" id="reload-btn" title="Reload tool" aria-label="Reload tool">
+                    ↺ Reload
+                  </button>
+                  <a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer" class="embed-btn embed-btn--primary"
+                     onclick="gtag('event','skillz_live_app_open',{event_category:'embed',event_label:'fullscreen'});">
+                    ⤢ Full Screen
+                  </a>
+                </div>
+              </div>
+
+              <div class="embed-fallback-cta">
+                <a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer"
+                   onclick="gtag('event','skillz_live_app_open',{event_category:'embed',event_label:'fallback'});">
+                  ⤢ Open Skillz Forge Full Screen
+                </a>
+              </div>
+
+              <div class="embed-frame-wrapper">
+                <div class="iframe-loading-overlay" id="iframe-overlay" aria-hidden="true">
+                  <div class="iframe-spinner"></div>
+                  <span class="iframe-loading-text">Loading Skillz Forge…</span>
+                  <div class="iframe-slow-fallback" id="iframe-fallback">
+                    <span class="iframe-loading-text" style="opacity:0.6;">Taking longer than expected?</span>
+                    <a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer">Open the tool in a new tab →</a>
+                  </div>
+                </div>
+                <iframe
+                  id="tool-iframe"
+                  src="https://okhp3.github.io/skillz/"
+                  title="Skillz Forge — Agent Skills Catalog"
+                  loading="lazy"
+                  allow="clipboard-read; clipboard-write; fullscreen"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  style="width:100%; border:0;"
+                ></iframe>
+              </div>
+
+              <p class="embed-note">
+                Embedded from <a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer">okhp3.github.io/skillz</a>
+                — open in a new tab for the best experience
+              </p>
+            </div>
+
+            <!-- THE FLAGSHIP RELATIONSHIP MAP ───────────────────── -->
+            <div class="content-block card" id="forge-path" data-search-index>
+              <div class="section-label">The Ecosystem Path</div>
+              <h2>How a prompt becomes a portable capability</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">The same method moves through four stages — design, packaging, discovery, and collaboration. Each stage has a specific surface in the OverKill Hill ecosystem.</p>
+
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);overflow:hidden;">
+                <div style="padding:1.25rem;border-right:1px solid var(--color-border-subtle);background:rgba(0,0,0,0.15);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 01</div>
+                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Prompt Forge</div>
+                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Designs and hardens prompts, protocols, audit contracts, and reusable AI workflows.</div>
+                  <div style="margin-top:0.75rem;"><a href="/prompt-forge/" style="font-size:0.78rem;color:var(--okh-orange);">Enter Prompt Forge →</a></div>
+                </div>
+                <div style="padding:1.25rem;border-right:1px solid var(--color-border-subtle);background:rgba(0,0,0,0.1);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 02</div>
+                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Found‑Rᵧ</div>
+                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Packages a reusable AI capability into a governed, inspectable repository artifact.</div>
+                  <div style="margin-top:0.75rem;"><a href="/found-ry/" style="font-size:0.78rem;color:var(--okh-orange);">Explore Found‑Rᵧ →</a></div>
+                </div>
+                <div style="padding:1.25rem;border-right:1px solid var(--color-border-subtle);background:rgba(196,106,44,0.08);border-top:2px solid var(--okh-orange);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Stage 03 — You are here</div>
+                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Skillz Forge</div>
+                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Helps visitors discover, understand, install, compose, share, and improve those capabilities.</div>
+                  <div style="margin-top:0.75rem;"><a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--okh-orange);"
+                     onclick="gtag('event','skillz_live_app_open',{event_category:'forge-path',event_label:'map'});">Enter Skillz Forge ↗</a></div>
+                </div>
+                <div style="padding:1.25rem;background:rgba(0,0,0,0.1);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 04</div>
+                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">GitHub</div>
+                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Stores the source, history, issues, pull requests, discussions, and review record.</div>
+                  <div style="margin-top:0.75rem;"><a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--okh-orange);"
+                     onclick="gtag('event','skillz_github_open',{event_category:'forge-path',event_label:'map'});">OKHP3/skillz ↗</a></div>
+                </div>
+              </div>
+
+              <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.75rem;line-height:1.6;">The same capability asset — one <code>SKILL.md</code> file — is designed in Prompt Forge, packaged in Found‑Rᵧ, discovered via Skillz Forge, and maintained in GitHub. No duplication of surfaces. Each stage does one job.</p>
+            </div>
+
+            <!-- WHAT VISITORS CAN DO ─────────────────────────────── -->
+            <div class="content-block" id="features" data-search-index>
+              <div class="section-label">What You Can Do Now</div>
+              <h2>Verified application capabilities</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1rem;line-height:1.7;">These are the currently shipped behaviors of the live Skillz Forge application. Future capabilities are listed separately in the roadmap and labeled as planned.</p>
+              <div class="feature-grid" style="margin-top:0.75rem;">
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">🔍</div>
+                  <div>
+                    <h3>Search by task or phrase</h3>
+                    <p>Phrase search across the generated catalog — find skills by the task they perform, the triggers they activate on, or the problem they address.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◫</div>
+                  <div>
+                    <h3>Browse skill families</h3>
+                    <p>Skills are organized into functional families — browse by category to find related capabilities and understand how skills compose into workflows.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◑</div>
+                  <div>
+                    <h3>Filter by maturity</h3>
+                    <p>Each skill carries a maturity level — from placeholder through published. Filter to see only validated skills, or explore skills under active development.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◈</div>
+                  <div>
+                    <h3>Inspect individual skills</h3>
+                    <p>Open any skill to read its full contract — triggers, role, method, boundaries, outputs, and failure handling — before deciding to install it.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⊕</div>
+                  <div>
+                    <h3>Copy a raw installation URL</h3>
+                    <p>Each skill detail page surfaces the raw GitHub URL for its <code>SKILL.md</code> file — ready to paste into a <code>curl</code> command or reference in your agent's configuration.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">★</div>
+                  <div>
+                    <h3>Save favorites locally</h3>
+                    <p>Mark skills you use frequently. Favorites are stored in browser local storage — no account needed, no server involved.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">▤</div>
+                  <div>
+                    <h3>Explore curated stacks</h3>
+                    <p>Pre-composed skill combinations for common workflows — browse curated stacks to understand how skills work together before assembling your own.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◻</div>
+                  <div>
+                    <h3>Open native GitHub paths</h3>
+                    <p>Every skill links directly to its GitHub source, issue tracker, and discussion thread. Contribute, report, or improve — directly in the repository.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DEMONSTRATION PATHWAYS ──────────────────────────── -->
+            <div class="content-block" id="demonstration-pathways" data-search-index>
+              <div class="section-label">Demonstration Pathways</div>
+              <h2>Skills in action — four recurring scenarios</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1rem;line-height:1.7;">Each pathway shows a recurring problem, the relevant skill family in the repository, the resulting artifact, and where to find it. These are real repository examples — not invented scenarios.</p>
+
+              <div style="display:grid;gap:1rem;">
+
+                <div style="border:1px solid var(--color-border-subtle);border-left:3px solid var(--okh-orange);border-radius:var(--radius-md);padding:1.25rem;background:var(--color-surface);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Pathway 01</div>
+                  <h3 style="margin:0 0 0.5rem;font-size:1rem;">Governed Mermaid Workflow</h3>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The problem:</strong> AI-generated Mermaid diagrams drift in style, break in target renderers, and require repeated follow-up prompts to fix. The governance rules are re-stated from scratch every session.</p>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> Mermaid governance — palette definitions, renderer profiles, prompt scaffold generation, and diagram-family capability rules.</p>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The artifact:</strong> A <code>SKILL.md</code> that an agent loads once. Every subsequent diagram generation inherits the brand palette, renderer target, and constraint rules — without re-prompting.</p>
+                  <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);">Find it in OKHP3/skillz ↗</a>
+                </div>
+
+                <div style="border:1px solid var(--color-border-subtle);border-left:3px solid var(--okh-orange);border-radius:var(--radius-md);padding:1.25rem;background:var(--color-surface);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Pathway 02</div>
+                  <h3 style="margin:0 0 0.5rem;font-size:1rem;">Process Documentation Pipeline</h3>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The problem:</strong> Documenting a business process requires consistent vocabulary, BPMN-aligned structure, and reproducible output across team members and AI tools — none of which a one-off prompt delivers.</p>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> Process documentation — BPMN for Mermaid structural patterns, swim-lane conventions, gateway semantics, and output format rules.</p>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The artifact:</strong> A composable <code>SKILL.md</code> that maintains structural consistency across every diagram in the pipeline — from first draft to version-controlled deliverable.</p>
+                  <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);">Find it in OKHP3/skillz ↗</a>
+                </div>
+
+                <div style="border:1px solid var(--color-border-subtle);border-left:3px solid var(--okh-orange);border-radius:var(--radius-md);padding:1.25rem;background:var(--color-surface);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Pathway 03</div>
+                  <h3 style="margin:0 0 0.5rem;font-size:1rem;">New Skill Creation Pipeline</h3>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The problem:</strong> Writing a well-formed <code>SKILL.md</code> from scratch requires remembering the full contract schema — triggers, inputs, method, boundaries, failure handling, outputs, and validation — every time.</p>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> Skill authoring — schema validation, field completeness checking, trigger description quality, and companion skill mapping.</p>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The artifact:</strong> A <code>SKILL.md</code> for creating <code>SKILL.md</code> files. The agent follows the authoring contract and produces a well-formed, schema-valid skill file on the first pass.</p>
+                  <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);">Find it in OKHP3/skillz ↗</a>
+                </div>
+
+                <div style="border:1px solid var(--color-border-subtle);border-left:3px solid var(--okh-orange);border-radius:var(--radius-md);padding:1.25rem;background:var(--color-surface);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Pathway 04</div>
+                  <h3 style="margin:0 0 0.5rem;font-size:1rem;">AI Conversation Capture and Repository Reconciliation</h3>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The problem:</strong> Valuable insight from an AI conversation — a working method, a reusable protocol, a verified approach — lives in a chat window and disappears. Reconciling it against existing repository artifacts is manual and error-prone.</p>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> Conversation capture — thread routing, deduplication against existing skills, classification as new, complementary, or duplicate, and repository integration paths.</p>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The artifact:</strong> A governed capture workflow that converts a chat export into a reconciled repository contribution — preserving the method, not just the conversation.</p>
+                  <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);">Find it in OKHP3/skillz ↗</a>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- MATURITY LADDER ──────────────────────────────────── -->
+            <div class="content-block" id="maturity" data-search-index>
+              <div class="section-label">Trust and Maturity</div>
+              <h2>How skill maturity works</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1rem;line-height:1.7;">Maturity reflects the current evidence and repository state — not a universal guarantee that every output will be correct. A published skill has been reviewed and field-tested; a placeholder has a slot reserved but has not yet been written.</p>
+
+              <div style="display:grid;gap:0.5rem;">
+                <div style="display:grid;grid-template-columns:140px 1fr;gap:0.75rem;align-items:start;padding:0.75rem;border:1px solid var(--color-border-subtle);border-radius:6px;background:rgba(0,0,0,0.1);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:700;color:var(--color-muted);">Placeholder</div>
+                  <div style="font-size:0.825rem;color:var(--color-muted);line-height:1.5;">A named slot in the catalog. The skill is planned but not yet written. No contract exists.</div>
+                </div>
+                <div style="display:grid;grid-template-columns:140px 1fr;gap:0.75rem;align-items:start;padding:0.75rem;border:1px solid var(--color-border-subtle);border-radius:6px;background:rgba(0,0,0,0.1);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:700;color:var(--color-muted);">Skeleton</div>
+                  <div style="font-size:0.825rem;color:var(--color-muted);line-height:1.5;">Structure and key fields are present. Not yet usable for production delegation.</div>
+                </div>
+                <div style="display:grid;grid-template-columns:140px 1fr;gap:0.75rem;align-items:start;padding:0.75rem;border:1px solid var(--color-border-subtle);border-radius:6px;background:rgba(0,0,0,0.1);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:700;color:var(--color-muted);">Draftable</div>
+                  <div style="font-size:0.825rem;color:var(--color-muted);line-height:1.5;">Core contract is written and reviewable. Suitable for supervised use and pull-request feedback.</div>
+                </div>
+                <div style="display:grid;grid-template-columns:140px 1fr;gap:0.75rem;align-items:start;padding:0.75rem;border:1px solid var(--color-border-subtle);border-radius:6px;background:rgba(0,0,0,0.12);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:700;color:var(--color-fg);">Usable</div>
+                  <div style="font-size:0.825rem;color:var(--color-muted);line-height:1.5;">The skill has been exercised in real workflows. Limits are documented. Suitable for unsupervised use by an experienced operator.</div>
+                </div>
+                <div style="display:grid;grid-template-columns:140px 1fr;gap:0.75rem;align-items:start;padding:0.75rem;border:1px solid var(--color-border-subtle);border-radius:6px;background:rgba(196,106,44,0.07);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:700;color:var(--okh-orange);">Validated</div>
+                  <div style="font-size:0.825rem;color:var(--color-muted);line-height:1.5;">Field-tested, peer-reviewed, and verified against its stated contract. Known failure modes are documented.</div>
+                </div>
+                <div style="display:grid;grid-template-columns:140px 1fr;gap:0.75rem;align-items:start;padding:0.75rem;border:1px solid var(--okh-orange);border-radius:6px;background:rgba(196,106,44,0.1);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:700;color:var(--okh-orange);">Published</div>
+                  <div style="font-size:0.825rem;color:var(--color-muted);line-height:1.5;">Stable API surface, full documentation, and formal provenance. Suitable as a dependency for downstream skills and agent stacks.</div>
+                </div>
+              </div>
+
+              <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.75rem;line-height:1.6;">Maturity is set in the repository by the skill author or a maintainer. It is not automatically inferred. If a skill's maturity does not match your observations, <a href="https://github.com/OKHP3/skillz/issues" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">open an issue ↗</a>.</p>
+            </div>
+
+            <!-- GITHUB-NATIVE COLLABORATION ─────────────────────── -->
+            <div class="content-block" id="collaboration" data-search-index>
+              <div class="section-label">GitHub-Native Collaboration</div>
+              <h2>How to contribute, improve, or report</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1rem;line-height:1.7;">Skillz Forge surfaces GitHub paths — it does not imitate or replace GitHub's collaboration interface. All contribution happens natively in the repository.</p>
+              <div class="feature-grid" style="margin-top:0.75rem;">
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⊘</div>
+                  <div>
+                    <h3>Open an issue for a bug</h3>
+                    <p>Skill behaves differently than its contract states? The trigger fires incorrectly? <a href="https://github.com/OKHP3/skillz/issues" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">File an issue ↗</a></p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⊕</div>
+                  <div>
+                    <h3>Suggest a new skill</h3>
+                    <p>Describe the recurring task, the gap the skill would fill, and what a correct output looks like. <a href="https://github.com/OKHP3/skillz/issues" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">Suggest via Issues ↗</a></p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◻</div>
+                  <div>
+                    <h3>Improve trigger descriptions</h3>
+                    <p>Better trigger language improves match rates across agents and coding assistants. Open a pull request with the improved wording. <a href="https://github.com/OKHP3/skillz/pulls" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">Open a PR ↗</a></p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◈</div>
+                  <div>
+                    <h3>Use Discussions for design questions</h3>
+                    <p>Scope, contract design, and family organization questions belong in Discussions — not issues. <a href="https://github.com/OKHP3/skillz/discussions" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">Open a Discussion ↗</a></p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◎</div>
+                  <div>
+                    <h3>Report missing metadata</h3>
+                    <p>Maturity level wrong? Description missing? Family tag incorrect? These are low-barrier contributions with high catalog impact.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⚐</div>
+                  <div>
+                    <h3>Security advisories</h3>
+                    <p>For sensitive findings — skills that produce harmful outputs, expose credentials, or violate stated boundaries — use GitHub's private security advisory channel.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TECHNICAL STACK ──────────────────────────────────── -->
+            <div class="content-block" id="stack" data-search-index>
+              <div class="section-label">Technical Stack</div>
+              <h2>How Skillz Forge is built</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1rem;line-height:1.7;">The Skillz Forge application is a static, client-side React SPA. There is no server, no database, and no authenticated runtime. The catalog is generated from repository content at build time.</p>
+              <div class="feature-grid" style="margin-top:0.75rem;">
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">&lt;/&gt;</div>
+                  <div>
+                    <h3>React + TypeScript</h3>
+                    <p>Component architecture with full type safety. No framework dependencies beyond React and Vite.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">⚡</div>
+                  <div>
+                    <h3>Vite</h3>
+                    <p>Fast build toolchain. Static output deployed to GitHub Pages without a server or CDN dependency.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">🔍</div>
+                  <div>
+                    <h3>Fuse.js phrase search</h3>
+                    <p>Client-side fuzzy search across the generated catalog. No search backend, no query API. All search runs in the browser.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◫</div>
+                  <div>
+                    <h3>Static generated catalog</h3>
+                    <p>Repository skill content is parsed at build time and emitted as a static JSON catalog. The application reads this catalog — it does not poll the GitHub API at runtime.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◻</div>
+                  <div>
+                    <h3>GitHub Pages</h3>
+                    <p>The live application is hosted at <code>okhp3.github.io/skillz/</code> via GitHub Pages. No custom server. Hash-based routing where applicable.</p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◈</div>
+                  <div>
+                    <h3>GitHub as source of truth</h3>
+                    <p>The repository is the canonical artifact store. The application is a discovery and installation layer on top of it — not a separate data system.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="skill-note" style="margin-top:1.25rem;">
+                The application does not claim server-side APIs, live GitHub polling, or authenticated collaboration. Those are planned capabilities listed in the roadmap below.
+              </div>
+            </div>
+
+            <!-- ROADMAP ──────────────────────────────────────────── -->
+            <div class="content-block" id="roadmap" data-search-index>
+              <div class="section-label">Roadmap</div>
+              <h2>Where the build is going</h2>
+              <ul class="progress-track">
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--done">✓</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      Public Skillz Forge Application
+                      <span class="phase-pill phase-pill--shipped">Shipped</span>
+                    </div>
+                    <p class="progress-phase-desc">Live at okhp3.github.io/skillz/. Generated repository catalog. Phrase search. Family and maturity browsing. Skill detail pages. Curated stacks. FAQ. GitHub deep links.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--active">▶</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      Brand Alignment and Catalog Hardening
+                      <span class="phase-pill phase-pill--active">Active</span>
+                    </div>
+                    <p class="progress-phase-desc">OverKill Hill brand alignment. Catalog provenance. Stable share URLs. Structured metadata across all skill entries. Analytics consistency. Activity freshness signals.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--planned">○</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      Compare Mode
+                      <span class="phase-pill phase-pill--planned">Planned</span>
+                    </div>
+                    <p class="progress-phase-desc">Side-by-side skill comparison — review trigger language, method steps, and boundary conditions across two or more skills before selecting one for a workflow.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--planned">○</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      Custom Local Stack Composition
+                      <span class="phase-pill phase-pill--planned">Planned</span>
+                    </div>
+                    <p class="progress-phase-desc">Build a personal skill stack in the browser — select skills, order them, and export the stack as a single installation manifest or curl script.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--planned">○</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      Live GitHub Activity
+                      <span class="phase-pill phase-pill--planned">Planned</span>
+                    </div>
+                    <p class="progress-phase-desc">Surface recent commits, open issues, and discussion activity for individual skills — without requiring authentication or live API polling from every user session.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--planned">○</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      Issue and Pull-Request Context Panels
+                      <span class="phase-pill phase-pill--planned">Planned</span>
+                    </div>
+                    <p class="progress-phase-desc">Embedded summary of open issues and recent pull requests for a skill — visible in the detail view, linking to the native GitHub thread rather than reimplementing the interface.</p>
+                  </div>
+                </li>
+                <li class="progress-phase">
+                  <span class="progress-marker progress-marker--planned">○</span>
+                  <div class="progress-phase-content">
+                    <div class="progress-phase-title">
+                      Authenticated Collaboration
+                      <span class="phase-pill phase-pill--planned">Planned</span>
+                    </div>
+                    <p class="progress-phase-desc">Secure authenticated paths — submit issues, rate skills, and contribute from within the application. Not implemented; no write access to the repository exists in the current application.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- WORK WITH ME ─────────────────────────────────────── -->
+            <aside class="article-footer-cta" id="work-with-me">
+              <div>
+                <h3>Need a custom Agent Skills system for your team?</h3>
+                <p>Custom SKILL.md development, governed prompt protocols, skill family architecture, and agent capability layers built for real operational requirements — not demos.</p>
+              </div>
+              <div class="cta-actions">
+                <a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
+                   onclick="gtag('event','skillz_project_cta_click',{event_category:'cta',event_label:'fiverr'});">Hire me on Fiverr</a>
+                <a href="/contact/" class="btn btn-quiet"
+                   onclick="gtag('event','skillz_project_cta_click',{event_category:'cta',event_label:'contact'});">Get in touch</a>
+              </div>
+            </aside>
+
+            <!-- COLLAPSIBLE SECTIONS ─────────────────────────────── -->
+            <div class="content-block collapsibles">
+
+              <!-- User Guide -->
+              <details class="collapsible">
+                <summary class="collapsible-toggle">
+                  User Guide — Installing a Skill
+                  <span class="collapsible-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="collapsible-body">
+                  <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.75rem;">Get from browsing to an installed skill in under three minutes.</p>
+                  <ol class="guide-steps">
+                    <li class="guide-step">
+                      <span class="step-num">01</span>
+                      <div class="step-content">
+                        <strong>Open Skillz Forge</strong>
+                        <p>Navigate to <a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer">okhp3.github.io/skillz/</a> in your browser, or use the embedded tool above. No login required.</p>
+                      </div>
+                    </li>
+                    <li class="guide-step">
+                      <span class="step-num">02</span>
+                      <div class="step-content">
+                        <strong>Find a skill by search or family</strong>
+                        <p>Use the search bar to find a skill by task description, or browse by skill family if you know the category you need.</p>
+                      </div>
+                    </li>
+                    <li class="guide-step">
+                      <span class="step-num">03</span>
+                      <div class="step-content">
+                        <strong>Inspect the skill contract</strong>
+                        <p>Open the skill detail page and read the full contract before installing. Check the maturity level, activation triggers, and stated boundaries.</p>
+                      </div>
+                    </li>
+                    <li class="guide-step">
+                      <span class="step-num">04</span>
+                      <div class="step-content">
+                        <strong>Copy the raw installation URL</strong>
+                        <p>The detail page surfaces the raw GitHub URL for the <code>SKILL.md</code> file. Copy it.</p>
+                      </div>
+                    </li>
+                    <li class="guide-step">
+                      <span class="step-num">05</span>
+                      <div class="step-content">
+                        <strong>Install in your agent</strong>
+                        <p>Drop the raw URL into a <code>curl</code> command to save the file, or reference it directly in your agent's skill configuration. For example:</p>
+                        <pre style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># Example — replace with the actual raw URL from Skillz Forge
+curl -o .agents/skills/my-skill.md \
+  https://raw.githubusercontent.com/OKHP3/skillz/main/skills/family/SKILL.md</pre>
+                      </div>
+                    </li>
+                    <li class="guide-step">
+                      <span class="step-num">06</span>
+                      <div class="step-content">
+                        <strong>Verify activation</strong>
+                        <p>Test the skill by using one of its documented trigger phrases with your agent. If it does not activate or produces incorrect output, <a href="https://github.com/OKHP3/skillz/issues" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">file an issue ↗</a>.</p>
+                      </div>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+              <!-- FAQ -->
+              <details class="collapsible">
+                <summary class="collapsible-toggle">
+                  FAQ
+                  <span class="collapsible-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <div class="collapsible-body">
+                  <div class="faq-list">
+                    <div class="faq-item">
+                      <p class="faq-q">Is Skillz Forge free?</p>
+                      <p class="faq-a">Yes. Free now, free always. No subscription, no freemium gate, no account required. MIT licensed. The application and all skills in the public catalog are open source.</p>
+                    </div>
+                    <div class="faq-item">
+                      <p class="faq-q">Do I need a GitHub account to use it?</p>
+                      <p class="faq-a">No. You can browse, search, and copy installation URLs without any account. A GitHub account is only needed if you want to contribute — open issues, submit pull requests, or join discussions.</p>
+                    </div>
+                    <div class="faq-item">
+                      <p class="faq-q">Which agents support SKILL.md files?</p>
+                      <p class="faq-a">Any agent that accepts file-based context — Claude Code, Cursor, GitHub Copilot, VS Code with agent extensions, Replit Agent, and similar tools. The skill file is plain text; the agent reads it as context before responding to a trigger.</p>
+                    </div>
+                    <div class="faq-item">
+                      <p class="faq-q">Are all skills production-ready?</p>
+                      <p class="faq-a">No. Skills have maturity levels from placeholder through published. Check the maturity label before using a skill in a production workflow. Only validated and published skills have been field-tested against their stated contracts.</p>
+                    </div>
+                    <div class="faq-item">
+                      <p class="faq-q">What is the difference between Skillz Forge and Prompt Forge?</p>
+                      <p class="faq-a">Prompt Forge is the design workshop — where prompts, protocols, and contracts are written and hardened. Skillz Forge is the discovery and installation layer — where finished skills are browsed, installed, and improved. They are adjacent stages in the same pipeline, not competing surfaces.</p>
+                    </div>
+                    <div class="faq-item">
+                      <p class="faq-q">What is Found‑Rᵧ and how does it relate?</p>
+                      <p class="faq-a">Found‑Rᵧ is the OverKill Hill meta-framework for recursive AI agent architecture — the packaging stage that turns a governed prompt protocol into a formal repository artifact. A skill goes through Found‑Rᵧ on its way to appearing in the Skillz catalog. See <a href="/found-ry/" style="color:var(--okh-orange);">the Found‑Rᵧ page</a> for details.</p>
+                    </div>
+                    <div class="faq-item">
+                      <p class="faq-q">Can I contribute my own skills to the catalog?</p>
+                      <p class="faq-a">Yes. Open a pull request against the <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">OKHP3/skillz repository ↗</a>. Include a well-formed SKILL.md following the schema, a proposed family assignment, and an initial maturity level. The contribution guide is in the repository.</p>
+                    </div>
+                    <div class="faq-item">
+                      <p class="faq-q">Does the application send my data anywhere?</p>
+                      <p class="faq-a">No. All search and browsing runs locally in the browser against the static generated catalog. No user inputs are transmitted. The only external request is loading the catalog JSON from GitHub Pages — which is public, read-only content.</p>
+                    </div>
+                    <div class="faq-item">
+                      <p class="faq-q">How do I report a skill that produces harmful or incorrect output?</p>
+                      <p class="faq-a">For public, non-sensitive issues — open a GitHub issue with the skill name and a description of the incorrect behavior. For sensitive findings — use GitHub's private security advisory feature on the OKHP3/skillz repository.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+            </div><!-- /collapsibles -->
+
+            <!-- BUILDER'S NOTE ───────────────────────────────────── -->
+            <div class="builder-note">
+              <div class="section-label">Builder's Note</div>
+              <blockquote>
+                <p>The reason Skillz exists is straightforward: I kept losing the methods. A prompt would work. A protocol would get refined. A workflow would become reliable. And then it would disappear into chat history or a private document, invisible to the next project and unreachable by anyone else.</p>
+                <p>The question became — what would it look like if every reusable AI method was a first-class repository artifact? Version-controlled, inspectable, improvable, attributable. Not buried in a prompt library or locked behind a subscription.</p>
+                <p>That is Skillz. A public capability library where the method is the artifact and GitHub is the preservation layer.</p>
+                <p><em>Not a marketplace. Not a SaaS. A forge product — designed, maintained, and improved in the open.</em></p>
+              </blockquote>
+              <p class="builder-sig">— OverKill Hill P³</p>
+            </div>
+
+            <!-- FINAL CTA ────────────────────────────────────────── -->
+            <div class="content-block" style="text-align:center;padding:2rem 1.5rem;">
+              <h2 style="margin-bottom:0.5rem;">Ready to start?</h2>
+              <p style="color:var(--color-muted);margin-bottom:1.5rem;">Browse the catalog, find a skill, install it in your agent.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;">
+                <a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
+                   onclick="gtag('event','skillz_live_app_open',{event_category:'cta',event_label:'footer'});">⤢ Enter Skillz Forge</a>
+                <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" class="btn btn-quiet"
+                   onclick="gtag('event','skillz_github_open',{event_category:'cta',event_label:'footer'});">View OKHP3/skillz</a>
+                <a href="/prompt-forge/" class="btn btn-quiet"
+                   onclick="gtag('event','skillz_prompt_forge_open',{event_category:'cta',event_label:'footer'});">Return to Prompt Forge</a>
+                <a href="/contact/" class="btn btn-quiet"
+                   onclick="gtag('event','skillz_contribute_open',{event_category:'cta',event_label:'contact'});">Contact OverKill Hill</a>
+              </div>
+            </div>
+
+          </div><!-- /main column -->
+
+          <!-- SIDEBAR ──────────────────────────────────────────── -->
+          <aside class="sidebar-rail" aria-label="Project information">
+
+            <!-- Start Now CTA -->
+            <div class="sidebar-meta" style="background:rgba(196,106,44,0.1);border-color:rgba(196,106,44,0.35);">
+              <div class="section-label" style="color:var(--okh-orange);">Start Now</div>
+              <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.5;">The full catalog is live and browsable. No account. No install. Enter and explore.</p>
+              <a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;text-align:center;display:block;"
+                 onclick="gtag('event','skillz_live_app_open',{event_category:'sidebar',event_label:'cta'});">⤢ Enter Skillz Forge</a>
+            </div>
+
+            <!-- Meta -->
+            <div class="sidebar-meta">
+              <div class="section-label">Project Info</div>
+              <div class="meta-row">
+                <div class="meta-item">
+                  <span class="meta-key">Status</span>
+                  <span class="meta-val"><span class="status-dot"></span>Live — Active Build</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Type</span>
+                  <span class="meta-val">Flagship Project</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">License</span>
+                  <span class="meta-val">MIT — free always</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Cost</span>
+                  <span class="meta-val">Free / Open Source</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Runtime</span>
+                  <span class="meta-val">Browser-only · no server · no account</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Maintained by</span>
+                  <span class="meta-val"><a href="https://overkillhill.com">OverKill Hill P³</a></span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Live App</span>
+                  <span class="meta-val"><a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">okhp3.github.io/skillz ↗</a></span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-key">Source</span>
+                  <span class="meta-val"><a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">github.com/OKHP3/skillz ↗</a></span>
+                </div>
+              </div>
+              <div class="sidebar-links">
+                <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" class="sidebar-link"
+                   onclick="gtag('event','skillz_github_open',{event_category:'sidebar',event_label:'view'});">
+                  ◻ View on GitHub
+                </a>
+                <a href="https://github.com/OKHP3/skillz/issues" target="_blank" rel="noopener noreferrer" class="sidebar-link"
+                   onclick="gtag('event','skillz_contribute_open',{event_category:'sidebar',event_label:'issues'});">
+                  ⊘ Report an Issue
+                </a>
+                <a href="https://github.com/OKHP3/skillz/pulls" target="_blank" rel="noopener noreferrer" class="sidebar-link"
+                   onclick="gtag('event','skillz_contribute_open',{event_category:'sidebar',event_label:'contribute'});">
+                  ⊕ Contribute a Skill
+                </a>
+              </div>
+            </div>
+
+            <!-- Ecosystem -->
+            <div class="sidebar-related">
+              <div class="section-label">The Ecosystem</div>
+              <ul>
+                <li><a href="/prompt-forge/">The Prompt Forge (Stage 01)</a></li>
+                <li><a href="/found-ry/">Found‑Rᵧ (Stage 02)</a></li>
+                <li><a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer">Skillz Forge — Live App ↗</a></li>
+                <li><a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer">OKHP3/skillz Repository ↗</a></li>
+                <li><a href="https://github.com/OKHP3/skillz/discussions" target="_blank" rel="noopener noreferrer">Discussions ↗</a></li>
+                <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
+                <li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
+                <li><a href="/projects/">All OverKill Hill Projects</a></li>
+              </ul>
+            </div>
+
+            <!-- On This Page -->
+            <div class="sidebar-related" id="toc-widget">
+              <div class="section-label">On This Page</div>
+              <ul class="toc-list">
+                <li><a href="#problem">The Problem</a></li>
+                <li><a href="#what-is-skill-md">What Is a SKILL.md?</a></li>
+                <li><a href="#what-it-is">Honest Scope</a></li>
+                <li><a href="#embed-tool">Live Tool</a></li>
+                <li><a href="#forge-path">The Ecosystem Path</a></li>
+                <li><a href="#features">What You Can Do</a></li>
+                <li><a href="#demonstration-pathways">Demonstration Pathways</a></li>
+                <li><a href="#maturity">Skill Maturity</a></li>
+                <li><a href="#collaboration">Collaboration</a></li>
+                <li><a href="#stack">Tech Stack</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+              </ul>
+            </div>
+
+          </aside>
+
+        </div><!-- /project-layout -->
+
+      </div><!-- /container -->
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-column">
+          <h3>OverKill&nbsp;Hill&nbsp;P³™</h3>
+          <p>Protocol-first AI systems design: local inference, multi-model coordination, and the governance layer the platforms forgot to build.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="/#forge">The Forge</a></li>
+            <li><a href="/universe/">P³ Universe</a></li>
+            <li><a href="/manifesto/">The Manifesto</a></li>
+            <li><a href="/projects/">Our Projects</a></li>
+            <li><a href="/writings/">Writings</a></li>
+            <li><a href="/about/">About OKH P³</a></li>
+            <li><a href="/contact/">Contact OKH P³</a></li>
+            <li><a href="/legal/">Legal</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
+            <li><a href="https://ko-fi.com/overkillhillp3" target="_blank" rel="noopener noreferrer">Ko-fi</a></li>
+            <li><a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener noreferrer">Fiverr</a></li>
+            <li><a href="https://www.linkedin.com/company/overkillhillp3" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://facebook.com/OverKillHillP3/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://x.com/OverKillHillP3" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+            <li><a href="https://www.youtube.com/@OverKillHillP3" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
+        <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a></span>
+        <p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³™. All rights reserved.</p>
+        <span></span>
+      </div>
+    </footer>
+
+    <!-- ============================================================
+         SCRIPTS
+         ============================================================ -->
+    <script src="/assets/js/app.js"></script>
+
+    <!-- Iframe loading overlay + reload control -->
+    <script>
+      (function () {
+        const btn = document.getElementById('reload-btn');
+        const iframe = document.getElementById('tool-iframe');
+        const overlay = document.getElementById('iframe-overlay');
+        const fallback = document.getElementById('iframe-fallback');
+
+        if (!iframe) return;
+
+        var slowTimer = null;
+
+        function showLoading() {
+          if (overlay) overlay.classList.remove('loaded');
+          if (fallback) fallback.classList.remove('visible');
+          clearTimeout(slowTimer);
+          slowTimer = setTimeout(function () {
+            if (fallback) fallback.classList.add('visible');
+          }, 8000);
+        }
+
+        function hideLoading() {
+          clearTimeout(slowTimer);
+          if (overlay) overlay.classList.add('loaded');
+          if (fallback) fallback.classList.remove('visible');
+        }
+
+        iframe.addEventListener('load', hideLoading);
+
+        if (btn) {
+          btn.addEventListener('click', function () {
+            showLoading();
+            iframe.src = iframe.src;
+          });
+        }
+
+        showLoading();
+      })();
+    </script>
+  </body>
+</html>

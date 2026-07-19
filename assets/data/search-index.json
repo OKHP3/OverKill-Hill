@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 108,
+  "count": 119,
   "entries": [
     {
       "url": "/",
@@ -677,6 +677,7 @@
       "headings": [
         "Built at the Hill",
         "External Tools & Platforms",
+        "Skillz Forge",
         "Mermaid Theme Builder",
         "BPMN for Mermaid",
         "Mac Studio Local AI Workbench",
@@ -688,7 +689,7 @@
         "Protocol Libraries",
         "Ready to build your own?"
       ],
-      "body": "Skip to main content Projects from the Hill A sampling of the systems currently being forged at OverKill Hill P³™ — some public-facing, some internal client work, all built with the same protocol-driven mindset. Built at the Hill Built at the Hill Hosted tools and documented builds — designed, shipped, and maintained here. Mermaid Theme Builder Mermaid Theme Builder A visual theme builder for Mermaid diagrams — configure colors, fonts and styles with a live preview and export production-ready init config blocks. Open Theme Builder → BPMN for Mermaid BPMN for Mermaid A Mermaid-native bpmn-beta diagram type for readable, version-controllable BPMN process diagrams."
+      "body": "Skip to main content Projects from the Hill A sampling of the systems currently being forged at OverKill Hill P³™ — some public-facing, some internal client work, all built with the same protocol-driven mindset. Built at the Hill Built at the Hill Hosted tools and documented builds — designed, shipped, and maintained here. Skillz Forge Skillz Forge The flagship capability library — reusable SKILL.md contracts that AI agents can load, compose, and improve. Discover, inspect, install, and contribute skills built at the Hill."
     },
     {
       "url": "/projects/abrahamic-reference-engine/",
@@ -973,7 +974,7 @@
       "category": "Project",
       "description": "The Orchestration Pattern Five tools. One product. No chaos. Five tools, one product, no chaos. Here's the actual structure that made that sentence true.",
       "headings": [],
-      "body": "The Orchestration Pattern Five tools. One product. No chaos. Five tools, one product, no chaos. Here's the actual structure that made that sentence true. Tool Bounded role Claude Canonical spec, engine math, simulation oracle, PM and independent verification Codex / ChatGPT Work Pre-alpha foundation, product realignment, production art and UI baseline Replit Bounded implementation sprints under validation-loop prompts GitHub Single source of truth, CI gates, Pages deployment Notion Project hub and decision mirror Five governance artifacts Artifact 1 The canonical spec One document outranks every tool's opinion. Amendments are dated and ruled on, never improvised. Artifact 2 The decision log Twenty-six settled decisions. Settled questions stay settled; no tool re-litigates a closed one.",
+      "body": "The Orchestration Pattern Five tools. One product. No chaos. Five tools, one product, no chaos. Here's the actual structure that made that sentence true. Tool Bounded role Claude Canonical spec, engine math, simulation oracle, PM and independent verification Codex / ChatGPT Work Pre-alpha foundation, product realignment, production art and UI baseline Replit Bounded implementation sprints under validation-loop prompts GitHub Single source of truth, CI gates, Pages deployment Notion Project hub and decision mirror Five governance artifacts Artifact 1 The canonical spec One document outranks every tool's opinion. Amendments are dated and ruled on, never improvised. Artifact 2 The decision log Thirty-four settled decisions and counting.",
       "parent": "/projects/glee-fully-chai-chasers/"
     },
     {
@@ -982,7 +983,7 @@
       "category": "Project",
       "description": "Origin Nine days. One shot at the reveal. Chai Chasers went from first research prompt to shippable in nine days of nights and weekends. Spec and mechanics research landed July 9 and 10.",
       "headings": [],
-      "body": "Origin Nine days. One shot at the reveal. Chai Chasers went from first research prompt to shippable in nine days of nights and weekends. Spec and mechanics research landed July 9 and 10. The first implementation slice arrived July 10 and promptly failed the brand-new simulation oracle at 14% RTP, which is exactly what the oracle was for. A bounded Round-2 sprint rebuilt the math. A July 12 realignment reset the product fantasy and brought production art. Ship week tuned, froze, and wrapped it. The full narrative lives in the build log, and the receipts live in docs/DECISION-LOG.md . </div",
+      "body": "Origin Nine days. One shot at the reveal. Chai Chasers went from first research prompt to shippable in nine days of nights and weekends. Spec and mechanics research landed July 9 and 10. The first implementation slice arrived July 10 and promptly failed the brand-new simulation oracle at 14% RTP, which is exactly what the oracle was for. A bounded Round-2 sprint rebuilt the math. A July 12 realignment reset the product fantasy and brought production art. Ship week tuned, froze, and wrapped it. The final build passed 149 tests, and the last edit before the freeze was one sentence from Jamie to Glee. The full narrative lives in the build log, and the receipts live in docs/DECISION-LOG.md . </div",
       "parent": "/projects/glee-fully-chai-chasers/"
     },
     {
@@ -1025,9 +1026,9 @@
       "url": "/projects/glee-fully-chai-chasers/#what-it-does",
       "title": "A real game. A real spec. A real test. — Glee-fully Chai Chasers | OverKill Hill P³™",
       "category": "Project",
-      "description": "What It Does A real game. A real spec. A real test. The Engine A real cascade engine. 5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a 1-in-400 legendary event.",
+      "description": "What It Does A real game. A real spec. A real test. The Engine A real cascade engine. 5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a legendary event that shows…",
       "headings": [],
-      "body": "What It Does A real game. A real spec. A real test. The Engine A real cascade engine. 5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a 1-in-400 legendary event. Pure TypeScript, zero DOM imports, fully unit-tested. The Oracle A simulation oracle as the definition of done. A 200,000-spin seeded test asserts RTP 96% plus or minus 0.5 and five event-frequency bands. It shipped deliberately red, and no tool was permitted to weaken it. Green meant done. Nothing else did. The Product Personalization as product spec. Iced chai only. Two illustrated cats with different treat contracts. Keepsakes from one specific shared life. The specificity is the feature; genericness was treated as a defect. The Deploy Zero backend, zero money.",
+      "body": "What It Does A real game. A real spec. A real test. The Engine A real cascade engine. 5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a legendary event that shows itself often but is only truly caught about once every 4,200 spins. Pure TypeScript, zero DOM imports, fully unit-tested. The Oracle A simulation oracle as the definition of done. A 200,000-spin seeded test asserts the spec's layered RTP model (base game plus the common bonuses, roughly 96.5% total) and five event-frequency bands. The legendary event above is deliberately excluded from that figure: there's no real money in this game, so its rare, generous payout is allowed to push measured full-game RTP to roughly 103% on the runs where it lands.",
       "parent": "/projects/glee-fully-chai-chasers/"
     },
     {
@@ -1319,6 +1320,151 @@
       "headings": [],
       "body": "Why This Exists What you get here that you don't get from prompting an LLM ✗ Prompting an LLM Generates CSS variable blobs you paste and re-prompt until something looks right. No live preview, no iteration feedback, result varies by model. No renderer awareness — you find out what breaks when you paste it. ✓ Mermaid Theme Builder Pick a color, see every diagram type update instantly. Export as a themeVariables block, a Markdown style bootstrap, or a renderer-aware prompt scaffold. AI tools stay on-brand from the first generation — not the sixth. This is a visual governance layer for the Mermaid.js ecosystem — not a commercial product, not a SaaS, not a competitor to Mermaid.ai. It runs entirely in your browser. No account. No data collected. </div",
       "parent": "/projects/mermaid-theme-builder/"
+    },
+    {
+      "url": "/projects/skillz/",
+      "title": "Skillz Forge | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Skillz Forge is the flagship OverKill Hill P³™ workbench for discovering, inspecting, composing, installing, and improving reusable Agent Skills.",
+      "headings": [
+        "The prompt is not the artifact. The durable method is.",
+        "What is a SKILL.md?",
+        "A discovery workbench, not a marketplace",
+        "How a prompt becomes a portable capability",
+        "Verified application capabilities",
+        "Skills in action — four recurring scenarios",
+        "How skill maturity works",
+        "How to contribute, improve, or report",
+        "How Skillz Forge is built",
+        "Where the build is going",
+        "Ready to start?",
+        "Disposable prompts in chat history",
+        "Prompt protocols that define conditions",
+        "Reusable skills that package methods",
+        "GitHub repositories that preserve the method",
+        "Activation triggers",
+        "Role and context",
+        "Inputs and method",
+        "Boundaries and failure handling",
+        "Outputs and validation",
+        "Companion skills",
+        "Search by task or phrase",
+        "Browse skill families",
+        "Filter by maturity",
+        "Inspect individual skills",
+        "Copy a raw installation URL",
+        "Save favorites locally",
+        "Explore curated stacks",
+        "Open native GitHub paths",
+        "Governed Mermaid Workflow",
+        "Process Documentation Pipeline",
+        "New Skill Creation Pipeline",
+        "AI Conversation Capture and Repository Reconciliation",
+        "Open an issue for a bug",
+        "Suggest a new skill",
+        "Improve trigger descriptions",
+        "Use Discussions for design questions",
+        "Report missing metadata",
+        "Security advisories",
+        "React + TypeScript",
+        "Vite",
+        "Fuse.js phrase search",
+        "Static generated catalog",
+        "GitHub Pages",
+        "GitHub as source of truth",
+        "Need a custom Agent Skills system for your team?"
+      ],
+      "body": "Skip to main content overkillhill.com / projects / skillz Flagship Project Open Source Agent Skills Catalog Skillz Forge Live GitHub-Native Active Build Skillz Forge Reusable capabilities from the OverKill Hill P³™ forge. Skillz turns recurring AI methods into portable, inspectable, versioned SKILL.md contracts that agents can load, compose, and improve. Discover, inspect, install, and contribute — entirely through the browser and GitHub. ⤢ Enter Skillz Forge View Source on GitHub Return to Prompt Forge The Problem The prompt is not the artifact. The durable method is. The prompt is not the artifact. The durable method is. Every recurring AI task deserves a governed method."
+    },
+    {
+      "url": "/projects/skillz/#collaboration",
+      "title": "How to contribute, improve, or report — Skillz Forge | OverKill Hill P³™",
+      "category": "Project",
+      "description": "GitHub-Native Collaboration How to contribute, improve, or report Skillz Forge surfaces GitHub paths — it does not imitate or replace GitHub's collaboration interface.",
+      "headings": [],
+      "body": "GitHub-Native Collaboration How to contribute, improve, or report Skillz Forge surfaces GitHub paths — it does not imitate or replace GitHub's collaboration interface. All contribution happens natively in the repository. ⊘ Open an issue for a bug Skill behaves differently than its contract states? The trigger fires incorrectly? File an issue ↗ ⊕ Suggest a new skill Describe the recurring task, the gap the skill would fill, and what a correct output looks like. Suggest via Issues ↗ ◻ Improve trigger descriptions Better trigger language improves match rates across agents and coding assistants. Open a pull request with the improved wording. Open a PR ↗ ◈ Use Discussions for design questions Scope, contract design, and family organization questions belong in Discussions — not issues.",
+      "parent": "/projects/skillz/"
+    },
+    {
+      "url": "/projects/skillz/#demonstration-pathways",
+      "title": "Skills in action — four recurring scenarios — Skillz Forge | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Demonstration Pathways Skills in action — four recurring scenarios Each pathway shows a recurring problem, the relevant skill family in the repository, the resulting artifact, and where to find it.",
+      "headings": [],
+      "body": "Demonstration Pathways Skills in action — four recurring scenarios Each pathway shows a recurring problem, the relevant skill family in the repository, the resulting artifact, and where to find it. These are real repository examples — not invented scenarios. Pathway 01 Governed Mermaid Workflow The problem: AI-generated Mermaid diagrams drift in style, break in target renderers, and require repeated follow-up prompts to fix. The governance rules are re-stated from scratch every session. The skill family: Mermaid governance — palette definitions, renderer profiles, prompt scaffold generation, and diagram-family capability rules. The artifact: A SKILL.md that an agent loads once.",
+      "parent": "/projects/skillz/"
+    },
+    {
+      "url": "/projects/skillz/#features",
+      "title": "Verified application capabilities — Skillz Forge | OverKill Hill P³™",
+      "category": "Project",
+      "description": "What You Can Do Now Verified application capabilities These are the currently shipped behaviors of the live Skillz Forge application. Future capabilities are listed separately in the roadmap and labeled as planned.",
+      "headings": [],
+      "body": "What You Can Do Now Verified application capabilities These are the currently shipped behaviors of the live Skillz Forge application. Future capabilities are listed separately in the roadmap and labeled as planned. 🔍 Search by task or phrase Phrase search across the generated catalog — find skills by the task they perform, the triggers they activate on, or the problem they address. ◫ Browse skill families Skills are organized into functional families — browse by category to find related capabilities and understand how skills compose into workflows. ◑ Filter by maturity Each skill carries a maturity level — from placeholder through published. Filter to see only validated skills, or explore skills under active development.",
+      "parent": "/projects/skillz/"
+    },
+    {
+      "url": "/projects/skillz/#forge-path",
+      "title": "How a prompt becomes a portable capability — Skillz Forge | OverKill Hill P³™",
+      "category": "Project",
+      "description": "The Ecosystem Path How a prompt becomes a portable capability The same method moves through four stages — design, packaging, discovery, and collaboration.",
+      "headings": [],
+      "body": "The Ecosystem Path How a prompt becomes a portable capability The same method moves through four stages — design, packaging, discovery, and collaboration. Each stage has a specific surface in the OverKill Hill ecosystem. Stage 01 Prompt Forge Designs and hardens prompts, protocols, audit contracts, and reusable AI workflows. Enter Prompt Forge → Stage 02 Found‑Rᵧ Packages a reusable AI capability into a governed, inspectable repository artifact. Explore Found‑Rᵧ → Stage 03 — You are here Skillz Forge Helps visitors discover, understand, install, compose, share, and improve those capabilities. Enter Skillz Forge ↗ Stage 04 GitHub Stores the source, history, issues, pull requests, discussions, and review record.",
+      "parent": "/projects/skillz/"
+    },
+    {
+      "url": "/projects/skillz/#maturity",
+      "title": "How skill maturity works — Skillz Forge | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Trust and Maturity How skill maturity works Maturity reflects the current evidence and repository state — not a universal guarantee that every output will be correct.",
+      "headings": [],
+      "body": "Trust and Maturity How skill maturity works Maturity reflects the current evidence and repository state — not a universal guarantee that every output will be correct. A published skill has been reviewed and field-tested; a placeholder has a slot reserved but has not yet been written. Placeholder A named slot in the catalog. The skill is planned but not yet written. No contract exists. Skeleton Structure and key fields are present. Not yet usable for production delegation. Draftable Core contract is written and reviewable. Suitable for supervised use and pull-request feedback. Usable The skill has been exercised in real workflows. Limits are documented. Suitable for unsupervised use by an experienced operator. Validated Field-tested, peer-reviewed, and verified against its stated contract.",
+      "parent": "/projects/skillz/"
+    },
+    {
+      "url": "/projects/skillz/#problem",
+      "title": "The prompt is not the artifact. The durable method is. — Skillz Forge | OverKill Hill P³™",
+      "category": "Project",
+      "description": "The Problem The prompt is not the artifact. The durable method is. Every recurring AI task deserves a governed method. Most get a prompt buried in chat history instead.",
+      "headings": [],
+      "body": "The Problem The prompt is not the artifact. The durable method is. Every recurring AI task deserves a governed method. Most get a prompt buried in chat history instead. 💬 Disposable prompts in chat history A prompt that works today is not findable tomorrow. It lives in a chat window — no version, no review, no handoff. Every collaborator re-invents it from scratch. 📋 Prompt protocols that define conditions A governed prompt protocol specifies its role, context, inputs, boundaries, and failure modes. It is writable, reviewable, and testable — but it still lives in a document, not a repository. ⚙️ Reusable skills that package methods A SKILL.md packages a governed method as a delegation contract for an AI agent.",
+      "parent": "/projects/skillz/"
+    },
+    {
+      "url": "/projects/skillz/#roadmap",
+      "title": "Where the build is going — Skillz Forge | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Roadmap Where the build is going ✓ Public Skillz Forge Application Shipped Live at okhp3.github.io/skillz/. Generated repository catalog. Phrase search. Family and maturity browsing. Skill detail pages. Curated stacks.",
+      "headings": [],
+      "body": "Roadmap Where the build is going ✓ Public Skillz Forge Application Shipped Live at okhp3.github.io/skillz/. Generated repository catalog. Phrase search. Family and maturity browsing. Skill detail pages. Curated stacks. FAQ. GitHub deep links. ▶ Brand Alignment and Catalog Hardening Active OverKill Hill brand alignment. Catalog provenance. Stable share URLs. Structured metadata across all skill entries. Analytics consistency. Activity freshness signals. ○ Compare Mode Planned Side-by-side skill comparison — review trigger language, method steps, and boundary conditions across two or more skills before selecting one for a workflow.",
+      "parent": "/projects/skillz/"
+    },
+    {
+      "url": "/projects/skillz/#stack",
+      "title": "How Skillz Forge is built — Skillz Forge | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Technical Stack How Skillz Forge is built The Skillz Forge application is a static, client-side React SPA. There is no server, no database, and no authenticated runtime.",
+      "headings": [],
+      "body": "Technical Stack How Skillz Forge is built The Skillz Forge application is a static, client-side React SPA. There is no server, no database, and no authenticated runtime. The catalog is generated from repository content at build time. &lt;/&gt; React + TypeScript Component architecture with full type safety. No framework dependencies beyond React and Vite. ⚡ Vite Fast build toolchain. Static output deployed to GitHub Pages without a server or CDN dependency. 🔍 Fuse.js phrase search Client-side fuzzy search across the generated catalog. No search backend, no query API. All search runs in the browser. ◫ Static generated catalog Repository skill content is parsed at build time and emitted as a static JSON catalog.",
+      "parent": "/projects/skillz/"
+    },
+    {
+      "url": "/projects/skillz/#what-is-skill-md",
+      "title": "What is a SKILL.md? — Skillz Forge | OverKill Hill P³™",
+      "category": "Project",
+      "description": "The Contract What is a SKILL.md? A SKILL.md is a plain-text delegation contract for an AI agent. Drop it into your agent's skill directory — Claude Code, Cursor, GitHub Copilot, VS Code, Replit Agent — and the agent…",
+      "headings": [],
+      "body": "The Contract What is a SKILL.md? A SKILL.md is a plain-text delegation contract for an AI agent. Drop it into your agent's skill directory — Claude Code, Cursor, GitHub Copilot, VS Code, Replit Agent — and the agent gains the defined capability without requiring a re-prompt for every task. ◈ Activation triggers Specific phrases or task types that cause the agent to load and execute this skill rather than improvising a response. ◎ Role and context Who the agent is acting as, what environment it is operating in, and what governing authority the skill carries. ▤ Inputs and method What information the skill expects, what steps it follows, and what decisions it is authorized to make without asking.",
+      "parent": "/projects/skillz/"
+    },
+    {
+      "url": "/projects/skillz/#what-it-is",
+      "title": "A discovery workbench, not a marketplace — Skillz Forge | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Honest Scope A discovery workbench, not a marketplace Skillz Forge Is ◆ A public Agent Skills discovery workbench ◆ A generated catalog of repository skill content ◆ A way to inspect and install SKILL.md files ◆ A way…",
+      "headings": [],
+      "body": "Honest Scope A discovery workbench, not a marketplace Skillz Forge Is ◆ A public Agent Skills discovery workbench ◆ A generated catalog of repository skill content ◆ A way to inspect and install SKILL.md files ◆ A way to compose curated or local skill stacks ◆ A GitHub collaboration bridge — issues, PRs, discussions ◆ Open source, browser-only, no login, free always Skillz Forge Is Not — Not a replacement for GitHub — Not an authenticated social network — Not a hosted agent runtime — Not a guarantee that every skill is production-ready — Not a marketplace requiring payment or account creation — Not a second Prompt Forge — Not a claim that all skills are complete or validated </div",
+      "parent": "/projects/skillz/"
     },
     {
       "url": "/search/",
