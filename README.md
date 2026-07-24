@@ -108,8 +108,8 @@ All scripts in `scripts/` are pure Python, dependency-light (Pillow + bs4 + lxml
 | `png-to-webp.py` | Bulk PNG → WebP conversion (q=82, method=6) for assets ≥ 200 KB |
 | `picture-upgrade.py` | Wraps `<img src=".png">` in `<picture>` with a `<source type="image/webp">` sibling |
 | `cache-bust.py` | Appends `?v=<sha256[:8]>` to local CSS/JS refs in HTML |
-| `extract-templates.py` | Derives stripped layout templates into `/assets/templates/` from one donor per layout; `--check` runs conformance asserts |
-| `build-search-index.py` | Refreshes `/assets/data/search-index.json` from live HTML; `--check` for CI |
+| `extract-templates.py` | Derives stripped layout templates into `/assets/templates/` from one donor per layout; requires `beautifulsoup4` locally |
+| `build-search-index.py` | Refreshes `/assets/data/search-index.json` from live HTML; review the generated diff after running |
 | `modernize-pages.py` | Idempotently injects 2026 baselines into every page: `color-scheme` meta, skip-link, Speculation Rules API prefetch, jsdelivr preconnect + mermaid `modulepreload` (mermaid pages only); `--check` for CI |
 | `move-orphans-to-library.py` | Moves any unreferenced asset under `assets/img/` into `assets/img/library/` (preserves the file as a media-kit archive, removes from deploy hot path); `--check` for CI |
 
@@ -117,7 +117,10 @@ Templates produced by `extract-templates.py` are **scaffolds, not pages** — th
 
 ### Continuous integration
 
-`.github/workflows/validate.yml` runs `validate-site.py`, `extract-templates.py --check`, and `build-search-index.py --check` on every push and pull request to `main`. All three must pass green for the build to be considered deploy-safe.
+`.github/workflows/validate.yml` runs `validate-site.py`, `check-links.py`, and
+`build-search-index.py` on every push and pull request to `main`, then verifies
+that the generated search-index file exists. `extract-templates.py` is not
+currently part of this workflow.
 
 ## Editing guidance
 

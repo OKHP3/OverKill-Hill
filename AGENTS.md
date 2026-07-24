@@ -9,7 +9,7 @@ and current audit state.
 
 ## Current Project Context
 
-This section records the repository facts verified during the 2026-07-13
+This section records the repository facts verified during the 2026-07-24
 context-alignment pass. Update it when the project shape, entry points, or
 validation workflow changes.
 
@@ -47,7 +47,7 @@ validation workflow changes.
   navigation, theme switching, scroll behavior, and site search.
   `mermaid-init.js` is used on pages that render Mermaid diagrams.
 - `assets/data/search-index.json` is generated from indexable HTML by
-  `scripts/build-search-index.py` and currently contains 100 entries.
+  `scripts/build-search-index.py` and currently contains 119 entries.
 - `scripts/` contains Python and shell maintenance, audit, and release tools.
 - Deployment metadata points at a static directory. The public domain and
   hosting arrangement are documented in `README.md`, `CNAME`, and
@@ -55,20 +55,21 @@ validation workflow changes.
 
 ### Validation status
 
-- Confirmed: `python3 scripts/validate-site.py` passes and validates 29
+- Confirmed: `python3 scripts/validate-site.py` passes and validates 31
   production HTML pages. The validator also runs the Mermaid Theme Builder
   version checks, which currently pass for v0.5.0 and the v0.5.x SKILL.md
   Hardening sprint.
-- Confirmed: the repository has 41 HTML files when authoring templates and the
+- Confirmed: the repository has 43 HTML files when authoring templates and the
   nested preview are counted. Templates and preview files are excluded from
   the production validator.
 - Confirmed: there is no root unit-test or application test runner.
 - Limitation: `python3 scripts/extract-templates.py --check` requires the
   `beautifulsoup4` package, which is not installed in the current local
-  runtime. CI installs it before running the template check.
+  runtime. The current workflow does not run this check.
 - Limitation: `scripts/build-search-index.py` is a generator and does not
   implement a read-only `--check` mode. Run it after content changes and
-  review the generated JSON diff.
+  review the generated JSON diff. The current committed index contains 119
+  entries, matching the current generator output.
 - Open risk: `python3 scripts/check-links.py` reports zero broken links but
   identifies six live pages that are not currently listed in `sitemap.xml`.
   Resolve sitemap coverage in a separate content-maintenance change.
@@ -638,7 +639,7 @@ baseline -- update it here when the inventory changes materially.
 |---|---|---|
 | `assets/audit/` | `.gitkeep` plus one links report | Populate by running `scripts/validate-site.py`, `check-links.py`, `viewport-qa.py` |
 | `assets/css/` | `theme.css` (136 KB) | Single canonical stylesheet |
-| `assets/data/` | `search-index.json` (100 entries) | Rebuild after content changes |
+| `assets/data/` | `search-index.json` (119 entries) | Rebuild after content changes |
 | `assets/downloads/` | `okh-prompt-protocol-template.md` | User-facing prompt protocol download |
 | `assets/docs/` | `.gitkeep` only | Add audit and evaluation reports here |
 | `assets/img/` | 14 direct image files plus subdirectories | Includes Sentinel, BirdPatrol, and cross-site reference assets |
