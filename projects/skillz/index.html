@@ -3,7 +3,7 @@
      Canonical:    projects/skillz/index.html
      Live app:     https://okhp3.github.io/skillz/
      Source repo:  https://github.com/OKHP3/skillz
-     Last reviewed: 2026-07-19
+     Last reviewed: 2026-07-24
      ============================================================ -->
 <!DOCTYPE html>
 <html lang="en">
@@ -492,6 +492,45 @@
               <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.75rem;line-height:1.6;">The same capability asset — one <code>SKILL.md</code> file — is designed in Prompt Forge, packaged in Found‑Rᵧ, discovered via Skillz Forge, and maintained in GitHub. No duplication of surfaces. Each stage does one job.</p>
             </div>
 
+            <!-- CURRENT INVENTORY ───────────────────────────────── -->
+            <div class="content-block card" id="inventory" data-search-index>
+              <div class="section-label">Current Inventory</div>
+              <h2>68 public distribution skills across 11 active families</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">Source-derived count as of July 24, 2026. Public distribution inventory only — two placeholder family directories (<code>glee-fully/</code>, <code>askjamie/</code>) and 18 project-local support skills in <code>.agents/skills/</code> are excluded from this total.</p>
+
+              <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.25rem;" role="list" aria-label="Active skill families">
+                <span class="tag" role="listitem">Abrahamic</span>
+                <span class="tag" role="listitem">Agent Foundry</span>
+                <span class="tag" role="listitem">Community</span>
+                <span class="tag" role="listitem">Context Extraction</span>
+                <span class="tag" role="listitem">LifeTrkr</span>
+                <span class="tag" role="listitem">LinkedIn</span>
+                <span class="tag tag--accent" role="listitem">Mermaid</span>
+                <span class="tag" role="listitem">Notion</span>
+                <span class="tag" role="listitem">Process Capture</span>
+                <span class="tag" role="listitem">ReFolDec</span>
+                <span class="tag" role="listitem">Universal</span>
+              </div>
+
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.75rem;margin-bottom:1.25rem;">
+                <div style="padding:0.875rem;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:rgba(0,0,0,0.1);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--okh-orange);line-height:1;">68</div>
+                  <div style="font-size:0.78rem;color:var(--color-muted);margin-top:0.25rem;">public distribution skills</div>
+                </div>
+                <div style="padding:0.875rem;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:rgba(0,0,0,0.1);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--color-fg);line-height:1;">11</div>
+                  <div style="font-size:0.78rem;color:var(--color-muted);margin-top:0.25rem;">active families</div>
+                </div>
+                <div style="padding:0.875rem;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:rgba(0,0,0,0.1);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--color-muted);line-height:1;">2</div>
+                  <div style="font-size:0.78rem;color:var(--color-muted);margin-top:0.25rem;">placeholder families (excluded)</div>
+                </div>
+              </div>
+
+              <p style="font-size:0.825rem;color:var(--color-muted);line-height:1.6;">This page does not maintain a live family directory. The SPA is the authoritative exploration surface — family breakdowns, maturity filters, and per-skill detail are all available there. <a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);"
+                 onclick="gtag('event','skillz_live_app_open',{event_category:'inventory',event_label:'explore'});">Explore the full catalog in Skillz Forge ↗</a></p>
+            </div>
+
             <!-- WHAT VISITORS CAN DO ─────────────────────────────── -->
             <div class="content-block" id="features" data-search-index>
               <div class="section-label">What You Can Do Now</div>
@@ -554,6 +593,13 @@
                     <p>Every skill links directly to its GitHub source, issue tracker, and discussion thread. Contribute, report, or improve — directly in the repository.</p>
                   </div>
                 </div>
+                <div class="feature-item">
+                  <div class="feature-icon" aria-hidden="true">◑</div>
+                  <div>
+                    <h3>View static generated activity context</h3>
+                    <p>Build-time activity signals from the repository — recent commit context and family provenance embedded into the generated catalog without live GitHub API polling.</p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -569,36 +615,40 @@
                   <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Pathway 01</div>
                   <h3 style="margin:0 0 0.5rem;font-size:1rem;">Governed Mermaid Workflow</h3>
                   <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The problem:</strong> AI-generated Mermaid diagrams drift in style, break in target renderers, and require repeated follow-up prompts to fix. The governance rules are re-stated from scratch every session.</p>
-                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> Mermaid governance — palette definitions, renderer profiles, prompt scaffold generation, and diagram-family capability rules.</p>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> <strong style="color:var(--color-fg);">Mermaid</strong> — palette definitions, renderer profiles, prompt scaffold generation, and diagram-family capability rules.</p>
                   <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The artifact:</strong> A <code>SKILL.md</code> that an agent loads once. Every subsequent diagram generation inherits the brand palette, renderer target, and constraint rules — without re-prompting.</p>
-                  <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);">Find it in OKHP3/skillz ↗</a>
+                  <a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);"
+                     onclick="gtag('event','skillz_live_app_open',{event_category:'pathway',event_label:'mermaid'});">Browse Mermaid family in Skillz Forge ↗</a>
                 </div>
 
                 <div style="border:1px solid var(--color-border-subtle);border-left:3px solid var(--okh-orange);border-radius:var(--radius-md);padding:1.25rem;background:var(--color-surface);">
                   <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Pathway 02</div>
                   <h3 style="margin:0 0 0.5rem;font-size:1rem;">Process Documentation Pipeline</h3>
                   <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The problem:</strong> Documenting a business process requires consistent vocabulary, BPMN-aligned structure, and reproducible output across team members and AI tools — none of which a one-off prompt delivers.</p>
-                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> Process documentation — BPMN for Mermaid structural patterns, swim-lane conventions, gateway semantics, and output format rules.</p>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> <strong style="color:var(--color-fg);">Process Capture</strong> — BPMN for Mermaid structural patterns, swim-lane conventions, gateway semantics, and output format rules.</p>
                   <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The artifact:</strong> A composable <code>SKILL.md</code> that maintains structural consistency across every diagram in the pipeline — from first draft to version-controlled deliverable.</p>
-                  <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);">Find it in OKHP3/skillz ↗</a>
+                  <a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);"
+                     onclick="gtag('event','skillz_live_app_open',{event_category:'pathway',event_label:'process-capture'});">Browse Process Capture family in Skillz Forge ↗</a>
                 </div>
 
                 <div style="border:1px solid var(--color-border-subtle);border-left:3px solid var(--okh-orange);border-radius:var(--radius-md);padding:1.25rem;background:var(--color-surface);">
                   <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Pathway 03</div>
                   <h3 style="margin:0 0 0.5rem;font-size:1rem;">New Skill Creation Pipeline</h3>
                   <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The problem:</strong> Writing a well-formed <code>SKILL.md</code> from scratch requires remembering the full contract schema — triggers, inputs, method, boundaries, failure handling, outputs, and validation — every time.</p>
-                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> Skill authoring — schema validation, field completeness checking, trigger description quality, and companion skill mapping.</p>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> <strong style="color:var(--color-fg);">Agent Foundry</strong> — schema validation, field completeness checking, trigger description quality, and companion skill mapping.</p>
                   <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The artifact:</strong> A <code>SKILL.md</code> for creating <code>SKILL.md</code> files. The agent follows the authoring contract and produces a well-formed, schema-valid skill file on the first pass.</p>
-                  <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);">Find it in OKHP3/skillz ↗</a>
+                  <a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);"
+                     onclick="gtag('event','skillz_live_app_open',{event_category:'pathway',event_label:'agent-foundry'});">Browse Agent Foundry family in Skillz Forge ↗</a>
                 </div>
 
                 <div style="border:1px solid var(--color-border-subtle);border-left:3px solid var(--okh-orange);border-radius:var(--radius-md);padding:1.25rem;background:var(--color-surface);">
                   <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Pathway 04</div>
                   <h3 style="margin:0 0 0.5rem;font-size:1rem;">AI Conversation Capture and Repository Reconciliation</h3>
                   <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The problem:</strong> Valuable insight from an AI conversation — a working method, a reusable protocol, a verified approach — lives in a chat window and disappears. Reconciling it against existing repository artifacts is manual and error-prone.</p>
-                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> Conversation capture — thread routing, deduplication against existing skills, classification as new, complementary, or duplicate, and repository integration paths.</p>
+                  <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> <strong style="color:var(--color-fg);">Context Extraction</strong> — thread routing, deduplication against existing skills, classification as new, complementary, or duplicate, and repository integration paths.</p>
                   <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The artifact:</strong> A governed capture workflow that converts a chat export into a reconciled repository contribution — preserving the method, not just the conversation.</p>
-                  <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);">Find it in OKHP3/skillz ↗</a>
+                  <a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);"
+                     onclick="gtag('event','skillz_live_app_open',{event_category:'pathway',event_label:'context-extraction'});">Browse Context Extraction family in Skillz Forge ↗</a>
                 </div>
 
               </div>
@@ -1067,6 +1117,7 @@ curl -o .agents/skills/my-skill.md \
                 <li><a href="#what-it-is">Honest Scope</a></li>
                 <li><a href="#embed-tool">Live Tool</a></li>
                 <li><a href="#forge-path">The Ecosystem Path</a></li>
+                <li><a href="#inventory">Current Inventory</a></li>
                 <li><a href="#features">What You Can Do</a></li>
                 <li><a href="#demonstration-pathways">Demonstration Pathways</a></li>
                 <li><a href="#maturity">Skill Maturity</a></li>
