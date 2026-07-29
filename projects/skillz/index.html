@@ -3,7 +3,7 @@
      Canonical:    projects/skillz/index.html
      Live app:     https://okhp3.github.io/skillz/
      Source repo:  https://github.com/OKHP3/skillz
-     Last reviewed: 2026-07-24
+     Last reviewed: 2026-07-29
      ============================================================ -->
 <!DOCTYPE html>
 <html lang="en">
@@ -495,8 +495,8 @@
             <!-- CURRENT INVENTORY ───────────────────────────────── -->
             <div class="content-block card" id="inventory" data-search-index>
               <div class="section-label">Current Inventory</div>
-              <h2>68 public distribution skills across 11 active families</h2>
-              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">Source-derived count as of July 24, 2026. Public distribution inventory only — two placeholder family directories (<code>glee-fully/</code>, <code>askjamie/</code>) and 18 project-local support skills in <code>.agents/skills/</code> are excluded from this total.</p>
+              <h2>75 public distribution skills across 12 active families</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">Source-derived count from the July 29, 2026 skill maturity audit. Public distribution inventory only — two placeholder family directories (<code>glee-fully/</code>, <code>askjamie/</code>) and 18 project-local support skills in <code>.agents/skills/</code> are excluded from this total. A prior July 24, 2026 snapshot reported 68 skills across 11 families; the count grew as new packages were added and audited.</p>
 
               <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.25rem;" role="list" aria-label="Active skill families">
                 <span class="tag" role="listitem">Abrahamic</span>
@@ -507,6 +507,7 @@
                 <span class="tag" role="listitem">LinkedIn</span>
                 <span class="tag tag--accent" role="listitem">Mermaid</span>
                 <span class="tag" role="listitem">Notion</span>
+                <span class="tag" role="listitem">Outcome Modeling</span>
                 <span class="tag" role="listitem">Process Capture</span>
                 <span class="tag" role="listitem">ReFolDec</span>
                 <span class="tag" role="listitem">Universal</span>
@@ -514,11 +515,11 @@
 
               <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.75rem;margin-bottom:1.25rem;">
                 <div style="padding:0.875rem;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:rgba(0,0,0,0.1);">
-                  <div style="font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--okh-orange);line-height:1;">68</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--okh-orange);line-height:1;">75</div>
                   <div style="font-size:0.78rem;color:var(--color-muted);margin-top:0.25rem;">public distribution skills</div>
                 </div>
                 <div style="padding:0.875rem;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:rgba(0,0,0,0.1);">
-                  <div style="font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--color-fg);line-height:1;">11</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--color-fg);line-height:1;">12</div>
                   <div style="font-size:0.78rem;color:var(--color-muted);margin-top:0.25rem;">active families</div>
                 </div>
                 <div style="padding:0.875rem;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:rgba(0,0,0,0.1);">
@@ -527,8 +528,11 @@
                 </div>
               </div>
 
+              <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;">Every skill in this count is <strong style="color:var(--color-fg);">draftable</strong> or <strong style="color:var(--color-fg);">skeleton</strong> maturity today — none are yet marked usable, validated, or published. Maturity describes the contract's completeness; it is tracked separately from <strong style="color:var(--color-fg);">evidence status</strong>, which describes what proof exists for the current version (live, analytical, local-checks, historical, not-run, or none). See <a href="#maturity" style="color:var(--okh-orange);">how maturity and evidence work</a> below.</p>
+
               <p style="font-size:0.825rem;color:var(--color-muted);line-height:1.6;">This page does not maintain a live family directory. The SPA is the authoritative exploration surface — family breakdowns, maturity filters, and per-skill detail are all available there. <a href="https://okhp3.github.io/skillz/" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);"
-                 onclick="gtag('event','skillz_live_app_open',{event_category:'inventory',event_label:'explore'});">Explore the full catalog in Skillz Forge ↗</a></p>
+                 onclick="gtag('event','skillz_live_app_open',{event_category:'inventory',event_label:'explore'});">Explore the full catalog in Skillz Forge ↗</a> · <a href="https://github.com/OKHP3/skillz/tree/main/docs" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);"
+                 onclick="gtag('event','github_handoff',{event_category:'inventory',event_label:'audit_docs'});">Read the July 29, 2026 maturity audit ↗</a></p>
             </div>
 
             <!-- WHAT VISITORS CAN DO ─────────────────────────────── -->
@@ -657,8 +661,8 @@
             <!-- MATURITY LADDER ──────────────────────────────────── -->
             <div class="content-block" id="maturity" data-search-index>
               <div class="section-label">Trust and Maturity</div>
-              <h2>How skill maturity works</h2>
-              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1rem;line-height:1.7;">Maturity reflects the current evidence and repository state — not a universal guarantee that every output will be correct. A published skill has been reviewed and field-tested; a placeholder has a slot reserved but has not yet been written.</p>
+              <h2>How skill maturity and evidence work</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1rem;line-height:1.7;">Maturity and evidence answer two different questions, and the catalog tracks them separately rather than merging them into one badge. <strong style="color:var(--color-fg);">Maturity</strong> describes the state of the contract itself — is the trigger, method, and boundary language complete? <strong style="color:var(--color-fg);">Evidence status</strong> describes what proof exists that the current version actually works — a live run, an analytical design, local checks, a historical benchmark from an older version, an unexecuted evaluation design, or no indexed record at all. A skill can be draftable with strong local-checks evidence, or draftable with no evidence record — the maturity label alone does not tell you which.</p>
 
               <div style="display:grid;gap:0.5rem;">
                 <div style="display:grid;grid-template-columns:140px 1fr;gap:0.75rem;align-items:start;padding:0.75rem;border:1px solid var(--color-border-subtle);border-radius:6px;background:rgba(0,0,0,0.1);">
@@ -688,6 +692,18 @@
               </div>
 
               <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.75rem;line-height:1.6;">Maturity is set in the repository by the skill author or a maintainer. It is not automatically inferred. If a skill's maturity does not match your observations, <a href="https://github.com/OKHP3/skillz/issues" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">open an issue ↗</a>.</p>
+
+              <h3 style="margin:1.5rem 0 0.5rem;font-size:0.95rem;">Evidence status, separately</h3>
+              <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><code>draftable</code> does not mean validated, and <code>usable</code> does not mean production-safe in every environment. <code>validated</code> is reserved for a fresh, version-matched benchmark with a measurable result and a protected holdout — no skill in the current catalog has reached it yet. An evidence note may be <code>historical</code> (a benchmark from an older version of the same skill), <code>not-run</code> (a written evaluation design that has not been executed), or <code>none</code> (no indexed evidence record — not a claim that the skill is unsafe).</p>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.5rem;margin-bottom:0.5rem;">
+                <div style="padding:0.6rem 0.75rem;border:1px solid var(--color-border-subtle);border-radius:6px;background:rgba(0,0,0,0.1);font-size:0.78rem;"><strong style="color:var(--color-fg);">Live</strong> — version-matched executor run on record.</div>
+                <div style="padding:0.6rem 0.75rem;border:1px solid var(--color-border-subtle);border-radius:6px;background:rgba(0,0,0,0.1);font-size:0.78rem;"><strong style="color:var(--color-fg);">Analytical</strong> — evaluation design exists; scope reasoned through, not executed live.</div>
+                <div style="padding:0.6rem 0.75rem;border:1px solid var(--color-border-subtle);border-radius:6px;background:rgba(0,0,0,0.1);font-size:0.78rem;"><strong style="color:var(--color-fg);">Local checks</strong> — scripts or tests exist in the package.</div>
+                <div style="padding:0.6rem 0.75rem;border:1px solid var(--color-border-subtle);border-radius:6px;background:rgba(0,0,0,0.1);font-size:0.78rem;"><strong style="color:var(--color-fg);">Historical</strong> — benchmark predates the current package version.</div>
+                <div style="padding:0.6rem 0.75rem;border:1px solid var(--color-border-subtle);border-radius:6px;background:rgba(0,0,0,0.1);font-size:0.78rem;"><strong style="color:var(--color-fg);">Not run</strong> — an evaluation design has not yet been executed.</div>
+                <div style="padding:0.6rem 0.75rem;border:1px solid var(--color-border-subtle);border-radius:6px;background:rgba(0,0,0,0.1);font-size:0.78rem;"><strong style="color:var(--color-fg);">None</strong> — no indexed evidence record for this package.</div>
+              </div>
+              <p style="font-size:0.78rem;color:var(--color-muted);line-height:1.6;">Per-skill evidence state and evidence notes are shown on each skill's detail page and in compare view in the live Forge — this page states the model, not every skill's individual record.</p>
             </div>
 
             <!-- GITHUB-NATIVE COLLABORATION ─────────────────────── -->
@@ -971,7 +987,7 @@ curl -o .agents/skills/my-skill.md \
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">Are all skills production-ready?</p>
-                      <p class="faq-a">No. Skills have maturity levels from placeholder through published. Check the maturity label before using a skill in a production workflow. Only validated and published skills have been field-tested against their stated contracts.</p>
+                      <p class="faq-a">No. Skills have maturity levels from placeholder through published, and a separate evidence status (live, analytical, local-checks, historical, not-run, or none) that describes what proof exists for the current version. Draftable does not mean validated, and usable does not mean production-safe in every environment — validated requires a fresh, version-matched benchmark. Check both the maturity label and the evidence note before using a skill in a production workflow.</p>
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">What is the difference between Skillz Forge and Prompt Forge?</p>
