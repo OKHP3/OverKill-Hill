@@ -119,6 +119,8 @@ python3 scripts/check-banner.py --update   # propagates to all HTML files
 python3 scripts/check-banner.py            # verify (exits 1 on any mismatch)
 ```
 
+**Automatic enforcement:** `scripts/check-banner.py` is called by `scripts/validate-site.py` as part of the standard site audit. Any banner mismatch causes the validation run to exit non-zero, the same way other checks do.
+
 ## Mermaid Theme Builder Project Page
 
 Path: `/projects/mermaid-theme-builder/`

@@ -290,6 +290,22 @@ def run_mtb_version_check() -> int:
     return result.returncode
 
 
+def run_banner_check() -> int:
+    """Run check-banner.py and stream its output. Returns its exit code."""
+    script = Path(__file__).resolve().parent / "check-banner.py"
+    print("\u2500\u2500 Banner Consistency Check \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")
+    result = subprocess.run(
+        [sys.executable, str(script)],
+        capture_output=True,
+        text=True,
+    )
+    if result.stdout:
+        print(result.stdout, end="")
+    if result.stderr:
+        print(result.stderr, end="")
+    return result.returncode
+
+
 def main() -> int:
     sitemap_urls = load_sitemap_urls()
     if not sitemap_urls:
@@ -326,7 +342,10 @@ def main() -> int:
     print()
     mtb_exit = run_mtb_version_check()
 
-    return 1 if (errors or mtb_exit != 0) else 0
+    print()
+    banner_exit = run_banner_check()
+
+    return 1 if (errors or mtb_exit != 0 or banner_exit != 0) else 0
 
 
 if __name__ == "__main__":
