@@ -1,5 +1,11 @@
 # OverKill Hill P³™ — overkillhill.com
 
+## User preferences
+
+- **No em dashes.** Use commas, parentheses, or a period/new sentence instead.
+- **Conventional American English** spelling, grammar, and punctuation (the register taught in a US classroom to someone born in 1975, high school class of 1994). Avoid trendy/AI-sounding phrasing.
+- Site positioning has moved on from "custom GPT" as the headline technology (that was the starting point ~14 months ago). Lead copy should foreground protocol-first AI systems design, local inference, multi-model coordination, and governance. References to custom GPTs are fine only when factually describing past work or an external product (e.g. Glee-fully) that is genuinely GPT-based.
+
 ## Project Overview
 
 Static portfolio/documentation site for OverKill Hill P³™ (overkillhill.com). Built with HTML, CSS, and vanilla JS. Coordinated with GitHub repo `OKHP3/OverKill-Hill` (website source) and `OKHP3/first-diagram-is-a-liar` (methodology archive).
