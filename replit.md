@@ -1,5 +1,11 @@
 # OverKill Hill P³™ — overkillhill.com
 
+## User preferences
+
+- **Em dashes are rare, not banned.** Fine for breaking a heading/title into two parts (e.g. "Brand — Tagline"); everywhere else (body copy, meta descriptions, sentences), use commas, parentheses, or a period/new sentence instead. When in doubt, don't use one.
+- **Conventional American English** spelling, grammar, and punctuation (the register taught in a US classroom to someone born in 1975, high school class of 1994). Avoid trendy/AI-sounding phrasing.
+- Site positioning has moved on from "custom GPT" as the headline technology (that was the starting point ~14 months ago). Lead copy should foreground protocol-first AI systems design, local inference, multi-model coordination, and governance. References to custom GPTs are fine only when factually describing past work or an external product (e.g. Glee-fully) that is genuinely GPT-based.
+
 ## Project Overview
 
 Static portfolio/documentation site for OverKill Hill P³™ (overkillhill.com). Built with HTML, CSS, and vanilla JS. Coordinated with GitHub repo `OKHP3/OverKill-Hill` (website source) and `OKHP3/first-diagram-is-a-liar` (methodology archive).
@@ -97,17 +103,21 @@ Path: `/writings/first-diagram-is-a-liar/`
 All 15 confirmed Mermaid.ai diagram links are real (no placeholders). Poll URLs are TODO placeholders (not yet published on LinkedIn). v0.4 added ~700 words of new prose across 5 sections; v0.5 adds #council-scoring and #model-interviews. Search index is at 58 entries.
 
 ### Sidebar Widgets
-1. About This Article (series badge)
-2. The Repository (GitHub links)
-3. Council Snapshot (scorecard table)
-4. The Diagrams (15 Mermaid links)
-5. v0.3 Field Guides (4 heat page links) ← NEW in v0.3
-6. On This Page (TOC)
+
+1. **Start Now** — CTA button linking to the live GitHub Pages tool
+2. **Project Info** — meta card: Status, Build Phase, License, Type, Cost, Maintained by, Mermaid.js compat (v11.16.0); GitHub links (View, Issues, Contribute)
+3. **Related Resources** — live app (Compose tab), GitHub repo, BPMN for Mermaid, Mermaid.js theming docs, themeVariables reference, FDIAL article, all projects
 
 ## Site-Wide Banner
 All 19 non-article pages + the article page itself have a site-wide "HOT OFF THE FORGE" banner.
-- **Non-article pages (19):** Link to `/writings/first-diagram-is-a-liar/#council-scoring`, text: "v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →"
-- **Article page:** Links to `#council-scoring`, text: "v0.5 is live: the Council of AIs scored each other — every model was harder on itself than the architect was. Read it →"
+- **Non-article pages (19):** Link to `/writings/first-diagram-is-a-liar/#council-scoring`, text: "v0.5 is live: the Council of AIs scored each other, every model was harder on itself than the architect was. Read it →"
+- **Article page:** Links to `#council-scoring`, text: "v0.5 is live: the Council of AIs scored each other, every model was harder on itself than the architect was. Read it →"
+
+**Canonical text lives in one place:** `scripts/check-banner.py` (top of file, `CANONICAL_BANNER`). To change the wording, update that constant and run:
+```
+python3 scripts/check-banner.py --update   # propagates to all HTML files
+python3 scripts/check-banner.py            # verify (exits 1 on any mismatch)
+```
 
 ## Mermaid Theme Builder Project Page
 
