@@ -41,9 +41,9 @@ This comprehensive evacuation package preserves the design intent, prompt evolut
 | Material class | Assessed | Retained | Compressed | Omitted with reason | Missing or unavailable | Notes |
 |---|---:|---:|---:|---:|---:|---|
 | Turns or turn groups | 20 | 20 | 0 | 0 | 0 | Fourteen turns in “Terror Birds Explained”; six in “Copper Content in Bronze.” |
-| Rich elements | 54 | 45 | 8 | 0 | 7 | Includes source files, citations, missing generations, Notion/web/local sidecars, and 30 local composition records. |
+| Rich elements | 57 | 48 | 8 | 0 | 7 | Includes source files, citations, missing generations, Notion/web/local sidecars, 30 local composition records, one owner-selected anatomy reference, the generated reference master, and its generation record. |
 | Decisions and alternatives | 14 | 14 | 0 | 0 | 0 | Includes retained canon, corrected anatomy, material history, isolation strategy, and rejected generic-raven direction. |
-| Reusable assets | 18 | 18 | 0 | 0 | 0 | Character bible, palette, era stack, prompt modules, QA rubric, source map, and local asset atlas. |
+| Reusable assets | 21 | 21 | 0 | 0 | 0 | Character bible, palette, era stack, prompt modules, QA rubric, source map, local asset atlas, owner-selected anatomy reference, generated reference master, and reproducibility record. |
 
 ## Source synopsis
 
@@ -64,6 +64,8 @@ The Notion “Thread Archive — Manifesto Rewrite + Visual Sigils” page corro
 The live manifesto and local `manifesto/index.html` currently agree on the core doctrine. The MurderBird is not decorative and not merely a logo. The blueprint grid represents protocol; horizontal bands represent categorical strata; the mechanical body represents the instinct to disassemble and reconstruct; the CRT represents obsolete systems repurposed rather than discarded; and orange is the limited source of warmth. The bird does not merely perch: it occupies, grips, watches, and tests whether the system held.
 
 The local asset family preserves that doctrine but exposes the central reimagining opportunity. The core images consistently use olive-gray metal, layered pointed feather plates, rivets, heavy talons, a hooked beak, and amber-orange optical elements. Scene variants include waiting, warning, attacking, patrolling, crucible, under-construction, and error/failure compositions. Visually, however, most existing birds read closer to armored crows, eagles, vultures, or generalized raptors than to flightless phorusrhacids. Several poses emphasize large functional wings; the canonical CRT render uses a relatively narrow hooked beak and compact perched body; and most surfaces are olive steel rather than deeply aged copper alloy. The new work should correct those drifts without discarding the recognizable OKHP³ visual grammar.
+
+On 2026-07-30, the owner selected `context/threads/assets/murderbird-visual-asset-series/murderbird-crt-portrait-green-monitor-2026-07-29-2347.png` as the closest existing anatomy/proportion reference, while explicitly rejecting its grain and low resolution as final-art qualities. The clarification resolves an important ambiguity: “raptor” in the original prompt meant a prehistoric or dinosaur-adjacent predator, not a modern eagle, hawk, falcon, or other bird of prey. The desired body logic is closer to a vicious, grounded, heavy bird—an ostrich-like locomotor base with the bulk and bite threat the owner associates with an imagined surviving dodo-like animal—without a long, gangly, giraffe-like neck. This reference is therefore evidence for compact terrestrial massing, reduced wing dominance, load-bearing mechanical legs, and a strong head-to-torso relationship. It is not a style target, an edit target, or authority for the remaining eagle-like beak and feather fan.
 
 ## Turn ledger
 
@@ -119,6 +121,9 @@ The local asset family preserves that doctrine but exposes the central reimagini
 | E023 | sidecar | web page | repository owner | text-extracted | Public `/manifesto/#murderbird-genesis` page | Scientific/canon separation | retain |
 | E024 | sidecar | file | repository | verbatim | `manifesto/index.html` | Canon and current implementation | retain |
 | E025–E054 | sidecar | image families | repository | visually inspected or metadata-only | 30 PNG-master composition records plus 28 WebP companions | Local asset atlas | retain or compress by family |
+| E055 | owner clarification | image | user/repository | visually inspected at original resolution | `context/threads/assets/murderbird-visual-asset-series/murderbird-crt-portrait-green-monitor-2026-07-29-2347.png`; 1024×1536; SHA-256 `1caedf5171a634e65d5a1cfdb917d76efe5a9cc32522849053f06391ad8b29b` | Anatomy reference assessment | retain as reference image; not edit target |
+| E056 | follow-on generation | image | user/agent | generated and visually inspected at original resolution | `context/threads/assets/murderbird-visual-asset-series/murderbird-reference-master-automaton-stride-portrait-1024-2026-07-30.png`; 1024×1536; SHA-256 `7a5ad59f7502c2f2c5e14711331620eb8ffe90c623cf358fb84efa031fb02006` | Generated reference master | retain as current visual master |
+| E057 | follow-on generation | file | agent/repository | verbatim | `context/threads/murderbird-reference-master-generation-record-2026-07-30.md` | Prompt and QA provenance | retain |
 
 ## Normalization exceptions
 
@@ -149,28 +154,30 @@ The local asset family preserves that doctrine but exposes the central reimagini
 
 1. **Preserve doctrine, not every old pixel.** The current visual family is evidence of brand intent, but its anatomy and material treatment are not immutable. The canonical invariants are role, threat, industrial language, orange warmth, blueprint logic, and obsessive occupancy.
 2. **Make “terror bird” structural, not adjectival.** The reimagined bird should derive its massing from phorusrhacid anatomy: large deep skull, powerful neck, robust torso, reduced flight apparatus, long weight-bearing legs, and cursorial ground-predator stance. Adding “prehistoric” to an eagle-shaped bird is insufficient.
-3. **Treat feathers as armor vocabulary.** Each feather should be a fabricated lamella, hammered plate, overlapping scale, or repaired component. Surface engraving can echo feather barbs, but no soft keratin plumage should dominate.
-4. **Make the three eras readable at a glance.** Bronze Age core, Victorian reconstruction, and 2025 neural/optical retrofit must use distinct manufacturing languages rather than collapsing into generic steampunk detail.
-5. **Use patina as history, not a green filter.** Stable dark patina should be coherent on broad surfaces; rough blue-green mineralization and soil/water encrustation should collect in seams, recesses, undersides, and damaged zones; exposed high points may reveal muted bronze or copper beneath. Powdery bright green corrosion should be used sparingly because it implies active damage.
-6. **Keep cybernetics restrained and functional.** The orange gaze and brain should feel like a modern intelligence installed into an ancient machine, not a neon cyberpunk costume. Use compact sensors, protected conduits, ceramic insulators, fine traces, and selective status light.
-7. **Separate character, scene, and typography.** First establish a neutral-background character master and orthographic/pose studies. Add CRT, crucible, construction, or failure scenes later. Add the OverKill Hill P³™ wordmark as controlled design work rather than asking an image model to typeset it.
-8. **Retain the CRT as a canonical scene prop, not anatomy.** The computer symbolizes salvage and old interfaces repurposed. The mascot should remain recognizable without it.
-9. **Retain the blueprint and stripe system as an environment layer.** It is a protocol/categorical-strata metaphor and should not be baked into every isolated character render.
-10. **Do not require unavailable Copilot generations.** The prompts, local assets, and canon contain enough meaning to continue. Missing images are provenance gaps, not runtime dependencies.
+3. **Interpret “raptor” as prehistoric predator, not modern bird of prey.** Eagle, hawk, and falcon anatomy should not control the skull, wings, posture, or motion. The owner-selected CRT portrait is the current proportion anchor because it moves toward a grounded, heavy, dinosaur-adjacent bird while remaining recognizably MurderBird.
+4. **Treat feathers as armor vocabulary.** Each feather should be a fabricated lamella, hammered plate, overlapping scale, or repaired component. Surface engraving can echo feather barbs, but no soft keratin plumage should dominate.
+5. **Make the three eras readable at a glance.** Bronze Age core, Victorian reconstruction, and 2025 neural/optical retrofit must use distinct manufacturing languages rather than collapsing into generic steampunk detail.
+6. **Use patina as history, not a green filter.** Stable dark patina should be coherent on broad surfaces; rough blue-green mineralization and soil/water encrustation should collect in seams, recesses, undersides, and damaged zones; exposed high points may reveal muted bronze or copper beneath. Powdery bright green corrosion should be used sparingly because it implies active damage.
+7. **Keep cybernetics restrained and functional.** The orange gaze and brain should feel like a modern intelligence installed into an ancient machine, not a neon cyberpunk costume. Use compact sensors, protected conduits, ceramic insulators, fine traces, and selective status light.
+8. **Separate character, scene, and typography.** First establish a neutral-background character master and orthographic/pose studies. Add CRT, crucible, construction, or failure scenes later. Add the OverKill Hill P³™ wordmark as controlled design work rather than asking an image model to typeset it.
+9. **Retain the CRT as a canonical scene prop, not anatomy.** The computer symbolizes salvage and old interfaces repurposed. The mascot should remain recognizable without it.
+10. **Retain the blueprint and stripe system as an environment layer.** It is a protocol/categorical-strata metaphor and should not be baked into every isolated character render.
+11. **Do not require unavailable Copilot generations.** The prompts, local assets, and canon contain enough meaning to continue. Missing images are provenance gaps, not runtime dependencies.
 
 ## Actionable handoff
 
-- **Current state:** The cross-platform context has been evacuated. The target character, visual invariants, material history, anatomical corrections, local asset lineage, and missing evidence are explicit. No image has been generated.
-- **Resume point:** Convert the character bible into a controlled first-generation brief for an isolated three-quarter full-body “reference master,” then compare the result against the QA rubric before attempting poster compositions or variants.
-- **Required context:** Load this artifact, the local canonical CRT render, one frontal sentinel render, one attacking render, and one wide patrol render. The original Copilot or Notion threads are not required.
+- **Current state:** The cross-platform context has been evacuated, E055 was established as the anatomy/proportion anchor, and the built-in image-generation workflow produced E056 as the current cinematic reference master. E056 preserves the forge-archive, CRT, patina, orange optical intelligence, and visible automaton stride while moving the skull, neck, posture, and terrestrial weight away from modern raptor anatomy.
+- **Resume point:** Review E056 as the identity baseline, decide whether its remaining armored forelimb/tail volume and bill curvature need one more targeted correction, then derive an isolated character master or orthographic pose set before producing site variants.
+- **Required context:** Load this artifact, E055 as anatomy evidence, E056 as the current visual master, and E057 for the exact prompt history. Use older canonical assets only for brand color, state language, and symbolic continuity. The original Copilot or Notion threads are not required.
 
 | Action | Owner | Status | Dependencies | Evidence or acceptance condition |
 |---|---|---|---|---|
-| Approve the balance between phorusrhacid accuracy and existing raptor/corvid brand continuity | user | ready | Review the character bible and local visual examples | A short written decision on silhouette and wing reduction. |
-| Choose a canonical species/proportion reference or approve a composite phorusrhacid | user / future agent | proposed | Scientific reference images and desired threat profile | Head, leg, wing, and body proportions are explicit before generation. |
+| Approve the balance between phorusrhacid accuracy and existing raptor/corvid brand continuity | user | partially complete | E055 and owner clarification | Grounded terror-bird massing now leads; remaining decision is the exact skull depth, neck compression, and degree of wing reduction. |
+| Choose a canonical species/proportion reference or approve a composite phorusrhacid | user / future agent | partially complete | E055 plus scientific reference images | E055 anchors physique; a composite phorusrhacid remains the working direction pending exact head and leg proportions. |
 | Select patina severity: stable museum artifact, excavated relic, or partially active corrosion | user | ready | Material-layer preference | One chosen baseline plus allowed variation zones. |
-| Build the isolated reference-master prompt | future agent | ready | Approved morphology and patina decisions | Prompt separates subject, materials, eras, lighting, background, and negatives. |
-| Generate reference master and orthographic/pose set | future image task | not started | Explicit future authorization; this pass excludes generation | Consistent identity across front, side, three-quarter, warning, and attack poses. |
+| Build the first reference-master prompt | agent | complete | E055, character bible, brand profile v1.1.0 | Prompt set is retained in E057. |
+| Generate and refine the cinematic reference master | agent | complete | Built-in image-generation tool and approved source context | E056 exists, was visually inspected at 1024×1536, and preserves the required no-text brand treatment. |
+| Generate isolated master and orthographic/pose set | future image task | proposed | Owner review of E056 and any final anatomy correction | Consistent identity across front, side, three-quarter, warning, and attack poses. |
 | Rebuild canonical CRT poster using the approved character | future image task | proposed | Approved reference master | Scene preserves blueprint/stripe/CRT doctrine without identity drift. |
 | Add typography in a controlled design pass | future design task | proposed | Approved composition and wordmark specification | Correct “OverKill / Hill P³™” spelling, placement, and trademark handling. |
 | Reconcile stale `assets/img/library/README.md` statement | repository owner / agent | proposed | Separate content-maintenance authorization | Documentation reflects the live manifesto's library reference. |
@@ -179,21 +186,41 @@ The local asset family preserves that doctrine but exposes the central reimagini
 
 ### Canonical character statement
 
-The OKHP³™ MurderBird is a terrestrial mechanical terror bird: an ancient copper-alloy war artifact whose original Bronze Age structure was repaired and industrialized in the 1870s, then awakened in 2025 by a compact cybernetic brain. It is not cute, decorative, or nostalgically steampunk. It is the forge's sentinel and stress tester—a predatory machine that occupies obsolete technology, disassembles weak systems, and asks whether the output actually held.
+The OKHP³™ MurderBird is a terrestrial mechanical terror bird: an ancient copper-alloy war artifact whose original Bronze Age structure was repaired and industrialized in the 1870s, then awakened in 2025 by a compact cybernetic brain. Its “raptor” quality is prehistoric and dinosaur-adjacent, not the anatomy of a modern eagle or hawk. It carries the grounded violence of a massive running bird, but its neck is thick, compact, and strike-supporting rather than long, gangly, or giraffe-like. It is not cute, decorative, or nostalgically steampunk. It is the forge's sentinel and stress tester—a predatory machine that occupies obsolete technology, disassembles weak systems, and asks whether the output actually held.
+
+### Owner-selected anatomy reference assessment
+
+**Reference image:** `context/threads/assets/murderbird-visual-asset-series/murderbird-crt-portrait-green-monitor-2026-07-29-2347.png`
+
+**Image-generation role:** reference image for physique, proportional relationships, and some joint logic. It is not an edit target, style target, palette master, or resolution source.
+
+**Carry forward:** compact forward-loaded torso; substantial pelvis and upper-leg assembly; feet visibly bearing weight on the CRT; reduced wing dominance relative to the older attack variants; strong cranial presence; mechanical articulation readable at hip, knee, ankle, shoulder, and eye housing; bird and obsolete computer presented as one coherent visual argument.
+
+**Correct before generation:** deepen and vertically enlarge the skull; shift the beak away from eagle/hawk curvature toward a tall, laterally compressed terror-bird striking bill; thicken and shorten the visible neck so it nests into the shoulder armor; reduce the ornamental feather-fan tail; increase ground-running counterbalance through torso and pelvis; make armor plates read as fabricated metal rather than etched organic feathers; replace uniform olive grain with physically varied ancient bronze, Victorian repair metals, and localized 2025 components.
+
+**Do not inherit:** low-resolution grain; monochrome green cast; static decorative perch; modern raptor facial profile; oversized plumage fan; long exposed neck segmentation; scene-bound dependence on the CRT.
+
+### Generated cinematic reference master
+
+**Current master:** `context/threads/assets/murderbird-visual-asset-series/murderbird-reference-master-automaton-stride-portrait-1024-2026-07-30.png`
+
+E056 is a 1024×1536 portrait generated through the built-in `imagegen` workflow after one anatomy-and-motion refinement. It depicts the MurderBird transferring weight forward from an obsolete green-screen CRT in a dark blueprint forge archive. The successful elements are its photoreal material treatment, deep verdigris and worn metal, concentrated orange optical core, compacted head-to-shoulder relationship, terrestrial load-bearing legs, visible stepping action, falling mineral fragments, and coherent integration of ancient, Victorian, and modern mechanical languages.
+
+E056 is the current visual master, not an assertion that the identity is permanently locked. The remaining review points are the size of the armored forelimb/tail mantle, the degree to which the bill still reads as strongly hooked rather than vertically deep, and whether the final primary brand asset should retain the CRT scene or be derived from a separate isolated character master. The exact prompt set, reference roles, hashes, and QA notes are preserved in E057.
 
 ### Character bible
 
 | Feature | Durable direction | Continuity anchor | Avoid |
 |---|---|---|---|
-| Silhouette | Tall, ground-dominant, forward-loaded, powerful hindquarters, large skull, reduced wings | Aggressive occupancy and unmistakable bird identity | Eagle-in-flight, raven-on-a-branch, owl-shaped roundness |
+| Silhouette | Ground-dominant, forward-loaded, compact through the torso and neck, powerful hindquarters, large skull, reduced wings | E055 physique plus aggressive occupancy and unmistakable bird identity | Eagle-in-flight, raven-on-a-branch, owl-shaped roundness, giraffe-like height |
 | Skull and beak | Deep phorusrhacid skull; tall, laterally compressed, strongly hooked bill; reinforced strike axis | Current hooked beak and hostile brow | Thin crow bill, parrot caricature, vulture-only profile |
 | Eyes/sensors | Deep-set paired amber/blood-orange optical cores; optional asymmetrical repair housings | Orange as the concentrated warmth in the design | Multiple neon colors, oversized cute eyes, clean sci-fi visor |
-| Neck and torso | Thick strike-supporting neck; compact armored trunk; visible load paths | Layered plate language | Slender eagle neck, organic breast feathers |
+| Neck and torso | Thick, compact, strike-supporting S-curve mostly nested into the shoulder mass; robust armored trunk; visible load paths | E055 head-to-torso relationship and layered plate language | Long gangly ostrich/giraffe neck, slender eagle neck, organic breast feathers |
 | Forelimbs | Reduced, armored, vestigial or utility-oriented; capable of menace but not broad functional flight | Existing warning silhouette may inform plate fan/mantle | Large soaring wings as the main anatomical read |
-| Legs and feet | Long, strong cursorial legs; heavy weight-bearing toes; raised or weaponized inner claw may be considered | Current brutal talons and gripping behavior | Delicate songbird legs, mammalian paws, symmetric generic claws |
+| Legs and feet | Strong cursorial legs of moderate visible length, with substantial upper-leg mechanics, heavy weight-bearing toes, and an optional raised or weaponized inner claw | E055 load-bearing stance plus current brutal talons and gripping behavior | Stilt-like ostrich exaggeration, delicate songbird legs, mammalian paws, symmetric generic claws |
 | Feather armor | Overlapping hammered/cast lamellae with rivets, repairs, dents, chased lines, and different plate generations | Jagged layered feather plates | Soft plumage, scale-mail uniformity, random gear collage |
 | Expression | Watchful, territorial, analytical, ready to strike | Waiting/warning/attacking state family | Cartoon anger, mascot grin, mindless monster rage |
-| Motion | Stalk, brace, occupy, pin, strike downward, recoil, inspect | Patrol and attack variants | Graceful soaring, decorative perching without tension |
+| Motion | Stalk, brace, occupy, pin, strike downward, recoil, inspect; movement should transfer through visible mechanical load paths with slight age-related delay or asymmetry | Patrol and attack variants; E055 joint placement | Graceful soaring, decorative perching without tension, weightless or perfectly fluid motion |
 
 ### Three-era construction map
 
@@ -234,7 +261,7 @@ The OKHP³™ MurderBird is a terrestrial mechanical terror bird: an ancient cop
 
 ### Prompt architecture for a future generation pass
 
-Build future prompts in independent modules so identity can be revised without rewriting the whole scene:
+Build future prompts in independent modules so identity can be revised without rewriting the whole scene. In the image-generation workflow, label E055 explicitly as `Image 1: reference image for anatomy and proportions; not an edit target and not a style reference`.
 
 1. **Identity module:** OKHP³™ MurderBird; terrestrial mechanical phorusrhacid; sentinel/stress-tester role.
 2. **Anatomy module:** skull, beak, neck, torso, reduced forelimbs, long legs, feet, posture, and movement.
@@ -318,14 +345,14 @@ The audit found 58 relevant files: 30 PNG records and 28 WebP companions. Eight 
 
 ## Open questions and limits
 
-- Which phorusrhacid should dominate the proportions: a giant robust form, a more cursorial medium-sized form, or an explicitly declared composite? This choice materially affects leg length, skull depth, body mass, and pose.
-- How much of the current crow/eagle silhouette must survive for immediate brand recognition? The strongest scientific correction—reduced wings and long cursorial legs—will change the mascot more than a surface-only modernization.
+- Which phorusrhacid skull and leg proportions should refine the E055 physique? The working direction is now an explicitly fictional composite: robust and grounded, with cursorial capability, but neither a gangly ostrich nor a giant modern raptor.
+- How much of the current crow/eagle head and wing language must survive for immediate brand recognition? The owner has resolved the body toward E055 and prehistoric ground-predator anatomy, but the exact skull depth and wing reduction remain open.
 - Should the visual show stable archaeological patina, a recently excavated encrusted relic, or signs of active chloride corrosion? These are materially and visually different states.
 - Was the ancient core cast as large sections, raised from sheet, assembled from plates, or built through a fictional mixed technique? A coherent fabrication story will improve joints, damage, and repair logic.
 - How visible should the cybernetic brain be? Options include a protected cranial window, service panel, exposed neural core, or only indirect evidence through eyes and conduits.
 - Does the mascot have two optical eyes, one replaced eye, or a dual-mode arrangement? The current asset family is inconsistent.
 - Should the 1870s rebuild be visibly steam/pressure powered, mechanically spring-driven, electro-mechanical, or simply repaired with Victorian manufacturing methods? “Steampunk” alone is too vague.
-- Which existing local image is the identity authority when details conflict: canonical CRT render, frontal sentinel, warning sentinel, attacking state, or a composite approved by the owner?
+- When local images conflict, E055 now leads anatomy and proportions; the older canonical CRT, sentinel, warning, and attack images lead brand color, state language, and symbolic continuity. Exact conflict-resolution weights remain to be tested during generation.
 - The six Copilot-generated images remain unavailable. If the user later supplies them, they should be added as sidecars and evaluated for unique visual decisions; this artifact does not require them to continue.
 - Exact source years for the Copilot turns are unknown because the flattened UI omits years.
 - The scientific sources constrain plausibility but do not dictate a reconstruction. The MurderBird is a fictional brand artifact, not a museum model of one species.
@@ -337,7 +364,7 @@ The audit found 58 relevant files: 30 PNG records and 28 WebP companions. Eight 
 | A reader can explain the objective without the source platform | pass | Introduction, synopsis, and canonical character statement define the reimagining goal and no-generation boundary. |
 | Decisions and consequential rationale are recoverable | pass | Decisions separate stable canon from anatomy/material corrections and explain why. |
 | Current state and next action are unambiguous | pass | Handoff starts with owner approval of morphology/patina, followed by an isolated reference-master brief. |
-| Retained assets are available or missing assets are explicitly cataloged | pass | Local atlas identifies all 58 files through 30 records; six Copilot generations are flagged missing. |
+| Retained assets are available or missing assets are explicitly cataloged | pass | Local atlas identifies all 58 legacy files through 30 records; E055 is the owner-selected anatomy reference; E056 is the current generated master; E057 preserves reproducibility; six Copilot generations are flagged missing. |
 | No source account, thread, project, canvas, or connector is a runtime dependency | pass | Prompts, doctrine, material rules, visual atlas, and QA criteria are embedded here; external locators are provenance only. |
 
 - **Overall source-independence result:** pass.
@@ -345,7 +372,7 @@ The audit found 58 relevant files: 30 PNG records and 28 WebP companions. Eight 
 
 ## Provenance and retention
 
-- **Capture boundary:** two user-supplied flattened Microsoft Copilot text captures; two user-supplied Notion page links fetched read-only; the public manifesto page; local `manifesto/index.html`; `assets/img/library/README.md`; and all 58 local image files whose names contain `bird` or `sentinel`. Eight representative PNG originals were visually inspected at full resolution, while the remaining files were assessed by filename, dimensions, format pairing, location, and repository references.
+- **Capture boundary:** two user-supplied flattened Microsoft Copilot text captures; two user-supplied Notion page links fetched read-only; the public manifesto page; local `manifesto/index.html`; `assets/img/library/README.md`; all 58 legacy image files whose names contain `bird` or `sentinel`; E055, the owner-selected 1024×1536 anatomy/proportion reference; and follow-on generated artifacts E056–E057. The built-in image-generation workflow used E055 plus three legacy brand references for the first pass and E055 plus the first pass for a single targeted refinement. Ten PNG originals, including E056, were visually inspected at full resolution; remaining legacy files were assessed by filename, dimensions, format pairing, location, and repository references.
 - **Completeness:** partial. All supplied text was assessed, but Copilot's six generated images, full citation URLs, hidden source cards, and any detached pages are not present. The local repository image inventory is complete for the `bird|sentinel` filename filter as of this pass; differently named relevant images may exist outside that filter.
 - **Source time context:** Copilot UI shows “Saturday, Dec 6” and “Sunday, Jun 14” without years; source years remain unknown. Notion connector snapshots reported 2026-06-18. Repository/web inspection occurred 2026-07-29.
 - **Retention decision:** needs-review. Private Notion identifiers were redacted, raw transcripts were not copied, and no secrets or tenant content were found. The artifact is suitable for owner review in the repository but should not be assumed publication-ready until the owner confirms the level of personal/canonical detail intended for a public checkout.
