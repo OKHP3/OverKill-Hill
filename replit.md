@@ -121,6 +121,22 @@ python3 scripts/check-banner.py            # verify (exits 1 on any mismatch)
 
 **Automatic enforcement:** `scripts/check-banner.py` is called by `scripts/validate-site.py` as part of the standard site audit. Any banner mismatch causes the validation run to exit non-zero, the same way other checks do.
 
+## Site Validation (CI)
+
+The full validation harness runs automatically on every push and pull request to `main` via `.github/workflows/validate.yml`. The single command it runs:
+
+```
+python3 scripts/validate-site.py
+```
+
+This covers all checks in one shot: HTML structure (title, meta description, canonical, h1, JSON-LD), sitemap inclusion, broken internal links and assets, brand violations, MTB version consistency (`check-mtb-version.py`), and banner consistency (`check-banner.py`). The workflow exits non-zero on any error, which blocks merge on GitHub.
+
+To run the same gate locally before pushing:
+
+```
+python3 scripts/validate-site.py
+```
+
 ## Mermaid Theme Builder Project Page
 
 Path: `/projects/mermaid-theme-builder/`
