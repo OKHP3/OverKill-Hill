@@ -1,1 +1,3 @@
 - [Sticky lerp TOC pattern](sticky-toc-pattern.md) — app.js sections 4+4b activate on any id="toc-widget" + .toc-list; NAV_H=112; all CRLF files need Python normalisation before editing.
+- [okhp3 skills scoped to other projects](okhp3-skills-cross-project-scope.md) — some bundled `.agents/skills/` entries target sibling repos, not this one; check the skill's own project contract before applying it here.
+- [Brand style registry location](brand-style-registry-location.md) — the OverKill Hill profile is a project-owned `brand-styles/registry.yaml` + `profiles/overkill-hill.yaml`, promoted from the skill's bundled seed on 2026-08-03.
