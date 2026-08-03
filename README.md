@@ -139,7 +139,7 @@ currently part of this workflow.
 ## Known limitations
 
 - No automated image-format optimization yet (everything is PNG; WebP conversion is a follow-up task).
-- No CSP header set at the edge yet (recommendation in `.local/AUDIT_OVERKILL_HILL_REPLIT_PASS.md`).
+- No CSP header set at the edge yet (recommendation in `docs/audits/2026-08-overkill-hill-replit-pass.md`).
 - Search index (`assets/data/search-index.json`) is committed; regenerate when adding new pages.
 
 ## Contact
