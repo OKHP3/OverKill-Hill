@@ -392,6 +392,22 @@ def run_banner_check() -> int:
     return result.returncode
 
 
+
+def run_voice_lint() -> int:
+    """Run lint-voice.py and stream its output. Returns its exit code (always 0)."""
+    script = Path(__file__).resolve().parent / "lint-voice.py"
+    print("\u2500\u2500 Voice Lint \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")
+    result = subprocess.run(
+        [sys.executable, str(script)],
+        capture_output=True,
+        text=True,
+    )
+    if result.stdout:
+        print(result.stdout, end="")
+    if result.stderr:
+        print(result.stderr, end="")
+    return result.returncode
+
 def main() -> int:
     sitemap_urls = load_sitemap_urls()
     if not sitemap_urls:
@@ -430,6 +446,9 @@ def main() -> int:
 
     print()
     banner_exit = run_banner_check()
+
+    print()
+    run_voice_lint()  # advisory only — never fails the build
 
     return 1 if (errors or mtb_exit != 0 or banner_exit != 0) else 0
 
