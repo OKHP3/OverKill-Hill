@@ -37,6 +37,9 @@ SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "di
 SITEMAP = ROOT / "sitemap.xml"
 SITE_ORIGIN = "https://overkillhill.com"
 
+# Em dash in all three forms: literal U+2014, named entity, numeric entity
+EM_DASH_RE = re.compile(r"\u2014|&mdash;|&#8212;")
+
 
 class TagCounter(HTMLParser):
     """Collect everything we need for one HTML page in a single pass."""
@@ -175,6 +178,86 @@ class Finding:
         self.msg = msg
 
 
+def check_em_dashes(path: Path, raw: str) -> list[Finding]:
+    """
+    Scan for em dashes (U+2014, &mdash;, &#8212;) outside allowed contexts.
+
+    Allowed contexts (no finding raised):
+      - HTML comments          (<!-- ... -->)
+      - <script> blocks        (code / JS comments are not user-facing copy)
+      - <style> blocks
+      - <pre> blocks
+      - <div class="mermaid"> / <pre class="mermaid"> blocks
+      - Lines containing an <h1>–<h6> tag  (heading separator is brand-approved)
+      - Lines containing a <title> tag
+      - Lines with og:title / twitter:title / og:image:alt / twitter:image:alt
+      - Lines containing the builder-sig class
+    """
+    rel = path.relative_to(ROOT).as_posix()
+    findings: list[Finding] = []
+    lines = raw.splitlines()
+
+    in_comment = False
+    in_script = False
+    in_pre = False
+    in_style = False
+    in_mermaid = False
+
+    for lineno, line in enumerate(lines, 1):
+        # Update block-open state BEFORE evaluating the line so that the
+        # opening tag line itself is treated as part of the block.
+        if not in_comment and "<!--" in line:
+            in_comment = True
+        if not in_script and re.search(r"<script[\s>]", line, re.IGNORECASE):
+            in_script = True
+        if not in_pre and re.search(r"<pre[\s>]", line, re.IGNORECASE):
+            in_pre = True
+        if not in_style and re.search(r"<style[\s>]", line, re.IGNORECASE):
+            in_style = True
+        if not in_mermaid and re.search(r'class="[^"]*\bmermaid\b', line, re.IGNORECASE):
+            in_mermaid = True
+
+        # Is this line inside a block where em dashes are structurally expected?
+        in_block = in_comment or in_script or in_pre or in_style or in_mermaid
+
+        # Per-line tag patterns that permit an em dash regardless of block state
+        line_allowed = (
+            in_block
+            or re.search(r"</?h[1-6][\s>]", line, re.IGNORECASE)
+            or re.search(r"<title[\s>]", line, re.IGNORECASE)
+            or re.search(
+                r'property="og:title"|property="twitter:title"'
+                r'|name="twitter:title"'
+                r'|property="og:image:alt"|name="og:image:alt"'
+                r'|property="twitter:image:alt"|name="twitter:image:alt"',
+                line, re.IGNORECASE,
+            )
+            or "builder-sig" in line
+        )
+
+        if not line_allowed and EM_DASH_RE.search(line):
+            findings.append(
+                Finding(
+                    "ERROR", rel,
+                    f"em dash in body copy at line {lineno}: {line.strip()[:100]}",
+                )
+            )
+
+        # Update block-close state AFTER evaluating the line
+        if in_comment and "-->" in line:
+            in_comment = False
+        if in_script and re.search(r"</script>", line, re.IGNORECASE):
+            in_script = False
+        if in_pre and re.search(r"</pre>", line, re.IGNORECASE):
+            in_pre = False
+        if in_style and re.search(r"</style>", line, re.IGNORECASE):
+            in_style = False
+        if in_mermaid and re.search(r"</div>|</pre>", line, re.IGNORECASE):
+            in_mermaid = False
+
+    return findings
+
+
 def validate_page(path: Path, sitemap_urls: set[str]) -> list[Finding]:
     findings: list[Finding] = []
     rel = path.relative_to(ROOT).as_posix()
@@ -219,6 +302,9 @@ def validate_page(path: Path, sitemap_urls: set[str]) -> list[Finding]:
             findings.append(Finding("WARN", rel, f"placeholder href={href!r}"))
         elif href.startswith("javascript:"):
             findings.append(Finding("ERROR", rel, f"javascript: href found ({href!r})"))
+
+    # --- em dash voice check ---
+    findings.extend(check_em_dashes(path, raw))
 
     # --- parsed DOM checks ---
     parser = TagCounter()
