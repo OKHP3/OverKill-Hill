@@ -12,7 +12,7 @@
        METADATA: Primary Title & Description
        ======================================== -->
     <title>BPMN for Mermaid | OverKill Hill P³™</title>
-    <meta name="description" content="A text-first bpmn-beta diagram type for Mermaid, plus BP-SKILL — a 15-skill Business Process Agent Skill Suite aligned to BABOK, BPM CBOK, and BPMN 2.0.2." />
+    <meta name="description" content="A text-first bpmn-beta diagram type for Mermaid, plus BP-SKILL: a 15-skill Business Process Agent Skill Suite aligned to BABOK, BPM CBOK, and BPMN 2.0.2." />
     <meta name="keywords" content="BPMN, Mermaid.js, bpmn-beta, business process modeling, DSL, process modeling, diagram type, open source, BPMN 2.0, OverKill Hill, process diagrams, Mermaid plugin, GitHub playground, bpmn-beta DSL, agent skills, SKILL.md, agentskills.io, BP-SKILL, business process agent skills, BABOK agent skills, BPM CBOK, APQC PCF, DMN 1.4, ISO 9001, process narrative specification, PNS.md, Claude Code skills, OpenAI Codex skills, GitHub Copilot skills" />
     <meta name="author" content="OverKill Hill P³™" />
     <meta name="creator" content="OverKill Hill P³™" />
@@ -26,7 +26,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://overkillhill.com/projects/bpmn-for-mermaid/" />
     <meta property="og:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
-    <meta property="og:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³ illustration" />
+    <meta property="og:image:alt" content="Mechanical raven perched on a vintage computer, OverKill Hill P³ illustration" />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="1024" />
     <meta property="og:image:type" content="image/png" />
@@ -40,7 +40,7 @@
     <meta name="twitter:title" content="BPMN for Mermaid | OverKill Hill P³™" />
     <meta name="twitter:description" content="Skills are the AI analogue of SOPs. BP-SKILL is 15 SKILL.md agent skills for the full business process lifecycle. bpmn-beta is the visual output layer. Works with Claude Code, Codex, Copilot, and more." />
     <meta name="twitter:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
-    <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer — OverKill Hill P³ illustration" />
+    <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer, OverKill Hill P³ illustration" />
     <meta name="twitter:site" content="@OverKillHillP3" />
     <meta name="twitter:creator" content="@OverKillHillP3" />
 
@@ -271,7 +271,7 @@
           <p class="hero-sub">Text-first. Standards-aware. Git-native. Agent-ready.</p>
 
           <p>
-            Two things live in this project. First: <code style="font-family:'JetBrains Mono',monospace;font-size:0.92rem;color:var(--okh-orange);">bpmn-beta</code> — a text-first DSL for BPMN process diagrams, designed as a Mermaid diagram-type contribution. No XML, no heavyweight tools, no bpmn-js. Second: BP-SKILL — a 15-skill Business Process Agent Skill Suite that uses bpmn-beta as its visual output layer, packaged in the Agent Skills open standard and compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor.
+            Two things live in this project. First: <code style="font-family:'JetBrains Mono',monospace;font-size:0.92rem;color:var(--okh-orange);">bpmn-beta</code>, a text-first DSL for BPMN process diagrams, designed as a Mermaid diagram-type contribution. No XML, no heavyweight tools, no bpmn-js. Second: BP-SKILL, a 15-skill Business Process Agent Skill Suite that uses bpmn-beta as its visual output layer, packaged in the Agent Skills open standard and compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor.
           </p>
 
           <div class="hero-ctas">
@@ -322,7 +322,7 @@
                 <iframe
                   id="bpmn-tool-iframe"
                   src="https://okhp3.github.io/mermaid-diagram-bpmn/"
-                  title="BPMN for Mermaid — Live Playground"
+                  title="BPMN for Mermaid: Live Playground"
                   loading="lazy"
                   allow="clipboard-read; clipboard-write; fullscreen"
                   referrerpolicy="no-referrer-when-downgrade"
@@ -332,7 +332,7 @@
 
               <p class="embed-note">
                 Embedded from <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer">okhp3.github.io/mermaid-diagram-bpmn</a>
-                — open in a new tab for the full experience
+                (Open in a new tab for the full experience.)
               </p>
             </div>
 
@@ -341,7 +341,7 @@
               <div class="section-label">DSL Example</div>
               <h2>What bpmn-beta looks like</h2>
               <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1rem;">
-                The canonical purchase order approval flow — three participants, a gateway, and a rejection path — in 20 lines of text. No XML, no drag-and-drop, no proprietary format.
+                The canonical purchase order approval flow: three participants, a gateway, and a rejection path, in 20 lines of text. No XML, no drag-and-drop, no proprietary format.
               </p>
 
               <div class="dsl-showcase">
@@ -556,11 +556,11 @@
               <h2>What's working, what's not</h2>
               <div class="status-callout">
                 <ul>
-                  <li><span class="s-ok">✓</span> Supports core BPMN primitives in the playground — start/end events, tasks, gateways, sequence flows.</li>
+                  <li><span class="s-ok">✓</span> Supports core BPMN primitives in the playground: start/end events, tasks, gateways, sequence flows.</li>
                   <li><span class="s-ok">✓</span> Uses a hand-written prototype parser (line-by-line, not Langium).</li>
                   <li><span class="s-ok">✓</span> Renders SVG directly, with no bpmn-js dependency.</li>
-                  <li><span class="s-warn">⚠</span> Pool/lane/message-flow support is experimental — verify output in the playground before relying on it.</li>
-                  <li><span class="s-road">○</span> Langium grammar, Mermaid External Diagram API packaging, parser validation, and <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">getStyles</code> integration are roadmap items — not yet implemented.</li>
+                  <li><span class="s-warn">⚠</span> Pool/lane/message-flow support is experimental; verify output in the playground before relying on it.</li>
+                  <li><span class="s-road">○</span> Langium grammar, Mermaid External Diagram API packaging, parser validation, and <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">getStyles</code> integration are roadmap items, not yet implemented.</li>
                   <li><span class="s-ok">✓</span> BP-SKILL v0.3 agent skill suite -- 15 SKILL.md files, 9 variable layer templates, Process Narrative Specification schema, eval suite. Compatible with all Agent Skills-conformant platforms.</li>
                   <li><span class="s-ok">✓</span> Agent Skills browser -- browsable and downloadable from the playground app at /skills.</li>
                   <li><span class="s-ok">✓</span> Full suite download -- bp-skill-suite-v0.3.zip packages all 15 skills and context templates.</li>
@@ -579,7 +579,7 @@
                     <span class="why-mark why-mark--no">✗</span>
                     <h3>The current options</h3>
                   </div>
-                  <p>Heavyweight tools (Visio, Signavio, Camunda, bpmn.io) are XML-first and don't live in version control. Mermaid flowcharts resemble BPMN but lack semantic correctness — a process analyst will flag it on sight.</p>
+                  <p>Heavyweight tools (Visio, Signavio, Camunda, bpmn.io) are XML-first and don't live in version control. Mermaid flowcharts resemble BPMN but lack semantic correctness; a process analyst will flag it on sight.</p>
                 </div>
                 <div class="why-col">
                   <div class="why-col-header">
@@ -591,7 +591,7 @@
               </div>
 
               <div class="why-note">
-                This is a <strong>Mermaid diagram-type contribution proposal</strong>, not a commercial product. It ships as an external plugin first. Upstream Mermaid core inclusion is the long-term target — after the syntax stabilizes and the community weighs in.
+                This is a <strong>Mermaid diagram-type contribution proposal</strong>, not a commercial product. It ships as an external plugin first. Upstream Mermaid core inclusion is the long-term target, after the syntax stabilizes and the community weighs in.
               </div>
             </div>
 
@@ -605,21 +605,21 @@
                   <div class="feature-icon" aria-hidden="true">🔷</div>
                   <div>
                     <h3>Mermaid-Native DSL</h3>
-                    <p>Starts with <code>bpmn-beta</code> — the diagram type keyword. Reads like every other Mermaid diagram. No boilerplate, no XML, no schema to import.</p>
+                    <p>Starts with <code>bpmn-beta</code>: the diagram type keyword. Reads like every other Mermaid diagram. No boilerplate, no XML, no schema to import.</p>
                   </div>
                 </div>
                 <div class="feature-item">
                   <div class="feature-icon" aria-hidden="true">⊞</div>
                   <div>
                     <h3>Pools &amp; Lanes <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#eab308;border:1px solid rgba(234,179,8,0.3);background:rgba(234,179,8,0.08);border-radius:3px;padding:0.1rem 0.4rem;vertical-align:middle;">experimental</span></h3>
-                    <p>Pool and lane containment syntax is defined in the DSL spec. Rendering is experimental in the current prototype — verify output in the playground before relying on it.</p>
+                    <p>Pool and lane containment syntax is defined in the DSL spec. Rendering is experimental in the current prototype; verify output in the playground before relying on it.</p>
                   </div>
                 </div>
                 <div class="feature-item">
                   <div class="feature-icon" aria-hidden="true">◆</div>
                   <div>
                     <h3>BPMN 2.0 Correct Shapes</h3>
-                    <p>Start/end events, user/service/script/receive/send tasks, XOR/AND/OR gateways — rendered with correct BPMN visual notation, not flowchart approximations. Intermediate events and timer/message/error markers are on the roadmap.</p>
+                    <p>Start/end events, user/service/script/receive/send tasks, and XOR/AND/OR gateways are rendered with correct BPMN visual notation, not flowchart approximations. Intermediate events and timer/message/error markers are on the roadmap.</p>
                   </div>
                 </div>
                 <div class="feature-item">
@@ -633,7 +633,7 @@
                   <div class="feature-icon" aria-hidden="true">🔒</div>
                   <div>
                     <h3>No bpmn-js Dependency</h3>
-                    <p>Hand-written SVG renderer produces correct BPMN shapes from scratch. No runtime dependency on bpmn-js — keeps bundle size manageable for Mermaid's contribution bar.</p>
+                    <p>Hand-written SVG renderer produces correct BPMN shapes from scratch. No runtime dependency on bpmn-js; keeps bundle size manageable for Mermaid's contribution bar.</p>
                   </div>
                 </div>
                 <div class="feature-item">
@@ -677,20 +677,20 @@
             <!-- HONEST SCOPE ─────────────────────────────────────── -->
             <div class="content-block" id="honest-scope" data-search-index style="scroll-margin-top:8rem;">
               <div class="section-label">Honest Scope</div>
-              <h2>What this is — and isn't</h2>
+              <h2>What this is, and what it isn't</h2>
               <div class="scope-callout">
                 <p class="scope-intro">This is a Mermaid-native BPMN descriptive subset proposal.</p>
                 <ul>
-                  <li><span class="scope-yes">✓</span> A readable DSL for the BPMN 2.0 Descriptive Conformance subset — start/end events, tasks, gateways, flows, pools, and lanes.</li>
+                  <li><span class="scope-yes">✓</span> A readable DSL for the BPMN 2.0 Descriptive Conformance subset: start/end events, tasks, gateways, flows, pools, and lanes.</li>
                   <li><span class="scope-yes">✓</span> Text-first, Git-native, works inside a Markdown code fence.</li>
-                  <li><span class="scope-yes">✓</span> AI-generatable — designed to be writable by LLMs without syntax repair.</li>
+                  <li><span class="scope-yes">✓</span> AI-generatable: designed to be writable by LLMs without syntax repair.</li>
                   <li><span class="scope-yes">✓</span> The visual output layer of a complete business process documentation methodology (BP-SKILL).</li>
                   <li><span class="scope-yes">✓</span> A domain extension to the Agent Skills open standard (agentskills.io).</li>
                   <li><span class="scope-yes">✓</span> Compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, Cursor, VS Code, and all other Agent Skills-conformant platforms.</li>
-                  <li><span class="scope-no">✗</span> Not executable BPMN — no process engine, no token simulation, no runtime semantics.</li>
-                  <li><span class="scope-no">✗</span> Not BPMN XML round-tripping — no import or export of BPMN 2.0 XML files.</li>
-                  <li><span class="scope-no">✗</span> Not full BPMN 2.0 conformance — choreography, conversation, boundary events, transactions, and data objects are out of scope for v1.</li>
-                  <li><span class="scope-no">✗</span> Not a production Mermaid plugin yet — the upstream contribution path comes after the DSL stabilizes and the Langium parser is built.</li>
+                  <li><span class="scope-no">✗</span> Not executable BPMN: no process engine, no token simulation, no runtime semantics.</li>
+                  <li><span class="scope-no">✗</span> Not BPMN XML round-tripping: no import or export of BPMN 2.0 XML files.</li>
+                  <li><span class="scope-no">✗</span> Not full BPMN 2.0 conformance: choreography, conversation, boundary events, transactions, and data objects are out of scope for v1.</li>
+                  <li><span class="scope-no">✗</span> Not a production Mermaid plugin yet: the upstream contribution path comes after the DSL stabilizes and the Langium parser is built.</li>
                   <li><span class="scope-no">✗</span> A replacement for BABOK, BPM CBOK, APQC, or any other body of knowledge -- it references these standards but does not reproduce them.</li>
                 </ul>
               </div>
@@ -714,14 +714,14 @@
                 <li class="progress-phase">
                   <span class="progress-marker progress-marker--active">→</span>
                   <div class="progress-phase-content">
-                    <p class="progress-phase-title">v0.1 — Pools, Lanes &amp; Plugin API <span class="phase-pill phase-pill--active">In Progress</span></p>
+                    <p class="progress-phase-title">v0.1: Pools, Lanes &amp; Plugin API <span class="phase-pill phase-pill--active">In Progress</span></p>
                     <p class="progress-phase-desc">Pools and lanes implementation (required for Descriptive Conformance subset claim), complete v1 element set, port to Mermaid External Diagram API, Langium grammar prototype for the parser. Target: demo-ready for Mermaid community engagement on issue <a href="https://github.com/mermaid-js/mermaid/issues/7699" target="_blank" rel="noopener noreferrer">#7699</a>.</p>
                   </div>
                 </li>
                 <li class="progress-phase">
                   <span class="progress-marker progress-marker--planned">○</span>
                   <div class="progress-phase-content">
-                    <p class="progress-phase-title">v1.0 — Full Plugin <span class="phase-pill phase-pill--planned">Planned</span></p>
+                    <p class="progress-phase-title">v1.0: Full Plugin <span class="phase-pill phase-pill--planned">Planned</span></p>
                     <p class="progress-phase-desc">Langium grammar (replaces hand-written parser), npm publication, accessibility (<code>accTitle</code>/<code>accDescr</code> + ARIA metadata), theme integration, full test suite (Vitest), Mermaid PR gates (size &lt;200 KB, tests, docs).</p>
                   </div>
                 </li>
@@ -760,7 +760,7 @@
             <aside class="article-footer-cta" id="work-with-me">
               <div>
                 <h3>Need process architecture built to spec?</h3>
-                <p>BPMN modeling, BP-SKILL agent packaging, BABOK-aligned process narratives — I map the process, build the skills, and wire it to the AI tools your team already uses.</p>
+                <p>BPMN modeling, BP-SKILL agent packaging, and BABOK-aligned process narratives: I map the process, build the skills, and wire it to the AI tools your team already uses.</p>
               </div>
               <div class="cta-actions">
                 <a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Hire me on Fiverr</a>
@@ -779,7 +779,7 @@
                 </summary>
                 <div class="collapsible-body">
                   <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.75rem;">
-                    The complete bpmn-beta element vocabulary, flow operators, and pool/lane rules. This is the v1 scope — what ships in the initial plugin.
+                    The complete bpmn-beta element vocabulary, flow operators, and pool/lane rules. This is the v1 scope: what ships in the initial plugin.
                   </p>
 
                   <div class="section-label" style="margin-top:0.5rem;">Event Keywords</div>
@@ -840,18 +840,18 @@
                         <tr><td class="dsl-kwd">source --&gt; target: "label"</td><td class="dsl-desc">Conditional sequence flow with label</td></tr>
                         <tr><td class="dsl-kwd">==&gt;</td><td class="dsl-desc">Default sequence flow</td></tr>
                         <tr><td class="dsl-kwd">~~&gt;</td><td class="dsl-desc">Message flow (cross-pool only, declared at top level)</td></tr>
-                        <tr><td class="dsl-kwd" style="opacity:0.55;">---</td><td class="dsl-desc" style="opacity:0.55;">Association (to text annotations) <span style="font-size:0.7em;color:#eab308;font-family:'JetBrains Mono',monospace;">[planned — not yet rendered]</span></td></tr>
+                        <tr><td class="dsl-kwd" style="opacity:0.55;">---</td><td class="dsl-desc" style="opacity:0.55;">Association (to text annotations) <span style="font-size:0.7em;color:#eab308;font-family:'JetBrains Mono',monospace;">[planned, not yet rendered]</span></td></tr>
                       </tbody>
                     </table>
                   </div>
 
                   <div class="section-label" style="margin-top:1rem;">Pool &amp; Lane Rules</div>
                   <ul style="font-size:0.875rem;color:var(--color-muted);line-height:1.7;padding-left:1.25rem;margin-top:0.5rem;">
-                    <li>Sequence flows (<code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">--&gt;</code>) must stay inside a pool — they cannot cross pool boundaries.</li>
+                    <li>Sequence flows (<code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">--&gt;</code>) must stay inside a pool; they cannot cross pool boundaries.</li>
                     <li>Message flows (<code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">~~&gt;</code>) cross pools and must be declared at the top level, outside any pool block.</li>
                     <li>Lanes are one level deep. Nested lanes are explicitly deferred to a later version.</li>
-                    <li>IDs follow the pattern <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">[A-Za-z_][A-Za-z0-9_]*</code> — short IDs like <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">s1</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">t1</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">g1</code> are recommended.</li>
-                    <li>Comments: <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">%%</code> — follows Mermaid convention.</li>
+                    <li>IDs follow the pattern <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">[A-Za-z_][A-Za-z0-9_]*</code>; short IDs like <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">s1</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">t1</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">g1</code> are recommended.</li>
+                    <li>Comments: <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">%%</code>, following Mermaid convention.</li>
                   </ul>
 
                   <div class="section-label" style="margin-top:1rem;">What's Deferred (Not in v1)</div>
@@ -871,19 +871,19 @@
                   <div class="faq-list">
                     <div class="faq-item">
                       <p class="faq-q">Is this an official Mermaid diagram type?</p>
-                      <p class="faq-a">Not yet. This is an open-source contribution proposal — it ships as an external Mermaid diagram plugin first. Upstream inclusion in Mermaid core requires maintainer acceptance and a formal PR process. The <code>bpmn-beta</code> keyword signals its pre-proposal status.</p>
+                      <p class="faq-a">Not yet. This is an open-source contribution proposal: it ships as an external Mermaid diagram plugin first. Upstream inclusion in Mermaid core requires maintainer acceptance and a formal PR process. The <code>bpmn-beta</code> keyword signals its pre-proposal status.</p>
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">Will this implement the full BPMN 2.0 spec?</p>
-                      <p class="faq-a">No. v1 targets the BPMN 2.0 Descriptive Conformance subset — the practical elements most business process diagrams actually use. Execution semantics, choreography, conversation diagrams, and BPMN XML import/export are explicitly out of scope and will remain so.</p>
+                      <p class="faq-a">No. v1 targets the BPMN 2.0 Descriptive Conformance subset: the practical elements most business process diagrams actually use. Execution semantics, choreography, conversation diagrams, and BPMN XML import/export are explicitly out of scope and will remain so.</p>
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">Why not use bpmn.io or bpmn-js?</p>
-                      <p class="faq-a">bpmn-js is XML-first, browser-only in a different sense, and would be a heavyweight runtime dependency that Mermaid maintainers would reject outright. <code>bpmn-beta</code> is text-first, version-controllable, and designed for process diagrams that live next to code in Markdown — not in a graphical editor.</p>
+                      <p class="faq-a">bpmn-js is XML-first, browser-only in a different sense, and would be a heavyweight runtime dependency that Mermaid maintainers would reject outright. <code>bpmn-beta</code> is text-first, version-controllable, and designed for process diagrams that live next to code in Markdown, not in a graphical editor.</p>
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">What about the Emrich/DFKI proposal on Mermaid issue #7699?</p>
-                      <p class="faq-a">There's an academic BPMN proposal filed on GitHub by Andreas Emrich (DFKI) with a more XML-flavored DSL. <code>bpmn-beta</code> takes a different position: Mermaid-native readability first. The intent is to engage on that thread constructively, with the prototype as evidence of an alternative readable approach — not to compete or merge prematurely.</p>
+                      <p class="faq-a">There's an academic BPMN proposal filed on GitHub by Andreas Emrich (DFKI) with a more XML-flavored DSL. <code>bpmn-beta</code> takes a different position: Mermaid-native readability first. The intent is to engage on that thread constructively, with the prototype as evidence of an alternative readable approach, not to compete or merge prematurely.</p>
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">Can I render this in GitHub or GitLab today?</p>
@@ -891,15 +891,15 @@
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">Can LLMs generate valid bpmn-beta?</p>
-                      <p class="faq-a">That's by design. The DSL is intentionally short and predictable — no XML attributes, no metadata blocks, no nested namespaces. A well-prompted LLM should produce valid <code>bpmn-beta</code> on the first try for common process patterns. The Playground lets you verify output immediately.</p>
+                      <p class="faq-a">That's by design. The DSL is intentionally short and predictable: no XML attributes, no metadata blocks, no nested namespaces. A well-prompted LLM should produce valid <code>bpmn-beta</code> on the first try for common process patterns. The Playground lets you verify output immediately.</p>
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">How does this relate to Mermaid Theme Builder?</p>
-                      <p class="faq-a"><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a> handles visual governance — defining and exporting themes. <code>bpmn-beta</code> adds a diagram type. They're complementary: Theme Builder palettes will apply to <code>bpmn-beta</code> diagrams once the Mermaid theming hook is wired in.</p>
+                      <p class="faq-a"><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a> handles visual governance: defining and exporting themes. <code>bpmn-beta</code> adds a diagram type. They're complementary: Theme Builder palettes will apply to <code>bpmn-beta</code> diagrams once the Mermaid theming hook is wired in.</p>
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">How do I contribute or follow along?</p>
-                      <p class="faq-a">Watch the <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer">GitHub repo</a> for updates. Open issues for DSL feedback — syntax decisions are still early enough to change. The decision log in the repo captures what's been locked and what's still open.</p>
+                      <p class="faq-a">Watch the <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer">GitHub repo</a> for updates. Open issues for DSL feedback; syntax decisions are still early enough to change. The decision log in the repo captures what's been locked and what's still open.</p>
                     </div>
                   </div>
                 </div>
@@ -911,11 +911,11 @@
             <div class="builder-note">
               <div class="section-label">Builder's Note</div>
               <blockquote>
-                <p>Mermaid has flowcharts, sequence diagrams, Gantt charts, entity-relationship diagrams, state diagrams, mindmaps, and more. But if you need to show a business process to a process analyst — accurately, in a way they can read without you explaining your notation — Mermaid has nothing.</p>
+                <p>Mermaid has flowcharts, sequence diagrams, Gantt charts, entity-relationship diagrams, state diagrams, mindmaps, and more. But if you need to show a business process to a process analyst, accurately and in a way they can read without you explaining your notation, Mermaid has nothing.</p>
                 <p>BPMN is the standard. It has been since 2004. It has ISO status. It's taught in enterprise architecture programs. And it's conspicuously absent from Mermaid's diagram type library.</p>
-                <p><em>bpmn-beta is the bridge. Not the whole spec. Not an XML importer. A readable, Mermaid-native syntax that renders BPMN-correct shapes — the ones people actually use — and fits inside a Markdown code fence.</em></p>
+                <p><em>bpmn-beta is the bridge. Not the whole spec. Not an XML importer. A readable, Mermaid-native syntax that renders BPMN-correct shapes, the ones people actually use, and fits inside a Markdown code fence.</em></p>
               </blockquote>
-              <p class="builder-sig">— OverKill&nbsp;Hill&nbsp;P³ · May 2026</p>
+              <p class="builder-sig">OverKill&nbsp;Hill&nbsp;P³ · May 2026</p>
             </div>
 
           </div><!-- /main column -->

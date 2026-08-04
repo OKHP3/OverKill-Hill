@@ -66,11 +66,11 @@ EXPECTED = {
 
     "release card h2":
         ("projects/mermaid-theme-builder/index.html",
-         f"{v} — Shipped {sd}"),
+         f"{v}: Shipped {sd}"),
 
     "release card · Version meta-val":
         ("projects/mermaid-theme-builder/index.html",
-         f"{v} — shipped {sd}"),
+         f"{v}: shipped {sd}"),
 
     "release card · Active Sprint meta-val":
         ("projects/mermaid-theme-builder/index.html",
@@ -82,11 +82,11 @@ EXPECTED = {
 
     "roadmap · shipped phase title":
         ("projects/mermaid-theme-builder/index.html",
-         f"{v} — Baseline"),
+         f"{v}: Baseline"),
 
     "roadmap · active phase title":
         ("projects/mermaid-theme-builder/index.html",
-         f"{sp} — {spn}"),
+         f"{sp}: {spn}"),
 
     "roadmap · active phase marker class":
         ("projects/mermaid-theme-builder/index.html",
@@ -136,15 +136,15 @@ REPLACEMENTS = {
     # <h2>v0.5.0 — Shipped May 2026</h2>
     "release card h2": (
         _HTML,
-        r'(<h2>)v\d+\.\d+\.\d+ — Shipped \w+ \d{4}(</h2>)',
-        rf'\g<1>{v} — Shipped {sd}\2',
+        r'(<h2>)v\d+\.\d+\.\d+: Shipped \w+ \d{4}(</h2>)',
+        rf'\g<1>{v}: Shipped {sd}\2',
     ),
 
-    # <span class="meta-val"><span class="status-dot"></span>v0.5.0 — shipped May 2026</span>
+    # <span class="meta-val"><span class="status-dot"></span>v0.5.0: shipped May 2026</span>
     "release card · Version meta-val": (
         _HTML,
-        r'(status-dot"></span>)v\d+\.\d+\.\d+ — shipped \w+ \d{4}(</span>)',
-        rf'\g<1>{v} — shipped {sd}\2',
+        r'(status-dot"></span>)v\d+\.\d+\.\d+: shipped \w+ \d{4}(</span>)',
+        rf'\g<1>{v}: shipped {sd}\2',
     ),
 
     # <span class="meta-val">v0.5.x SKILL.md Hardening</span>  (both release card + sidebar)
@@ -165,15 +165,15 @@ REPLACEMENTS = {
     # v0.5.0 — Baseline Shipped   (plain text inside <li>, no HTML tags around value)
     "roadmap · shipped phase title": (
         _HTML,
-        r'v\d+\.\d+\.\d+ — Baseline Shipped',
-        f"{v} — Baseline Shipped",
+        r'v\d+\.\d+\.\d+: Baseline Shipped',
+        f"{v}: Baseline Shipped",
     ),
 
     # v0.5.x — SKILL.md Hardening   (active phase only — lookahead anchors to phase-pill--active)
     "roadmap · active phase title": (
         _HTML,
-        r'v\d+\.\d+\.x — [^\n<]+(?=\n\s+<span class="phase-pill phase-pill--active">)',
-        f"{sp} — {spn}",
+        r'v\d+\.\d+\.x: [^\n<]+(?=\n\s+<span class="phase-pill phase-pill--active">)',
+        f"{sp}: {spn}",
     ),
 
     # <span class="meta-val"><span class="status-dot"></span>v0.5.0 Shipped</span>
