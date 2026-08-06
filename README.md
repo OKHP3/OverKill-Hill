@@ -138,8 +138,8 @@ currently part of this workflow.
 
 ## Known limitations
 
-- No automated image-format optimization yet (everything is PNG; WebP conversion is a follow-up task).
-- No CSP header set at the edge yet (recommendation in `docs/audits/2026-08-overkill-hill-replit-pass.md`).
+- Image-format optimization is script-based rather than automatic: use the PNG-to-WebP and picture-upgrade scripts, then review the generated diff.
+- `_headers` provides a report-only CSP and related security headers; enforcement and live edge behavior still require deployment-specific verification.
 - Search index (`assets/data/search-index.json`) is committed; regenerate when adding new pages.
 
 ## Contact

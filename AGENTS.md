@@ -341,7 +341,6 @@ site-specific content genuinely requires a different layout.
 |-- search/                /search/ page directory
 |-- site.webmanifest
 |-- sitemap.xml
-|-- skills-lock.json
 |-- under-construction.html
 +-- universe/              /universe/ page directory
 ```
@@ -386,7 +385,8 @@ Expected file types and naming patterns:
   `scripts/viewport-qa.py` / `scripts/run-viewport-qa.py` output
 - `lighthouse-YYYY-MM-DD.json` -- Lighthouse CI output (if run)
 - `accent-contrast-report.json` -- `scripts/check-accent-contrast.py` output
-- `screenshots/` subdirectory -- Playwright failure captures (gitignored at root)
+- `screenshots/` subdirectory -- retained visual-QA captures and Playwright failure captures (gitignored at root)
+  - `screenshots/canvas/` -- retained captures from the former root `.canvas/` workspace
 
 Human-authored audit reports belong in `assets/docs/`, not here.
 
@@ -637,7 +637,7 @@ baseline -- update it here when the inventory changes materially.
 
 | Directory | Current state | Notes |
 |---|---|---|
-| `assets/audit/` | `.gitkeep` plus one links report | Populate by running `scripts/validate-site.py`, `check-links.py`, `viewport-qa.py` |
+| `assets/audit/` | `.gitkeep` plus `screenshots/canvas/` with two retained visual-QA captures | Populate by running `scripts/validate-site.py`, `check-links.py`, `viewport-qa.py`; retained screenshots are visual-QA evidence |
 | `assets/css/` | `theme.css` (136 KB) | Single canonical stylesheet |
 | `assets/data/` | `search-index.json` (119 entries) | Rebuild after content changes |
 | `assets/downloads/` | `okh-prompt-protocol-template.md` | User-facing prompt protocol download |
@@ -650,8 +650,8 @@ baseline -- update it here when the inventory changes materially.
 | `assets/templates/` | 10 HTML templates plus `index.md` | Article, hub, project-detail, form, and utility types |
 | `dist/` | Not present in this checkout | Reserved, ignored cross-site sync staging area when the sync workflow is run |
 | `docs/` | 4 cross-site planning docs | `cross-site-sync-plan.md`, `cross-site-search-dispatch.md`, `cross-site-search-prompt.md`, `project-page-mermaid-theme-builder-salvage.md` |
-| `docs/archive/` | 5 archived sprint and audit docs | Sprint plans from 2026 |
-| `scripts/` | 57 scripts | Full shared plus OKH-specific toolchain |
+| `docs/archive/` | 6 archived sprint and audit docs | Sprint plans from 2026 |
+| `scripts/` | 60 scripts | Full shared plus OKH-specific toolchain |
 
 **OKH-specific sub-folders under `assets/img/`:**
 - `assets/img/library/` -- fully populated; 49 PNG + 49 WebP project/article images
