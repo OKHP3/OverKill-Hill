@@ -4,11 +4,11 @@
      MTB repo:     https://github.com/OKHP3/mermaid-theme-builder
      Live app:     https://okhp3.github.io/mermaid-theme-builder/
      Notion plan:  [Notion master plan — add URL]
-     Version:      v0.5.0 — Shipped May 2026
-     Sprint:       v0.5.x SKILL.md Hardening (Shipped Aug 2026 — 8-skill family)
+     Version:      v0.6.1 — Shipped Aug 2026
+     Sprint:       v0.6.x Export & Workflow Polish (Active — 10-skill family)
      Mermaid.js:   11.16.0 (exact pin in package.json)
-     TypeScript:   6.0.3 (~6.0.3 in package.json)
-     Last reviewed: 2026-08-03
+     TypeScript:   7.0 (~7.0.2 in package.json)
+     Last reviewed: 2026-08-06
      Update rule:  Update this page whenever the Notion master plan
                    version callout or package.json versions change.
      ============================================================ -->
@@ -258,7 +258,7 @@
           <div class="tag-row">
             <span class="tag">Community Tool</span>
             <span class="tag">Open Source</span>
-            <span class="tag tag--accent">v0.5.0 Shipped</span>
+            <span class="tag tag--accent">v0.6.1 Shipped</span>
             <span class="tag tag--accent">Agent Skill Family Shipped</span>
           </div>
 
@@ -266,7 +266,7 @@
           <p class="hero-sub">Visual governance for AI-generated Mermaid diagrams.</p>
 
           <p>
-            Paste Mermaid, detect the family, apply a reusable theme, preview live, and export renderer-aware code or prompt scaffolds. Browser-only. No login. No backend. No data collection.
+            Paste Mermaid, detect the family, apply a reusable theme, preview live, and export renderer-aware code or prompt scaffolds. Browser-only. No login. No backend. Your diagram code, palette data, and exports stay in your browser. UI fonts load from Google Fonts.
           </p>
 
           <div class="hero-ctas">
@@ -379,15 +379,15 @@
             <!-- CURRENT RELEASE SNAPSHOT ───────────────────────── -->
             <div class="content-block card" id="release" data-search-index>
               <div class="section-label">Current Release</div>
-              <h2>v0.5.0: Shipped May 2026</h2>
+              <h2>v0.6.1: Shipped Aug 2026</h2>
               <div class="meta-row" style="margin-bottom:0;">
                 <div class="meta-item">
                   <span class="meta-key">Version</span>
-                  <span class="meta-val"><span class="status-dot"></span>v0.5.0: shipped May 2026</span>
+                  <span class="meta-val"><span class="status-dot"></span>v0.6.1: shipped Aug 2026</span>
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">Active Sprint</span>
-                  <span class="meta-val">v0.5.x SKILL.md Hardening</span>
+                  <span class="meta-val">v0.6.x Export &amp; Workflow Polish</span>
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">License</span>
@@ -438,7 +438,7 @@
                     <li><span class="bullet">•</span>Not affiliated with Mermaid.ai, Mermaid Chart, or any commercial Mermaid product</li>
                     <li><span class="bullet">•</span>Not a replacement for Mermaid.js; a governance layer on top of it</li>
                     <li><span class="bullet">•</span>Not a SaaS, not a subscription, not a freemium gate</li>
-                    <li><span class="bullet">•</span>Not collecting any data: 100% client-side, no server, no analytics</li>
+                    <li><span class="bullet">•</span>No diagram or palette data leaves your browser: 100% client-side, no server, no analytics. UI fonts load from Google Fonts (fonts.googleapis.com).</li>
                   </ul>
                 </div>
               </div>
@@ -590,14 +590,14 @@
                   <div class="feature-icon" aria-hidden="true">◫</div>
                   <div>
                     <h3>Reference Capability Registry</h3>
-                    <p>27+ diagram-family capability matrix covering renderer × family × version combinations. Was implicit in v0.3; now a dedicated Reference tab.</p>
+                    <p>31 diagram-family capability matrix covering renderer × family × version combinations. Was implicit in v0.3; now a dedicated Reference tab.</p>
                   </div>
                 </div>
                 <div class="feature-item">
                   <div class="feature-icon" aria-hidden="true">◻</div>
                   <div>
                     <h3>Agent Skill Family (SKILL.md)</h3>
-                    <p>Governance logic ships as an 8-skill SKILL.md family: theme building, architecture, BPMN, data, publishing, repair, and update skills, plus a core foundation skill, for Claude Code, Cursor, GitHub Copilot, and VS Code. Not in v0.3.</p>
+                    <p>Governance logic ships as an 10-skill SKILL.md family: theme building, architecture, BPMN, data, publishing, repair, and update skills, plus a core foundation skill, for Claude Code, Cursor, GitHub Copilot, and VS Code. Not in v0.3.</p>
                   </div>
                 </div>
                 <div class="feature-item">
@@ -688,13 +688,13 @@
                   <div class="feature-icon" aria-hidden="true">◫</div>
                   <div>
                     <h3>Mermaid.js 11.16.0</h3>
-                    <p>Pinned to a specific version for reproducible rendering. The Look API, 27+ diagram families, and full themeVariables coverage, all at a known, tested baseline.</p>
+                    <p>Pinned to a specific version for reproducible rendering. The Look API, 31 diagram families, and full themeVariables coverage, all at a known, tested baseline.</p>
                   </div>
                 </div>
                 <div class="feature-item">
                   <div class="feature-icon" aria-hidden="true">◻</div>
                   <div>
-                    <h3>TypeScript 6.0.3 (strict)</h3>
+                    <h3>TypeScript 7.0 (strict)</h3>
                     <p>Strict mode throughout. Renderer profile types, diagram family unions, and export format contracts are all type-safe, not inferred at runtime.</p>
                   </div>
                 </div>
@@ -708,8 +708,8 @@
                 <div class="feature-item">
                   <div class="feature-icon" aria-hidden="true">🔒</div>
                   <div>
-                    <h3>PWA-Ready (Offline Capable)</h3>
-                    <p>Service worker and web app manifest are both present in the source repo. The workbench runs without a network connection after the first visit. Installable, works offline after first load.</p>
+                    <h3>PWA-Ready</h3>
+                    <p>Service worker and web app manifest are present in the source repo. The app shell is cached for offline access; UI fonts load from Google Fonts and require a network connection on first visit. Installable to home screen or desktop.</p>
                   </div>
                 </div>
               </div>
@@ -774,7 +774,7 @@
                   <div class="feature-icon" aria-hidden="true">🔒</div>
                   <div>
                     <h3>Browser-Only: No Server</h3>
-                    <p>Runs 100% client-side. No login, no account, no data leaves your machine. Close the tab and nothing is stored anywhere.</p>
+                    <p>Runs 100% client-side. No login, no account. Your diagram code, palette data, and exports stay in your browser. UI fonts load from Google Fonts (fonts.googleapis.com) on first visit.</p>
                   </div>
                 </div>
                 <div class="feature-item">
@@ -788,7 +788,7 @@
                   <div class="feature-icon" aria-hidden="true">◻</div>
                   <div>
                     <h3>SKILL.md Package</h3>
-                    <p>The governance logic ships as an 8-skill agent family (skills/FAMILY.md). AI tools and coding assistants can apply brand palettes and renderer profiles without opening the visual app.</p>
+                    <p>The governance logic ships as an 10-skill agent family (skills/FAMILY.md). AI tools and coding assistants can apply brand palettes and renderer profiles without opening the visual app.</p>
                   </div>
                 </div>
                 <div class="feature-item">
@@ -808,8 +808,8 @@
                 <div class="feature-item">
                   <div class="feature-icon" aria-hidden="true">◫</div>
                   <div>
-                    <h3>Reference Tab: 27+ Family Registry</h3>
-                    <p>A built-in capability registry covering 27+ diagram families. Documents which features are supported per renderer, per family, per Mermaid version; the reference stays open alongside your workspace.</p>
+                    <h3>Reference Tab: 31 Family Registry</h3>
+                    <p>A built-in capability registry covering 31 diagram families. Documents which features are supported per renderer, per family, per Mermaid version; the reference stays open alongside your workspace.</p>
                   </div>
                 </div>
                 <div class="feature-item">
@@ -852,7 +852,7 @@
                 <div class="relationship-card">
                   <span class="rel-tag">Agent Layer: Shipped</span>
                   <h3>SKILL.md / Agent Workflows</h3>
-                  <p>MTB ships as part of an 8-skill agent family (skills/FAMILY.md in the repo). The SKILL.md format exposes its governance logic (palette definitions, renderer profiles, prompt scaffold patterns) as a machine-readable workflow that AI agents and coding assistants can consume without the visual UI.</p>
+                  <p>MTB ships as part of an 10-skill agent family (skills/FAMILY.md in the repo). The SKILL.md format exposes its governance logic (palette definitions, renderer profiles, prompt scaffold patterns) as a machine-readable workflow that AI agents and coding assistants can consume without the visual UI.</p>
                 </div>
               </div>
             </div>
@@ -941,7 +941,7 @@
               <h2>SKILL.md: headless diagram governance</h2>
               <div class="skill-block">
                 <h3>What the SKILL.md package does</h3>
-                <p>Mermaid Theme Builder ships as part of an 8-skill agent family (a machine-readable <code>SKILL.md</code> set indexed at <code>skills/FAMILY.md</code>) that exposes the tool's governance logic in a format AI agents and coding assistants can consume directly, without opening the visual app.</p>
+                <p>Mermaid Theme Builder ships as part of an 10-skill agent family (a machine-readable <code>SKILL.md</code> set indexed at <code>skills/FAMILY.md</code>) that exposes the tool's governance logic in a format AI agents and coding assistants can consume directly, without opening the visual app.</p>
                 <p>The skill covers:</p>
                 <ul>
                   <li>Palette definition and brand token mapping</li>
@@ -952,7 +952,7 @@
                 </ul>
                 <p>Intended for: AI coding assistants, local agent workflows, CI/CD diagram validation pipelines, and headless diagram-governance scripts that need to apply consistent brand and renderer rules without human review at each step.</p>
                 <h3 style="margin-top:1rem;">Install in your AI coding assistant</h3>
-                <p>The skill family is published and installable today. Drop the relevant skill file(s) into your agent's skill directory; start with <code>okhp3-mermaid-theme-builder</code>, or pull the full 8-skill family from <code>skills/FAMILY.md</code> for architecture, BPMN, data, publishing, repair, and update workflows too.</p>
+                <p>The skill family is published and installable today. Drop the relevant skill file(s) into your agent's skill directory; start with <code>okhp3-mermaid-theme-builder</code>, or pull the full 10-skill family from <code>skills/FAMILY.md</code> for architecture, BPMN, data, publishing, repair, and update workflows too.</p>
                 <p><strong>Claude Code</strong></p>
                 <pre style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .claude/skills/mermaid-theme-builder.md
 # Point Claude Code at the published SKILL.md raw URL or local copy
@@ -971,7 +971,7 @@ curl -o .claude/skills/mermaid-theme-builder.md \
 # Copy skills/okhp3-mermaid-theme-builder/SKILL.md from the cloned repo
 # Reference in any chat-mode prompt: "Apply the Mermaid Theme Builder
 # governance rules for [renderer] before generating diagram code."</pre>
-                <div class="skill-note">Status: Shipped. The v0.5.x SKILL.md Hardening sprint delivered an 8-skill family covering theme building, architecture, BPMN, data, publishing, repair, and update workflows, plus a core foundation skill. Family manifest: <a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/FAMILY.md" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">skills/FAMILY.md ↗</a> · Theme builder skill: <a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/okhp3-mermaid-theme-builder/SKILL.md" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">okhp3-mermaid-theme-builder/SKILL.md ↗</a></div>
+                <div class="skill-note">Status: Shipped. The v0.5.x SKILL.md Hardening sprint delivered an 10-skill family covering theme building, architecture, BPMN, data, publishing, repair, and update workflows, plus a core foundation skill. Family manifest: <a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/FAMILY.md" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">skills/FAMILY.md ↗</a> · Theme builder skill: <a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/okhp3-mermaid-theme-builder/SKILL.md" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">okhp3-mermaid-theme-builder/SKILL.md ↗</a></div>
               </div>
             </div>
 
@@ -1060,15 +1060,15 @@ curl -o .claude/skills/mermaid-theme-builder.md \
                       v0.5.0: Baseline
                       <span class="phase-pill phase-pill--shipped">Shipped</span>
                     </div>
-                    <p class="progress-phase-desc">Forge UI System, pan/zoom canvas, renderer-aware export, brand palette presets, Look API (Classic/Neo/Hand-Drawn), multi-diagram splitting, shareable URL state, Reference tab with 27+ family registry.</p>
+                    <p class="progress-phase-desc">Forge UI System, pan/zoom canvas, renderer-aware export, brand palette presets, Look API (Classic/Neo/Hand-Drawn), multi-diagram splitting, shareable URL state, Reference tab with 31 family registry.</p>
                   </div>
                 </li>
                 <li class="progress-phase">
-                  <span class="progress-marker progress-marker--active">▶</span>
+                  <span class="progress-marker progress-marker--done">✓</span>
                   <div class="progress-phase-content">
                     <div class="progress-phase-title">
                       v0.5.x: SKILL.md Hardening
-                      <span class="phase-pill phase-pill--active">Active</span>
+                      <span class="phase-pill phase-pill--shipped">Shipped</span>
                     </div>
                     <p class="progress-phase-desc">Extract governance logic into a portable SKILL.md agent skill for Claude Code, Cursor, GitHub Copilot, and VS Code. Vitest 4 test suite hardening. Renderer profile verification fixtures.</p>
                   </div>
@@ -1276,7 +1276,7 @@ curl -o .claude/skills/mermaid-theme-builder.md \
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">What is SKILL.md and can I use it without the visual app?</p>
-                      <p class="faq-a">SKILL.md is a machine-readable agent skill: a file you drop into Claude Code, Cursor, GitHub Copilot, or VS Code that exposes the builder's governance logic without opening the visual app. The agent can apply brand palettes, select renderer profiles, and generate prompt scaffolds in headless workflows. It shipped as part of an 8-skill family (skills/FAMILY.md) in the v0.5.x SKILL.md Hardening sprint: theme building, architecture, BPMN, data, publishing, repair, update, plus a core foundation skill.</p>
+                      <p class="faq-a">SKILL.md is a machine-readable agent skill: a file you drop into Claude Code, Cursor, GitHub Copilot, or VS Code that exposes the builder's governance logic without opening the visual app. The agent can apply brand palettes, select renderer profiles, and generate prompt scaffolds in headless workflows. It shipped as part of an 10-skill family (skills/FAMILY.md) in the v0.5.x SKILL.md Hardening sprint: theme building, architecture, BPMN, data, publishing, repair, update, plus a core foundation skill.</p>
                     </div>
                     <div class="faq-item">
                       <p class="faq-q">What is the relationship between Mermaid Theme Builder and BPMN for Mermaid?</p>
@@ -1306,11 +1306,10 @@ curl -o .claude/skills/mermaid-theme-builder.md \
 
             <!-- DEVELOPMENT UPDATE ───────────────────────────── -->
             <div class="builder-note" style="border-color: rgba(196,106,44,0.35);">
-              <div class="section-label">Development Update: May 2026</div>
+              <div class="section-label">Development Update: Aug 2026</div>
               <blockquote>
-                <p>v0.5.0 is the current live state. The Forge UI System is in, pan/zoom is live, and the Look API (Classic/Neo/Hand-Drawn) shipped with full renderer compatibility notes. The Reference tab carries 27+ diagram family entries. Every export format is renderer-profiled: you get a GitHub-safe export if you target GitHub, a browser export if you target browser Mermaid.js.</p>
-                <p>The active sprint is v0.5.x SKILL.md Hardening. The governance logic that powers the visual app is being extracted into a machine-readable <code>SKILL.md</code>: the same palette definitions, renderer profiles, and prompt scaffold patterns, in a format Claude Code, Cursor, Copilot, and VS Code can consume directly without opening the browser tool.</p>
-                <p><em>The v0.6.x sprint follows: native renderer capability checking, Ko-fi artifact packaging, and mobile hardening. The goal is that every export claim is verifiable against its target renderer, not just described.</em></p>
+                <p>v0.6.1 is the current live state. The 10-skill SKILL.md family shipped, the Extract tab is live for pulling themes from existing Mermaid diagrams, and the export preview pane shows exact output before copy or download. The Reference tab carries 31 diagram family entries. Every export format is renderer-profiled.</p>
+                <p>The v0.5.x SKILL.md Hardening sprint is complete. The active sprint is v0.6.x Export &amp; Workflow Polish: export preview pane, directive-length advisory, reference-tab guided distribution, and doc-truth CI gates.</p>
               </blockquote>
               <p class="builder-sig">May 2026 · OverKill&nbsp;Hill&nbsp;P³</p>
             </div>
@@ -1326,7 +1325,7 @@ curl -o .claude/skills/mermaid-theme-builder.md \
               <div class="meta-row">
                 <div class="meta-item">
                   <span class="meta-key">Status</span>
-                  <span class="meta-val"><span class="status-dot"></span>v0.5.0 Shipped</span>
+                  <span class="meta-val"><span class="status-dot"></span>v0.6.1 Shipped</span>
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">Build Phase</span>
@@ -1376,6 +1375,7 @@ curl -o .claude/skills/mermaid-theme-builder.md \
               <ul>
                 <li><a href="https://okhp3.github.io/mermaid-theme-builder/#compose" target="_blank" rel="noopener noreferrer">Live App: Compose Tab ↗</a></li>
                 <li><a href="https://okhp3.github.io/mermaid-theme-builder/#apply" target="_blank" rel="noopener noreferrer">Live App: Apply Tab ↗</a></li>
+                <li><a href="https://okhp3.github.io/mermaid-theme-builder/#extract" target="_blank" rel="noopener noreferrer">Live App: Extract Tab ↗</a></li>
                 <li><a href="https://github.com/OKHP3/mermaid-theme-builder" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a></li>
                 <li><a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/FAMILY.md" target="_blank" rel="noopener noreferrer">Skill Family Manifest (FAMILY.md) ↗</a></li>
                 <li><a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/okhp3-mermaid-theme-builder/SKILL.md" target="_blank" rel="noopener noreferrer">SKILL.md Source ↗</a></li>
