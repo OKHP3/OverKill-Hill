@@ -228,7 +228,7 @@
       <section class="site-specials site-specials--okh" aria-label="Forge update">
         <span class="site-specials-label">🔥 Hot off the FORGE ⚒️</span>
         <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
-          113 skills, 15 families: Compare and Live GitHub Activity are now live in Skillz Forge. Read it →
+          <span id="skillz-live-banner-count">113 skills, 15 families</span>: Compare and Live GitHub Activity are now live in Skillz Forge. Read it →
         </a>
       </section>
     </header>
@@ -495,8 +495,8 @@
             <!-- CURRENT INVENTORY ───────────────────────────────── -->
             <div class="content-block card" id="inventory" data-search-index>
               <div class="section-label">Current Inventory</div>
-              <h2>113 public distribution skills across 15 active families</h2>
-              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">Source-derived count from the live generated catalog (<code>project-summary.json</code>) as of 2026-08-06. A prior July 29, 2026 audit reported 75 skills across 12 families; the count grew as new packages were added and audited.</p>
+              <h2><span id="skillz-live-skill-count" data-fallback="113">113</span> public distribution skills across <span id="skillz-live-family-count" data-fallback="15">15</span> active families</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">Source-derived count from the live generated catalog (<code>project-summary.json</code>) as of <span id="skillz-live-as-of" data-fallback="2026-08-06">2026-08-06</span>. This page fetches that file at load time and updates the numbers above automatically; if the fetch fails (e.g. offline), the last-synced values shown here remain. A prior July 29, 2026 audit reported 75 skills across 12 families; the count grew as new packages were added and audited.</p>
 
               <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.25rem;" role="list" aria-label="Active skill families">
                 <span class="tag" role="listitem">Abrahamic</span>
@@ -1196,6 +1196,40 @@ curl -o .agents/skills/my-skill.md \
          SCRIPTS
          ============================================================ -->
     <script src="/assets/js/app.js"></script>
+
+    <!-- Live-sync skill/family counts from the skillz Forge project-summary.json,
+         so this page's numbers cannot drift the way they did before (dossier
+         once read "75 skills, 12 families" for a week after the live catalog
+         had grown to 113/15). Progressive enhancement only: on fetch failure
+         (offline, CORS change, endpoint move) the last hand-synced numbers
+         already baked into the HTML above remain displayed, unedited. -->
+    <script>
+      (function () {
+        var SOURCE_URL = 'https://okhp3.github.io/skillz/data/project-summary.json';
+        fetch(SOURCE_URL, { cache: 'no-store' })
+          .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+          .then(function (summary) {
+            var skillCountEl = document.getElementById('skillz-live-skill-count');
+            var familyCountEl = document.getElementById('skillz-live-family-count');
+            var asOfEl = document.getElementById('skillz-live-as-of');
+            var bannerEl = document.getElementById('skillz-live-banner-count');
+            if (typeof summary.skillCount === 'number' && typeof summary.familyCount === 'number') {
+              if (skillCountEl) skillCountEl.textContent = summary.skillCount;
+              if (familyCountEl) familyCountEl.textContent = summary.familyCount;
+              if (bannerEl) bannerEl.textContent = summary.skillCount + ' skills, ' + summary.familyCount + ' families';
+            }
+            if (asOfEl && summary.generatedAt) {
+              asOfEl.textContent = summary.generatedAt.slice(0, 10);
+            }
+          })
+          .catch(function (err) {
+            // Fail silent to the visitor; last hand-synced counts already in
+            // the markup stand. Log only for maintainers checking devtools.
+            console.warn('[skillz dossier] could not live-sync counts from project-summary.json:', err);
+          });
+      })();
+    </script>
+
 
     <!-- Iframe loading overlay + reload control -->
     <script>
