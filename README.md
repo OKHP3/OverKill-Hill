@@ -117,10 +117,10 @@ Templates produced by `extract-templates.py` are **scaffolds, not pages** — th
 
 ### Continuous integration
 
-`.github/workflows/validate.yml` runs `validate-site.py`, `check-links.py`, and
-`build-search-index.py` on every push and pull request to `main`, then verifies
-that the generated search-index file exists. `extract-templates.py` is not
-currently part of this workflow.
+`.github/workflows/validate.yml` runs `validate-site.py` on every push and pull
+request to `main`. On a push to `main`, it deploys to GitHub Pages only after
+that validation job succeeds. The workflow does not currently run
+`check-links.py`, rebuild `build-search-index.py`, or run `extract-templates.py`.
 
 ## Editing guidance
 

@@ -3,22 +3,24 @@
 release-mtb.py — One-command MTB release helper
 
 Rewrites VERSION_CONFIG in check-mtb-version.py, then delegates to
-check-mtb-version.py --update to patch all target files atomically.
+check-mtb-version.py --update to patch all target files. The checker writes
+timestamped backups before it changes target files; this is a sequential,
+recoverable update rather than an atomic transaction.
 
 Usage:
     python3 scripts/release-mtb.py \\
-        --version v0.6.0 \\
+        --version v0.6.2 \\
         --date "August 2026" \\
         --sprint v0.6.x \\
-        --sprint-name "Ko-fi Artifacts"
+        --sprint-name "Export & Workflow Polish"
 
     # With sprint promotion (old sprint → Shipped, new sprint → Active):
     python3 scripts/release-mtb.py \\
-        --version v0.6.0 \\
-        --date "August 2026" \\
-        --sprint v0.6.x \\
-        --sprint-name "Ko-fi Artifacts" \\
-        --prev-sprint v0.5.x
+        --version v0.7.0 \\
+        --date "September 2026" \\
+        --sprint v0.7.x \\
+        --sprint-name "Session Persistence + Multi-Diagram Canvas" \\
+        --prev-sprint v0.6.x
 
     # Preview all changes without writing any files:
     python3 scripts/release-mtb.py ... --dry-run
@@ -30,9 +32,11 @@ Exit codes:
 """
 
 import argparse
+import difflib
 import re
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 CHECKER = Path(__file__).parent / "check-mtb-version.py"
@@ -71,8 +75,8 @@ def parse_args():
     return p.parse_args()
 
 
-def patch_version_config(args, dry_run=False):
-    """Rewrite the VERSION_CONFIG block in check-mtb-version.py."""
+def render_version_config(args):
+    """Return the checker with VERSION_CONFIG replaced by release arguments."""
     if not CHECKER.exists():
         print(f"ERROR: {CHECKER} not found", file=sys.stderr)
         sys.exit(1)
@@ -119,8 +123,23 @@ def patch_version_config(args, dry_run=False):
         )
         sys.exit(1)
 
-    if not dry_run:
-        CHECKER.write_text(new_text, encoding="utf-8")
+    return text, new_text
+
+
+def print_config_diff(original, proposed):
+    """Print the proposed VERSION_CONFIG change for a release dry run."""
+    diff = list(difflib.unified_diff(
+        original.splitlines(),
+        proposed.splitlines(),
+        fromfile=str(CHECKER),
+        tofile=f"{CHECKER} (proposed)",
+        lineterm="",
+    ))
+    if not diff:
+        print("      VERSION_CONFIG already matches the proposed release.")
+        return
+    for line in diff:
+        print(f"      {line}")
 
 
 def print_summary(args):
@@ -149,18 +168,30 @@ def main():
 
     print_summary(args)
 
-    # Step 1: patch VERSION_CONFIG
+    # Step 1: render the proposed VERSION_CONFIG. Dry runs pass that proposed
+    # checker to the consistency checker so their output describes the requested
+    # release rather than the currently committed configuration.
     action = "Previewing" if args.dry_run else "Patching"
     print(f"[1/2] {action} VERSION_CONFIG in check-mtb-version.py \u2026")
-    patch_version_config(args, dry_run=args.dry_run)
+    original_checker, proposed_checker = render_version_config(args)
     if args.dry_run:
+        print_config_diff(original_checker, proposed_checker)
         print("      (dry run \u2014 check-mtb-version.py not written)")
     else:
+        CHECKER.write_text(proposed_checker, encoding="utf-8")
         print("      Done.")
     print()
 
-    # Step 2: delegate to check-mtb-version.py --update
-    cmd = [sys.executable, str(CHECKER), "--update"]
+    # Step 2: delegate to check-mtb-version.py --update. In dry-run mode use a
+    # temporary checker copy that carries the proposed configuration.
+    checker_path = CHECKER
+    temporary_checker = None
+    if args.dry_run:
+        temporary_checker = tempfile.TemporaryDirectory(prefix="release-mtb-")
+        checker_path = Path(temporary_checker.name) / CHECKER.name
+        checker_path.write_text(proposed_checker, encoding="utf-8")
+
+    cmd = [sys.executable, str(checker_path), "--update"]
     if args.prev_sprint:
         cmd += ["--prev-sprint", args.prev_sprint]
     if args.dry_run:
@@ -170,6 +201,8 @@ def main():
     print()
 
     result = subprocess.run(cmd)
+    if temporary_checker is not None:
+        temporary_checker.cleanup()
     sys.exit(result.returncode)
 
 

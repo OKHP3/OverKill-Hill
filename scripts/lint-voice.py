@@ -19,18 +19,54 @@ Skipped contexts (same logic as check_em_dashes in validate-site.py):
 
 Run standalone:
     python3 scripts/lint-voice.py
+    python3 scripts/lint-voice.py --baseline scripts/voice-lint-baseline.json
 
-Or called by validate-site.py (exits 0 always; findings are WARNs only).
+Or called by validate-site.py. The baseline mode exits non-zero only when a
+change introduces a warning not represented in the reviewed baseline.
 """
 
 from __future__ import annotations
 
+import argparse
+import hashlib
+import json
 import re
 import sys
+from collections import Counter
+from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "dist", "templates", ".agents"}
+
+
+@dataclass(frozen=True)
+class VoiceFinding:
+    """One advisory voice finding with a stable, content-based identity."""
+
+    path: str
+    lineno: int
+    label: str
+    suggestion: str
+    excerpt: str
+
+    @property
+    def identity(self) -> str:
+        """Hash path, rule, and normalized visible text; line numbers may move."""
+        source = "\x1f".join((self.path, self.label, self.excerpt.casefold()))
+        return hashlib.sha256(source.encode("utf-8")).hexdigest()
+
+    @property
+    def message(self) -> str:
+        if self.label == "passive-heavy":
+            return (
+                f"{self.path}:{self.lineno}: passive-heavy line ({self.suggestion}) "
+                f"· …{self.excerpt}…"
+            )
+        return (
+            f"{self.path}:{self.lineno}: voice [{self.label}] - {self.suggestion} "
+            f"· …{self.excerpt}…"
+        )
 
 # ---------------------------------------------------------------------------
 # Configurable phrase patterns
@@ -153,15 +189,14 @@ def strip_tags(text: str) -> str:
     return re.sub(r"<[^>]+>", " ", text)
 
 
-def lint_file(path: Path) -> list[tuple[str, int, str]]:
+def lint_file(path: Path) -> list[VoiceFinding]:
     """
-    Return a list of (severity, lineno, message) tuples for the file.
-    All voice findings are 'WARN'.
+    Return advisory voice findings for the file.
     """
     rel = path.relative_to(ROOT).as_posix()
     raw = path.read_text(encoding="utf-8", errors="replace")
     lines = raw.splitlines()
-    findings: list[tuple[str, int, str]] = []
+    findings: list[VoiceFinding] = []
 
     in_comment = False
     in_script = False
@@ -193,19 +228,23 @@ def lint_file(path: Path) -> list[tuple[str, int, str]]:
                 # ── phrase checks ─────────────────────────────────────────
                 for label, pattern, suggestion in PHRASE_PATTERNS:
                     if pattern.search(text):
-                        excerpt = text.strip()[:90]
-                        findings.append((
-                            "WARN", lineno,
-                            f"{rel}:{lineno}: voice [{label}] — {suggestion} · …{excerpt}…",
+                        findings.append(VoiceFinding(
+                            path=rel,
+                            lineno=lineno,
+                            label=label,
+                            suggestion=suggestion,
+                            excerpt=text.strip()[:90],
                         ))
 
                 # ── passive-heavy check ───────────────────────────────────
                 passive_hits = PASSIVE_RE.findall(text)
                 if len(passive_hits) >= PASSIVE_PER_LINE_THRESHOLD:
-                    excerpt = text.strip()[:90]
-                    findings.append((
-                        "WARN", lineno,
-                        f"{rel}:{lineno}: passive-heavy line ({len(passive_hits)} passive constructions) · …{excerpt}…",
+                    findings.append(VoiceFinding(
+                        path=rel,
+                        lineno=lineno,
+                        label="passive-heavy",
+                        suggestion=f"{len(passive_hits)} passive constructions",
+                        excerpt=text.strip()[:90],
                     ))
 
         # ── update block-close state AFTER evaluating ──────────────────────
@@ -223,22 +262,103 @@ def lint_file(path: Path) -> list[tuple[str, int, str]]:
     return findings
 
 
+def load_baseline(path: Path) -> Counter[str]:
+    """Load a reviewed warning baseline, rejecting malformed policy files."""
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        raise ValueError(f"cannot read baseline {path}: {error}") from error
+
+    if data.get("schema_version") != 1 or not isinstance(data.get("finding_counts"), dict):
+        raise ValueError(f"baseline {path} must contain schema_version 1 and finding_counts")
+
+    counts = Counter()
+    for identity, count in data["finding_counts"].items():
+        if not isinstance(identity, str) or not isinstance(count, int) or count < 1:
+            raise ValueError(f"baseline {path} has an invalid finding count")
+        counts[identity] = count
+    return counts
+
+
+def write_baseline(path: Path, findings: list[VoiceFinding]) -> None:
+    """Write a deterministic baseline after a human has reviewed lint output."""
+    counts = Counter(finding.identity for finding in findings)
+    data = {
+        "schema_version": 1,
+        "generated_by": "python3 scripts/lint-voice.py --write-baseline",
+        "finding_counts": dict(sorted(counts.items())),
+    }
+    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+
+
+def find_new_warnings(findings: list[VoiceFinding], baseline: Counter[str]) -> list[VoiceFinding]:
+    """Return findings whose content-based occurrence exceeds the baseline."""
+    seen: Counter[str] = Counter()
+    new_findings: list[VoiceFinding] = []
+    for finding in findings:
+        seen[finding.identity] += 1
+        if seen[finding.identity] > baseline[finding.identity]:
+            new_findings.append(finding)
+    return new_findings
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Lint static-site voice and guard against new warnings.")
+    parser.add_argument(
+        "--baseline",
+        type=Path,
+        default=None,
+        help="reviewed baseline JSON; fail only for warnings beyond it",
+    )
+    parser.add_argument(
+        "--write-baseline",
+        type=Path,
+        metavar="PATH",
+        help="write the current findings as a reviewed-baseline candidate",
+    )
+    return parser.parse_args()
+
+
 def main() -> int:
+    args = parse_args()
+    if args.baseline and args.write_baseline:
+        print("ERROR: choose --baseline or --write-baseline, not both.", file=sys.stderr)
+        return 2
+
     pages = find_html_files()
-    all_findings: list[tuple[str, int, str]] = []
+    all_findings: list[VoiceFinding] = []
     for path in pages:
         all_findings.extend(lint_file(path))
 
-    warnings = [f for f in all_findings if f[0] == "WARN"]
+    warnings = all_findings
 
     if warnings:
         print(f"Voice lint — {len(warnings)} warning(s):")
-        for _, _, msg in warnings:
-            print(f"  ! {msg}")
+        for finding in warnings:
+            print(f"  ! {finding.message}")
     else:
         print("Voice lint — ✓ no voice warnings.")
 
-    # Always exits 0: voice lint is advisory, never blocks the build.
+    if args.write_baseline:
+        write_baseline(args.write_baseline, warnings)
+        print(f"Wrote reviewed-baseline candidate: {args.write_baseline}")
+        return 0
+
+    if args.baseline:
+        try:
+            baseline = load_baseline(args.baseline)
+        except ValueError as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 2
+        new_warnings = find_new_warnings(warnings, baseline)
+        if new_warnings:
+            print(f"ERROR: {len(new_warnings)} new voice warning(s) beyond reviewed baseline:")
+            for finding in new_warnings:
+                print(f"  ✖ {finding.message}")
+            return 1
+        print("✓ no new voice warnings beyond reviewed baseline.")
+
+    # Without a baseline, voice lint remains advisory for editorial review.
     return 0
 
 

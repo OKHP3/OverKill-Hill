@@ -394,11 +394,12 @@ def run_banner_check() -> int:
 
 
 def run_voice_lint() -> int:
-    """Run lint-voice.py and stream its output. Returns its exit code (always 0)."""
+    """Run the voice-lint baseline gate and stream its output."""
     script = Path(__file__).resolve().parent / "lint-voice.py"
+    baseline = Path(__file__).resolve().parent / "voice-lint-baseline.json"
     print("\u2500\u2500 Voice Lint \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")
     result = subprocess.run(
-        [sys.executable, str(script)],
+        [sys.executable, str(script), "--baseline", str(baseline)],
         capture_output=True,
         text=True,
     )
@@ -448,9 +449,9 @@ def main() -> int:
     banner_exit = run_banner_check()
 
     print()
-    run_voice_lint()  # advisory only — never fails the build
+    voice_exit = run_voice_lint()
 
-    return 1 if (errors or mtb_exit != 0 or banner_exit != 0) else 0
+    return 1 if (errors or mtb_exit != 0 or banner_exit != 0 or voice_exit != 0) else 0
 
 
 if __name__ == "__main__":

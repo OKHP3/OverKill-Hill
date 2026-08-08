@@ -20,6 +20,7 @@ Exit codes:
 """
 
 import argparse
+import html
 import re
 import shutil
 import sys
@@ -31,16 +32,16 @@ from pathlib import Path
 
 VERSION_CONFIG = {
     # The released version tag, e.g. "v0.6.0"
-    "current_version": "v0.5.0",
+    "current_version": "v0.6.1",
 
     # Month + year the version shipped, e.g. "August 2026"
-    "shipped_date": "May 2026",
+    "shipped_date": "Aug 2026",
 
     # The active sprint series label, e.g. "v0.6.x"
-    "active_sprint": "v0.5.x",
+    "active_sprint": "v0.6.x",
 
     # The active sprint short name (no series prefix), e.g. "Ko-fi Artifacts"
-    "active_sprint_name": "SKILL.md Hardening",
+    "active_sprint_name": "Export & Workflow Polish",
 
     # The sprint being closed out (the one moving from Active → Shipped).
     # Set this to the old active_sprint label (e.g. "v0.5.x") when cutting a
@@ -56,6 +57,7 @@ v   = VERSION_CONFIG["current_version"]
 sd  = VERSION_CONFIG["shipped_date"]
 sp  = VERSION_CONFIG["active_sprint"]
 spn = VERSION_CONFIG["active_sprint_name"]
+spn_html = html.escape(spn)
 ps  = VERSION_CONFIG["prev_sprint"]
 
 EXPECTED = {
@@ -74,19 +76,19 @@ EXPECTED = {
 
     "release card · Active Sprint meta-val":
         ("projects/mermaid-theme-builder/index.html",
-         f"{sp} {spn}"),
+         f"{sp} {spn_html}"),
 
     "hero tag":
         ("projects/mermaid-theme-builder/index.html",
          f"{v} Shipped"),
 
-    "roadmap · shipped phase title":
+    "roadmap · released version title":
         ("projects/mermaid-theme-builder/index.html",
-         f"{v}: Baseline"),
+         f"{v}: {spn_html}"),
 
     "roadmap · active phase title":
         ("projects/mermaid-theme-builder/index.html",
-         f"{sp}: {spn}"),
+         f"{sp}: {spn_html}"),
 
     "roadmap · active phase marker class":
         ("projects/mermaid-theme-builder/index.html",
@@ -98,7 +100,7 @@ EXPECTED = {
 
     "sidebar · Build Phase meta-val":
         ("projects/mermaid-theme-builder/index.html",
-         f"{sp} {spn}"),
+         f"{sp} {spn_html}"),
 
     # ── replit.md ──────────────────────────────────────────────────────────
 
@@ -152,7 +154,7 @@ REPLACEMENTS = {
     "release card · Active Sprint meta-val": (
         _HTML,
         r'(<span class="meta-val">)v\d+\.\d+\.x [^<]+(</span>)',
-        rf'\g<1>{sp} {spn}\2',
+        rf'\g<1>{sp} {spn_html}\2',
     ),
 
     # <span class="tag tag--accent">v0.5.0 Shipped</span>
@@ -162,18 +164,18 @@ REPLACEMENTS = {
         rf'\g<1>{v} Shipped\2',
     ),
 
-    # v0.5.0 — Baseline Shipped   (plain text inside <li>, no HTML tags around value)
-    "roadmap · shipped phase title": (
+    # v0.5.0: Baseline Shipped (plain text inside <li>, no HTML tags around value)
+    "roadmap · released version title": (
         _HTML,
-        r'v\d+\.\d+\.\d+: Baseline Shipped',
-        f"{v}: Baseline Shipped",
+        r'v\d+\.\d+\.\d+: [^\n<]+(?=\n\s+<span class="phase-pill phase-pill--shipped">)',
+        f"{v}: {spn_html}",
     ),
 
     # v0.5.x — SKILL.md Hardening   (active phase only — lookahead anchors to phase-pill--active)
     "roadmap · active phase title": (
         _HTML,
         r'v\d+\.\d+\.x: [^\n<]+(?=\n\s+<span class="phase-pill phase-pill--active">)',
-        f"{sp}: {spn}",
+        f"{sp}: {spn_html}",
     ),
 
     # <span class="meta-val"><span class="status-dot"></span>v0.5.0 Shipped</span>
@@ -189,7 +191,7 @@ REPLACEMENTS = {
     "sidebar · Build Phase meta-val": (
         _HTML,
         r'(<span class="meta-val">)v\d+\.\d+\.x [^<]+(</span>)',
-        rf'\g<1>{sp} {spn}\2',
+        rf'\g<1>{sp} {spn_html}\2',
     ),
 
     # **Current version:** v0.5.0

@@ -141,7 +141,7 @@ python3 scripts/validate-site.py
 
 Path: `/projects/mermaid-theme-builder/`
 
-**Current version:** v0.5.0 — shipped May 2026. Active sprint: v0.5.x SKILL.md Hardening.
+**Current version:** v0.6.1 — shipped Aug 2026. Active sprint: v0.6.x Export & Workflow Polish.
 
 **Live tool:** `okhp3.github.io/mermaid-theme-builder/` — browser-only, no login, MIT licensed.
 
@@ -150,12 +150,12 @@ Path: `/projects/mermaid-theme-builder/`
 | Section ID | Heading | Notes |
 |---|---|---|
 | `#embed-tool` | *(embedded iframe)* | Live tool iframe at top of page; reload button included |
-| `#release` | Current Release | v0.5.0 metadata card — version, active sprint, license, runtime, live tool link, source link |
+| `#release` | Current Release | v0.6.1 metadata card — version, active sprint, license, runtime, live tool link, source link |
 | `#what-it-is` | A governance workbench, not a diagram editor | Is/Is-Not grid — two-column comparison of what the tool is and isn't |
 | `#why-this-exists` | What you get here that you don't get from prompting an LLM | Why-grid — LLM prompting vs. MTB side-by-side |
 | `#since-v03` | What changed between v0.3 and v0.5 | 7 change cards: Renderer Intelligence, Look API Support, Reference Capability Registry, SKILL.md Agent Packaging, Multi-Diagram Splitting, Shareable URL State, Vitest 4 Test Suite |
 | `#features` | What the builder does | Feature card grid — 16 cards covering all major capabilities |
-| `#roadmap` | Where the build is going | Progress track — 10 entries: V0.1–V0.4 Shipped ✓, v0.5.0 Shipped ✓, v0.5.x SKILL.md Hardening ▶ (active), v0.6.x Native Capability + Ko-fi Artifacts, v0.7.x Session Persistence + Multi-Diagram Canvas, v0.8.x Collaboration + Governance Hardening, v1.0 Production Release (planned) |
+| `#roadmap` | Where the build is going | Progress track — 10 entries: V0.1–V0.4 Shipped ✓, v0.5.x SKILL.md Hardening Shipped ✓, v0.6.1 Export & Workflow Polish Shipped ✓, v0.6.x Export & Workflow Polish ▶ (active), v0.7.x Session Persistence + Multi-Diagram Canvas, v0.8.x Collaboration + Governance Hardening, v1.0 Production Release (planned) |
 | *(no ID — collapsibles block)* | User Guide / Palette Reference / FAQ | Three collapsible `<details>` sections: 6-step User Guide, 21-row Palette Reference variable table, FAQ with 11 Q&A pairs |
 | *(no ID — builder's note + dev update)* | *(closing)* | Builder's Note blockquote, Development Update (May 2026), BPMN for Mermaid sibling link, builder sign-off |
 
@@ -171,17 +171,16 @@ The static HTML at `projects/mermaid-theme-builder/index.html` **is** the live p
 
 ### MTB release update procedure
 
-On every MTB version bump, run the one-command release helper — it patches `VERSION_CONFIG`, auto-fixes all 11 structured version strings, promotes roadmap pills, and verifies everything in a single invocation.
+On every MTB version bump, run the one-command release helper. It patches `VERSION_CONFIG`, auto-fixes all 11 structured version strings, promotes roadmap pills, and verifies the result in a single invocation. The update is sequential; the checker stores timestamped backups of changed target files rather than claiming transaction-like atomicity.
 
 **One-command release (preferred):**
 
 ```
 python3 scripts/release-mtb.py \
-    --version v0.6.0 \
+    --version v0.6.2 \
     --date "August 2026" \
     --sprint v0.6.x \
-    --sprint-name "Ko-fi Artifacts" \
-    --prev-sprint v0.5.x
+    --sprint-name "Export & Workflow Polish"
 ```
 
 | Flag | Purpose |
@@ -193,7 +192,7 @@ python3 scripts/release-mtb.py \
 | `--prev-sprint` | Sprint being closed out — triggers roadmap pill promotion (omit if no sprint change) |
 | `--dry-run` | Preview all changes without writing any files |
 
-The script: (1) rewrites `VERSION_CONFIG` in `check-mtb-version.py`, then (2) delegates to `check-mtb-version.py --update` to patch all target files and verify all 11 checks. Exits 0 only when everything passes.
+The script: (1) renders the proposed `VERSION_CONFIG`, then (2) delegates to `check-mtb-version.py --update` to patch target files and verify all 11 checks. With `--dry-run`, it prints the proposed configuration diff and runs the checker against a temporary copy carrying that configuration, so the preview reflects the requested release without writing repository files. Run the dry run first; a real update is sequential and backed up, not atomic. It exits 0 only when its checker invocation succeeds.
 
 **Lower-level tool (check only / manual fix):**
 
@@ -210,19 +209,15 @@ The `--update` flag auto-promotes the roadmap pills when `--prev-sprint` is supp
 
 | Location | What changes |
 |---|---|
-| Hero tag | `v{sprint} Alpha Active` |
-| `#release` card `<h2>` | `v{version} — Shipped {Month YYYY}` |
-| `#release` Version meta-val | `v{version} — shipped {Month YYYY}` |
+| Hero tag | `v{version} Shipped` |
+| `#release` card `<h2>` | `v{version}: Shipped {Month YYYY}` |
+| `#release` Version meta-val | `v{version}: shipped {Month YYYY}` |
 | `#release` Active Sprint meta-val | `v{sprint} {sprint-name}` |
 | `#roadmap` — `▶` marker + `Active` pill | Auto-promoted via `--prev-sprint`. Marker classes: `progress-marker--active` / `progress-marker--done`; pill classes: `phase-pill--active` / `phase-pill--shipped` |
-| Sidebar · Status meta-val | `v{sprint} Alpha Active` |
+| Sidebar · Status meta-val | `v{version} Shipped` |
 | Sidebar · Build Phase meta-val | `v{sprint} {sprint-name}` |
 
-**Also update in `replit.md` (not auto-patched — edit manually):**
-
-- The `**Current version:**` line in this section (line ~116)
-- The `#release` row in the Page Sections table (line ~125)
-- The `#roadmap` row in the Page Sections table (line ~130)
+The checker also updates the `**Current version:**` and active-sprint lines in this section. Review the release and roadmap table summaries after each release because they intentionally describe more than the structured values the checker manages.
 
 ## Internal Search Engine
 
