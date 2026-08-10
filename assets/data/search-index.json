@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 131,
+  "count": 132,
   "entries": [
     {
       "url": "/",
@@ -1075,6 +1075,7 @@
         "A real game. A real spec. A real test.",
         "Five tools. One product. No chaos.",
         "The rules the build ran on.",
+        "What Happened After the Gift",
         "A birthday gift. Not a casino. Not a wagering product.",
         "Nine days. One shot at the reveal.",
         "Multi-agent work usually produces multi-agent chaos.",
@@ -1099,12 +1100,21 @@
       "body": "Skip to main content overkillhill.com / projects / glee-fully-chai-chasers Foundry Project Open Source v1.x Active Multi-Agent Build Zero Backend Glee-fully Chai Chasers One wife. Two cats. Five AI tools. Zero real money. A free, original, mobile-first cascading-reels game built as a birthday gift, and a working case study in multi-agent orchestration. One human PM directed Claude, Codex, Replit, ChatGPT, and Copilot against a canonical spec, a decision log, and a failing-test math oracle. Browser-only. Fictional currency. No purchases, no ads, no accounts."
     },
     {
+      "url": "/projects/glee-fully-chai-chasers/#after-the-gift",
+      "title": "What Happened After the Gift — Glee-fully Chai Chasers | OverKill Hill P³™",
+      "category": "Project",
+      "description": "What Happened After the Gift What Happened After the Gift The gift shipped on July 17. The interesting part is what the governance layer was worth after the deadline stopped mattering.",
+      "headings": [],
+      "body": "What Happened After the Gift What Happened After the Gift The gift shipped on July 17. The interesting part is what the governance layer was worth after the deadline stopped mattering. A hundred and fifty-two commits later, the game carries five bonus chapters that did not exist at ship: Joey's Laundry Helper, Phoebe's Lap Quest, the Moonlit Keepsake Trail memory game, Morning and Nighttime Treat Time, and a five-act UniGlee marathon that plays out across all of them. It also grew a progression economy, a wager ladder, an ingredient almanac, and a cabinet UI built around an illustrated marquee. None of that regressed the engine, because the oracle never moved. The maintenance record is the part the original build could not demonstrate. The test suite went from 149 to 170.",
+      "parent": "/projects/glee-fully-chai-chasers/"
+    },
+    {
       "url": "/projects/glee-fully-chai-chasers/#orchestration",
       "title": "Five tools. One product. No chaos. — Glee-fully Chai Chasers | OverKill Hill P³™",
       "category": "Project",
       "description": "The Orchestration Pattern Five tools. One product. No chaos. Five tools, one product, no chaos. Here's the actual structure that made that sentence true.",
       "headings": [],
-      "body": "The Orchestration Pattern Five tools. One product. No chaos. Five tools, one product, no chaos. Here's the actual structure that made that sentence true. Tool Bounded role Claude Canonical spec, engine math, simulation oracle, PM and independent verification Codex / ChatGPT Work Pre-alpha foundation, product realignment, production art and UI baseline Replit Bounded implementation sprints under validation-loop prompts GitHub Single source of truth, CI gates, Pages deployment Notion Project hub and decision mirror Five governance artifacts Artifact 1 The canonical spec One document outranks every tool's opinion. Amendments are dated and ruled on, never improvised. Artifact 2 The decision log Thirty-four settled decisions and counting.",
+      "body": "The Orchestration Pattern Five tools. One product. No chaos. Five tools, one product, no chaos. Here's the actual structure that made that sentence true. Tool Bounded role Claude Canonical spec, engine math, simulation oracle, PM and independent verification Codex / ChatGPT Work Pre-alpha foundation, product realignment, production art and UI baseline Replit Bounded implementation sprints under validation-loop prompts GitHub Single source of truth, CI gates, Pages deployment Notion Project hub and decision mirror Five governance artifacts Artifact 1 The canonical spec One document outranks every tool's opinion. Amendments are dated and ruled on, never improvised. Artifact 2 The decision log Thirty-six settled decisions and counting.",
       "parent": "/projects/glee-fully-chai-chasers/"
     },
     {
@@ -1156,9 +1166,9 @@
       "url": "/projects/glee-fully-chai-chasers/#what-it-does",
       "title": "A real game. A real spec. A real test. — Glee-fully Chai Chasers | OverKill Hill P³™",
       "category": "Project",
-      "description": "What It Does A real game. A real spec. A real test. The Engine A real cascade engine. 5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a legendary event that shows…",
+      "description": "What It Does A real game. A real spec. A real test. The Engine A real cascade engine. 5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a legendary event captured…",
       "headings": [],
-      "body": "What It Does A real game. A real spec. A real test. The Engine A real cascade engine. 5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a legendary event that shows itself often but is only truly caught about once every 4,200 spins. Pure TypeScript, zero DOM imports, fully unit-tested. The Oracle A simulation oracle as the definition of done. A 200,000-spin seeded test asserts the spec's layered RTP model (base game plus the common bonuses, roughly 96.5% total) and five event-frequency bands. The legendary event above is deliberately excluded from that figure: there's no real money in this game, so its rare, generous payout is allowed to push measured full-game RTP to roughly 103% on the runs where it lands.",
+      "body": "What It Does A real game. A real spec. A real test. The Engine A real cascade engine. 5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a legendary event captured roughly once every 1,300 spins, on three independently rolled reels that size the reward. Pure TypeScript, zero DOM imports, fully unit-tested. The Oracle A simulation oracle as the definition of done. A 200,000-spin seeded test asserts the spec's layered RTP model (the base game holds a 61% band while the bonus layer carries the rest) and five event-frequency bands. A second harness plays every bonus end to end through the same engine entry points the UI uses.",
       "parent": "/projects/glee-fully-chai-chasers/"
     },
     {

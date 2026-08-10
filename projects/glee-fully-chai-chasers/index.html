@@ -347,12 +347,12 @@
                 <div class="relationship-card">
                   <span class="rel-tag">The Engine</span>
                   <h3>A real cascade engine.</h3>
-                  <p>5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a legendary event that shows itself often but is only truly caught about once every 4,200 spins. Pure TypeScript, zero DOM imports, fully unit-tested.</p>
+                  <p>5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a legendary event captured roughly once every 1,300 spins, on three independently rolled reels that size the reward. Pure TypeScript, zero DOM imports, fully unit-tested.</p>
                 </div>
                 <div class="relationship-card">
                   <span class="rel-tag">The Oracle</span>
                   <h3>A simulation oracle as the definition of done.</h3>
-                  <p>A 200,000-spin seeded test asserts the spec's layered RTP model (base game plus the common bonuses, roughly 96.5% total) and five event-frequency bands. The legendary event above is deliberately excluded from that figure: there's no real money in this game, so its rare, generous payout is allowed to push measured full-game RTP to roughly 103% on the runs where it lands. It shipped deliberately red, and no tool was permitted to weaken it. Green meant done. Nothing else did.</p>
+                  <p>A 200,000-spin seeded test asserts the spec's layered RTP model (the base game holds a 61% band while the bonus layer carries the rest) and five event-frequency bands. A second harness plays every bonus end to end through the same engine entry points the UI uses. Across 2,000,000 paid spins on forty seeds it measures full-game RTP at 98.70%, assuming a perfect player on the two interactive bonuses. Per-seed results run from 94.2% to 106.8%, because the rarest event is worth about 7.5 points of RTP by itself. A seven-seed sample of the same engine returned 95.66%, which is precisely why the figure now ships with its seed list attached. It shipped deliberately red, and no tool was permitted to weaken it. Green meant done. Nothing else did.</p>
                 </div>
                 <div class="relationship-card">
                   <span class="rel-tag">The Product</span>
@@ -418,7 +418,7 @@
                 <div class="relationship-card">
                   <span class="rel-tag">Artifact 2</span>
                   <h3><a href="https://github.com/OKHP3/glee-fully-chai-chasers/blob/main/docs/DECISION-LOG.md" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">The decision log</a></h3>
-                  <p>Thirty-four settled decisions and counting. Settled questions stay settled; no tool re-litigates a closed one.</p>
+                  <p>Thirty-six settled decisions and counting. Settled questions stay settled; no tool re-litigates a closed one.</p>
                 </div>
                 <div class="relationship-card">
                   <span class="rel-tag">Artifact 3</span>
@@ -481,6 +481,24 @@
               </div>
             </div>
 
+            <!-- WHAT HAPPENED AFTER THE GIFT ─────────────────────── -->
+            <div class="content-block" id="after-the-gift" data-search-index>
+              <div class="section-label">What Happened After the Gift</div>
+              <h2>What Happened After the Gift</h2>
+              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
+                The gift shipped on July 17. The interesting part is what the governance layer was worth after the deadline stopped mattering.
+              </p>
+              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
+                A hundred and fifty-two commits later, the game carries five bonus chapters that did not exist at ship: Joey's Laundry Helper, Phoebe's Lap Quest, the Moonlit Keepsake Trail memory game, Morning and Nighttime Treat Time, and a five-act UniGlee marathon that plays out across all of them. It also grew a progression economy, a wager ladder, an ingredient almanac, and a cabinet UI built around an illustrated marquee. None of that regressed the engine, because the oracle never moved.
+              </p>
+              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
+                The maintenance record is the part the original build could not demonstrate. The test suite went from 149 to 170. A threat model landed. The package manager now enforces a one-day minimum release age on every dependency as a supply-chain defense, with two logged CVE overrides. Architecture decisions moved into ADRs. The repository README was rewritten against the code, not against the previous README, with every number in it re-measured on the commit it describes.
+              </p>
+              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0;line-height:1.8;">
+                That last sentence is the whole thesis. Documentation that quotes documentation drifts. Documentation that quotes a test run cannot.
+              </p>
+            </div>
+
             <!-- WHAT THIS IS NOT ─────────────────────────────────── -->
             <div class="content-block" id="what-is-not" data-search-index>
               <div class="section-label">What This Is Not</div>
@@ -529,7 +547,7 @@
               <div class="meta-row">
                 <div class="meta-item">
                   <span class="meta-key">Status</span>
-                  <span class="meta-val"><span class="status-dot"></span>Active / v1.x</span>
+                  <span class="meta-val"><span class="status-dot"></span>Active / shipped, still maintained</span>
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">Type</span>
@@ -601,6 +619,7 @@
                 <li><a href="#what-it-does">What It Does</a></li>
                 <li><a href="#orchestration">The Orchestration Pattern</a></li>
                 <li><a href="#principles">Principles</a></li>
+                <li><a href="#after-the-gift">What Happened After the Gift</a></li>
                 <li><a href="#what-is-not">What This Is Not</a></li>
                 <li><a href="#origin">Origin</a></li>
               </ul>
