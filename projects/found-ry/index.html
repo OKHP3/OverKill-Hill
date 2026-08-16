@@ -25,8 +25,8 @@
     <meta property="og:description" content="Tools for making tools. A browser-only workbench that walks a Custom GPT from raw intent to a governed, shippable artifact. Nine stations. No backend." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://overkillhill.com/projects/found-ry/" />
-    <meta property="og:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
-    <meta property="og:image:alt" content="Mechanical raven perched on a vintage computer -- OverKill Hill P³ illustration" />
+    <meta property="og:image" content="https://overkillhill.com/assets/img/projects/found-ry/found-ry-hero-1024.png" />
+    <meta property="og:image:alt" content="Six glyphs for ore, heat, anvil, quench, mark, and shelf arcing down onto a blueprint anvil -- the Found-Ry nine-station build pipeline" />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="1024" />
     <meta property="og:image:type" content="image/png" />
@@ -39,8 +39,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Found‑Rᵧ | OverKill Hill P³™" />
     <meta name="twitter:description" content="Tools for making tools. A browser-only workbench that walks a Custom GPT from raw intent to a governed, shippable artifact. Nine stations. No backend." />
-    <meta name="twitter:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
-    <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer -- OverKill Hill P³ illustration" />
+    <meta name="twitter:image" content="https://overkillhill.com/assets/img/projects/found-ry/found-ry-hero-1024.png" />
+    <meta name="twitter:image:alt" content="Six glyphs for ore, heat, anvil, quench, mark, and shelf arcing down onto a blueprint anvil -- the Found-Ry nine-station build pipeline" />
     <meta name="twitter:site" content="@OverKillHillP3" />
     <meta name="twitter:creator" content="@OverKillHillP3" />
 
@@ -213,37 +213,55 @@
 
         <!-- HERO ────────────────────────────────────────────────── -->
         <section class="project-hero" aria-label="Project overview">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">overkillhill.com</a><span>/</span>
-            <a href="/projects/">projects</a><span>/</span>
-            <span>found-ry</span>
-          </nav>
+          <div class="brand-stripes brand-stripes--okh" aria-hidden="true"></div>
+          <div class="hero-grid reveal-on-scroll">
+            <div>
+              <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">overkillhill.com</a><span>/</span>
+                <a href="/projects/">projects</a><span>/</span>
+                <span>found-ry</span>
+              </nav>
 
-          <div class="tag-row">
-            <span class="tag">Foundry Project</span>
-            <span class="tag">Open Source</span>
-            <span class="tag tag--accent">Live</span>
-            <span class="tag tag--accent">Browser-Only</span>
-          </div>
+              <div class="tag-row">
+                <span class="tag">Foundry Project</span>
+                <span class="tag">Open Source</span>
+                <span class="tag tag--accent">Live</span>
+                <span class="tag tag--accent">Browser-Only</span>
+              </div>
 
-          <h1>Found‑Rᵧ</h1>
-          <p class="hero-sub">Tools for making tools.</p>
+              <h1>Found‑Rᵧ</h1>
+              <p class="hero-sub">Tools for making tools.</p>
 
-          <p>
-            A browser-only build workbench for production-grade Custom GPTs. Nine stations carry a build
-            from raw intent to a governed, shippable artifact: brief, contract, instruction stack, knowledge
-            routing, capabilities, actions, starters, test matrix, ship gate. Then audit it against a rubric,
-            compare it across platforms, and export the whole specification as one document.
-            No backend. No database. No login. Everything stays in your browser.
-          </p>
+              <p>
+                A browser-only build workbench for production-grade Custom GPTs. Nine stations carry a build
+                from raw intent to a governed, shippable artifact: brief, contract, instruction stack, knowledge
+                routing, capabilities, actions, starters, test matrix, ship gate. Then audit it against a rubric,
+                compare it across platforms, and export the whole specification as one document.
+                No backend. No database. No login. Everything stays in your browser.
+              </p>
 
-          <div class="hero-ctas">
-            <a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
-               onclick="gtag('event','foundry_live_app_open',{event_category:'cta',event_label:'hero'});">⤢ Enter the Found‑Rᵧ</a>
-            <a href="https://github.com/OKHP3/OverKill-Hill-FoundRy" target="_blank" rel="noopener noreferrer" class="btn btn-quiet"
-               onclick="gtag('event','foundry_github_open',{event_category:'cta',event_label:'hero'});">View Source on GitHub</a>
-            <a href="/prompt-forge/" class="btn btn-quiet"
-               onclick="gtag('event','foundry_prompt_forge_open',{event_category:'cta',event_label:'hero'});">Start at the Prompt Forge</a>
+              <div class="hero-ctas">
+                <a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
+                   onclick="gtag('event','foundry_live_app_open',{event_category:'cta',event_label:'hero'});">⤢ Enter the Found‑Rᵧ</a>
+                <a href="https://github.com/OKHP3/OverKill-Hill-FoundRy" target="_blank" rel="noopener noreferrer" class="btn btn-quiet"
+                   onclick="gtag('event','foundry_github_open',{event_category:'cta',event_label:'hero'});">View Source on GitHub</a>
+                <a href="/prompt-forge/" class="btn btn-quiet"
+                   onclick="gtag('event','foundry_prompt_forge_open',{event_category:'cta',event_label:'hero'});">Start at the Prompt Forge</a>
+              </div>
+            </div>
+
+            <div class="hero-side">
+              <div class="hero-visual">
+                <img
+                  src="/assets/img/projects/found-ry/found-ry-hero-1024.png"
+                  alt="Six glyphs for ore, heat, anvil, quench, mark, and shelf arcing down onto a blueprint anvil -- the Found-Ry nine-station build pipeline"
+                  class="hero-illustration"
+                  width="1024"
+                  height="1024"
+                  loading="eager"
+                />
+              </div>
+            </div>
           </div>
         </section>
 
@@ -254,7 +272,7 @@
           <div>
 
             <!-- PROBLEM STATEMENT ───────────────────────────────── -->
-            <div class="content-block card" id="problem" data-search-index>
+            <div class="content-block card reveal-on-scroll" id="problem" data-search-index>
               <div class="section-label">The Problem</div>
               <h2>A good prototype is not a thing you can hand to anyone</h2>
               <div class="feature-grid" style="margin-top:0.75rem;">
@@ -290,7 +308,7 @@
             </div>
 
             <!-- THE METAPHOR ────────────────────────────────────── -->
-            <div class="content-block" id="the-forge" data-search-index>
+            <div class="content-block reveal-on-scroll" id="the-forge" data-search-index>
               <div class="section-label">The Shape of the Thing</div>
               <h2>Ore, heat, anvil, quench</h2>
               <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
@@ -345,7 +363,7 @@
             </div>
 
             <!-- LIVE DEMO ───────────────────────────────────────── -->
-            <div class="content-block" id="embed-tool" style="scroll-margin-top: 8rem;">
+            <div class="content-block reveal-on-scroll" id="embed-tool" style="scroll-margin-top: 8rem;">
               <div class="embed-toolbar">
                 <div class="embed-label">
                   <span class="embed-live-dot"></span>
@@ -394,8 +412,65 @@
               </p>
             </div>
 
+            <!-- ECOSYSTEM PATH ──────────────────────────────────── -->
+            <div class="content-block card reveal-on-scroll" id="ecosystem" data-search-index>
+              <div class="section-label">The Forge Path</div>
+              <h2>Where this sits in the ecosystem</h2>
+              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">The same capability moves through four surfaces: design, packaging, discovery, and preservation. Each surface does one job and hands off. Found‑Rᵧ is the second.</p>
+
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);overflow:hidden;">
+                <div style="padding:1.25rem;border-right:1px solid var(--color-border-subtle);background:rgba(0,0,0,0.15);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 01</div>
+                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Prompt Forge</div>
+                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Designs and hardens prompts, protocols, audit contracts, and reusable AI workflows. Where the ore is graded.</div>
+                  <div style="margin-top:0.75rem;"><a href="/prompt-forge/" style="font-size:0.78rem;color:var(--okh-orange);"
+                     onclick="gtag('event','foundry_prompt_forge_open',{event_category:'forge-path',event_label:'map'});">Enter Prompt Forge →</a></div>
+                </div>
+                <div style="padding:1.25rem;border-right:1px solid var(--color-border-subtle);background:rgba(196,106,44,0.08);border-top:2px solid var(--okh-orange);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Stage 02: You are here</div>
+                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Found‑Rᵧ</div>
+                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Packages a reusable AI capability into a governed, inspectable artifact with a specification attached.</div>
+                  <div style="margin-top:0.75rem;"><a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--okh-orange);"
+                     onclick="gtag('event','foundry_live_app_open',{event_category:'forge-path',event_label:'map'});">Enter the Found‑Rᵧ ↗</a></div>
+                </div>
+                <div style="padding:1.25rem;border-right:1px solid var(--color-border-subtle);background:rgba(0,0,0,0.1);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 03</div>
+                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Skillz Forge</div>
+                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Helps visitors discover, understand, install, compose, share, and improve those capabilities.</div>
+                  <div style="margin-top:0.75rem;"><a href="/projects/skillz/" style="font-size:0.78rem;color:var(--okh-orange);"
+                     onclick="gtag('event','foundry_skillz_open',{event_category:'forge-path',event_label:'map'});">Browse Skillz Forge →</a></div>
+                </div>
+                <div style="padding:1.25rem;background:rgba(0,0,0,0.1);">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 04</div>
+                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">GitHub</div>
+                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Stores the source, history, issues, pull requests, discussions, and review record.</div>
+                  <div style="margin-top:0.75rem;"><a href="https://github.com/OKHP3/OverKill-Hill-FoundRy" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--okh-orange);"
+                     onclick="gtag('event','foundry_github_open',{event_category:'forge-path',event_label:'map'});">OKHP3/OverKill-Hill-FoundRy ↗</a></div>
+                </div>
+              </div>
+
+              <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.75rem;line-height:1.6;">No surface duplicates another. A prompt is hardened at Stage 01, given a specification and a governance record at Stage 02, made discoverable at Stage 03, and preserved with its full change history at Stage 04.</p>
+
+              <div class="mermaid">
+
+%%{init: {'theme': 'dark'}}%%
+
+flowchart LR
+
+    A["Raw prompt\nthe ore"] --> B["Prompt Forge\nheat and pressure"]
+    B --> C["Found-Ry\nnine stations on the anvil"]
+    C --> D["Test matrix and audit\nthe quench"]
+    D -->|"fails the gate"| C
+    D -->|"passes the gate"| E["Ship and govern\nthe maker's mark"]
+    E --> F["Skillz Forge\nthe shelf"]
+    F --> G["GitHub\nthe record"]
+
+              </div>
+              <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.5rem;line-height:1.6;font-style:italic;">The loop from the quench back to the anvil is the part most build guides leave out.</p>
+            </div>
+
             <!-- THE NINE STATIONS ───────────────────────────────── -->
-            <div class="content-block card" id="stations" data-search-index>
+            <div class="content-block card reveal-on-scroll" id="stations" data-search-index>
               <div class="section-label">The Build Pipeline</div>
               <h2>Nine stations, in this order, for a reason</h2>
               <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">
@@ -464,10 +539,20 @@
               <p class="scope-meta">
                 Every station persists to your browser's local storage as you type. Nothing is transmitted anywhere.
               </p>
+              <div class="content-screenshot">
+                <img
+                  src="/assets/img/projects/found-ry/found-ry-screenshot-build-brief.png"
+                  alt="Found-Ry Step 0, Build Brief station, with fields for GPT Name, Primary Users, Primary Outcomes, and Non-Goals"
+                  loading="lazy"
+                  width="1160"
+                  height="833"
+                />
+              </div>
+              <p class="embed-note">Station 00, Build Brief, live in the workbench</p>
             </div>
 
             <!-- THREE MORE TOOLS ────────────────────────────────── -->
-            <div class="content-block" id="tools" data-search-index>
+            <div class="content-block reveal-on-scroll" id="tools" data-search-index>
               <div class="section-label">Beyond the Pipeline</div>
               <h2>Three tools that run on the finished work</h2>
               <div class="relationship-grid">
@@ -487,10 +572,36 @@
                   <p>Assembles every station into one Markdown specification you can copy, download, commit, or hand to a reviewer. There is also an instructions-only view for pasting straight into a builder. The export is the artifact. The tool is just how you got there.</p>
                 </div>
               </div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:1.5rem;">
+                <div>
+                  <div class="content-screenshot">
+                    <img
+                      src="/assets/img/projects/found-ry/found-ry-screenshot-audit-mode.png"
+                      alt="Audit Mode showing a completed 10-item score of 4.1 out of 5 and 'Ship gate passed'"
+                      loading="lazy"
+                      width="1160"
+                      height="833"
+                    />
+                  </div>
+                  <p class="embed-note">Audit Mode: ship gate passed at 4.1 / 5</p>
+                </div>
+                <div>
+                  <div class="content-screenshot">
+                    <img
+                      src="/assets/img/projects/found-ry/found-ry-screenshot-platform-comparison.png"
+                      alt="Platform Comparison decision tree with a live recommendation of Custom GPT based on the answered questions"
+                      loading="lazy"
+                      width="1160"
+                      height="833"
+                    />
+                  </div>
+                  <p class="embed-note">Platform Comparison: a live recommendation, not just a chart</p>
+                </div>
+              </div>
             </div>
 
             <!-- HONEST SCOPE ────────────────────────────────────── -->
-            <div class="content-block" id="what-it-is" data-search-index>
+            <div class="content-block reveal-on-scroll" id="what-it-is" data-search-index>
               <div class="section-label">Honest Scope</div>
               <h2>A design workbench, not a hosting platform</h2>
               <div class="is-isnot-grid">
@@ -519,65 +630,8 @@
               </div>
             </div>
 
-            <!-- ECOSYSTEM PATH ──────────────────────────────────── -->
-            <div class="content-block card" id="ecosystem" data-search-index>
-              <div class="section-label">The Forge Path</div>
-              <h2>Where this sits in the ecosystem</h2>
-              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">The same capability moves through four surfaces: design, packaging, discovery, and preservation. Each surface does one job and hands off. Found‑Rᵧ is the second.</p>
-
-              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);overflow:hidden;">
-                <div style="padding:1.25rem;border-right:1px solid var(--color-border-subtle);background:rgba(0,0,0,0.15);">
-                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 01</div>
-                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Prompt Forge</div>
-                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Designs and hardens prompts, protocols, audit contracts, and reusable AI workflows. Where the ore is graded.</div>
-                  <div style="margin-top:0.75rem;"><a href="/prompt-forge/" style="font-size:0.78rem;color:var(--okh-orange);"
-                     onclick="gtag('event','foundry_prompt_forge_open',{event_category:'forge-path',event_label:'map'});">Enter Prompt Forge →</a></div>
-                </div>
-                <div style="padding:1.25rem;border-right:1px solid var(--color-border-subtle);background:rgba(196,106,44,0.08);border-top:2px solid var(--okh-orange);">
-                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Stage 02: You are here</div>
-                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Found‑Rᵧ</div>
-                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Packages a reusable AI capability into a governed, inspectable artifact with a specification attached.</div>
-                  <div style="margin-top:0.75rem;"><a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--okh-orange);"
-                     onclick="gtag('event','foundry_live_app_open',{event_category:'forge-path',event_label:'map'});">Enter the Found‑Rᵧ ↗</a></div>
-                </div>
-                <div style="padding:1.25rem;border-right:1px solid var(--color-border-subtle);background:rgba(0,0,0,0.1);">
-                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 03</div>
-                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Skillz Forge</div>
-                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Helps visitors discover, understand, install, compose, share, and improve those capabilities.</div>
-                  <div style="margin-top:0.75rem;"><a href="/projects/skillz/" style="font-size:0.78rem;color:var(--okh-orange);"
-                     onclick="gtag('event','foundry_skillz_open',{event_category:'forge-path',event_label:'map'});">Browse Skillz Forge →</a></div>
-                </div>
-                <div style="padding:1.25rem;background:rgba(0,0,0,0.1);">
-                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 04</div>
-                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">GitHub</div>
-                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Stores the source, history, issues, pull requests, discussions, and review record.</div>
-                  <div style="margin-top:0.75rem;"><a href="https://github.com/OKHP3/OverKill-Hill-FoundRy" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--okh-orange);"
-                     onclick="gtag('event','foundry_github_open',{event_category:'forge-path',event_label:'map'});">OKHP3/OverKill-Hill-FoundRy ↗</a></div>
-                </div>
-              </div>
-
-              <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.75rem;line-height:1.6;">No surface duplicates another. A prompt is hardened at Stage 01, given a specification and a governance record at Stage 02, made discoverable at Stage 03, and preserved with its full change history at Stage 04.</p>
-
-              <div class="mermaid">
-
-%%{init: {'theme': 'dark'}}%%
-
-flowchart LR
-
-    A["Raw prompt\nthe ore"] --> B["Prompt Forge\nheat and pressure"]
-    B --> C["Found-Ry\nnine stations on the anvil"]
-    C --> D["Test matrix and audit\nthe quench"]
-    D -->|"fails the gate"| C
-    D -->|"passes the gate"| E["Ship and govern\nthe maker's mark"]
-    E --> F["Skillz Forge\nthe shelf"]
-    F --> G["GitHub\nthe record"]
-
-              </div>
-              <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.5rem;line-height:1.6;font-style:italic;">The loop from the quench back to the anvil is the part most build guides leave out.</p>
-            </div>
-
             <!-- PRINCIPLES ──────────────────────────────────────── -->
-            <div class="content-block" id="principles" data-search-index>
+            <div class="content-block reveal-on-scroll" id="principles" data-search-index>
               <div class="section-label">Principles</div>
               <h2>The rules the workbench runs on.</h2>
               <div class="feature-grid" style="margin-top:0.75rem;">
@@ -627,7 +681,7 @@ flowchart LR
             </div>
 
             <!-- ORIGIN ──────────────────────────────────────────── -->
-            <div class="content-block card" id="origin" data-search-index>
+            <div class="content-block card reveal-on-scroll" id="origin" data-search-index>
               <div class="section-label">Origin</div>
               <h2>The first five hundred pieces</h2>
               <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
@@ -666,7 +720,7 @@ flowchart LR
             </div>
 
             <!-- ROADMAP ─────────────────────────────────────────── -->
-            <div class="content-block" id="roadmap" data-search-index>
+            <div class="content-block reveal-on-scroll" id="roadmap" data-search-index>
               <div class="section-label">Roadmap</div>
               <h2>Where the build is going</h2>
               <ul class="progress-track">
@@ -744,7 +798,7 @@ flowchart LR
             </div>
 
             <!-- WORK WITH ME ─────────────────────────────────────── -->
-            <aside class="article-footer-cta" id="work-with-me">
+            <aside class="article-footer-cta reveal-on-scroll" id="work-with-me">
               <div>
                 <h3>Need a Custom GPT that survives contact with real users?</h3>
                 <p>Custom GPT architecture, instruction stack design, audit rubrics, red-team test matrices, and the governance layer that keeps a build reviewable after the person who made it moves on.</p>
@@ -758,7 +812,7 @@ flowchart LR
             </aside>
 
             <!-- COLLAPSIBLE SECTIONS ─────────────────────────────── -->
-            <div class="content-block collapsibles">
+            <div class="content-block collapsibles reveal-on-scroll">
 
               <!-- User Guide -->
               <details class="collapsible">
@@ -851,7 +905,7 @@ flowchart LR
             </div><!-- /collapsibles -->
 
             <!-- BUILDER'S NOTE ───────────────────────────────────── -->
-            <div class="builder-note">
+            <div class="builder-note reveal-on-scroll">
               <div class="section-label">Builder's Note</div>
               <blockquote>
                 <p>I cut my teeth on Custom GPTs. People will tell you that is a dated thing to admit, and they are welcome to. It was the first set of pieces large enough that building carelessly produced something visibly broken, which turns out to be the fastest way to learn how systems actually fail.</p>
@@ -863,7 +917,7 @@ flowchart LR
             </div>
 
             <!-- FINAL CTA ────────────────────────────────────────── -->
-            <div class="content-block" style="text-align:center;padding:2rem 1.5rem;">
+            <div class="content-block reveal-on-scroll" style="text-align:center;padding:2rem 1.5rem;">
               <h2 style="margin-bottom:0.5rem;">Bring something to the anvil</h2>
               <p style="color:var(--color-muted);margin-bottom:1.5rem;">Open the workbench, answer the brief, and see what your idea looks like with the vague parts removed.</p>
               <div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;">
@@ -903,7 +957,7 @@ flowchart LR
               <div class="meta-row">
                 <div class="meta-item">
                   <span class="meta-key">Status</span>
-                  <span class="meta-val"><span class="status-dot"></span>Active / Live</span>
+                  <span class="meta-val"><span class="status-dot status-dot--live"></span>Active / Live</span>
                 </div>
                 <div class="meta-item">
                   <span class="meta-key">Build Phase</span>
@@ -984,10 +1038,10 @@ flowchart LR
                 <li><a href="#problem">The Problem</a></li>
                 <li><a href="#the-forge">Ore, Heat, Anvil, Quench</a></li>
                 <li><a href="#embed-tool">Live Workbench</a></li>
+                <li><a href="#ecosystem">The Forge Path</a></li>
                 <li><a href="#stations">The Nine Stations</a></li>
                 <li><a href="#tools">Beyond the Pipeline</a></li>
                 <li><a href="#what-it-is">Honest Scope</a></li>
-                <li><a href="#ecosystem">The Forge Path</a></li>
                 <li><a href="#principles">Principles</a></li>
                 <li><a href="#origin">Origin</a></li>
                 <li><a href="#roadmap">Roadmap</a></li>

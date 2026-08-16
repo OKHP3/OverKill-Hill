@@ -4354,8 +4354,19 @@ html[data-theme="light"] .article-body h2 {
 
 /* ── Project hero ───────────────────────────────────────────────────────── */
 .project-hero {
+  position: relative;
+  overflow: hidden;
   padding: 3rem 0 2.5rem;
   border-bottom: 1px solid var(--color-border-subtle);
+}
+/* Full-strength brand-stripes read as a poster on the homepage; a text-dense
+   project hero needs them dialed back to a texture, not a background. */
+.project-hero .brand-stripes {
+  opacity: 0.14;
+}
+.project-hero .hero-grid {
+  position: relative;
+  z-index: 1;
 }
 .project-hero h1 {
   font-size: clamp(2rem, 5vw, 3.25rem);
@@ -4621,6 +4632,7 @@ html[data-theme="light"] .article-body h2 {
 .meta-val { color: var(--color-fg); }
 .meta-val a { color: var(--okh-orange); }
 .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #eab308; margin-right: 0.35rem; vertical-align: middle; }
+.status-dot--live { animation: pulse-dot 2s ease-in-out infinite; }
 .sidebar-links { border-top: 1px solid var(--color-border-subtle); padding-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
 .sidebar-link { font-size: 0.85rem; color: var(--color-muted); display: flex; align-items: center; gap: 0.5rem; text-decoration: none; transition: color 0.15s; }
 .sidebar-link:hover { color: var(--okh-orange); text-decoration: none; }
@@ -4791,6 +4803,20 @@ html[data-theme="light"] .article-body h2 {
 .iframe-slow-fallback.visible { display: flex; }
 .iframe-slow-fallback a { font-family: "JetBrains Mono", monospace; font-size: 0.82rem; color: #c46a2c; text-decoration: underline; text-underline-offset: 3px; }
 .embed-note { margin-top: 0.5rem; font-size: 0.78rem; color: var(--color-muted); font-family: "JetBrains Mono", monospace; text-align: center; }
+
+/* ── In-content screenshots (workbench captures) ─────────────────────── */
+.content-screenshot {
+  margin: 1.5rem 0 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-soft);
+}
+.content-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .embed-note a { color: var(--okh-orange); }
 .embed-fallback-cta { display: flex; justify-content: center; margin-bottom: 0.75rem; }
 .embed-fallback-cta a {
