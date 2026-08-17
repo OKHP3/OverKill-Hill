@@ -38,6 +38,10 @@
   --okh-amber: #e6a03c;
   --okh-paper: #f6f2ee;
   --okh-gray: #6b7280;
+  /* Amber used as *text* color needs a darker variant on light/paper
+     backgrounds to meet WCAG 1.4.3 (raw --okh-amber on paper is ~2:1).
+     Dark-surface uses should keep referencing --okh-amber directly. */
+  --color-amber-text: var(--okh-amber);
 
   /* Mapped design tokens (OKH default) */
   --color-bg: var(--okh-espresso);
@@ -98,6 +102,11 @@
   --color-muted: #4b5563;
   --color-border-subtle: rgba(15, 23, 42, 0.08);
   --color-accent: var(--okh-orange);
+  /* Darkened amber for text on paper backgrounds — raw --okh-amber measures
+     ~2:1 on paper and fails WCAG 1.4.3; this passes ≥4.5:1 on every light
+     surface it's used against, including the darkest (translucent-black
+     search footer over paper, ~3.5:1 headroom at #8a5410 — needed #6d400a). */
+  --color-amber-text: #6d400a;
 }
 
 /* ── Body background: JS sets data-theme on <html>, not <body> ───────────── */
@@ -1687,6 +1696,9 @@ body.construction-dismissed .construction-overlay,
   padding: 0.85rem 1rem;
   border-bottom: 1px solid var(--color-border-subtle, #2a2f37);
 }
+.okh-search-input-row:focus-within {
+  border-bottom-color: var(--okh-orange, var(--okh-orange));
+}
 .okh-search-input-row svg {
   width: 1.1rem;
   height: 1.1rem;
@@ -1744,7 +1756,7 @@ body.construction-dismissed .construction-overlay,
 .okh-search-hint-list button {
   background: rgba(196, 106, 44, 0.08);
   border: 1px solid rgba(196, 106, 44, 0.35);
-  color: var(--okh-amber, #d99257);
+  color: var(--color-amber-text, #d99257);
   padding: 0.25rem 0.55rem;
   border-radius: 999px;
   font-size: 0.78rem;
@@ -1777,7 +1789,7 @@ body.construction-dismissed .construction-overlay,
 }
 .okh-search-result-cat {
   background: rgba(196, 106, 44, 0.18);
-  color: var(--okh-amber, #d99257);
+  color: var(--color-amber-text, #d99257);
   padding: 0.1rem 0.5rem;
   border-radius: 999px;
   font-weight: 600;
@@ -1832,7 +1844,7 @@ body.construction-dismissed .construction-overlay,
   background: rgba(255, 255, 255, 0.04);
 }
 .okh-search-footer a {
-  color: var(--okh-amber, #d99257);
+  color: var(--color-amber-text, #d99257);
   text-decoration: none;
 }
 .okh-search-footer a:hover { text-decoration: underline; }
@@ -1923,7 +1935,7 @@ body.construction-dismissed .construction-overlay,
 }
 .search-page .search-categories button[aria-pressed="true"] {
   background: rgba(196, 106, 44, 0.18);
-  color: var(--okh-amber, #d99257);
+  color: var(--color-amber-text, #d99257);
   border-color: rgba(196, 106, 44, 0.45);
 }/* Draft notice — unpublished writing pages */
 .draft-notice {
@@ -2972,7 +2984,7 @@ sentinel artwork used on this error page, we override two rules:
   font-size: 1.1rem;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-family: var(--font-body);
@@ -2983,7 +2995,7 @@ sentinel artwork used on this error page, we override two rules:
   font-size: 1.05rem;
   margin-top: 1.75rem;
   margin-bottom: 0.4rem;
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
   letter-spacing: 0.03em;
   font-family: var(--font-body);
   font-weight: 600;
@@ -3008,7 +3020,7 @@ sentinel artwork used on this error page, we override two rules:
 }
 
 .article-body em {
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
   font-style: italic;
 }
 
@@ -3050,7 +3062,7 @@ sentinel artwork used on this error page, we override two rules:
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
   margin-bottom: 0.5rem;
 }
 
@@ -3105,7 +3117,7 @@ sentinel artwork used on this error page, we override two rules:
 }
 
 .diagram-links a:hover {
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
 }
 
 .diagram-shell {
@@ -3176,8 +3188,8 @@ sentinel artwork used on this error page, we override two rules:
 }
 
 .council-pill.winner {
-  border-color: var(--okh-amber);
-  color: var(--okh-amber);
+  border-color: var(--color-amber-text);
+  color: var(--color-amber-text);
 }
 
 /* ── Sidebar ────────────────────────────────────────────────────────── */
@@ -3232,7 +3244,7 @@ sentinel artwork used on this error page, we override two rules:
 }
 
 .sidebar-links a:hover {
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
 }
 
 .series-badge {
@@ -3333,7 +3345,7 @@ sentinel artwork used on this error page, we override two rules:
 }
 
 .article-breadcrumb a:hover {
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
 }
 
 .article-breadcrumb .sep {
@@ -3444,7 +3456,7 @@ sentinel artwork used on this error page, we override two rules:
   padding: 0.8rem 1rem;
   font-size: 0.83rem;
   font-weight: 600;
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
   list-style: none;
 }
 
@@ -3506,14 +3518,14 @@ sentinel artwork used on this error page, we override two rules:
 }
 
 .toc-list a:hover {
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
 }
 
 .toc-list a.toc-active {
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
   font-weight: 600;
   padding-left: 0.5rem;
-  border-left: 2px solid var(--okh-amber);
+  border-left: 2px solid var(--color-amber-text);
   margin-left: -0.625rem;
   transition: padding-left 0.15s ease, color 0.15s ease;
 }
@@ -3552,7 +3564,7 @@ sentinel artwork used on this error page, we override two rules:
 }
 .scoring-lane h4 {
   margin: 0 0 0.5rem;
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
   font-size: 0.95rem;
 }
 .scoring-lane p {
@@ -3605,7 +3617,7 @@ sentinel artwork used on this error page, we override two rules:
   line-height: 1.45;
 }
 .diagram-card a {
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
   font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
@@ -3653,7 +3665,7 @@ sentinel artwork used on this error page, we override two rules:
 }
 
 .diagram-external-link {
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
 }
 
 .diagram-source-link {
@@ -3736,7 +3748,7 @@ sentinel artwork used on this error page, we override two rules:
   margin-bottom: 0.4rem;
 }
 .download-links a {
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
   font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
@@ -3778,7 +3790,7 @@ sentinel artwork used on this error page, we override two rules:
   line-height: 1.45;
 }
 .heat-guide-card a {
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
   font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
@@ -3849,7 +3861,7 @@ sentinel artwork used on this error page, we override two rules:
 }
 .article-changelog dt {
   font-weight: 600;
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
   margin-top: 1.5rem;
   font-size: 0.9375rem;
 }
@@ -4110,7 +4122,7 @@ sentinel artwork used on this error page, we override two rules:
    ---------------------------------------- */
 .sidebar-widget-desc {
   font-size: 14px;
-  color: var(--okh-gray);
+  color: var(--color-muted);
   margin-bottom: 0.5rem;
 }
 
@@ -4138,7 +4150,7 @@ sentinel artwork used on this error page, we override two rules:
 }
 
 .council-table .council-role {
-  color: var(--okh-gray);
+  color: var(--color-muted);
   font-size: 0.8rem;
   text-align: right;
 }
@@ -4173,7 +4185,7 @@ sentinel artwork used on this error page, we override two rules:
 }
 
 .sidebar-diagram-selected a {
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
   text-decoration: none;
 }
 
@@ -4183,7 +4195,7 @@ sentinel artwork used on this error page, we override two rules:
    ---------------------------------------- */
 .sidebar-links .sidebar-diagram-entry {
   font-size: 14px;
-  color: var(--okh-gray);
+  color: var(--color-muted);
   padding: 0.1rem 0;
   margin-left: 1rem;
   text-decoration: none;
@@ -4242,12 +4254,12 @@ a.mermaid-referral-link:focus-visible {
 
 /* Amber text utility (version live badge, amber links) */
 .text-amber {
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
 }
 
 /* Amber inline link */
 .link-amber {
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
   text-decoration: underline;
 }
 
@@ -4290,7 +4302,7 @@ a.mermaid-referral-link:focus-visible {
 
 .article-repo-cta .link-amber {
   text-decoration: none;
-  color: var(--okh-amber);
+  color: var(--color-amber-text);
 }
 
 .article-repo-cta .link-amber:hover {
@@ -4891,7 +4903,7 @@ html[data-theme="light"] .article-body h2 {
   color: var(--color-muted); font-weight: 600;
 }
 .fact-value { font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-fg); overflow-wrap: anywhere; word-break: break-word; }
-.fact-value.accent { color: var(--okh-amber); }
+.fact-value.accent { color: var(--color-amber-text); }
 
 /* ── Status board ───────────────────────────────────────────────────────── */
 .status-board { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
@@ -4934,7 +4946,7 @@ html[data-theme="light"] .article-body h2 {
   background: var(--okh-orange); border: 2px solid var(--color-surface);
 }
 @media (max-width: 640px) { .timeline-date::after { right: auto; left: calc(100% + 0.4rem); } }
-.timeline-body h3 { font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; color: var(--okh-amber); margin: 0 0 0.5rem; }
+.timeline-body h3 { font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; color: var(--color-amber-text); margin: 0 0 0.5rem; }
 .timeline-rows { display: flex; flex-direction: column; gap: 0.4rem; }
 .timeline-body { min-width: 0; }
 .timeline-row {
@@ -4972,7 +4984,7 @@ html[data-theme="light"] .article-body h2 {
   word-break: break-all; overflow-wrap: anywhere; white-space: normal;
 }
 .bench-pass { color: #4ade80; font-weight: 600; }
-.bench-warn { color: var(--okh-amber); font-weight: 600; }
+.bench-warn { color: var(--color-amber-text); font-weight: 600; }
 .bench-fail { color: #f87171; font-weight: 600; }
 
 /* ── Stack grid ─────────────────────────────────────────────────────────── */
