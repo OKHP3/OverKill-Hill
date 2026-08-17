@@ -151,4 +151,15 @@
     <priority>0.5</priority>
   </url>
 
+  <!--
+    Intentionally NOT listed here (do not "fix" this without checking first):
+    /projects/hometools/, /projects/pathscrib-r/, /projects/un-nocked-truth/,
+    /writings/biases-as-constants/, /writings/magnus-saga/
+    All five carry <meta name="robots" content="noindex, nofollow"> and sit
+    behind an active "under construction" gate (data-wip-key="found-ry").
+    scripts/validate-site.py treats a noindex page listed in sitemap.xml as
+    an ERROR, so they stay out until they're taken out of WIP and de-indexed
+    flag is removed. Confirmed with the site owner on 2026-08-17.
+  -->
+
 </urlset>
