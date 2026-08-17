@@ -42,11 +42,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Mobile nav
   if (navToggle && header) {
+    const mobileNavQuery = window.matchMedia("(max-width: 768px)");
+    const primaryNav = document.getElementById(navToggle.getAttribute("aria-controls"));
+    let navWasOpen = false;
+
+    function setNavAccessibility(open) {
+      if (!primaryNav) return;
+      const hidden = mobileNavQuery.matches && !open;
+      primaryNav.setAttribute("aria-hidden", String(hidden));
+      primaryNav.toggleAttribute("inert", hidden);
+    }
+
+    function setNavOpen(open, returnFocus) {
+      navWasOpen = open;
+      header.classList.toggle("nav-open", open);
+      navToggle.setAttribute("aria-expanded", String(open));
+      setNavAccessibility(open);
+      if (!open && returnFocus) navToggle.focus();
+      if (open && primaryNav) {
+        const firstLink = primaryNav.querySelector("a[href]");
+        if (firstLink) setTimeout(() => firstLink.focus(), 0);
+      }
+    }
+
+    setNavAccessibility(false);
     navToggle.addEventListener("click", () => {
-      header.classList.toggle("nav-open");
-      const expanded = navToggle.getAttribute("aria-expanded") === "true";
-      navToggle.setAttribute("aria-expanded", String(!expanded));
+      setNavOpen(!navWasOpen, true);
     });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && navWasOpen && mobileNavQuery.matches) {
+        event.preventDefault();
+        setNavOpen(false, true);
+      }
+    });
+
+    const syncNavOnViewportChange = () => {
+      if (!mobileNavQuery.matches) {
+        navWasOpen = false;
+        header.classList.remove("nav-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+      setNavAccessibility(navWasOpen);
+    };
+    if (typeof mobileNavQuery.addEventListener === "function") {
+      mobileNavQuery.addEventListener("change", syncNavOnViewportChange);
+    } else {
+      mobileNavQuery.addListener(syncNavOnViewportChange);
+    }
   }
 
   // Header shadow
@@ -450,6 +493,7 @@ document.addEventListener("DOMContentLoaded", () => {
           '<button type="button" class="okh-search-close" aria-label="Close search">Esc</button>' +
         "</div>" +
         '<div class="okh-search-results" role="list" aria-label="Search results"></div>' +
+        '<div class="okh-search-status sr-only" role="status" aria-live="polite" aria-atomic="true"></div>' +
         '<div class="okh-search-footer">' +
           '<div class="okh-search-keys">' +
             "<span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>" +
@@ -485,6 +529,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!overlay) return;
     const input    = overlay.querySelector(".okh-search-input");
     const list     = overlay.querySelector(".okh-search-results");
+    const status   = overlay.querySelector(".okh-search-status");
     const closeBtn = overlay.querySelector(".okh-search-close");
 
     let entries        = [];
@@ -517,6 +562,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     function renderEmpty() {
       list.innerHTML = emptyStateHtml();
+      status.textContent = "Search ready. Enter a term or choose a suggested search.";
       list.querySelectorAll("button[data-q]").forEach((btn) => {
         btn.addEventListener("click", () => {
           input.value = btn.getAttribute("data-q") || "";
@@ -547,6 +593,7 @@ document.addEventListener("DOMContentLoaded", () => {
           '<div class="okh-search-noresults"><p>No matches for <strong>' +
           escapeHtml(q) + "</strong>.</p><p>Try <em>mermaid</em>, <em>ROY</em>, " +
           "<em>council</em>, or <em>manifesto</em>.</p></div>";
+        status.textContent = "No search results for " + q + ".";
         return;
       }
       list.innerHTML = currentResults.map((r) => (
@@ -554,6 +601,9 @@ document.addEventListener("DOMContentLoaded", () => {
           renderResultHtml(r, lastTokens) +
         "</a>"
       )).join("");
+      status.textContent = currentResults.length +
+        (currentResults.length === 1 ? " result" : " results") +
+        " found for " + q + ".";
       setActive(0);
     }
     input.addEventListener("input", render);
