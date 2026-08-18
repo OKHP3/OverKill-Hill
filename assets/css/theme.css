@@ -37,7 +37,10 @@
   --okh-orange: #c46a2c; /* rust-orange text accent */
   --okh-amber: #e6a03c;
   --okh-paper: #f6f2ee;
-  --okh-gray: #6b7280;
+  /* Lightened 2026-08-17 for WCAG AA: raw #6b7280 measured 3.19–3.67:1 on
+     dark surfaces (fails 4.5:1 normal-text minimum). #9ca3af clears ≥6:1 on
+     every dark surface (--color-bg, --color-surface, --color-surface-soft). */
+  --okh-gray: #9ca3af;
   /* Amber used as *text* color needs a darker variant on light/paper
      backgrounds to meet WCAG 1.4.3 (raw --okh-amber on paper is ~2:1).
      Dark-surface uses should keep referencing --okh-amber directly. */
