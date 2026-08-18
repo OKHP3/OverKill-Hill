@@ -26,6 +26,9 @@ jobs:
       - name: Run site validator
         run: python3 scripts/validate-site.py
 
+      - name: Run WCAG contrast audit
+        run: python3 assets/scripts/check-contrast.py
+
   deploy:
     name: Deploy validated site to GitHub Pages
     needs: validate
