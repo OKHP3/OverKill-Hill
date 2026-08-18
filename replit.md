@@ -121,6 +121,20 @@ python3 scripts/check-banner.py            # verify (exits 1 on any mismatch)
 
 **Automatic enforcement:** `scripts/check-banner.py` is called by `scripts/validate-site.py` as part of the standard site audit. Any banner mismatch causes the validation run to exit non-zero, the same way other checks do.
 
+## Validation
+
+Named validation steps registered in the Replit workflow panel. Run any of these before shipping a CSS change:
+
+| Name       | Command                                      | What it checks |
+|------------|----------------------------------------------|----------------|
+| `contrast` | `python3 assets/scripts/check-contrast.py`   | WCAG AA contrast ratios for all color tokens in `assets/css/theme.css` — normal text (≥ 4.5:1) and large/UI elements (≥ 3.0:1), in both dark and light themes. Exits non-zero on any failure. |
+
+Run a check from the shell:
+
+```
+python3 assets/scripts/check-contrast.py
+```
+
 ## Site Validation (CI)
 
 The full validation harness runs automatically on every push and pull request to `main` via `.github/workflows/validate.yml`. The single command it runs:
