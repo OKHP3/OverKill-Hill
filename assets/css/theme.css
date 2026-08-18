@@ -215,6 +215,12 @@ html[data-theme="light"] body:not(.glee-main):not(.askjamie-main) .okh-search-tr
   background: rgba(255, 255, 255, 0.06);
 }
 
+/* Search overlay footer — replace dark tint with a light-mode-appropriate wash
+   so it blends with the warm paper panel instead of looking disconnected. */
+html[data-theme="light"] .okh-search-footer {
+  background: var(--color-border-subtle);
+}
+
 
 /* ===== RESET & BASE ====================================================== */
 
