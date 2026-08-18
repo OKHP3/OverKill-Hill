@@ -11,12 +11,17 @@ Exit codes:
 
 Checks (WCAG 1.4.3, AA level):
   Normal text (≥ 4.5 : 1):
-    • --color-fg        on --color-bg, --color-surface, --color-surface-soft
-    • --color-muted     on --color-bg, --color-surface, --color-surface-soft
-    • --color-amber-text on --color-bg, --color-surface, --color-surface-soft
+    • --color-fg          on --color-bg, --color-surface, --color-surface-soft
+    • --color-muted       on --color-bg, --color-surface, --color-surface-soft
+    • --color-amber-text  on --color-bg, --color-surface, --color-surface-soft
+    • --color-link-hover  on --color-bg, --color-surface, --color-surface-soft
+    • --color-btn-primary-fg on --okh-orange (primary button text on its
+      gradient background)
 
-  Large / UI text (≥ 3.0 : 1):
+  Large / UI text and non-text UI components (≥ 3.0 : 1, WCAG 1.4.11):
     • --color-accent    on --color-bg, --color-surface, --color-surface-soft
+      (also covers the branded a:focus-visible outline ring, which uses
+      --color-accent against the same surfaces)
 
 Both dark (default :root) and light (:root[data-theme="light"]) themes are
 checked independently.
@@ -180,10 +185,14 @@ CHECK_PAIRS = [
     ("--color-amber-text",  "--color-bg",            NORMAL_TEXT_MIN, "normal text"),
     ("--color-amber-text",  "--color-surface",       NORMAL_TEXT_MIN, "normal text"),
     ("--color-amber-text",  "--color-surface-soft",  NORMAL_TEXT_MIN, "normal text"),
-    # Large / UI elements
-    ("--color-accent",      "--color-bg",            LARGE_UI_MIN,    "large/UI"),
-    ("--color-accent",      "--color-surface",       LARGE_UI_MIN,    "large/UI"),
-    ("--color-accent",      "--color-surface-soft",  LARGE_UI_MIN,    "large/UI"),
+    ("--color-link-hover",  "--color-bg",            NORMAL_TEXT_MIN, "normal text (link hover)"),
+    ("--color-link-hover",  "--color-surface",       NORMAL_TEXT_MIN, "normal text (link hover)"),
+    ("--color-link-hover",  "--color-surface-soft",  NORMAL_TEXT_MIN, "normal text (link hover)"),
+    ("--color-btn-primary-fg", "--okh-orange",        NORMAL_TEXT_MIN, "normal text (primary button)"),
+    # Large / UI elements (also covers the branded focus-visible outline ring)
+    ("--color-accent",      "--color-bg",            LARGE_UI_MIN,    "large/UI, focus ring"),
+    ("--color-accent",      "--color-surface",       LARGE_UI_MIN,    "large/UI, focus ring"),
+    ("--color-accent",      "--color-surface-soft",  LARGE_UI_MIN,    "large/UI, focus ring"),
 ]
 
 

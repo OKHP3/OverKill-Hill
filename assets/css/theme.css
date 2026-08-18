@@ -54,6 +54,14 @@
   --color-muted: var(--okh-gray);
   --color-accent: var(--okh-orange);
   --color-border-subtle: rgba(249, 250, 251, 0.08);
+  /* Link-hover text needs a lighter variant than raw --okh-orange — at
+     normal text size --okh-orange only reaches 4.00 to 4.60 to 1 on dark
+     surfaces (fails the 4.5-to-1 minimum on --color-bg and
+     --color-surface-soft). #df8a4f clears 5.8-to-1 or better on every dark
+     surface. Decorative and large-UI uses of --okh-orange (borders,
+     backgrounds, buttons, badges) keep referencing it directly. */
+  --color-link-hover: #df8a4f;
+  --color-btn-primary-fg: #0f172a;
   /* Mermaid theming – OverKill Hill (default) */
   --mermaid-primary-color: #111827;
   --mermaid-primary-text-color: #e5e7eb;
@@ -80,7 +88,6 @@
   /* --- Semantic alias tokens (Sprint 2 — May 2026) --- */
   --color-text-heading:     var(--color-fg);          /* heading text color */
   --color-link:             var(--color-fg);           /* default link color */
-  --color-link-hover:       var(--okh-orange);         /* link hover state */
   --radius-sm:              4px;
 
   /* --- Spacing scale --- */
@@ -110,6 +117,10 @@
      surface it's used against, including the darkest (translucent-black
      search footer over paper, ~3.5:1 headroom at #8a5410 — needed #6d400a). */
   --color-amber-text: #6d400a;
+  /* Darkened link-hover for paper backgrounds — raw --okh-orange measures
+     ~3.25–3.46:1 on light surfaces and fails 4.5:1; #874518 clears ≥6.4:1
+     on every light surface. */
+  --color-link-hover: #874518;
 }
 
 /* ── Body background: JS sets data-theme on <html>, not <body> ───────────── */
@@ -186,8 +197,8 @@ html[data-theme="light"] .projects-main .hero {
 /* ── Card link hover: orange in both light and dark mode ──────────────── */
 .card a:hover,
 .card a:focus-visible {
-  color: var(--okh-orange);
-  text-decoration-color: var(--okh-orange);
+  color: var(--color-link-hover);
+  text-decoration-color: var(--color-link-hover);
 }
 
 /* Footer — hardcoded #020617 bg; keep all footer text readable */
@@ -423,7 +434,7 @@ button {
     background 0.15s ease, border-color 0.15s ease;
   text-decoration: none;
   background: linear-gradient(135deg, var(--okh-orange), #e6a03c);
-  color: #0f172a;
+  color: var(--color-btn-primary-fg);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
@@ -441,7 +452,7 @@ button {
 
 .btn-quiet:hover {
   border-color: var(--color-accent);
-  color: var(--color-accent);
+  color: var(--color-link-hover);
 }
 
 /* Screen-reader-only text (for buttons like the mobile nav toggle) */
@@ -1358,7 +1369,7 @@ OverKill Hill industrial stripes.
 
 .btn-secondary:hover {
   border-color: var(--color-accent);
-  color: var(--color-accent);
+  color: var(--color-link-hover);
 }
 
 .article-hero .brand-stripes {
@@ -1742,7 +1753,7 @@ body.construction-dismissed .construction-overlay,
   cursor: pointer;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
-.okh-search-close:hover { color: var(--okh-orange, var(--okh-orange)); border-color: var(--okh-orange, var(--okh-orange)); }
+.okh-search-close:hover { color: var(--color-link-hover, var(--okh-orange)); border-color: var(--okh-orange, var(--okh-orange)); }
 
 .okh-search-results {
   flex: 1 1 auto;
@@ -2364,7 +2375,7 @@ html[data-theme="light"] .pf-boundary-label--private    { color: #475569; }
   border-radius: 2rem; padding: 0.2rem 0.65rem;
   margin-bottom: 0.75rem; text-decoration: none; transition: color 0.15s;
 }
-.section-anchor-badge:hover { color: var(--color-accent, #c46a2c); }
+.section-anchor-badge:hover { color: var(--color-link-hover, #c46a2c); }
 .prompt-evolution-block { margin: 2rem 0; }
 .prompt-iteration-label {
   display: flex; align-items: center; gap: 0.5rem;
@@ -4358,7 +4369,7 @@ html[data-theme="light"] .article-body h2 {
   margin-bottom: 1.25rem;
 }
 .breadcrumb a { color: var(--color-muted); text-decoration: none; }
-.breadcrumb a:hover { color: var(--color-accent); }
+.breadcrumb a:hover { color: var(--color-link-hover); }
 .breadcrumb span { margin: 0 0.4rem; }
 
 /* ── Tag badges ─────────────────────────────────────────────────────────── */
@@ -4583,7 +4594,7 @@ html[data-theme="light"] .article-body h2 {
   font-size: 0.95rem; font-weight: 600;
   cursor: pointer; text-align: left; transition: color 0.15s;
 }
-.collapsible-toggle:hover { color: var(--okh-orange); }
+.collapsible-toggle:hover { color: var(--color-link-hover); }
 .collapsible-chevron {
   display: inline-block; transition: transform 0.2s ease;
   color: var(--color-muted); font-size: 0.8rem;
@@ -4662,7 +4673,7 @@ html[data-theme="light"] .article-body h2 {
 .status-dot--live { animation: pulse-dot 2s ease-in-out infinite; }
 .sidebar-links { border-top: 1px solid var(--color-border-subtle); padding-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
 .sidebar-link { font-size: 0.85rem; color: var(--color-muted); display: flex; align-items: center; gap: 0.5rem; text-decoration: none; transition: color 0.15s; }
-.sidebar-link:hover { color: var(--okh-orange); text-decoration: none; }
+.sidebar-link:hover { color: var(--color-link-hover); text-decoration: none; }
 .sidebar-related {
   border: 1px solid var(--color-border-subtle);
   background: var(--color-surface-soft);
@@ -4672,7 +4683,7 @@ html[data-theme="light"] .article-body h2 {
 .sidebar-related ul { list-style: none; padding: 0; margin: 0.5rem 0 0; }
 .sidebar-related li { margin-bottom: 0.5rem; font-size: 0.85rem; }
 .sidebar-related a       { color: var(--color-muted); }
-.sidebar-related a:hover { color: var(--okh-orange); }
+.sidebar-related a:hover { color: var(--color-link-hover); }
 
 /* ── Relationship cards ─────────────────────────────────────────────────── */
 .relationship-grid {
@@ -4804,9 +4815,9 @@ html[data-theme="light"] .article-body h2 {
   color: var(--color-muted); font-family: "JetBrains Mono", monospace;
   font-size: 0.72rem; cursor: pointer; text-decoration: none; transition: border-color 0.15s, color 0.15s;
 }
-.embed-btn:hover { border-color: var(--color-accent); color: var(--color-accent); text-decoration: none; }
+.embed-btn:hover { border-color: var(--color-accent); color: var(--color-link-hover); text-decoration: none; }
 .embed-btn--primary { border-color: rgba(196,106,44,0.5); color: var(--okh-orange); background: rgba(196,106,44,0.08); }
-.embed-btn--primary:hover { background: rgba(196,106,44,0.15); color: var(--okh-orange); }
+.embed-btn--primary:hover { background: rgba(196,106,44,0.15); color: var(--color-link-hover); }
 .embed-frame-wrapper {
   border: 1px solid rgba(196,106,44,0.2); border-radius: var(--radius-md);
   overflow: hidden; background: #090d12; box-shadow: 0 0 40px rgba(196,106,44,0.06); position: relative;
@@ -4874,7 +4885,7 @@ html[data-theme="light"] .article-body h2 {
   background: transparent; border: 1px solid var(--color-border-subtle); border-radius: 4px;
   padding: 0.25rem 0.65rem; cursor: pointer; transition: color 0.15s, border-color 0.15s;
 }
-.dsl-copy-btn:hover { color: var(--okh-orange); border-color: rgba(196,106,44,0.4); }
+.dsl-copy-btn:hover { color: var(--color-link-hover); border-color: rgba(196,106,44,0.4); }
 .dsl-code {
   padding: 1.35rem 1.5rem; font-family: "JetBrains Mono", monospace;
   font-size: 0.82rem; line-height: 1.75; color: #cbd5e1; overflow-x: auto; margin: 0; white-space: pre;
