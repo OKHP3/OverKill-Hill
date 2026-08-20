@@ -47,7 +47,7 @@ jobs:
       - name: Check search index is current
         run: python3 scripts/build-search-index.py --check
 
-      - name: Check phone-size table and diagram containment
+      - name: Check phone-size overflow on every public page
         run: |
           python3 server.py > server.log 2>&1 &
           server_pid=$!

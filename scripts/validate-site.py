@@ -10,7 +10,7 @@ Checks every production HTML page for:
   - canonical link present
   - single <h1>
   - JSON-LD structured data present
-  - inclusion in sitemap.xml (for non-noindex pages)
+   - sitemap inventory and inclusion (for non-noindex pages)
   - broken internal links (relative or /-rooted hrefs that resolve to no file)
   - broken asset references (CSS/JS/images)
   - external target="_blank" links missing rel="noopener" / "noreferrer"
@@ -131,6 +131,25 @@ def load_sitemap_urls() -> set[str]:
         return set()
     text = SITEMAP.read_text(encoding="utf-8")
     return set(re.findall(r"<loc>([^<]+)</loc>", text))
+
+
+def validate_sitemap_inventory(sitemap_urls: set[str]) -> list[Finding]:
+    """Ensure every sitemap entry resolves to a production HTML page."""
+    findings: list[Finding] = []
+    for url in sorted(sitemap_urls):
+        parsed = urlparse(url)
+        if parsed.netloc and parsed.netloc != urlparse(SITE_ORIGIN).netloc:
+            findings.append(Finding("ERROR", "sitemap.xml", f"non-production URL in sitemap.xml: {url}"))
+            continue
+        route = parsed.path or "/"
+        target = ROOT / route.lstrip("/")
+        if route == "/":
+            target = ROOT / "index.html"
+        elif route.endswith("/"):
+            target = target / "index.html"
+        if not target.is_file():
+            findings.append(Finding("ERROR", "sitemap.xml", f"sitemap URL has no HTML page: {url}"))
+    return findings
 
 
 def html_to_route(path: Path) -> str:
@@ -418,6 +437,7 @@ def main() -> int:
     print(f"Validating {len(pages)} HTML pages…\n")
 
     all_findings: list[Finding] = []
+    all_findings.extend(validate_sitemap_inventory(sitemap_urls))
     for path in pages:
         all_findings.extend(validate_page(path, sitemap_urls))
 

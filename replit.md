@@ -146,9 +146,10 @@ python3 scripts/validate-site.py
 This covers all checks in one shot: HTML structure (title, meta description, canonical, h1, JSON-LD), sitemap inclusion, broken internal links and assets, brand violations, MTB version consistency (`check-mtb-version.py`), and banner consistency (`check-banner.py`). The workflow also runs `python3 scripts/build-search-index.py --check`, which compares the generated payload in memory and fails if `assets/data/search-index.json` needs a refresh. The workflow exits non-zero on any error, which blocks merge on GitHub.
 
 The workflow also runs `npm run test:phone-overflow` in Chromium at a 320px
-viewport. It checks the representative table and diagram pages for page-level
-horizontal overflow, confirms table wrappers keep their rightmost columns
-reachable, and verifies diagram grids remain inside the viewport.
+viewport. It checks every page listed in `sitemap.xml` for page-level
+horizontal overflow. The manifesto, Mac Studio, and First Diagram article
+retain targeted assertions for table wrappers, reachable rightmost columns,
+and diagram grids.
 
 To run the same gate locally before pushing:
 

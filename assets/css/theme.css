@@ -3625,6 +3625,7 @@ sentinel artwork used on this error page, we override two rules:
   background: var(--color-surface);
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-md);
+  min-width: 0;
   padding: 1.25rem;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -4434,6 +4435,9 @@ html[data-theme="light"] .article-body h2 {
   gap: 2rem;
   padding: 2.5rem 0 4rem;
 }
+.project-layout > * {
+  min-width: 0;
+}
 @media (min-width: 1024px) {
   .project-layout {
     grid-template-columns: 1fr 300px;
@@ -4451,7 +4455,10 @@ html[data-theme="light"] .article-body h2 {
   color: var(--color-muted);
   margin-bottom: 0.5rem;
 }
-.content-block { margin-bottom: 2.5rem; }
+.content-block {
+  min-width: 0;
+  margin-bottom: 2.5rem;
+}
 .content-block h2 { font-size: 1.35rem; margin-bottom: 1rem; }
 
 /* ── Why / Is-IsNot two-column comparison ──────────────────────────────── */
