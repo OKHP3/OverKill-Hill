@@ -1,0 +1,12 @@
+{
+  "name": "overkill-hill-site",
+  "version": "1.0.0",
+  "description": "**Precision · Protocol · Promptcraft**",
+  "private": true,
+  "scripts": {
+    "test:phone-overflow": "node scripts/phone-overflow-qa.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.62.1"
+  }
+}

@@ -98,6 +98,19 @@ python3 scripts/validate-site.py
 
 Checks every HTML page for: title, meta description, canonical, single H1, JSON-LD, sitemap inclusion, broken internal links, broken asset references, external `target="_blank"` links missing `rel="noopener"`, placeholder hrefs, `P3` (without superscript) brand violations, and old-tagline regressions. Run before every commit.
 
+For the browser-level phone layout check used in CI:
+
+```bash
+npm ci
+npx playwright install chromium
+python3 server.py &
+npm run test:phone-overflow
+```
+
+This opens the manifesto, Mac Studio workbench, and First Diagram article at
+320px and fails on document overflow, inaccessible final table columns, or
+diagram grids that escape the viewport.
+
 ## Build / maintenance scripts
 
 All scripts in `scripts/` are pure Python, dependency-light (Pillow + bs4 + lxml), and **idempotent** — re-running them on an already-processed repo is a no-op. Each supports `--check` (where applicable) for dry-run mode.

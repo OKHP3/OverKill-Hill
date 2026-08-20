@@ -31,8 +31,33 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install browser test dependencies
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
       - name: Run site validator
         run: python3 scripts/validate-site.py
+
+      - name: Check phone-size table and diagram containment
+        run: |
+          python3 server.py > server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for attempt in {1..20}; do
+            if curl --silent --fail http://127.0.0.1:5000/ >/dev/null; then
+              break
+            fi
+            sleep 0.5
+          done
+          curl --silent --fail http://127.0.0.1:5000/ >/dev/null
+          npm run test:phone-overflow
 
       - name: Run WCAG contrast audit
         id: contrast
