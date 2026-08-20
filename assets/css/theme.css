@@ -1400,6 +1400,7 @@ OverKill Hill industrial stripes.
 
 .schedule-table {
   width: 100%;
+  min-width: 720px;
   border-collapse: collapse;
   margin: 1.5rem 0;
   font-size: 0.88rem;
@@ -2336,7 +2337,7 @@ html[data-theme="light"] .pf-boundary-label--private    { color: #475569; }
   background: var(--color-accent, #c46a2c); z-index: 9999;
   transition: width 0.1s linear;
 }
-.gen-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.88rem; }
+.gen-table { width: 100%; min-width: 640px; border-collapse: collapse; margin: 2rem 0; font-size: 0.88rem; }
 .gen-table th {
   background: var(--color-surface-soft, #181f26);
   color: var(--color-muted, #6b7280);
@@ -3616,7 +3617,7 @@ sentinel artwork used on this error page, we override two rules:
 }
 .diagram-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
   gap: 1.25rem;
   margin: 1.5rem 0;
 }
@@ -4987,10 +4988,20 @@ html[data-theme="light"] .article-body h2 {
 .timeline-row-content { color: var(--color-fg); min-width: 0; overflow-wrap: break-word; word-break: break-word; }
 .timeline-row-content code { word-break: break-all; overflow-wrap: anywhere; min-width: 0; }
 
-/* ── Data tables ────────────────────────────────────────────────────────── */
-.data-table-wrap {
+/* ── Scrollable data tables ─────────────────────────────────────────────── */
+.data-table-wrap,
+.table-scroll-wrap {
   overflow-x: auto; -webkit-overflow-scrolling: touch;
   width: 100%; max-width: 100%; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle);
+}
+.table-scroll-wrap {
+  border: 0;
+  border-radius: 0;
+}
+.data-table-wrap:focus-visible,
+.table-scroll-wrap:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 .data-table { width: 100%; min-width: 500px; border-collapse: collapse; font-size: 0.85rem; }
 .data-table th {
