@@ -17,6 +17,7 @@ Checks every production HTML page for:
   - placeholder hrefs ("#", "javascript:void(0)", empty href)
   - "P3" without superscript inside <title> or <meta> (brand violation)
   - old tagline "Precision. Power. Presence." anywhere (brand regression)
+  - a single current content-hashed reference to the shared stylesheet
 
 Exits 0 if no errors. Exits 1 if any errors. Warnings do not fail the build.
 Run from repo root:  python3 scripts/validate-site.py
@@ -25,6 +26,7 @@ Run from repo root:  python3 scripts/validate-site.py
 from __future__ import annotations
 
 import os
+import hashlib
 import re
 import subprocess
 import sys
@@ -36,6 +38,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "dist", "templates", ".agents"}
 SITEMAP = ROOT / "sitemap.xml"
 SITE_ORIGIN = "https://overkillhill.com"
+THEME_STYLESHEET_PATH = "/assets/css/theme.css"
+THEME_STYLESHEET = ROOT / THEME_STYLESHEET_PATH.lstrip("/")
 
 # Em dash in all three forms: literal U+2014, named entity, numeric entity
 EM_DASH_RE = re.compile(r"\u2014|&mdash;|&#8212;")
@@ -56,6 +60,7 @@ class TagCounter(HTMLParser):
         self.is_noindex = False
         self.anchors: list[dict[str, str]] = []
         self.asset_refs: list[str] = []  # src/href for css/js/img/link
+        self.stylesheet_refs: list[str] = []
 
     def handle_starttag(self, tag: str, attrs_list):
         attrs = {k: (v or "") for k, v in attrs_list}
@@ -75,7 +80,10 @@ class TagCounter(HTMLParser):
             href = attrs.get("href", "")
             if rel == "canonical" and href:
                 self.has_canonical = True
-            if rel in ("stylesheet", "icon", "apple-touch-icon", "manifest") and href:
+            if "stylesheet" in rel.split() and href:
+                self.stylesheet_refs.append(href)
+                self.asset_refs.append(href)
+            elif rel in ("icon", "apple-touch-icon", "manifest") and href:
                 self.asset_refs.append(href)
         elif tag == "script":
             t = attrs.get("type", "").lower()
@@ -159,6 +167,19 @@ def html_to_route(path: Path) -> str:
     if rel.endswith("/index.html"):
         return "/" + rel[: -len("index.html")]
     return "/" + rel
+
+
+def current_theme_stylesheet_url() -> str | None:
+    """Return the canonical content-hashed URL for the shared stylesheet."""
+    if not THEME_STYLESHEET.is_file():
+        return None
+    fingerprint = hashlib.sha256(THEME_STYLESHEET.read_bytes()).hexdigest()[:8]
+    return f"{THEME_STYLESHEET_PATH}?v={fingerprint}"
+
+
+def is_theme_stylesheet_ref(href: str) -> bool:
+    """Identify theme.css whether a page used the canonical URL or a legacy form."""
+    return urlparse(href).path.lstrip("/") == THEME_STYLESHEET_PATH.lstrip("/")
 
 
 def resolve_internal(href: str, source: Path) -> Path | None:
@@ -277,7 +298,9 @@ def check_em_dashes(path: Path, raw: str) -> list[Finding]:
     return findings
 
 
-def validate_page(path: Path, sitemap_urls: set[str]) -> list[Finding]:
+def validate_page(
+    path: Path, sitemap_urls: set[str], expected_theme_url: str | None
+) -> list[Finding]:
     findings: list[Finding] = []
     rel = path.relative_to(ROOT).as_posix()
     raw = path.read_text(encoding="utf-8", errors="replace")
@@ -345,6 +368,28 @@ def validate_page(path: Path, sitemap_urls: set[str]) -> list[Finding]:
         findings.append(Finding("WARN", rel, f"{parser.h1_count} <h1> elements (should be 1)"))
     if not parser.has_jsonld:
         findings.append(Finding("WARN", rel, "no JSON-LD structured data"))
+
+    # Shared stylesheet cache-busting. A content hash changes whenever theme.css
+    # changes, making browsers request the responsive rules released with it.
+    theme_refs = [href for href in parser.stylesheet_refs if is_theme_stylesheet_ref(href)]
+    if expected_theme_url is None:
+        findings.append(Finding("ERROR", rel, "shared stylesheet file is missing"))
+    elif len(theme_refs) != 1:
+        findings.append(
+            Finding(
+                "ERROR",
+                rel,
+                f"expected exactly one shared stylesheet reference, found {len(theme_refs)}",
+            )
+        )
+    elif theme_refs[0] != expected_theme_url:
+        findings.append(
+            Finding(
+                "ERROR",
+                rel,
+                f"stale stylesheet reference {theme_refs[0]!r}; expected {expected_theme_url!r}",
+            )
+        )
 
     # sitemap inclusion (non-noindex, non-utility pages only)
     canonical_url = SITE_ORIGIN + html_to_route(path)
@@ -438,8 +483,17 @@ def main() -> int:
 
     all_findings: list[Finding] = []
     all_findings.extend(validate_sitemap_inventory(sitemap_urls))
+    expected_theme_url = current_theme_stylesheet_url()
+    if expected_theme_url is None:
+        all_findings.append(
+            Finding(
+                "ERROR",
+                "assets/css/theme.css",
+                "shared stylesheet is missing; cannot validate cache fingerprint",
+            )
+        )
     for path in pages:
-        all_findings.extend(validate_page(path, sitemap_urls))
+        all_findings.extend(validate_page(path, sitemap_urls, expected_theme_url))
 
     errors = [f for f in all_findings if f.severity == "ERROR"]
     warnings = [f for f in all_findings if f.severity == "WARN"]

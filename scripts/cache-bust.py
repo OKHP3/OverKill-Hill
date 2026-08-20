@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
 """
-cache-bust.py — derive cache-bust query suffixes from file content hashes.
+cache-bust.py — fingerprint the shared stylesheet in every HTML page.
 
-Scans every production HTML file for `<link rel="stylesheet" href=".../theme.css?v=N">`
-or `<script src=".../mermaid-init.js?v=N">` style references and rewrites the `?v=`
-suffix to a short content hash of the referenced asset on disk.
+Scans every production HTML file for a reference to `assets/css/theme.css` and
+normalizes it to the canonical root-relative URL:
+`/assets/css/theme.css?v=<sha256[:8]>`.
+
+The fingerprint is derived from the stylesheet's file bytes, so changing the
+stylesheet changes the URL browsers request after this command runs.
 
 Usage:
     python3 scripts/cache-bust.py            # rewrite in place
     python3 scripts/cache-bust.py --check    # exit 1 if anything would change
 
 Conventions:
-- Only rewrites refs whose path resolves to a real file under the repo root.
-- Hash is the first 8 chars of sha256 of the file bytes.
+- Hash is the first 8 chars of sha256 of the stylesheet file bytes.
+- Relative and legacy query-string references are rewritten to the canonical URL.
 - Skips _replit/, .local/, attached_assets/, node_modules/.
 """
 
@@ -26,10 +29,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 EXCLUDE_DIRS = {"_replit", ".local", "attached_assets", "node_modules", ".git"}
-
-# Match href="/path/to/asset.ext?v=ANYTHING"  or src="..."
-PATTERN = re.compile(
-    r'((?:href|src)=")(/[^"?#]+\.(?:css|js))\?v=([^"&#]+)(")'
+THEME_STYLESHEET_PATH = "/assets/css/theme.css"
+THEME_STYLESHEET = ROOT / THEME_STYLESHEET_PATH.lstrip("/")
+# Match an absolute or relative reference to the shared stylesheet, with or
+# without an existing query string. The quote backreference preserves the
+# source document's attribute style.
+THEME_STYLESHEET_REF = re.compile(
+    r"""(?P<prefix>\bhref=(?P<quote>['"]))"""
+    r"""(?:/?assets/css/theme\.css)(?:\?[^'"#]*)?(?P=quote)"""
 )
 
 
@@ -48,20 +55,18 @@ def iter_html_files(root: Path):
         yield p
 
 
-def rewrite_one(html: str) -> tuple[str, int]:
+def rewrite_one(html: str, fingerprint: str) -> tuple[str, int]:
     changes = 0
 
     def repl(m: re.Match) -> str:
         nonlocal changes
-        prefix, asset_path, old_ver, suffix = m.groups()
-        candidate = ROOT / asset_path.lstrip("/")
-        new_ver = file_hash(candidate)
-        if new_ver is None or new_ver == old_ver:
+        canonical_ref = f"{THEME_STYLESHEET_PATH}?v={fingerprint}"
+        if m.group(0) == f"{m.group('prefix')}{canonical_ref}{m.group('quote')}":
             return m.group(0)
         changes += 1
-        return f"{prefix}{asset_path}?v={new_ver}{suffix}"
+        return f"{m.group('prefix')}{canonical_ref}{m.group('quote')}"
 
-    out = PATTERN.sub(repl, html)
+    out = THEME_STYLESHEET_REF.sub(repl, html)
     return out, changes
 
 
@@ -71,6 +76,11 @@ def main() -> int:
                     help="Do not write; exit 1 if any file would change.")
     args = ap.parse_args()
 
+    fingerprint = file_hash(THEME_STYLESHEET)
+    if fingerprint is None:
+        print(f"ERROR: shared stylesheet not found: {THEME_STYLESHEET.relative_to(ROOT)}")
+        return 1
+
     total_files = 0
     changed_files = 0
     total_subs = 0
@@ -78,7 +88,7 @@ def main() -> int:
     for html_path in iter_html_files(ROOT):
         total_files += 1
         original = html_path.read_text(encoding="utf-8")
-        new, n = rewrite_one(original)
+        new, n = rewrite_one(original, fingerprint)
         if n > 0:
             changed_files += 1
             total_subs += n
