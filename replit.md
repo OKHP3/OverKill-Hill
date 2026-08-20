@@ -100,7 +100,7 @@ Path: `/writings/first-diagram-is-a-liar/`
 - `/writings/first-diagram-is-a-liar/v03/v2-heat-a/` — ChatGPT, Copilot, Gemini, Notion (V2)
 - `/writings/first-diagram-is-a-liar/v03/v2-heat-b/` — ChatGPT Pro, Claude, Replit, Perplexity (V2)
 
-All 15 confirmed Mermaid.ai diagram links are real (no placeholders). Poll URLs are TODO placeholders (not yet published on LinkedIn). v0.4 added ~700 words of new prose across 5 sections; v0.5 adds #council-scoring and #model-interviews. The committed search index currently contains 119 entries; regenerate it after content changes.
+All 15 confirmed Mermaid.ai diagram links are real (no placeholders). Poll URLs are TODO placeholders (not yet published on LinkedIn). v0.4 added ~700 words of new prose across 5 sections; v0.5 adds #council-scoring and #model-interviews. The committed search index currently contains 132 entries; refresh it after searchable content changes and verify with `build-search-index.py --check`.
 
 ### Sidebar Widgets
 
@@ -137,13 +137,13 @@ python3 assets/scripts/check-contrast.py
 
 ## Site Validation (CI)
 
-The full validation harness runs automatically on every push and pull request to `main` via `.github/workflows/validate.yml`. The single command it runs:
+The full validation harness runs automatically on every push and pull request to `main` via `.github/workflows/validate.yml`. Its structural validation command is:
 
 ```
 python3 scripts/validate-site.py
 ```
 
-This covers all checks in one shot: HTML structure (title, meta description, canonical, h1, JSON-LD), sitemap inclusion, broken internal links and assets, brand violations, MTB version consistency (`check-mtb-version.py`), and banner consistency (`check-banner.py`). The workflow exits non-zero on any error, which blocks merge on GitHub.
+This covers all checks in one shot: HTML structure (title, meta description, canonical, h1, JSON-LD), sitemap inclusion, broken internal links and assets, brand violations, MTB version consistency (`check-mtb-version.py`), and banner consistency (`check-banner.py`). The workflow also runs `python3 scripts/build-search-index.py --check`, which compares the generated payload in memory and fails if `assets/data/search-index.json` needs a refresh. The workflow exits non-zero on any error, which blocks merge on GitHub.
 
 The workflow also runs `npm run test:phone-overflow` in Chromium at a 320px
 viewport. It checks the representative table and diagram pages for page-level
@@ -154,6 +154,7 @@ To run the same gate locally before pushing:
 
 ```
 python3 scripts/validate-site.py
+python3 scripts/build-search-index.py --check
 ```
 
 ## Mermaid Theme Builder Project Page
@@ -245,10 +246,14 @@ Static, client-side search across the entire site. Consolidated 2026-05-03.
 - `/search/` — dedicated results page (URL-shareable: `/search/?q=foo`). Body class `search-page` activates the JS page initializer.
 - **All search logic lives in `assets/js/app.js` Section 5** (consolidated from the retired `assets/js/search.js`). Ctrl/Cmd+K or `/` opens overlay; Esc closes; ↑↓ navigate; ↵ follows.
 - **All search CSS lives in `assets/css/theme.css`** under the `SECTION · OKH SEARCH` banner (consolidated from the retired `assets/css/search.css`).
-- `assets/data/search-index.json` — generated index (119 entries as of 2026-07-24). `INDEX_URL` in `app.js` points to `/assets/data/search-index.json`.
+- `assets/data/search-index.json` — generated index (132 entries as of 2026-08-20). `INDEX_URL` in `app.js` points to `/assets/data/search-index.json`.
 - `scripts/build-search-index.py` — Python re-builder. Walks all `*.html`, skips `noindex`, extracts title + description + headings + body excerpt, plus per-section deep links for the FDIAL article. Re-run any time content changes:
   ```
   python3 scripts/build-search-index.py
+  ```
+  Verify the committed data without rewriting it:
+  ```
+  python3 scripts/build-search-index.py --check
   ```
 
 ### Adding deep-link entries for project page sections

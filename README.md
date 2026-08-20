@@ -113,7 +113,7 @@ diagram grids that escape the viewport.
 
 ## Build / maintenance scripts
 
-All scripts in `scripts/` are pure Python, dependency-light (Pillow + bs4 + lxml), and **idempotent** — re-running them on an already-processed repo is a no-op. Each supports `--check` (where applicable) for dry-run mode.
+All scripts in `scripts/` are pure Python, dependency-light (Pillow + bs4 + lxml), and **idempotent** — re-running them on an already-processed repo is a no-op. Each supports `--check` where documented.
 
 | Script | Purpose |
 |---|---|
@@ -122,7 +122,7 @@ All scripts in `scripts/` are pure Python, dependency-light (Pillow + bs4 + lxml
 | `picture-upgrade.py` | Wraps `<img src=".png">` in `<picture>` with a `<source type="image/webp">` sibling |
 | `cache-bust.py` | Appends `?v=<sha256[:8]>` to local CSS/JS refs in HTML |
 | `extract-templates.py` | Derives stripped layout templates into `/assets/templates/` from one donor per layout; requires `beautifulsoup4` locally |
-| `build-search-index.py` | Refreshes `/assets/data/search-index.json` from live HTML; review the generated diff after running |
+| `build-search-index.py` | Refreshes `/assets/data/search-index.json` from live HTML. `--check` compares the expected index in memory and exits non-zero when stale without writing the JSON. |
 | `modernize-pages.py` | Idempotently injects 2026 baselines into every page: `color-scheme` meta, skip-link, Speculation Rules API prefetch, jsdelivr preconnect + mermaid `modulepreload` (mermaid pages only); `--check` for CI |
 | `move-orphans-to-library.py` | Moves any unreferenced asset under `assets/img/` into `assets/img/library/` (preserves the file as a media-kit archive, removes from deploy hot path); `--check` for CI |
 
@@ -130,10 +130,11 @@ Templates produced by `extract-templates.py` are **scaffolds, not pages** — th
 
 ### Continuous integration
 
-`.github/workflows/validate.yml` runs `validate-site.py` on every push and pull
-request to `main`. On a push to `main`, it deploys to GitHub Pages only after
-that validation job succeeds. The workflow does not currently run
-`check-links.py`, rebuild `build-search-index.py`, or run `extract-templates.py`.
+`.github/workflows/validate.yml` runs `validate-site.py` and the non-mutating
+`build-search-index.py --check` on every push and pull request to `main`. On a
+push to `main`, it deploys to GitHub Pages only after that validation job
+succeeds. The workflow does not currently run `check-links.py` or
+`extract-templates.py`.
 
 ## Editing guidance
 
@@ -141,7 +142,12 @@ that validation job succeeds. The workflow does not currently run
 - **Tagline** is `Precision · Protocol · Promptcraft` — never `Precision. Power. Presence.` (the pre-2026 form).
 - **Sub-brands** (AskJamie™, Glee-fully Personalizable Tools™) are separate; do not collapse them into OverKill Hill copy.
 - **`AutoCAD 10`** is a deliberate locked literal in the manifesto — leave it alone.
-- When adding a page, also add a `<url>` entry to `sitemap.xml` and verify the validation script passes.
+- When adding an indexable page, also add a `<url>` entry to `sitemap.xml`.
+  Redirects and WIP pages marked `noindex` stay out of the sitemap and are
+  reported as intentional exclusions by `check-links.py`.
+- After changing searchable content, refresh and verify the committed index:
+  `python3 scripts/build-search-index.py` followed by
+  `python3 scripts/build-search-index.py --check`.
 
 ## Related projects
 
@@ -153,7 +159,9 @@ that validation job succeeds. The workflow does not currently run
 
 - Image-format optimization is script-based rather than automatic: use the PNG-to-WebP and picture-upgrade scripts, then review the generated diff.
 - `_headers` provides a report-only CSP and related security headers; enforcement and live edge behavior still require deployment-specific verification.
-- Search index (`assets/data/search-index.json`) is committed; regenerate when adding new pages.
+- Search index (`assets/data/search-index.json`) is committed. Refresh it after
+  searchable content changes, then use `build-search-index.py --check` to
+  verify the generated file without rewriting it.
 
 ## Contact
 

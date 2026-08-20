@@ -1105,7 +1105,7 @@
       "category": "Project",
       "description": "What Happened After the Gift What Happened After the Gift The gift shipped on July 17. The interesting part is what the governance layer was worth after the deadline stopped mattering.",
       "headings": [],
-      "body": "What Happened After the Gift What Happened After the Gift The gift shipped on July 17. The interesting part is what the governance layer was worth after the deadline stopped mattering. A hundred and fifty-two commits later, the game carries five bonus chapters that did not exist at ship: Joey's Laundry Helper, Phoebe's Lap Quest, the Moonlit Keepsake Trail memory game, Morning and Nighttime Treat Time, and a five-act UniGlee marathon that plays out across all of them. It also grew a progression economy, a wager ladder, an ingredient almanac, and a cabinet UI built around an illustrated marquee. None of that regressed the engine, because the oracle never moved. The maintenance record is the part the original build could not demonstrate. The test suite went from 149 to 170.",
+      "body": "What Happened After the Gift What Happened After the Gift The gift shipped on July 17. The interesting part is what the governance layer was worth after the deadline stopped mattering. More than four hundred commits later, the game carries five bonus chapters that did not exist at ship: Joey's Laundry Helper, Phoebe's Lap Quest, the Moonlit Keepsake Trail memory game, Morning and Nighttime Treat Time, and a five-act UniGlee marathon that plays out across all of them. It also grew a progression economy, a wager ladder, an ingredient almanac, and a cabinet UI built around an illustrated marquee. None of that regressed the engine, because the oracle never moved. The maintenance record is the part the original build could not demonstrate. The test suite went from 149 to 360.",
       "parent": "/projects/glee-fully-chai-chasers/"
     },
     {
@@ -1114,7 +1114,7 @@
       "category": "Project",
       "description": "The Orchestration Pattern Five tools. One product. No chaos. Five tools, one product, no chaos. Here's the actual structure that made that sentence true.",
       "headings": [],
-      "body": "The Orchestration Pattern Five tools. One product. No chaos. Five tools, one product, no chaos. Here's the actual structure that made that sentence true. Tool Bounded role Claude Canonical spec, engine math, simulation oracle, PM and independent verification Codex / ChatGPT Work Pre-alpha foundation, product realignment, production art and UI baseline Replit Bounded implementation sprints under validation-loop prompts GitHub Single source of truth, CI gates, Pages deployment Notion Project hub and decision mirror Five governance artifacts Artifact 1 The canonical spec One document outranks every tool's opinion. Amendments are dated and ruled on, never improvised. Artifact 2 The decision log Thirty-six settled decisions and counting.",
+      "body": "The Orchestration Pattern Five tools. One product. No chaos. Five tools, one product, no chaos. Here's the actual structure that made that sentence true. Tool Bounded role Claude Canonical spec, engine math, simulation oracle, PM and independent verification Codex / ChatGPT Work Pre-alpha foundation, product realignment, production art and UI baseline Replit Bounded implementation sprints under validation-loop prompts GitHub Single source of truth, CI gates, Pages deployment Notion Project hub and decision mirror Five governance artifacts Artifact 1 The canonical spec One document outranks every tool's opinion. Amendments are dated and ruled on, never improvised. Artifact 2 The decision log Thirty-seven settled decisions and counting.",
       "parent": "/projects/glee-fully-chai-chasers/"
     },
     {
@@ -1168,7 +1168,7 @@
       "category": "Project",
       "description": "What It Does A real game. A real spec. A real test. The Engine A real cascade engine. 5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a legendary event captured…",
       "headings": [],
-      "body": "What It Does A real game. A real spec. A real test. The Engine A real cascade engine. 5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a legendary event captured roughly once every 1,300 spins, on three independently rolled reels that size the reward. Pure TypeScript, zero DOM imports, fully unit-tested. The Oracle A simulation oracle as the definition of done. A 200,000-spin seeded test asserts the spec's layered RTP model (the base game holds a 61% band while the bonus layer carries the rest) and five event-frequency bands. A second harness plays every bonus end to end through the same engine entry points the UI uses.",
+      "body": "What It Does A real game. A real spec. A real test. The Engine A real cascade engine. 5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a legendary event captured roughly once every 1,370 spins, on three independently rolled reels that size the reward. Pure TypeScript, zero DOM imports, fully unit-tested. The Oracle A simulation oracle as the definition of done. A 200,000-spin seeded test asserts the spec's layered RTP model (the base game holds a 61% band while the bonus layer carries the rest) and five event-frequency bands. A second harness plays every bonus end to end through the same engine entry points the UI uses.",
       "parent": "/projects/glee-fully-chai-chasers/"
     },
     {
@@ -1471,7 +1471,7 @@
         "What is a SKILL.md?",
         "A discovery workbench, not a marketplace",
         "How a prompt becomes a portable capability",
-        "113 public distribution skills across 15 active families",
+        "148 public distribution skills across 16 active families",
         "Verified application capabilities",
         "Skills in action: four recurring scenarios",
         "How skill maturity and evidence work",
@@ -1496,6 +1496,8 @@
         "Copy a raw installation URL",
         "Save favorites locally",
         "Explore curated stacks",
+        "Start with the work",
+        "Compose a local stack",
         "Open native GitHub paths",
         "View static generated activity context",
         "Governed Mermaid Workflow",
@@ -1557,11 +1559,11 @@
     },
     {
       "url": "/projects/skillz/#inventory",
-      "title": "113 public distribution skills across 15 active families — Skillz Forge | OverKill Hill P³™",
+      "title": "148 public distribution skills across 16 active families — Skillz Forge | OverKill Hill P³™",
       "category": "Project",
-      "description": "Current Inventory 113 public distribution skills across 15 active families Source-derived count from the live generated catalog ( project-summary.json ) as of 2026-08-06 .",
+      "description": "Current Inventory 148 public distribution skills across 16 active families Source-derived count from the live generated catalog ( project-summary.json ) as of 2026-08-20 .",
       "headings": [],
-      "body": "Current Inventory 113 public distribution skills across 15 active families Source-derived count from the live generated catalog ( project-summary.json ) as of 2026-08-06 . This page fetches that file at load time and updates the numbers above automatically; if the fetch fails (e.g. offline), the last-synced values shown here remain. A prior July 29, 2026 audit reported 75 skills across 12 families; the count grew as new packages were added and audited. Abrahamic Agent Foundry Community Context Extraction LifeTrkr LinkedIn Mermaid Notion Outcome Modeling Process Capture ReFolDec Universal 75 public distribution skills 12 active families 2 placeholder families (excluded) Every skill in this count is draftable or skeleton maturity today; none are yet marked usable, validated, or published.",
+      "body": "Current Inventory 148 public distribution skills across 16 active families Source-derived count from the live generated catalog ( project-summary.json ) as of 2026-08-20 . This page fetches that file at load time and updates the numbers above automatically; if the fetch fails (e.g. offline), the last-synced values shown here remain. A prior July 29, 2026 audit reported 75 skills across 12 families; the count grew as new packages were added and audited. Abrahamic Agent Foundry AskJamie Community Context Extraction Glee-fully Knowledge Operations LifeTrkr Mermaid Notion Outcome Modeling Process Capture ReFolDec Replit Social Posting Universal 148 public distribution skills 16 active families Forge currently lists 119 draftable, 24 skeleton, and 5 usable contracts; no contract carries…",
       "parent": "/projects/skillz/"
     },
     {
@@ -1586,9 +1588,9 @@
       "url": "/projects/skillz/#roadmap",
       "title": "Where the build is going — Skillz Forge | OverKill Hill P³™",
       "category": "Project",
-      "description": "Roadmap Where the build is going ✓ Public Skillz Forge Application Shipped Live at okhp3.github.io/skillz/. Generated repository catalog. Phrase search. Family and maturity browsing. Skill detail pages. Curated stacks.",
+      "description": "Roadmap Where the build is going ✓ Public Skillz Forge Application Shipped Live at okhp3.github.io/skillz/. Generated repository catalog. Phrase search and guided discovery. Family and maturity browsing.",
       "headings": [],
-      "body": "Roadmap Where the build is going ✓ Public Skillz Forge Application Shipped Live at okhp3.github.io/skillz/. Generated repository catalog. Phrase search. Family and maturity browsing. Skill detail pages. Curated stacks. FAQ. GitHub deep links. ▶ Brand Alignment and Catalog Hardening Active OverKill Hill brand alignment. Catalog provenance. Stable share URLs. Structured metadata across all skill entries. Analytics consistency. Activity freshness signals. ✓ Compare Mode Shipped Side-by-side skill comparison: review trigger language, method steps, and boundary conditions across two to four skills before selecting one for a workflow.",
+      "body": "Roadmap Where the build is going ✓ Public Skillz Forge Application Shipped Live at okhp3.github.io/skillz/. Generated repository catalog. Phrase search and guided discovery. Family and maturity browsing. Skill detail pages. Curated stacks. Local stack composition and export. FAQ. GitHub deep links. ▶ Brand Alignment and Catalog Hardening Active OverKill Hill brand alignment. Catalog provenance. Stable share URLs. Structured metadata across all skill entries. Analytics consistency. Activity freshness signals. ✓ Compare Mode Shipped Side-by-side skill comparison: review trigger language, method steps, and boundary conditions across two to four skills before selecting one for a workflow.",
       "parent": "/projects/skillz/"
     },
     {

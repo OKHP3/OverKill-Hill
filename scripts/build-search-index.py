@@ -12,6 +12,9 @@ Build /assets/data/search-index.json from every indexable HTML page on the site.
 
 Re-run any time content changes:
     python3 scripts/build-search-index.py
+
+Verify that the committed index is current without writing it:
+    python3 scripts/build-search-index.py --check
 """
 
 from __future__ import annotations
@@ -494,7 +497,8 @@ def process_file(path: Path) -> list[dict]:
     return out
 
 
-def main() -> None:
+def build_payload() -> dict:
+    """Build the deterministic search-index payload without writing to disk."""
     entries: list[dict] = []
     for path in sorted(ROOT.rglob("*.html")):
         # Filter directories
@@ -508,21 +512,62 @@ def main() -> None:
                  "Article Section": 4, "Field Guide": 5, "Project": 6, "Page": 7}
     entries.sort(key=lambda e: (cat_order.get(e["category"], 99), e["url"]))
 
-    payload = {
+    return {
         "site": SITE,
         "generated": "static",
         "count": len(entries),
         "entries": entries,
     }
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"Wrote {OUT.relative_to(ROOT)} — {len(entries)} entries")
+
+
+def print_summary(payload: dict, action: str) -> None:
+    """Print the entry count and category breakdown for a built payload."""
+    print(f"{action} {OUT.relative_to(ROOT)} — {payload['count']} entries")
     by_cat: dict[str, int] = {}
-    for e in entries:
+    for e in payload["entries"]:
         by_cat[e["category"]] = by_cat.get(e["category"], 0) + 1
     for cat, n in sorted(by_cat.items()):
         print(f"  {cat}: {n}")
 
 
+def main(argv: list[str] | None = None) -> int:
+    args = sys.argv[1:] if argv is None else argv
+    unknown_args = [arg for arg in args if arg != "--check"]
+    if unknown_args:
+        print(
+            "Usage: python3 scripts/build-search-index.py [--check]",
+            file=sys.stderr,
+        )
+        return 2
+
+    payload = build_payload()
+    rendered = json.dumps(payload, ensure_ascii=False, indent=2)
+
+    if "--check" in args:
+        if not OUT.exists():
+            print(
+                f"Search index is missing: {OUT.relative_to(ROOT)}. "
+                "Run python3 scripts/build-search-index.py.",
+                file=sys.stderr,
+            )
+            return 1
+        current = OUT.read_text(encoding="utf-8")
+        if current != rendered:
+            print(
+                f"Search index is stale: {OUT.relative_to(ROOT)}. "
+                "Run python3 scripts/build-search-index.py, review the diff, "
+                "then run this command again.",
+                file=sys.stderr,
+            )
+            return 1
+        print_summary(payload, "Search index is current:")
+        return 0
+
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    OUT.write_text(rendered, encoding="utf-8")
+    print_summary(payload, "Wrote")
+    return 0
+
+
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

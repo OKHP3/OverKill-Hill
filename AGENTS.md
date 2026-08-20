@@ -66,13 +66,12 @@ validation workflow changes.
 - Limitation: `python3 scripts/extract-templates.py --check` requires the
   `beautifulsoup4` package, which is not installed in the current local
   runtime. The current workflow does not run this check.
-- Limitation: `scripts/build-search-index.py` is a generator and does not
-  implement a read-only `--check` mode. Run it after content changes and
-  review the generated JSON diff. The current committed index contains 119
-  entries, matching the current generator output.
-- Open risk: `python3 scripts/check-links.py` reports zero broken links but
-  identifies six live pages that are not currently listed in `sitemap.xml`.
-  Resolve sitemap coverage in a separate content-maintenance change.
+- Confirmed: `scripts/build-search-index.py --check` compares the expected
+  search index in memory without writing it and exits non-zero when the
+  committed JSON is stale. The current committed index contains 132 entries.
+- Confirmed: `scripts/check-links.py` distinguishes indexable sitemap pages
+  from the six intentional noindex exclusions: the Found-Ry redirect and five
+  WIP pages behind the under-construction gate.
 - Open risk: `.github/workflows/sedMiHLjD` is tracked without a YAML extension
   and contains stale underscored script paths. GitHub Actions does not treat it
   as an active workflow. Do not delete or repair it without owner direction.
