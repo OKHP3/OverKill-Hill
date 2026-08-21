@@ -9,6 +9,7 @@ and content-hashed CSS/JS responses.
 Usage:
     python3 scripts/verify-live-edge.py --base https://example.com
     python3 scripts/verify-live-edge.py --base https://example.com \
+        --expected-commit "$GITHUB_SHA" \
         --report assets/audit/live-edge-report.json
 """
 
@@ -32,6 +33,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent.parent
 SITEMAP = ROOT / "sitemap.xml"
 SEARCH_INDEX = ROOT / "assets" / "data" / "search-index.json"
+RELEASE_MANIFEST = "/assets/audit/release-manifest.json"
 TIMEOUT = 10.0
 USER_AGENT = "OKHP3-live-edge-verifier/1.0 (read-only)"
 SECURITY_HEADERS = {
@@ -198,11 +200,106 @@ def check_page(
     return response, body
 
 
+def check_release_manifest(
+    report: list[dict[str, Any]],
+    base: str,
+    expected_commit: str,
+    timeout: float,
+) -> None:
+    """Require the live edge to identify the commit whose files were validated."""
+    response = fetch(base, RELEASE_MANIFEST, timeout)
+    label = "release manifest"
+    if not response.get("ok") or response.get("status") != 200:
+        report.append(
+            result(
+                label,
+                transport_status(response),
+                response.get("error", f"HTTP {response.get('status')}"),
+            )
+        )
+        return
+
+    try:
+        manifest = json.loads(response["body"])
+    except (ValueError, UnicodeDecodeError) as exc:
+        report.append(result(label, "FAIL", f"invalid JSON: {exc}"))
+        return
+
+    if not isinstance(manifest, dict):
+        report.append(result(label, "FAIL", "expected a JSON object"))
+        return
+    commit = manifest.get("commit")
+    artifacts = manifest.get("artifacts")
+    if commit != expected_commit:
+        report.append(
+            result(
+                label,
+                "FAIL",
+                f"expected validated commit {expected_commit}, received {commit!r}",
+            )
+        )
+    elif not isinstance(artifacts, dict):
+        report.append(result(label, "FAIL", "artifacts map is missing"))
+    else:
+        report.append(result(label, "PASS", f"validated commit {commit}"))
+
+    expected_artifacts = {
+        "/sitemap.xml": SITEMAP,
+        "/assets/data/search-index.json": SEARCH_INDEX,
+    }
+    if not isinstance(artifacts, dict):
+        return
+    for public_path, local_path in expected_artifacts.items():
+        entry = artifacts.get(public_path)
+        manifest_hash = entry.get("sha256") if isinstance(entry, dict) else None
+        local_hash = (
+            hashlib.sha256(local_path.read_bytes()).hexdigest()
+            if local_path.is_file()
+            else None
+        )
+        if not manifest_hash:
+            report.append(
+                result(
+                    f"release manifest {public_path}",
+                    "FAIL",
+                    "artifact SHA-256 is missing",
+                )
+            )
+        elif local_hash is None:
+            report.append(
+                result(
+                    f"release manifest {public_path}",
+                    "FAIL",
+                    f"local artifact missing: {local_path}",
+                )
+            )
+        elif manifest_hash != local_hash:
+            report.append(
+                result(
+                    f"release manifest {public_path}",
+                    "FAIL",
+                    f"manifest SHA-256 {manifest_hash[:12]} differs from local {local_hash[:12]}",
+                )
+            )
+        else:
+            report.append(
+                result(
+                    f"release manifest {public_path}",
+                    "PASS",
+                    f"SHA-256 {manifest_hash[:12]} matches validated files",
+                )
+            )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base", required=True, help="Explicit deployed origin, e.g. https://overkillhill.com")
     parser.add_argument("--timeout", type=float, default=TIMEOUT, help=f"Per-request timeout in seconds (default: {TIMEOUT:g})")
     parser.add_argument("--report", type=Path, help="Write the JSON report to this path")
+    parser.add_argument(
+        "--expected-commit",
+        help="Require the deployed release manifest to identify this validated commit",
+    )
     parser.add_argument("--noindex-route", action="append", default=["/404.html", "/found-ry/"],
                         help="Additional utility/noindex route (repeatable)")
     args = parser.parse_args()
@@ -213,6 +310,8 @@ def main() -> int:
         parser.error("--timeout must be greater than zero")
 
     report: list[dict[str, Any]] = []
+    if args.expected_commit:
+        check_release_manifest(report, args.base, args.expected_commit, args.timeout)
     routes, sitemap_error = load_routes()
     if sitemap_error:
         report.append(result("local sitemap inventory", "FAIL", sitemap_error))
@@ -248,11 +347,34 @@ def main() -> int:
         remote_hash = hashlib.sha256(response["body"]).hexdigest()
         local_hash = hashlib.sha256(local_path.read_bytes()).hexdigest() if local_path.is_file() else None
         if local_hash is None:
-            report.append(result(f"generated {kind}", "FAIL", f"local artifact missing: {local_path}"))
+            report.append(
+                result(
+                    f"generated {kind}",
+                    "FAIL",
+                    f"local artifact missing: {local_path}",
+                    remote_sha256=remote_hash,
+                )
+            )
         elif remote_hash != local_hash:
-            report.append(result(f"generated {kind}", "FAIL", f"live SHA-256 {remote_hash[:12]} differs from local {local_hash[:12]}"))
+            report.append(
+                result(
+                    f"generated {kind}",
+                    "FAIL",
+                    f"live SHA-256 {remote_hash[:12]} differs from local {local_hash[:12]}",
+                    remote_sha256=remote_hash,
+                    local_sha256=local_hash,
+                )
+            )
         else:
-            report.append(result(f"generated {kind}", "PASS", f"HTTP 200; SHA-256 {remote_hash[:12]}"))
+            report.append(
+                result(
+                    f"generated {kind}",
+                    "PASS",
+                    f"HTTP 200; SHA-256 {remote_hash[:12]}",
+                    remote_sha256=remote_hash,
+                    local_sha256=local_hash,
+                )
+            )
         if kind == "search index":
             try:
                 parsed = json.loads(response["body"])

@@ -6,6 +6,11 @@ Push the reviewed commit to `main`. `.github/workflows/validate.yml` checks that
 exact commit, then the Pages job runs only when validation succeeds. The deploy
 job has read-only contents access plus the minimum Pages write and OIDC
 permissions. Its `pages` concurrency group prevents overlapping deployments.
+Before upload, the job writes `assets/audit/release-manifest.json` with the
+validated commit SHA and SHA-256 hashes for `sitemap.xml` and
+`assets/data/search-index.json`. That manifest is deployed with the site, so a
+Pages artifact cannot be treated as current unless it identifies the commit
+that passed validation and the generated files match its recorded hashes.
 
 ## Controlled API publishing from Replit
 
@@ -38,23 +43,27 @@ fine-grained credential when the controlled operation is complete.
 
 ## Read-only live-edge verification
 
-After a Pages deployment, run the verifier with the deployed origin explicitly
-provided. It reads the committed sitemap and generated search index, requests
-every sitemap route plus the noindex utility boundaries, checks security and
-cache headers, and verifies that shared CSS/JS fingerprints match the checked
-out files:
+The Pages workflow runs this verifier after deployment, using the deployment
+URL and the validated commit SHA. It uploads the resulting JSON as the
+`live-edge-report-<run-id>` release evidence artifact. The check reads the
+committed sitemap and generated search index, requests every sitemap route plus
+the noindex utility boundaries, checks security and cache headers, verifies
+shared CSS/JS fingerprints, and confirms the deployed release manifest:
 
 ```bash
 python3 scripts/verify-live-edge.py \
   --base https://overkillhill.com \
+  --expected-commit "$(git rev-parse HEAD)" \
   --report assets/audit/live-edge-report.json
 ```
 
 The command is read-only with respect to the site and uses no credentials. It
 has a per-request timeout and writes partial results before exiting. A missing
-route, security header, generated-artifact match, cache policy, or fingerprint
-is a nonzero failure; external unavailability is reported rather than treated
-as a pass. Do not omit `--base` or substitute a guessed deployment URL.
+manifest, commit mismatch, artifact hash mismatch, route, security header,
+generated-artifact match, cache policy, or fingerprint is a nonzero failure;
+external unavailability is reported rather than treated as a pass. Use
+`--expected-commit` for release verification. Do not omit `--base` or
+substitute a guessed deployment URL.
 
 ## Production edge requirement
 
