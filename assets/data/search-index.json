@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 132,
+  "count": 139,
   "entries": [
     {
       "url": "/",
@@ -679,6 +679,7 @@
         "External Tools & Platforms",
         "Skillz Forge",
         "Found‑Rᵧ",
+        "Telling Forward",
         "Mermaid Theme Builder",
         "BPMN for Mermaid",
         "Mac Studio Local AI Workbench",
@@ -1619,6 +1620,84 @@
       "headings": [],
       "body": "Honest Scope A discovery workbench, not a marketplace Skillz Forge Is ◆ A public Agent Skills discovery workbench ◆ A generated catalog of repository skill content ◆ A way to inspect and install SKILL.md files ◆ A way to compose curated or local skill stacks ◆ A GitHub collaboration bridge: issues, PRs, discussions ◆ Open source, browser-only, no login, free always Skillz Forge Is Not • Not a replacement for GitHub • Not an authenticated social network • Not a hosted agent runtime • Not a guarantee that every skill is production-ready • Not a marketplace requiring payment or account creation • Not a second Prompt Forge • Not a claim that all skills are complete or validated </div",
       "parent": "/projects/skillz/"
+    },
+    {
+      "url": "/projects/telling-forward/",
+      "title": "Telling Forward | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Open-canon collaborative fiction, GitHub-native. An early prototype where an author opens a storyworld, contributors extend it through governed paths, and canon stays legible from branch.",
+      "headings": [
+        "Open canon, not open chaos",
+        "GitHub stays backstage",
+        "The rules the platform runs on",
+        "Trust and momentum first, monetization last",
+        "Why not \"Forge\"?",
+        "The seed and the canon",
+        "Branches and alternate continuities",
+        "A governed canon",
+        "A provenance record",
+        "Start with the person, not the prose.",
+        "Assist without taking authorship.",
+        "Keep provenance visible.",
+        "Separate canon from possibility.",
+        "Give every world a steward.",
+        "Earn the right to monetize."
+      ],
+      "body": "Skip to main content overkillhill.com / projects / telling-forward Prototype Seed Open Source Active Build GitHub-Native Telling Forward \"A quiet place for stories to grow.\" Telling Forward is a voice-first, agent-assisted platform for open-canon collaborative fiction : an originating author opens a storyworld, other people extend it through distinct, attributed paths, and readers can follow the resulting lineage without ever mistaking a community branch for the author's canon. GitHub holds the manuscript, the review history, and the provenance record. A custom app is being built so that none of it feels like GitHub."
+    },
+    {
+      "url": "/projects/telling-forward/#mechanics",
+      "title": "GitHub stays backstage — Telling Forward | OverKill Hill P³™",
+      "category": "Project",
+      "description": "How It Works GitHub stays backstage Telling Forward runs on real Git mechanics: a storyworld is a repository, a contribution is a pull request, canon is what's merged.",
+      "headings": [],
+      "body": "How It Works GitHub stays backstage Telling Forward runs on real Git mechanics: a storyworld is a repository, a contribution is a pull request, canon is what's merged. But the person telling the story is never asked to know that. The founder has said plainly that he only recently learned what a pull request actually was, and the target contributor is expected to know even less. So the platform keeps one vocabulary backstage and shows a different one to everyone writing. Backstage (GitHub) What a contributor sees Repository The storyworld Branch Your story path Commit Saved moment Pull request Submit your scene Merge Accepted into canon Issue or comment Story note or editor feedback A submission moves through six real states on its way to canon, and the app is expected to surface all six…",
+      "parent": "/projects/telling-forward/"
+    },
+    {
+      "url": "/projects/telling-forward/#origin",
+      "title": "Why not \"Forge\"? — Telling Forward | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Origin Why not \"Forge\"? The name came out of a voice thread before the repository had one. Forge was the obvious first candidate, since it's the house metaphor at OverKill&nbsp;Hill, and it was ruled out fast, for two…",
+      "headings": [],
+      "body": "Origin Why not \"Forge\"? The name came out of a voice thread before the repository had one. Forge was the obvious first candidate, since it's the house metaphor at OverKill&nbsp;Hill, and it was ruled out fast, for two reasons: it echoes \"forgery,\" and it had already been spent across other OKHP³ projects, so it no longer distinguished anything. What followed was a real search through word families the founder was drawn to: Narrative, Authors, Communal, Momentum, Inertia, Continuum, Flywheel, Improvisational. Some were already crowded elsewhere (Narrative Momentum, Story Flywheel). Some were usable but too broad (Narrative Commons, The Living Canon). What survived was a working conceptual label, open-canon collaborative fiction , and a name to carry it: Telling Forward .",
+      "parent": "/projects/telling-forward/"
+    },
+    {
+      "url": "/projects/telling-forward/#premise",
+      "title": "Open canon, not open chaos — Telling Forward | OverKill Hill P³™",
+      "category": "Project",
+      "description": "The Premise Open canon, not open chaos The working proposition is simple to state and hard to build: authorship can stay accessible without becoming anonymous, and collaboration can stay open without leaving ownership…",
+      "headings": [],
+      "body": "The Premise Open canon, not open chaos The working proposition is simple to state and hard to build: authorship can stay accessible without becoming anonymous, and collaboration can stay open without leaving ownership unclear. Most \"everyone can contribute\" systems solve this by flattening every voice into one undifferentiated pile. Telling Forward keeps a storyworld legible instead, so a reader can always tell what's canon, what's a branch, and who wrote which. ◈ The seed and the canon An originating author's story and protected canon stay clearly marked as theirs, even as the world grows around them. ⑂ Branches and alternate continuities Community paths can extend a world in new directions without ever being confused for its official line.",
+      "parent": "/projects/telling-forward/"
+    },
+    {
+      "url": "/projects/telling-forward/#principles",
+      "title": "The rules the platform runs on — Telling Forward | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Working Principles The rules the platform runs on 1 Start with the person, not the prose. A contribution may begin as speech, memory, an outline, or just a question: never a required blank page.",
+      "headings": [],
+      "body": "Working Principles The rules the platform runs on 1 Start with the person, not the prose. A contribution may begin as speech, memory, an outline, or just a question: never a required blank page. 2 Assist without taking authorship. Agents may transform, organize, and flag a contribution. Contributors approve what actually represents their intent. 3 Keep provenance visible. Every accepted contribution retains its source, its contributor credit, and its review history, in full. 4 Separate canon from possibility. An alternate path can be worth reading without being the originating author's canon. The interface has to make that difference obvious. 5 Give every world a steward. Each shared world needs one identified person responsible for its permissions, its canon policy, and its moderation.",
+      "parent": "/projects/telling-forward/"
+    },
+    {
+      "url": "/projects/telling-forward/#related-resources",
+      "title": "Related Resources — Telling Forward | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Related The Mission ↗ Content &amp; story rights ↗ Skillz Forge All OverKill Hill Projects </div",
+      "headings": [],
+      "body": "Related The Mission ↗ Content &amp; story rights ↗ Skillz Forge All OverKill Hill Projects </div",
+      "parent": "/projects/telling-forward/"
+    },
+    {
+      "url": "/projects/telling-forward/#staged-path",
+      "title": "Trust and momentum first, monetization last — Telling Forward | OverKill Hill P³™",
+      "category": "Project",
+      "description": "The Staged Path Trust and momentum first, monetization last Every stage after the first is explicitly gated on the one before it earning its keep.",
+      "headings": [],
+      "body": "The Staged Path Trust and momentum first, monetization last Every stage after the first is explicitly gated on the one before it earning its keep. Nothing here jumps ahead to a business model before there's a storyworld worth protecting. ▶ Invite a Small Set of Authors Active A small set of authors open bounded portions of original worlds. The GitHub-native fast path, the storyworld repository shape, and the manuscript-ingestion pipeline are being built against this stage right now. ○ Readers Explore, Contributors Extend Planned Readers explore paths and approved contributors extend them, through the frontstage vocabulary above rather than raw GitHub mechanics.",
+      "parent": "/projects/telling-forward/"
     },
     {
       "url": "/search/",
