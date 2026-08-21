@@ -55,3 +55,17 @@ has a per-request timeout and writes partial results before exiting. A missing
 route, security header, generated-artifact match, cache policy, or fingerprint
 is a nonzero failure; external unavailability is reported rather than treated
 as a pass. Do not omit `--base` or substitute a guessed deployment URL.
+
+## Production edge requirement
+
+GitHub Pages does not read `_headers`. The custom domain must therefore be
+proxied through the configured Cloudflare zone, with the response-header and
+cache rules from `_headers` applied at that edge. The GitHub Pages deployment
+remains the origin and continues to publish the repository contents; Cloudflare
+is the layer that emits the security headers and replaces the origin's default
+`Cache-Control: max-age=600`.
+
+Before treating a release as complete, confirm that the production DNS record is
+orange-cloud proxied and run the verifier against `https://overkillhill.com`.
+If the response still identifies `GitHub.com` without the required headers,
+Cloudflare is not in the request path and the release is not edge-complete.

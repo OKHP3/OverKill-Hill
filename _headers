@@ -45,7 +45,7 @@
 
 # Search index — must NOT be cached immutably; rebuilt on every content change.
 # More-specific rule, declared after /assets/* so it wins on this exact path.
-/assets/search-index.json
+/assets/data/search-index.json
   Cache-Control: public, max-age=300, must-revalidate
 
 /assets/img/favicons/*
@@ -55,5 +55,15 @@
 /*.html
   Cache-Control: public, max-age=300, must-revalidate
 
+# Directory-index routes are emitted as HTML by the static host even though
+# their public URLs do not end in .html.
+/*/
+  Cache-Control: public, max-age=300, must-revalidate
+
 /
+  Cache-Control: public, max-age=300, must-revalidate
+
+# Generated route inventory. Keep this revalidating so new pages reach crawlers
+# without waiting for a long-lived edge cache.
+/sitemap.xml
   Cache-Control: public, max-age=300, must-revalidate
