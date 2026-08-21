@@ -61,9 +61,24 @@ The command is read-only with respect to the site and uses no credentials. It
 has a per-request timeout and writes partial results before exiting. A missing
 manifest, commit mismatch, artifact hash mismatch, route, security header,
 generated-artifact match, cache policy, or fingerprint is a nonzero failure;
-external unavailability is reported rather than treated as a pass. Use
+external unavailability is reported with `PARTIAL` status rather than treated
+as a policy pass. Use
 `--expected-commit` for release verification. Do not omit `--base` or
 substitute a guessed deployment URL.
+
+## Scheduled production drift monitor
+
+The same workflow runs a read-only check against the canonical production
+origin every six hours and on manual dispatch. It does not assume that the
+latest GitHub commit is already published, so scheduled monitoring checks the
+production edge's routes, generated artifacts, security headers, cache
+policies, and fingerprints without `--expected-commit`.
+
+Each run uploads `live-edge-monitor-<run-id>` as evidence for 30 days. A
+`FAILED` report fails the monitor and identifies deterministic policy or
+content drift. A `PARTIAL` report records blocked network checks, keeps the
+report available, and emits a warning instead of calling an external outage a
+policy regression. A missing or malformed report also fails the monitor.
 
 ## Production edge requirement
 

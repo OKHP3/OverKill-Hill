@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -13,6 +16,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     name: Validate site HTML, links, and structure
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
 
     steps:
       - name: Checkout repository
@@ -460,3 +464,73 @@ jobs:
           path: assets/audit/live-edge-report.json
           if-no-files-found: error
           retention-days: 30
+
+  monitor-live-edge:
+    name: Monitor production security and cache policies
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    concurrency:
+      group: live-edge-monitor
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout monitored release
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+
+      - name: Verify production live edge
+        id: verify
+        continue-on-error: true
+        run: |
+          python3 scripts/verify-live-edge.py \
+            --base https://overkillhill.com \
+            --report assets/audit/live-edge-report.json
+
+      - name: Upload live-edge monitoring report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-edge-monitor-${{ github.run_id }}
+          path: assets/audit/live-edge-report.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Classify policy drift separately from external outage
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          report_path = Path("assets/audit/live-edge-report.json")
+          try:
+              report = json.loads(report_path.read_text(encoding="utf-8"))
+          except (OSError, json.JSONDecodeError) as exc:
+              raise SystemExit(f"ERROR: live-edge verifier produced no usable report: {exc}")
+
+          status = report.get("status")
+          summary = report.get("summary", {})
+          print(
+              f"Live edge status: {status}; "
+              f"checks={summary.get('checks', '?')} "
+              f"failures={summary.get('failures', '?')} "
+              f"blocked={summary.get('blocked', '?')}"
+          )
+          if status == "FAILED":
+              raise SystemExit(
+                  "Production policy drift detected. Inspect the uploaded live-edge report."
+              )
+          if status == "PARTIAL":
+              print(
+                  "WARNING: production edge was reachable only partially. "
+                  "Blocked checks indicate external unavailability, not a confirmed policy regression."
+              )
+          elif status != "PASS":
+              raise SystemExit(f"ERROR: unexpected live-edge verifier status: {status!r}")
+          PY
