@@ -26,14 +26,25 @@ browser checks. Companion sites were used only as mechanical comparisons.
 - `check-links.py`: pass, 32 pages, 0 broken links, 0 sitemap mismatches
 - `check-contrast.py`: pass
 - `phone-overflow-qa.mjs`: pass, 24 sitemap routes at 320px
+- `responsive-qa.mjs`: Playwright pass for 144 of 192 checks across 24
+  sitemap routes and 8 viewports. No overflow or broken local asset failures
+  were found. The report is retained at
+  `assets/docs/responsive-qa/results.json`.
+- The 48 browser failures are actionable external-content findings: 35
+  blocked preview frames, 8 blocked Skillz live-data fetches, and 5 navigation
+  timeouts on external-content pages. They are not treated as static-lint
+  passes.
 - Existing structural audit findings were real release blockers; the CI gate
   now reports them instead of masking them.
 
-## Accepted limitations
+## Browser QA findings and limitations
 
-- Full multi-width browser QA requires the Chromium binary installed by CI.
-  The local environment currently has the Playwright package but not its
-  browser binary, so only the 320px browser gate was executable locally.
+- The local development workflow now includes the Playwright Chromium runtime
+  dependencies, so the full multi-width browser run is executable locally.
+- The embedded project previews and Skillz live-sync request are currently
+  rejected by each page's enforcing CSP. The five navigation timeouts occur on
+  pages with external embedded content and should be investigated before
+  claiming a completely clean browser run.
 - External-link availability is not asserted in CI because third-party
   uptime and rate limits make that check nondeterministic. Local link and asset
   resolution remain deterministic.
@@ -42,7 +53,7 @@ browser checks. Companion sites were used only as mechanical comparisons.
 
 ## Priorities
 
-1. Install/run Chromium locally and attach the full responsive report to the
-   next release review.
+1. Align CSP `frame-src`/`connect-src` with the intentionally embedded project
+   previews and Skillz live-sync source, then rerun the full browser matrix.
 2. Verify the published Pages headers and key routes after deployment.
 3. Continue the existing CSP nonce/hash migration before enforcing CSP.
