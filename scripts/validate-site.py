@@ -10,13 +10,14 @@ Checks every production HTML page for:
   - canonical link present
   - single <h1>
   - JSON-LD structured data present
-  - inclusion in sitemap.xml (for non-noindex pages)
+   - sitemap inventory and inclusion (for non-noindex pages)
   - broken internal links (relative or /-rooted hrefs that resolve to no file)
   - broken asset references (CSS/JS/images)
   - external target="_blank" links missing rel="noopener" / "noreferrer"
   - placeholder hrefs ("#", "javascript:void(0)", empty href)
   - "P3" without superscript inside <title> or <meta> (brand violation)
   - old tagline "Precision. Power. Presence." anywhere (brand regression)
+  - current content-hashed references to shared CSS and JavaScript
 
 Exits 0 if no errors. Exits 1 if any errors. Warnings do not fail the build.
 Run from repo root:  python3 scripts/validate-site.py
@@ -25,6 +26,7 @@ Run from repo root:  python3 scripts/validate-site.py
 from __future__ import annotations
 
 import os
+import hashlib
 import re
 import subprocess
 import sys
@@ -36,6 +38,11 @@ ROOT = Path(__file__).resolve().parent.parent
 SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "dist", "templates", ".agents"}
 SITEMAP = ROOT / "sitemap.xml"
 SITE_ORIGIN = "https://overkillhill.com"
+THEME_STYLESHEET_PATH = "/assets/css/theme.css"
+THEME_STYLESHEET = ROOT / THEME_STYLESHEET_PATH.lstrip("/")
+APP_SCRIPT_PATH = "/assets/js/app.js"
+MERMAID_INIT_SCRIPT_PATH = "/assets/js/mermaid-init.js"
+SHARED_SCRIPT_PATHS = (APP_SCRIPT_PATH, MERMAID_INIT_SCRIPT_PATH)
 
 # Em dash in all three forms: literal U+2014, named entity, numeric entity
 EM_DASH_RE = re.compile(r"\u2014|&mdash;|&#8212;")
@@ -56,6 +63,8 @@ class TagCounter(HTMLParser):
         self.is_noindex = False
         self.anchors: list[dict[str, str]] = []
         self.asset_refs: list[str] = []  # src/href for css/js/img/link
+        self.stylesheet_refs: list[str] = []
+        self.script_refs: list[str] = []
 
     def handle_starttag(self, tag: str, attrs_list):
         attrs = {k: (v or "") for k, v in attrs_list}
@@ -75,7 +84,10 @@ class TagCounter(HTMLParser):
             href = attrs.get("href", "")
             if rel == "canonical" and href:
                 self.has_canonical = True
-            if rel in ("stylesheet", "icon", "apple-touch-icon", "manifest") and href:
+            if "stylesheet" in rel.split() and href:
+                self.stylesheet_refs.append(href)
+                self.asset_refs.append(href)
+            elif rel in ("icon", "apple-touch-icon", "manifest") and href:
                 self.asset_refs.append(href)
         elif tag == "script":
             t = attrs.get("type", "").lower()
@@ -84,6 +96,7 @@ class TagCounter(HTMLParser):
                 self.has_jsonld = True
             if src:
                 self.asset_refs.append(src)
+                self.script_refs.append(src)
         elif tag == "img":
             src = attrs.get("src", "")
             if src:
@@ -133,6 +146,25 @@ def load_sitemap_urls() -> set[str]:
     return set(re.findall(r"<loc>([^<]+)</loc>", text))
 
 
+def validate_sitemap_inventory(sitemap_urls: set[str]) -> list[Finding]:
+    """Ensure every sitemap entry resolves to a production HTML page."""
+    findings: list[Finding] = []
+    for url in sorted(sitemap_urls):
+        parsed = urlparse(url)
+        if parsed.netloc and parsed.netloc != urlparse(SITE_ORIGIN).netloc:
+            findings.append(Finding("ERROR", "sitemap.xml", f"non-production URL in sitemap.xml: {url}"))
+            continue
+        route = parsed.path or "/"
+        target = ROOT / route.lstrip("/")
+        if route == "/":
+            target = ROOT / "index.html"
+        elif route.endswith("/"):
+            target = target / "index.html"
+        if not target.is_file():
+            findings.append(Finding("ERROR", "sitemap.xml", f"sitemap URL has no HTML page: {url}"))
+    return findings
+
+
 def html_to_route(path: Path) -> str:
     rel = path.relative_to(ROOT).as_posix()
     if rel == "index.html":
@@ -140,6 +172,20 @@ def html_to_route(path: Path) -> str:
     if rel.endswith("/index.html"):
         return "/" + rel[: -len("index.html")]
     return "/" + rel
+
+
+def current_content_hashed_url(asset_path: str) -> str | None:
+    """Return the canonical content-hashed URL for a shared asset."""
+    asset = ROOT / asset_path.lstrip("/")
+    if not asset.is_file():
+        return None
+    fingerprint = hashlib.sha256(asset.read_bytes()).hexdigest()[:8]
+    return f"{asset_path}?v={fingerprint}"
+
+
+def is_asset_ref(ref: str, asset_path: str) -> bool:
+    """Identify an asset whether a page used the canonical URL or a legacy form."""
+    return urlparse(ref).path.lstrip("/") == asset_path.lstrip("/")
 
 
 def resolve_internal(href: str, source: Path) -> Path | None:
@@ -258,7 +304,12 @@ def check_em_dashes(path: Path, raw: str) -> list[Finding]:
     return findings
 
 
-def validate_page(path: Path, sitemap_urls: set[str]) -> list[Finding]:
+def validate_page(
+    path: Path,
+    sitemap_urls: set[str],
+    expected_theme_url: str | None,
+    expected_script_urls: dict[str, str | None],
+) -> list[Finding]:
     findings: list[Finding] = []
     rel = path.relative_to(ROOT).as_posix()
     raw = path.read_text(encoding="utf-8", errors="replace")
@@ -326,6 +377,65 @@ def validate_page(path: Path, sitemap_urls: set[str]) -> list[Finding]:
         findings.append(Finding("WARN", rel, f"{parser.h1_count} <h1> elements (should be 1)"))
     if not parser.has_jsonld:
         findings.append(Finding("WARN", rel, "no JSON-LD structured data"))
+
+    # Shared stylesheet cache-busting. A content hash changes whenever theme.css
+    # changes, making browsers request the responsive rules released with it.
+    theme_refs = [href for href in parser.stylesheet_refs if is_asset_ref(href, THEME_STYLESHEET_PATH)]
+    if expected_theme_url is None:
+        findings.append(Finding("ERROR", rel, "shared stylesheet file is missing"))
+    elif len(theme_refs) != 1:
+        findings.append(
+            Finding(
+                "ERROR",
+                rel,
+                f"expected exactly one shared stylesheet reference, found {len(theme_refs)}",
+            )
+        )
+    elif theme_refs[0] != expected_theme_url:
+        findings.append(
+            Finding(
+                "ERROR",
+                rel,
+                f"stale stylesheet reference {theme_refs[0]!r}; expected {expected_theme_url!r}",
+            )
+        )
+
+    # Shared script cache-busting. app.js is site-wide and must have exactly
+    # one current reference on every page. Mermaid is loaded only on diagram
+    # pages, but any reference must likewise use its current content hash.
+    for script_path in SHARED_SCRIPT_PATHS:
+        script_refs = [
+            src for src in parser.script_refs if is_asset_ref(src, script_path)
+        ]
+        expected_script_url = expected_script_urls[script_path]
+        script_name = Path(script_path).name
+
+        if expected_script_url is None:
+            findings.append(Finding("ERROR", rel, f"shared script file is missing: {script_name}"))
+        elif script_path == APP_SCRIPT_PATH and len(script_refs) != 1:
+            findings.append(
+                Finding(
+                    "ERROR",
+                    rel,
+                    f"expected exactly one shared app.js reference, found {len(script_refs)}",
+                )
+            )
+        elif len(script_refs) > 1:
+            findings.append(
+                Finding(
+                    "ERROR",
+                    rel,
+                    f"expected at most one shared {script_name} reference, found {len(script_refs)}",
+                )
+            )
+        elif script_refs and script_refs[0] != expected_script_url:
+            findings.append(
+                Finding(
+                    "ERROR",
+                    rel,
+                    f"stale shared script reference {script_refs[0]!r}; expected {expected_script_url!r}",
+                )
+            )
 
     # sitemap inclusion (non-noindex, non-utility pages only)
     canonical_url = SITE_ORIGIN + html_to_route(path)
@@ -418,8 +528,33 @@ def main() -> int:
     print(f"Validating {len(pages)} HTML pages…\n")
 
     all_findings: list[Finding] = []
+    all_findings.extend(validate_sitemap_inventory(sitemap_urls))
+    expected_theme_url = current_content_hashed_url(THEME_STYLESHEET_PATH)
+    expected_script_urls = {
+        script_path: current_content_hashed_url(script_path)
+        for script_path in SHARED_SCRIPT_PATHS
+    }
+    if expected_theme_url is None:
+        all_findings.append(
+            Finding(
+                "ERROR",
+                "assets/css/theme.css",
+                "shared stylesheet is missing; cannot validate cache fingerprint",
+            )
+        )
+    for script_path, expected_script_url in expected_script_urls.items():
+        if expected_script_url is None:
+            all_findings.append(
+                Finding(
+                    "ERROR",
+                    script_path.lstrip("/"),
+                    "shared script is missing; cannot validate cache fingerprint",
+                )
+            )
     for path in pages:
-        all_findings.extend(validate_page(path, sitemap_urls))
+        all_findings.extend(
+            validate_page(path, sitemap_urls, expected_theme_url, expected_script_urls)
+        )
 
     errors = [f for f in all_findings if f.severity == "ERROR"]
     warnings = [f for f in all_findings if f.severity == "WARN"]

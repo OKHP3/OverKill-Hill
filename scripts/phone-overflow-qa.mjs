@@ -17,7 +17,7 @@
 
 import { chromium } from 'playwright';
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -30,23 +30,53 @@ const VIEWPORT = { width: 320, height: 800 };
 const TABLE_WRAPPER_SELECTOR = '.data-table-wrap, .table-scroll-wrap';
 const WIDE_TABLE_SELECTOR = '.data-table, .schedule-table, .gen-table';
 
-const PAGES = [
-  {
-    name: 'manifesto',
-    path: '/manifesto/',
-    expect: { tables: 1, diagramGrids: 0 },
-  },
-  {
-    name: 'mac-studio-local-ai-workbench',
-    path: '/projects/mac-studio-local-ai-workbench/',
-    expect: { tables: 3, diagramGrids: 0 },
-  },
-  {
-    name: 'first-diagram-is-a-liar',
-    path: '/writings/first-diagram-is-a-liar/',
-    expect: { tables: 2, diagramGrids: 3 },
-  },
-];
+// The sitemap is the source of truth for the indexable production inventory.
+// Every route gets the document-level overflow check. Only pages with known
+// high-risk content opt into the more specific table and diagram assertions.
+const TARGETED_EXPECTATIONS = new Map([
+  ['/manifesto/', { tables: 1, diagramGrids: 0 }],
+  ['/projects/mac-studio-local-ai-workbench/', { tables: 3, diagramGrids: 0 }],
+  ['/writings/first-diagram-is-a-liar/', { tables: 2, diagramGrids: 3 }],
+]);
+
+function pageName(path) {
+  if (path === '/') return 'home';
+  return path.replace(/\/$/, '').split('/').filter(Boolean).join('-');
+}
+
+function loadPublicPages() {
+  const sitemap = readFileSync(new URL('../sitemap.xml', import.meta.url), 'utf8');
+  const locations = [...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
+    .map((match) => match[1]);
+
+  if (locations.length === 0) {
+    throw new Error('sitemap.xml does not contain any <loc> entries');
+  }
+
+  const paths = locations.map((location) => {
+    const url = new URL(location);
+    if (url.origin !== 'https://overkillhill.com') {
+      throw new Error(`sitemap.xml contains a non-production URL: ${location}`);
+    }
+    if (url.search || url.hash) {
+      throw new Error(`sitemap.xml URL must not contain a query or fragment: ${location}`);
+    }
+    return url.pathname || '/';
+  });
+
+  const uniquePaths = new Set(paths);
+  if (uniquePaths.size !== paths.length) {
+    throw new Error('sitemap.xml contains duplicate public page URLs');
+  }
+
+  return paths.map((path) => ({
+    name: pageName(path),
+    path,
+    expect: TARGETED_EXPECTATIONS.get(path) ?? null,
+  }));
+}
+
+const PAGES = loadPublicPages();
 
 function printFailure(pageName, message) {
   console.error(`FAIL  ${pageName}: ${message}`);
@@ -114,7 +144,7 @@ async function inspectPage(page, definition) {
   }
 
   const report = await page.evaluate(
-    ({ tableWrapperSelector, wideTableSelector, expected }) => {
+    ({ tableWrapperSelector, wideTableSelector, targeted }) => {
       const tolerance = 1;
       const viewportWidth = window.innerWidth;
       const documentWidth = Math.max(
@@ -122,74 +152,77 @@ async function inspectPage(page, definition) {
         document.body.scrollWidth,
       );
 
-      const tables = Array.from(document.querySelectorAll(wideTableSelector)).map((table, index) => {
-        const wrapper = table.closest(tableWrapperSelector);
-        if (!wrapper) {
-          return { index, wrapperFound: false };
-        }
+      const tables = targeted
+        ? Array.from(document.querySelectorAll(wideTableSelector)).map((table, index) => {
+            const wrapper = table.closest(tableWrapperSelector);
+            if (!wrapper) {
+              return { index, wrapperFound: false };
+            }
 
-        const wrapperRect = wrapper.getBoundingClientRect();
-        const lastRow = table.rows[table.rows.length - 1];
-        const lastCell = lastRow?.cells[lastRow.cells.length - 1];
-        const initialScrollLeft = wrapper.scrollLeft;
-        wrapper.scrollLeft = wrapper.scrollWidth;
-        const lastCellRect = lastCell?.getBoundingClientRect();
-        const finalColumnVisible = Boolean(
-          lastCellRect
-          && lastCellRect.right <= wrapperRect.right + tolerance
-          && lastCellRect.right > wrapperRect.left + tolerance
-        );
-        const wrapperScrollable = wrapper.scrollWidth > wrapper.clientWidth + tolerance;
-        wrapper.scrollLeft = initialScrollLeft;
+            const wrapperRect = wrapper.getBoundingClientRect();
+            const lastRow = table.rows[table.rows.length - 1];
+            const lastCell = lastRow?.cells[lastRow.cells.length - 1];
+            const initialScrollLeft = wrapper.scrollLeft;
+            wrapper.scrollLeft = wrapper.scrollWidth;
+            const lastCellRect = lastCell?.getBoundingClientRect();
+            const finalColumnVisible = Boolean(
+              lastCellRect
+              && lastCellRect.right <= wrapperRect.right + tolerance
+              && lastCellRect.right > wrapperRect.left + tolerance
+            );
+            const wrapperScrollable = wrapper.scrollWidth > wrapper.clientWidth + tolerance;
+            wrapper.scrollLeft = initialScrollLeft;
 
-        return {
-          index,
-          wrapperFound: true,
-          wrapperScrollable,
-          wrapperWithinViewport:
-            wrapperRect.left >= -tolerance
-            && wrapperRect.right <= viewportWidth + tolerance,
-          finalColumnVisible,
-          columns: table.rows[0]?.cells.length ?? 0,
-          geometry: {
-            scrollLeft: wrapper.scrollWidth - wrapper.clientWidth,
-            scrollWidth: wrapper.scrollWidth,
-            clientWidth: wrapper.clientWidth,
-            wrapperLeft: wrapperRect.left,
-            wrapperRight: wrapperRect.right,
-            lastCellLeft: lastCellRect?.left ?? null,
-            lastCellRight: lastCellRect?.right ?? null,
-          },
-        };
-      });
+            return {
+              index,
+              wrapperFound: true,
+              wrapperScrollable,
+              wrapperWithinViewport:
+                wrapperRect.left >= -tolerance
+                && wrapperRect.right <= viewportWidth + tolerance,
+              finalColumnVisible,
+              columns: table.rows[0]?.cells.length ?? 0,
+              geometry: {
+                scrollLeft: wrapper.scrollWidth - wrapper.clientWidth,
+                scrollWidth: wrapper.scrollWidth,
+                clientWidth: wrapper.clientWidth,
+                wrapperLeft: wrapperRect.left,
+                wrapperRight: wrapperRect.right,
+                lastCellLeft: lastCellRect?.left ?? null,
+                lastCellRight: lastCellRect?.right ?? null,
+              },
+            };
+          })
+        : [];
 
-      const diagramGrids = Array.from(document.querySelectorAll('.diagram-grid')).map(
-        (grid, index) => {
-          const rect = grid.getBoundingClientRect();
-          const cardOverflow = Array.from(grid.children).some((card) => {
-            const cardRect = card.getBoundingClientRect();
-            return cardRect.left < rect.left - tolerance || cardRect.right > rect.right + tolerance;
-          });
-          return {
-            index,
-            contained:
-              rect.left >= -tolerance && rect.right <= viewportWidth + tolerance && !cardOverflow,
-          };
-        },
-      );
+      const diagramGrids = targeted
+        ? Array.from(document.querySelectorAll('.diagram-grid')).map(
+            (grid, index) => {
+              const rect = grid.getBoundingClientRect();
+              const cardOverflow = Array.from(grid.children).some((card) => {
+                const cardRect = card.getBoundingClientRect();
+                return cardRect.left < rect.left - tolerance || cardRect.right > rect.right + tolerance;
+              });
+              return {
+                index,
+                contained:
+                  rect.left >= -tolerance && rect.right <= viewportWidth + tolerance && !cardOverflow,
+              };
+            },
+          )
+        : [];
 
       return {
         viewportWidth,
         documentWidth,
         tables,
         diagramGrids,
-        expected,
       };
     },
     {
       tableWrapperSelector: TABLE_WRAPPER_SELECTOR,
       wideTableSelector: WIDE_TABLE_SELECTOR,
-      expected: definition.expect,
+      targeted: Boolean(definition.expect),
     },
   );
 
@@ -199,7 +232,7 @@ async function inspectPage(page, definition) {
     );
   }
 
-  if (report.tables.length < definition.expect.tables) {
+  if (definition.expect && report.tables.length < definition.expect.tables) {
     failures.push(
       `expected at least ${definition.expect.tables} tables, found ${report.tables.length}`,
     );
@@ -225,7 +258,7 @@ async function inspectPage(page, definition) {
     }
   }
 
-  if (report.diagramGrids.length < definition.expect.diagramGrids) {
+  if (definition.expect && report.diagramGrids.length < definition.expect.diagramGrids) {
     failures.push(
       `expected at least ${definition.expect.diagramGrids} diagram grids, found ${report.diagramGrids.length}`,
     );
@@ -273,7 +306,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log(`\nAll ${PAGES.length} representative pages passed at ${VIEWPORT.width}px.`);
+  console.log(`\nAll ${PAGES.length} public pages passed at ${VIEWPORT.width}px.`);
 }
 
 main().catch((error) => {
