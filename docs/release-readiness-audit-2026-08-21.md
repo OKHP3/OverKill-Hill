@@ -57,3 +57,28 @@ browser checks. Companion sites were used only as mechanical comparisons.
    previews and Skillz live-sync source, then rerun the full browser matrix.
 2. Verify the published Pages headers and key routes after deployment.
 3. Continue the existing CSP nonce/hash migration before enforcing CSP.
+
+## Post-deploy verification
+
+**Verified:** August 21, 2026 against the public GitHub Pages edge.
+
+- The published GitHub `main` ref was `344e046d7ba1e95be2f8d01907d18129240024e6`.
+- The published root, `sitemap.xml`, `robots.txt`, the First Diagram writing
+  route, and the Mermaid Theme Builder project route all returned HTTP 200.
+- The deployed bytes for those five routes matched the corresponding files from
+  the current GitHub `main` branch. The deployed `theme.css` and `app.js` also
+  matched the current branch, including their `?v=66e640fe` and `?v=e29596a8`
+  fingerprints.
+- The live root, sitemap, robots, writing, project, CSS, and JavaScript
+  responses all reported `last-modified` at the current deployment and served
+  successfully through the custom domain.
+- GitHub Pages did **not** emit the security headers declared in `_headers`
+  (`X-Content-Type-Options`, `X-Frame-Options`, HSTS, CSP, COOP, CORP, and
+  related policies). It also served `Cache-Control: max-age=600` for HTML,
+  CSS, and JavaScript rather than the long-lived immutable asset policy
+  declared there.
+
+The content release is confirmed against the published branch. The edge-header
+and cache-policy declarations remain unconfirmed for GitHub Pages and require a
+separate hosting/configuration decision; `_headers` is not applied by the
+current Pages deployment.
