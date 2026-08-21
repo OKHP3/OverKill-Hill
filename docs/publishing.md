@@ -35,3 +35,23 @@ fine-grained credential when the controlled operation is complete.
   then inspect the failed `upload-pages-artifact` or `deploy-pages` step.
 - Authentication failure: repair the `GITHUB_PAT` workspace secret and its
   repository permissions. Never paste a token into chat or a Git remote.
+
+## Read-only live-edge verification
+
+After a Pages deployment, run the verifier with the deployed origin explicitly
+provided. It reads the committed sitemap and generated search index, requests
+every sitemap route plus the noindex utility boundaries, checks security and
+cache headers, and verifies that shared CSS/JS fingerprints match the checked
+out files:
+
+```bash
+python3 scripts/verify-live-edge.py \
+  --base https://overkillhill.com \
+  --report assets/audit/live-edge-report.json
+```
+
+The command is read-only with respect to the site and uses no credentials. It
+has a per-request timeout and writes partial results before exiting. A missing
+route, security header, generated-artifact match, cache policy, or fingerprint
+is a nonzero failure; external unavailability is reported rather than treated
+as a pass. Do not omit `--base` or substitute a guessed deployment URL.
