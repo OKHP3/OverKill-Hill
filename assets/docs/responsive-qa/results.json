@@ -1,12 +1,12 @@
 {
-  "generated": "2026-08-21T13:22:12.403Z",
+  "generated": "2026-08-21T15:05:55.284Z",
   "mode": "playwright",
   "base_url": "http://127.0.0.1:5000",
   "pages_checked": 24,
   "viewports_checked": 8,
   "total_checks": 192,
-  "passing_checks": 144,
-  "failing_checks": 48,
+  "passing_checks": 184,
+  "failing_checks": 8,
   "results": [
     {
       "url": "http://127.0.0.1:5000/",
@@ -374,11 +374,8 @@
       "width": 360,
       "height": 780,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Connecting to 'https://okhp3.github.io/skillz/data/project-summary.json' violates the following Content Security Policy directive: \"connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com\". The action has been blocked.",
-        "CONSOLE: Fetch API cannot load https://okhp3.github.io/skillz/data/project-summary.json. Refused to connect because it violates the document's Content Security Policy."
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/skillz/",
@@ -386,11 +383,8 @@
       "width": 390,
       "height": 844,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Connecting to 'https://okhp3.github.io/skillz/data/project-summary.json' violates the following Content Security Policy directive: \"connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com\". The action has been blocked.",
-        "CONSOLE: Fetch API cannot load https://okhp3.github.io/skillz/data/project-summary.json. Refused to connect because it violates the document's Content Security Policy."
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/skillz/",
@@ -398,11 +392,8 @@
       "width": 430,
       "height": 932,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Connecting to 'https://okhp3.github.io/skillz/data/project-summary.json' violates the following Content Security Policy directive: \"connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com\". The action has been blocked.",
-        "CONSOLE: Fetch API cannot load https://okhp3.github.io/skillz/data/project-summary.json. Refused to connect because it violates the document's Content Security Policy."
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/skillz/",
@@ -410,11 +401,8 @@
       "width": 768,
       "height": 1024,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Connecting to 'https://okhp3.github.io/skillz/data/project-summary.json' violates the following Content Security Policy directive: \"connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com\". The action has been blocked.",
-        "CONSOLE: Fetch API cannot load https://okhp3.github.io/skillz/data/project-summary.json. Refused to connect because it violates the document's Content Security Policy."
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/skillz/",
@@ -422,11 +410,8 @@
       "width": 1024,
       "height": 768,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Connecting to 'https://okhp3.github.io/skillz/data/project-summary.json' violates the following Content Security Policy directive: \"connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com\". The action has been blocked.",
-        "CONSOLE: Fetch API cannot load https://okhp3.github.io/skillz/data/project-summary.json. Refused to connect because it violates the document's Content Security Policy."
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/skillz/",
@@ -434,11 +419,8 @@
       "width": 1280,
       "height": 800,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Connecting to 'https://okhp3.github.io/skillz/data/project-summary.json' violates the following Content Security Policy directive: \"connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com\". The action has been blocked.",
-        "CONSOLE: Fetch API cannot load https://okhp3.github.io/skillz/data/project-summary.json. Refused to connect because it violates the document's Content Security Policy."
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/skillz/",
@@ -446,11 +428,8 @@
       "width": 1440,
       "height": 900,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Connecting to 'https://okhp3.github.io/skillz/data/project-summary.json' violates the following Content Security Policy directive: \"connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com\". The action has been blocked.",
-        "CONSOLE: Fetch API cannot load https://okhp3.github.io/skillz/data/project-summary.json. Refused to connect because it violates the document's Content Security Policy."
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/skillz/",
@@ -458,11 +437,8 @@
       "width": 1920,
       "height": 1080,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Connecting to 'https://okhp3.github.io/skillz/data/project-summary.json' violates the following Content Security Policy directive: \"connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com\". The action has been blocked.",
-        "CONSOLE: Fetch API cannot load https://okhp3.github.io/skillz/data/project-summary.json. Refused to connect because it violates the document's Content Security Policy."
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/found-ry/",
@@ -488,13 +464,661 @@
       "width": 430,
       "height": 932,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/universe/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/universe/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/universe/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/universe/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/universe/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/universe/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/universe/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/universe/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/about/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/about/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/about/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/about/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/about/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/about/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/about/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/about/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/contact/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/contact/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/contact/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/contact/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/contact/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/contact/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/contact/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/contact/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/legal/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/legal/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/legal/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/legal/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/legal/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/legal/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/legal/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/legal/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": false,
+      "errors": [
+        "navigation timeout: page.goto: Timeout 20000ms exceeded."
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
       "viewport": "tablet-768",
       "width": 768,
       "height": 1024,
@@ -505,7 +1129,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
       "viewport": "desktop-1024",
       "width": 1024,
       "height": 768,
@@ -516,32 +1140,19 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
       "viewport": "desktop-1280",
       "width": 1280,
       "height": 800,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
-      "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
       "viewport": "desktop-1440",
       "width": 1440,
       "height": 900,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/found-ry/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
       "mode": "playwright",
       "pass": false,
       "errors": [
@@ -549,246 +1160,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
       "viewport": "desktop-1920",
       "width": 1920,
       "height": 1080,
@@ -797,16 +1169,18 @@
       "errors": []
     },
     {
-      "url": "http://127.0.0.1:5000/universe/",
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
       "viewport": "mobile-360",
       "width": 360,
       "height": 780,
       "mode": "playwright",
-      "pass": true,
-      "errors": []
+      "pass": false,
+      "errors": [
+        "navigation timeout: page.goto: Timeout 20000ms exceeded."
+      ]
     },
     {
-      "url": "http://127.0.0.1:5000/universe/",
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
       "viewport": "mobile-390",
       "width": 390,
       "height": 844,
@@ -815,7 +1189,7 @@
       "errors": []
     },
     {
-      "url": "http://127.0.0.1:5000/universe/",
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
       "viewport": "mobile-430",
       "width": 430,
       "height": 932,
@@ -824,7 +1198,7 @@
       "errors": []
     },
     {
-      "url": "http://127.0.0.1:5000/universe/",
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
       "viewport": "tablet-768",
       "width": 768,
       "height": 1024,
@@ -833,223 +1207,7 @@
       "errors": []
     },
     {
-      "url": "http://127.0.0.1:5000/universe/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/universe/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/universe/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/universe/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/legal/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/legal/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/legal/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/legal/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/legal/",
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
       "viewport": "desktop-1024",
       "width": 1024,
       "height": 768,
@@ -1060,244 +1218,10 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/legal/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/legal/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/legal/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
       "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
       "viewport": "desktop-1280",
       "width": 1280,
       "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": []
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
       "mode": "playwright",
       "pass": false,
       "errors": [
@@ -1305,6 +1229,26 @@
       ]
     },
     {
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": false,
+      "errors": [
+        "navigation timeout: page.goto: Timeout 20000ms exceeded."
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": []
+    },
+    {
       "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
       "viewport": "mobile-360",
       "width": 360,
@@ -1598,10 +1542,8 @@
       "width": 360,
       "height": 780,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/abrahamic-reference-engine/",
@@ -1609,10 +1551,8 @@
       "width": 390,
       "height": 844,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/abrahamic-reference-engine/",
@@ -1620,10 +1560,8 @@
       "width": 430,
       "height": 932,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/abrahamic-reference-engine/",
@@ -1631,10 +1569,8 @@
       "width": 768,
       "height": 1024,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/abrahamic-reference-engine/",
@@ -1642,10 +1578,8 @@
       "width": 1024,
       "height": 768,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/abrahamic-reference-engine/",
@@ -1653,10 +1587,8 @@
       "width": 1280,
       "height": 800,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/abrahamic-reference-engine/",
@@ -1664,10 +1596,8 @@
       "width": 1440,
       "height": 900,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/abrahamic-reference-engine/",
@@ -1675,10 +1605,8 @@
       "width": 1920,
       "height": 1080,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
@@ -1686,10 +1614,8 @@
       "width": 360,
       "height": 780,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
@@ -1697,10 +1623,8 @@
       "width": 390,
       "height": 844,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
@@ -1708,10 +1632,8 @@
       "width": 430,
       "height": 932,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
@@ -1719,10 +1641,8 @@
       "width": 768,
       "height": 1024,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
@@ -1730,10 +1650,8 @@
       "width": 1024,
       "height": 768,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
@@ -1741,10 +1659,8 @@
       "width": 1280,
       "height": 800,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
@@ -1752,10 +1668,8 @@
       "width": 1440,
       "height": 900,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
@@ -1763,10 +1677,8 @@
       "width": 1920,
       "height": 1080,
       "mode": "playwright",
-      "pass": false,
-      "errors": [
-        "CONSOLE: Framing 'https://okhp3.github.io/' violates the following Content Security Policy directive: \"default-src 'self'\". The request has been blocked. Note that 'frame-src' was not explicitly set, so 'default-src' is used as a fallback.\n"
-      ]
+      "pass": true,
+      "errors": []
     },
     {
       "url": "http://127.0.0.1:5000/search/",
