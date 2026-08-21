@@ -6,6 +6,8 @@
        ======================================== -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'" />
     <meta name="language" content="English" />
 
     <!-- ========================================
@@ -85,6 +87,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" />
+    <script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
     <link rel="stylesheet" href="/assets/css/theme.css?v=66e640fe" />
 
       <script type="speculationrules">
@@ -138,7 +141,7 @@
       <div class="container">
         <div class="logo">
           <a href="#top">
-            <img src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png" alt="OverKill Hill P³ logo" width="40" height="40" />
+            <img src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png" alt="OverKill Hill P³ logo" width="40" height="40" loading="lazy" />
             <span class="sr-only">OverKill&nbsp;Hill&nbsp;P³™ Home</span>
           </a>
         </div>
@@ -207,7 +210,7 @@
             <div class="askjamie-hero-copy">
               <p class="eyebrow askjamie-breadcrumb">
                 <a href="/#top" aria-label="OverKill Hill P³™ home" class="askjamie-logo askjamie-logo--crumb">
-                  <img src="/assets/img/over-kill-hill-p3-title-horiz-square-256.png" alt="OverKill Hill P³™ logo" width="160" height="160" /></a>
+                  <img src="/assets/img/over-kill-hill-p3-title-horiz-square-256.png" alt="OverKill Hill P³™ logo" width="160" height="160" fetchpriority="high" loading="eager" /></a>
                 <span class="breadcrumb-separator">·</span>
                 <span class="breadcrumb-label">Legal</span>
               </p>
@@ -282,7 +285,7 @@
       </div>
       <div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
         <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a></span>
-        <p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³™. All rights reserved.</p>
+        <p style="margin:0;text-align:center;">© <span id="current-year-footer"></span> OverKill&nbsp;Hill&nbsp;P³™. All rights reserved.</p>
         <span></span>
       </div>
     </footer>

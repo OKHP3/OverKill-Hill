@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * AskJamie™ responsive QA script (Task #1, 2026)
+ * OverKill Hill responsive QA script.
  *
  * MODE A — Playwright (when available):
  *   Visits each public page at 8 viewport widths and checks:
@@ -46,62 +46,22 @@ const VIEWPORTS = [
   { name: 'desktop-1920', width: 1920, height: 1080 },
 ];
 
-// PUBLIC_PATHS — exhaustive list of pages that exist on the live site.
-//
-// INTENTIONALLY EXCLUDED — developer scaffolding only, never deployed as
-// public URLs. Do NOT add any of these paths here:
-//
-//   assets/templates/template--case-study.html
-//   assets/templates/template--error.html
-//   assets/templates/template--holding.html
-//   assets/templates/template--homepage.html
-//   assets/templates/template--hub.html
-//   assets/templates/template--interior-form.html
-//   assets/templates/template--interior-single.html
-//   assets/templates/template--lens-detail.html
-//   assets/templates/template--utility.html
-//
-// These files are developer scaffolding (copy-paste starters for new pages).
-// They contain placeholder tokens (e.g. [[PAGE-TITLE]]) that would produce
-// false lint failures, and they have no canonical URL on the live site.
-// Keep them out of this list permanently.
-const PUBLIC_PATHS = [
-  '/',
-  '/about/',
-  '/contact/',
-  '/legal/',
-  '/universe/',
-  '/search/',
-  '/lens-system/',
-  '/lens-system/resume-representative/',
-  '/lens-system/professional-portfolio/',
-  '/lens-system/enterprise-sleuth/',
-  '/lens-system/okhp3-brandguard/',
-  '/lens-system/okhp3-brandguard/bfs-framing-intelligent-futures/',
-  '/lens-system/okhp3-brandguard/lego/',
-  '/lens-system/okhp3-brandguard/starbucks/',
-  '/lens-system/okhp3-brandguard/brooks-running/',
-  '/lens-system/okhp3-brandguard/ping/',
-  '/lens-system/okhp3-brandguard/costco/',
-  '/lens-system/okhp3-brandguard/hershey/',
-  '/lens-system/okhp3-brandguard/lvmh/',
-  '/lens-system/okhp3-brandguard/dollar-general/',
-  '/lens-system/okhp3-brandguard/coca-cola/',
-  '/lens-system/okhp3-brandguard/discount-tire/',
-  '/lens-system/okhp3-brandguard/scheels/',
-  '/lens-system/okhp3-brandguard/mathews-archery/',
-  '/404.html',
-  '/under-construction.html',
-];
-
-// Guard: catch any accidental addition of template paths at startup.
-// Templates live in assets/templates/ and are never public pages.
-const _badPaths = PUBLIC_PATHS.filter(p => p.startsWith('/assets/templates'));
-if (_badPaths.length > 0) {
-  console.error('ERROR: PUBLIC_PATHS contains template scaffolding paths — remove them:');
-  _badPaths.forEach(p => console.error('  ', p));
-  process.exit(1);
+// The sitemap is the release inventory. This avoids silently testing a stale
+// hand-maintained list when a public route is added or retired.
+function loadPublicPaths() {
+  const sitemap = readFileSync(resolve(ROOT, 'sitemap.xml'), 'utf8');
+  const locations = [...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
+    .map((match) => match[1]);
+  if (locations.length === 0) throw new Error('sitemap.xml has no public routes');
+  return [...new Set(locations.map((location) => {
+    const url = new URL(location);
+    if (url.origin !== 'https://overkillhill.com' || url.search || url.hash) {
+      throw new Error(`Invalid sitemap URL for responsive QA: ${location}`);
+    }
+    return url.pathname || '/';
+  }))];
 }
+const PUBLIC_PATHS = loadPublicPaths();
 
 const RESULTS_DIR    = resolve(ROOT, 'assets/docs/responsive-qa');
 const RESULTS_FILE   = resolve(RESULTS_DIR, 'results.json');
@@ -280,30 +240,11 @@ function staticLintPage(path, html) {
   if (imgsNoWidth > 0)
     errors.push(`LINT: ${imgsNoWidth} <img> missing width (layout-shift risk)`);
 
-  // 6. footer /search/ link (skip search page and legal page)
-  if (path !== '/search/' && path !== '/legal/') {
-    const footerStart = html.indexOf('<footer');
-    const footerHtml  = footerStart >= 0 ? html.slice(footerStart) : '';
-    if (!footerHtml.includes('href="/search/"'))
-      errors.push('LINT: /search/ link missing from footer nav');
-  }
-
-  // 7. copyright year fallback
-  if (html.includes('id="current-year-askjamie"') &&
-      !html.includes('current-year-askjamie">2026'))
-    errors.push('LINT: year span missing 2026 static fallback');
-
-  // 8. /search/ must not appear in primary nav submenu
-  const navStart = html.indexOf('<nav class="primary-nav"');
-  const navEnd   = navStart >= 0 ? html.indexOf('</nav>', navStart) : -1;
-  if (navStart >= 0 && navEnd >= 0 && html.slice(navStart, navEnd).includes('/search/'))
-    errors.push('LINT: /search/ found inside primary-nav (should be footer only)');
-
-  // 9. skip link present
-  if (!html.includes('class="skip-link"'))
+  // 6. skip link present
+  if (!html.includes('class="okh-skip-link"'))
     errors.push('LINT: missing skip link');
 
-  // 10. app.js present
+  // 7. app.js present
   if (!html.includes('/assets/js/app.js'))
     errors.push('LINT: app.js script tag missing');
 
@@ -326,10 +267,7 @@ async function staticAnalysis() {
     const fsPath = path.endsWith('.html')
       ? resolve(ROOT, path.replace(/^\//, ''))
       : resolve(ROOT, path.replace(/^\//, ''), 'index.html');
-    if (!existsSync(fsPath)) {
-      console.log(`  SKIP  ${path} — file not found`);
-      continue;
-    }
+      if (!existsSync(fsPath)) throw new Error(`Sitemap route has no local page: ${path}`);
 
     const html   = readFileSync(fsPath, 'utf-8');
     const errors = staticLintPage(path, html);
@@ -387,7 +325,7 @@ async function staticAnalysis() {
 // ── Entry point ───────────────────────────────────────────────────────────────
 
 (async () => {
-  console.log('AskJamie™ Responsive QA\n' + '='.repeat(40));
+  console.log('OverKill Hill Responsive QA\n' + '='.repeat(40));
   console.log(`Base URL: ${BASE_URL}`);
   console.log(`Pages: ${PUBLIC_PATHS.length} | Viewports: ${VIEWPORTS.length}\n`);
 

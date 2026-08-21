@@ -47,6 +47,15 @@ jobs:
       - name: Check search index is current
         run: python3 scripts/build-search-index.py --check
 
+      - name: Check shared asset fingerprints
+        run: python3 scripts/cache-bust.py --check
+
+      - name: Run comprehensive static audit
+        run: python3 scripts/audit-site.py --quiet
+
+      - name: Check internal links and sitemap boundaries
+        run: python3 scripts/check-links.py
+
       - name: Check phone-size overflow on every public page
         run: |
           python3 server.py > server.log 2>&1 &
@@ -60,14 +69,13 @@ jobs:
           done
           curl --silent --fail http://127.0.0.1:5000/ >/dev/null
           npm run test:phone-overflow
+          npm run test:responsive
 
       - name: Run WCAG contrast audit
         id: contrast
-        continue-on-error: true
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
-          set +e
           css_path="assets/css/theme.css"
           script_path="assets/scripts/check-contrast.py"
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
@@ -91,8 +99,9 @@ jobs:
             fi
             script_path="$RUNNER_TEMP/check-contrast.py"
           fi
+          set -o pipefail
           python3 "$script_path" "$css_path" 2>&1 | tee contrast-report.txt
-          contrast_exit=${PIPESTATUS[0]}
+          contrast_exit=$?
           printf '%s\n' "$contrast_exit" > contrast-exit-code.txt
           echo "exit_code=${contrast_exit}" >> "$GITHUB_OUTPUT"
           exit "$contrast_exit"

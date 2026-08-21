@@ -6,6 +6,8 @@
        ======================================== -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'" />
     <meta name="language" content="English" />
 
     <!-- ========================================
@@ -85,6 +87,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" />
+    <script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
     <link rel="stylesheet" href="/assets/css/theme.css?v=66e640fe" />
 
 
@@ -157,7 +160,7 @@
               src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png"
               alt="OverKill Hill P³ logo"
               width="40"
-              height="40"
+              height="40" loading="lazy"
             />
             <span class="sr-only">OverKill&nbsp;Hill&nbsp;P³™ Home</span>
           </a>
@@ -261,7 +264,7 @@
                 src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png"
                 alt="Jamie Hill, OverKill Hill P³™"
                 width="24"
-                height="24"
+                height="24" fetchpriority="high" loading="eager"
               />
               Jamie Hill
             </span>
@@ -1015,7 +1018,7 @@
                   That dynamic has aged interestingly in the months since this experiment ran. What I was doing manually, several platforms have started building natively, and Perplexity moved fastest and most explicitly in the direction I had been navigating by hand.
                 </p>
                 <p>
-                  On February 5, 2026, Perplexity launched <a href="https://www.perplexity.ai/hub/blog/introducing-model-council" target="_blank" rel="noopener">Model Council</a>, a feature they describe as a way to help &#8220;surface blind spots any single model might have.&#8221; The architecture is worth understanding precisely, because it reveals both the validation and the limitation at the same time. One prompt gets dispatched to three frontier models in parallel: GPT&#8209;5.2, Claude Opus 4.6, and Gemini 3.0, running independently. Then a fourth model, a &#8220;chair&#8221; model (Claude Opus 4.5 by default), reads all three outputs and produces a single synthesized answer. The system explicitly flags where the models converge and where they diverge, giving the user a confidence signal based on independent agreement.
+                  On February 5, 2026, Perplexity launched <a href="https://www.perplexity.ai/hub/blog/introducing-model-council" target="_blank" rel="noopener noreferrer">Model Council</a>, a feature they describe as a way to help &#8220;surface blind spots any single model might have.&#8221; The architecture is worth understanding precisely, because it reveals both the validation and the limitation at the same time. One prompt gets dispatched to three frontier models in parallel: GPT&#8209;5.2, Claude Opus 4.6, and Gemini 3.0, running independently. Then a fourth model, a &#8220;chair&#8221; model (Claude Opus 4.5 by default), reads all three outputs and produces a single synthesized answer. The system explicitly flags where the models converge and where they diverge, giving the user a confidence signal based on independent agreement.
                 </p>
                 <p>
                   The timing matters. Model Council launched behind a $200&#8209;per&#8209;month subscription tier called Perplexity Max, web only at launch, mobile support still pending. When I ran my council experiment manually in early 2026 from a <a href="/projects/mac-studio-local-ai-workbench/">Mac Studio local AI workbench</a>, this product either did not exist yet or was locked behind a premium tier I was not on. The method I was using, the same brief, six platforms, collect everything, read the divergence yourself, was producing what is now a $200&#8209;a&#8209;month feature through manual labor and deliberate discipline. That is not a complaint. It is a data point about where the industry was heading and what the instinct was worth.

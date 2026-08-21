@@ -131,10 +131,11 @@ Templates produced by `extract-templates.py` are **scaffolds, not pages** — th
 ### Continuous integration
 
 `.github/workflows/validate.yml` runs `validate-site.py` and the non-mutating
-`build-search-index.py --check` on every push and pull request to `main`. On a
-push to `main`, it deploys to GitHub Pages only after that validation job
-succeeds. The workflow does not currently run `check-links.py` or
-`extract-templates.py`.
+`build-search-index.py --check` on every push and pull request to `main`. It
+also runs the comprehensive static audit, internal-link/sitemap check, shared
+asset fingerprint check, phone browser QA, and contrast audit. On a push to
+`main`, it deploys the checked-out commit only after that validation job
+succeeds.
 
 ## Editing guidance
 
@@ -162,6 +163,13 @@ succeeds. The workflow does not currently run `check-links.py` or
 - Search index (`assets/data/search-index.json`) is committed. Refresh it after
   searchable content changes, then use `build-search-index.py --check` to
   verify the generated file without rewriting it.
+- Publishing authentication: use the GitHub Actions Pages workflow for normal
+  releases. If a controlled API publish is required from Replit, store a
+  fine-grained GitHub credential as the `GITHUB_PAT` workspace secret and run
+  `GITHUB_TOKEN="$GITHUB_PAT" python3 scripts/push-to-github.py`. Never put the
+  credential in a remote URL, repository file, shell history, or chat. The
+  helper sends it only in an HTTPS Authorization header and exits on any API
+  failure. See `docs/publishing.md`.
 
 ## Contact
 
