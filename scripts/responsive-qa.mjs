@@ -18,6 +18,12 @@
  * Usage:
  *   node scripts/responsive-qa.mjs [--base=http://localhost:5000]
  *
+ * Third-party resources are deliberately blocked in browser mode so the
+ * result measures the local site, not CDN availability. Navigation therefore
+ * waits for the local document to commit, then gives DOMContentLoaded a short
+ * bounded window. Blocked resources are retained as `warnings` in each row,
+ * not silently treated as passes.
+ *
  * Requires Playwright for MODE A:
  *   npm install -D playwright && npx playwright install chromium
  */
@@ -89,23 +95,29 @@ async function runWithPlaywright() {
   }
 
   // Create one persistent context+page per viewport (8 total) so we never pay
-  // context-creation overhead more than once.  External resources (fonts, GA,
-  // GTM) are blocked so domcontentloaded fires quickly on every page.
+  // context-creation overhead more than once. External resources (fonts, GA,
+  // GTM, and Mermaid's jsDelivr module) are blocked so browser QA measures
+  // local layout and assets rather than third-party availability.
   const EXTERNAL_BLOCK = /fonts\.(gstatic|googleapis)\.com|google-analytics\.com|googletagmanager\.com|cdn\.jsdelivr\.net/;
 
   const workers = await Promise.all(VIEWPORTS.map(async vp => {
     const ctx  = await browser.newContext({ viewport: { width: vp.width, height: vp.height } });
     const page = await ctx.newPage();
+    const blockedExternal = new Set();
     await page.route('**/*', (route) => {
-      if (EXTERNAL_BLOCK.test(route.request().url())) return route.abort();
+      if (EXTERNAL_BLOCK.test(route.request().url())) {
+        blockedExternal.add(route.request().url());
+        return route.abort();
+      }
       return route.continue();
     });
-    return { vp, ctx, page, consoleErrors: [], failed404s: [] };
+    return { vp, ctx, page, consoleErrors: [], failed404s: [], blockedExternal };
   }));
 
   // Attach persistent event listeners.
   // ERR_FAILED console messages come from our own route-blocking of external
-  // resources (fonts, GA, GTM) — they are testing artifacts, not real errors.
+  // resources. They are testing artifacts, not real errors. The blocked URLs
+  // are reported separately as warnings on every affected viewport row.
   for (const w of workers) {
     w.page.on('console', msg => {
       if (msg.type() === 'error' && !msg.text().includes('ERR_FAILED'))
@@ -123,12 +135,22 @@ async function runWithPlaywright() {
     const url = BASE_URL + path;
 
     // Clear per-page accumulators
-    for (const w of workers) { w.consoleErrors.length = 0; w.failed404s.length = 0; }
+    for (const w of workers) {
+      w.consoleErrors.length = 0;
+      w.failed404s.length = 0;
+      w.blockedExternal.clear();
+    }
 
     // Navigate all 8 viewports in parallel
-    const vpResults = await Promise.all(workers.map(async ({ vp, page, consoleErrors, failed404s }) => {
+    const vpResults = await Promise.all(workers.map(async ({ vp, page, consoleErrors, failed404s, blockedExternal }) => {
+      const warnings = [];
       try {
-        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 20000 });
+        // `commit` is local-document readiness. A bounded DOMContentLoaded
+        // wait avoids making a local route depend on a blocked CDN module.
+        await page.goto(url, { waitUntil: 'commit', timeout: 10000 });
+        await page.waitForLoadState('domcontentloaded', { timeout: 5000 }).catch(() => {
+          warnings.push('DOMContentLoaded not observed within 5s after local document commit');
+        });
       } catch (err) {
         return { url, viewport: vp.name, width: vp.width, height: vp.height,
                  mode: 'playwright', pass: false,
@@ -160,6 +182,9 @@ async function runWithPlaywright() {
         ...brokenImages.slice(0, 5).map(s => 'BROKEN IMG: ' + s),
         ...failed404s.slice(0, 5).map(u => '404: ' + u),
       ];
+      if (blockedExternal.size > 0) {
+        warnings.push(`blocked third-party resources: ${[...blockedExternal].join(', ')}`);
+      }
 
       const pass = errors.length === 0;
       if (!pass) {
@@ -167,7 +192,7 @@ async function runWithPlaywright() {
         await page.screenshot({ path: resolve(SCREENSHOTS_DIR, ssFile) });
       }
       return { url, viewport: vp.name, width: vp.width, height: vp.height,
-               mode: 'playwright', pass, errors };
+               mode: 'playwright', pass, errors, warnings };
     }));
 
     const fails = vpResults.filter(r => !r.pass);
