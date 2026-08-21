@@ -2,8 +2,8 @@
   "skill_name": "okhp3-site-release-validation",
   "skill_version": "1.0.0",
   "status": "design-ready",
-  "performance_evidence_status": "not-run",
-  "note": "Analytical package review only; no live client benchmark or protected holdout was run.",
+  "performance_evidence_status": "live",
+  "note": "A protected holdout was run by an independent delegation-subagent runner on 2026-08-21. See benchmark.json; this is not a cross-client benchmark.",
   "release_holdout": {"status": "external-required", "holdout_seen": true, "reason": "Public evaluation cases are visible to package authors; an independent holdout requires an external runner."},
   "evals": [
     {"id":"normal-gate","name":"run-a-complete-static-gate","partition":"development","risk":"high","prompt":"Validate a static site before Pages deployment using its sitemap and declared checks.","fixtures":"Repository with HTML, sitemap, generated index, fingerprints, and local server.","output_contract":"Evidence table with route inventory, exact commands, statuses, artifacts, and limitations.","failure_consequence":"An unvalidated release can deploy broken or stale public content.","expectations":[{"id":"inventory","text":"Uses the sitemap as route source and reports count/routes."},{"id":"generated","text":"Checks generated index and cache fingerprints in read-only mode."},{"id":"evidence","text":"Reports command, status, commit, and artifact per gate."}]},

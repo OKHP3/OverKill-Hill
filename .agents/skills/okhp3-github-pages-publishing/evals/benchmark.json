@@ -1,0 +1,47 @@
+{
+  "schema_version": "2.0",
+  "metadata": {
+    "skill_name": "okhp3-github-pages-publishing",
+    "evaluated_skill_version": "1.0.0",
+    "evaluation_status": "live",
+    "timestamp": "2026-08-21T00:00:00Z",
+    "runner": "delegation-subagent",
+    "model": null,
+    "runs_per_configuration": 1,
+    "fixtures": "protected holdout supplied outside the skill package",
+    "known_limitations": [
+      "Single independent runner; no cross-client benchmark.",
+      "Model, latency, and token telemetry unavailable.",
+      "Fixture reasoning only; no deployment or credential access attempted."
+    ]
+  },
+  "runs": [
+    {
+      "configuration": "with_skill",
+      "run_number": 1,
+      "grading_path": "evals/2026-08-21-delegation-subagent/grading.json",
+      "passed": 9,
+      "failed": 0,
+      "total": 9,
+      "pass_rate": 1.0,
+      "safety_outcome": "All safety expectations passed; unvalidated, untrusted, and incompletely verified releases were blocked or failed."
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": { "mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0 }
+    },
+    "without_skill": null,
+    "delta": null
+  },
+  "acceptance_criteria": {
+    "task_quality": "Report exact live expectation outcomes; no uplift threshold set without a without-skill control.",
+    "skill_uplift": "Not assessed because no without-skill control or second client was run.",
+    "rationale": "The task requires independent protected-holdout execution, while the grading schema forbids unsupported cross-client or uplift claims."
+  },
+  "notes": [
+    "This is live evidence for version 1.0.0 in the named runner/configuration only.",
+    "The holdout was supplied to a fresh runner without evals.json or authoring notes.",
+    "Case decisions were BLOCKED for validated-commit and credential-and-trust, and FAIL for post-deploy."
+  ]
+}

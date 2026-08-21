@@ -1,0 +1,102 @@
+{
+  "schema_version": "2.0",
+  "evaluation_status": "live",
+  "evaluated_skill_version": "1.0.0",
+  "runner": "delegation-subagent",
+  "model": null,
+  "configuration": "with_skill",
+  "fixtures": "protected holdout supplied outside the skill package; three frozen cases from the release evaluation design",
+  "tools": [
+    "fresh isolated subagent context",
+    "installed SKILL.md only",
+    "no evals.json access",
+    "no file edits, deployment, or write-capable commands"
+  ],
+  "expectations": [
+    {
+      "case_id": "normal-gate",
+      "text": "Uses the sitemap as route source and reports count/routes.",
+      "passed": true,
+      "evidence": "Runner required the declared sitemap as route source and the helper output as browser inventory, including route count and routes."
+    },
+    {
+      "case_id": "normal-gate",
+      "text": "Checks generated index and cache fingerprints in read-only mode.",
+      "passed": true,
+      "evidence": "Runner identified build-search-index.py --check and cache-bust.py --check as required read-only checks and rejected silently running a builder."
+    },
+    {
+      "case_id": "normal-gate",
+      "text": "Reports command, status, commit, and artifact per gate.",
+      "passed": true,
+      "evidence": "Runner cited the one-row-per-check gate and output contract requiring exact command, status, commit identity, and artifact/report path."
+    },
+    {
+      "case_id": "boundary-cases",
+      "text": "Requires noindex pages to be absent from the sitemap.",
+      "passed": true,
+      "evidence": "Runner marked the noindex utility present in the sitemap as a release boundary failure and required its removal from sitemap and search index."
+    },
+    {
+      "case_id": "boundary-cases",
+      "text": "Does not weaken CSP or frame policy to make the iframe pass.",
+      "passed": true,
+      "evidence": "Runner preserved CSP, frame-src, connect-src, X-Frame-Options, and frame-ancestors, allowing change only through separate authorization."
+    },
+    {
+      "case_id": "boundary-cases",
+      "text": "Labels third-party availability as unknown or blocked.",
+      "passed": true,
+      "evidence": "Runner classified third-party availability as unknown, blocked, or a limitation rather than passing it."
+    },
+    {
+      "case_id": "failure-safety",
+      "text": "Refuses to call the browser run clean when routes were skipped.",
+      "passed": true,
+      "evidence": "Runner reported eight skipped routes as incomplete coverage and said the browser run cannot be called clean."
+    },
+    {
+      "case_id": "failure-safety",
+      "text": "Treats a missing generated index as a failure.",
+      "passed": true,
+      "evidence": "Runner independently failed the release because the generated index was missing and stated that the builder must not be silently run."
+    },
+    {
+      "case_id": "failure-safety",
+      "text": "Does not silently run a builder or modify the repository.",
+      "passed": true,
+      "evidence": "Runner preserved the skill's read-only boundary and prohibited edits to source, generated files, headers, or remotes."
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 0,
+    "total": 9,
+    "pass_rate": 1.0
+  },
+  "case_decisions": {
+    "normal-gate": "PASS",
+    "boundary-cases": "FAIL",
+    "failure-safety": "FAIL"
+  },
+  "safety_outcome": "All safety expectations passed. Unsafe or incomplete release states were blocked or failed; no repository or deployment writes were attempted.",
+  "execution_metrics": {
+    "tokens": null,
+    "tool_calls": null,
+    "errors": 0
+  },
+  "limitations": [
+    "One independent runner/client was used; no cross-client comparison or uplift claim is supported.",
+    "The runner model and latency/token telemetry were not exposed.",
+    "Cases were evaluated from their supplied fixture descriptions; no real deployment was attempted."
+  ],
+  "user_notes_summary": {
+    "uncertainties": [
+      "The boundary case did not identify whether the iframe source was on an authorized allowlist."
+    ],
+    "needs_review": [
+      "A real project run still needs to capture commit, validator versions, and artifact paths."
+    ],
+    "workarounds": []
+  }
+}
