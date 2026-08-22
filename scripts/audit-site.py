@@ -73,7 +73,7 @@ from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent.parent
 EXCLUDE_DIRS = {".local", ".agents", "attached_assets", "node_modules", ".cache", ".git",
-                "_replit", "templates"}
+                "_replit", "templates", "site-src"}
 EXCLUDE_FROM_SITEMAP = {"404.html", "under-construction.html"}
 
 # Title / description recommended length budgets
@@ -89,6 +89,8 @@ def iter_html_files() -> List[Path]:
     out: List[Path] = []
     for p in ROOT.rglob("*.html"):
         if any(part in EXCLUDE_DIRS for part in p.parts):
+            continue
+        if p.relative_to(ROOT).as_posix().startswith("assets/partials/"):
             continue
         out.append(p)
     return sorted(out)
@@ -291,7 +293,9 @@ def audit_page(path: Path) -> List[str]:
     # the brand teal to appear in at least one tag (it's the dark-mode and
     # historical default color).
     theme_colors = re.findall(
-        r'<meta\s+name="theme-color"\s+[^>]*content="([^"]+)"', src
+        r'<meta\b(?=[^>]*\bname="theme-color")(?=[^>]*\bcontent="([^"]+)")[^>]*>',
+        src,
+        flags=re.IGNORECASE,
     )
     if not theme_colors:
         issues.append("Missing <meta name=\"theme-color\"> entirely")

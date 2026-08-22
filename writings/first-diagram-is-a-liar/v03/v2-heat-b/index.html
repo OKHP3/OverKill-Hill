@@ -1,48 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="color-scheme" content="dark light" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://cdn.jsdelivr.net 'sha256-2NPQY0ewseycVRsC+HHUhYLy0axbXFwhzfvpOSU+nIw=' 'sha256-3Cackdtp7Do2OrDkhZ8HQxibdFsvQhw0sUCB/9aSLkI=' 'sha256-4TvgmTekoiy9MiGX4pcZPC1+zpVRlpFZWZvCDuxuoRg=' 'sha256-6DuhTBpiipuy9jERXvPLChPCwm7AsB7YeVZHJ5ksPQk=' 'sha256-6qQFrumK+MBJP2jBD5/c2oyyWQl9kmfvYhkrAHbwAQI=' 'sha256-7//FvIo12Na/Gl24V5LF1JFIQrbnz6eFUWZuNysAJ98=' 'sha256-73/ZUPvlPEbQ2atsvJlr4+++azHPIy80M8liyrGynCY=' 'sha256-7cBx9QY/Bh31VpbxxCQoRsGJ3skKVq33jJgT/WH+yDc=' 'sha256-7lBK6wlFHjl6tV74OA/Df2r4gOiClnU3nxMnZJQvbLo=' 'sha256-7xDjo2X53t3p3w5O/66XkJRrLrYP4BolkoKOjhBaQ18=' 'sha256-83ioGcchzfdRDLGMcFCHjDPS7HZJfvrYjAly0xIC3fM=' 'sha256-8ER2+OkzKCugkK7Vm/Uk9Q8wG9+QfLmIBVTgWlN7/mg=' 'sha256-9+gDIB/FoOZbtN1NX7WLQUlPsi9h3u6HN1J0LVyv/44=' 'sha256-99UQai5rp0hhaOiU/AJWBeJOyVoO6s+t372hxKjIioY=' 'sha256-9tzuo39tJroe/r2NlVsIvJyqKOy42Cjot4ltZYfv3CM=' 'sha256-9wGbTwyvRgFpBYRmkSDWmGtmvCHhcYtEJclqmP9FpJo=' 'sha256-AoOtS/Oy98lq33Bzi2Ql2ULsxM3fbrxb09xvuAGMkWw=' 'sha256-FWN9B8uy7wve1RW95exrOkVb7x5h7NEDOLNZwNveEZw=' 'sha256-GKIJk2KT9bugkTZ9RfxPHCF2kcALaX3H0vH44ht247E=' 'sha256-JSwcPjWGXDAYaTZGfCB+6cpd0/AW82XCWneB7fLvyJo=' 'sha256-KPE5ui6CfQFY1vcShV5JQqG/wFuo8fkRFVxhoOlZo8A=' 'sha256-Onl0f/cB5mLfyrrQukG9H6HRVimBA+jiu8yf0axtdB4=' 'sha256-PvyhwLG2C4G93uK5NQbCcvL13llGqQOXkM9LLmDoNcY=' 'sha256-SEHWdY59isAzkbHGHWllo65NDvHkHxeUkDe5F3kHRQY=' 'sha256-Tas+0h0CkkBgZYJbPhHpNPO3V3PfPz8NXZJSp/H7xKY=' 'sha256-UdYfAt1aQja9FysEK0D0jsXLboZrY+t6qas3a2HSIjY=' 'sha256-WWf3hBnOj3Rat/lZq/+EP01wLY+BbdDtt5GC8wVX0Vg=' 'sha256-Z+w6pVqsMQYx1xBxn8G/poPHt0FjlwTZK1mVAarDvWc=' 'sha256-ZCip9CRySfoKaD5D2GhNFISP5pMJCXca5ESTFC14RuQ=' 'sha256-cZJXILumS0FUQ6p0mfgpETRLlx1H7UnUngBR1TQNgmk=' 'sha256-eoZKPPj7R1opAA3EaZUGTmO56gm1hhyiyo8phdpFl9c=' 'sha256-h3MviqQvY0Uwcgm9pQwXNx2B0853JumxOwz+7mBrC9w=' 'sha256-l/PdTy5HWMe1nzt7m5liItsDDozCwJs4PXnNtMfVw8Q=' 'sha256-mp6lyUlmS9p/vWjep6wkQJYFgohVN7+KFcLvsnyQgIY=' 'sha256-nU0+oOAqLxqjEAv8k55sVlJgPERt+aAj510eKLImmbw=' 'sha256-qvG3/sy4564Gcxgdc8GNN/fp4aLykKs92wZwsgTTkoQ=' 'sha256-t9VCwdw2kcI/DMN48uPJbbhjpzbKHBuZkAk+dmNEQ+I=' 'sha256-vbjnumaGfnX0chgJjnlz2mHY4K4YSldoiIN5tMpsJ8w=' 'sha256-wBcOJ/YnBvIVcoHaS1Hof0u/IrpkD4IR2zSxMB3DD1k=' 'sha256-yUOkJaqPNIZARyYqMlDbRGTCmZ/C+wMChomy6GJP3QI=' 'sha256-z+kbhAfYnais1UUyDCDwulWuXH8+RLiV94ugXlzKRl8='; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com 'sha256-+DuoRys2KWRSvKjNDt7/k81fGAk1mj0LV7QwEUgw9cc=' 'sha256-0QkYBXAyWbAd+/+nFHY9cljukfpFu5bFhdlk3YoPQes=' 'sha256-3rXzGZyCGY/OVDxZiMBfnkS2fH9AXfBwppkBkfpDTcM=' 'sha256-4S4hNIn3R4fXu51NbtGixVbuBtMyv/xuWa9dnJ/K1zY=' 'sha256-4Xd4GsDrggzvuwPp8w1D3HhUfVU3WvRSMpQz7XXh69Q=' 'sha256-4tOJl/LDQ37yihVDrOJTU8JF655RR92gpymrNA5hPak=' 'sha256-5fB/cG26X/GWxOroe55A7ZR2NgUDLMUDZnGMJDYA0wU=' 'sha256-62y96T9/+J3L9R1iR/ssIJXDvqXgf0LgAysUqlNb+cc=' 'sha256-6gM+j+kC1/JHId3OqVvWeXp4l48VcQGGvhRAu92/D4A=' 'sha256-7dqR3H9BfsYTH56GdwuUrSU1mQw/LdqAHm3Xig0lbpU=' 'sha256-8J4UKaxTL2RrEdD4mxd0EKMKZYBokRCvkpmvVICxohY=' 'sha256-AC3CbEeLPJf2W6daVbkfUpWh5e6gLviBovIHzqhb7I4=' 'sha256-AlNLydf8Oo5zmMamD/DJk9dU5pwObug1XdR55yXiBVc=' 'sha256-BVQwI1XMs+judwuBp6qTSKeBm7Qe/9Y0vierNK2EKW4=' 'sha256-CwL8RwCa8bGob1QG1vu5QZ6TxexJ8CNov/rHr16Kj6k=' 'sha256-D9ruVcBN33LGzX8q7yRAsPrZS5KjgX3EPWvX7sWWyrI=' 'sha256-Dw2yuZXpfLbQGVSS6+Dc1yQqtnkxA5bItx0dDpfEL7k=' 'sha256-G/EXI3nAn343k9zX00AXuWnDLIfGCfMFrLNYLazYwn4=' 'sha256-HNiWpXaWt2LIZnxwvhkuVd7Wm1LEyIXrCJ3LC4ED7jw=' 'sha256-HZToBBzNZUT4f842CDqTj0wexLFqDlz7e6PzQJp7da0=' 'sha256-IoGd6lEHMpdza7MIN3fgayUK8kvvq6aZp029RG1k4Fw=' 'sha256-JamKOmpIVQSPv+gDrYtzbxnVclnrvhrOMLmA+WaGPIE=' 'sha256-JkcUl1N8/ZqQ17T0hfO0ayOxtdvjh/bW1olXdBFpYew=' 'sha256-Kl1qRwd69L58NCto5s2eMIA0Lv4kWHer39ZKgNhUlkk=' 'sha256-Lc5JaXdSUbBDictCgqP12MJf4onOif/usdJP4T011Yc=' 'sha256-MiPgDldwa8URbFCSFpd0KvoCGs8+6zbAqQuQl1hGjU4=' 'sha256-NOIvf1CRb2XEfzH3VfG4B/Y63udbPNxuYP8fo1MRekQ=' 'sha256-NXTqLL8/I59UmOnV7tNjFWxURPt85KaZpa7nT1w/lDE=' 'sha256-O7VLA0NueNwvxBIPZG15AlOxETXxs9AfaAjCDorfKbg=' 'sha256-OpiawLL7Gu5feRhyNkZzBIiFFkOXLtqBvUGMuBdUWfM=' 'sha256-PEtoq1OJP+fDbtgJDGnJHlBwpwlQva6s5Kjad3ifM1s=' 'sha256-PcnIAdtr1NmNZcLFf5ftF5SvhkwLfoF+o79JrRr9ylA=' 'sha256-RTdaYHfr9TefF+AwkE/Uf/+Caw7RKK0FVhga+S/zmD8=' 'sha256-SZEeY3BjbbuYB9q7WMKkH+vVi//Im1FmD+bhHtViozw=' 'sha256-TOaIIZeh/Z50l+BRNbNisks9iBtnjrws592kTESLTN0=' 'sha256-U8kyFWenPtjSIMJITOzW0RBmEXkOX4VDh/ZZj506MpA=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-W2obUnMNnd+9L3r2CTfeQeaIV8OEKaAtcZycSK0dw/o=' 'sha256-WF+qLPFaH+RzchQWJohuietzqX7D7IjMJmb7wGqgLKc=' 'sha256-XIBB7vkTmAUIJl44z0N7ywoeVnnl7kVsLHvhi2EwqUE=' 'sha256-c6J4qHmzxJHrwXSgQrasGrwH0spulqDtVCZzRgFDce8=' 'sha256-cqi81knIZxngzyb4XrnqGdtxXgRacT17c5EgKXhc/BQ=' 'sha256-e/cdeSESwI9o9kTaVlwXghP35ZMjn7+5ZP5DB0UmaKk=' 'sha256-fWuzeFSknoBl4UkX7W0IvH+w9wFOdl07m2CfeKSBaH4=' 'sha256-i2sZysJsK6bSduhXCopySYrSJWwkyofJX+CaFV8z00c=' 'sha256-jmQSGe8fyxcQnYynl+2n50Q9M23KLUR2rRs3T3xCxAM=' 'sha256-k7I6qK5PklzlB762ItLpiRae3HmFmcIik7jI5hD+ce4=' 'sha256-nFJ+3/yrhOnSCrBolwPAUiQEtW1aoa7C2PTPVOP3MZ4=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-r7zPOqM+1h0txetMIbk4qyJDeS62YpiQ8jkhkzFtS2k=' 'sha256-t9BHAe/cVuN8O0/IKUhhJYmVlsQ0uzGvS87o8BOqBWQ=' 'sha256-taDayx3lNjDkiAoozt00Nd0BdBR0pmBLiFXKt30RZMw=' 'sha256-v234sgY5ep0DbpmLXSO8oWt97mwa6jK4Cu93toKqMWY=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-xzY/LdykOGxgvwgEwvnWKP2PLguAhvL7vhi2gZHwsqo=' 'sha256-y5obLVRChtKifE0CL62I5G9KcKibCbsobXYQpYejssY=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y=' 'sha256-z+AkgkT28yIyST9LT2RBjr0JxOfBXijJkLuTEYGGKLg='; style-src-attr 'unsafe-hashes' 'sha256-+DuoRys2KWRSvKjNDt7/k81fGAk1mj0LV7QwEUgw9cc=' 'sha256-0QkYBXAyWbAd+/+nFHY9cljukfpFu5bFhdlk3YoPQes=' 'sha256-3rXzGZyCGY/OVDxZiMBfnkS2fH9AXfBwppkBkfpDTcM=' 'sha256-4S4hNIn3R4fXu51NbtGixVbuBtMyv/xuWa9dnJ/K1zY=' 'sha256-4Xd4GsDrggzvuwPp8w1D3HhUfVU3WvRSMpQz7XXh69Q=' 'sha256-4tOJl/LDQ37yihVDrOJTU8JF655RR92gpymrNA5hPak=' 'sha256-5fB/cG26X/GWxOroe55A7ZR2NgUDLMUDZnGMJDYA0wU=' 'sha256-62y96T9/+J3L9R1iR/ssIJXDvqXgf0LgAysUqlNb+cc=' 'sha256-6gM+j+kC1/JHId3OqVvWeXp4l48VcQGGvhRAu92/D4A=' 'sha256-7dqR3H9BfsYTH56GdwuUrSU1mQw/LdqAHm3Xig0lbpU=' 'sha256-8J4UKaxTL2RrEdD4mxd0EKMKZYBokRCvkpmvVICxohY=' 'sha256-AC3CbEeLPJf2W6daVbkfUpWh5e6gLviBovIHzqhb7I4=' 'sha256-AlNLydf8Oo5zmMamD/DJk9dU5pwObug1XdR55yXiBVc=' 'sha256-BVQwI1XMs+judwuBp6qTSKeBm7Qe/9Y0vierNK2EKW4=' 'sha256-CwL8RwCa8bGob1QG1vu5QZ6TxexJ8CNov/rHr16Kj6k=' 'sha256-D9ruVcBN33LGzX8q7yRAsPrZS5KjgX3EPWvX7sWWyrI=' 'sha256-Dw2yuZXpfLbQGVSS6+Dc1yQqtnkxA5bItx0dDpfEL7k=' 'sha256-G/EXI3nAn343k9zX00AXuWnDLIfGCfMFrLNYLazYwn4=' 'sha256-HNiWpXaWt2LIZnxwvhkuVd7Wm1LEyIXrCJ3LC4ED7jw=' 'sha256-HZToBBzNZUT4f842CDqTj0wexLFqDlz7e6PzQJp7da0=' 'sha256-IoGd6lEHMpdza7MIN3fgayUK8kvvq6aZp029RG1k4Fw=' 'sha256-JamKOmpIVQSPv+gDrYtzbxnVclnrvhrOMLmA+WaGPIE=' 'sha256-JkcUl1N8/ZqQ17T0hfO0ayOxtdvjh/bW1olXdBFpYew=' 'sha256-Kl1qRwd69L58NCto5s2eMIA0Lv4kWHer39ZKgNhUlkk=' 'sha256-Lc5JaXdSUbBDictCgqP12MJf4onOif/usdJP4T011Yc=' 'sha256-MiPgDldwa8URbFCSFpd0KvoCGs8+6zbAqQuQl1hGjU4=' 'sha256-NOIvf1CRb2XEfzH3VfG4B/Y63udbPNxuYP8fo1MRekQ=' 'sha256-NXTqLL8/I59UmOnV7tNjFWxURPt85KaZpa7nT1w/lDE=' 'sha256-O7VLA0NueNwvxBIPZG15AlOxETXxs9AfaAjCDorfKbg=' 'sha256-OpiawLL7Gu5feRhyNkZzBIiFFkOXLtqBvUGMuBdUWfM=' 'sha256-PEtoq1OJP+fDbtgJDGnJHlBwpwlQva6s5Kjad3ifM1s=' 'sha256-PcnIAdtr1NmNZcLFf5ftF5SvhkwLfoF+o79JrRr9ylA=' 'sha256-RTdaYHfr9TefF+AwkE/Uf/+Caw7RKK0FVhga+S/zmD8=' 'sha256-SZEeY3BjbbuYB9q7WMKkH+vVi//Im1FmD+bhHtViozw=' 'sha256-TOaIIZeh/Z50l+BRNbNisks9iBtnjrws592kTESLTN0=' 'sha256-U8kyFWenPtjSIMJITOzW0RBmEXkOX4VDh/ZZj506MpA=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-W2obUnMNnd+9L3r2CTfeQeaIV8OEKaAtcZycSK0dw/o=' 'sha256-WF+qLPFaH+RzchQWJohuietzqX7D7IjMJmb7wGqgLKc=' 'sha256-XIBB7vkTmAUIJl44z0N7ywoeVnnl7kVsLHvhi2EwqUE=' 'sha256-c6J4qHmzxJHrwXSgQrasGrwH0spulqDtVCZzRgFDce8=' 'sha256-cqi81knIZxngzyb4XrnqGdtxXgRacT17c5EgKXhc/BQ=' 'sha256-e/cdeSESwI9o9kTaVlwXghP35ZMjn7+5ZP5DB0UmaKk=' 'sha256-fWuzeFSknoBl4UkX7W0IvH+w9wFOdl07m2CfeKSBaH4=' 'sha256-i2sZysJsK6bSduhXCopySYrSJWwkyofJX+CaFV8z00c=' 'sha256-jmQSGe8fyxcQnYynl+2n50Q9M23KLUR2rRs3T3xCxAM=' 'sha256-k7I6qK5PklzlB762ItLpiRae3HmFmcIik7jI5hD+ce4=' 'sha256-nFJ+3/yrhOnSCrBolwPAUiQEtW1aoa7C2PTPVOP3MZ4=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-r7zPOqM+1h0txetMIbk4qyJDeS62YpiQ8jkhkzFtS2k=' 'sha256-t9BHAe/cVuN8O0/IKUhhJYmVlsQ0uzGvS87o8BOqBWQ=' 'sha256-taDayx3lNjDkiAoozt00Nd0BdBR0pmBLiFXKt30RZMw=' 'sha256-v234sgY5ep0DbpmLXSO8oWt97mwa6jK4Cu93toKqMWY=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-xzY/LdykOGxgvwgEwvnWKP2PLguAhvL7vhi2gZHwsqo=' 'sha256-y5obLVRChtKifE0CL62I5G9KcKibCbsobXYQpYejssY=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y=' 'sha256-z+AkgkT28yIyST9LT2RBjr0JxOfBXijJkLuTEYGGKLg='; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://overkillhill.com https://*.github.io; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests" />
-    <meta name="language" content="English" />
-    <title>V2 Heat B: Revised Diagram Field Guide | OverKill Hill P³™</title>
-    <meta name="description" content="Four AI models revised their first-pass diagrams after critique and more context. V2 is adaptation. Inspect Heat B and pick the diagram that improved most." />
-    <meta name="author" content="OverKill Hill P³™" />
-    <meta property="og:title" content="V2 Heat B: Revised Diagram Field Guide | OverKill Hill P³™" />
-    <meta property="og:description" content="Four AI models revised their first-pass diagrams after critique and more context. V2 is adaptation. Inspect Heat B and pick the diagram that improved most." />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://overkillhill.com/writings/first-diagram-is-a-liar/v03/v2-heat-b/" />
-    <meta property="og:site_name" content="OverKill Hill P³™" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:image" content="https://overkillhill.com/assets/img/etch-ai-sketch-using-a-council-to-design-at-velocity.png" />
-    <meta property="og:image:alt" content="ETCH-AI-SKETCH: seven AI models, two rounds, one Mermaid diagramming shootout" />
-    <meta property="og:image:width" content="1536" />
-    <meta property="og:image:height" content="1024" />
-    <meta property="og:image:type" content="image/png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="V2 Heat B: Revised Diagram Field Guide | OverKill Hill P³™" />
-    <meta name="twitter:description" content="Four AI models revised their first-pass diagrams after critique and more context. V2 is adaptation. Inspect Heat B and pick the diagram that improved most." />
-    <meta name="twitter:image" content="https://overkillhill.com/assets/img/etch-ai-sketch-using-a-council-to-design-at-velocity.png" />
-    <meta name="twitter:image:alt" content="ETCH-AI-SKETCH: seven AI models, two rounds, one Mermaid diagramming shootout" />
-    <meta name="twitter:creator" content="@OverKillHillP3" />
-    <meta name="twitter:site" content="@OverKillHillP3" />
-    <meta name="robots" content="index, follow" />
-    <link rel="author" href="/humans.txt" />
-    <link rel="canonical" href="https://overkillhill.com/writings/first-diagram-is-a-liar/v03/v2-heat-b/" />
-    <meta name="theme-color" content="#2a2320" />
-    <link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
-    <link rel="icon" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
-    <link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180" type="image/png" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" />
-    <script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
-    <link rel="stylesheet" href="/assets/css/theme.css?v=4b831f47" />
-      <script type="speculationrules">
+<head>
+<!-- ========================================
+       METADATA: Core Document & Character Set
+       ======================================== -->
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://cdn.jsdelivr.net 'sha256-2NPQY0ewseycVRsC+HHUhYLy0axbXFwhzfvpOSU+nIw=' 'sha256-3Cackdtp7Do2OrDkhZ8HQxibdFsvQhw0sUCB/9aSLkI=' 'sha256-4TvgmTekoiy9MiGX4pcZPC1+zpVRlpFZWZvCDuxuoRg=' 'sha256-6DuhTBpiipuy9jERXvPLChPCwm7AsB7YeVZHJ5ksPQk=' 'sha256-6qQFrumK+MBJP2jBD5/c2oyyWQl9kmfvYhkrAHbwAQI=' 'sha256-7//FvIo12Na/Gl24V5LF1JFIQrbnz6eFUWZuNysAJ98=' 'sha256-73/ZUPvlPEbQ2atsvJlr4+++azHPIy80M8liyrGynCY=' 'sha256-7cBx9QY/Bh31VpbxxCQoRsGJ3skKVq33jJgT/WH+yDc=' 'sha256-7lBK6wlFHjl6tV74OA/Df2r4gOiClnU3nxMnZJQvbLo=' 'sha256-7xDjo2X53t3p3w5O/66XkJRrLrYP4BolkoKOjhBaQ18=' 'sha256-83ioGcchzfdRDLGMcFCHjDPS7HZJfvrYjAly0xIC3fM=' 'sha256-8ER2+OkzKCugkK7Vm/Uk9Q8wG9+QfLmIBVTgWlN7/mg=' 'sha256-9+gDIB/FoOZbtN1NX7WLQUlPsi9h3u6HN1J0LVyv/44=' 'sha256-99UQai5rp0hhaOiU/AJWBeJOyVoO6s+t372hxKjIioY=' 'sha256-9tzuo39tJroe/r2NlVsIvJyqKOy42Cjot4ltZYfv3CM=' 'sha256-9wGbTwyvRgFpBYRmkSDWmGtmvCHhcYtEJclqmP9FpJo=' 'sha256-AoOtS/Oy98lq33Bzi2Ql2ULsxM3fbrxb09xvuAGMkWw=' 'sha256-FWN9B8uy7wve1RW95exrOkVb7x5h7NEDOLNZwNveEZw=' 'sha256-GKIJk2KT9bugkTZ9RfxPHCF2kcALaX3H0vH44ht247E=' 'sha256-JSwcPjWGXDAYaTZGfCB+6cpd0/AW82XCWneB7fLvyJo=' 'sha256-KPE5ui6CfQFY1vcShV5JQqG/wFuo8fkRFVxhoOlZo8A=' 'sha256-Onl0f/cB5mLfyrrQukG9H6HRVimBA+jiu8yf0axtdB4=' 'sha256-PvyhwLG2C4G93uK5NQbCcvL13llGqQOXkM9LLmDoNcY=' 'sha256-SEHWdY59isAzkbHGHWllo65NDvHkHxeUkDe5F3kHRQY=' 'sha256-Tas+0h0CkkBgZYJbPhHpNPO3V3PfPz8NXZJSp/H7xKY=' 'sha256-UdYfAt1aQja9FysEK0D0jsXLboZrY+t6qas3a2HSIjY=' 'sha256-WWf3hBnOj3Rat/lZq/+EP01wLY+BbdDtt5GC8wVX0Vg=' 'sha256-Z+w6pVqsMQYx1xBxn8G/poPHt0FjlwTZK1mVAarDvWc=' 'sha256-ZCip9CRySfoKaD5D2GhNFISP5pMJCXca5ESTFC14RuQ=' 'sha256-eoZKPPj7R1opAA3EaZUGTmO56gm1hhyiyo8phdpFl9c=' 'sha256-h3MviqQvY0Uwcgm9pQwXNx2B0853JumxOwz+7mBrC9w=' 'sha256-l/PdTy5HWMe1nzt7m5liItsDDozCwJs4PXnNtMfVw8Q=' 'sha256-mp6lyUlmS9p/vWjep6wkQJYFgohVN7+KFcLvsnyQgIY=' 'sha256-qvG3/sy4564Gcxgdc8GNN/fp4aLykKs92wZwsgTTkoQ=' 'sha256-t9VCwdw2kcI/DMN48uPJbbhjpzbKHBuZkAk+dmNEQ+I=' 'sha256-vbjnumaGfnX0chgJjnlz2mHY4K4YSldoiIN5tMpsJ8w=' 'sha256-wBcOJ/YnBvIVcoHaS1Hof0u/IrpkD4IR2zSxMB3DD1k=' 'sha256-yUOkJaqPNIZARyYqMlDbRGTCmZ/C+wMChomy6GJP3QI=' 'sha256-z+kbhAfYnais1UUyDCDwulWuXH8+RLiV94ugXlzKRl8='; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com 'sha256-+DuoRys2KWRSvKjNDt7/k81fGAk1mj0LV7QwEUgw9cc=' 'sha256-0QkYBXAyWbAd+/+nFHY9cljukfpFu5bFhdlk3YoPQes=' 'sha256-3rXzGZyCGY/OVDxZiMBfnkS2fH9AXfBwppkBkfpDTcM=' 'sha256-4S4hNIn3R4fXu51NbtGixVbuBtMyv/xuWa9dnJ/K1zY=' 'sha256-4Xd4GsDrggzvuwPp8w1D3HhUfVU3WvRSMpQz7XXh69Q=' 'sha256-4tOJl/LDQ37yihVDrOJTU8JF655RR92gpymrNA5hPak=' 'sha256-5fB/cG26X/GWxOroe55A7ZR2NgUDLMUDZnGMJDYA0wU=' 'sha256-62y96T9/+J3L9R1iR/ssIJXDvqXgf0LgAysUqlNb+cc=' 'sha256-6gM+j+kC1/JHId3OqVvWeXp4l48VcQGGvhRAu92/D4A=' 'sha256-7dqR3H9BfsYTH56GdwuUrSU1mQw/LdqAHm3Xig0lbpU=' 'sha256-8J4UKaxTL2RrEdD4mxd0EKMKZYBokRCvkpmvVICxohY=' 'sha256-AC3CbEeLPJf2W6daVbkfUpWh5e6gLviBovIHzqhb7I4=' 'sha256-AlNLydf8Oo5zmMamD/DJk9dU5pwObug1XdR55yXiBVc=' 'sha256-BVQwI1XMs+judwuBp6qTSKeBm7Qe/9Y0vierNK2EKW4=' 'sha256-CwL8RwCa8bGob1QG1vu5QZ6TxexJ8CNov/rHr16Kj6k=' 'sha256-D9ruVcBN33LGzX8q7yRAsPrZS5KjgX3EPWvX7sWWyrI=' 'sha256-Dw2yuZXpfLbQGVSS6+Dc1yQqtnkxA5bItx0dDpfEL7k=' 'sha256-G/EXI3nAn343k9zX00AXuWnDLIfGCfMFrLNYLazYwn4=' 'sha256-HNiWpXaWt2LIZnxwvhkuVd7Wm1LEyIXrCJ3LC4ED7jw=' 'sha256-HZToBBzNZUT4f842CDqTj0wexLFqDlz7e6PzQJp7da0=' 'sha256-IoGd6lEHMpdza7MIN3fgayUK8kvvq6aZp029RG1k4Fw=' 'sha256-JamKOmpIVQSPv+gDrYtzbxnVclnrvhrOMLmA+WaGPIE=' 'sha256-JkcUl1N8/ZqQ17T0hfO0ayOxtdvjh/bW1olXdBFpYew=' 'sha256-Kl1qRwd69L58NCto5s2eMIA0Lv4kWHer39ZKgNhUlkk=' 'sha256-Lc5JaXdSUbBDictCgqP12MJf4onOif/usdJP4T011Yc=' 'sha256-MiPgDldwa8URbFCSFpd0KvoCGs8+6zbAqQuQl1hGjU4=' 'sha256-NOIvf1CRb2XEfzH3VfG4B/Y63udbPNxuYP8fo1MRekQ=' 'sha256-NXTqLL8/I59UmOnV7tNjFWxURPt85KaZpa7nT1w/lDE=' 'sha256-O7VLA0NueNwvxBIPZG15AlOxETXxs9AfaAjCDorfKbg=' 'sha256-OpiawLL7Gu5feRhyNkZzBIiFFkOXLtqBvUGMuBdUWfM=' 'sha256-PEtoq1OJP+fDbtgJDGnJHlBwpwlQva6s5Kjad3ifM1s=' 'sha256-PcnIAdtr1NmNZcLFf5ftF5SvhkwLfoF+o79JrRr9ylA=' 'sha256-RTdaYHfr9TefF+AwkE/Uf/+Caw7RKK0FVhga+S/zmD8=' 'sha256-SZEeY3BjbbuYB9q7WMKkH+vVi//Im1FmD+bhHtViozw=' 'sha256-TOaIIZeh/Z50l+BRNbNisks9iBtnjrws592kTESLTN0=' 'sha256-U8kyFWenPtjSIMJITOzW0RBmEXkOX4VDh/ZZj506MpA=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-W2obUnMNnd+9L3r2CTfeQeaIV8OEKaAtcZycSK0dw/o=' 'sha256-WF+qLPFaH+RzchQWJohuietzqX7D7IjMJmb7wGqgLKc=' 'sha256-XIBB7vkTmAUIJl44z0N7ywoeVnnl7kVsLHvhi2EwqUE=' 'sha256-c6J4qHmzxJHrwXSgQrasGrwH0spulqDtVCZzRgFDce8=' 'sha256-cqi81knIZxngzyb4XrnqGdtxXgRacT17c5EgKXhc/BQ=' 'sha256-e/cdeSESwI9o9kTaVlwXghP35ZMjn7+5ZP5DB0UmaKk=' 'sha256-fWuzeFSknoBl4UkX7W0IvH+w9wFOdl07m2CfeKSBaH4=' 'sha256-i2sZysJsK6bSduhXCopySYrSJWwkyofJX+CaFV8z00c=' 'sha256-jmQSGe8fyxcQnYynl+2n50Q9M23KLUR2rRs3T3xCxAM=' 'sha256-k7I6qK5PklzlB762ItLpiRae3HmFmcIik7jI5hD+ce4=' 'sha256-nFJ+3/yrhOnSCrBolwPAUiQEtW1aoa7C2PTPVOP3MZ4=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-r7zPOqM+1h0txetMIbk4qyJDeS62YpiQ8jkhkzFtS2k=' 'sha256-t9BHAe/cVuN8O0/IKUhhJYmVlsQ0uzGvS87o8BOqBWQ=' 'sha256-taDayx3lNjDkiAoozt00Nd0BdBR0pmBLiFXKt30RZMw=' 'sha256-v234sgY5ep0DbpmLXSO8oWt97mwa6jK4Cu93toKqMWY=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-xzY/LdykOGxgvwgEwvnWKP2PLguAhvL7vhi2gZHwsqo=' 'sha256-y5obLVRChtKifE0CL62I5G9KcKibCbsobXYQpYejssY=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y=' 'sha256-z+AkgkT28yIyST9LT2RBjr0JxOfBXijJkLuTEYGGKLg='; style-src-attr 'unsafe-hashes' 'sha256-+DuoRys2KWRSvKjNDt7/k81fGAk1mj0LV7QwEUgw9cc=' 'sha256-0QkYBXAyWbAd+/+nFHY9cljukfpFu5bFhdlk3YoPQes=' 'sha256-3rXzGZyCGY/OVDxZiMBfnkS2fH9AXfBwppkBkfpDTcM=' 'sha256-4S4hNIn3R4fXu51NbtGixVbuBtMyv/xuWa9dnJ/K1zY=' 'sha256-4Xd4GsDrggzvuwPp8w1D3HhUfVU3WvRSMpQz7XXh69Q=' 'sha256-4tOJl/LDQ37yihVDrOJTU8JF655RR92gpymrNA5hPak=' 'sha256-5fB/cG26X/GWxOroe55A7ZR2NgUDLMUDZnGMJDYA0wU=' 'sha256-62y96T9/+J3L9R1iR/ssIJXDvqXgf0LgAysUqlNb+cc=' 'sha256-6gM+j+kC1/JHId3OqVvWeXp4l48VcQGGvhRAu92/D4A=' 'sha256-7dqR3H9BfsYTH56GdwuUrSU1mQw/LdqAHm3Xig0lbpU=' 'sha256-8J4UKaxTL2RrEdD4mxd0EKMKZYBokRCvkpmvVICxohY=' 'sha256-AC3CbEeLPJf2W6daVbkfUpWh5e6gLviBovIHzqhb7I4=' 'sha256-AlNLydf8Oo5zmMamD/DJk9dU5pwObug1XdR55yXiBVc=' 'sha256-BVQwI1XMs+judwuBp6qTSKeBm7Qe/9Y0vierNK2EKW4=' 'sha256-CwL8RwCa8bGob1QG1vu5QZ6TxexJ8CNov/rHr16Kj6k=' 'sha256-D9ruVcBN33LGzX8q7yRAsPrZS5KjgX3EPWvX7sWWyrI=' 'sha256-Dw2yuZXpfLbQGVSS6+Dc1yQqtnkxA5bItx0dDpfEL7k=' 'sha256-G/EXI3nAn343k9zX00AXuWnDLIfGCfMFrLNYLazYwn4=' 'sha256-HNiWpXaWt2LIZnxwvhkuVd7Wm1LEyIXrCJ3LC4ED7jw=' 'sha256-HZToBBzNZUT4f842CDqTj0wexLFqDlz7e6PzQJp7da0=' 'sha256-IoGd6lEHMpdza7MIN3fgayUK8kvvq6aZp029RG1k4Fw=' 'sha256-JamKOmpIVQSPv+gDrYtzbxnVclnrvhrOMLmA+WaGPIE=' 'sha256-JkcUl1N8/ZqQ17T0hfO0ayOxtdvjh/bW1olXdBFpYew=' 'sha256-Kl1qRwd69L58NCto5s2eMIA0Lv4kWHer39ZKgNhUlkk=' 'sha256-Lc5JaXdSUbBDictCgqP12MJf4onOif/usdJP4T011Yc=' 'sha256-MiPgDldwa8URbFCSFpd0KvoCGs8+6zbAqQuQl1hGjU4=' 'sha256-NOIvf1CRb2XEfzH3VfG4B/Y63udbPNxuYP8fo1MRekQ=' 'sha256-NXTqLL8/I59UmOnV7tNjFWxURPt85KaZpa7nT1w/lDE=' 'sha256-O7VLA0NueNwvxBIPZG15AlOxETXxs9AfaAjCDorfKbg=' 'sha256-OpiawLL7Gu5feRhyNkZzBIiFFkOXLtqBvUGMuBdUWfM=' 'sha256-PEtoq1OJP+fDbtgJDGnJHlBwpwlQva6s5Kjad3ifM1s=' 'sha256-PcnIAdtr1NmNZcLFf5ftF5SvhkwLfoF+o79JrRr9ylA=' 'sha256-RTdaYHfr9TefF+AwkE/Uf/+Caw7RKK0FVhga+S/zmD8=' 'sha256-SZEeY3BjbbuYB9q7WMKkH+vVi//Im1FmD+bhHtViozw=' 'sha256-TOaIIZeh/Z50l+BRNbNisks9iBtnjrws592kTESLTN0=' 'sha256-U8kyFWenPtjSIMJITOzW0RBmEXkOX4VDh/ZZj506MpA=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-W2obUnMNnd+9L3r2CTfeQeaIV8OEKaAtcZycSK0dw/o=' 'sha256-WF+qLPFaH+RzchQWJohuietzqX7D7IjMJmb7wGqgLKc=' 'sha256-XIBB7vkTmAUIJl44z0N7ywoeVnnl7kVsLHvhi2EwqUE=' 'sha256-c6J4qHmzxJHrwXSgQrasGrwH0spulqDtVCZzRgFDce8=' 'sha256-cqi81knIZxngzyb4XrnqGdtxXgRacT17c5EgKXhc/BQ=' 'sha256-e/cdeSESwI9o9kTaVlwXghP35ZMjn7+5ZP5DB0UmaKk=' 'sha256-fWuzeFSknoBl4UkX7W0IvH+w9wFOdl07m2CfeKSBaH4=' 'sha256-i2sZysJsK6bSduhXCopySYrSJWwkyofJX+CaFV8z00c=' 'sha256-jmQSGe8fyxcQnYynl+2n50Q9M23KLUR2rRs3T3xCxAM=' 'sha256-k7I6qK5PklzlB762ItLpiRae3HmFmcIik7jI5hD+ce4=' 'sha256-nFJ+3/yrhOnSCrBolwPAUiQEtW1aoa7C2PTPVOP3MZ4=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-r7zPOqM+1h0txetMIbk4qyJDeS62YpiQ8jkhkzFtS2k=' 'sha256-t9BHAe/cVuN8O0/IKUhhJYmVlsQ0uzGvS87o8BOqBWQ=' 'sha256-taDayx3lNjDkiAoozt00Nd0BdBR0pmBLiFXKt30RZMw=' 'sha256-v234sgY5ep0DbpmLXSO8oWt97mwa6jK4Cu93toKqMWY=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-xzY/LdykOGxgvwgEwvnWKP2PLguAhvL7vhi2gZHwsqo=' 'sha256-y5obLVRChtKifE0CL62I5G9KcKibCbsobXYQpYejssY=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y=' 'sha256-z+AkgkT28yIyST9LT2RBjr0JxOfBXijJkLuTEYGGKLg='; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://overkillhill.com https://*.github.io; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests" /><meta content="English" name="language"/>
+<!-- ========================================
+       METADATA: Primary Title & Description
+       ======================================== -->
+<title>V2 Heat B: Revised Diagram Field Guide | OverKill Hill P³™</title>
+<meta content="Four AI models revised their first-pass diagrams after critique and more context. V2 is adaptation. Inspect Heat B and pick the diagram that improved most." name="description"/>
+<meta content="{{META:keywords}}" name="keywords"/>
+<meta content="OverKill Hill P³™" name="author"/>
+<meta content="{{META:creator}}" name="creator"/>
+<meta content="{{META:publisher}}" name="publisher"/>
+<!-- ========================================
+       METADATA: Open Graph (Social Sharing)
+       ======================================== -->
+<meta content="V2 Heat B: Revised Diagram Field Guide | OverKill Hill P³™" property="og:title"/>
+<meta content="Four AI models revised their first-pass diagrams after critique and more context. V2 is adaptation. Inspect Heat B and pick the diagram that improved most." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://overkillhill.com/writings/first-diagram-is-a-liar/v03/v2-heat-b/" property="og:url"/>
+<meta content="https://overkillhill.com/assets/img/etch-ai-sketch-using-a-council-to-design-at-velocity.png" property="og:image"/>
+<meta content="ETCH-AI-SKETCH: seven AI models, two rounds, one Mermaid diagramming shootout" property="og:image:alt"/>
+<meta content="1024" property="og:image:width"/>
+<meta content="1024" property="og:image:height"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="OverKill Hill P³™" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- ========================================
+       METADATA: Twitter Card (X Social)
+       ======================================== -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="V2 Heat B: Revised Diagram Field Guide | OverKill Hill P³™" name="twitter:title"/>
+<meta content="Four AI models revised their first-pass diagrams after critique and more context. V2 is adaptation. Inspect Heat B and pick the diagram that improved most." name="twitter:description"/>
+<meta content="https://overkillhill.com/assets/img/etch-ai-sketch-using-a-council-to-design-at-velocity.png" name="twitter:image"/>
+<meta content="ETCH-AI-SKETCH: seven AI models, two rounds, one Mermaid diagramming shootout" name="twitter:image:alt"/>
+<meta content="@OverKillHillP3" name="twitter:site"/>
+<meta content="@OverKillHillP3" name="twitter:creator"/>
+<!-- ========================================
+       METADATA: Search & Crawling
+       ======================================== -->
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="index, follow" name="googlebot"/>
+<meta content="index, follow" name="bingbot"/>
+<meta content="7 days" name="revisit-after"/>
+<link href="/humans.txt" rel="author"/>
+<link href="https://overkillhill.com/writings/first-diagram-is-a-liar/v03/v2-heat-b/" rel="canonical"/>
+<link href="https://overkillhill.com/writings/first-diagram-is-a-liar/v03/v2-heat-b/" hreflang="en" rel="alternate"/>
+<!-- ========================================
+       METADATA: Color Scheme & Theme
+       ======================================== -->
+<meta content="#2a2320" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<!-- ========================================
+       METADATA: Web App & PWA
+       ======================================== -->
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<!-- ========================================
+       FAVICONS: Multi-Format Icon Support
+       ======================================== -->
+<link href="/assets/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/assets/img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- ========================================
+       STYLESHEETS & FONTS
+       ======================================== -->
+<!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
+<link href="/assets/css/theme.css?v=4b831f47" rel="stylesheet"/>
+<script type="speculationrules">
     {
       "prefetch": [
         { "source": "document", "where": { "and": [
@@ -53,155 +90,119 @@
       ]
     }
     </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "OverKill Hill P³™",
-        "item": "https://overkillhill.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Writings",
-        "item": "https://overkillhill.com/writings/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "The First Diagram Is Usually a Liar",
-        "item": "https://overkillhill.com/writings/first-diagram-is-a-liar/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "V2 Heat B: Revised Diagram Field Guide",
-        "item": "https://overkillhill.com/writings/first-diagram-is-a-liar/v03/v2-heat-b/"
-      }
-      ]
-    }
-    </script>
-      <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
-    <script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
+<script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-VJ1BKXS27H');
     </script>
-  </head>
-  <body data-mermaid-security="loose">
-    <a class="okh-skip-link" href="#main">Skip to main content</a>
-    <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
-    <header class="site-header" id="top">
-      <div class="container">
-        <div class="logo">
-          <a href="/">
-            <img src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png" alt="OverKill Hill P³ logo" width="40" height="40" loading="lazy" />
-            <span class="sr-only">OverKill&nbsp;Hill&nbsp;P³™ Home</span>
-          </a>
-        </div>
-        <nav class="primary-nav" id="navigation" aria-label="Primary">
-          <ul>
-            <li><a href="/#forge">The Forge</a></li>
-            <li class="has-submenu">
-              <a href="/projects/">Our Projects</a>
-              <ul class="submenu">
-                <li><a href="/projects/skillz/">Skillz Forge</a></li>
-                <li><a href="/projects/found-ry/">Found‑Rᵧ</a></li>
-                <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
-                <li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
-                                <li><a href="/projects/mac-studio-local-ai-workbench/">Mac Studio Local AI Workbench</a></li>
-                <li><a href="/projects/abrahamic-reference-engine/">Abrahamic Reference Engine</a></li>
-                <li><a href="/projects/glee-fully-chai-chasers/">Glee-fully Chai Chasers</a></li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="/writings/">Writings</a>
-              <ul class="submenu">
-                <li><a href="/manifesto/">The Manifesto</a></li>
-                <li><a href="/prompt-forge/">The Prompt Forge</a></li>
-                <li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="/about/">About</a>
-              <ul class="submenu">
-                <li><a href="/universe/">OKHP³™ Universe</a></li>
-                <li><a href="/about/">About OKHP³™</a></li>
-                <li><a href="/contact/">Contact</a></li>
-                <li><a href="/legal/">Legal</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-        <button class="nav-toggle" aria-controls="navigation" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
-      </div>
-      <section class="site-specials site-specials--okh" aria-label="Forge update">
-        <span class="site-specials-label site-specials-label--hide-mobile">🔥 Hot off the FORGE ⚒️</span>
-        <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
+</head>
+<body>
+  <a class="okh-skip-link" href="#main">Skip to main content</a>
+<header class="site-header" id="top">
+<div class="container">
+<div class="logo">
+<a href="#top">
+<img alt="OverKill Hill P³ logo" height="40" loading="lazy" src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png" width="40"/>
+<span class="sr-only">OverKill Hill P³™ Home</span>
+</a>
+</div>
+<nav aria-label="Primary" class="primary-nav" id="navigation">
+<ul>
+<li><a href="/#forge">The Forge</a></li>
+<li class="has-submenu">
+<a href="/projects/">Our Projects</a>
+<ul class="submenu">
+<li><a href="/projects/skillz/">Skillz Forge</a></li>
+<li><a href="/projects/found-ry/">Found‑Rᵧ</a></li>
+<li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
+<li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
+<li><a href="/projects/mac-studio-local-ai-workbench/">Mac Studio Local AI Workbench</a></li>
+<li><a href="/projects/abrahamic-reference-engine/">Abrahamic Reference Engine</a></li>
+<li><a href="/projects/glee-fully-chai-chasers/">Glee-fully Chai Chasers</a></li>
+</ul>
+</li>
+<!-- Writings cluster: Manifesto / Promptcraft / FDIAL -->
+<li class="has-submenu">
+<a aria-current="page" href="/writings/">Writings</a>
+<ul class="submenu">
+<li><a href="/manifesto/">The Manifesto</a></li>
+<li><a href="/prompt-forge/">The Prompt Forge</a></li>
+<li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
+</ul>
+</li>
+<!-- About cluster: Universe / About / Contact / Legal -->
+<li class="has-submenu">
+<a href="/about/">About</a>
+<ul class="submenu">
+<li><a href="/universe/">OKHP³™ Universe</a></li>
+<li><a href="/about/">About OKHP³™</a></li>
+<li><a href="/contact/">Contact</a></li>
+<li><a href="/legal/">Legal</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<button aria-controls="navigation" aria-expanded="false" class="nav-toggle">
+<span class="sr-only">Toggle navigation</span>
+<span class="bar"></span><span class="bar"></span><span class="bar"></span>
+</button>
+</div>
+<section aria-label="Forge update" class="site-specials site-specials--okh">
+<span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
+<a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
           v0.5 is live: the Council of AIs scored each other, every model was harder on itself than the architect was. Read it →
         </a>
-      </section>
-    </header>
+</section>
+</header>
+  <main id="main">
 
-    <main id="main">
-      <section class="article-hero content-section">
-        <div class="brand-stripes brand-stripes--okh" aria-hidden="true"></div>
-        <div class="container">
-          <nav class="article-breadcrumb" aria-label="Breadcrumb">
-            <a href="/">OverKill&nbsp;Hill&nbsp;P³™</a>
-            <span class="sep">&rsaquo;</span>
-            <a href="/writings/">Writings</a>
-            <span class="sep">&rsaquo;</span>
-            <a href="/writings/first-diagram-is-a-liar/">The First Diagram Is Usually a Liar</a>
-            <span class="sep">&rsaquo;</span>
-            <span>V2 Heat B: Field Guide</span>
-          </nav>
-          <div class="heat-guide-hero">
-            <div class="article-eyebrow">
-              <span>v0.3: Visual Edition</span>
-              <span class="article-eyebrow-sep">|</span>
-              <span>V2 Heat B</span>
-              <span class="article-eyebrow-sep">|</span>
-              <span>Field Guide</span>
-            </div>
-            <h1>V2 Heat B: Revised Diagram Field Guide</h1>
-            <p class="article-subtitle">Four AI models revised their first-pass diagrams after critique and more context. V2 is adaptation. Inspect Heat B and pick the diagram that improved most.</p>
-          </div>
-        </div>
-      </section>
-
-      <div class="content-section">
-        <div class="container">
-
-          <div class="heat-actions heat-poll-box" style="margin-bottom: 2.5rem;">
-            <p><strong>Polls closed May 7.</strong> The field is still live at full resolution. Pick one diagram that communicated best and drop a comment on the article with your reasoning.</p>
-            <p><a href="/writings/first-diagram-is-a-liar/#field-guide">Inspect the full field →</a></p>
-          </div>
-
-          <div class="heat-competitors">
-            <div class="diagram-grid diagram-grid--full">
-              <div class="diagram-card diagram-card--embed">
-                <div class="diagram-card-header">
-                  <h4>ChatGPT V2 Pro</h4>
-                  <p>Art of the possible, feature-rich and theatrical. Pushes Mermaid further. Diagram or poster?</p>
-                  <div class="diagram-card-links">
-                    <a href="https://mermaid.ai/d/e2a6df7d-dbbe-40d6-bdae-967ac33737be" target="_blank" rel="noopener noreferrer" class="diagram-external-link">Open in Mermaid.ai &#8599;</a>
-                    <a href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-chatgpt-v2pro.mmd" target="_blank" rel="noopener noreferrer" class="diagram-source-link">View source &#8599;</a>
-                  </div>
-                </div>
-                <div class="diagram-embed-wrap">
-                  <div class="mermaid">
+<section class="article-hero content-section">
+<div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div>
+<div class="container">
+<nav aria-label="Breadcrumb" class="article-breadcrumb">
+<a href="/">OverKill Hill P³™</a>
+<span class="sep">›</span>
+<a href="/writings/">Writings</a>
+<span class="sep">›</span>
+<a href="/writings/first-diagram-is-a-liar/">The First Diagram Is Usually a Liar</a>
+<span class="sep">›</span>
+<span>V2 Heat B: Field Guide</span>
+</nav>
+<div class="heat-guide-hero">
+<div class="article-eyebrow">
+<span>v0.3: Visual Edition</span>
+<span class="article-eyebrow-sep">|</span>
+<span>V2 Heat B</span>
+<span class="article-eyebrow-sep">|</span>
+<span>Field Guide</span>
+</div>
+<h1>V2 Heat B: Revised Diagram Field Guide</h1>
+<p class="article-subtitle">Four AI models revised their first-pass diagrams after critique and more context. V2 is adaptation. Inspect Heat B and pick the diagram that improved most.</p>
+</div>
+</div>
+</section>
+<div class="content-section">
+<div class="container">
+<div class="heat-actions heat-poll-box" style="margin-bottom: 2.5rem;">
+<p><strong>Polls closed May 7.</strong> The field is still live at full resolution. Pick one diagram that communicated best and drop a comment on the article with your reasoning.</p>
+<p><a href="/writings/first-diagram-is-a-liar/#field-guide">Inspect the full field →</a></p>
+</div>
+<div class="heat-competitors">
+<div class="diagram-grid diagram-grid--full">
+<div class="diagram-card diagram-card--embed">
+<div class="diagram-card-header">
+<h4>ChatGPT V2 Pro</h4>
+<p>Art of the possible, feature-rich and theatrical. Pushes Mermaid further. Diagram or poster?</p>
+<div class="diagram-card-links">
+<a class="diagram-external-link" href="https://mermaid.ai/d/e2a6df7d-dbbe-40d6-bdae-967ac33737be" rel="noopener noreferrer" target="_blank">Open in Mermaid.ai ↗</a>
+<a class="diagram-source-link" href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-chatgpt-v2pro.mmd" rel="noopener noreferrer" target="_blank">View source ↗</a>
+</div>
+</div>
+<div class="diagram-embed-wrap">
+<div class="mermaid">
 ---
 config:
   theme: neutral
@@ -231,7 +232,7 @@ flowchart LR
         A["Spark 💥"]
         B["Most documentation is **polite confusion**."]
         C["Words carry nuance.\nVisuals carry **shape**."]
-        D["ROY > 1?"]
+        D["ROY &gt; 1?"]
         X["Decorative wallpaper"]
   end
  subgraph S2["**2. Modeling** · _turn prose into structure_"]
@@ -250,30 +251,30 @@ flowchart LR
         M["Diagram + code images"]
         N["Clear in 5 seconds?"]
         O(("Ship 🚀"))
-        P["OverKill&nbsp;Hill&nbsp;P³™"]
+        P["OverKill Hill P³™"]
         Q["Comments → V2"]
   end
-    A --> B
-    B --> C
-    C --> D
-    D -- No --> X
-    D -- Yes --> E
-    E --> F
-    F --> G
-    G --> H
-    H -- Too tidy --> I
-    H -- Too noisy --> J
-    H -- Credible --> K
-    I -.-> G
-    J -.-> G
-    K --> L
-    L --> M
-    M --> N
-    N -. No .-> J
-    N -- Yes --> O
-    O --> P
-    O -.-> Q
-    Q -.-> F
+    A --&gt; B
+    B --&gt; C
+    C --&gt; D
+    D -- No --&gt; X
+    D -- Yes --&gt; E
+    E --&gt; F
+    F --&gt; G
+    G --&gt; H
+    H -- Too tidy --&gt; I
+    H -- Too noisy --&gt; J
+    H -- Credible --&gt; K
+    I -.-&gt; G
+    J -.-&gt; G
+    K --&gt; L
+    L --&gt; M
+    M --&gt; N
+    N -. No .-&gt; J
+    N -- Yes --&gt; O
+    O --&gt; P
+    O -.-&gt; Q
+    Q -.-&gt; F
 
     A@{ shape: bolt}
     D@{ shape: diam}
@@ -320,19 +321,19 @@ flowchart LR
     style S2 fill:#FFFCF7,stroke:#D9C7A5,stroke-width:1.3px
     style S3 fill:#F9FAFB,stroke:#C9D2DE,stroke-width:1.3px
                   </div>
-                </div>
-              </div>
-              <div class="diagram-card diagram-card--embed">
-                <div class="diagram-card-header">
-                  <h4>Claude V2</h4>
-                  <p>Thinks beautifully. Earns the elegance through honest recursion rather than decorating it on top.</p>
-                  <div class="diagram-card-links">
-                    <a href="https://mermaid.ai/d/2e9a4321-6302-44ca-82cc-e2020479fdf5" target="_blank" rel="noopener noreferrer" class="diagram-external-link">Open in Mermaid.ai &#8599;</a>
-                    <a href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-claude-v2.mmd" target="_blank" rel="noopener noreferrer" class="diagram-source-link">View source &#8599;</a>
-                  </div>
-                </div>
-                <div class="diagram-embed-wrap">
-                  <div class="mermaid">
+</div>
+</div>
+<div class="diagram-card diagram-card--embed">
+<div class="diagram-card-header">
+<h4>Claude V2</h4>
+<p>Thinks beautifully. Earns the elegance through honest recursion rather than decorating it on top.</p>
+<div class="diagram-card-links">
+<a class="diagram-external-link" href="https://mermaid.ai/d/2e9a4321-6302-44ca-82cc-e2020479fdf5" rel="noopener noreferrer" target="_blank">Open in Mermaid.ai ↗</a>
+<a class="diagram-source-link" href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-claude-v2.mmd" rel="noopener noreferrer" target="_blank">View source ↗</a>
+</div>
+</div>
+<div class="diagram-embed-wrap">
+<div class="mermaid">
 ---
 config:
   theme: neutral
@@ -408,39 +409,39 @@ flowchart TB
         T["Iterate
         Refine diagram · reframe post"]
   end
- subgraph BRAND["🧰 OverKill&nbsp;Hill&nbsp;P³™ · Precision · Protocol · Promptcraft"]
+ subgraph BRAND["🧰 OverKill Hill P³™ · Precision · Protocol · Promptcraft"]
     direction LR
         U[["AskJamie™
         Friendly AI Helpdesk"]]
         V[["Glee-fully Personalizable Tools™ 🌳
         glee-fully.tools"]]
-        W[["OverKill&nbsp;Hill&nbsp;P³™
+        W[["OverKill Hill P³™
         linkedin.com/company/overkillhillp3"]]
   end
-    A --> B
-    B --> C
-    C --> D
-    D -- holds up --> F
-    F --> G
-    G -- earned --> I
-    I --> J
-    J --> K
-    K --> L
-    L -- lands --> N
-    N --> O
-    O -- yes: ship it --> Q
-    Q --> R
-    R -- high multiplier --> S
-    S --> U & V & W
-    E -. sharpen .-> C
-    G -- too cute --> H
-    H -. reframe .-> F
-    L -- too stiff --> M
-    M -. rewrite .-> K
-    O -- too linear --> P
-    P -. rebuild .-> N
-    R -- missed --> T
-    T -. loop back .-> K
+    A --&gt; B
+    B --&gt; C
+    C --&gt; D
+    D -- holds up --&gt; F
+    F --&gt; G
+    G -- earned --&gt; I
+    I --&gt; J
+    J --&gt; K
+    K --&gt; L
+    L -- lands --&gt; N
+    N --&gt; O
+    O -- yes: ship it --&gt; Q
+    Q --&gt; R
+    R -- high multiplier --&gt; S
+    S --&gt; U &amp; V &amp; W
+    E -. sharpen .-&gt; C
+    G -- too cute --&gt; H
+    H -. reframe .-&gt; F
+    L -- too stiff --&gt; M
+    M -. rewrite .-&gt; K
+    O -- too linear --&gt; P
+    P -. rebuild .-&gt; N
+    R -- missed --&gt; T
+    T -. loop back .-&gt; K
 
     N@{ shape: stadium}
      A:::spark
@@ -483,74 +484,74 @@ flowchart TB
     style SHIP fill:#F5F3FF,stroke:#5E35B1,stroke-width:1.5px,color:#311B92
     style BRAND fill:#F1F5F9,stroke:#64748B,stroke-width:1.5px,color:#334155
                   </div>
-                </div>
-              </div>
-              <div class="diagram-card diagram-card--embed">
-                <div class="diagram-card-header">
-                  <h4>Perplexity V2</h4>
-                  <p>Can pragmatism also become beautiful? Visually memorable, clarity under complexity.</p>
-                  <div class="diagram-card-links">
-                    <a href="https://mermaid.ai/d/1e77a8a7-ec42-47ea-8cc6-8fe03204785c" target="_blank" rel="noopener noreferrer" class="diagram-external-link">Open in Mermaid.ai &#8599;</a>
-                    <a href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-perplexity-v2.mmd" target="_blank" rel="noopener noreferrer" class="diagram-source-link">View source &#8599;</a>
-                  </div>
-                </div>
-                <div class="diagram-embed-wrap">
-                  <div class="mermaid">
+</div>
+</div>
+<div class="diagram-card diagram-card--embed">
+<div class="diagram-card-header">
+<h4>Perplexity V2</h4>
+<p>Can pragmatism also become beautiful? Visually memorable, clarity under complexity.</p>
+<div class="diagram-card-links">
+<a class="diagram-external-link" href="https://mermaid.ai/d/1e77a8a7-ec42-47ea-8cc6-8fe03204785c" rel="noopener noreferrer" target="_blank">Open in Mermaid.ai ↗</a>
+<a class="diagram-source-link" href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-perplexity-v2.mmd" rel="noopener noreferrer" target="_blank">View source ↗</a>
+</div>
+</div>
+<div class="diagram-embed-wrap">
+<div class="mermaid">
 ---
 config:
   theme: neutral
   look: neo
 ---
 flowchart LR
- subgraph L1["Prose 📝: Setup & Claim"]
+ subgraph L1["Prose 📝: Setup &amp; Claim"]
     direction TB
-        A["💥 Spark<br>A picture is worth 1,000 words?"]
-        B["Notice reality:<br>text-only creates polite confusion"]
-        C["Draft core claim:<br>Not all pictures earn their words"]
-        D["Define ROY:<br>Return on Your Words<br>(clarity gained ÷ effort spent)"]
+        A["💥 Spark<br/>A picture is worth 1,000 words?"]
+        B["Notice reality:<br/>text-only creates polite confusion"]
+        C["Draft core claim:<br/>Not all pictures earn their words"]
+        D["Define ROY:<br/>Return on Your Words<br/>(clarity gained ÷ effort spent)"]
   end
  subgraph L2["Visual 🖼️: Modeling the Mess"]
     direction TB
-        E["Pick medium:<br>LinkedIn post + Mermaid diagram"]
-        F["Ask LLM for Mermaid V1<br>(ugly, honest, first swing)"]
-        G{{"Does this diagram<br>reflect real chaos?"}}
-        H["Too linear / fake-happy-path<br>→ add forks, loops, dead ends"]
-        I["Too noisy / decorative<br>→ kill clutter ✂️ keep signal"]
-        J["Tune structure &amp; labels<br>so 5 seconds ≈ main idea"]
-        K["Apply light styling<br>classes · colors · emoji signposts"]
+        E["Pick medium:<br/>LinkedIn post + Mermaid diagram"]
+        F["Ask LLM for Mermaid V1<br/>(ugly, honest, first swing)"]
+        G{{"Does this diagram<br/>reflect real chaos?"}}
+        H["Too linear / fake-happy-path<br/>→ add forks, loops, dead ends"]
+        I["Too noisy / decorative<br/>→ kill clutter ✂️ keep signal"]
+        J["Tune structure &amp; labels<br/>so 5 seconds ≈ main idea"]
+        K["Apply light styling<br/>classes · colors · emoji signposts"]
   end
  subgraph L3["System 🌲: Ship, Learn, Leverage"]
     direction TB
-        L["Align prose to diagram:<br>Hook → thesis → proof → CTA"]
-        M{{"ROY check:<br>Is this visual worth its words?"}}
-        N["✅ High ROY:<br>Diagram saves meetings &amp; rework"]
-        O["Render final diagram image<br>+ code snippet screenshot"]
-        P["Post to LinkedIn:<br>text + images + Mermaid link"]
-        Q["Read comments as<br>confusion signals &amp; new angles"]
-        R["Fold insights into<br>next diagram + next post"]
+        L["Align prose to diagram:<br/>Hook → thesis → proof → CTA"]
+        M{{"ROY check:<br/>Is this visual worth its words?"}}
+        N["✅ High ROY:<br/>Diagram saves meetings &amp; rework"]
+        O["Render final diagram image<br/>+ code snippet screenshot"]
+        P["Post to LinkedIn:<br/>text + images + Mermaid link"]
+        Q["Read comments as<br/>confusion signals &amp; new angles"]
+        R["Fold insights into<br/>next diagram + next post"]
   end
-    A --> B
-    B --> C
-    C --> D
-    D -- High ROY potential 💹 --> E
-    D -- Low ROY 😬 --> C
-    E --> F
-    F --> G
-    G -- Too neat --> H
-    H --> F
-    G -- Too messy --> I
-    I --> F
-    G -- Honest enough --> J
-    J --> K
-    K --> L
-    L --> M
-    M -- Yes, earns its space --> N
-    N --> O
-    O --> P
-    P --> Q
-    Q --> R
-    R --> F
-    M -- Not yet --> J
+    A --&gt; B
+    B --&gt; C
+    C --&gt; D
+    D -- High ROY potential 💹 --&gt; E
+    D -- Low ROY 😬 --&gt; C
+    E --&gt; F
+    F --&gt; G
+    G -- Too neat --&gt; H
+    H --&gt; F
+    G -- Too messy --&gt; I
+    I --&gt; F
+    G -- Honest enough --&gt; J
+    J --&gt; K
+    K --&gt; L
+    L --&gt; M
+    M -- Yes, earns its space --&gt; N
+    N --&gt; O
+    O --&gt; P
+    P --&gt; Q
+    Q --&gt; R
+    R --&gt; F
+    M -- Not yet --&gt; J
 
      A:::spark
      A:::spark
@@ -604,19 +605,19 @@ flowchart LR
     linkStyle 12 stroke:#5e35b1,stroke-width:2.2px,fill:none
     linkStyle 15 stroke:#ef6c00,stroke-width:2px,stroke-dasharray:4 3,fill:none
                   </div>
-                </div>
-              </div>
-              <div class="diagram-card diagram-card--embed">
-                <div class="diagram-card-header">
-                  <h4>Replit V2</h4>
-                  <p>Sharper code sense, same honest question. Render-tested builder&#8217;s restraint.</p>
-                  <div class="diagram-card-links">
-                    <a href="https://mermaid.ai/d/478c63dc-47c1-419a-b4a9-dac33707fc55" target="_blank" rel="noopener noreferrer" class="diagram-external-link">Open in Mermaid.ai &#8599;</a>
-                    <a href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-replit-v2.mmd" target="_blank" rel="noopener noreferrer" class="diagram-source-link">View source &#8599;</a>
-                  </div>
-                </div>
-                <div class="diagram-embed-wrap">
-                  <div class="mermaid">
+</div>
+</div>
+<div class="diagram-card diagram-card--embed">
+<div class="diagram-card-header">
+<h4>Replit V2</h4>
+<p>Sharper code sense, same honest question. Render-tested builder’s restraint.</p>
+<div class="diagram-card-links">
+<a class="diagram-external-link" href="https://mermaid.ai/d/478c63dc-47c1-419a-b4a9-dac33707fc55" rel="noopener noreferrer" target="_blank">Open in Mermaid.ai ↗</a>
+<a class="diagram-source-link" href="https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-replit-v2.mmd" rel="noopener noreferrer" target="_blank">View source ↗</a>
+</div>
+</div>
+<div class="diagram-embed-wrap">
+<div class="mermaid">
 %%{init:{"theme":"base","themeVariables":{"primaryColor":"#111827","primaryTextColor":"#e5e7eb","primaryBorderColor":"#c46a2c","lineColor":"#c46a2c","secondaryColor":"#181f26","tertiaryColor":"#1c3a34","fontFamily":"DM Sans, system-ui, sans-serif","fontSize":"14px","edgeLabelBackground":"#111827","clusterBkg":"#0a1628","clusterBorder":"#c46a2c"}}}%%
 flowchart TD
   classDef spark     fill:#c46a2c,stroke:#e6a03c,color:#0f172a,font-weight:bold
@@ -635,7 +636,7 @@ flowchart TD
   end
 
   subgraph CRAFT["✏️ Craft: the first diagram lies"]
-    MERM["<img src='https://avatars.githubusercontent.com/u/57169982?s=60&v=4' width='60' height='60' alt='Mermaid logo' fetchpriority="high" loading="eager"/><br/>Generated with Mermaid"]:::logo
+    MERM["<img alt="Mermaid logo" fetchpriority="high" height="60" loading="eager" src="https://avatars.githubusercontent.com/u/57169982?s=60&amp;v=4" width="60"/><br/>Generated with Mermaid"]:::logo
     C{"Honest? Not a happy path"}:::gate
     D["Add the non-happy path: loops, forks, dead ends"]:::revise
     E{"ROY gate: did the words earn the visual?"}:::gate
@@ -656,26 +657,26 @@ flowchart TD
 
   subgraph REPLIT["🔧 Replit: past the page"]
     M{"Is the insight runnable?"}:::gate
-    REP["<img src='https://avatars.githubusercontent.com/u/983879?s=60&v=4' width='60' height='60' alt='Replit logo' loading="lazy"/><br/>Built and deployed on Replit"]:::live
+    REP["<img alt="Replit logo" height="60" loading="lazy" src="https://avatars.githubusercontent.com/u/983879?s=60&amp;v=4" width="60"/><br/>Built and deployed on Replit"]:::live
     N[["Live article: overkillhill.com: click to read"]]:::live
     O[["Fork this. Build your own council."]]:::live
   end
 
-  Z["<img src='https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png' width='80' height='80' alt='OverKill Hill P³' loading="lazy"/><br/>OverKill Hill P3: Precision · Protocol · Promptcraft<br/>The words were the investment. The diagram is the return. The page is the proof.<br/>☕ Support the forge on Ko-fi"]:::brand
+  Z["<img alt="OverKill Hill P³" height="80" loading="lazy" src="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" width="80"/><br/>OverKill Hill P3: Precision · Protocol · Promptcraft<br/>The words were the investment. The diagram is the return. The page is the proof.<br/>☕ Support the forge on Ko-fi"]:::brand
 
-  A --> B --> MERM --> C
-  C -. "still lying" .-> D --> C
-  C --> E
-  E -. "poor ROY" .-> F --> B
-  E --> G --> H
-  H -. "just noise" .-> G
-  H --> I --> J
-  J --> K
-  K -. "patch v2" .-> L
-  J --> M
-  M -. "stays prose" .-> L
-  M --> REP --> N --> O
-  L & O --> Z
+  A --&gt; B --&gt; MERM --&gt; C
+  C -. "still lying" .-&gt; D --&gt; C
+  C --&gt; E
+  E -. "poor ROY" .-&gt; F --&gt; B
+  E --&gt; G --&gt; H
+  H -. "just noise" .-&gt; G
+  H --&gt; I --&gt; J
+  J --&gt; K
+  K -. "patch v2" .-&gt; L
+  J --&gt; M
+  M -. "stays prose" .-&gt; L
+  M --&gt; REP --&gt; N --&gt; O
+  L &amp; O --&gt; Z
 
   click MERM "https://mermaidchart.cello.so/UhVlNtC2MlS" "Try Mermaid: referral link"
   click REP "https://replit.com/refer/overkillhillp3" "Build on Replit: referral link"
@@ -686,66 +687,63 @@ flowchart TD
   click N "https://overkillhill.com/writings/first-diagram-is-a-liar/" "Open the live page"
   click Z "https://ko-fi.com/T6T71HCY6A" "Support the forge on Ko-fi"
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
+</div>
+</div>
+</div>
+</div>
+<div class="heat-actions" style="margin-top: 2.5rem;">
+<p><strong>← Back to the full article:</strong> <a href="/writings/first-diagram-is-a-liar/#v2-diagrams">The First Diagram Is Usually a Liar, V2 Diagrams →</a></p>
+<p><strong>Download the deck:</strong> <a href="/writings/first-diagram-is-a-liar/#v03-deck">Etch-AI-Sketch deck (square + wide) →</a></p>
+</div>
+<div class="mermaid-cta">
+<p><strong>Want to explore Mermaid diagrams yourself?</strong></p>
+<p>The diagrams above were built with Mermaid.js and rendered live on this page. To explore the syntax or build your own, <a href="https://mermaidchart.cello.so/UhVlNtC2MlS" rel="noopener noreferrer" target="_blank">Mermaid Chart</a> is the place to start. That is a separate referral path from the diagram links above.</p>
+</div>
+</div>
+</div>
 
-          <div class="heat-actions" style="margin-top: 2.5rem;">
-            <p><strong>← Back to the full article:</strong> <a href="/writings/first-diagram-is-a-liar/#v2-diagrams">The First Diagram Is Usually a Liar, V2 Diagrams &rarr;</a></p>
-            <p><strong>Download the deck:</strong> <a href="/writings/first-diagram-is-a-liar/#v03-deck">Etch-AI-Sketch deck (square + wide) &rarr;</a></p>
-          </div>
-
-          <div class="mermaid-cta">
-            <p><strong>Want to explore Mermaid diagrams yourself?</strong></p>
-            <p>The diagrams above were built with Mermaid.js and rendered live on this page. To explore the syntax or build your own, <a href="https://mermaidchart.cello.so/UhVlNtC2MlS" target="_blank" rel="noopener noreferrer">Mermaid Chart</a> is the place to start. That is a separate referral path from the diagram links above.</p>
-          </div>
-
-        </div>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div class="footer-column">
-          <h3>OverKill&nbsp;Hill&nbsp;P³™</h3>
-          <p>Protocol-first AI systems design: local inference, multi-model coordination, and the governance layer the platforms forgot to build.</p>
-        </div>
-        <div class="footer-column">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="/#forge">The Forge</a></li>
-            <li><a href="/universe/">P³ Universe</a></li>
-            <li><a href="/manifesto/">The Manifesto</a></li>
-            <li><a href="/projects/">Our Projects</a></li>
-            <li><a href="/writings/">Writings</a></li>
-            <li><a href="/about/">About OKH P³</a></li>
-            <li><a href="/contact/">Contact OKH P³</a></li>
-            <li><a href="/legal/">Legal</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
-            <li><a href="https://ko-fi.com/overkillhillp3" target="_blank" rel="noopener noreferrer">Ko-fi</a></li>
-            <li><a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener noreferrer">Fiverr</a></li>
-            <li><a href="https://www.linkedin.com/company/overkillhillp3" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="https://facebook.com/OverKillHillP3/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-            <li><a href="https://x.com/OverKillHillP3" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
-            <li><a href="https://www.youtube.com/@OverKillHillP3" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="footer-built-with">Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer">Replit</a></span>
-        <p class="footer-copyright">&copy; <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³™. All rights reserved.</p>
-        <span></span>
-      </div>
-    </footer>
-
+  </main>
+<footer class="site-footer">
+<div class="container footer-grid">
+<div class="footer-column">
+<h3>OverKill Hill P³™</h3>
+<p>Protocol-first AI systems design: local inference, multi-model coordination, and the governance layer the platforms forgot to build.</p>
+</div>
+<div class="footer-column">
+<h4>Navigation</h4>
+<ul>
+<li><a href="/#forge">The Forge</a></li>
+<li><a href="/universe/">P³ Universe</a></li>
+<li><a href="/manifesto/">The Manifesto</a></li>
+<li><a href="/projects/">Our Projects</a></li>
+<li><a href="/writings/">Writings</a></li>
+<li><a href="/about/">About OKH P³</a></li>
+<li><a href="/contact/">Contact OKH P³</a></li>
+<li><a href="/legal/">Legal</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Connect</h4>
+<ul>
+<li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
+<li><a href="https://ko-fi.com/overkillhillp3" rel="noopener noreferrer" target="_blank">Ko-fi</a></li>
+<li><a href="https://pro.fiverr.com/s/VYKPpoB" rel="noopener noreferrer" target="_blank">Fiverr</a></li>
+<li><a href="https://www.linkedin.com/company/overkillhillp3" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+<li><a href="https://facebook.com/OverKillHillP3/" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+<li><a href="https://x.com/OverKillHillP3" rel="noopener noreferrer" target="_blank">X (Twitter)</a></li>
+<li><a href="https://www.youtube.com/@OverKillHillP3" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
+<span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;" target="_blank">Replit</a></span>
+<p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill Hill P³™. All rights reserved.</p>
+<span></span>
+</div>
+</footer>
     <script src="/assets/js/app.js?v=be5eab85"></script>
-    <script type="module" src="/assets/js/mermaid-init.js?v=b6d63860"></script>
+<div aria-hidden="true" class="reading-progress" id="reading-progress"></div>
+<script src="/assets/js/mermaid-init.js?v=b6d63860" type="module"></script>
 <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -759,6 +757,38 @@ flowchart TD
         "datePublished": "2026-04-15",
         "isPartOf": { "@type": "Article", "name": "The First Diagram Is Usually a Liar, v0.3 Visual Edition", "url": "https://overkillhill.com/writings/first-diagram-is-a-liar/" }
       }
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "OverKill Hill P³™",
+        "item": "https://overkillhill.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Writings",
+        "item": "https://overkillhill.com/writings/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "The First Diagram Is Usually a Liar",
+        "item": "https://overkillhill.com/writings/first-diagram-is-a-liar/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "V2 Heat B: Revised Diagram Field Guide",
+        "item": "https://overkillhill.com/writings/first-diagram-is-a-liar/v03/v2-heat-b/"
+      }
+      ]
+    }
     </script>
 </body>
 </html>

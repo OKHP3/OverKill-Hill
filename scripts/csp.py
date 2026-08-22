@@ -148,7 +148,7 @@ def load_policies() -> dict[str, str]:
 def meta_policy(path: Path) -> str | None:
     source = path.read_text(encoding="utf-8", errors="replace")
     match = META_RE.search(source)
-    return match.group(1) if match else None
+    return match.group(2) if match else None
 
 
 def render_meta(policy: str) -> str:

@@ -35,7 +35,7 @@ from pathlib import Path
 from urllib.parse import urlparse, unquote
 
 ROOT = Path(__file__).resolve().parent.parent
-SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "dist", "templates", ".agents"}
+SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src"}
 SITEMAP = ROOT / "sitemap.xml"
 SITE_ORIGIN = "https://overkillhill.com"
 THEME_STYLESHEET_PATH = "/assets/css/theme.css"
@@ -133,7 +133,7 @@ def find_html_files() -> list[Path]:
         # /assets/templates/ holds stripped template scaffolds with [PLACEHOLDER]
         # tokens — not live pages. They're parsed separately by extract-templates.py.
         rel_posix = rel.as_posix()
-        if rel_posix.startswith("assets/templates/"):
+        if rel_posix.startswith(("assets/templates/", "assets/partials/")):
             continue
         files.append(path)
     return sorted(files)

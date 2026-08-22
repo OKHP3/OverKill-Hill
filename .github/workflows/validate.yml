@@ -49,6 +49,9 @@ jobs:
       - name: Run site validator
         run: python3 scripts/validate-site.py
 
+      - name: Check generated HTML is current
+        run: python3 scripts/build-site.py --check
+
       - name: Check canonical CSP policies
         run: python3 scripts/check-csp.py
 

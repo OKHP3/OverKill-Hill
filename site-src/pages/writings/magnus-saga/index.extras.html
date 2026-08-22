@@ -1,0 +1,111 @@
+<div class="construction-overlay" data-wip-key="found-ry">
+<div class="construction-overlay__card">
+<picture><source srcset="/assets/img/over-kill-hill-p3-bird-patrol-comp-left-under-construction-wide-1536.webp" type="image/webp"/><img alt="The Forge is undergoing construction" class="construction-overlay__image" height="768" loading="lazy" src="/assets/img/over-kill-hill-p3-bird-patrol-comp-left-under-construction-wide-1536.png" width="1536"/></picture>
+<p class="construction-overlay__copy">
+          This Found‑Rᵧ page is still being wired up. Sections may move,
+          links may change, and some flows aren't ready yet; exploration is at your own risk
+          the MurderBird is in a mood!
+        </p>
+<div class="construction-overlay__actions">
+<button class="btn btn-primary construction-overlay__dismiss" data-wip-dismiss="" type="button">
+            I'm warned, and I want to risk it. Let me in!
+          </button>
+</div>
+</div>
+</div>
+<script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "OverKill Hill P³™",
+        "url": "https://overkillhill.com",
+        "description": "OverKill Hill P³™ is the digital forge for AI systems design: local inference, agentic coordination, and the protocols that make it hold.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://overkillhill.com/search/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+<script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Magnus Progenitor Saga",
+        "description": "A speculative fiction series exploring origin, recursion, and the nature of intelligence, from the OverKill Hill P³ forge.",
+        "url": "https://overkillhill.com/writings/magnus-saga/",
+        "image": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png",
+        "author": { "@type": "Organization", "name": "OverKill Hill P³™", "url": "https://overkillhill.com" },
+        "publisher": { "@type": "Organization", "name": "OverKill Hill P³™", "url": "https://overkillhill.com",
+          "logo": { "@type": "ImageObject", "url": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png" } },
+        "datePublished": "2025-01-01",
+        "isPartOf": { "@type": "WebSite", "name": "OverKill Hill P³™", "url": "https://overkillhill.com" }
+      }
+    </script>
+<script type="module">
+      import mermaid from "/assets/vendor/mermaid/mermaid.esm.min.mjs";
+
+      // Pull final, brand-specific tokens (OKH / AskJamie / Glee) from computed styles
+      const styles = getComputedStyle(document.body);
+
+      const surface = styles.getPropertyValue("--color-surface").trim() || "#111827";
+      const surfaceSoft = styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
+      const fg = styles.getPropertyValue("--color-fg").trim() || "#e5e7eb";
+      const accent = styles.getPropertyValue("--color-accent").trim() || "#c46a2c";
+      const muted = styles.getPropertyValue("--color-muted").trim() || "#6b7280";
+      const fontBody =
+        styles.getPropertyValue("--font-body").trim() ||
+        '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
+
+      mermaid.initialize({
+        startOnLoad: true,
+        securityLevel: "strict",
+        theme: "base",            // modifiable theme
+        themeVariables: {
+          primaryColor: surface,        // node background
+          primaryTextColor: fg,
+          primaryBorderColor: accent,
+          lineColor: accent,
+          secondaryColor: surfaceSoft,  // secondary fills / highlights
+          tertiaryColor: surfaceSoft,
+          textColor: fg,
+          fontFamily: fontBody,
+          noteBkgColor: surface,
+          noteTextColor: muted
+        },
+        flowchart: {
+          curve: "basis",
+          nodeSpacing: 60,
+          rankSpacing: 70
+        }
+      });
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "OverKill Hill P³™",
+        "item": "https://overkillhill.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Writings",
+        "item": "https://overkillhill.com/writings/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "The Magnus Saga",
+        "item": "https://overkillhill.com/writings/magnus-saga/"
+      }
+      ]
+    }
+    </script>

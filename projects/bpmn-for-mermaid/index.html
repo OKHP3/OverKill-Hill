@@ -1,141 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- ========================================
+<head>
+<!-- ========================================
        METADATA: Core Document & Character Set
        ======================================== -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://cdn.jsdelivr.net 'sha256-0w9MiOplLF4U/KzMsFtHdRxlVXfMyee1YEXKQCpHgRM=' 'sha256-3Cackdtp7Do2OrDkhZ8HQxibdFsvQhw0sUCB/9aSLkI=' 'sha256-54HVTXWFw7Zkr6ae0qjzYmuEfX7zeNPSmmgBbGcvXYA=' 'sha256-57wI2U/qr1O6ptBywIuIr7i+I356rhGPUzQu7ritMQQ=' 'sha256-7kS4taYxOotanhpObMfQ3o0rgebN1P3aqxrG1oJavMY=' 'sha256-83ioGcchzfdRDLGMcFCHjDPS7HZJfvrYjAly0xIC3fM=' 'sha256-KVtCu6gsjaQElccFMMifvbE1jLHXwFA78succB1lZkc=' 'sha256-MFoAv98Qwd6MHaIf+1PFpz4ALVYG4o1iX1DwNOQX9Eo=' 'sha256-STmaN+6lMvCR9wPObeDHm9914SI5bqfxgUYrResP2Hs=' 'sha256-YEpQUGpUx33y9ygrngAcvgYidkIpKrrgmhRunGMEqx0=' 'sha256-buLA739BVD6Ci3951TK/q+SzC2VYGxfJ58o3CtjSmB0=' 'sha256-e23SgYYz6PmmBNsag5O/bllarTwbAlqPcpHLNDuwcJA=' 'sha256-ee4qj7PmWdicS1+8BfoZ7gKUmUkNk9fCPvLK3CwGE18=' 'sha256-eoZKPPj7R1opAA3EaZUGTmO56gm1hhyiyo8phdpFl9c=' 'sha256-gHiFvULFIsXf5hUshwpKF11tDkvGBPOvfyc29G6vP1A=' 'sha256-ldN9wYpudPxPNk+mQabbziTX1HFuPZg2yy2T3c+aB90=' 'sha256-nqTrz2UX2KwyqXRQsfv1I4JXHG2qecDa4ZzF78zzUhg=' 'sha256-sSMqNNAauNnTk/pd1iPIz5clmGc4R5IA5LE9lnMFJK4=' 'sha256-sdwyZHRqE+fhQNLHz15izJXmyapmsIaxKnbX3exyeZQ=' 'sha256-ssEUflZoKdkHVfmZG5RO7NCLh3qHJC0nomBEARWO7HE=' 'sha256-tjlTzCw8mOcG8HZeEhgJJg/GEokwcRIfkRLKCmpRfyI=' 'sha256-z+kbhAfYnais1UUyDCDwulWuXH8+RLiV94ugXlzKRl8='; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com 'sha256-+/8l6fxQyrdundiK66ViWS5VlHiQUAi4V/Ir8XXFYh0=' 'sha256-+9jP7I5yRDNniaD2krT0dDi3BPYf2yw+67DWtjrdCT4=' 'sha256-+NWaEWEiOokl6/ucapRIPoU6asHGXKK1zVVyER15XhU=' 'sha256-+hs2WWbnf7y2ytdtXgIdlYNSq4hxX2K0Wl7v70yBwE4=' 'sha256-/WQLt0O4667878Qkwzat/C8h2Hfoh1y8VMh4NnaR++Q=' 'sha256-02ObSVUox8Jemge0oiQ9C1xwK2uZrOMeqo8pLzcnFpU=' 'sha256-0LPehmr2igikxTM6fICLGVQe9zNT05oCNqGEz97HYJw=' 'sha256-0Z6BO7cUVkTL/64d4a2Etu/8JsOv2Z37F/sW/TAo0lQ=' 'sha256-0mGWIZpfGEiSyfs7EOqTzToN2xnn2wmK1MavGc6+2g4=' 'sha256-14I0xhEDhgrt9wQ0lOYVQzSZ3qjal0gfoeq/gRthR+Y=' 'sha256-3pPm6HM/L3qW8lARkxhbSGTSUr3mIwtdbyvPkqSS44k=' 'sha256-4ABrSkoP1/Af9jwER6ZHoKy+DIHE9hcdKtberkZwsQI=' 'sha256-4UGMPKFU4zYVlJG/f0f/11EM1XxpNzCqKlJDqH8Ehjs=' 'sha256-5+OSNQ+fq9YlrvTQq26C7lsJG2Ozca21ycLN/Ddngno=' 'sha256-6+OoY3OtE7fYL9P1yU1F4Niud53yBieMAFyBkXiGb2Y=' 'sha256-63zVsn35aCT/QnDh8ppEEkqRzXGHihukARx71zc1L6c=' 'sha256-7U31ZIvmzHzecBIxj2oxE/1JEFlxxwf77bw0czlq2Ck=' 'sha256-7gKArtK6ARgJ8ClYKlpZ5dtpg0458bAsfaT1uHg0Nik=' 'sha256-8+aw/GPDnsEP5p9I84UgZvqzNbEbXSVIdFVNrwprqdg=' 'sha256-8Y0tUJoB3woFTaCRV0HUvzGfa4oAb9POznyt3+OX29c=' 'sha256-8kskclswgoAJgMIdO95KiOr6ot+4HCyPtS8ZsRhVGQY=' 'sha256-8mOgHe5JQKHuvGcFYROrRLvOTrcZW5zApq1plvOlZlU=' 'sha256-9bfCCwGSr1Rxd4Iskd65MnTsqaueDkfleeVMCSZblcY=' 'sha256-ApvrjydsrFFND5aB5EdB19oa++aXLaGwuYfXpYUXS5E=' 'sha256-BJ9KjGmp9vSDvxBEhheqisJiYFYfQan/0saV0Got0xo=' 'sha256-BoRIKPhrPpF5dKnHlfhZUzyR+DGJG/McheRQy/5hKnA=' 'sha256-DIQvgYNsE6ygLkpVjrMzTjHfkCzj6QhYcFMz/0KCo6A=' 'sha256-DLV7nXSEUAZgAi/ImzopB3kAbiN2+ac5oNt1Pcsbbfk=' 'sha256-DrsITAEAFiydGbSwToX2gDxu7jVJF2KuNa1VvKLrLKA=' 'sha256-DzlPv7bqFdHCUQWBtDVuHAIKCJnJHTBAB1zdV+aAkXM=' 'sha256-EaQQo6r+9RnV2p1vUFJvXKePcTv9wd1W3PX5StXBrcE=' 'sha256-F2nLHvEDyomd5RTjsfkbPPXxLNt0yUAGYvuV3LLsOD8=' 'sha256-G+2Po1FC9+qYDFQJQkKp3zRp0JSzX84MO+RQWzLHO+0=' 'sha256-GeuTHR31gC4YhST+Pmki/3UF2cGI2JTtXWyAOHzoMeg=' 'sha256-Gw27IjM8abyIdUYHmIL+RVuYR3vMMcHp2NU3W6nASN4=' 'sha256-H7liKfTnHv+yPQhaGGz/C3DbtqqlCW1GmwmQqtL/CZc=' 'sha256-HRAgwcWH8S3GPDMERCN0X/WINofjxuOWwUbP85Got3o=' 'sha256-Hln1u3JbEQHJkR7Ps8J4qM7GPRqNES4yYqqSbVL4DQg=' 'sha256-IE/emEkJA2hT13ZFrrBKFrJaJKrwT2fzL837OYS7i40=' 'sha256-J5sTY/rDr7JAs1jgco5cnWMq6peTN9FWSFmBAKw1F1k=' 'sha256-K4XtRnaj2lzE3boZnOv8YXeSxuPaCmNtQrWg/CvgVAw=' 'sha256-KNyFB29etgQ1hOF++NPDgXkWmqOpn5JGD7Nb0o48Wog=' 'sha256-KOZuf3qlb/1LMYoDQGHZEb0MkLU14aScIdtpz3RwEGc=' 'sha256-Kiv7dWWPPn49TTZgDgv2u4URkJHxe3kz4RDX1gZG2x4=' 'sha256-MMp5XDCCSHUd9Ij1xcI1roUL2w47Lvi1zMU3fI111KQ=' 'sha256-Meslg56kbN+8QDPFZHK+TqvM4bAobOXCWfLHQW324Wk=' 'sha256-MqFQYnStmE7P5bnyFMRRZHs+t4t0+QtZqxJeaHAgTgA=' 'sha256-MuRqXTotcJlT23rNMm8COAeJiE77TD0FffWuwU2za3c=' 'sha256-Mw+aAm7ucl+rf31t7UyBVAzDVji/bR95tXZqg/222uI=' 'sha256-Npi0e/ANNXKbSeTAhR1w1yNS9RIF6i1FAJRy0vDJ2Wo=' 'sha256-OFTcqjwabgeSVHiyd4FSAH/lKYr3CpAwp30q7DGZexM=' 'sha256-OHUrsR9aDjV/SSJRGMUphog5eQ3LNhM5R0WYRjvs/5M=' 'sha256-OIMJqZv4UTq4ArlOLjujzpzeHIhDxqMBQKqe2UMmuTg=' 'sha256-PGJ8tjuz2DXGgB1Sie9pW8BrxBGK6EQndbLEkXd44T8=' 'sha256-Plu4F2hGS+wC9dOCZ771Toql2ifD4ciZcMAoOF5ee88=' 'sha256-Pvr9k2TxL6P0L+opA7KAicNg81I+IPeC4aLu0uaSmZ4=' 'sha256-QEIf/cMA4YKs6vpVkqDcp3GiNDH0RAD9QnMpGDvCvts=' 'sha256-RCsCPlU52CtIRNNS7jAHKQnZEcAOjjd8Oeo0MPekLSw=' 'sha256-T7kKa8xi0YETebjOTYkFP89svJ2zWV+5KX8WPGV8hbY=' 'sha256-TbVO6/XTaawgYdudR8tNoTcZoViyovsPOXJoqxEU1vE=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-Wb64Hqavr0WEsXs2PWRdr5MrF9e6xyhvWwVcgLK/hRY=' 'sha256-Wmktxzz3Xgrfr1dh83JwyjZXYB2B8hpOUWjszTi6u1w=' 'sha256-XgeARjgOKVzxaBBRUhkwWxlPyO2F+5yjmLzebDIdjPI=' 'sha256-YCn4kVAKxXbQ1vpmfPoJGZ+LrWiwbI0jR97gF781/rQ=' 'sha256-abZk601zV19/TDgd5Ars7HX1y1OOO4hsuth7J93tvYo=' 'sha256-bIar/cPJnqntN9qnOOmn1j/aU60ON2A8/ny78LOGFuU=' 'sha256-c7UnSi5GHMneLprBUkJ4+qX0hdPRBiV49lfKmOYrBJc=' 'sha256-cJKKiqq21PYEOE2twdo0d6pBZR0HqVWFZh/9HTTWd7Q=' 'sha256-dovafdmRD7y5TNjxhO6ij/p5PU9plMpKIPJlRnsA07I=' 'sha256-eakvqXAlIxrQhu68SAx0SRBGsHGXwIxTtAF3tRijt5o=' 'sha256-edfpRw9792wC/pUnE/dTFQ7OqGyPWLR9hKe4bRUa87Q=' 'sha256-ff36XR2UuO456YRawoLrU8tavSlNiPmENy698h7gMWY=' 'sha256-jpaRQxx4Gk1h1MqZEZI0AsDURAzdugEE/jAoDLoh3O0=' 'sha256-lhwF0yb/IfjEFWPvm9s1OKmpyrGgXYWyGkIU1/l+oi4=' 'sha256-mIJVRiJpVEwsRXKwOM2bLVteuoGfccvta8oAtOXvn3g=' 'sha256-nsaN9XXBQnL1UScc6XpjGyl9Ep7HVpI2z2c5psSnGgM=' 'sha256-nv8L7K3maocl9migKRDjB7I1u0Q01IjMZ5Ibac4le6c=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-oyxMjRYa7GZvb9/cTRE3BC669tZl6QK0cYkx+8GRMDg=' 'sha256-pHZRBddnSViMydSQLyM3wcf29jGEaXgMfjgJHXrdZCQ=' 'sha256-r0u0jqJAcpnEz72EEzmA4Dc6+jcEX+jf2YeL08f2NDg=' 'sha256-rr9MHMazKuHH0aNfQ5DDfoBVHVqZiZIvfw0ylnvCAso=' 'sha256-rxuCKgeN6L6KRThbygcS+S0j0+o//t6jONM6lYQM8LI=' 'sha256-sRMo+7BipNtcYGMt0p/wAvb3s3FtepLNy97GRskQDWY=' 'sha256-sUymMv8Qpo8082tl66K1kS6/mlKovaui4vyHZ8ZQyyA=' 'sha256-sXRweIQb8OFRJgaO5Nnwxy7N1NVYdEYROW7U0tBuWxw=' 'sha256-subzVTE+mWheOUrV0leCjfwMGxoXtsmXiEpcIXmHBXM=' 'sha256-t/h1/ZuhPp+alttQauTlPW0G+i6YOUkE6tdmN+vzjQc=' 'sha256-tfbSoODAVuNJowpt2V4y6bqhqVUzhFExxq8NlEahPDY=' 'sha256-tx9SjSE35N+AyUcwGbioyhlpL7dK6WTgOU55CdIG+X0=' 'sha256-uPtBRKB8u1TURvzYFDeDAyNIGWDOPnOWKSjwnre37Y8=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-vfMrP+9ENatXjfOvPnjF44QawYxXd7oWPvQmM84orkM=' 'sha256-vjArgTCUptCAbm4mirAfMKUu1Pz/XFvQqDWXTeDjh5Y=' 'sha256-x9GBI2VBIAq78NqbwbbVFteKoOZFC/97KomNRiP1jOo=' 'sha256-xhOtUUj0TSdEvjpFHZ57LvbK5PD0cWWdW0Y6w0PS3C4=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y='; style-src-attr 'unsafe-hashes' 'sha256-+/8l6fxQyrdundiK66ViWS5VlHiQUAi4V/Ir8XXFYh0=' 'sha256-+9jP7I5yRDNniaD2krT0dDi3BPYf2yw+67DWtjrdCT4=' 'sha256-+NWaEWEiOokl6/ucapRIPoU6asHGXKK1zVVyER15XhU=' 'sha256-+hs2WWbnf7y2ytdtXgIdlYNSq4hxX2K0Wl7v70yBwE4=' 'sha256-/WQLt0O4667878Qkwzat/C8h2Hfoh1y8VMh4NnaR++Q=' 'sha256-02ObSVUox8Jemge0oiQ9C1xwK2uZrOMeqo8pLzcnFpU=' 'sha256-0LPehmr2igikxTM6fICLGVQe9zNT05oCNqGEz97HYJw=' 'sha256-0Z6BO7cUVkTL/64d4a2Etu/8JsOv2Z37F/sW/TAo0lQ=' 'sha256-0mGWIZpfGEiSyfs7EOqTzToN2xnn2wmK1MavGc6+2g4=' 'sha256-14I0xhEDhgrt9wQ0lOYVQzSZ3qjal0gfoeq/gRthR+Y=' 'sha256-3pPm6HM/L3qW8lARkxhbSGTSUr3mIwtdbyvPkqSS44k=' 'sha256-4ABrSkoP1/Af9jwER6ZHoKy+DIHE9hcdKtberkZwsQI=' 'sha256-4UGMPKFU4zYVlJG/f0f/11EM1XxpNzCqKlJDqH8Ehjs=' 'sha256-5+OSNQ+fq9YlrvTQq26C7lsJG2Ozca21ycLN/Ddngno=' 'sha256-6+OoY3OtE7fYL9P1yU1F4Niud53yBieMAFyBkXiGb2Y=' 'sha256-63zVsn35aCT/QnDh8ppEEkqRzXGHihukARx71zc1L6c=' 'sha256-7U31ZIvmzHzecBIxj2oxE/1JEFlxxwf77bw0czlq2Ck=' 'sha256-7gKArtK6ARgJ8ClYKlpZ5dtpg0458bAsfaT1uHg0Nik=' 'sha256-8+aw/GPDnsEP5p9I84UgZvqzNbEbXSVIdFVNrwprqdg=' 'sha256-8Y0tUJoB3woFTaCRV0HUvzGfa4oAb9POznyt3+OX29c=' 'sha256-8kskclswgoAJgMIdO95KiOr6ot+4HCyPtS8ZsRhVGQY=' 'sha256-8mOgHe5JQKHuvGcFYROrRLvOTrcZW5zApq1plvOlZlU=' 'sha256-9bfCCwGSr1Rxd4Iskd65MnTsqaueDkfleeVMCSZblcY=' 'sha256-ApvrjydsrFFND5aB5EdB19oa++aXLaGwuYfXpYUXS5E=' 'sha256-BJ9KjGmp9vSDvxBEhheqisJiYFYfQan/0saV0Got0xo=' 'sha256-BoRIKPhrPpF5dKnHlfhZUzyR+DGJG/McheRQy/5hKnA=' 'sha256-DIQvgYNsE6ygLkpVjrMzTjHfkCzj6QhYcFMz/0KCo6A=' 'sha256-DLV7nXSEUAZgAi/ImzopB3kAbiN2+ac5oNt1Pcsbbfk=' 'sha256-DrsITAEAFiydGbSwToX2gDxu7jVJF2KuNa1VvKLrLKA=' 'sha256-DzlPv7bqFdHCUQWBtDVuHAIKCJnJHTBAB1zdV+aAkXM=' 'sha256-EaQQo6r+9RnV2p1vUFJvXKePcTv9wd1W3PX5StXBrcE=' 'sha256-F2nLHvEDyomd5RTjsfkbPPXxLNt0yUAGYvuV3LLsOD8=' 'sha256-G+2Po1FC9+qYDFQJQkKp3zRp0JSzX84MO+RQWzLHO+0=' 'sha256-GeuTHR31gC4YhST+Pmki/3UF2cGI2JTtXWyAOHzoMeg=' 'sha256-Gw27IjM8abyIdUYHmIL+RVuYR3vMMcHp2NU3W6nASN4=' 'sha256-H7liKfTnHv+yPQhaGGz/C3DbtqqlCW1GmwmQqtL/CZc=' 'sha256-HRAgwcWH8S3GPDMERCN0X/WINofjxuOWwUbP85Got3o=' 'sha256-Hln1u3JbEQHJkR7Ps8J4qM7GPRqNES4yYqqSbVL4DQg=' 'sha256-IE/emEkJA2hT13ZFrrBKFrJaJKrwT2fzL837OYS7i40=' 'sha256-J5sTY/rDr7JAs1jgco5cnWMq6peTN9FWSFmBAKw1F1k=' 'sha256-K4XtRnaj2lzE3boZnOv8YXeSxuPaCmNtQrWg/CvgVAw=' 'sha256-KNyFB29etgQ1hOF++NPDgXkWmqOpn5JGD7Nb0o48Wog=' 'sha256-KOZuf3qlb/1LMYoDQGHZEb0MkLU14aScIdtpz3RwEGc=' 'sha256-Kiv7dWWPPn49TTZgDgv2u4URkJHxe3kz4RDX1gZG2x4=' 'sha256-MMp5XDCCSHUd9Ij1xcI1roUL2w47Lvi1zMU3fI111KQ=' 'sha256-Meslg56kbN+8QDPFZHK+TqvM4bAobOXCWfLHQW324Wk=' 'sha256-MqFQYnStmE7P5bnyFMRRZHs+t4t0+QtZqxJeaHAgTgA=' 'sha256-MuRqXTotcJlT23rNMm8COAeJiE77TD0FffWuwU2za3c=' 'sha256-Mw+aAm7ucl+rf31t7UyBVAzDVji/bR95tXZqg/222uI=' 'sha256-Npi0e/ANNXKbSeTAhR1w1yNS9RIF6i1FAJRy0vDJ2Wo=' 'sha256-OFTcqjwabgeSVHiyd4FSAH/lKYr3CpAwp30q7DGZexM=' 'sha256-OHUrsR9aDjV/SSJRGMUphog5eQ3LNhM5R0WYRjvs/5M=' 'sha256-OIMJqZv4UTq4ArlOLjujzpzeHIhDxqMBQKqe2UMmuTg=' 'sha256-PGJ8tjuz2DXGgB1Sie9pW8BrxBGK6EQndbLEkXd44T8=' 'sha256-Plu4F2hGS+wC9dOCZ771Toql2ifD4ciZcMAoOF5ee88=' 'sha256-Pvr9k2TxL6P0L+opA7KAicNg81I+IPeC4aLu0uaSmZ4=' 'sha256-QEIf/cMA4YKs6vpVkqDcp3GiNDH0RAD9QnMpGDvCvts=' 'sha256-RCsCPlU52CtIRNNS7jAHKQnZEcAOjjd8Oeo0MPekLSw=' 'sha256-T7kKa8xi0YETebjOTYkFP89svJ2zWV+5KX8WPGV8hbY=' 'sha256-TbVO6/XTaawgYdudR8tNoTcZoViyovsPOXJoqxEU1vE=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-Wb64Hqavr0WEsXs2PWRdr5MrF9e6xyhvWwVcgLK/hRY=' 'sha256-Wmktxzz3Xgrfr1dh83JwyjZXYB2B8hpOUWjszTi6u1w=' 'sha256-XgeARjgOKVzxaBBRUhkwWxlPyO2F+5yjmLzebDIdjPI=' 'sha256-YCn4kVAKxXbQ1vpmfPoJGZ+LrWiwbI0jR97gF781/rQ=' 'sha256-abZk601zV19/TDgd5Ars7HX1y1OOO4hsuth7J93tvYo=' 'sha256-bIar/cPJnqntN9qnOOmn1j/aU60ON2A8/ny78LOGFuU=' 'sha256-c7UnSi5GHMneLprBUkJ4+qX0hdPRBiV49lfKmOYrBJc=' 'sha256-cJKKiqq21PYEOE2twdo0d6pBZR0HqVWFZh/9HTTWd7Q=' 'sha256-dovafdmRD7y5TNjxhO6ij/p5PU9plMpKIPJlRnsA07I=' 'sha256-eakvqXAlIxrQhu68SAx0SRBGsHGXwIxTtAF3tRijt5o=' 'sha256-edfpRw9792wC/pUnE/dTFQ7OqGyPWLR9hKe4bRUa87Q=' 'sha256-ff36XR2UuO456YRawoLrU8tavSlNiPmENy698h7gMWY=' 'sha256-jpaRQxx4Gk1h1MqZEZI0AsDURAzdugEE/jAoDLoh3O0=' 'sha256-lhwF0yb/IfjEFWPvm9s1OKmpyrGgXYWyGkIU1/l+oi4=' 'sha256-mIJVRiJpVEwsRXKwOM2bLVteuoGfccvta8oAtOXvn3g=' 'sha256-nsaN9XXBQnL1UScc6XpjGyl9Ep7HVpI2z2c5psSnGgM=' 'sha256-nv8L7K3maocl9migKRDjB7I1u0Q01IjMZ5Ibac4le6c=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-oyxMjRYa7GZvb9/cTRE3BC669tZl6QK0cYkx+8GRMDg=' 'sha256-pHZRBddnSViMydSQLyM3wcf29jGEaXgMfjgJHXrdZCQ=' 'sha256-r0u0jqJAcpnEz72EEzmA4Dc6+jcEX+jf2YeL08f2NDg=' 'sha256-rr9MHMazKuHH0aNfQ5DDfoBVHVqZiZIvfw0ylnvCAso=' 'sha256-rxuCKgeN6L6KRThbygcS+S0j0+o//t6jONM6lYQM8LI=' 'sha256-sRMo+7BipNtcYGMt0p/wAvb3s3FtepLNy97GRskQDWY=' 'sha256-sUymMv8Qpo8082tl66K1kS6/mlKovaui4vyHZ8ZQyyA=' 'sha256-sXRweIQb8OFRJgaO5Nnwxy7N1NVYdEYROW7U0tBuWxw=' 'sha256-subzVTE+mWheOUrV0leCjfwMGxoXtsmXiEpcIXmHBXM=' 'sha256-t/h1/ZuhPp+alttQauTlPW0G+i6YOUkE6tdmN+vzjQc=' 'sha256-tfbSoODAVuNJowpt2V4y6bqhqVUzhFExxq8NlEahPDY=' 'sha256-tx9SjSE35N+AyUcwGbioyhlpL7dK6WTgOU55CdIG+X0=' 'sha256-uPtBRKB8u1TURvzYFDeDAyNIGWDOPnOWKSjwnre37Y8=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-vfMrP+9ENatXjfOvPnjF44QawYxXd7oWPvQmM84orkM=' 'sha256-vjArgTCUptCAbm4mirAfMKUu1Pz/XFvQqDWXTeDjh5Y=' 'sha256-x9GBI2VBIAq78NqbwbbVFteKoOZFC/97KomNRiP1jOo=' 'sha256-xhOtUUj0TSdEvjpFHZ57LvbK5PD0cWWdW0Y6w0PS3C4=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y='; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://overkillhill.com https://*.github.io; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; frame-src 'self' https://okhp3.github.io; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests" />
-    <meta name="language" content="English" />
-
-    <!-- ========================================
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://cdn.jsdelivr.net 'sha256-0w9MiOplLF4U/KzMsFtHdRxlVXfMyee1YEXKQCpHgRM=' 'sha256-3Cackdtp7Do2OrDkhZ8HQxibdFsvQhw0sUCB/9aSLkI=' 'sha256-54HVTXWFw7Zkr6ae0qjzYmuEfX7zeNPSmmgBbGcvXYA=' 'sha256-57wI2U/qr1O6ptBywIuIr7i+I356rhGPUzQu7ritMQQ=' 'sha256-7kS4taYxOotanhpObMfQ3o0rgebN1P3aqxrG1oJavMY=' 'sha256-83ioGcchzfdRDLGMcFCHjDPS7HZJfvrYjAly0xIC3fM=' 'sha256-KVtCu6gsjaQElccFMMifvbE1jLHXwFA78succB1lZkc=' 'sha256-MFoAv98Qwd6MHaIf+1PFpz4ALVYG4o1iX1DwNOQX9Eo=' 'sha256-STmaN+6lMvCR9wPObeDHm9914SI5bqfxgUYrResP2Hs=' 'sha256-YEpQUGpUx33y9ygrngAcvgYidkIpKrrgmhRunGMEqx0=' 'sha256-buLA739BVD6Ci3951TK/q+SzC2VYGxfJ58o3CtjSmB0=' 'sha256-e23SgYYz6PmmBNsag5O/bllarTwbAlqPcpHLNDuwcJA=' 'sha256-ee4qj7PmWdicS1+8BfoZ7gKUmUkNk9fCPvLK3CwGE18=' 'sha256-eoZKPPj7R1opAA3EaZUGTmO56gm1hhyiyo8phdpFl9c=' 'sha256-gHiFvULFIsXf5hUshwpKF11tDkvGBPOvfyc29G6vP1A=' 'sha256-ldN9wYpudPxPNk+mQabbziTX1HFuPZg2yy2T3c+aB90=' 'sha256-nqTrz2UX2KwyqXRQsfv1I4JXHG2qecDa4ZzF78zzUhg=' 'sha256-sSMqNNAauNnTk/pd1iPIz5clmGc4R5IA5LE9lnMFJK4=' 'sha256-sdwyZHRqE+fhQNLHz15izJXmyapmsIaxKnbX3exyeZQ=' 'sha256-ssEUflZoKdkHVfmZG5RO7NCLh3qHJC0nomBEARWO7HE=' 'sha256-tjlTzCw8mOcG8HZeEhgJJg/GEokwcRIfkRLKCmpRfyI=' 'sha256-z+kbhAfYnais1UUyDCDwulWuXH8+RLiV94ugXlzKRl8='; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com 'sha256-+/8l6fxQyrdundiK66ViWS5VlHiQUAi4V/Ir8XXFYh0=' 'sha256-+9jP7I5yRDNniaD2krT0dDi3BPYf2yw+67DWtjrdCT4=' 'sha256-+NWaEWEiOokl6/ucapRIPoU6asHGXKK1zVVyER15XhU=' 'sha256-+hs2WWbnf7y2ytdtXgIdlYNSq4hxX2K0Wl7v70yBwE4=' 'sha256-/WQLt0O4667878Qkwzat/C8h2Hfoh1y8VMh4NnaR++Q=' 'sha256-02ObSVUox8Jemge0oiQ9C1xwK2uZrOMeqo8pLzcnFpU=' 'sha256-0LPehmr2igikxTM6fICLGVQe9zNT05oCNqGEz97HYJw=' 'sha256-0Z6BO7cUVkTL/64d4a2Etu/8JsOv2Z37F/sW/TAo0lQ=' 'sha256-0mGWIZpfGEiSyfs7EOqTzToN2xnn2wmK1MavGc6+2g4=' 'sha256-14I0xhEDhgrt9wQ0lOYVQzSZ3qjal0gfoeq/gRthR+Y=' 'sha256-3pPm6HM/L3qW8lARkxhbSGTSUr3mIwtdbyvPkqSS44k=' 'sha256-4ABrSkoP1/Af9jwER6ZHoKy+DIHE9hcdKtberkZwsQI=' 'sha256-4UGMPKFU4zYVlJG/f0f/11EM1XxpNzCqKlJDqH8Ehjs=' 'sha256-5+OSNQ+fq9YlrvTQq26C7lsJG2Ozca21ycLN/Ddngno=' 'sha256-6+OoY3OtE7fYL9P1yU1F4Niud53yBieMAFyBkXiGb2Y=' 'sha256-63zVsn35aCT/QnDh8ppEEkqRzXGHihukARx71zc1L6c=' 'sha256-7U31ZIvmzHzecBIxj2oxE/1JEFlxxwf77bw0czlq2Ck=' 'sha256-7gKArtK6ARgJ8ClYKlpZ5dtpg0458bAsfaT1uHg0Nik=' 'sha256-8+aw/GPDnsEP5p9I84UgZvqzNbEbXSVIdFVNrwprqdg=' 'sha256-8Y0tUJoB3woFTaCRV0HUvzGfa4oAb9POznyt3+OX29c=' 'sha256-8kskclswgoAJgMIdO95KiOr6ot+4HCyPtS8ZsRhVGQY=' 'sha256-8mOgHe5JQKHuvGcFYROrRLvOTrcZW5zApq1plvOlZlU=' 'sha256-9bfCCwGSr1Rxd4Iskd65MnTsqaueDkfleeVMCSZblcY=' 'sha256-ApvrjydsrFFND5aB5EdB19oa++aXLaGwuYfXpYUXS5E=' 'sha256-BJ9KjGmp9vSDvxBEhheqisJiYFYfQan/0saV0Got0xo=' 'sha256-BoRIKPhrPpF5dKnHlfhZUzyR+DGJG/McheRQy/5hKnA=' 'sha256-DIQvgYNsE6ygLkpVjrMzTjHfkCzj6QhYcFMz/0KCo6A=' 'sha256-DLV7nXSEUAZgAi/ImzopB3kAbiN2+ac5oNt1Pcsbbfk=' 'sha256-DrsITAEAFiydGbSwToX2gDxu7jVJF2KuNa1VvKLrLKA=' 'sha256-DzlPv7bqFdHCUQWBtDVuHAIKCJnJHTBAB1zdV+aAkXM=' 'sha256-EaQQo6r+9RnV2p1vUFJvXKePcTv9wd1W3PX5StXBrcE=' 'sha256-F2nLHvEDyomd5RTjsfkbPPXxLNt0yUAGYvuV3LLsOD8=' 'sha256-GeuTHR31gC4YhST+Pmki/3UF2cGI2JTtXWyAOHzoMeg=' 'sha256-Gw27IjM8abyIdUYHmIL+RVuYR3vMMcHp2NU3W6nASN4=' 'sha256-H7liKfTnHv+yPQhaGGz/C3DbtqqlCW1GmwmQqtL/CZc=' 'sha256-HRAgwcWH8S3GPDMERCN0X/WINofjxuOWwUbP85Got3o=' 'sha256-Hln1u3JbEQHJkR7Ps8J4qM7GPRqNES4yYqqSbVL4DQg=' 'sha256-IE/emEkJA2hT13ZFrrBKFrJaJKrwT2fzL837OYS7i40=' 'sha256-J5sTY/rDr7JAs1jgco5cnWMq6peTN9FWSFmBAKw1F1k=' 'sha256-K4XtRnaj2lzE3boZnOv8YXeSxuPaCmNtQrWg/CvgVAw=' 'sha256-KNyFB29etgQ1hOF++NPDgXkWmqOpn5JGD7Nb0o48Wog=' 'sha256-KOZuf3qlb/1LMYoDQGHZEb0MkLU14aScIdtpz3RwEGc=' 'sha256-Kiv7dWWPPn49TTZgDgv2u4URkJHxe3kz4RDX1gZG2x4=' 'sha256-MMp5XDCCSHUd9Ij1xcI1roUL2w47Lvi1zMU3fI111KQ=' 'sha256-Meslg56kbN+8QDPFZHK+TqvM4bAobOXCWfLHQW324Wk=' 'sha256-MqFQYnStmE7P5bnyFMRRZHs+t4t0+QtZqxJeaHAgTgA=' 'sha256-MuRqXTotcJlT23rNMm8COAeJiE77TD0FffWuwU2za3c=' 'sha256-Mw+aAm7ucl+rf31t7UyBVAzDVji/bR95tXZqg/222uI=' 'sha256-Npi0e/ANNXKbSeTAhR1w1yNS9RIF6i1FAJRy0vDJ2Wo=' 'sha256-OFTcqjwabgeSVHiyd4FSAH/lKYr3CpAwp30q7DGZexM=' 'sha256-OHUrsR9aDjV/SSJRGMUphog5eQ3LNhM5R0WYRjvs/5M=' 'sha256-OIMJqZv4UTq4ArlOLjujzpzeHIhDxqMBQKqe2UMmuTg=' 'sha256-PGJ8tjuz2DXGgB1Sie9pW8BrxBGK6EQndbLEkXd44T8=' 'sha256-Plu4F2hGS+wC9dOCZ771Toql2ifD4ciZcMAoOF5ee88=' 'sha256-Pvr9k2TxL6P0L+opA7KAicNg81I+IPeC4aLu0uaSmZ4=' 'sha256-QEIf/cMA4YKs6vpVkqDcp3GiNDH0RAD9QnMpGDvCvts=' 'sha256-RCsCPlU52CtIRNNS7jAHKQnZEcAOjjd8Oeo0MPekLSw=' 'sha256-T7kKa8xi0YETebjOTYkFP89svJ2zWV+5KX8WPGV8hbY=' 'sha256-TbVO6/XTaawgYdudR8tNoTcZoViyovsPOXJoqxEU1vE=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-Wb64Hqavr0WEsXs2PWRdr5MrF9e6xyhvWwVcgLK/hRY=' 'sha256-Wmktxzz3Xgrfr1dh83JwyjZXYB2B8hpOUWjszTi6u1w=' 'sha256-XgeARjgOKVzxaBBRUhkwWxlPyO2F+5yjmLzebDIdjPI=' 'sha256-YCn4kVAKxXbQ1vpmfPoJGZ+LrWiwbI0jR97gF781/rQ=' 'sha256-abZk601zV19/TDgd5Ars7HX1y1OOO4hsuth7J93tvYo=' 'sha256-bIar/cPJnqntN9qnOOmn1j/aU60ON2A8/ny78LOGFuU=' 'sha256-c7UnSi5GHMneLprBUkJ4+qX0hdPRBiV49lfKmOYrBJc=' 'sha256-cJKKiqq21PYEOE2twdo0d6pBZR0HqVWFZh/9HTTWd7Q=' 'sha256-dovafdmRD7y5TNjxhO6ij/p5PU9plMpKIPJlRnsA07I=' 'sha256-edfpRw9792wC/pUnE/dTFQ7OqGyPWLR9hKe4bRUa87Q=' 'sha256-ff36XR2UuO456YRawoLrU8tavSlNiPmENy698h7gMWY=' 'sha256-jpaRQxx4Gk1h1MqZEZI0AsDURAzdugEE/jAoDLoh3O0=' 'sha256-lhwF0yb/IfjEFWPvm9s1OKmpyrGgXYWyGkIU1/l+oi4=' 'sha256-mIJVRiJpVEwsRXKwOM2bLVteuoGfccvta8oAtOXvn3g=' 'sha256-nsaN9XXBQnL1UScc6XpjGyl9Ep7HVpI2z2c5psSnGgM=' 'sha256-nv8L7K3maocl9migKRDjB7I1u0Q01IjMZ5Ibac4le6c=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-oyxMjRYa7GZvb9/cTRE3BC669tZl6QK0cYkx+8GRMDg=' 'sha256-pHZRBddnSViMydSQLyM3wcf29jGEaXgMfjgJHXrdZCQ=' 'sha256-r0u0jqJAcpnEz72EEzmA4Dc6+jcEX+jf2YeL08f2NDg=' 'sha256-rr9MHMazKuHH0aNfQ5DDfoBVHVqZiZIvfw0ylnvCAso=' 'sha256-rxuCKgeN6L6KRThbygcS+S0j0+o//t6jONM6lYQM8LI=' 'sha256-sRMo+7BipNtcYGMt0p/wAvb3s3FtepLNy97GRskQDWY=' 'sha256-sUymMv8Qpo8082tl66K1kS6/mlKovaui4vyHZ8ZQyyA=' 'sha256-sXRweIQb8OFRJgaO5Nnwxy7N1NVYdEYROW7U0tBuWxw=' 'sha256-subzVTE+mWheOUrV0leCjfwMGxoXtsmXiEpcIXmHBXM=' 'sha256-t/h1/ZuhPp+alttQauTlPW0G+i6YOUkE6tdmN+vzjQc=' 'sha256-tfbSoODAVuNJowpt2V4y6bqhqVUzhFExxq8NlEahPDY=' 'sha256-tx9SjSE35N+AyUcwGbioyhlpL7dK6WTgOU55CdIG+X0=' 'sha256-uPtBRKB8u1TURvzYFDeDAyNIGWDOPnOWKSjwnre37Y8=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-vfMrP+9ENatXjfOvPnjF44QawYxXd7oWPvQmM84orkM=' 'sha256-vjArgTCUptCAbm4mirAfMKUu1Pz/XFvQqDWXTeDjh5Y=' 'sha256-x9GBI2VBIAq78NqbwbbVFteKoOZFC/97KomNRiP1jOo=' 'sha256-xhOtUUj0TSdEvjpFHZ57LvbK5PD0cWWdW0Y6w0PS3C4=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y='; style-src-attr 'unsafe-hashes' 'sha256-+/8l6fxQyrdundiK66ViWS5VlHiQUAi4V/Ir8XXFYh0=' 'sha256-+9jP7I5yRDNniaD2krT0dDi3BPYf2yw+67DWtjrdCT4=' 'sha256-+NWaEWEiOokl6/ucapRIPoU6asHGXKK1zVVyER15XhU=' 'sha256-+hs2WWbnf7y2ytdtXgIdlYNSq4hxX2K0Wl7v70yBwE4=' 'sha256-/WQLt0O4667878Qkwzat/C8h2Hfoh1y8VMh4NnaR++Q=' 'sha256-02ObSVUox8Jemge0oiQ9C1xwK2uZrOMeqo8pLzcnFpU=' 'sha256-0LPehmr2igikxTM6fICLGVQe9zNT05oCNqGEz97HYJw=' 'sha256-0Z6BO7cUVkTL/64d4a2Etu/8JsOv2Z37F/sW/TAo0lQ=' 'sha256-0mGWIZpfGEiSyfs7EOqTzToN2xnn2wmK1MavGc6+2g4=' 'sha256-14I0xhEDhgrt9wQ0lOYVQzSZ3qjal0gfoeq/gRthR+Y=' 'sha256-3pPm6HM/L3qW8lARkxhbSGTSUr3mIwtdbyvPkqSS44k=' 'sha256-4ABrSkoP1/Af9jwER6ZHoKy+DIHE9hcdKtberkZwsQI=' 'sha256-4UGMPKFU4zYVlJG/f0f/11EM1XxpNzCqKlJDqH8Ehjs=' 'sha256-5+OSNQ+fq9YlrvTQq26C7lsJG2Ozca21ycLN/Ddngno=' 'sha256-6+OoY3OtE7fYL9P1yU1F4Niud53yBieMAFyBkXiGb2Y=' 'sha256-63zVsn35aCT/QnDh8ppEEkqRzXGHihukARx71zc1L6c=' 'sha256-7U31ZIvmzHzecBIxj2oxE/1JEFlxxwf77bw0czlq2Ck=' 'sha256-7gKArtK6ARgJ8ClYKlpZ5dtpg0458bAsfaT1uHg0Nik=' 'sha256-8+aw/GPDnsEP5p9I84UgZvqzNbEbXSVIdFVNrwprqdg=' 'sha256-8Y0tUJoB3woFTaCRV0HUvzGfa4oAb9POznyt3+OX29c=' 'sha256-8kskclswgoAJgMIdO95KiOr6ot+4HCyPtS8ZsRhVGQY=' 'sha256-8mOgHe5JQKHuvGcFYROrRLvOTrcZW5zApq1plvOlZlU=' 'sha256-9bfCCwGSr1Rxd4Iskd65MnTsqaueDkfleeVMCSZblcY=' 'sha256-ApvrjydsrFFND5aB5EdB19oa++aXLaGwuYfXpYUXS5E=' 'sha256-BJ9KjGmp9vSDvxBEhheqisJiYFYfQan/0saV0Got0xo=' 'sha256-BoRIKPhrPpF5dKnHlfhZUzyR+DGJG/McheRQy/5hKnA=' 'sha256-DIQvgYNsE6ygLkpVjrMzTjHfkCzj6QhYcFMz/0KCo6A=' 'sha256-DLV7nXSEUAZgAi/ImzopB3kAbiN2+ac5oNt1Pcsbbfk=' 'sha256-DrsITAEAFiydGbSwToX2gDxu7jVJF2KuNa1VvKLrLKA=' 'sha256-DzlPv7bqFdHCUQWBtDVuHAIKCJnJHTBAB1zdV+aAkXM=' 'sha256-EaQQo6r+9RnV2p1vUFJvXKePcTv9wd1W3PX5StXBrcE=' 'sha256-F2nLHvEDyomd5RTjsfkbPPXxLNt0yUAGYvuV3LLsOD8=' 'sha256-GeuTHR31gC4YhST+Pmki/3UF2cGI2JTtXWyAOHzoMeg=' 'sha256-Gw27IjM8abyIdUYHmIL+RVuYR3vMMcHp2NU3W6nASN4=' 'sha256-H7liKfTnHv+yPQhaGGz/C3DbtqqlCW1GmwmQqtL/CZc=' 'sha256-HRAgwcWH8S3GPDMERCN0X/WINofjxuOWwUbP85Got3o=' 'sha256-Hln1u3JbEQHJkR7Ps8J4qM7GPRqNES4yYqqSbVL4DQg=' 'sha256-IE/emEkJA2hT13ZFrrBKFrJaJKrwT2fzL837OYS7i40=' 'sha256-J5sTY/rDr7JAs1jgco5cnWMq6peTN9FWSFmBAKw1F1k=' 'sha256-K4XtRnaj2lzE3boZnOv8YXeSxuPaCmNtQrWg/CvgVAw=' 'sha256-KNyFB29etgQ1hOF++NPDgXkWmqOpn5JGD7Nb0o48Wog=' 'sha256-KOZuf3qlb/1LMYoDQGHZEb0MkLU14aScIdtpz3RwEGc=' 'sha256-Kiv7dWWPPn49TTZgDgv2u4URkJHxe3kz4RDX1gZG2x4=' 'sha256-MMp5XDCCSHUd9Ij1xcI1roUL2w47Lvi1zMU3fI111KQ=' 'sha256-Meslg56kbN+8QDPFZHK+TqvM4bAobOXCWfLHQW324Wk=' 'sha256-MqFQYnStmE7P5bnyFMRRZHs+t4t0+QtZqxJeaHAgTgA=' 'sha256-MuRqXTotcJlT23rNMm8COAeJiE77TD0FffWuwU2za3c=' 'sha256-Mw+aAm7ucl+rf31t7UyBVAzDVji/bR95tXZqg/222uI=' 'sha256-Npi0e/ANNXKbSeTAhR1w1yNS9RIF6i1FAJRy0vDJ2Wo=' 'sha256-OFTcqjwabgeSVHiyd4FSAH/lKYr3CpAwp30q7DGZexM=' 'sha256-OHUrsR9aDjV/SSJRGMUphog5eQ3LNhM5R0WYRjvs/5M=' 'sha256-OIMJqZv4UTq4ArlOLjujzpzeHIhDxqMBQKqe2UMmuTg=' 'sha256-PGJ8tjuz2DXGgB1Sie9pW8BrxBGK6EQndbLEkXd44T8=' 'sha256-Plu4F2hGS+wC9dOCZ771Toql2ifD4ciZcMAoOF5ee88=' 'sha256-Pvr9k2TxL6P0L+opA7KAicNg81I+IPeC4aLu0uaSmZ4=' 'sha256-QEIf/cMA4YKs6vpVkqDcp3GiNDH0RAD9QnMpGDvCvts=' 'sha256-RCsCPlU52CtIRNNS7jAHKQnZEcAOjjd8Oeo0MPekLSw=' 'sha256-T7kKa8xi0YETebjOTYkFP89svJ2zWV+5KX8WPGV8hbY=' 'sha256-TbVO6/XTaawgYdudR8tNoTcZoViyovsPOXJoqxEU1vE=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-Wb64Hqavr0WEsXs2PWRdr5MrF9e6xyhvWwVcgLK/hRY=' 'sha256-Wmktxzz3Xgrfr1dh83JwyjZXYB2B8hpOUWjszTi6u1w=' 'sha256-XgeARjgOKVzxaBBRUhkwWxlPyO2F+5yjmLzebDIdjPI=' 'sha256-YCn4kVAKxXbQ1vpmfPoJGZ+LrWiwbI0jR97gF781/rQ=' 'sha256-abZk601zV19/TDgd5Ars7HX1y1OOO4hsuth7J93tvYo=' 'sha256-bIar/cPJnqntN9qnOOmn1j/aU60ON2A8/ny78LOGFuU=' 'sha256-c7UnSi5GHMneLprBUkJ4+qX0hdPRBiV49lfKmOYrBJc=' 'sha256-cJKKiqq21PYEOE2twdo0d6pBZR0HqVWFZh/9HTTWd7Q=' 'sha256-dovafdmRD7y5TNjxhO6ij/p5PU9plMpKIPJlRnsA07I=' 'sha256-edfpRw9792wC/pUnE/dTFQ7OqGyPWLR9hKe4bRUa87Q=' 'sha256-ff36XR2UuO456YRawoLrU8tavSlNiPmENy698h7gMWY=' 'sha256-jpaRQxx4Gk1h1MqZEZI0AsDURAzdugEE/jAoDLoh3O0=' 'sha256-lhwF0yb/IfjEFWPvm9s1OKmpyrGgXYWyGkIU1/l+oi4=' 'sha256-mIJVRiJpVEwsRXKwOM2bLVteuoGfccvta8oAtOXvn3g=' 'sha256-nsaN9XXBQnL1UScc6XpjGyl9Ep7HVpI2z2c5psSnGgM=' 'sha256-nv8L7K3maocl9migKRDjB7I1u0Q01IjMZ5Ibac4le6c=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-oyxMjRYa7GZvb9/cTRE3BC669tZl6QK0cYkx+8GRMDg=' 'sha256-pHZRBddnSViMydSQLyM3wcf29jGEaXgMfjgJHXrdZCQ=' 'sha256-r0u0jqJAcpnEz72EEzmA4Dc6+jcEX+jf2YeL08f2NDg=' 'sha256-rr9MHMazKuHH0aNfQ5DDfoBVHVqZiZIvfw0ylnvCAso=' 'sha256-rxuCKgeN6L6KRThbygcS+S0j0+o//t6jONM6lYQM8LI=' 'sha256-sRMo+7BipNtcYGMt0p/wAvb3s3FtepLNy97GRskQDWY=' 'sha256-sUymMv8Qpo8082tl66K1kS6/mlKovaui4vyHZ8ZQyyA=' 'sha256-sXRweIQb8OFRJgaO5Nnwxy7N1NVYdEYROW7U0tBuWxw=' 'sha256-subzVTE+mWheOUrV0leCjfwMGxoXtsmXiEpcIXmHBXM=' 'sha256-t/h1/ZuhPp+alttQauTlPW0G+i6YOUkE6tdmN+vzjQc=' 'sha256-tfbSoODAVuNJowpt2V4y6bqhqVUzhFExxq8NlEahPDY=' 'sha256-tx9SjSE35N+AyUcwGbioyhlpL7dK6WTgOU55CdIG+X0=' 'sha256-uPtBRKB8u1TURvzYFDeDAyNIGWDOPnOWKSjwnre37Y8=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-vfMrP+9ENatXjfOvPnjF44QawYxXd7oWPvQmM84orkM=' 'sha256-vjArgTCUptCAbm4mirAfMKUu1Pz/XFvQqDWXTeDjh5Y=' 'sha256-x9GBI2VBIAq78NqbwbbVFteKoOZFC/97KomNRiP1jOo=' 'sha256-xhOtUUj0TSdEvjpFHZ57LvbK5PD0cWWdW0Y6w0PS3C4=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y='; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://overkillhill.com https://*.github.io; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; frame-src 'self' https://okhp3.github.io; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests" /><meta content="English" name="language"/>
+<!-- ========================================
        METADATA: Primary Title & Description
        ======================================== -->
-    <title>BPMN for Mermaid | OverKill Hill P³™</title>
-    <meta name="description" content="A text-first bpmn-beta diagram type for Mermaid, plus BP-SKILL: a 15-skill Business Process Agent Skill Suite aligned to BABOK, BPM CBOK, and BPMN 2.0.2." />
-    <meta name="keywords" content="BPMN, Mermaid.js, bpmn-beta, business process modeling, DSL, process modeling, diagram type, open source, BPMN 2.0, OverKill Hill, process diagrams, Mermaid plugin, GitHub playground, bpmn-beta DSL, agent skills, SKILL.md, agentskills.io, BP-SKILL, business process agent skills, BABOK agent skills, BPM CBOK, APQC PCF, DMN 1.4, ISO 9001, process narrative specification, PNS.md, Claude Code skills, OpenAI Codex skills, GitHub Copilot skills" />
-    <meta name="author" content="OverKill Hill P³™" />
-    <meta name="creator" content="OverKill Hill P³™" />
-    <meta name="publisher" content="OverKill Hill P³™" />
-
-    <!-- ========================================
+<title>BPMN for Mermaid | OverKill Hill P³™</title>
+<meta content="A text-first bpmn-beta diagram type for Mermaid, plus BP-SKILL: a 15-skill Business Process Agent Skill Suite aligned to BABOK, BPM CBOK, and BPMN 2.0.2." name="description"/>
+<meta content="BPMN, Mermaid.js, bpmn-beta, business process modeling, DSL, process modeling, diagram type, open source, BPMN 2.0, OverKill Hill, process diagrams, Mermaid plugin, GitHub playground, bpmn-beta DSL, agent skills, SKILL.md, agentskills.io, BP-SKILL, business process agent skills, BABOK agent skills, BPM CBOK, APQC PCF, DMN 1.4, ISO 9001, process narrative specification, PNS.md, Claude Code skills, OpenAI Codex skills, GitHub Copilot skills" name="keywords"/>
+<meta content="OverKill Hill P³™" name="author"/>
+<meta content="OverKill Hill P³™" name="creator"/>
+<meta content="OverKill Hill P³™" name="publisher"/>
+<!-- ========================================
        METADATA: Open Graph (Social Sharing)
        ======================================== -->
-    <meta property="og:title" content="BPMN for Mermaid | OverKill Hill P³™" />
-    <meta property="og:description" content="bpmn-beta is the visual output layer of a complete business process methodology. BP-SKILL packages 15 Agent Skills conforming to BABOK v3, BPM CBOK v4.0, BPMN 2.0.2, and ISO 9001:2015. No XML required." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://overkillhill.com/projects/bpmn-for-mermaid/" />
-    <meta property="og:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
-    <meta property="og:image:alt" content="Mechanical raven perched on a vintage computer, OverKill Hill P³ illustration" />
-    <meta property="og:image:width" content="1024" />
-    <meta property="og:image:height" content="1024" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:site_name" content="OverKill Hill P³™" />
-    <meta property="og:locale" content="en_US" />
-
-    <!-- ========================================
+<meta content="BPMN for Mermaid | OverKill Hill P³™" property="og:title"/>
+<meta content="bpmn-beta is the visual output layer of a complete business process methodology. BP-SKILL packages 15 Agent Skills conforming to BABOK v3, BPM CBOK v4.0, BPMN 2.0.2, and ISO 9001:2015. No XML required." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://overkillhill.com/projects/bpmn-for-mermaid/" property="og:url"/>
+<meta content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" property="og:image"/>
+<meta content="Mechanical raven perched on a vintage computer, OverKill Hill P³ illustration" property="og:image:alt"/>
+<meta content="1024" property="og:image:width"/>
+<meta content="1024" property="og:image:height"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="OverKill Hill P³™" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- ========================================
        METADATA: Twitter Card (X Social)
        ======================================== -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="BPMN for Mermaid | OverKill Hill P³™" />
-    <meta name="twitter:description" content="Skills are the AI analogue of SOPs. BP-SKILL is 15 SKILL.md agent skills for the full business process lifecycle. bpmn-beta is the visual output layer. Works with Claude Code, Codex, Copilot, and more." />
-    <meta name="twitter:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
-    <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer, OverKill Hill P³ illustration" />
-    <meta name="twitter:site" content="@OverKillHillP3" />
-    <meta name="twitter:creator" content="@OverKillHillP3" />
-
-    <!-- ========================================
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="BPMN for Mermaid | OverKill Hill P³™" name="twitter:title"/>
+<meta content="Skills are the AI analogue of SOPs. BP-SKILL is 15 SKILL.md agent skills for the full business process lifecycle. bpmn-beta is the visual output layer. Works with Claude Code, Codex, Copilot, and more." name="twitter:description"/>
+<meta content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" name="twitter:image"/>
+<meta content="Mechanical raven perched on a vintage computer, OverKill Hill P³ illustration" name="twitter:image:alt"/>
+<meta content="@OverKillHillP3" name="twitter:site"/>
+<meta content="@OverKillHillP3" name="twitter:creator"/>
+<!-- ========================================
        METADATA: Search & Crawling
        ======================================== -->
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="googlebot" content="index, follow" />
-    <meta name="bingbot" content="index, follow" />
-    <meta name="revisit-after" content="30 days" />
-    <link rel="author" href="/humans.txt" />
-    <link rel="canonical" href="https://overkillhill.com/projects/bpmn-for-mermaid/" />
-    <link rel="alternate" hreflang="en" href="https://overkillhill.com/projects/bpmn-for-mermaid/" />
-
-    <!-- ========================================
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="index, follow" name="googlebot"/>
+<meta content="index, follow" name="bingbot"/>
+<meta content="7 days" name="revisit-after"/>
+<link href="/humans.txt" rel="author"/>
+<link href="https://overkillhill.com/projects/bpmn-for-mermaid/" rel="canonical"/>
+<link href="https://overkillhill.com/projects/bpmn-for-mermaid/" hreflang="en" rel="alternate"/>
+<!-- ========================================
        METADATA: Color Scheme & Theme
        ======================================== -->
-    <meta name="theme-color" content="#2a2320" />
-    <meta name="color-scheme" content="dark light" />
-
-    <!-- ========================================
+<meta content="#2a2320" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<!-- ========================================
        METADATA: Web App & PWA
        ======================================== -->
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-    <!-- ========================================
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<!-- ========================================
        FAVICONS: Multi-Format Icon Support
        ======================================== -->
-    <link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
-    <link rel="icon" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
-    <link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180" type="image/png" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="manifest" href="/site.webmanifest" />
-
-    <!-- ========================================
+<link href="/assets/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/assets/img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- ========================================
        STYLESHEETS & FONTS
        ======================================== -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" />
-    <script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
-    <link rel="stylesheet" href="/assets/css/theme.css?v=4b831f47" />
-
-    <!-- ========================================
-       STRUCTURED DATA
-       ======================================== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareSourceCode",
-      "name": "BPMN for Mermaid (bpmn-beta)",
-      "description": "A Mermaid-native bpmn-beta diagram type implementing a BPMN 2.0 descriptive subset for readable, version-controllable process diagrams.",
-      "url": "https://github.com/OKHP3/mermaid-diagram-bpmn",
-      "codeRepository": "https://github.com/OKHP3/mermaid-diagram-bpmn",
-      "author": {
-        "@type": "Organization",
-        "name": "OverKill Hill P³",
-        "url": "https://overkillhill.com"
-      },
-      "programmingLanguage": "JavaScript",
-      "license": "https://opensource.org/licenses/MIT",
-      "targetProduct": {
-        "@type": "SoftwareApplication",
-        "name": "Mermaid.js",
-        "url": "https://mermaid.js.org"
-      }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "BPMN for Mermaid",
-      "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "Web",
-      "url": "https://overkillhill.com/projects/bpmn-for-mermaid/",
-      "author": {
-        "@type": "Organization",
-        "name": "OverKill Hill P³™"
-      },
-      "description": "A Mermaid-native bpmn-beta diagram type implementing a BPMN 2.0 descriptive subset for readable, version-controllable process diagrams. Built under the OverKill Hill P³™ protocol-driven architecture."
-    }
-    </script>
-
-    <!-- ========================================
-       PAGE-SPECIFIC STYLES
-       ======================================== -->
-    <script type="speculationrules">
+<!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
+<link href="/assets/css/theme.css?v=4b831f47" rel="stylesheet"/>
+<script type="speculationrules">
     {
       "prefetch": [
         { "source": "document", "where": { "and": [
@@ -146,226 +90,164 @@
       ]
     }
     </script>
-  
-    <!-- ========================================
-       STRUCTURED DATA: BreadcrumbList
-       ======================================== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "OverKill Hill P³™",
-        "item": "https://overkillhill.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Projects",
-        "item": "https://overkillhill.com/projects/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "BPMN for Mermaid",
-        "item": "https://overkillhill.com/projects/bpmn-for-mermaid/"
-      }
-      ]
-    }
-    </script>
-      <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
-    <script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
+<script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-VJ1BKXS27H');
     </script>
-  </head>
-
-  <body class="projects-main">
-    <a class="okh-skip-link" href="#main">Skip to main content</a>
-    <!-- ============================================================
-         HEADER
-         ============================================================ -->
-    <header class="site-header" id="top">
-      <div class="container">
-        <div class="logo">
-          <a href="/">
-            <img src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png" alt="OverKill Hill P³ logo" width="40" height="40" loading="lazy" />
-            <span class="sr-only">OverKill&nbsp;Hill&nbsp;P³™ Home</span>
-          </a>
-        </div>
-
-        <nav class="primary-nav" id="navigation" aria-label="Primary">
-          <ul>
-            <li><a href="/#forge">The Forge</a></li>
-            <!-- Projects cluster -->
-            <li class="has-submenu">
-              <a href="/projects/" aria-current="page">Our Projects</a>
-              <ul class="submenu">
-                <li><a href="/projects/skillz/">Skillz Forge</a></li>
-                <li><a href="/projects/found-ry/">Found‑Rᵧ</a></li>
-                <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
-                <li><a href="/projects/bpmn-for-mermaid/" class="is-current">BPMN for Mermaid</a></li>
-                <li><a href="/projects/mac-studio-local-ai-workbench/">Mac Studio Local AI Workbench</a></li>
-                <li><a href="/projects/abrahamic-reference-engine/">Abrahamic Reference Engine</a></li>
-                <li><a href="/projects/glee-fully-chai-chasers/">Glee-fully Chai Chasers</a></li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="/writings/">Writings</a>
-              <ul class="submenu">
-                <li><a href="/manifesto/">The Manifesto</a></li>
-                <li><a href="/prompt-forge/">The Prompt Forge</a></li>
-                <li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="/about/">About</a>
-              <ul class="submenu">
-                <li><a href="/universe/">OKHP³™ Universe</a></li>
-                <li><a href="/about/">About OKHP³™</a></li>
-                <li><a href="/contact/">Contact</a></li>
-                <li><a href="/legal/">Legal</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-
-        <button class="nav-toggle" aria-controls="navigation" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </button>
-      </div>
-
-      <section class="site-specials site-specials--okh" aria-label="Forge update">
-        <span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
-        <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
+</head>
+<body class="projects-main">
+  <a class="okh-skip-link" href="#main">Skip to main content</a>
+<header class="site-header" id="top">
+<div class="container">
+<div class="logo">
+<a href="#top">
+<img alt="OverKill Hill P³ logo" height="40" loading="lazy" src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png" width="40"/>
+<span class="sr-only">OverKill Hill P³™ Home</span>
+</a>
+</div>
+<nav aria-label="Primary" class="primary-nav" id="navigation">
+<ul>
+<li><a href="/#forge">The Forge</a></li>
+<li class="has-submenu">
+<a href="/projects/">Our Projects</a>
+<ul class="submenu">
+<li><a href="/projects/skillz/">Skillz Forge</a></li>
+<li><a href="/projects/found-ry/">Found‑Rᵧ</a></li>
+<li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
+<li><a aria-current="page" href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
+<li><a href="/projects/mac-studio-local-ai-workbench/">Mac Studio Local AI Workbench</a></li>
+<li><a href="/projects/abrahamic-reference-engine/">Abrahamic Reference Engine</a></li>
+<li><a href="/projects/glee-fully-chai-chasers/">Glee-fully Chai Chasers</a></li>
+</ul>
+</li>
+<!-- Writings cluster: Manifesto / Promptcraft / FDIAL -->
+<li class="has-submenu">
+<a href="/writings/">Writings</a>
+<ul class="submenu">
+<li><a href="/manifesto/">The Manifesto</a></li>
+<li><a href="/prompt-forge/">The Prompt Forge</a></li>
+<li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
+</ul>
+</li>
+<!-- About cluster: Universe / About / Contact / Legal -->
+<li class="has-submenu">
+<a href="/about/">About</a>
+<ul class="submenu">
+<li><a href="/universe/">OKHP³™ Universe</a></li>
+<li><a href="/about/">About OKHP³™</a></li>
+<li><a href="/contact/">Contact</a></li>
+<li><a href="/legal/">Legal</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<button aria-controls="navigation" aria-expanded="false" class="nav-toggle">
+<span class="sr-only">Toggle navigation</span>
+<span class="bar"></span><span class="bar"></span><span class="bar"></span>
+</button>
+</div>
+<section aria-label="Forge update" class="site-specials site-specials--okh">
+<span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
+<a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
           v0.5 is live: the Council of AIs scored each other, every model was harder on itself than the architect was. Read it →
         </a>
-      </section>
-    </header>
+</section>
+</header>
+  <main id="main">
 
-    <!-- ============================================================
-         MAIN
-         ============================================================ -->
-    <main id="main">
-      <div class="container">
-
-        <!-- HERO ────────────────────────────────────────────────── -->
-        <section class="project-hero" aria-label="Project overview">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">overkillhill.com</a><span>/</span>
-            <a href="/projects/">projects</a><span>/</span>
-            <span>bpmn-for-mermaid</span>
-          </nav>
-
-          <div class="tag-row">
-            <span class="tag">Open Source</span>
-            <span class="tag">bpmn-beta DSL</span>
-            <span class="tag">BP-SKILL Agent Suite</span>
-            <span class="tag tag--accent">Active</span>
-          </div>
-
-          <h1>BPMN for Mermaid</h1>
-          <p class="hero-sub">Text-first. Standards-aware. Git-native. Agent-ready.</p>
-
-          <p>
+<div class="container">
+<!-- HERO ────────────────────────────────────────────────── -->
+<section aria-label="Project overview" class="project-hero">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">overkillhill.com</a><span>/</span>
+<a href="/projects/">projects</a><span>/</span>
+<span>bpmn-for-mermaid</span>
+</nav>
+<div class="tag-row">
+<span class="tag">Open Source</span>
+<span class="tag">bpmn-beta DSL</span>
+<span class="tag">BP-SKILL Agent Suite</span>
+<span class="tag tag--accent">Active</span>
+</div>
+<h1>BPMN for Mermaid</h1>
+<p class="hero-sub">Text-first. Standards-aware. Git-native. Agent-ready.</p>
+<p>
             Two things live in this project. First: <code style="font-family:'JetBrains Mono',monospace;font-size:0.92rem;color:var(--okh-orange);">bpmn-beta</code>, a text-first DSL for BPMN process diagrams, designed as a Mermaid diagram-type contribution. No XML, no heavyweight tools, no bpmn-js. Second: BP-SKILL, a 15-skill Business Process Agent Skill Suite that uses bpmn-beta as its visual output layer, packaged in the Agent Skills open standard and compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor.
           </p>
-
-          <div class="hero-ctas">
-            <a href="#embed-playground" class="btn btn-primary">Try the Playground →</a>
-            <a href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background:rgba(196,106,44,0.15);border:1px solid rgba(196,106,44,0.5);color:var(--okh-orange);">Explore the Agent Skills →</a>
-            <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">View on GitHub</a>
-          </div>
-        </section>
-
-        <!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
-        <div class="project-layout">
-
-          <!-- MAIN COLUMN ──────────────────────────────────────── -->
-          <div>
-
-            <!-- PLAYGROUND EMBED ────────────────────────────── -->
-            <div class="content-block" id="embed-playground" style="scroll-margin-top: 8rem;">
-              <div class="embed-toolbar">
-                <div class="embed-label">
-                  <span class="embed-live-dot"></span>
-                  Live Playground &nbsp;·&nbsp; okhp3.github.io
+<div class="hero-ctas">
+<a class="btn btn-primary" href="#embed-playground">Try the Playground →</a>
+<a class="btn btn-primary" href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" rel="noopener noreferrer" style="background:rgba(196,106,44,0.15);border:1px solid rgba(196,106,44,0.5);color:var(--okh-orange);" target="_blank">Explore the Agent Skills →</a>
+<a class="btn btn-quiet" href="https://github.com/OKHP3/mermaid-diagram-bpmn" rel="noopener noreferrer" target="_blank">View on GitHub</a>
+</div>
+</section>
+<!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
+<div class="project-layout">
+<!-- MAIN COLUMN ──────────────────────────────────────── -->
+<div>
+<!-- PLAYGROUND EMBED ────────────────────────────── -->
+<div class="content-block" id="embed-playground" style="scroll-margin-top: 8rem;">
+<div class="embed-toolbar">
+<div class="embed-label">
+<span class="embed-live-dot"></span>
+                  Live Playground  ·  okhp3.github.io
                 </div>
-                <div class="embed-actions">
-                  <button class="embed-btn" id="bpmn-reload-btn" title="Reload playground" aria-label="Reload playground">
+<div class="embed-actions">
+<button aria-label="Reload playground" class="embed-btn" id="bpmn-reload-btn" title="Reload playground">
                     ↺ Reload
                   </button>
-                  <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer" class="embed-btn embed-btn--primary">
+<a class="embed-btn embed-btn--primary" href="https://okhp3.github.io/mermaid-diagram-bpmn/" rel="noopener noreferrer" target="_blank">
                     ⤢ Full Screen
                   </a>
-                </div>
-              </div>
-
-              <div class="embed-fallback-cta">
-                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer">
+</div>
+</div>
+<div class="embed-fallback-cta">
+<a href="https://okhp3.github.io/mermaid-diagram-bpmn/" rel="noopener noreferrer" target="_blank">
                   ⤢ Open BPMN Playground Full Screen
                 </a>
-              </div>
-
-              <p class="embed-disclosure" role="note">
-                <strong>External app:</strong> This live playground is served from
-                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer">okhp3.github.io</a>,
+</div>
+<p class="embed-disclosure" role="note">
+<strong>External app:</strong> This live playground is served from
+                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" rel="noopener noreferrer" target="_blank">okhp3.github.io</a>,
                 outside this site’s trust boundary.
               </p>
-
-              <div class="embed-frame-wrapper">
-                <div class="iframe-loading-overlay" id="bpmn-iframe-overlay" aria-hidden="true">
-                  <div class="iframe-spinner"></div>
-                  <span class="iframe-loading-text">Loading BPMN Playground…</span>
-                  <div class="iframe-slow-fallback" id="bpmn-iframe-fallback">
-                    <span class="iframe-loading-text" style="opacity:0.6;">Taking longer than expected?</span>
-                    <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer">Open the playground in a new tab →</a>
-                  </div>
-                </div>
-                <iframe
-                  id="bpmn-tool-iframe"
-                  src="https://okhp3.github.io/mermaid-diagram-bpmn/"
-                  title="BPMN for Mermaid: Live Playground"
-                  loading="lazy"
-                  sandbox="allow-scripts allow-same-origin allow-forms allow-downloads"
-                  allow="clipboard-read 'none'; clipboard-write 'none'; fullscreen 'none'"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  style="width:100%; border:0;"
-                ></iframe>
-              </div>
-
-              <p class="embed-note">
-                Embedded from <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer">okhp3.github.io/mermaid-diagram-bpmn</a>
+<div class="embed-frame-wrapper">
+<div aria-hidden="true" class="iframe-loading-overlay" id="bpmn-iframe-overlay">
+<div class="iframe-spinner"></div>
+<span class="iframe-loading-text">Loading BPMN Playground…</span>
+<div class="iframe-slow-fallback" id="bpmn-iframe-fallback">
+<span class="iframe-loading-text" style="opacity:0.6;">Taking longer than expected?</span>
+<a href="https://okhp3.github.io/mermaid-diagram-bpmn/" rel="noopener noreferrer" target="_blank">Open the playground in a new tab →</a>
+</div>
+</div>
+<iframe allow="clipboard-read 'none'; clipboard-write 'none'; fullscreen 'none'" id="bpmn-tool-iframe" loading="lazy" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-scripts allow-same-origin allow-forms allow-downloads" src="https://okhp3.github.io/mermaid-diagram-bpmn/" style="width:100%; border:0;" title="BPMN for Mermaid: Live Playground"></iframe>
+</div>
+<p class="embed-note">
+                Embedded from <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" rel="noopener noreferrer" target="_blank">okhp3.github.io/mermaid-diagram-bpmn</a>
                 (Open in a new tab for the full experience.)
               </p>
-            </div>
-
-            <!-- DSL SHOWCASE ─────────────────────────────────── -->
-            <div class="content-block" id="dsl-showcase" data-search-index style="scroll-margin-top: 8rem;">
-              <div class="section-label">DSL Example</div>
-              <h2>What bpmn-beta looks like</h2>
-              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1rem;">
+</div>
+<!-- DSL SHOWCASE ─────────────────────────────────── -->
+<div class="content-block" data-search-index="" id="dsl-showcase" style="scroll-margin-top: 8rem;">
+<div class="section-label">DSL Example</div>
+<h2>What bpmn-beta looks like</h2>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1rem;">
                 The canonical purchase order approval flow: three participants, a gateway, and a rejection path, in 20 lines of text. No XML, no drag-and-drop, no proprietary format.
               </p>
-
-              <div class="dsl-showcase">
-                <div class="dsl-showcase-header">
-                  <div class="dsl-lang-badge">
-                    <span class="dsl-live-dot"></span>
+<div class="dsl-showcase">
+<div class="dsl-showcase-header">
+<div class="dsl-lang-badge">
+<span class="dsl-live-dot"></span>
                     bpmn-beta · Canonical Example
                   </div>
-                  <button class="dsl-copy-btn" id="dsl-copy-btn" title="Copy to clipboard">
+<button class="dsl-copy-btn" id="dsl-copy-btn" title="Copy to clipboard">
                     ⎘ Copy
                   </button>
-                </div>
-                <pre class="dsl-code" id="dsl-example-code"><span class="dsl-kw">bpmn-beta</span>
+</div>
+<pre class="dsl-code" id="dsl-example-code"><span class="dsl-kw">bpmn-beta</span>
 <span class="dsl-kw2">accTitle</span><span class="dsl-op">:</span> Purchase Order Approval
 
 <span class="dsl-kw">pool</span> <span class="dsl-id">company</span> <span class="dsl-str">"Company"</span> <span class="dsl-op">{</span>
@@ -392,690 +274,649 @@
   <span class="dsl-id">g1</span> <span class="dsl-op">--&gt;</span> <span class="dsl-id">e2</span><span class="dsl-op">:</span> <span class="dsl-str">"no"</span>
   <span class="dsl-id">t3</span> <span class="dsl-op">--&gt;</span> <span class="dsl-id">e1</span>
 <span class="dsl-op">}</span></pre>
-              </div>
-
-              <p class="dsl-note">
+</div>
+<p class="dsl-note">
                 Paste this into the live playground →
-                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer">okhp3.github.io/mermaid-diagram-bpmn</a>
+                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" rel="noopener noreferrer" target="_blank">okhp3.github.io/mermaid-diagram-bpmn</a>
+</p>
+</div>
+<!-- PROJECT SURFACES ────────────────────────────── -->
+<div class="content-block" data-search-index="" id="project-surfaces" style="scroll-margin-top:8rem;">
+<div class="section-label">Project Surfaces</div>
+<h2>Where to find the project</h2>
+<div class="surfaces-grid">
+<a class="surface-card" href="https://okhp3.github.io/mermaid-diagram-bpmn/" rel="noopener noreferrer" target="_blank">
+<span aria-hidden="true" class="surface-icon">▶</span>
+<span>
+<span class="surface-card-label">Try the Playground</span>
+<span class="surface-card-desc">Live in-browser parser and SVG renderer. Paste bpmn-beta, see output.</span>
+</span>
+</a>
+<a class="surface-card" href="https://github.com/OKHP3/mermaid-diagram-bpmn" rel="noopener noreferrer" target="_blank">
+<span aria-hidden="true" class="surface-icon">◻</span>
+<span>
+<span class="surface-card-label">GitHub Repo</span>
+<span class="surface-card-desc">Full source, DSL spec, architecture notes, and decision log.</span>
+</span>
+</a>
+<a class="surface-card" href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" rel="noopener noreferrer" target="_blank">
+<span aria-hidden="true" class="surface-icon">⬡</span>
+<span>
+<span class="surface-card-label">Agent Skills Browser</span>
+<span class="surface-card-desc">Browse, explore, and download all 15 BP-SKILL agent skills. Individual SKILL.md downloads, full suite zip, and variable layer templates.</span>
+</span>
+</a>
+</div>
+</div>
+<!-- BP-SKILL AGENT SKILL SUITE ───────────────────── -->
+<div class="content-block" data-search-index="" id="bp-skill" style="scroll-margin-top:8rem;">
+<div class="section-label">Business Process Agent Skill Suite</div>
+<h2>BP-SKILL</h2>
+<h3 style="font-size:1rem;margin:1.25rem 0 0.5rem;font-family:var(--font-body);">What it is</h3>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.7;">
+                Skills are the AI analogue of SOPs -- executable, version-controlled, platform-portable instruction sets that auto-activate on semantic match. The Agent Skills open standard (<a href="https://agentskills.io" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">agentskills.io</a>) defines the SKILL.md format. Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, Cursor, and VS Code all support it as of May 2026.
               </p>
-            </div>
-
-            <!-- PROJECT SURFACES ────────────────────────────── -->
-            <div class="content-block" id="project-surfaces" data-search-index style="scroll-margin-top:8rem;">
-              <div class="section-label">Project Surfaces</div>
-              <h2>Where to find the project</h2>
-              <div class="surfaces-grid">
-                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer" class="surface-card">
-                  <span class="surface-icon" aria-hidden="true">▶</span>
-                  <span>
-                    <span class="surface-card-label">Try the Playground</span>
-                    <span class="surface-card-desc">Live in-browser parser and SVG renderer. Paste bpmn-beta, see output.</span>
-                  </span>
-                </a>
-                <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="surface-card">
-                  <span class="surface-icon" aria-hidden="true">◻</span>
-                  <span>
-                    <span class="surface-card-label">GitHub Repo</span>
-                    <span class="surface-card-desc">Full source, DSL spec, architecture notes, and decision log.</span>
-                  </span>
-                </a>
-                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" target="_blank" rel="noopener noreferrer" class="surface-card">
-                  <span class="surface-icon" aria-hidden="true">⬡</span>
-                  <span>
-                    <span class="surface-card-label">Agent Skills Browser</span>
-                    <span class="surface-card-desc">Browse, explore, and download all 15 BP-SKILL agent skills. Individual SKILL.md downloads, full suite zip, and variable layer templates.</span>
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            <!-- BP-SKILL AGENT SKILL SUITE ───────────────────── -->
-            <div class="content-block" id="bp-skill" data-search-index style="scroll-margin-top:8rem;">
-              <div class="section-label">Business Process Agent Skill Suite</div>
-              <h2>BP-SKILL</h2>
-
-              <h3 style="font-size:1rem;margin:1.25rem 0 0.5rem;font-family:var(--font-body);">What it is</h3>
-              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.7;">
-                Skills are the AI analogue of SOPs -- executable, version-controlled, platform-portable instruction sets that auto-activate on semantic match. The Agent Skills open standard (<a href="https://agentskills.io" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">agentskills.io</a>) defines the SKILL.md format. Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, Cursor, and VS Code all support it as of May 2026.
-              </p>
-              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">
                 The public Agent Skills ecosystem has over 89,000 skills. Zero implement a BABOK knowledge area. BP-SKILL is the first standards-conformant, lifecycle-complete business process agent skill suite.
               </p>
-
-              <h3 style="font-size:1rem;margin:0 0 0.5rem;font-family:var(--font-body);">Why bpmn-beta is the visual output layer, not the whole product</h3>
-              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">
+<h3 style="font-size:1rem;margin:0 0 0.5rem;font-family:var(--font-body);">Why bpmn-beta is the visual output layer, not the whole product</h3>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">
                 Most process work never reaches the diagram. Discovery, elicitation, stakeholder mapping, narrative documentation, gap analysis, controls definition, SOP generation, RACI matrices, and SIPOC charts all come before the diagram -- and most of them come after it too. bpmn-beta covers the visual modeling step. BP-SKILL covers the lifecycle.
               </p>
-
-              <h3 style="font-size:1rem;margin:0 0 0.5rem;font-family:var(--font-body);">The 15 skills -- grouped by layer</h3>
-              <div style="overflow-x:auto;margin-bottom:1.5rem;">
-                <table class="dsl-table">
-                  <thead>
-                    <tr><th style="width:130px;">Layer</th><th>Skill</th><th style="width:80px;">Status</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;">Discovery</td>
-                      <td class="dsl-desc">Process Intake &amp; Scope</td>
-                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
-                    </tr>
-                    <tr>
-                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;">Discovery</td>
-                      <td class="dsl-desc">Stakeholder &amp; Role Mapping</td>
-                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
-                    </tr>
-                    <tr>
-                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;">Discovery</td>
-                      <td class="dsl-desc">Elicitation &amp; Interview Facilitation</td>
-                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
-                    </tr>
-                    <tr>
-                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Narrative</td>
-                      <td class="dsl-desc">As-Is Process Capture</td>
-                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
-                    </tr>
-                    <tr>
-                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Narrative</td>
-                      <td class="dsl-desc">Process Narrative Authoring</td>
-                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
-                    </tr>
-                    <tr>
-                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Narrative</td>
-                      <td class="dsl-desc">Gap &amp; Exception Analysis</td>
-                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
-                    </tr>
-                    <tr>
-                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Narrative</td>
-                      <td class="dsl-desc">Future-State &amp; Change Strategy</td>
-                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--color-muted);">Extension</span></td>
-                    </tr>
-                    <tr>
-                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Narrative</td>
-                      <td class="dsl-desc">Validation &amp; Quality Scoring</td>
-                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
-                    </tr>
-                    <tr>
-                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;">Visual Modeling</td>
-                      <td class="dsl-desc">Visual Process Modeling <em style="font-size:0.7rem;opacity:0.6;">(uses bpmn-beta)</em></td>
-                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
-                    </tr>
-                    <tr>
-                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;">Visual Modeling</td>
-                      <td class="dsl-desc">Decision Model Authoring</td>
-                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--color-muted);">Extension</span></td>
-                    </tr>
-                    <tr>
-                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Operational</td>
-                      <td class="dsl-desc">Measures &amp; Controls Definition</td>
-                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--color-muted);">Extension</span></td>
-                    </tr>
-                    <tr>
-                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Operational</td>
-                      <td class="dsl-desc">SOP &amp; Work Instruction Generation</td>
-                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
-                    </tr>
-                    <tr>
-                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Governance</td>
-                      <td class="dsl-desc">RACI &amp; Governance Matrix</td>
-                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
-                    </tr>
-                    <tr>
-                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Governance</td>
-                      <td class="dsl-desc">SIPOC Generation</td>
-                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
-                    </tr>
-                    <tr>
-                      <td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Publication</td>
-                      <td class="dsl-desc">Publication &amp; Handoff Packaging</td>
-                      <td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <h3 style="font-size:1rem;margin:0 0 0.5rem;font-family:var(--font-body);">The standards it aligns to</h3>
-              <div style="overflow-x:auto;margin-bottom:1.5rem;">
-                <table class="dsl-table">
-                  <thead>
-                    <tr><th>Standard</th><th style="width:70px;">Body</th><th>What it governs</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td class="dsl-kwd">BABOK v3</td><td class="dsl-desc">IIBA</td><td class="dsl-desc">Elicitation, requirements analysis</td></tr>
-                    <tr><td class="dsl-kwd">BPM CBOK v4.0</td><td class="dsl-desc">ABPMP</td><td class="dsl-desc">Process lifecycle, knowledge areas</td></tr>
-                    <tr><td class="dsl-kwd">APQC PCF v7.4</td><td class="dsl-desc">APQC</td><td class="dsl-desc">Process taxonomy and classification</td></tr>
-                    <tr><td class="dsl-kwd">BPMN 2.0.2</td><td class="dsl-desc">OMG</td><td class="dsl-desc">Visual process notation</td></tr>
-                    <tr><td class="dsl-kwd">DMN 1.4</td><td class="dsl-desc">OMG</td><td class="dsl-desc">Decision model notation</td></tr>
-                    <tr><td class="dsl-kwd">ISO 9001:2015</td><td class="dsl-desc">ISO</td><td class="dsl-desc">Documented information requirements</td></tr>
-                    <tr><td class="dsl-kwd">IEEE/ISO/IEC 29148:2018</td><td class="dsl-desc">IEEE/ISO</td><td class="dsl-desc">Requirements information quality</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <h3 style="font-size:1rem;margin:0 0 0.5rem;font-family:var(--font-body);">Install the suite</h3>
-              <pre class="dsl-inline">curl -L https://okhp3.github.io/mermaid-diagram-bpmn/downloads/bp-skill-suite-v0.3.zip \
+<h3 style="font-size:1rem;margin:0 0 0.5rem;font-family:var(--font-body);">The 15 skills -- grouped by layer</h3>
+<div style="overflow-x:auto;margin-bottom:1.5rem;">
+<table class="dsl-table">
+<thead>
+<tr><th style="width:130px;">Layer</th><th>Skill</th><th style="width:80px;">Status</th></tr>
+</thead>
+<tbody>
+<tr>
+<td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;">Discovery</td>
+<td class="dsl-desc">Process Intake &amp; Scope</td>
+<td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+</tr>
+<tr>
+<td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;">Discovery</td>
+<td class="dsl-desc">Stakeholder &amp; Role Mapping</td>
+<td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+</tr>
+<tr>
+<td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;">Discovery</td>
+<td class="dsl-desc">Elicitation &amp; Interview Facilitation</td>
+<td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+</tr>
+<tr>
+<td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Narrative</td>
+<td class="dsl-desc">As-Is Process Capture</td>
+<td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+</tr>
+<tr>
+<td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Narrative</td>
+<td class="dsl-desc">Process Narrative Authoring</td>
+<td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+</tr>
+<tr>
+<td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Narrative</td>
+<td class="dsl-desc">Gap &amp; Exception Analysis</td>
+<td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+</tr>
+<tr>
+<td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Narrative</td>
+<td class="dsl-desc">Future-State &amp; Change Strategy</td>
+<td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--color-muted);">Extension</span></td>
+</tr>
+<tr>
+<td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Narrative</td>
+<td class="dsl-desc">Validation &amp; Quality Scoring</td>
+<td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+</tr>
+<tr>
+<td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;">Visual Modeling</td>
+<td class="dsl-desc">Visual Process Modeling <em style="font-size:0.7rem;opacity:0.6;">(uses bpmn-beta)</em></td>
+<td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+</tr>
+<tr>
+<td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;">Visual Modeling</td>
+<td class="dsl-desc">Decision Model Authoring</td>
+<td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--color-muted);">Extension</span></td>
+</tr>
+<tr>
+<td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Operational</td>
+<td class="dsl-desc">Measures &amp; Controls Definition</td>
+<td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--color-muted);">Extension</span></td>
+</tr>
+<tr>
+<td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Operational</td>
+<td class="dsl-desc">SOP &amp; Work Instruction Generation</td>
+<td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+</tr>
+<tr>
+<td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Governance</td>
+<td class="dsl-desc">RACI &amp; Governance Matrix</td>
+<td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+</tr>
+<tr>
+<td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Governance</td>
+<td class="dsl-desc">SIPOC Generation</td>
+<td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+</tr>
+<tr>
+<td class="dsl-kwd" style="font-size:0.75rem;white-space:nowrap;opacity:0.7;">Publication</td>
+<td class="dsl-desc">Publication &amp; Handoff Packaging</td>
+<td><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--okh-orange);">Core</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="font-size:1rem;margin:0 0 0.5rem;font-family:var(--font-body);">The standards it aligns to</h3>
+<div style="overflow-x:auto;margin-bottom:1.5rem;">
+<table class="dsl-table">
+<thead>
+<tr><th>Standard</th><th style="width:70px;">Body</th><th>What it governs</th></tr>
+</thead>
+<tbody>
+<tr><td class="dsl-kwd">BABOK v3</td><td class="dsl-desc">IIBA</td><td class="dsl-desc">Elicitation, requirements analysis</td></tr>
+<tr><td class="dsl-kwd">BPM CBOK v4.0</td><td class="dsl-desc">ABPMP</td><td class="dsl-desc">Process lifecycle, knowledge areas</td></tr>
+<tr><td class="dsl-kwd">APQC PCF v7.4</td><td class="dsl-desc">APQC</td><td class="dsl-desc">Process taxonomy and classification</td></tr>
+<tr><td class="dsl-kwd">BPMN 2.0.2</td><td class="dsl-desc">OMG</td><td class="dsl-desc">Visual process notation</td></tr>
+<tr><td class="dsl-kwd">DMN 1.4</td><td class="dsl-desc">OMG</td><td class="dsl-desc">Decision model notation</td></tr>
+<tr><td class="dsl-kwd">ISO 9001:2015</td><td class="dsl-desc">ISO</td><td class="dsl-desc">Documented information requirements</td></tr>
+<tr><td class="dsl-kwd">IEEE/ISO/IEC 29148:2018</td><td class="dsl-desc">IEEE/ISO</td><td class="dsl-desc">Requirements information quality</td></tr>
+</tbody>
+</table>
+</div>
+<h3 style="font-size:1rem;margin:0 0 0.5rem;font-family:var(--font-body);">Install the suite</h3>
+<pre class="dsl-inline">curl -L https://okhp3.github.io/mermaid-diagram-bpmn/downloads/bp-skill-suite-v0.3.zip \
   -o bp-skill-suite-v0.3.zip &amp;&amp; unzip bp-skill-suite-v0.3.zip -d skills/</pre>
-              <!-- Note: download URL active after React app deployment to GitHub Pages completes. -->
-              <p style="font-size:0.875rem;color:var(--color-muted);margin-top:0.75rem;">
+<!-- Note: download URL active after React app deployment to GitHub Pages completes. -->
+<p style="font-size:0.875rem;color:var(--color-muted);margin-top:0.75rem;">
                 Or browse individual skills:
-                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">okhp3.github.io/mermaid-diagram-bpmn/skills →</a>
-              </p>
-            </div>
-
-            <!-- PROTOTYPE STATUS ─────────────────────────────── -->
-            <div class="content-block" id="prototype-status" data-search-index style="scroll-margin-top:8rem;">
-              <div class="section-label">Current Prototype Status</div>
-              <h2>What's working, what's not</h2>
-              <div class="status-callout">
-                <ul>
-                  <li><span class="s-ok">✓</span> Supports core BPMN primitives in the playground: start/end events, tasks, gateways, sequence flows.</li>
-                  <li><span class="s-ok">✓</span> Uses a hand-written prototype parser (line-by-line, not Langium).</li>
-                  <li><span class="s-ok">✓</span> Renders SVG directly, with no bpmn-js dependency.</li>
-                  <li><span class="s-warn">⚠</span> Pool/lane/message-flow support is experimental; verify output in the playground before relying on it.</li>
-                  <li><span class="s-road">○</span> Langium grammar, Mermaid External Diagram API packaging, parser validation, and <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">getStyles</code> integration are roadmap items, not yet implemented.</li>
-                  <li><span class="s-ok">✓</span> BP-SKILL v0.3 agent skill suite -- 15 SKILL.md files, 9 variable layer templates, Process Narrative Specification schema, eval suite. Compatible with all Agent Skills-conformant platforms.</li>
-                  <li><span class="s-ok">✓</span> Agent Skills browser -- browsable and downloadable from the playground app at /skills.</li>
-                  <li><span class="s-ok">✓</span> Full suite download -- bp-skill-suite-v0.3.zip packages all 15 skills and context templates.</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- WHY THIS EXISTS ──────────────────────────────── -->
-            <div class="content-block card">
-              <div class="section-label">Why This Exists</div>
-              <h2>The gap Mermaid has always had</h2>
-
-              <div class="why-grid">
-                <div class="why-col">
-                  <div class="why-col-header">
-                    <span class="why-mark why-mark--no">✗</span>
-                    <h3>The current options</h3>
-                  </div>
-                  <p>Heavyweight tools (Visio, Signavio, Camunda, bpmn.io) are XML-first and don't live in version control. Mermaid flowcharts resemble BPMN but lack semantic correctness; a process analyst will flag it on sight.</p>
-                </div>
-                <div class="why-col">
-                  <div class="why-col-header">
-                    <span class="why-mark why-mark--yes">✓</span>
-                    <h3>bpmn-beta</h3>
-                  </div>
-                  <p>Write BPMN as a Markdown code fence. Commit it alongside your code. Let LLMs generate it. Have process analysts read it. Render BPMN-correct shapes without XML, without a graphical editor, without bpmn-js.</p>
-                </div>
-              </div>
-
-              <div class="why-note">
+                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">okhp3.github.io/mermaid-diagram-bpmn/skills →</a>
+</p>
+</div>
+<!-- PROTOTYPE STATUS ─────────────────────────────── -->
+<div class="content-block" data-search-index="" id="prototype-status" style="scroll-margin-top:8rem;">
+<div class="section-label">Current Prototype Status</div>
+<h2>What's working, what's not</h2>
+<div class="status-callout">
+<ul>
+<li><span class="s-ok">✓</span> Supports core BPMN primitives in the playground: start/end events, tasks, gateways, sequence flows.</li>
+<li><span class="s-ok">✓</span> Uses a hand-written prototype parser (line-by-line, not Langium).</li>
+<li><span class="s-ok">✓</span> Renders SVG directly, with no bpmn-js dependency.</li>
+<li><span class="s-warn">⚠</span> Pool/lane/message-flow support is experimental; verify output in the playground before relying on it.</li>
+<li><span class="s-road">○</span> Langium grammar, Mermaid External Diagram API packaging, parser validation, and <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">getStyles</code> integration are roadmap items, not yet implemented.</li>
+<li><span class="s-ok">✓</span> BP-SKILL v0.3 agent skill suite -- 15 SKILL.md files, 9 variable layer templates, Process Narrative Specification schema, eval suite. Compatible with all Agent Skills-conformant platforms.</li>
+<li><span class="s-ok">✓</span> Agent Skills browser -- browsable and downloadable from the playground app at /skills.</li>
+<li><span class="s-ok">✓</span> Full suite download -- bp-skill-suite-v0.3.zip packages all 15 skills and context templates.</li>
+</ul>
+</div>
+</div>
+<!-- WHY THIS EXISTS ──────────────────────────────── -->
+<div class="content-block card">
+<div class="section-label">Why This Exists</div>
+<h2>The gap Mermaid has always had</h2>
+<div class="why-grid">
+<div class="why-col">
+<div class="why-col-header">
+<span class="why-mark why-mark--no">✗</span>
+<h3>The current options</h3>
+</div>
+<p>Heavyweight tools (Visio, Signavio, Camunda, bpmn.io) are XML-first and don't live in version control. Mermaid flowcharts resemble BPMN but lack semantic correctness; a process analyst will flag it on sight.</p>
+</div>
+<div class="why-col">
+<div class="why-col-header">
+<span class="why-mark why-mark--yes">✓</span>
+<h3>bpmn-beta</h3>
+</div>
+<p>Write BPMN as a Markdown code fence. Commit it alongside your code. Let LLMs generate it. Have process analysts read it. Render BPMN-correct shapes without XML, without a graphical editor, without bpmn-js.</p>
+</div>
+</div>
+<div class="why-note">
                 This is a <strong>Mermaid diagram-type contribution proposal</strong>, not a commercial product. It ships as an external plugin first. Upstream Mermaid core inclusion is the long-term target, after the syntax stabilizes and the community weighs in.
               </div>
-            </div>
-
-            <!-- FEATURES ─────────────────────────────────────── -->
-            <div class="content-block" id="features" data-search-index>
-              <div class="section-label">Features</div>
-              <h2>What the project does</h2>
-
-              <div class="feature-grid">
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">🔷</div>
-                  <div>
-                    <h3>Mermaid-Native DSL</h3>
-                    <p>Starts with <code>bpmn-beta</code>: the diagram type keyword. Reads like every other Mermaid diagram. No boilerplate, no XML, no schema to import.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">⊞</div>
-                  <div>
-                    <h3>Pools &amp; Lanes <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#eab308;border:1px solid rgba(234,179,8,0.3);background:rgba(234,179,8,0.08);border-radius:3px;padding:0.1rem 0.4rem;vertical-align:middle;">experimental</span></h3>
-                    <p>Pool and lane containment syntax is defined in the DSL spec. Rendering is experimental in the current prototype; verify output in the playground before relying on it.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">◆</div>
-                  <div>
-                    <h3>BPMN 2.0 Correct Shapes</h3>
-                    <p>Start/end events, user/service/script/receive/send tasks, and XOR/AND/OR gateways are rendered with correct BPMN visual notation, not flowchart approximations. Intermediate events and timer/message/error markers are on the roadmap.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">🤖</div>
-                  <div>
-                    <h3>AI-Generatable Syntax</h3>
-                    <p>Clean enough for LLMs to produce valid <code>bpmn-beta</code> on first try. Readable enough for non-experts to write directly. No prompt repair loops for syntax errors.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">🔒</div>
-                  <div>
-                    <h3>No bpmn-js Dependency</h3>
-                    <p>Hand-written SVG renderer produces correct BPMN shapes from scratch. No runtime dependency on bpmn-js; keeps bundle size manageable for Mermaid's contribution bar.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">🎨</div>
-                  <div>
-                    <h3>Mermaid Theme Integration</h3>
-                    <p>Prototype uses theme-aware SVG styling; full Mermaid <code>getStyles</code>/theme-variable integration is planned for plugin packaging. Theme Builder palettes will apply once the theming hook is wired in.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">📚</div>
-                  <div>
-                    <h3>Playground &amp; DSL Reference</h3>
-                    <p>Six-page React app: Home, Playground, DSL Reference, Architecture, Roadmap, and About. Live-parses bpmn-beta and renders the SVG output in-browser.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">◻</div>
-                  <div>
-                    <h3>Open Source, MIT License</h3>
-                    <p>Fork it, extend it, propose it upstream. The spec, architecture decisions, and all source are on GitHub. Community feedback shapes the DSL before it locks.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">⬡</div>
-                  <div>
-                    <h3>15 Agent Skills -- BP-SKILL Suite</h3>
-                    <p>Fifteen SKILL.md files package the full business process lifecycle as portable agent instructions. Compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor. Standards-aligned to BABOK v3, BPM CBOK v4.0, APQC PCF v7.4, BPMN 2.0.2, DMN 1.4, and ISO 9001:2015.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">📋</div>
-                  <div>
-                    <h3>Process Narrative Specification</h3>
-                    <p>PNS.md is the central handoff artifact that flows through the entire suite. Every skill either reads or enriches it, creating a validated pipeline from discovery through publication. The schema is aligned to ISO 9001 §4.4.1 and IEEE/ISO/IEC 29148.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- HONEST SCOPE ─────────────────────────────────────── -->
-            <div class="content-block" id="honest-scope" data-search-index style="scroll-margin-top:8rem;">
-              <div class="section-label">Honest Scope</div>
-              <h2>What this is, and what it isn't</h2>
-              <div class="scope-callout">
-                <p class="scope-intro">This is a Mermaid-native BPMN descriptive subset proposal.</p>
-                <ul>
-                  <li><span class="scope-yes">✓</span> A readable DSL for the BPMN 2.0 Descriptive Conformance subset: start/end events, tasks, gateways, flows, pools, and lanes.</li>
-                  <li><span class="scope-yes">✓</span> Text-first, Git-native, works inside a Markdown code fence.</li>
-                  <li><span class="scope-yes">✓</span> AI-generatable: designed to be writable by LLMs without syntax repair.</li>
-                  <li><span class="scope-yes">✓</span> The visual output layer of a complete business process documentation methodology (BP-SKILL).</li>
-                  <li><span class="scope-yes">✓</span> A domain extension to the Agent Skills open standard (agentskills.io).</li>
-                  <li><span class="scope-yes">✓</span> Compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, Cursor, VS Code, and all other Agent Skills-conformant platforms.</li>
-                  <li><span class="scope-no">✗</span> Not executable BPMN: no process engine, no token simulation, no runtime semantics.</li>
-                  <li><span class="scope-no">✗</span> Not BPMN XML round-tripping: no import or export of BPMN 2.0 XML files.</li>
-                  <li><span class="scope-no">✗</span> Not full BPMN 2.0 conformance: choreography, conversation, boundary events, transactions, and data objects are out of scope for v1.</li>
-                  <li><span class="scope-no">✗</span> Not a production Mermaid plugin yet: the upstream contribution path comes after the DSL stabilizes and the Langium parser is built.</li>
-                  <li><span class="scope-no">✗</span> A replacement for BABOK, BPM CBOK, APQC, or any other body of knowledge -- it references these standards but does not reproduce them.</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- BUILD PROGRESS ───────────────────────────────────── -->
-            <div class="content-block" id="build-progress" data-search-index>
-              <div class="section-label">Build Progress</div>
-              <h2>Where the project is</h2>
-              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.5rem;">
+</div>
+<!-- FEATURES ─────────────────────────────────────── -->
+<div class="content-block" data-search-index="" id="features">
+<div class="section-label">Features</div>
+<h2>What the project does</h2>
+<div class="feature-grid">
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">🔷</div>
+<div>
+<h3>Mermaid-Native DSL</h3>
+<p>Starts with <code>bpmn-beta</code>: the diagram type keyword. Reads like every other Mermaid diagram. No boilerplate, no XML, no schema to import.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">⊞</div>
+<div>
+<h3>Pools &amp; Lanes <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#eab308;border:1px solid rgba(234,179,8,0.3);background:rgba(234,179,8,0.08);border-radius:3px;padding:0.1rem 0.4rem;vertical-align:middle;">experimental</span></h3>
+<p>Pool and lane containment syntax is defined in the DSL spec. Rendering is experimental in the current prototype; verify output in the playground before relying on it.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">◆</div>
+<div>
+<h3>BPMN 2.0 Correct Shapes</h3>
+<p>Start/end events, user/service/script/receive/send tasks, and XOR/AND/OR gateways are rendered with correct BPMN visual notation, not flowchart approximations. Intermediate events and timer/message/error markers are on the roadmap.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">🤖</div>
+<div>
+<h3>AI-Generatable Syntax</h3>
+<p>Clean enough for LLMs to produce valid <code>bpmn-beta</code> on first try. Readable enough for non-experts to write directly. No prompt repair loops for syntax errors.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">🔒</div>
+<div>
+<h3>No bpmn-js Dependency</h3>
+<p>Hand-written SVG renderer produces correct BPMN shapes from scratch. No runtime dependency on bpmn-js; keeps bundle size manageable for Mermaid's contribution bar.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">🎨</div>
+<div>
+<h3>Mermaid Theme Integration</h3>
+<p>Prototype uses theme-aware SVG styling; full Mermaid <code>getStyles</code>/theme-variable integration is planned for plugin packaging. Theme Builder palettes will apply once the theming hook is wired in.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">📚</div>
+<div>
+<h3>Playground &amp; DSL Reference</h3>
+<p>Six-page React app: Home, Playground, DSL Reference, Architecture, Roadmap, and About. Live-parses bpmn-beta and renders the SVG output in-browser.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">◻</div>
+<div>
+<h3>Open Source, MIT License</h3>
+<p>Fork it, extend it, propose it upstream. The spec, architecture decisions, and all source are on GitHub. Community feedback shapes the DSL before it locks.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">⬡</div>
+<div>
+<h3>15 Agent Skills -- BP-SKILL Suite</h3>
+<p>Fifteen SKILL.md files package the full business process lifecycle as portable agent instructions. Compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor. Standards-aligned to BABOK v3, BPM CBOK v4.0, APQC PCF v7.4, BPMN 2.0.2, DMN 1.4, and ISO 9001:2015.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">📋</div>
+<div>
+<h3>Process Narrative Specification</h3>
+<p>PNS.md is the central handoff artifact that flows through the entire suite. Every skill either reads or enriches it, creating a validated pipeline from discovery through publication. The schema is aligned to ISO 9001 §4.4.1 and IEEE/ISO/IEC 29148.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- HONEST SCOPE ─────────────────────────────────────── -->
+<div class="content-block" data-search-index="" id="honest-scope" style="scroll-margin-top:8rem;">
+<div class="section-label">Honest Scope</div>
+<h2>What this is, and what it isn't</h2>
+<div class="scope-callout">
+<p class="scope-intro">This is a Mermaid-native BPMN descriptive subset proposal.</p>
+<ul>
+<li><span class="scope-yes">✓</span> A readable DSL for the BPMN 2.0 Descriptive Conformance subset: start/end events, tasks, gateways, flows, pools, and lanes.</li>
+<li><span class="scope-yes">✓</span> Text-first, Git-native, works inside a Markdown code fence.</li>
+<li><span class="scope-yes">✓</span> AI-generatable: designed to be writable by LLMs without syntax repair.</li>
+<li><span class="scope-yes">✓</span> The visual output layer of a complete business process documentation methodology (BP-SKILL).</li>
+<li><span class="scope-yes">✓</span> A domain extension to the Agent Skills open standard (agentskills.io).</li>
+<li><span class="scope-yes">✓</span> Compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, Cursor, VS Code, and all other Agent Skills-conformant platforms.</li>
+<li><span class="scope-no">✗</span> Not executable BPMN: no process engine, no token simulation, no runtime semantics.</li>
+<li><span class="scope-no">✗</span> Not BPMN XML round-tripping: no import or export of BPMN 2.0 XML files.</li>
+<li><span class="scope-no">✗</span> Not full BPMN 2.0 conformance: choreography, conversation, boundary events, transactions, and data objects are out of scope for v1.</li>
+<li><span class="scope-no">✗</span> Not a production Mermaid plugin yet: the upstream contribution path comes after the DSL stabilizes and the Langium parser is built.</li>
+<li><span class="scope-no">✗</span> A replacement for BABOK, BPM CBOK, APQC, or any other body of knowledge -- it references these standards but does not reproduce them.</li>
+</ul>
+</div>
+</div>
+<!-- BUILD PROGRESS ───────────────────────────────────── -->
+<div class="content-block" data-search-index="" id="build-progress">
+<div class="section-label">Build Progress</div>
+<h2>Where the project is</h2>
+<p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.5rem;">
                 The prototype validates the core thesis. The next phase closes the gap to a complete External Diagram plugin that can be proposed upstream.
               </p>
-              <ul class="progress-track">
-                <li class="progress-phase">
-                  <span class="progress-marker progress-marker--done">✓</span>
-                  <div class="progress-phase-content">
-                    <p class="progress-phase-title">Prototype <span class="phase-pill phase-pill--shipped">Shipped</span></p>
-                    <p class="progress-phase-desc">Hand-written line parser, heuristic topological layout, hand-written SVG renderer (no bpmn-js), five canonical example diagrams (linear process, gateway decision, pool/lane collaboration, multi-event order, parallel split), six-page React app (Home, Playground, DSL Reference, Architecture, Roadmap, About). Validates the core thesis: a Mermaid-native readable BPMN DSL can render BPMN-correct shapes without bpmn-js.</p>
-                  </div>
-                </li>
-                <li class="progress-phase">
-                  <span class="progress-marker progress-marker--active">→</span>
-                  <div class="progress-phase-content">
-                    <p class="progress-phase-title">v0.1: Pools, Lanes &amp; Plugin API <span class="phase-pill phase-pill--active">In Progress</span></p>
-                    <p class="progress-phase-desc">Pools and lanes implementation (required for Descriptive Conformance subset claim), complete v1 element set, port to Mermaid External Diagram API, Langium grammar prototype for the parser. Target: demo-ready for Mermaid community engagement on issue <a href="https://github.com/mermaid-js/mermaid/issues/7699" target="_blank" rel="noopener noreferrer">#7699</a>.</p>
-                  </div>
-                </li>
-                <li class="progress-phase">
-                  <span class="progress-marker progress-marker--planned">○</span>
-                  <div class="progress-phase-content">
-                    <p class="progress-phase-title">v1.0: Full Plugin <span class="phase-pill phase-pill--planned">Planned</span></p>
-                    <p class="progress-phase-desc">Langium grammar (replaces hand-written parser), npm publication, accessibility (<code>accTitle</code>/<code>accDescr</code> + ARIA metadata), theme integration, full test suite (Vitest), Mermaid PR gates (size &lt;200 KB, tests, docs).</p>
-                  </div>
-                </li>
-                <li class="progress-phase">
-                  <span class="progress-marker progress-marker--planned">○</span>
-                  <div class="progress-phase-content">
-                    <p class="progress-phase-title">Upstream Proposal <span class="phase-pill phase-pill--planned">Future</span></p>
-                    <p class="progress-phase-desc">Mermaid core PR after v1.0 syntax stabilizes and community feedback from issue #7699 is incorporated. Requires maintainer acceptance, full docs, and a parity test corpus between the hand-written and Langium parsers.</p>
-                  </div>
-                </li>
-                <li class="progress-phase">
-                  <span class="progress-marker progress-marker--done">✓</span>
-                  <div class="progress-phase-content">
-                    <p class="progress-phase-title">BP-SKILL v0.3 -- 15-skill Agent Skill Suite <span class="phase-pill phase-pill--shipped">Shipped</span></p>
-                    <p class="progress-phase-desc">15 SKILL.md files, 9 variable layer templates, Process Narrative Specification schema, eval suite, agent skills browser in the React app, full suite download. Proposed domain extension to agentskills.io.</p>
-                  </div>
-                </li>
-                <li class="progress-phase">
-                  <span class="progress-marker progress-marker--planned">○</span>
-                  <div class="progress-phase-content">
-                    <p class="progress-phase-title">agentskills.io Formal Submission <span class="phase-pill phase-pill--planned">Planned</span></p>
-                    <p class="progress-phase-desc">Submit BP-SKILL as a formal domain extension proposal to the Agent Skills community governance repository.</p>
-                  </div>
-                </li>
-                <li class="progress-phase">
-                  <span class="progress-marker progress-marker--planned">○</span>
-                  <div class="progress-phase-content">
-                    <p class="progress-phase-title">IIBA / ABPMP Practitioner Outreach <span class="phase-pill phase-pill--planned">Planned</span></p>
-                    <p class="progress-phase-desc">Publish BP-SKILL practitioner articles in IIBA and ABPMP community publications to build awareness in the business analysis community.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <!-- WORK WITH ME ─────────────────────────────────── -->
-            <aside class="article-footer-cta" id="work-with-me">
-              <div>
-                <h3>Need process architecture built to spec?</h3>
-                <p>BPMN modeling, BP-SKILL agent packaging, and BABOK-aligned process narratives: I map the process, build the skills, and wire it to the AI tools your team already uses.</p>
-              </div>
-              <div class="cta-actions">
-                <a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Hire me on Fiverr</a>
-                <a href="/contact/" class="btn btn-quiet">Get in touch</a>
-              </div>
-            </aside>
-
-            <!-- COLLAPSIBLE SECTIONS ─────────────────────────── -->
-            <div class="content-block collapsibles">
-
-              <!-- DSL Reference -->
-              <details class="collapsible">
-                <summary class="collapsible-toggle">
+<ul class="progress-track">
+<li class="progress-phase">
+<span class="progress-marker progress-marker--done">✓</span>
+<div class="progress-phase-content">
+<p class="progress-phase-title">Prototype <span class="phase-pill phase-pill--shipped">Shipped</span></p>
+<p class="progress-phase-desc">Hand-written line parser, heuristic topological layout, hand-written SVG renderer (no bpmn-js), five canonical example diagrams (linear process, gateway decision, pool/lane collaboration, multi-event order, parallel split), six-page React app (Home, Playground, DSL Reference, Architecture, Roadmap, About). Validates the core thesis: a Mermaid-native readable BPMN DSL can render BPMN-correct shapes without bpmn-js.</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--active">→</span>
+<div class="progress-phase-content">
+<p class="progress-phase-title">v0.1: Pools, Lanes &amp; Plugin API <span class="phase-pill phase-pill--active">In Progress</span></p>
+<p class="progress-phase-desc">Pools and lanes implementation (required for Descriptive Conformance subset claim), complete v1 element set, port to Mermaid External Diagram API, Langium grammar prototype for the parser. Target: demo-ready for Mermaid community engagement on issue <a href="https://github.com/mermaid-js/mermaid/issues/7699" rel="noopener noreferrer" target="_blank">#7699</a>.</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--planned">○</span>
+<div class="progress-phase-content">
+<p class="progress-phase-title">v1.0: Full Plugin <span class="phase-pill phase-pill--planned">Planned</span></p>
+<p class="progress-phase-desc">Langium grammar (replaces hand-written parser), npm publication, accessibility (<code>accTitle</code>/<code>accDescr</code> + ARIA metadata), theme integration, full test suite (Vitest), Mermaid PR gates (size &lt;200 KB, tests, docs).</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--planned">○</span>
+<div class="progress-phase-content">
+<p class="progress-phase-title">Upstream Proposal <span class="phase-pill phase-pill--planned">Future</span></p>
+<p class="progress-phase-desc">Mermaid core PR after v1.0 syntax stabilizes and community feedback from issue #7699 is incorporated. Requires maintainer acceptance, full docs, and a parity test corpus between the hand-written and Langium parsers.</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--done">✓</span>
+<div class="progress-phase-content">
+<p class="progress-phase-title">BP-SKILL v0.3 -- 15-skill Agent Skill Suite <span class="phase-pill phase-pill--shipped">Shipped</span></p>
+<p class="progress-phase-desc">15 SKILL.md files, 9 variable layer templates, Process Narrative Specification schema, eval suite, agent skills browser in the React app, full suite download. Proposed domain extension to agentskills.io.</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--planned">○</span>
+<div class="progress-phase-content">
+<p class="progress-phase-title">agentskills.io Formal Submission <span class="phase-pill phase-pill--planned">Planned</span></p>
+<p class="progress-phase-desc">Submit BP-SKILL as a formal domain extension proposal to the Agent Skills community governance repository.</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--planned">○</span>
+<div class="progress-phase-content">
+<p class="progress-phase-title">IIBA / ABPMP Practitioner Outreach <span class="phase-pill phase-pill--planned">Planned</span></p>
+<p class="progress-phase-desc">Publish BP-SKILL practitioner articles in IIBA and ABPMP community publications to build awareness in the business analysis community.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- WORK WITH ME ─────────────────────────────────── -->
+<aside class="article-footer-cta" id="work-with-me">
+<div>
+<h3>Need process architecture built to spec?</h3>
+<p>BPMN modeling, BP-SKILL agent packaging, and BABOK-aligned process narratives: I map the process, build the skills, and wire it to the AI tools your team already uses.</p>
+</div>
+<div class="cta-actions">
+<a class="btn btn-primary" href="https://pro.fiverr.com/s/VYKPpoB" rel="noopener noreferrer" target="_blank">Hire me on Fiverr</a>
+<a class="btn btn-quiet" href="/contact/">Get in touch</a>
+</div>
+</aside>
+<!-- COLLAPSIBLE SECTIONS ─────────────────────────── -->
+<div class="content-block collapsibles">
+<!-- DSL Reference -->
+<details class="collapsible">
+<summary class="collapsible-toggle">
                   DSL Reference
-                  <span class="collapsible-chevron" aria-hidden="true">▾</span>
-                </summary>
-                <div class="collapsible-body">
-                  <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.75rem;">
+                  <span aria-hidden="true" class="collapsible-chevron">▾</span>
+</summary>
+<div class="collapsible-body">
+<p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.75rem;">
                     The complete bpmn-beta element vocabulary, flow operators, and pool/lane rules. This is the v1 scope: what ships in the initial plugin.
                   </p>
-
-                  <div class="section-label" style="margin-top:0.5rem;">Event Keywords</div>
-                  <div style="overflow-x:auto;">
-                    <table class="dsl-table">
-                      <thead>
-                        <tr><th style="width:180px;">Keyword</th><th>BPMN Element</th><th>Shape</th></tr>
-                      </thead>
-                      <tbody>
-                        <tr><td class="dsl-kwd">start</td><td class="dsl-desc">Start event (none)</td><td class="dsl-desc">Thin circle</td></tr>
-                        <tr><td class="dsl-kwd">end</td><td class="dsl-desc">End event (none)</td><td class="dsl-desc">Thick circle</td></tr>
-                        <tr><td class="dsl-kwd" style="opacity:0.55;">event:message</td><td class="dsl-desc" style="opacity:0.55;">Message intermediate event <span style="font-size:0.7em;color:#eab308;font-family:'JetBrains Mono',monospace;">[planned]</span></td><td class="dsl-desc" style="opacity:0.55;">Circle + envelope</td></tr>
-                        <tr><td class="dsl-kwd" style="opacity:0.55;">event:timer</td><td class="dsl-desc" style="opacity:0.55;">Timer intermediate event <span style="font-size:0.7em;color:#eab308;font-family:'JetBrains Mono',monospace;">[planned]</span></td><td class="dsl-desc" style="opacity:0.55;">Circle + clock</td></tr>
-                        <tr><td class="dsl-kwd" style="opacity:0.55;">event:error</td><td class="dsl-desc" style="opacity:0.55;">Error end event <span style="font-size:0.7em;color:#eab308;font-family:'JetBrains Mono',monospace;">[planned]</span></td><td class="dsl-desc" style="opacity:0.55;">Thick circle + lightning</td></tr>
-                      </tbody>
-                    </table>
-                  </div>
-
-                  <div class="section-label" style="margin-top:1rem;">Task Keywords</div>
-                  <div style="overflow-x:auto;">
-                    <table class="dsl-table">
-                      <thead>
-                        <tr><th style="width:180px;">Keyword</th><th>BPMN Element</th><th>Marker</th></tr>
-                      </thead>
-                      <tbody>
-                        <tr><td class="dsl-kwd">task</td><td class="dsl-desc">Abstract task</td><td class="dsl-desc">Rounded rectangle</td></tr>
-                        <tr><td class="dsl-kwd">task:user</td><td class="dsl-desc">User task</td><td class="dsl-desc">Person icon</td></tr>
-                        <tr><td class="dsl-kwd">task:service</td><td class="dsl-desc">Service task</td><td class="dsl-desc">Gear icon</td></tr>
-                        <tr><td class="dsl-kwd">task:script</td><td class="dsl-desc">Script task</td><td class="dsl-desc">Scroll icon</td></tr>
-                        <tr><td class="dsl-kwd">task:receive</td><td class="dsl-desc">Receive task</td><td class="dsl-desc">Envelope icon</td></tr>
-                        <tr><td class="dsl-kwd">task:send</td><td class="dsl-desc">Send task</td><td class="dsl-desc">Filled envelope icon</td></tr>
-                      </tbody>
-                    </table>
-                  </div>
-
-                  <div class="section-label" style="margin-top:1rem;">Gateway Keywords</div>
-                  <div style="overflow-x:auto;">
-                    <table class="dsl-table">
-                      <thead>
-                        <tr><th style="width:180px;">Keyword</th><th>BPMN Element</th><th>Marker</th></tr>
-                      </thead>
-                      <tbody>
-                        <tr><td class="dsl-kwd">xor</td><td class="dsl-desc">Exclusive (XOR) gateway</td><td class="dsl-desc">Diamond + X</td></tr>
-                        <tr><td class="dsl-kwd">and</td><td class="dsl-desc">Parallel (AND) gateway</td><td class="dsl-desc">Diamond + +</td></tr>
-                        <tr><td class="dsl-kwd">or</td><td class="dsl-desc">Inclusive (OR) gateway</td><td class="dsl-desc">Diamond + O</td></tr>
-                      </tbody>
-                    </table>
-                  </div>
-
-                  <div class="section-label" style="margin-top:1rem;">Flow Operators</div>
-                  <div style="overflow-x:auto;">
-                    <table class="dsl-table">
-                      <thead>
-                        <tr><th style="width:180px;">Operator</th><th>Meaning</th></tr>
-                      </thead>
-                      <tbody>
-                        <tr><td class="dsl-kwd">--&gt;</td><td class="dsl-desc">Sequence flow</td></tr>
-                        <tr><td class="dsl-kwd">source --&gt; target: "label"</td><td class="dsl-desc">Conditional sequence flow with label</td></tr>
-                        <tr><td class="dsl-kwd">==&gt;</td><td class="dsl-desc">Default sequence flow</td></tr>
-                        <tr><td class="dsl-kwd">~~&gt;</td><td class="dsl-desc">Message flow (cross-pool only, declared at top level)</td></tr>
-                        <tr><td class="dsl-kwd" style="opacity:0.55;">---</td><td class="dsl-desc" style="opacity:0.55;">Association (to text annotations) <span style="font-size:0.7em;color:#eab308;font-family:'JetBrains Mono',monospace;">[planned, not yet rendered]</span></td></tr>
-                      </tbody>
-                    </table>
-                  </div>
-
-                  <div class="section-label" style="margin-top:1rem;">Pool &amp; Lane Rules</div>
-                  <ul style="font-size:0.875rem;color:var(--color-muted);line-height:1.7;padding-left:1.25rem;margin-top:0.5rem;">
-                    <li>Sequence flows (<code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">--&gt;</code>) must stay inside a pool; they cannot cross pool boundaries.</li>
-                    <li>Message flows (<code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">~~&gt;</code>) cross pools and must be declared at the top level, outside any pool block.</li>
-                    <li>Lanes are one level deep. Nested lanes are explicitly deferred to a later version.</li>
-                    <li>IDs follow the pattern <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">[A-Za-z_][A-Za-z0-9_]*</code>; short IDs like <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">s1</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">t1</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">g1</code> are recommended.</li>
-                    <li>Comments: <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">%%</code>, following Mermaid convention.</li>
-                  </ul>
-
-                  <div class="section-label" style="margin-top:1rem;">What's Deferred (Not in v1)</div>
-                  <p style="font-size:0.875rem;color:var(--color-muted);line-height:1.7;margin-top:0.5rem;">
+<div class="section-label" style="margin-top:0.5rem;">Event Keywords</div>
+<div style="overflow-x:auto;">
+<table class="dsl-table">
+<thead>
+<tr><th style="width:180px;">Keyword</th><th>BPMN Element</th><th>Shape</th></tr>
+</thead>
+<tbody>
+<tr><td class="dsl-kwd">start</td><td class="dsl-desc">Start event (none)</td><td class="dsl-desc">Thin circle</td></tr>
+<tr><td class="dsl-kwd">end</td><td class="dsl-desc">End event (none)</td><td class="dsl-desc">Thick circle</td></tr>
+<tr><td class="dsl-kwd" style="opacity:0.55;">event:message</td><td class="dsl-desc" style="opacity:0.55;">Message intermediate event <span style="font-size:0.7em;color:#eab308;font-family:'JetBrains Mono',monospace;">[planned]</span></td><td class="dsl-desc" style="opacity:0.55;">Circle + envelope</td></tr>
+<tr><td class="dsl-kwd" style="opacity:0.55;">event:timer</td><td class="dsl-desc" style="opacity:0.55;">Timer intermediate event <span style="font-size:0.7em;color:#eab308;font-family:'JetBrains Mono',monospace;">[planned]</span></td><td class="dsl-desc" style="opacity:0.55;">Circle + clock</td></tr>
+<tr><td class="dsl-kwd" style="opacity:0.55;">event:error</td><td class="dsl-desc" style="opacity:0.55;">Error end event <span style="font-size:0.7em;color:#eab308;font-family:'JetBrains Mono',monospace;">[planned]</span></td><td class="dsl-desc" style="opacity:0.55;">Thick circle + lightning</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-label" style="margin-top:1rem;">Task Keywords</div>
+<div style="overflow-x:auto;">
+<table class="dsl-table">
+<thead>
+<tr><th style="width:180px;">Keyword</th><th>BPMN Element</th><th>Marker</th></tr>
+</thead>
+<tbody>
+<tr><td class="dsl-kwd">task</td><td class="dsl-desc">Abstract task</td><td class="dsl-desc">Rounded rectangle</td></tr>
+<tr><td class="dsl-kwd">task:user</td><td class="dsl-desc">User task</td><td class="dsl-desc">Person icon</td></tr>
+<tr><td class="dsl-kwd">task:service</td><td class="dsl-desc">Service task</td><td class="dsl-desc">Gear icon</td></tr>
+<tr><td class="dsl-kwd">task:script</td><td class="dsl-desc">Script task</td><td class="dsl-desc">Scroll icon</td></tr>
+<tr><td class="dsl-kwd">task:receive</td><td class="dsl-desc">Receive task</td><td class="dsl-desc">Envelope icon</td></tr>
+<tr><td class="dsl-kwd">task:send</td><td class="dsl-desc">Send task</td><td class="dsl-desc">Filled envelope icon</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-label" style="margin-top:1rem;">Gateway Keywords</div>
+<div style="overflow-x:auto;">
+<table class="dsl-table">
+<thead>
+<tr><th style="width:180px;">Keyword</th><th>BPMN Element</th><th>Marker</th></tr>
+</thead>
+<tbody>
+<tr><td class="dsl-kwd">xor</td><td class="dsl-desc">Exclusive (XOR) gateway</td><td class="dsl-desc">Diamond + X</td></tr>
+<tr><td class="dsl-kwd">and</td><td class="dsl-desc">Parallel (AND) gateway</td><td class="dsl-desc">Diamond + +</td></tr>
+<tr><td class="dsl-kwd">or</td><td class="dsl-desc">Inclusive (OR) gateway</td><td class="dsl-desc">Diamond + O</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-label" style="margin-top:1rem;">Flow Operators</div>
+<div style="overflow-x:auto;">
+<table class="dsl-table">
+<thead>
+<tr><th style="width:180px;">Operator</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+<tr><td class="dsl-kwd">--&gt;</td><td class="dsl-desc">Sequence flow</td></tr>
+<tr><td class="dsl-kwd">source --&gt; target: "label"</td><td class="dsl-desc">Conditional sequence flow with label</td></tr>
+<tr><td class="dsl-kwd">==&gt;</td><td class="dsl-desc">Default sequence flow</td></tr>
+<tr><td class="dsl-kwd">~~&gt;</td><td class="dsl-desc">Message flow (cross-pool only, declared at top level)</td></tr>
+<tr><td class="dsl-kwd" style="opacity:0.55;">---</td><td class="dsl-desc" style="opacity:0.55;">Association (to text annotations) <span style="font-size:0.7em;color:#eab308;font-family:'JetBrains Mono',monospace;">[planned, not yet rendered]</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="section-label" style="margin-top:1rem;">Pool &amp; Lane Rules</div>
+<ul style="font-size:0.875rem;color:var(--color-muted);line-height:1.7;padding-left:1.25rem;margin-top:0.5rem;">
+<li>Sequence flows (<code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">--&gt;</code>) must stay inside a pool; they cannot cross pool boundaries.</li>
+<li>Message flows (<code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">~~&gt;</code>) cross pools and must be declared at the top level, outside any pool block.</li>
+<li>Lanes are one level deep. Nested lanes are explicitly deferred to a later version.</li>
+<li>IDs follow the pattern <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">[A-Za-z_][A-Za-z0-9_]*</code>; short IDs like <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">s1</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">t1</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">g1</code> are recommended.</li>
+<li>Comments: <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">%%</code>, following Mermaid convention.</li>
+</ul>
+<div class="section-label" style="margin-top:1rem;">What's Deferred (Not in v1)</div>
+<p style="font-size:0.875rem;color:var(--color-muted);line-height:1.7;margin-top:0.5rem;">
                     Boundary events · Event subprocesses · Transactions · Choreography diagrams · Conversation diagrams · BPMN XML import/export · Executable semantics · Multi-instance markers · Compensation · Data objects/stores/groups · Nested lanes deeper than one level.
                   </p>
-                </div>
-              </details>
-
-              <!-- FAQ -->
-              <details class="collapsible">
-                <summary class="collapsible-toggle">
+</div>
+</details>
+<!-- FAQ -->
+<details class="collapsible">
+<summary class="collapsible-toggle">
                   FAQ
-                  <span class="collapsible-chevron" aria-hidden="true">▾</span>
-                </summary>
-                <div class="collapsible-body">
-                  <div class="faq-list">
-                    <div class="faq-item">
-                      <p class="faq-q">Is this an official Mermaid diagram type?</p>
-                      <p class="faq-a">Not yet. This is an open-source contribution proposal: it ships as an external Mermaid diagram plugin first. Upstream inclusion in Mermaid core requires maintainer acceptance and a formal PR process. The <code>bpmn-beta</code> keyword signals its pre-proposal status.</p>
-                    </div>
-                    <div class="faq-item">
-                      <p class="faq-q">Will this implement the full BPMN 2.0 spec?</p>
-                      <p class="faq-a">No. v1 targets the BPMN 2.0 Descriptive Conformance subset: the practical elements most business process diagrams actually use. Execution semantics, choreography, conversation diagrams, and BPMN XML import/export are explicitly out of scope and will remain so.</p>
-                    </div>
-                    <div class="faq-item">
-                      <p class="faq-q">Why not use bpmn.io or bpmn-js?</p>
-                      <p class="faq-a">bpmn-js is XML-first, browser-only in a different sense, and would be a heavyweight runtime dependency that Mermaid maintainers would reject outright. <code>bpmn-beta</code> is text-first, version-controllable, and designed for process diagrams that live next to code in Markdown, not in a graphical editor.</p>
-                    </div>
-                    <div class="faq-item">
-                      <p class="faq-q">What about the Emrich/DFKI proposal on Mermaid issue #7699?</p>
-                      <p class="faq-a">There's an academic BPMN proposal filed on GitHub by Andreas Emrich (DFKI) with a more XML-flavored DSL. <code>bpmn-beta</code> takes a different position: Mermaid-native readability first. The intent is to engage on that thread constructively, with the prototype as evidence of an alternative readable approach, not to compete or merge prematurely.</p>
-                    </div>
-                    <div class="faq-item">
-                      <p class="faq-q">Can I render this in GitHub or GitLab today?</p>
-                      <p class="faq-a">Not natively yet. The prototype runs in-browser via Replit. The GitHub/GitLab render path requires the Mermaid External Diagram API plugin, which is the v0.1 milestone target. Until then, use the Playground to render and export SVG output.</p>
-                    </div>
-                    <div class="faq-item">
-                      <p class="faq-q">Can LLMs generate valid bpmn-beta?</p>
-                      <p class="faq-a">That's by design. The DSL is intentionally short and predictable: no XML attributes, no metadata blocks, no nested namespaces. A well-prompted LLM should produce valid <code>bpmn-beta</code> on the first try for common process patterns. The Playground lets you verify output immediately.</p>
-                    </div>
-                    <div class="faq-item">
-                      <p class="faq-q">How does this relate to Mermaid Theme Builder?</p>
-                      <p class="faq-a"><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a> handles visual governance: defining and exporting themes. <code>bpmn-beta</code> adds a diagram type. They're complementary: Theme Builder palettes will apply to <code>bpmn-beta</code> diagrams once the Mermaid theming hook is wired in.</p>
-                    </div>
-                    <div class="faq-item">
-                      <p class="faq-q">How do I contribute or follow along?</p>
-                      <p class="faq-a">Watch the <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer">GitHub repo</a> for updates. Open issues for DSL feedback; syntax decisions are still early enough to change. The decision log in the repo captures what's been locked and what's still open.</p>
-                    </div>
-                  </div>
-                </div>
-              </details>
-
-            </div><!-- /collapsibles -->
-
-            <!-- BUILDER'S NOTE ───────────────────────────────── -->
-            <div class="builder-note">
-              <div class="section-label">Builder's Note</div>
-              <blockquote>
-                <p>Mermaid has flowcharts, sequence diagrams, Gantt charts, entity-relationship diagrams, state diagrams, mindmaps, and more. But if you need to show a business process to a process analyst, accurately and in a way they can read without you explaining your notation, Mermaid has nothing.</p>
-                <p>BPMN is the standard. It has been since 2004. It has ISO status. It's taught in enterprise architecture programs. And it's conspicuously absent from Mermaid's diagram type library.</p>
-                <p><em>bpmn-beta is the bridge. Not the whole spec. Not an XML importer. A readable, Mermaid-native syntax that renders BPMN-correct shapes, the ones people actually use, and fits inside a Markdown code fence.</em></p>
-              </blockquote>
-              <p class="builder-sig">OverKill&nbsp;Hill&nbsp;P³ · May 2026</p>
-            </div>
-
-          </div><!-- /main column -->
-
-          <!-- SIDEBAR ──────────────────────────────────────────── -->
-          <aside class="sidebar-rail" aria-label="Project information">
-
-            <!-- Meta -->
-            <div class="sidebar-meta">
-              <div class="section-label">Project Info</div>
-              <div class="meta-row">
-                <div class="meta-item">
-                  <span class="meta-key">Status</span>
-                  <span class="meta-val"><span class="status-dot"></span>Prototype shipped; v0.1 hardening and plugin path in progress</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Build Phase</span>
-                  <span class="meta-val">v0.1 Pools &amp; Plugin API</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">DSL keyword</span>
-                  <span class="meta-val"><code>bpmn-beta</code></span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">License</span>
-                  <span class="meta-val">MIT</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Type</span>
-                  <span class="meta-val">Mermaid Contribution Proposal</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Cost</span>
-                  <span class="meta-val">Free / Open Source</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Maintained by</span>
-                  <span class="meta-val"><a href="https://overkillhill.com">OverKill&nbsp;Hill&nbsp;P³</a></span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Mermaid compat target</span>
-                  <span class="meta-val">v10, v11+ (External Diagram API)</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Created</span>
-                  <span class="meta-val">May 2026</span>
-                </div>
-              </div>
-              <div class="sidebar-links">
-                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                  <span aria-hidden="true" class="collapsible-chevron">▾</span>
+</summary>
+<div class="collapsible-body">
+<div class="faq-list">
+<div class="faq-item">
+<p class="faq-q">Is this an official Mermaid diagram type?</p>
+<p class="faq-a">Not yet. This is an open-source contribution proposal: it ships as an external Mermaid diagram plugin first. Upstream inclusion in Mermaid core requires maintainer acceptance and a formal PR process. The <code>bpmn-beta</code> keyword signals its pre-proposal status.</p>
+</div>
+<div class="faq-item">
+<p class="faq-q">Will this implement the full BPMN 2.0 spec?</p>
+<p class="faq-a">No. v1 targets the BPMN 2.0 Descriptive Conformance subset: the practical elements most business process diagrams actually use. Execution semantics, choreography, conversation diagrams, and BPMN XML import/export are explicitly out of scope and will remain so.</p>
+</div>
+<div class="faq-item">
+<p class="faq-q">Why not use bpmn.io or bpmn-js?</p>
+<p class="faq-a">bpmn-js is XML-first, browser-only in a different sense, and would be a heavyweight runtime dependency that Mermaid maintainers would reject outright. <code>bpmn-beta</code> is text-first, version-controllable, and designed for process diagrams that live next to code in Markdown, not in a graphical editor.</p>
+</div>
+<div class="faq-item">
+<p class="faq-q">What about the Emrich/DFKI proposal on Mermaid issue #7699?</p>
+<p class="faq-a">There's an academic BPMN proposal filed on GitHub by Andreas Emrich (DFKI) with a more XML-flavored DSL. <code>bpmn-beta</code> takes a different position: Mermaid-native readability first. The intent is to engage on that thread constructively, with the prototype as evidence of an alternative readable approach, not to compete or merge prematurely.</p>
+</div>
+<div class="faq-item">
+<p class="faq-q">Can I render this in GitHub or GitLab today?</p>
+<p class="faq-a">Not natively yet. The prototype runs in-browser via Replit. The GitHub/GitLab render path requires the Mermaid External Diagram API plugin, which is the v0.1 milestone target. Until then, use the Playground to render and export SVG output.</p>
+</div>
+<div class="faq-item">
+<p class="faq-q">Can LLMs generate valid bpmn-beta?</p>
+<p class="faq-a">That's by design. The DSL is intentionally short and predictable: no XML attributes, no metadata blocks, no nested namespaces. A well-prompted LLM should produce valid <code>bpmn-beta</code> on the first try for common process patterns. The Playground lets you verify output immediately.</p>
+</div>
+<div class="faq-item">
+<p class="faq-q">How does this relate to Mermaid Theme Builder?</p>
+<p class="faq-a"><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a> handles visual governance: defining and exporting themes. <code>bpmn-beta</code> adds a diagram type. They're complementary: Theme Builder palettes will apply to <code>bpmn-beta</code> diagrams once the Mermaid theming hook is wired in.</p>
+</div>
+<div class="faq-item">
+<p class="faq-q">How do I contribute or follow along?</p>
+<p class="faq-a">Watch the <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" rel="noopener noreferrer" target="_blank">GitHub repo</a> for updates. Open issues for DSL feedback; syntax decisions are still early enough to change. The decision log in the repo captures what's been locked and what's still open.</p>
+</div>
+</div>
+</div>
+</details>
+</div><!-- /collapsibles -->
+<!-- BUILDER'S NOTE ───────────────────────────────── -->
+<div class="builder-note">
+<div class="section-label">Builder's Note</div>
+<blockquote>
+<p>Mermaid has flowcharts, sequence diagrams, Gantt charts, entity-relationship diagrams, state diagrams, mindmaps, and more. But if you need to show a business process to a process analyst, accurately and in a way they can read without you explaining your notation, Mermaid has nothing.</p>
+<p>BPMN is the standard. It has been since 2004. It has ISO status. It's taught in enterprise architecture programs. And it's conspicuously absent from Mermaid's diagram type library.</p>
+<p><em>bpmn-beta is the bridge. Not the whole spec. Not an XML importer. A readable, Mermaid-native syntax that renders BPMN-correct shapes, the ones people actually use, and fits inside a Markdown code fence.</em></p>
+</blockquote>
+<p class="builder-sig">OverKill Hill P³ · May 2026</p>
+</div>
+</div><!-- /main column -->
+<!-- SIDEBAR ──────────────────────────────────────────── -->
+<aside aria-label="Project information" class="sidebar-rail">
+<!-- Meta -->
+<div class="sidebar-meta">
+<div class="section-label">Project Info</div>
+<div class="meta-row">
+<div class="meta-item">
+<span class="meta-key">Status</span>
+<span class="meta-val"><span class="status-dot"></span>Prototype shipped; v0.1 hardening and plugin path in progress</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Build Phase</span>
+<span class="meta-val">v0.1 Pools &amp; Plugin API</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">DSL keyword</span>
+<span class="meta-val"><code>bpmn-beta</code></span>
+</div>
+<div class="meta-item">
+<span class="meta-key">License</span>
+<span class="meta-val">MIT</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Type</span>
+<span class="meta-val">Mermaid Contribution Proposal</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Cost</span>
+<span class="meta-val">Free / Open Source</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Maintained by</span>
+<span class="meta-val"><a href="https://overkillhill.com">OverKill Hill P³</a></span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Mermaid compat target</span>
+<span class="meta-val">v10, v11+ (External Diagram API)</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Created</span>
+<span class="meta-val">May 2026</span>
+</div>
+</div>
+<div class="sidebar-links">
+<a class="sidebar-link" href="https://okhp3.github.io/mermaid-diagram-bpmn/" rel="noopener noreferrer" target="_blank">
                   ▶ Live Playground
                 </a>
-                <a href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+<a class="sidebar-link" href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" rel="noopener noreferrer" target="_blank">
                   ⬡ Agent Skills Browser
                 </a>
-                <a href="https://github.com/OKHP3/mermaid-diagram-bpmn" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+<a class="sidebar-link" href="https://github.com/OKHP3/mermaid-diagram-bpmn" rel="noopener noreferrer" target="_blank">
                   ◻ GitHub Repo
                 </a>
-
-
-                <a href="https://github.com/OKHP3/mermaid-diagram-bpmn/issues" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+<a class="sidebar-link" href="https://github.com/OKHP3/mermaid-diagram-bpmn/issues" rel="noopener noreferrer" target="_blank">
                   ⚐ Open an Issue
                 </a>
-                <a href="https://github.com/mermaid-js/mermaid/issues/7699" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+<a class="sidebar-link" href="https://github.com/mermaid-js/mermaid/issues/7699" rel="noopener noreferrer" target="_blank">
                   ◎ Mermaid Issue #7699
                 </a>
-              </div>
-            </div>
+</div>
+</div>
+<!-- Related -->
+<div class="sidebar-related" data-search-index="" id="related-resources">
+<div class="section-label">Related</div>
+<ul>
+<li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder ↗</a></li>
+<li><a href="https://mermaid.js.org/config/theming.html" rel="noopener noreferrer" target="_blank">Mermaid.js Theming Docs ↗</a></li>
+<li><a href="https://www.bpmn.org/" rel="noopener noreferrer" target="_blank">BPMN.org ↗</a></li>
+<li><a href="https://www.omg.org/spec/BPMN/" rel="noopener noreferrer" target="_blank">OMG BPMN 2.0 Spec ↗</a></li>
+<li><a href="https://github.com/mermaid-js/mermaid" rel="noopener noreferrer" target="_blank">Mermaid GitHub ↗</a></li>
+<li><a href="/projects/">All OverKill Hill Projects</a></li>
+</ul>
+</div>
+<!-- On This Page -->
+<div class="sidebar-related" id="toc-widget">
+<div class="section-label">On This Page</div>
+<ul class="toc-list">
+<li><a href="#features">What the Project Does</a></li>
+<li><a href="#build-progress">Where the Project Is</a></li>
+</ul>
+</div>
+</aside>
+</div><!-- /project-layout -->
+</div> /container 
 
-            <!-- Related -->
-            <div class="sidebar-related" id="related-resources" data-search-index>
-              <div class="section-label">Related</div>
-              <ul>
-                <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder ↗</a></li>
-                <li><a href="https://mermaid.js.org/config/theming.html" target="_blank" rel="noopener noreferrer">Mermaid.js Theming Docs ↗</a></li>
-                <li><a href="https://www.bpmn.org/" target="_blank" rel="noopener noreferrer">BPMN.org ↗</a></li>
-                <li><a href="https://www.omg.org/spec/BPMN/" target="_blank" rel="noopener noreferrer">OMG BPMN 2.0 Spec ↗</a></li>
-                <li><a href="https://github.com/mermaid-js/mermaid" target="_blank" rel="noopener noreferrer">Mermaid GitHub ↗</a></li>
-                <li><a href="/projects/">All OverKill Hill Projects</a></li>
-              </ul>
-            </div>
-
-            <!-- On This Page -->
-            <div class="sidebar-related" id="toc-widget">
-              <div class="section-label">On This Page</div>
-              <ul class="toc-list">
-                <li><a href="#features">What the Project Does</a></li>
-                <li><a href="#build-progress">Where the Project Is</a></li>
-              </ul>
-            </div>
-
-          </aside>
-
-        </div><!-- /project-layout -->
-
-      </div><!-- /container -->
-    </main>
-
-    <!-- ============================================================
-         FOOTER
-         ============================================================ -->
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div class="footer-column">
-          <h3>OverKill&nbsp;Hill&nbsp;P³™</h3>
-          <p>Protocol-first AI systems design: local inference, multi-model coordination, and the governance layer the platforms forgot to build.</p>
-        </div>
-        <div class="footer-column">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="/#forge">The Forge</a></li>
-            <li><a href="/universe/">P³ Universe</a></li>
-            <li><a href="/manifesto/">The Manifesto</a></li>
-            <li><a href="/projects/">Our Projects</a></li>
-            <li><a href="/writings/">Writings</a></li>
-            <li><a href="/about/">About OKH P³</a></li>
-            <li><a href="/contact/">Contact OKH P³</a></li>
-            <li><a href="/legal/">Legal</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
-            <li><a href="https://ko-fi.com/overkillhillp3" target="_blank" rel="noopener noreferrer">Ko-fi</a></li>
-            <li><a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener noreferrer">Fiverr</a></li>
-            <li><a href="https://www.linkedin.com/company/overkillhillp3" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="https://facebook.com/OverKillHillP3/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-            <li><a href="https://x.com/OverKillHillP3" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
-            <li><a href="https://www.youtube.com/@OverKillHillP3" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
-        <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">
-          Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a>
-        </span>
-        <p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³™. All rights reserved.</p>
-        <span></span>
-      </div>
-    </footer>
-
-    <!-- ============================================================
-         SCRIPTS
-         ============================================================ -->
+  
+  
+  
+  
+  
+  
+  
+  
+  </main>
+<footer class="site-footer">
+<div class="container footer-grid">
+<div class="footer-column">
+<h3>OverKill Hill P³™</h3>
+<p>Protocol-first AI systems design: local inference, multi-model coordination, and the governance layer the platforms forgot to build.</p>
+</div>
+<div class="footer-column">
+<h4>Navigation</h4>
+<ul>
+<li><a href="/#forge">The Forge</a></li>
+<li><a href="/universe/">P³ Universe</a></li>
+<li><a href="/manifesto/">The Manifesto</a></li>
+<li><a href="/projects/">Our Projects</a></li>
+<li><a href="/writings/">Writings</a></li>
+<li><a href="/about/">About OKH P³</a></li>
+<li><a href="/contact/">Contact OKH P³</a></li>
+<li><a href="/legal/">Legal</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Connect</h4>
+<ul>
+<li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
+<li><a href="https://ko-fi.com/overkillhillp3" rel="noopener noreferrer" target="_blank">Ko-fi</a></li>
+<li><a href="https://pro.fiverr.com/s/VYKPpoB" rel="noopener noreferrer" target="_blank">Fiverr</a></li>
+<li><a href="https://www.linkedin.com/company/overkillhillp3" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+<li><a href="https://facebook.com/OverKillHillP3/" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+<li><a href="https://x.com/OverKillHillP3" rel="noopener noreferrer" target="_blank">X (Twitter)</a></li>
+<li><a href="https://www.youtube.com/@OverKillHillP3" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
+<span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;" target="_blank">Replit</a></span>
+<p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill Hill P³™. All rights reserved.</p>
+<span></span>
+</div>
+</footer>
     <script src="/assets/js/app.js?v=be5eab85"></script>
-
-    <!-- BPMN Playground iframe loading overlay + reload control -->
-    <script>
+<script>
       (function () {
         var btn = document.getElementById('bpmn-reload-btn');
         var iframe = document.getElementById('bpmn-tool-iframe');
@@ -1113,9 +954,7 @@
         showLoading();
       })();
     </script>
-
-    <!-- DSL copy button -->
-    <script>
+<script>
       (function () {
         var btn = document.getElementById('dsl-copy-btn');
         if (!btn) return;
@@ -1158,5 +997,68 @@
         });
       })();
     </script>
-  </body>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "BPMN for Mermaid (bpmn-beta)",
+      "description": "A Mermaid-native bpmn-beta diagram type implementing a BPMN 2.0 descriptive subset for readable, version-controllable process diagrams.",
+      "url": "https://github.com/OKHP3/mermaid-diagram-bpmn",
+      "codeRepository": "https://github.com/OKHP3/mermaid-diagram-bpmn",
+      "author": {
+        "@type": "Organization",
+        "name": "OverKill Hill P³",
+        "url": "https://overkillhill.com"
+      },
+      "programmingLanguage": "JavaScript",
+      "license": "https://opensource.org/licenses/MIT",
+      "targetProduct": {
+        "@type": "SoftwareApplication",
+        "name": "Mermaid.js",
+        "url": "https://mermaid.js.org"
+      }
+    }
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BPMN for Mermaid",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "url": "https://overkillhill.com/projects/bpmn-for-mermaid/",
+      "author": {
+        "@type": "Organization",
+        "name": "OverKill Hill P³™"
+      },
+      "description": "A Mermaid-native bpmn-beta diagram type implementing a BPMN 2.0 descriptive subset for readable, version-controllable process diagrams. Built under the OverKill Hill P³™ protocol-driven architecture."
+    }
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "OverKill Hill P³™",
+        "item": "https://overkillhill.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "item": "https://overkillhill.com/projects/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "BPMN for Mermaid",
+        "item": "https://overkillhill.com/projects/bpmn-for-mermaid/"
+      }
+      ]
+    }
+    </script>
+</body>
 </html>

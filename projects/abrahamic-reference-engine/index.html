@@ -1,97 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- ========================================
+<head>
+<!-- ========================================
        METADATA: Core Document & Character Set
        ======================================== -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://cdn.jsdelivr.net 'sha256-0w9MiOplLF4U/KzMsFtHdRxlVXfMyee1YEXKQCpHgRM=' 'sha256-3Cackdtp7Do2OrDkhZ8HQxibdFsvQhw0sUCB/9aSLkI=' 'sha256-54HVTXWFw7Zkr6ae0qjzYmuEfX7zeNPSmmgBbGcvXYA=' 'sha256-57wI2U/qr1O6ptBywIuIr7i+I356rhGPUzQu7ritMQQ=' 'sha256-7kS4taYxOotanhpObMfQ3o0rgebN1P3aqxrG1oJavMY=' 'sha256-83ioGcchzfdRDLGMcFCHjDPS7HZJfvrYjAly0xIC3fM=' 'sha256-KVtCu6gsjaQElccFMMifvbE1jLHXwFA78succB1lZkc=' 'sha256-MFoAv98Qwd6MHaIf+1PFpz4ALVYG4o1iX1DwNOQX9Eo=' 'sha256-STmaN+6lMvCR9wPObeDHm9914SI5bqfxgUYrResP2Hs=' 'sha256-YEpQUGpUx33y9ygrngAcvgYidkIpKrrgmhRunGMEqx0=' 'sha256-buLA739BVD6Ci3951TK/q+SzC2VYGxfJ58o3CtjSmB0=' 'sha256-e23SgYYz6PmmBNsag5O/bllarTwbAlqPcpHLNDuwcJA=' 'sha256-ee4qj7PmWdicS1+8BfoZ7gKUmUkNk9fCPvLK3CwGE18=' 'sha256-eoZKPPj7R1opAA3EaZUGTmO56gm1hhyiyo8phdpFl9c=' 'sha256-gHiFvULFIsXf5hUshwpKF11tDkvGBPOvfyc29G6vP1A=' 'sha256-ldN9wYpudPxPNk+mQabbziTX1HFuPZg2yy2T3c+aB90=' 'sha256-nqTrz2UX2KwyqXRQsfv1I4JXHG2qecDa4ZzF78zzUhg=' 'sha256-sSMqNNAauNnTk/pd1iPIz5clmGc4R5IA5LE9lnMFJK4=' 'sha256-sdwyZHRqE+fhQNLHz15izJXmyapmsIaxKnbX3exyeZQ=' 'sha256-ssEUflZoKdkHVfmZG5RO7NCLh3qHJC0nomBEARWO7HE=' 'sha256-tjlTzCw8mOcG8HZeEhgJJg/GEokwcRIfkRLKCmpRfyI=' 'sha256-z+kbhAfYnais1UUyDCDwulWuXH8+RLiV94ugXlzKRl8='; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com 'sha256-+/8l6fxQyrdundiK66ViWS5VlHiQUAi4V/Ir8XXFYh0=' 'sha256-+9jP7I5yRDNniaD2krT0dDi3BPYf2yw+67DWtjrdCT4=' 'sha256-+NWaEWEiOokl6/ucapRIPoU6asHGXKK1zVVyER15XhU=' 'sha256-+hs2WWbnf7y2ytdtXgIdlYNSq4hxX2K0Wl7v70yBwE4=' 'sha256-/WQLt0O4667878Qkwzat/C8h2Hfoh1y8VMh4NnaR++Q=' 'sha256-02ObSVUox8Jemge0oiQ9C1xwK2uZrOMeqo8pLzcnFpU=' 'sha256-0LPehmr2igikxTM6fICLGVQe9zNT05oCNqGEz97HYJw=' 'sha256-0Z6BO7cUVkTL/64d4a2Etu/8JsOv2Z37F/sW/TAo0lQ=' 'sha256-0mGWIZpfGEiSyfs7EOqTzToN2xnn2wmK1MavGc6+2g4=' 'sha256-14I0xhEDhgrt9wQ0lOYVQzSZ3qjal0gfoeq/gRthR+Y=' 'sha256-3pPm6HM/L3qW8lARkxhbSGTSUr3mIwtdbyvPkqSS44k=' 'sha256-4ABrSkoP1/Af9jwER6ZHoKy+DIHE9hcdKtberkZwsQI=' 'sha256-4UGMPKFU4zYVlJG/f0f/11EM1XxpNzCqKlJDqH8Ehjs=' 'sha256-5+OSNQ+fq9YlrvTQq26C7lsJG2Ozca21ycLN/Ddngno=' 'sha256-6+OoY3OtE7fYL9P1yU1F4Niud53yBieMAFyBkXiGb2Y=' 'sha256-63zVsn35aCT/QnDh8ppEEkqRzXGHihukARx71zc1L6c=' 'sha256-7U31ZIvmzHzecBIxj2oxE/1JEFlxxwf77bw0czlq2Ck=' 'sha256-7gKArtK6ARgJ8ClYKlpZ5dtpg0458bAsfaT1uHg0Nik=' 'sha256-8+aw/GPDnsEP5p9I84UgZvqzNbEbXSVIdFVNrwprqdg=' 'sha256-8Y0tUJoB3woFTaCRV0HUvzGfa4oAb9POznyt3+OX29c=' 'sha256-8kskclswgoAJgMIdO95KiOr6ot+4HCyPtS8ZsRhVGQY=' 'sha256-8mOgHe5JQKHuvGcFYROrRLvOTrcZW5zApq1plvOlZlU=' 'sha256-9bfCCwGSr1Rxd4Iskd65MnTsqaueDkfleeVMCSZblcY=' 'sha256-ApvrjydsrFFND5aB5EdB19oa++aXLaGwuYfXpYUXS5E=' 'sha256-BJ9KjGmp9vSDvxBEhheqisJiYFYfQan/0saV0Got0xo=' 'sha256-BoRIKPhrPpF5dKnHlfhZUzyR+DGJG/McheRQy/5hKnA=' 'sha256-DIQvgYNsE6ygLkpVjrMzTjHfkCzj6QhYcFMz/0KCo6A=' 'sha256-DLV7nXSEUAZgAi/ImzopB3kAbiN2+ac5oNt1Pcsbbfk=' 'sha256-DrsITAEAFiydGbSwToX2gDxu7jVJF2KuNa1VvKLrLKA=' 'sha256-DzlPv7bqFdHCUQWBtDVuHAIKCJnJHTBAB1zdV+aAkXM=' 'sha256-EaQQo6r+9RnV2p1vUFJvXKePcTv9wd1W3PX5StXBrcE=' 'sha256-F2nLHvEDyomd5RTjsfkbPPXxLNt0yUAGYvuV3LLsOD8=' 'sha256-G+2Po1FC9+qYDFQJQkKp3zRp0JSzX84MO+RQWzLHO+0=' 'sha256-GeuTHR31gC4YhST+Pmki/3UF2cGI2JTtXWyAOHzoMeg=' 'sha256-Gw27IjM8abyIdUYHmIL+RVuYR3vMMcHp2NU3W6nASN4=' 'sha256-H7liKfTnHv+yPQhaGGz/C3DbtqqlCW1GmwmQqtL/CZc=' 'sha256-HRAgwcWH8S3GPDMERCN0X/WINofjxuOWwUbP85Got3o=' 'sha256-Hln1u3JbEQHJkR7Ps8J4qM7GPRqNES4yYqqSbVL4DQg=' 'sha256-IE/emEkJA2hT13ZFrrBKFrJaJKrwT2fzL837OYS7i40=' 'sha256-J5sTY/rDr7JAs1jgco5cnWMq6peTN9FWSFmBAKw1F1k=' 'sha256-K4XtRnaj2lzE3boZnOv8YXeSxuPaCmNtQrWg/CvgVAw=' 'sha256-KNyFB29etgQ1hOF++NPDgXkWmqOpn5JGD7Nb0o48Wog=' 'sha256-KOZuf3qlb/1LMYoDQGHZEb0MkLU14aScIdtpz3RwEGc=' 'sha256-Kiv7dWWPPn49TTZgDgv2u4URkJHxe3kz4RDX1gZG2x4=' 'sha256-MMp5XDCCSHUd9Ij1xcI1roUL2w47Lvi1zMU3fI111KQ=' 'sha256-Meslg56kbN+8QDPFZHK+TqvM4bAobOXCWfLHQW324Wk=' 'sha256-MqFQYnStmE7P5bnyFMRRZHs+t4t0+QtZqxJeaHAgTgA=' 'sha256-MuRqXTotcJlT23rNMm8COAeJiE77TD0FffWuwU2za3c=' 'sha256-Mw+aAm7ucl+rf31t7UyBVAzDVji/bR95tXZqg/222uI=' 'sha256-Npi0e/ANNXKbSeTAhR1w1yNS9RIF6i1FAJRy0vDJ2Wo=' 'sha256-OFTcqjwabgeSVHiyd4FSAH/lKYr3CpAwp30q7DGZexM=' 'sha256-OHUrsR9aDjV/SSJRGMUphog5eQ3LNhM5R0WYRjvs/5M=' 'sha256-OIMJqZv4UTq4ArlOLjujzpzeHIhDxqMBQKqe2UMmuTg=' 'sha256-PGJ8tjuz2DXGgB1Sie9pW8BrxBGK6EQndbLEkXd44T8=' 'sha256-Plu4F2hGS+wC9dOCZ771Toql2ifD4ciZcMAoOF5ee88=' 'sha256-Pvr9k2TxL6P0L+opA7KAicNg81I+IPeC4aLu0uaSmZ4=' 'sha256-QEIf/cMA4YKs6vpVkqDcp3GiNDH0RAD9QnMpGDvCvts=' 'sha256-RCsCPlU52CtIRNNS7jAHKQnZEcAOjjd8Oeo0MPekLSw=' 'sha256-T7kKa8xi0YETebjOTYkFP89svJ2zWV+5KX8WPGV8hbY=' 'sha256-TbVO6/XTaawgYdudR8tNoTcZoViyovsPOXJoqxEU1vE=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-Wb64Hqavr0WEsXs2PWRdr5MrF9e6xyhvWwVcgLK/hRY=' 'sha256-Wmktxzz3Xgrfr1dh83JwyjZXYB2B8hpOUWjszTi6u1w=' 'sha256-XgeARjgOKVzxaBBRUhkwWxlPyO2F+5yjmLzebDIdjPI=' 'sha256-YCn4kVAKxXbQ1vpmfPoJGZ+LrWiwbI0jR97gF781/rQ=' 'sha256-abZk601zV19/TDgd5Ars7HX1y1OOO4hsuth7J93tvYo=' 'sha256-bIar/cPJnqntN9qnOOmn1j/aU60ON2A8/ny78LOGFuU=' 'sha256-c7UnSi5GHMneLprBUkJ4+qX0hdPRBiV49lfKmOYrBJc=' 'sha256-cJKKiqq21PYEOE2twdo0d6pBZR0HqVWFZh/9HTTWd7Q=' 'sha256-dovafdmRD7y5TNjxhO6ij/p5PU9plMpKIPJlRnsA07I=' 'sha256-eakvqXAlIxrQhu68SAx0SRBGsHGXwIxTtAF3tRijt5o=' 'sha256-edfpRw9792wC/pUnE/dTFQ7OqGyPWLR9hKe4bRUa87Q=' 'sha256-ff36XR2UuO456YRawoLrU8tavSlNiPmENy698h7gMWY=' 'sha256-jpaRQxx4Gk1h1MqZEZI0AsDURAzdugEE/jAoDLoh3O0=' 'sha256-lhwF0yb/IfjEFWPvm9s1OKmpyrGgXYWyGkIU1/l+oi4=' 'sha256-mIJVRiJpVEwsRXKwOM2bLVteuoGfccvta8oAtOXvn3g=' 'sha256-nsaN9XXBQnL1UScc6XpjGyl9Ep7HVpI2z2c5psSnGgM=' 'sha256-nv8L7K3maocl9migKRDjB7I1u0Q01IjMZ5Ibac4le6c=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-oyxMjRYa7GZvb9/cTRE3BC669tZl6QK0cYkx+8GRMDg=' 'sha256-pHZRBddnSViMydSQLyM3wcf29jGEaXgMfjgJHXrdZCQ=' 'sha256-r0u0jqJAcpnEz72EEzmA4Dc6+jcEX+jf2YeL08f2NDg=' 'sha256-rr9MHMazKuHH0aNfQ5DDfoBVHVqZiZIvfw0ylnvCAso=' 'sha256-rxuCKgeN6L6KRThbygcS+S0j0+o//t6jONM6lYQM8LI=' 'sha256-sRMo+7BipNtcYGMt0p/wAvb3s3FtepLNy97GRskQDWY=' 'sha256-sUymMv8Qpo8082tl66K1kS6/mlKovaui4vyHZ8ZQyyA=' 'sha256-sXRweIQb8OFRJgaO5Nnwxy7N1NVYdEYROW7U0tBuWxw=' 'sha256-subzVTE+mWheOUrV0leCjfwMGxoXtsmXiEpcIXmHBXM=' 'sha256-t/h1/ZuhPp+alttQauTlPW0G+i6YOUkE6tdmN+vzjQc=' 'sha256-tfbSoODAVuNJowpt2V4y6bqhqVUzhFExxq8NlEahPDY=' 'sha256-tx9SjSE35N+AyUcwGbioyhlpL7dK6WTgOU55CdIG+X0=' 'sha256-uPtBRKB8u1TURvzYFDeDAyNIGWDOPnOWKSjwnre37Y8=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-vfMrP+9ENatXjfOvPnjF44QawYxXd7oWPvQmM84orkM=' 'sha256-vjArgTCUptCAbm4mirAfMKUu1Pz/XFvQqDWXTeDjh5Y=' 'sha256-x9GBI2VBIAq78NqbwbbVFteKoOZFC/97KomNRiP1jOo=' 'sha256-xhOtUUj0TSdEvjpFHZ57LvbK5PD0cWWdW0Y6w0PS3C4=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y='; style-src-attr 'unsafe-hashes' 'sha256-+/8l6fxQyrdundiK66ViWS5VlHiQUAi4V/Ir8XXFYh0=' 'sha256-+9jP7I5yRDNniaD2krT0dDi3BPYf2yw+67DWtjrdCT4=' 'sha256-+NWaEWEiOokl6/ucapRIPoU6asHGXKK1zVVyER15XhU=' 'sha256-+hs2WWbnf7y2ytdtXgIdlYNSq4hxX2K0Wl7v70yBwE4=' 'sha256-/WQLt0O4667878Qkwzat/C8h2Hfoh1y8VMh4NnaR++Q=' 'sha256-02ObSVUox8Jemge0oiQ9C1xwK2uZrOMeqo8pLzcnFpU=' 'sha256-0LPehmr2igikxTM6fICLGVQe9zNT05oCNqGEz97HYJw=' 'sha256-0Z6BO7cUVkTL/64d4a2Etu/8JsOv2Z37F/sW/TAo0lQ=' 'sha256-0mGWIZpfGEiSyfs7EOqTzToN2xnn2wmK1MavGc6+2g4=' 'sha256-14I0xhEDhgrt9wQ0lOYVQzSZ3qjal0gfoeq/gRthR+Y=' 'sha256-3pPm6HM/L3qW8lARkxhbSGTSUr3mIwtdbyvPkqSS44k=' 'sha256-4ABrSkoP1/Af9jwER6ZHoKy+DIHE9hcdKtberkZwsQI=' 'sha256-4UGMPKFU4zYVlJG/f0f/11EM1XxpNzCqKlJDqH8Ehjs=' 'sha256-5+OSNQ+fq9YlrvTQq26C7lsJG2Ozca21ycLN/Ddngno=' 'sha256-6+OoY3OtE7fYL9P1yU1F4Niud53yBieMAFyBkXiGb2Y=' 'sha256-63zVsn35aCT/QnDh8ppEEkqRzXGHihukARx71zc1L6c=' 'sha256-7U31ZIvmzHzecBIxj2oxE/1JEFlxxwf77bw0czlq2Ck=' 'sha256-7gKArtK6ARgJ8ClYKlpZ5dtpg0458bAsfaT1uHg0Nik=' 'sha256-8+aw/GPDnsEP5p9I84UgZvqzNbEbXSVIdFVNrwprqdg=' 'sha256-8Y0tUJoB3woFTaCRV0HUvzGfa4oAb9POznyt3+OX29c=' 'sha256-8kskclswgoAJgMIdO95KiOr6ot+4HCyPtS8ZsRhVGQY=' 'sha256-8mOgHe5JQKHuvGcFYROrRLvOTrcZW5zApq1plvOlZlU=' 'sha256-9bfCCwGSr1Rxd4Iskd65MnTsqaueDkfleeVMCSZblcY=' 'sha256-ApvrjydsrFFND5aB5EdB19oa++aXLaGwuYfXpYUXS5E=' 'sha256-BJ9KjGmp9vSDvxBEhheqisJiYFYfQan/0saV0Got0xo=' 'sha256-BoRIKPhrPpF5dKnHlfhZUzyR+DGJG/McheRQy/5hKnA=' 'sha256-DIQvgYNsE6ygLkpVjrMzTjHfkCzj6QhYcFMz/0KCo6A=' 'sha256-DLV7nXSEUAZgAi/ImzopB3kAbiN2+ac5oNt1Pcsbbfk=' 'sha256-DrsITAEAFiydGbSwToX2gDxu7jVJF2KuNa1VvKLrLKA=' 'sha256-DzlPv7bqFdHCUQWBtDVuHAIKCJnJHTBAB1zdV+aAkXM=' 'sha256-EaQQo6r+9RnV2p1vUFJvXKePcTv9wd1W3PX5StXBrcE=' 'sha256-F2nLHvEDyomd5RTjsfkbPPXxLNt0yUAGYvuV3LLsOD8=' 'sha256-G+2Po1FC9+qYDFQJQkKp3zRp0JSzX84MO+RQWzLHO+0=' 'sha256-GeuTHR31gC4YhST+Pmki/3UF2cGI2JTtXWyAOHzoMeg=' 'sha256-Gw27IjM8abyIdUYHmIL+RVuYR3vMMcHp2NU3W6nASN4=' 'sha256-H7liKfTnHv+yPQhaGGz/C3DbtqqlCW1GmwmQqtL/CZc=' 'sha256-HRAgwcWH8S3GPDMERCN0X/WINofjxuOWwUbP85Got3o=' 'sha256-Hln1u3JbEQHJkR7Ps8J4qM7GPRqNES4yYqqSbVL4DQg=' 'sha256-IE/emEkJA2hT13ZFrrBKFrJaJKrwT2fzL837OYS7i40=' 'sha256-J5sTY/rDr7JAs1jgco5cnWMq6peTN9FWSFmBAKw1F1k=' 'sha256-K4XtRnaj2lzE3boZnOv8YXeSxuPaCmNtQrWg/CvgVAw=' 'sha256-KNyFB29etgQ1hOF++NPDgXkWmqOpn5JGD7Nb0o48Wog=' 'sha256-KOZuf3qlb/1LMYoDQGHZEb0MkLU14aScIdtpz3RwEGc=' 'sha256-Kiv7dWWPPn49TTZgDgv2u4URkJHxe3kz4RDX1gZG2x4=' 'sha256-MMp5XDCCSHUd9Ij1xcI1roUL2w47Lvi1zMU3fI111KQ=' 'sha256-Meslg56kbN+8QDPFZHK+TqvM4bAobOXCWfLHQW324Wk=' 'sha256-MqFQYnStmE7P5bnyFMRRZHs+t4t0+QtZqxJeaHAgTgA=' 'sha256-MuRqXTotcJlT23rNMm8COAeJiE77TD0FffWuwU2za3c=' 'sha256-Mw+aAm7ucl+rf31t7UyBVAzDVji/bR95tXZqg/222uI=' 'sha256-Npi0e/ANNXKbSeTAhR1w1yNS9RIF6i1FAJRy0vDJ2Wo=' 'sha256-OFTcqjwabgeSVHiyd4FSAH/lKYr3CpAwp30q7DGZexM=' 'sha256-OHUrsR9aDjV/SSJRGMUphog5eQ3LNhM5R0WYRjvs/5M=' 'sha256-OIMJqZv4UTq4ArlOLjujzpzeHIhDxqMBQKqe2UMmuTg=' 'sha256-PGJ8tjuz2DXGgB1Sie9pW8BrxBGK6EQndbLEkXd44T8=' 'sha256-Plu4F2hGS+wC9dOCZ771Toql2ifD4ciZcMAoOF5ee88=' 'sha256-Pvr9k2TxL6P0L+opA7KAicNg81I+IPeC4aLu0uaSmZ4=' 'sha256-QEIf/cMA4YKs6vpVkqDcp3GiNDH0RAD9QnMpGDvCvts=' 'sha256-RCsCPlU52CtIRNNS7jAHKQnZEcAOjjd8Oeo0MPekLSw=' 'sha256-T7kKa8xi0YETebjOTYkFP89svJ2zWV+5KX8WPGV8hbY=' 'sha256-TbVO6/XTaawgYdudR8tNoTcZoViyovsPOXJoqxEU1vE=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-Wb64Hqavr0WEsXs2PWRdr5MrF9e6xyhvWwVcgLK/hRY=' 'sha256-Wmktxzz3Xgrfr1dh83JwyjZXYB2B8hpOUWjszTi6u1w=' 'sha256-XgeARjgOKVzxaBBRUhkwWxlPyO2F+5yjmLzebDIdjPI=' 'sha256-YCn4kVAKxXbQ1vpmfPoJGZ+LrWiwbI0jR97gF781/rQ=' 'sha256-abZk601zV19/TDgd5Ars7HX1y1OOO4hsuth7J93tvYo=' 'sha256-bIar/cPJnqntN9qnOOmn1j/aU60ON2A8/ny78LOGFuU=' 'sha256-c7UnSi5GHMneLprBUkJ4+qX0hdPRBiV49lfKmOYrBJc=' 'sha256-cJKKiqq21PYEOE2twdo0d6pBZR0HqVWFZh/9HTTWd7Q=' 'sha256-dovafdmRD7y5TNjxhO6ij/p5PU9plMpKIPJlRnsA07I=' 'sha256-eakvqXAlIxrQhu68SAx0SRBGsHGXwIxTtAF3tRijt5o=' 'sha256-edfpRw9792wC/pUnE/dTFQ7OqGyPWLR9hKe4bRUa87Q=' 'sha256-ff36XR2UuO456YRawoLrU8tavSlNiPmENy698h7gMWY=' 'sha256-jpaRQxx4Gk1h1MqZEZI0AsDURAzdugEE/jAoDLoh3O0=' 'sha256-lhwF0yb/IfjEFWPvm9s1OKmpyrGgXYWyGkIU1/l+oi4=' 'sha256-mIJVRiJpVEwsRXKwOM2bLVteuoGfccvta8oAtOXvn3g=' 'sha256-nsaN9XXBQnL1UScc6XpjGyl9Ep7HVpI2z2c5psSnGgM=' 'sha256-nv8L7K3maocl9migKRDjB7I1u0Q01IjMZ5Ibac4le6c=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-oyxMjRYa7GZvb9/cTRE3BC669tZl6QK0cYkx+8GRMDg=' 'sha256-pHZRBddnSViMydSQLyM3wcf29jGEaXgMfjgJHXrdZCQ=' 'sha256-r0u0jqJAcpnEz72EEzmA4Dc6+jcEX+jf2YeL08f2NDg=' 'sha256-rr9MHMazKuHH0aNfQ5DDfoBVHVqZiZIvfw0ylnvCAso=' 'sha256-rxuCKgeN6L6KRThbygcS+S0j0+o//t6jONM6lYQM8LI=' 'sha256-sRMo+7BipNtcYGMt0p/wAvb3s3FtepLNy97GRskQDWY=' 'sha256-sUymMv8Qpo8082tl66K1kS6/mlKovaui4vyHZ8ZQyyA=' 'sha256-sXRweIQb8OFRJgaO5Nnwxy7N1NVYdEYROW7U0tBuWxw=' 'sha256-subzVTE+mWheOUrV0leCjfwMGxoXtsmXiEpcIXmHBXM=' 'sha256-t/h1/ZuhPp+alttQauTlPW0G+i6YOUkE6tdmN+vzjQc=' 'sha256-tfbSoODAVuNJowpt2V4y6bqhqVUzhFExxq8NlEahPDY=' 'sha256-tx9SjSE35N+AyUcwGbioyhlpL7dK6WTgOU55CdIG+X0=' 'sha256-uPtBRKB8u1TURvzYFDeDAyNIGWDOPnOWKSjwnre37Y8=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-vfMrP+9ENatXjfOvPnjF44QawYxXd7oWPvQmM84orkM=' 'sha256-vjArgTCUptCAbm4mirAfMKUu1Pz/XFvQqDWXTeDjh5Y=' 'sha256-x9GBI2VBIAq78NqbwbbVFteKoOZFC/97KomNRiP1jOo=' 'sha256-xhOtUUj0TSdEvjpFHZ57LvbK5PD0cWWdW0Y6w0PS3C4=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y='; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://overkillhill.com https://*.github.io; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; frame-src 'self' https://okhp3.github.io; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests" />
-    <meta name="language" content="English" />
-
-    <!-- ========================================
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://cdn.jsdelivr.net 'sha256-0w9MiOplLF4U/KzMsFtHdRxlVXfMyee1YEXKQCpHgRM=' 'sha256-3Cackdtp7Do2OrDkhZ8HQxibdFsvQhw0sUCB/9aSLkI=' 'sha256-54HVTXWFw7Zkr6ae0qjzYmuEfX7zeNPSmmgBbGcvXYA=' 'sha256-57wI2U/qr1O6ptBywIuIr7i+I356rhGPUzQu7ritMQQ=' 'sha256-7kS4taYxOotanhpObMfQ3o0rgebN1P3aqxrG1oJavMY=' 'sha256-83ioGcchzfdRDLGMcFCHjDPS7HZJfvrYjAly0xIC3fM=' 'sha256-KVtCu6gsjaQElccFMMifvbE1jLHXwFA78succB1lZkc=' 'sha256-MFoAv98Qwd6MHaIf+1PFpz4ALVYG4o1iX1DwNOQX9Eo=' 'sha256-STmaN+6lMvCR9wPObeDHm9914SI5bqfxgUYrResP2Hs=' 'sha256-YEpQUGpUx33y9ygrngAcvgYidkIpKrrgmhRunGMEqx0=' 'sha256-buLA739BVD6Ci3951TK/q+SzC2VYGxfJ58o3CtjSmB0=' 'sha256-e23SgYYz6PmmBNsag5O/bllarTwbAlqPcpHLNDuwcJA=' 'sha256-ee4qj7PmWdicS1+8BfoZ7gKUmUkNk9fCPvLK3CwGE18=' 'sha256-eoZKPPj7R1opAA3EaZUGTmO56gm1hhyiyo8phdpFl9c=' 'sha256-gHiFvULFIsXf5hUshwpKF11tDkvGBPOvfyc29G6vP1A=' 'sha256-ldN9wYpudPxPNk+mQabbziTX1HFuPZg2yy2T3c+aB90=' 'sha256-nqTrz2UX2KwyqXRQsfv1I4JXHG2qecDa4ZzF78zzUhg=' 'sha256-sSMqNNAauNnTk/pd1iPIz5clmGc4R5IA5LE9lnMFJK4=' 'sha256-sdwyZHRqE+fhQNLHz15izJXmyapmsIaxKnbX3exyeZQ=' 'sha256-ssEUflZoKdkHVfmZG5RO7NCLh3qHJC0nomBEARWO7HE=' 'sha256-tjlTzCw8mOcG8HZeEhgJJg/GEokwcRIfkRLKCmpRfyI=' 'sha256-z+kbhAfYnais1UUyDCDwulWuXH8+RLiV94ugXlzKRl8='; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com 'sha256-+/8l6fxQyrdundiK66ViWS5VlHiQUAi4V/Ir8XXFYh0=' 'sha256-+9jP7I5yRDNniaD2krT0dDi3BPYf2yw+67DWtjrdCT4=' 'sha256-+NWaEWEiOokl6/ucapRIPoU6asHGXKK1zVVyER15XhU=' 'sha256-+hs2WWbnf7y2ytdtXgIdlYNSq4hxX2K0Wl7v70yBwE4=' 'sha256-/WQLt0O4667878Qkwzat/C8h2Hfoh1y8VMh4NnaR++Q=' 'sha256-02ObSVUox8Jemge0oiQ9C1xwK2uZrOMeqo8pLzcnFpU=' 'sha256-0LPehmr2igikxTM6fICLGVQe9zNT05oCNqGEz97HYJw=' 'sha256-0Z6BO7cUVkTL/64d4a2Etu/8JsOv2Z37F/sW/TAo0lQ=' 'sha256-0mGWIZpfGEiSyfs7EOqTzToN2xnn2wmK1MavGc6+2g4=' 'sha256-14I0xhEDhgrt9wQ0lOYVQzSZ3qjal0gfoeq/gRthR+Y=' 'sha256-3pPm6HM/L3qW8lARkxhbSGTSUr3mIwtdbyvPkqSS44k=' 'sha256-4ABrSkoP1/Af9jwER6ZHoKy+DIHE9hcdKtberkZwsQI=' 'sha256-4UGMPKFU4zYVlJG/f0f/11EM1XxpNzCqKlJDqH8Ehjs=' 'sha256-5+OSNQ+fq9YlrvTQq26C7lsJG2Ozca21ycLN/Ddngno=' 'sha256-6+OoY3OtE7fYL9P1yU1F4Niud53yBieMAFyBkXiGb2Y=' 'sha256-63zVsn35aCT/QnDh8ppEEkqRzXGHihukARx71zc1L6c=' 'sha256-7U31ZIvmzHzecBIxj2oxE/1JEFlxxwf77bw0czlq2Ck=' 'sha256-7gKArtK6ARgJ8ClYKlpZ5dtpg0458bAsfaT1uHg0Nik=' 'sha256-8+aw/GPDnsEP5p9I84UgZvqzNbEbXSVIdFVNrwprqdg=' 'sha256-8Y0tUJoB3woFTaCRV0HUvzGfa4oAb9POznyt3+OX29c=' 'sha256-8kskclswgoAJgMIdO95KiOr6ot+4HCyPtS8ZsRhVGQY=' 'sha256-8mOgHe5JQKHuvGcFYROrRLvOTrcZW5zApq1plvOlZlU=' 'sha256-9bfCCwGSr1Rxd4Iskd65MnTsqaueDkfleeVMCSZblcY=' 'sha256-ApvrjydsrFFND5aB5EdB19oa++aXLaGwuYfXpYUXS5E=' 'sha256-BJ9KjGmp9vSDvxBEhheqisJiYFYfQan/0saV0Got0xo=' 'sha256-BoRIKPhrPpF5dKnHlfhZUzyR+DGJG/McheRQy/5hKnA=' 'sha256-DIQvgYNsE6ygLkpVjrMzTjHfkCzj6QhYcFMz/0KCo6A=' 'sha256-DLV7nXSEUAZgAi/ImzopB3kAbiN2+ac5oNt1Pcsbbfk=' 'sha256-DrsITAEAFiydGbSwToX2gDxu7jVJF2KuNa1VvKLrLKA=' 'sha256-DzlPv7bqFdHCUQWBtDVuHAIKCJnJHTBAB1zdV+aAkXM=' 'sha256-EaQQo6r+9RnV2p1vUFJvXKePcTv9wd1W3PX5StXBrcE=' 'sha256-F2nLHvEDyomd5RTjsfkbPPXxLNt0yUAGYvuV3LLsOD8=' 'sha256-GeuTHR31gC4YhST+Pmki/3UF2cGI2JTtXWyAOHzoMeg=' 'sha256-Gw27IjM8abyIdUYHmIL+RVuYR3vMMcHp2NU3W6nASN4=' 'sha256-H7liKfTnHv+yPQhaGGz/C3DbtqqlCW1GmwmQqtL/CZc=' 'sha256-HRAgwcWH8S3GPDMERCN0X/WINofjxuOWwUbP85Got3o=' 'sha256-Hln1u3JbEQHJkR7Ps8J4qM7GPRqNES4yYqqSbVL4DQg=' 'sha256-IE/emEkJA2hT13ZFrrBKFrJaJKrwT2fzL837OYS7i40=' 'sha256-J5sTY/rDr7JAs1jgco5cnWMq6peTN9FWSFmBAKw1F1k=' 'sha256-K4XtRnaj2lzE3boZnOv8YXeSxuPaCmNtQrWg/CvgVAw=' 'sha256-KNyFB29etgQ1hOF++NPDgXkWmqOpn5JGD7Nb0o48Wog=' 'sha256-KOZuf3qlb/1LMYoDQGHZEb0MkLU14aScIdtpz3RwEGc=' 'sha256-Kiv7dWWPPn49TTZgDgv2u4URkJHxe3kz4RDX1gZG2x4=' 'sha256-MMp5XDCCSHUd9Ij1xcI1roUL2w47Lvi1zMU3fI111KQ=' 'sha256-Meslg56kbN+8QDPFZHK+TqvM4bAobOXCWfLHQW324Wk=' 'sha256-MqFQYnStmE7P5bnyFMRRZHs+t4t0+QtZqxJeaHAgTgA=' 'sha256-MuRqXTotcJlT23rNMm8COAeJiE77TD0FffWuwU2za3c=' 'sha256-Mw+aAm7ucl+rf31t7UyBVAzDVji/bR95tXZqg/222uI=' 'sha256-Npi0e/ANNXKbSeTAhR1w1yNS9RIF6i1FAJRy0vDJ2Wo=' 'sha256-OFTcqjwabgeSVHiyd4FSAH/lKYr3CpAwp30q7DGZexM=' 'sha256-OHUrsR9aDjV/SSJRGMUphog5eQ3LNhM5R0WYRjvs/5M=' 'sha256-OIMJqZv4UTq4ArlOLjujzpzeHIhDxqMBQKqe2UMmuTg=' 'sha256-PGJ8tjuz2DXGgB1Sie9pW8BrxBGK6EQndbLEkXd44T8=' 'sha256-Plu4F2hGS+wC9dOCZ771Toql2ifD4ciZcMAoOF5ee88=' 'sha256-Pvr9k2TxL6P0L+opA7KAicNg81I+IPeC4aLu0uaSmZ4=' 'sha256-QEIf/cMA4YKs6vpVkqDcp3GiNDH0RAD9QnMpGDvCvts=' 'sha256-RCsCPlU52CtIRNNS7jAHKQnZEcAOjjd8Oeo0MPekLSw=' 'sha256-T7kKa8xi0YETebjOTYkFP89svJ2zWV+5KX8WPGV8hbY=' 'sha256-TbVO6/XTaawgYdudR8tNoTcZoViyovsPOXJoqxEU1vE=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-Wb64Hqavr0WEsXs2PWRdr5MrF9e6xyhvWwVcgLK/hRY=' 'sha256-Wmktxzz3Xgrfr1dh83JwyjZXYB2B8hpOUWjszTi6u1w=' 'sha256-XgeARjgOKVzxaBBRUhkwWxlPyO2F+5yjmLzebDIdjPI=' 'sha256-YCn4kVAKxXbQ1vpmfPoJGZ+LrWiwbI0jR97gF781/rQ=' 'sha256-abZk601zV19/TDgd5Ars7HX1y1OOO4hsuth7J93tvYo=' 'sha256-bIar/cPJnqntN9qnOOmn1j/aU60ON2A8/ny78LOGFuU=' 'sha256-c7UnSi5GHMneLprBUkJ4+qX0hdPRBiV49lfKmOYrBJc=' 'sha256-cJKKiqq21PYEOE2twdo0d6pBZR0HqVWFZh/9HTTWd7Q=' 'sha256-dovafdmRD7y5TNjxhO6ij/p5PU9plMpKIPJlRnsA07I=' 'sha256-edfpRw9792wC/pUnE/dTFQ7OqGyPWLR9hKe4bRUa87Q=' 'sha256-ff36XR2UuO456YRawoLrU8tavSlNiPmENy698h7gMWY=' 'sha256-jpaRQxx4Gk1h1MqZEZI0AsDURAzdugEE/jAoDLoh3O0=' 'sha256-lhwF0yb/IfjEFWPvm9s1OKmpyrGgXYWyGkIU1/l+oi4=' 'sha256-mIJVRiJpVEwsRXKwOM2bLVteuoGfccvta8oAtOXvn3g=' 'sha256-nsaN9XXBQnL1UScc6XpjGyl9Ep7HVpI2z2c5psSnGgM=' 'sha256-nv8L7K3maocl9migKRDjB7I1u0Q01IjMZ5Ibac4le6c=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-oyxMjRYa7GZvb9/cTRE3BC669tZl6QK0cYkx+8GRMDg=' 'sha256-pHZRBddnSViMydSQLyM3wcf29jGEaXgMfjgJHXrdZCQ=' 'sha256-r0u0jqJAcpnEz72EEzmA4Dc6+jcEX+jf2YeL08f2NDg=' 'sha256-rr9MHMazKuHH0aNfQ5DDfoBVHVqZiZIvfw0ylnvCAso=' 'sha256-rxuCKgeN6L6KRThbygcS+S0j0+o//t6jONM6lYQM8LI=' 'sha256-sRMo+7BipNtcYGMt0p/wAvb3s3FtepLNy97GRskQDWY=' 'sha256-sUymMv8Qpo8082tl66K1kS6/mlKovaui4vyHZ8ZQyyA=' 'sha256-sXRweIQb8OFRJgaO5Nnwxy7N1NVYdEYROW7U0tBuWxw=' 'sha256-subzVTE+mWheOUrV0leCjfwMGxoXtsmXiEpcIXmHBXM=' 'sha256-t/h1/ZuhPp+alttQauTlPW0G+i6YOUkE6tdmN+vzjQc=' 'sha256-tfbSoODAVuNJowpt2V4y6bqhqVUzhFExxq8NlEahPDY=' 'sha256-tx9SjSE35N+AyUcwGbioyhlpL7dK6WTgOU55CdIG+X0=' 'sha256-uPtBRKB8u1TURvzYFDeDAyNIGWDOPnOWKSjwnre37Y8=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-vfMrP+9ENatXjfOvPnjF44QawYxXd7oWPvQmM84orkM=' 'sha256-vjArgTCUptCAbm4mirAfMKUu1Pz/XFvQqDWXTeDjh5Y=' 'sha256-x9GBI2VBIAq78NqbwbbVFteKoOZFC/97KomNRiP1jOo=' 'sha256-xhOtUUj0TSdEvjpFHZ57LvbK5PD0cWWdW0Y6w0PS3C4=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y='; style-src-attr 'unsafe-hashes' 'sha256-+/8l6fxQyrdundiK66ViWS5VlHiQUAi4V/Ir8XXFYh0=' 'sha256-+9jP7I5yRDNniaD2krT0dDi3BPYf2yw+67DWtjrdCT4=' 'sha256-+NWaEWEiOokl6/ucapRIPoU6asHGXKK1zVVyER15XhU=' 'sha256-+hs2WWbnf7y2ytdtXgIdlYNSq4hxX2K0Wl7v70yBwE4=' 'sha256-/WQLt0O4667878Qkwzat/C8h2Hfoh1y8VMh4NnaR++Q=' 'sha256-02ObSVUox8Jemge0oiQ9C1xwK2uZrOMeqo8pLzcnFpU=' 'sha256-0LPehmr2igikxTM6fICLGVQe9zNT05oCNqGEz97HYJw=' 'sha256-0Z6BO7cUVkTL/64d4a2Etu/8JsOv2Z37F/sW/TAo0lQ=' 'sha256-0mGWIZpfGEiSyfs7EOqTzToN2xnn2wmK1MavGc6+2g4=' 'sha256-14I0xhEDhgrt9wQ0lOYVQzSZ3qjal0gfoeq/gRthR+Y=' 'sha256-3pPm6HM/L3qW8lARkxhbSGTSUr3mIwtdbyvPkqSS44k=' 'sha256-4ABrSkoP1/Af9jwER6ZHoKy+DIHE9hcdKtberkZwsQI=' 'sha256-4UGMPKFU4zYVlJG/f0f/11EM1XxpNzCqKlJDqH8Ehjs=' 'sha256-5+OSNQ+fq9YlrvTQq26C7lsJG2Ozca21ycLN/Ddngno=' 'sha256-6+OoY3OtE7fYL9P1yU1F4Niud53yBieMAFyBkXiGb2Y=' 'sha256-63zVsn35aCT/QnDh8ppEEkqRzXGHihukARx71zc1L6c=' 'sha256-7U31ZIvmzHzecBIxj2oxE/1JEFlxxwf77bw0czlq2Ck=' 'sha256-7gKArtK6ARgJ8ClYKlpZ5dtpg0458bAsfaT1uHg0Nik=' 'sha256-8+aw/GPDnsEP5p9I84UgZvqzNbEbXSVIdFVNrwprqdg=' 'sha256-8Y0tUJoB3woFTaCRV0HUvzGfa4oAb9POznyt3+OX29c=' 'sha256-8kskclswgoAJgMIdO95KiOr6ot+4HCyPtS8ZsRhVGQY=' 'sha256-8mOgHe5JQKHuvGcFYROrRLvOTrcZW5zApq1plvOlZlU=' 'sha256-9bfCCwGSr1Rxd4Iskd65MnTsqaueDkfleeVMCSZblcY=' 'sha256-ApvrjydsrFFND5aB5EdB19oa++aXLaGwuYfXpYUXS5E=' 'sha256-BJ9KjGmp9vSDvxBEhheqisJiYFYfQan/0saV0Got0xo=' 'sha256-BoRIKPhrPpF5dKnHlfhZUzyR+DGJG/McheRQy/5hKnA=' 'sha256-DIQvgYNsE6ygLkpVjrMzTjHfkCzj6QhYcFMz/0KCo6A=' 'sha256-DLV7nXSEUAZgAi/ImzopB3kAbiN2+ac5oNt1Pcsbbfk=' 'sha256-DrsITAEAFiydGbSwToX2gDxu7jVJF2KuNa1VvKLrLKA=' 'sha256-DzlPv7bqFdHCUQWBtDVuHAIKCJnJHTBAB1zdV+aAkXM=' 'sha256-EaQQo6r+9RnV2p1vUFJvXKePcTv9wd1W3PX5StXBrcE=' 'sha256-F2nLHvEDyomd5RTjsfkbPPXxLNt0yUAGYvuV3LLsOD8=' 'sha256-GeuTHR31gC4YhST+Pmki/3UF2cGI2JTtXWyAOHzoMeg=' 'sha256-Gw27IjM8abyIdUYHmIL+RVuYR3vMMcHp2NU3W6nASN4=' 'sha256-H7liKfTnHv+yPQhaGGz/C3DbtqqlCW1GmwmQqtL/CZc=' 'sha256-HRAgwcWH8S3GPDMERCN0X/WINofjxuOWwUbP85Got3o=' 'sha256-Hln1u3JbEQHJkR7Ps8J4qM7GPRqNES4yYqqSbVL4DQg=' 'sha256-IE/emEkJA2hT13ZFrrBKFrJaJKrwT2fzL837OYS7i40=' 'sha256-J5sTY/rDr7JAs1jgco5cnWMq6peTN9FWSFmBAKw1F1k=' 'sha256-K4XtRnaj2lzE3boZnOv8YXeSxuPaCmNtQrWg/CvgVAw=' 'sha256-KNyFB29etgQ1hOF++NPDgXkWmqOpn5JGD7Nb0o48Wog=' 'sha256-KOZuf3qlb/1LMYoDQGHZEb0MkLU14aScIdtpz3RwEGc=' 'sha256-Kiv7dWWPPn49TTZgDgv2u4URkJHxe3kz4RDX1gZG2x4=' 'sha256-MMp5XDCCSHUd9Ij1xcI1roUL2w47Lvi1zMU3fI111KQ=' 'sha256-Meslg56kbN+8QDPFZHK+TqvM4bAobOXCWfLHQW324Wk=' 'sha256-MqFQYnStmE7P5bnyFMRRZHs+t4t0+QtZqxJeaHAgTgA=' 'sha256-MuRqXTotcJlT23rNMm8COAeJiE77TD0FffWuwU2za3c=' 'sha256-Mw+aAm7ucl+rf31t7UyBVAzDVji/bR95tXZqg/222uI=' 'sha256-Npi0e/ANNXKbSeTAhR1w1yNS9RIF6i1FAJRy0vDJ2Wo=' 'sha256-OFTcqjwabgeSVHiyd4FSAH/lKYr3CpAwp30q7DGZexM=' 'sha256-OHUrsR9aDjV/SSJRGMUphog5eQ3LNhM5R0WYRjvs/5M=' 'sha256-OIMJqZv4UTq4ArlOLjujzpzeHIhDxqMBQKqe2UMmuTg=' 'sha256-PGJ8tjuz2DXGgB1Sie9pW8BrxBGK6EQndbLEkXd44T8=' 'sha256-Plu4F2hGS+wC9dOCZ771Toql2ifD4ciZcMAoOF5ee88=' 'sha256-Pvr9k2TxL6P0L+opA7KAicNg81I+IPeC4aLu0uaSmZ4=' 'sha256-QEIf/cMA4YKs6vpVkqDcp3GiNDH0RAD9QnMpGDvCvts=' 'sha256-RCsCPlU52CtIRNNS7jAHKQnZEcAOjjd8Oeo0MPekLSw=' 'sha256-T7kKa8xi0YETebjOTYkFP89svJ2zWV+5KX8WPGV8hbY=' 'sha256-TbVO6/XTaawgYdudR8tNoTcZoViyovsPOXJoqxEU1vE=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-Wb64Hqavr0WEsXs2PWRdr5MrF9e6xyhvWwVcgLK/hRY=' 'sha256-Wmktxzz3Xgrfr1dh83JwyjZXYB2B8hpOUWjszTi6u1w=' 'sha256-XgeARjgOKVzxaBBRUhkwWxlPyO2F+5yjmLzebDIdjPI=' 'sha256-YCn4kVAKxXbQ1vpmfPoJGZ+LrWiwbI0jR97gF781/rQ=' 'sha256-abZk601zV19/TDgd5Ars7HX1y1OOO4hsuth7J93tvYo=' 'sha256-bIar/cPJnqntN9qnOOmn1j/aU60ON2A8/ny78LOGFuU=' 'sha256-c7UnSi5GHMneLprBUkJ4+qX0hdPRBiV49lfKmOYrBJc=' 'sha256-cJKKiqq21PYEOE2twdo0d6pBZR0HqVWFZh/9HTTWd7Q=' 'sha256-dovafdmRD7y5TNjxhO6ij/p5PU9plMpKIPJlRnsA07I=' 'sha256-edfpRw9792wC/pUnE/dTFQ7OqGyPWLR9hKe4bRUa87Q=' 'sha256-ff36XR2UuO456YRawoLrU8tavSlNiPmENy698h7gMWY=' 'sha256-jpaRQxx4Gk1h1MqZEZI0AsDURAzdugEE/jAoDLoh3O0=' 'sha256-lhwF0yb/IfjEFWPvm9s1OKmpyrGgXYWyGkIU1/l+oi4=' 'sha256-mIJVRiJpVEwsRXKwOM2bLVteuoGfccvta8oAtOXvn3g=' 'sha256-nsaN9XXBQnL1UScc6XpjGyl9Ep7HVpI2z2c5psSnGgM=' 'sha256-nv8L7K3maocl9migKRDjB7I1u0Q01IjMZ5Ibac4le6c=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-oyxMjRYa7GZvb9/cTRE3BC669tZl6QK0cYkx+8GRMDg=' 'sha256-pHZRBddnSViMydSQLyM3wcf29jGEaXgMfjgJHXrdZCQ=' 'sha256-r0u0jqJAcpnEz72EEzmA4Dc6+jcEX+jf2YeL08f2NDg=' 'sha256-rr9MHMazKuHH0aNfQ5DDfoBVHVqZiZIvfw0ylnvCAso=' 'sha256-rxuCKgeN6L6KRThbygcS+S0j0+o//t6jONM6lYQM8LI=' 'sha256-sRMo+7BipNtcYGMt0p/wAvb3s3FtepLNy97GRskQDWY=' 'sha256-sUymMv8Qpo8082tl66K1kS6/mlKovaui4vyHZ8ZQyyA=' 'sha256-sXRweIQb8OFRJgaO5Nnwxy7N1NVYdEYROW7U0tBuWxw=' 'sha256-subzVTE+mWheOUrV0leCjfwMGxoXtsmXiEpcIXmHBXM=' 'sha256-t/h1/ZuhPp+alttQauTlPW0G+i6YOUkE6tdmN+vzjQc=' 'sha256-tfbSoODAVuNJowpt2V4y6bqhqVUzhFExxq8NlEahPDY=' 'sha256-tx9SjSE35N+AyUcwGbioyhlpL7dK6WTgOU55CdIG+X0=' 'sha256-uPtBRKB8u1TURvzYFDeDAyNIGWDOPnOWKSjwnre37Y8=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-vfMrP+9ENatXjfOvPnjF44QawYxXd7oWPvQmM84orkM=' 'sha256-vjArgTCUptCAbm4mirAfMKUu1Pz/XFvQqDWXTeDjh5Y=' 'sha256-x9GBI2VBIAq78NqbwbbVFteKoOZFC/97KomNRiP1jOo=' 'sha256-xhOtUUj0TSdEvjpFHZ57LvbK5PD0cWWdW0Y6w0PS3C4=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y='; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://overkillhill.com https://*.github.io; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; frame-src 'self' https://okhp3.github.io; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests" /><meta content="English" name="language"/>
+<!-- ========================================
        METADATA: Primary Title & Description
        ======================================== -->
-    <title>Abrahamic Reference Engine | OverKill Hill P³™</title>
-    <meta name="description" content="A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Browse traditions and compare shared themes side-by-side." />
-    <meta name="keywords" content="Abrahamic reference engine, scripture lookup, Judaism Christianity Islam, cross-tradition compare, verse lookup, Sefaria, OverKill Hill P³" />
-    <meta name="author" content="OverKill Hill P³™" />
-    <meta name="creator" content="OverKill Hill P³™" />
-    <meta name="publisher" content="OverKill Hill P³™" />
-
-    <!-- ========================================
+<title>Abrahamic Reference Engine | OverKill Hill P³™</title>
+<meta content="A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Browse traditions and compare shared themes side-by-side." name="description"/>
+<meta content="Abrahamic reference engine, scripture lookup, Judaism Christianity Islam, cross-tradition compare, verse lookup, Sefaria, OverKill Hill P³" name="keywords"/>
+<meta content="OverKill Hill P³™" name="author"/>
+<meta content="OverKill Hill P³™" name="creator"/>
+<meta content="OverKill Hill P³™" name="publisher"/>
+<!-- ========================================
        METADATA: Open Graph (Social Sharing)
        ======================================== -->
-    <meta property="og:title" content="Abrahamic Reference Engine | OverKill Hill P³™" />
-    <meta property="og:description" content="A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Find it. Quote it. Compare it. No sermon required." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://overkillhill.com/projects/abrahamic-reference-engine/" />
-    <meta property="og:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
-    <meta property="og:image:alt" content="Mechanical raven perched on a vintage computer -- OverKill Hill P³ illustration" />
-    <meta property="og:image:width" content="1024" />
-    <meta property="og:image:height" content="1024" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:site_name" content="OverKill Hill P³™" />
-    <meta property="og:locale" content="en_US" />
-
-    <!-- ========================================
+<meta content="Abrahamic Reference Engine | OverKill Hill P³™" property="og:title"/>
+<meta content="A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Find it. Quote it. Compare it. No sermon required." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://overkillhill.com/projects/abrahamic-reference-engine/" property="og:url"/>
+<meta content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" property="og:image"/>
+<meta content="Mechanical raven perched on a vintage computer -- OverKill Hill P³ illustration" property="og:image:alt"/>
+<meta content="1024" property="og:image:width"/>
+<meta content="1024" property="og:image:height"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="OverKill Hill P³™" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- ========================================
        METADATA: Twitter Card (X Social)
        ======================================== -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Abrahamic Reference Engine | OverKill Hill P³™" />
-    <meta name="twitter:description" content="A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Find it. Quote it. Compare it. No sermon required." />
-    <meta name="twitter:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
-    <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer -- OverKill Hill P³ illustration" />
-    <meta name="twitter:site" content="@OverKillHillP3" />
-    <meta name="twitter:creator" content="@OverKillHillP3" />
-
-    <!-- ========================================
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Abrahamic Reference Engine | OverKill Hill P³™" name="twitter:title"/>
+<meta content="A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Find it. Quote it. Compare it. No sermon required." name="twitter:description"/>
+<meta content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" name="twitter:image"/>
+<meta content="Mechanical raven perched on a vintage computer -- OverKill Hill P³ illustration" name="twitter:image:alt"/>
+<meta content="@OverKillHillP3" name="twitter:site"/>
+<meta content="@OverKillHillP3" name="twitter:creator"/>
+<!-- ========================================
        METADATA: Search & Crawling
        ======================================== -->
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="bingbot" content="index, follow" />
-    <meta name="revisit-after" content="7 days" />
-    <link rel="author" href="/humans.txt" />
-    <link rel="canonical" href="https://overkillhill.com/projects/abrahamic-reference-engine/" />
-    <link rel="alternate" hreflang="en" href="https://overkillhill.com/projects/abrahamic-reference-engine/" />
-
-    <!-- ========================================
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="index, follow" name="googlebot"/>
+<meta content="index, follow" name="bingbot"/>
+<meta content="7 days" name="revisit-after"/>
+<link href="/humans.txt" rel="author"/>
+<link href="https://overkillhill.com/projects/abrahamic-reference-engine/" rel="canonical"/>
+<link href="https://overkillhill.com/projects/abrahamic-reference-engine/" hreflang="en" rel="alternate"/>
+<!-- ========================================
        METADATA: Color Scheme & Theme
        ======================================== -->
-    <meta name="theme-color" content="#2a2320" />
-    <meta name="color-scheme" content="dark light" />
-
-    <!-- ========================================
+<meta content="#2a2320" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<!-- ========================================
        METADATA: Web App & PWA
        ======================================== -->
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-    <!-- ========================================
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<!-- ========================================
        FAVICONS: Multi-Format Icon Support
        ======================================== -->
-    <link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
-    <link rel="icon" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
-    <link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180" type="image/png" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="manifest" href="/site.webmanifest" />
-
-    <!-- ========================================
+<link href="/assets/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/assets/img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- ========================================
        STYLESHEETS & FONTS
        ======================================== -->
-    <!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body), JetBrains Mono (code/mono) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" />
-    <script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
-    <link rel="stylesheet" href="/assets/css/theme.css?v=4b831f47" />
-
-
-    <script type="speculationrules">
+<!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
+<link href="/assets/css/theme.css?v=4b831f47" rel="stylesheet"/>
+<script type="speculationrules">
     {
       "prefetch": [
         { "source": "document", "where": { "and": [
@@ -102,610 +90,531 @@
       ]
     }
     </script>
-
-    <!-- ========================================
-       STRUCTURED DATA: BreadcrumbList
-       ======================================== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "OverKill Hill P³™",
-        "item": "https://overkillhill.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Projects",
-        "item": "https://overkillhill.com/projects/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Abrahamic Reference Engine",
-        "item": "https://overkillhill.com/projects/abrahamic-reference-engine/"
-      }
-      ]
-    }
-    </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
-    <script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
+<script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-VJ1BKXS27H');
     </script>
-  </head>
-
-  <body class="projects-main">
-    <a class="okh-skip-link" href="#main">Skip to main content</a>
-
-    <!-- ============================================================
-         HEADER
-         ============================================================ -->
-    <header class="site-header" id="top">
-      <div class="container">
-        <div class="logo">
-          <a href="/">
-            <img src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png" alt="OverKill Hill P³ logo" width="40" height="40" loading="lazy" />
-            <span class="sr-only">OverKill&nbsp;Hill&nbsp;P³™ Home</span>
-          </a>
-        </div>
-
-        <nav class="primary-nav" id="navigation" aria-label="Primary">
-          <ul>
-            <li><a href="/#forge">The Forge</a></li>
-            <!-- Projects cluster -->
-            <li class="has-submenu">
-              <a href="/projects/" aria-current="page">Our Projects</a>
-              <ul class="submenu">
-                <li><a href="/projects/skillz/">Skillz Forge</a></li>
-                <li><a href="/projects/found-ry/">Found‑Rᵧ</a></li>
-                <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
-                <li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
-                <li><a href="/projects/mac-studio-local-ai-workbench/">Mac Studio Local AI Workbench</a></li>
-                <li><a href="/projects/abrahamic-reference-engine/" class="is-current">Abrahamic Reference Engine</a></li>
-                <li><a href="/projects/glee-fully-chai-chasers/">Glee-fully Chai Chasers</a></li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="/writings/">Writings</a>
-              <ul class="submenu">
-                <li><a href="/manifesto/">The Manifesto</a></li>
-                <li><a href="/prompt-forge/">The Prompt Forge</a></li>
-                <li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="/about/">About</a>
-              <ul class="submenu">
-                <li><a href="/universe/">OKHP³™ Universe</a></li>
-                <li><a href="/about/">About OKHP³™</a></li>
-                <li><a href="/contact/">Contact</a></li>
-                <li><a href="/legal/">Legal</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-
-        <button class="nav-toggle" aria-controls="navigation" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </button>
-      </div>
-
-      <section class="site-specials site-specials--okh" aria-label="Forge update">
-        <span class="site-specials-label">🔥 Hot off the FORGE ⚒️</span>
-        <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
+</head>
+<body class="projects-main">
+  <a class="okh-skip-link" href="#main">Skip to main content</a>
+<header class="site-header" id="top">
+<div class="container">
+<div class="logo">
+<a href="#top">
+<img alt="OverKill Hill P³ logo" height="40" loading="lazy" src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png" width="40"/>
+<span class="sr-only">OverKill Hill P³™ Home</span>
+</a>
+</div>
+<nav aria-label="Primary" class="primary-nav" id="navigation">
+<ul>
+<li><a href="/#forge">The Forge</a></li>
+<li class="has-submenu">
+<a href="/projects/">Our Projects</a>
+<ul class="submenu">
+<li><a href="/projects/skillz/">Skillz Forge</a></li>
+<li><a href="/projects/found-ry/">Found‑Rᵧ</a></li>
+<li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
+<li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
+<li><a href="/projects/mac-studio-local-ai-workbench/">Mac Studio Local AI Workbench</a></li>
+<li><a aria-current="page" href="/projects/abrahamic-reference-engine/">Abrahamic Reference Engine</a></li>
+<li><a href="/projects/glee-fully-chai-chasers/">Glee-fully Chai Chasers</a></li>
+</ul>
+</li>
+<!-- Writings cluster: Manifesto / Promptcraft / FDIAL -->
+<li class="has-submenu">
+<a href="/writings/">Writings</a>
+<ul class="submenu">
+<li><a href="/manifesto/">The Manifesto</a></li>
+<li><a href="/prompt-forge/">The Prompt Forge</a></li>
+<li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
+</ul>
+</li>
+<!-- About cluster: Universe / About / Contact / Legal -->
+<li class="has-submenu">
+<a href="/about/">About</a>
+<ul class="submenu">
+<li><a href="/universe/">OKHP³™ Universe</a></li>
+<li><a href="/about/">About OKHP³™</a></li>
+<li><a href="/contact/">Contact</a></li>
+<li><a href="/legal/">Legal</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<button aria-controls="navigation" aria-expanded="false" class="nav-toggle">
+<span class="sr-only">Toggle navigation</span>
+<span class="bar"></span><span class="bar"></span><span class="bar"></span>
+</button>
+</div>
+<section aria-label="Forge update" class="site-specials site-specials--okh">
+<span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
+<a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
           v0.5 is live: the Council of AIs scored each other, every model was harder on itself than the architect was. Read it →
         </a>
-      </section>
-    </header>
+</section>
+</header>
+  <main id="main">
 
-    <!-- ============================================================
-         MAIN
-         ============================================================ -->
-    <main id="main">
-      <div class="container">
-
-        <!-- HERO ────────────────────────────────────────────────── -->
-        <section class="project-hero" aria-label="Project overview">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">overkillhill.com</a><span>/</span>
-            <a href="/projects/">projects</a><span>/</span>
-            <span>abrahamic-reference-engine</span>
-          </nav>
-
-          <div class="tag-row">
-            <span class="tag">Foundry Project</span>
-            <span class="tag">Open Source</span>
-            <span class="tag tag--accent">v1.1 Active</span>
-            <span class="tag tag--accent">Agent Skills Available</span>
-          </div>
-
-          <h1>Abrahamic Reference Engine</h1>
-          <p class="hero-sub">Find it. Quote it. Compare it. No sermon required.</p>
-
-          <p>
+<div class="container">
+<!-- HERO ────────────────────────────────────────────────── -->
+<section aria-label="Project overview" class="project-hero">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">overkillhill.com</a><span>/</span>
+<a href="/projects/">projects</a><span>/</span>
+<span>abrahamic-reference-engine</span>
+</nav>
+<div class="tag-row">
+<span class="tag">Foundry Project</span>
+<span class="tag">Open Source</span>
+<span class="tag tag--accent">v1.1 Active</span>
+<span class="tag tag--accent">Agent Skills Available</span>
+</div>
+<h1>Abrahamic Reference Engine</h1>
+<p class="hero-sub">Find it. Quote it. Compare it. No sermon required.</p>
+<p>
             A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam.
             Browse traditions, look up passages from source-aware APIs, and compare shared themes side-by-side.
             Browser-only. No login. No preaching. No ranking.
           </p>
-
-          <div class="hero-ctas">
-            <a href="https://okhp3.github.io/abrahamic-reference-engine/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Launch the Engine</a>
-            <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">Explore Agent Skills</a>
-            <a href="https://github.com/OKHP3/abrahamic-reference-engine" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">View on GitHub</a>
-          </div>
-        </section>
-
-        <!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
-        <div class="project-layout">
-
-          <!-- MAIN COLUMN ──────────────────────────────────────── -->
-          <div>
-
-            <!-- PROBLEM STATEMENT ───────────────────────────────── -->
-            <div class="content-block card" id="problem" data-search-index>
-              <div class="section-label">The Problem</div>
-              <h2>The Reference Gap</h2>
-              <div class="feature-grid" style="margin-top:0.75rem;">
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">◑</div>
-                  <div>
-                    <h3>Most scripture tools are built for insiders</h3>
-                    <p>Devotional apps, denominational study tools, and apologetics platforms assume you already belong. If you're secular, unaffiliated, or just trying to understand a reference -- there's almost nothing built for you.</p>
-                  </div>
+<div class="hero-ctas">
+<a class="btn btn-primary" href="https://okhp3.github.io/abrahamic-reference-engine/" rel="noopener noreferrer" target="_blank">Launch the Engine</a>
+<a class="btn btn-quiet" href="https://github.com/OKHP3/skillz" rel="noopener noreferrer" target="_blank">Explore Agent Skills</a>
+<a class="btn btn-quiet" href="https://github.com/OKHP3/abrahamic-reference-engine" rel="noopener noreferrer" target="_blank">View on GitHub</a>
+</div>
+</section>
+<!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
+<div class="project-layout">
+<!-- MAIN COLUMN ──────────────────────────────────────── -->
+<div>
+<!-- PROBLEM STATEMENT ───────────────────────────────── -->
+<div class="content-block card" data-search-index="" id="problem">
+<div class="section-label">The Problem</div>
+<h2>The Reference Gap</h2>
+<div class="feature-grid" style="margin-top:0.75rem;">
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">◑</div>
+<div>
+<h3>Most scripture tools are built for insiders</h3>
+<p>Devotional apps, denominational study tools, and apologetics platforms assume you already belong. If you're secular, unaffiliated, or just trying to understand a reference -- there's almost nothing built for you.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">⊕</div>
+<div>
+<h3>Cross-tradition comparison requires a scholar</h3>
+<p>Figuring out how Judaism, Christianity, and Islam treat the same theme -- mercy, justice, covenant, creation -- means switching between six different apps, three translation frameworks, and a denominational minefield.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">◎</div>
+<div>
+<h3>AI models hallucinate scripture</h3>
+<p>Ask a language model for a verse and it will confidently invent one. There is no neutral, API-backed, source-first reference layer designed specifically for agents and AI builders to use safely.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">◈</div>
+<div>
+<h3>Translation choice is invisible</h3>
+<p>KJV, NABRE, NIV, NRSV, Yusuf Ali, Sahih International -- each carries different denominational assumptions. Most tools pick one silently. This one names the choice and lets you see the difference.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- LIVE DEMO ───────────────────────────────────────── -->
+<div class="content-block" id="embed-demo" style="scroll-margin-top: 8rem;">
+<div class="embed-toolbar">
+<div class="embed-label">
+<span class="embed-live-dot"></span>
+                  Live Demo  ·  okhp3.github.io
                 </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">⊕</div>
-                  <div>
-                    <h3>Cross-tradition comparison requires a scholar</h3>
-                    <p>Figuring out how Judaism, Christianity, and Islam treat the same theme -- mercy, justice, covenant, creation -- means switching between six different apps, three translation frameworks, and a denominational minefield.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">◎</div>
-                  <div>
-                    <h3>AI models hallucinate scripture</h3>
-                    <p>Ask a language model for a verse and it will confidently invent one. There is no neutral, API-backed, source-first reference layer designed specifically for agents and AI builders to use safely.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">◈</div>
-                  <div>
-                    <h3>Translation choice is invisible</h3>
-                    <p>KJV, NABRE, NIV, NRSV, Yusuf Ali, Sahih International -- each carries different denominational assumptions. Most tools pick one silently. This one names the choice and lets you see the difference.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- LIVE DEMO ───────────────────────────────────────── -->
-            <div class="content-block" id="embed-demo" style="scroll-margin-top: 8rem;">
-              <div class="embed-toolbar">
-                <div class="embed-label">
-                  <span class="embed-live-dot"></span>
-                  Live Demo &nbsp;·&nbsp; okhp3.github.io
-                </div>
-                <div class="embed-actions">
-                  <button class="embed-btn" id="are-reload-btn" title="Reload engine" aria-label="Reload engine">
+<div class="embed-actions">
+<button aria-label="Reload engine" class="embed-btn" id="are-reload-btn" title="Reload engine">
                     ↺ Reload
                   </button>
-                  <a href="https://okhp3.github.io/abrahamic-reference-engine/" target="_blank" rel="noopener noreferrer" class="embed-btn embed-btn--primary">
+<a class="embed-btn embed-btn--primary" href="https://okhp3.github.io/abrahamic-reference-engine/" rel="noopener noreferrer" target="_blank">
                     ⤢ Full Screen
                   </a>
-                </div>
-              </div>
-
-              <div class="embed-fallback-cta">
-                <a href="https://okhp3.github.io/abrahamic-reference-engine/" target="_blank" rel="noopener noreferrer">
+</div>
+</div>
+<div class="embed-fallback-cta">
+<a href="https://okhp3.github.io/abrahamic-reference-engine/" rel="noopener noreferrer" target="_blank">
                   ⤢ Open Engine Full Screen
                 </a>
-              </div>
-
-              <div class="embed-frame-wrapper">
-                <div class="iframe-loading-overlay" id="are-iframe-overlay" aria-hidden="true">
-                  <div class="iframe-spinner"></div>
-                  <span class="iframe-loading-text">Loading Abrahamic Reference Engine…</span>
-                  <div class="iframe-slow-fallback" id="are-iframe-fallback">
-                    <span class="iframe-loading-text" style="opacity:0.6;">Taking longer than expected?</span>
-                    <a href="https://okhp3.github.io/abrahamic-reference-engine/" target="_blank" rel="noopener noreferrer">Open the engine in a new tab →</a>
-                  </div>
-                </div>
-                <iframe
-                  id="are-tool-iframe"
-                  src="https://okhp3.github.io/abrahamic-reference-engine/"
-                  title="Abrahamic Reference Engine"
-                  loading="lazy"
-                  sandbox="allow-scripts allow-same-origin allow-forms"
-                  allow="clipboard-read 'none'; clipboard-write 'none'; fullscreen 'none'"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  style="width:100%; border:0;"
-                ></iframe>
-              </div>
-              <p class="embed-disclosure" role="note">
-                <strong>External app:</strong> This reference tool is served from
-                <a href="https://okhp3.github.io/abrahamic-reference-engine/" target="_blank" rel="noopener noreferrer">okhp3.github.io</a>,
+</div>
+<div class="embed-frame-wrapper">
+<div aria-hidden="true" class="iframe-loading-overlay" id="are-iframe-overlay">
+<div class="iframe-spinner"></div>
+<span class="iframe-loading-text">Loading Abrahamic Reference Engine…</span>
+<div class="iframe-slow-fallback" id="are-iframe-fallback">
+<span class="iframe-loading-text" style="opacity:0.6;">Taking longer than expected?</span>
+<a href="https://okhp3.github.io/abrahamic-reference-engine/" rel="noopener noreferrer" target="_blank">Open the engine in a new tab →</a>
+</div>
+</div>
+<iframe allow="clipboard-read 'none'; clipboard-write 'none'; fullscreen 'none'" id="are-tool-iframe" loading="lazy" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-scripts allow-same-origin allow-forms" src="https://okhp3.github.io/abrahamic-reference-engine/" style="width:100%; border:0;" title="Abrahamic Reference Engine"></iframe>
+</div>
+<p class="embed-disclosure" role="note">
+<strong>External app:</strong> This reference tool is served from
+                <a href="https://okhp3.github.io/abrahamic-reference-engine/" rel="noopener noreferrer" target="_blank">okhp3.github.io</a>,
                 outside this site’s trust boundary.
               </p>
-
-              <p class="embed-note">
-                Embedded from <a href="https://okhp3.github.io/abrahamic-reference-engine/" target="_blank" rel="noopener noreferrer">okhp3.github.io/abrahamic-reference-engine</a>
+<p class="embed-note">
+                Embedded from <a href="https://okhp3.github.io/abrahamic-reference-engine/" rel="noopener noreferrer" target="_blank">okhp3.github.io/abrahamic-reference-engine</a>
                 -- open in a new tab for the full experience
               </p>
-            </div>
-
-            <!-- FOUR MODES ──────────────────────────────────────── -->
-            <div class="content-block" id="three-modes" data-search-index>
-              <div class="section-label">What It Does</div>
-              <h2>Four modes. One engine.</h2>
-              <div class="relationship-grid relationship-grid--four">
-                <div class="relationship-card">
-                  <span class="rel-tag">Browse Traditions</span>
-                  <h3>Browse traditions and denominations</h3>
-                  <p>Explore Judaism, Christianity (five denominational lenses), and Islam with scope notes, canon boundaries, key texts, and neutral summaries. Every tradition gets identical visual dignity -- no ranking.</p>
-                </div>
-                <div class="relationship-card">
-                  <span class="rel-tag">Verse Lookup</span>
-                  <h3>Look up passages from real sources</h3>
-                  <p>Retrieve scripture by reference. Sefaria for Jewish texts. bible-api.com for Christian scripture across translations. Quran.com with AlQuran.cloud fallback for Qur'an. Quote from sources, not model memory.</p>
-                </div>
-                <div class="relationship-card">
-                  <span class="rel-tag">Cross-Tradition Compare</span>
-                  <h3>Compare shared themes across traditions</h3>
-                  <p>Twenty pre-seeded themes -- justice, mercy, creation, covenant, prayer, forgiveness, and more -- shown side-by-side across all three traditions. Similarities matter. Differences matter. The nuance gremlins are the whole point.</p>
-                </div>
-                <div class="relationship-card">
-                  <span class="rel-tag">Observances Calendar</span>
-                  <h3>Track religious holidays across all three traditions</h3>
-                  <p>Year-selectable religious observance calendar for Judaism, Christianity, and Islam. Powered by three live calendar APIs: Hebcal for Jewish observances, AlAdhan for Islamic dates, and a built-in Computus implementation for Western and Orthodox Christian holidays. Download any event as a .ics file, or export the full year for all three traditions in one file. No account required.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- AGENT SKILLS ────────────────────────────────────── -->
-            <div class="content-block card" id="agent-skills" data-search-index>
-              <div class="section-label">Agent Skills</div>
-              <h2>Built for humans. Packaged for agents.</h2>
-              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">
+</div>
+<!-- FOUR MODES ──────────────────────────────────────── -->
+<div class="content-block" data-search-index="" id="three-modes">
+<div class="section-label">What It Does</div>
+<h2>Four modes. One engine.</h2>
+<div class="relationship-grid relationship-grid--four">
+<div class="relationship-card">
+<span class="rel-tag">Browse Traditions</span>
+<h3>Browse traditions and denominations</h3>
+<p>Explore Judaism, Christianity (five denominational lenses), and Islam with scope notes, canon boundaries, key texts, and neutral summaries. Every tradition gets identical visual dignity -- no ranking.</p>
+</div>
+<div class="relationship-card">
+<span class="rel-tag">Verse Lookup</span>
+<h3>Look up passages from real sources</h3>
+<p>Retrieve scripture by reference. Sefaria for Jewish texts. bible-api.com for Christian scripture across translations. Quran.com with AlQuran.cloud fallback for Qur'an. Quote from sources, not model memory.</p>
+</div>
+<div class="relationship-card">
+<span class="rel-tag">Cross-Tradition Compare</span>
+<h3>Compare shared themes across traditions</h3>
+<p>Twenty pre-seeded themes -- justice, mercy, creation, covenant, prayer, forgiveness, and more -- shown side-by-side across all three traditions. Similarities matter. Differences matter. The nuance gremlins are the whole point.</p>
+</div>
+<div class="relationship-card">
+<span class="rel-tag">Observances Calendar</span>
+<h3>Track religious holidays across all three traditions</h3>
+<p>Year-selectable religious observance calendar for Judaism, Christianity, and Islam. Powered by three live calendar APIs: Hebcal for Jewish observances, AlAdhan for Islamic dates, and a built-in Computus implementation for Western and Orthodox Christian holidays. Download any event as a .ics file, or export the full year for all three traditions in one file. No account required.</p>
+</div>
+</div>
+</div>
+<!-- AGENT SKILLS ────────────────────────────────────── -->
+<div class="content-block card" data-search-index="" id="agent-skills">
+<div class="section-label">Agent Skills</div>
+<h2>Built for humans. Packaged for agents.</h2>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">
                 ARE ships four reusable Markdown skill files so any AI agent can use the same reference logic.
                 No API key. No backend dependency. Compatible with Claude Code, GitHub Copilot, Cursor, Windsurf, and any platform that supports skill injection.
-                Distributed via <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" style="color:var(--okh-orange);">OKHP3/skillz</a>.
+                Distributed via <a href="https://github.com/OKHP3/skillz" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">OKHP3/skillz</a>.
               </p>
-              <div class="relationship-grid relationship-grid--four">
-                <div class="relationship-card">
-                  <span class="rel-tag">Skill</span>
-                  <h3>okhp3-verse-lookup</h3>
-                  <p>Fetch scripture from Sefaria, bible-api.com, or Quran.com by tradition and reference. Includes endpoint patterns, translation ID map, fallback logic, and normalization rules.</p>
-                </div>
-                <div class="relationship-card">
-                  <span class="rel-tag">Skill</span>
-                  <h3>okhp3-tradition-reference</h3>
-                  <p>Compact structured metadata for all three traditions and five Christian denominations. Canon scope, key texts, US Pew share, API provider, out-of-scope table.</p>
-                </div>
-                <div class="relationship-card">
-                  <span class="rel-tag">Skill</span>
-                  <h3>okhp3-cross-tradition-compare</h3>
-                  <p>Twenty pre-seeded cross-tradition themes with passage references for all three traditions, a neutral bridging note style guide, and the proportional representation rule.</p>
-                </div>
-                <div class="relationship-card">
-                  <span class="rel-tag">Skill</span>
-                  <h3>okhp3-tradition-observance-calendar</h3>
-                  <p>Fetch, compute, and format religious observance calendars for all three traditions. Covers Hebcal API (Jewish), AlAdhan API (Islamic), and TypeScript Computus (Christian, Western and Orthodox). Generates iCalendar (.ics) output. Includes emoji assignments, holiday filter lists, and session caching strategy. All sources are free and require no API key.</p>
-                </div>
-              </div>
-              <div class="skills-cta">
-                <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">Browse All Skills on GitHub</a>
-              </div>
-            </div>
-
-            <!-- SCOPE ───────────────────────────────────────────── -->
-            <div class="content-block" id="scope" data-search-index>
-              <div class="section-label">Scope</div>
-              <h2>Why these three traditions?</h2>
-              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.5rem;line-height:1.7;">
+<div class="relationship-grid relationship-grid--four">
+<div class="relationship-card">
+<span class="rel-tag">Skill</span>
+<h3>okhp3-verse-lookup</h3>
+<p>Fetch scripture from Sefaria, bible-api.com, or Quran.com by tradition and reference. Includes endpoint patterns, translation ID map, fallback logic, and normalization rules.</p>
+</div>
+<div class="relationship-card">
+<span class="rel-tag">Skill</span>
+<h3>okhp3-tradition-reference</h3>
+<p>Compact structured metadata for all three traditions and five Christian denominations. Canon scope, key texts, US Pew share, API provider, out-of-scope table.</p>
+</div>
+<div class="relationship-card">
+<span class="rel-tag">Skill</span>
+<h3>okhp3-cross-tradition-compare</h3>
+<p>Twenty pre-seeded cross-tradition themes with passage references for all three traditions, a neutral bridging note style guide, and the proportional representation rule.</p>
+</div>
+<div class="relationship-card">
+<span class="rel-tag">Skill</span>
+<h3>okhp3-tradition-observance-calendar</h3>
+<p>Fetch, compute, and format religious observance calendars for all three traditions. Covers Hebcal API (Jewish), AlAdhan API (Islamic), and TypeScript Computus (Christian, Western and Orthodox). Generates iCalendar (.ics) output. Includes emoji assignments, holiday filter lists, and session caching strategy. All sources are free and require no API key.</p>
+</div>
+</div>
+<div class="skills-cta">
+<a class="btn btn-quiet" href="https://github.com/OKHP3/skillz" rel="noopener noreferrer" target="_blank">Browse All Skills on GitHub</a>
+</div>
+</div>
+<!-- SCOPE ───────────────────────────────────────────── -->
+<div class="content-block" data-search-index="" id="scope">
+<div class="section-label">Scope</div>
+<h2>Why these three traditions?</h2>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0.5rem;line-height:1.7;">
                 The scope is set by two criteria that must both be met.
                 A tradition must have Abrahamic lineage AND represent approximately 1% or more of the US population per Pew Research Center.
               </p>
-              <div style="overflow-x:auto;">
-                <table class="scope-table">
-                  <thead>
-                    <tr>
-                      <th>Tradition</th>
-                      <th>US Share</th>
-                      <th>In Scope</th>
-                      <th>Notes</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Christianity</td>
-                      <td>~63%</td>
-                      <td><span class="scope-yes">Yes</span></td>
-                      <td>Five denominational lenses</td>
-                    </tr>
-                    <tr>
-                      <td>Judaism</td>
-                      <td>~2%</td>
-                      <td><span class="scope-yes">Yes</span></td>
-                      <td>Tanakh / Jewish textual reference</td>
-                    </tr>
-                    <tr>
-                      <td>Islam</td>
-                      <td>~1%</td>
-                      <td><span class="scope-yes">Yes</span></td>
-                      <td>Qur'an-focused reference</td>
-                    </tr>
-                    <tr>
-                      <td>Hinduism</td>
-                      <td>~1%</td>
-                      <td><span class="scope-no-cell">No</span></td>
-                      <td>Important -- not Abrahamic</td>
-                    </tr>
-                    <tr>
-                      <td>Buddhism</td>
-                      <td>~1%</td>
-                      <td><span class="scope-no-cell">No</span></td>
-                      <td>Important -- not Abrahamic</td>
-                    </tr>
-                    <tr>
-                      <td>Baha'i</td>
-                      <td>~0.1%</td>
-                      <td><span class="scope-no-cell">No</span></td>
-                      <td>Abrahamic -- below threshold</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <p class="scope-meta">
-                Source: <a href="https://www.pewresearch.org/religion/religious-landscape-study/" target="_blank" rel="noopener noreferrer">Pew Research Center, Religious Landscape Study</a>
-              </p>
-              <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.5rem;font-style:italic;">
+<div style="overflow-x:auto;">
+<table class="scope-table">
+<thead>
+<tr>
+<th>Tradition</th>
+<th>US Share</th>
+<th>In Scope</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Christianity</td>
+<td>~63%</td>
+<td><span class="scope-yes">Yes</span></td>
+<td>Five denominational lenses</td>
+</tr>
+<tr>
+<td>Judaism</td>
+<td>~2%</td>
+<td><span class="scope-yes">Yes</span></td>
+<td>Tanakh / Jewish textual reference</td>
+</tr>
+<tr>
+<td>Islam</td>
+<td>~1%</td>
+<td><span class="scope-yes">Yes</span></td>
+<td>Qur'an-focused reference</td>
+</tr>
+<tr>
+<td>Hinduism</td>
+<td>~1%</td>
+<td><span class="scope-no-cell">No</span></td>
+<td>Important -- not Abrahamic</td>
+</tr>
+<tr>
+<td>Buddhism</td>
+<td>~1%</td>
+<td><span class="scope-no-cell">No</span></td>
+<td>Important -- not Abrahamic</td>
+</tr>
+<tr>
+<td>Baha'i</td>
+<td>~0.1%</td>
+<td><span class="scope-no-cell">No</span></td>
+<td>Abrahamic -- below threshold</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="scope-meta">
+                Source: <a href="https://www.pewresearch.org/religion/religious-landscape-study/" rel="noopener noreferrer" target="_blank">Pew Research Center, Religious Landscape Study</a>
+</p>
+<p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.5rem;font-style:italic;">
                 Exclusion is a methodological boundary, not a judgment of worth.
               </p>
-            </div>
-
-            <!-- DESIGN PRINCIPLES ───────────────────────────────── -->
-            <div class="content-block" id="principles" data-search-index>
-              <div class="section-label">Principles</div>
-              <h2>The rules the engine runs on.</h2>
-              <div class="feature-grid" style="margin-top:0.75rem;">
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">1</div>
-                  <div>
-                    <h3>Neutrality first</h3>
-                    <p>No winners, no losers, no superior doctrines. Every tradition is presented with identical visual dignity and identical structural respect.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">2</div>
-                  <div>
-                    <h3>Attribution always</h3>
-                    <p>Every passage includes translation, source, provider, and licensing context. The engine cites its sources the same way a library does.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">3</div>
-                  <div>
-                    <h3>Context without preaching</h3>
-                    <p>The project may explain how a passage is commonly understood. It does not tell you what to believe or how to live.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">4</div>
-                  <div>
-                    <h3>Difference is data</h3>
-                    <p>When traditions disagree, the engine names the difference plainly and respectfully. Similarity does not mean sameness.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">5</div>
-                  <div>
-                    <h3>Free and open where possible</h3>
-                    <p>All APIs are free and anonymous. No account required, no data collected, no paywall. MIT license throughout.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- WHAT THIS IS NOT ─────────────────────────────────── -->
-            <div class="content-block" id="what-is-not" data-search-index>
-              <div class="section-label">What This Is Not</div>
-              <h2>A reference engine. Not a religion.</h2>
-              <div class="isnot-block">
-                <p style="font-size:0.875rem;color:var(--color-fg);margin:0;font-weight:600;">This project is not:</p>
-                <ul>
-                  <li><span class="isnot-dash">--</span>a devotional assistant</li>
-                  <li><span class="isnot-dash">--</span>a preacher or a moral authority</li>
-                  <li><span class="isnot-dash">--</span>an apologetics engine or debate platform</li>
-                  <li><span class="isnot-dash">--</span>a tradition-ranking tool</li>
-                  <li><span class="isnot-dash">--</span>a replacement for clergy, scholars, or religious communities</li>
-                  <li><span class="isnot-dash">--</span>a claim that all traditions mean the same thing</li>
-                </ul>
-                <p class="isnot-note">
+</div>
+<!-- DESIGN PRINCIPLES ───────────────────────────────── -->
+<div class="content-block" data-search-index="" id="principles">
+<div class="section-label">Principles</div>
+<h2>The rules the engine runs on.</h2>
+<div class="feature-grid" style="margin-top:0.75rem;">
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">1</div>
+<div>
+<h3>Neutrality first</h3>
+<p>No winners, no losers, no superior doctrines. Every tradition is presented with identical visual dignity and identical structural respect.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">2</div>
+<div>
+<h3>Attribution always</h3>
+<p>Every passage includes translation, source, provider, and licensing context. The engine cites its sources the same way a library does.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">3</div>
+<div>
+<h3>Context without preaching</h3>
+<p>The project may explain how a passage is commonly understood. It does not tell you what to believe or how to live.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">4</div>
+<div>
+<h3>Difference is data</h3>
+<p>When traditions disagree, the engine names the difference plainly and respectfully. Similarity does not mean sameness.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">5</div>
+<div>
+<h3>Free and open where possible</h3>
+<p>All APIs are free and anonymous. No account required, no data collected, no paywall. MIT license throughout.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- WHAT THIS IS NOT ─────────────────────────────────── -->
+<div class="content-block" data-search-index="" id="what-is-not">
+<div class="section-label">What This Is Not</div>
+<h2>A reference engine. Not a religion.</h2>
+<div class="isnot-block">
+<p style="font-size:0.875rem;color:var(--color-fg);margin:0;font-weight:600;">This project is not:</p>
+<ul>
+<li><span class="isnot-dash">--</span>a devotional assistant</li>
+<li><span class="isnot-dash">--</span>a preacher or a moral authority</li>
+<li><span class="isnot-dash">--</span>an apologetics engine or debate platform</li>
+<li><span class="isnot-dash">--</span>a tradition-ranking tool</li>
+<li><span class="isnot-dash">--</span>a replacement for clergy, scholars, or religious communities</li>
+<li><span class="isnot-dash">--</span>a claim that all traditions mean the same thing</li>
+</ul>
+<p class="isnot-note">
                   It is a reference engine. It helps you find text, compare themes, and understand context. What you do with that is up to you.
                 </p>
-              </div>
-            </div>
-
-            <!-- ORIGIN ──────────────────────────────────────────── -->
-            <div class="content-block" id="origin" data-search-index>
-              <div class="section-label">Origin</div>
-              <h2>Where it came from.</h2>
-              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.5rem;line-height:1.8;">
+</div>
+</div>
+<!-- ORIGIN ──────────────────────────────────────────── -->
+<div class="content-block" data-search-index="" id="origin">
+<div class="section-label">Origin</div>
+<h2>Where it came from.</h2>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.5rem;line-height:1.8;">
                 ARE began as a GPT design conversation in October 2025 -- a single-session sprint that produced the full product architecture: scope decisions, API strategy, knowledge-file allocation, brand placement, denomination logic, tone constraints, and a 27-file asset bundle. That bundle is the concrete v0.1 prototype. The SPA you are using now is the direct production descendant of what was designed there.
               </p>
-              <div class="origin-callout-grid">
-                <div class="origin-callout-card">
-                  <div class="origin-callout-label">Design Thread Summary</div>
-                  <p class="origin-callout-desc">Full executive summary of the origin conversation. Scope decisions, API strategy, brand placement rationale, knowledge allocation, competitive positioning, and functional requirements.</p>
-                  <a href="https://okhp3.github.io/abrahamic-reference-engine/origin/are00_thread_summary.md" target="_blank" rel="noopener noreferrer" class="btn btn-quiet" style="margin-top:0.75rem;display:inline-block;">Read the thread summary ↗</a>
-                </div>
-                <div class="origin-callout-card">
-                  <div class="origin-callout-label">Origin Archive</div>
-                  <p class="origin-callout-desc">In-app museum page with the v0.1 artifact bundle download, all 15 knowledge scaffolds, 5 OpenAPI stubs, and a "designed vs built" comparison table.</p>
-                  <a href="https://okhp3.github.io/abrahamic-reference-engine/origin" target="_blank" rel="noopener noreferrer" class="btn btn-quiet" style="margin-top:0.75rem;display:inline-block;">Open Origin Archive ↗</a>
-                </div>
-              </div>
-            </div>
-
-          </div><!-- /main column -->
-
-          <!-- SIDEBAR ──────────────────────────────────────────── -->
-          <aside class="sidebar-rail" aria-label="Project information">
-
-            <!-- Project Info -->
-            <div class="sidebar-meta">
-              <div class="section-label">Project Info</div>
-              <div class="meta-row">
-                <div class="meta-item">
-                  <span class="meta-key">Status</span>
-                  <span class="meta-val"><span class="status-dot"></span>Active / v1.1</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Build Phase</span>
-                  <span class="meta-val">v1.1 SPA + Skills Package</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">GitHub</span>
-                  <span class="meta-val"><a href="https://github.com/OKHP3/abrahamic-reference-engine" target="_blank" rel="noopener noreferrer">OKHP3/abrahamic-reference-engine ↗</a></span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Live URL</span>
-                  <span class="meta-val"><a href="https://okhp3.github.io/abrahamic-reference-engine/" target="_blank" rel="noopener noreferrer">okhp3.github.io/abrahamic-reference-engine ↗</a></span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">License</span>
-                  <span class="meta-val">MIT</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Type</span>
-                  <span class="meta-val">Community Tool</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Cost</span>
-                  <span class="meta-val">Free / Open Source</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Maintained by</span>
-                  <span class="meta-val"><a href="https://overkillhill.com">OverKill&nbsp;Hill&nbsp;P³</a></span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Suite</span>
-                  <span class="meta-val">FoundRy</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Agent Skills</span>
-                  <span class="meta-val">4 skills via <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer">OKHP3/skillz ↗</a></span>
-                </div>
-              </div>
-              <div class="sidebar-links">
-                <a href="https://okhp3.github.io/abrahamic-reference-engine/" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+<div class="origin-callout-grid">
+<div class="origin-callout-card">
+<div class="origin-callout-label">Design Thread Summary</div>
+<p class="origin-callout-desc">Full executive summary of the origin conversation. Scope decisions, API strategy, brand placement rationale, knowledge allocation, competitive positioning, and functional requirements.</p>
+<a class="btn btn-quiet" href="https://okhp3.github.io/abrahamic-reference-engine/origin/are00_thread_summary.md" rel="noopener noreferrer" style="margin-top:0.75rem;display:inline-block;" target="_blank">Read the thread summary ↗</a>
+</div>
+<div class="origin-callout-card">
+<div class="origin-callout-label">Origin Archive</div>
+<p class="origin-callout-desc">In-app museum page with the v0.1 artifact bundle download, all 15 knowledge scaffolds, 5 OpenAPI stubs, and a "designed vs built" comparison table.</p>
+<a class="btn btn-quiet" href="https://okhp3.github.io/abrahamic-reference-engine/origin" rel="noopener noreferrer" style="margin-top:0.75rem;display:inline-block;" target="_blank">Open Origin Archive ↗</a>
+</div>
+</div>
+</div>
+</div><!-- /main column -->
+<!-- SIDEBAR ──────────────────────────────────────────── -->
+<aside aria-label="Project information" class="sidebar-rail">
+<!-- Project Info -->
+<div class="sidebar-meta">
+<div class="section-label">Project Info</div>
+<div class="meta-row">
+<div class="meta-item">
+<span class="meta-key">Status</span>
+<span class="meta-val"><span class="status-dot"></span>Active / v1.1</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Build Phase</span>
+<span class="meta-val">v1.1 SPA + Skills Package</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">GitHub</span>
+<span class="meta-val"><a href="https://github.com/OKHP3/abrahamic-reference-engine" rel="noopener noreferrer" target="_blank">OKHP3/abrahamic-reference-engine ↗</a></span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Live URL</span>
+<span class="meta-val"><a href="https://okhp3.github.io/abrahamic-reference-engine/" rel="noopener noreferrer" target="_blank">okhp3.github.io/abrahamic-reference-engine ↗</a></span>
+</div>
+<div class="meta-item">
+<span class="meta-key">License</span>
+<span class="meta-val">MIT</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Type</span>
+<span class="meta-val">Community Tool</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Cost</span>
+<span class="meta-val">Free / Open Source</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Maintained by</span>
+<span class="meta-val"><a href="https://overkillhill.com">OverKill Hill P³</a></span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Suite</span>
+<span class="meta-val">FoundRy</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Agent Skills</span>
+<span class="meta-val">4 skills via <a href="https://github.com/OKHP3/skillz" rel="noopener noreferrer" target="_blank">OKHP3/skillz ↗</a></span>
+</div>
+</div>
+<div class="sidebar-links">
+<a class="sidebar-link" href="https://okhp3.github.io/abrahamic-reference-engine/" rel="noopener noreferrer" target="_blank">
                   ▶ Launch the Engine
                 </a>
-                <a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+<a class="sidebar-link" href="https://github.com/OKHP3/skillz" rel="noopener noreferrer" target="_blank">
                   ⬡ Agent Skills Hub
                 </a>
-                <a href="https://github.com/OKHP3/abrahamic-reference-engine" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+<a class="sidebar-link" href="https://github.com/OKHP3/abrahamic-reference-engine" rel="noopener noreferrer" target="_blank">
                   ◻ GitHub Repo
                 </a>
-                <a href="https://github.com/OKHP3/abrahamic-reference-engine/issues" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+<a class="sidebar-link" href="https://github.com/OKHP3/abrahamic-reference-engine/issues" rel="noopener noreferrer" target="_blank">
                   ⚐ Open an Issue
                 </a>
-              </div>
-            </div>
+</div>
+</div>
+<!-- Related -->
+<div class="sidebar-related" data-search-index="" id="related-resources">
+<div class="section-label">Related</div>
+<ul>
+<li><a href="https://github.com/OKHP3/skillz" rel="noopener noreferrer" target="_blank">OKHP3/skillz -- Agent Skills Hub ↗</a></li>
+<li><a href="https://www.pewresearch.org/religion/religious-landscape-study/" rel="noopener noreferrer" target="_blank">Pew Religious Landscape Study ↗</a></li>
+<li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
+<li><a href="/projects/">All OverKill Hill Projects</a></li>
+</ul>
+</div>
+<!-- On This Page -->
+<div class="sidebar-related" id="toc-widget">
+<div class="section-label">On This Page</div>
+<ul class="toc-list">
+<li><a href="#problem">The Reference Gap</a></li>
+<li><a href="#embed-demo">Live Demo</a></li>
+<li><a href="#three-modes">Four Modes</a></li>
+<li><a href="#agent-skills">Agent Skills</a></li>
+<li><a href="#scope">Scope</a></li>
+<li><a href="#principles">Design Principles</a></li>
+<li><a href="#what-is-not">What This Is Not</a></li>
+<li><a href="#origin">Origin</a></li>
+</ul>
+</div>
+</aside>
+</div><!-- /project-layout -->
+</div> /container 
 
-            <!-- Related -->
-            <div class="sidebar-related" id="related-resources" data-search-index>
-              <div class="section-label">Related</div>
-              <ul>
-                <li><a href="https://github.com/OKHP3/skillz" target="_blank" rel="noopener noreferrer">OKHP3/skillz -- Agent Skills Hub ↗</a></li>
-                <li><a href="https://www.pewresearch.org/religion/religious-landscape-study/" target="_blank" rel="noopener noreferrer">Pew Religious Landscape Study ↗</a></li>
-                <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
-                <li><a href="/projects/">All OverKill Hill Projects</a></li>
-              </ul>
-            </div>
-
-            <!-- On This Page -->
-            <div class="sidebar-related" id="toc-widget">
-              <div class="section-label">On This Page</div>
-              <ul class="toc-list">
-                <li><a href="#problem">The Reference Gap</a></li>
-                <li><a href="#embed-demo">Live Demo</a></li>
-                <li><a href="#three-modes">Four Modes</a></li>
-                <li><a href="#agent-skills">Agent Skills</a></li>
-                <li><a href="#scope">Scope</a></li>
-                <li><a href="#principles">Design Principles</a></li>
-                <li><a href="#what-is-not">What This Is Not</a></li>
-                <li><a href="#origin">Origin</a></li>
-              </ul>
-            </div>
-
-          </aside>
-
-        </div><!-- /project-layout -->
-
-      </div><!-- /container -->
-    </main>
-
-    <!-- ============================================================
-         FOOTER
-         ============================================================ -->
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div class="footer-column">
-          <h3>OverKill&nbsp;Hill&nbsp;P³™</h3>
-          <p>Protocol-first AI systems design: local inference, multi-model coordination, and the governance layer the platforms forgot to build.</p>
-        </div>
-        <div class="footer-column">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="/#forge">The Forge</a></li>
-            <li><a href="/universe/">P³ Universe</a></li>
-            <li><a href="/manifesto/">The Manifesto</a></li>
-            <li><a href="/projects/">Our Projects</a></li>
-            <li><a href="/writings/">Writings</a></li>
-            <li><a href="/about/">About OKH P³</a></li>
-            <li><a href="/contact/">Contact OKH P³</a></li>
-            <li><a href="/legal/">Legal</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
-            <li><a href="https://ko-fi.com/overkillhillp3" target="_blank" rel="noopener noreferrer">Ko-fi</a></li>
-            <li><a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener noreferrer">Fiverr</a></li>
-            <li><a href="https://www.linkedin.com/company/overkillhillp3" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="https://facebook.com/OverKillHillP3/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-            <li><a href="https://x.com/OverKillHillP3" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
-            <li><a href="https://www.youtube.com/@OverKillHillP3" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
-        <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">
-          Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a>
-        </span>
-        <p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³™. All rights reserved.</p>
-        <span></span>
-      </div>
-    </footer>
-
-    <!-- ============================================================
-         SCRIPTS
-         ============================================================ -->
+  
+  
+  
+  
+  
+  
+  
+  
+  </main>
+<footer class="site-footer">
+<div class="container footer-grid">
+<div class="footer-column">
+<h3>OverKill Hill P³™</h3>
+<p>Protocol-first AI systems design: local inference, multi-model coordination, and the governance layer the platforms forgot to build.</p>
+</div>
+<div class="footer-column">
+<h4>Navigation</h4>
+<ul>
+<li><a href="/#forge">The Forge</a></li>
+<li><a href="/universe/">P³ Universe</a></li>
+<li><a href="/manifesto/">The Manifesto</a></li>
+<li><a href="/projects/">Our Projects</a></li>
+<li><a href="/writings/">Writings</a></li>
+<li><a href="/about/">About OKH P³</a></li>
+<li><a href="/contact/">Contact OKH P³</a></li>
+<li><a href="/legal/">Legal</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Connect</h4>
+<ul>
+<li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
+<li><a href="https://ko-fi.com/overkillhillp3" rel="noopener noreferrer" target="_blank">Ko-fi</a></li>
+<li><a href="https://pro.fiverr.com/s/VYKPpoB" rel="noopener noreferrer" target="_blank">Fiverr</a></li>
+<li><a href="https://www.linkedin.com/company/overkillhillp3" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+<li><a href="https://facebook.com/OverKillHillP3/" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+<li><a href="https://x.com/OverKillHillP3" rel="noopener noreferrer" target="_blank">X (Twitter)</a></li>
+<li><a href="https://www.youtube.com/@OverKillHillP3" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
+<span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;" target="_blank">Replit</a></span>
+<p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill Hill P³™. All rights reserved.</p>
+<span></span>
+</div>
+</footer>
     <script src="/assets/js/app.js?v=be5eab85"></script>
-
-    <!-- ARE iframe loading overlay + reload control -->
-    <script>
+<script>
       (function () {
         var btn = document.getElementById('are-reload-btn');
         var iframe = document.getElementById('are-tool-iframe');
@@ -743,5 +652,31 @@
         showLoading();
       })();
     </script>
-  </body>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "OverKill Hill P³™",
+        "item": "https://overkillhill.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "item": "https://overkillhill.com/projects/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Abrahamic Reference Engine",
+        "item": "https://overkillhill.com/projects/abrahamic-reference-engine/"
+      }
+      ]
+    }
+    </script>
+</body>
 </html>

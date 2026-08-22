@@ -1,164 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ========================================
+<!-- ========================================
        METADATA: Core Document & Character Set
        ======================================== -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://cdn.jsdelivr.net 'sha256-2NPQY0ewseycVRsC+HHUhYLy0axbXFwhzfvpOSU+nIw=' 'sha256-3Cackdtp7Do2OrDkhZ8HQxibdFsvQhw0sUCB/9aSLkI=' 'sha256-4TvgmTekoiy9MiGX4pcZPC1+zpVRlpFZWZvCDuxuoRg=' 'sha256-6DuhTBpiipuy9jERXvPLChPCwm7AsB7YeVZHJ5ksPQk=' 'sha256-6qQFrumK+MBJP2jBD5/c2oyyWQl9kmfvYhkrAHbwAQI=' 'sha256-7//FvIo12Na/Gl24V5LF1JFIQrbnz6eFUWZuNysAJ98=' 'sha256-73/ZUPvlPEbQ2atsvJlr4+++azHPIy80M8liyrGynCY=' 'sha256-7cBx9QY/Bh31VpbxxCQoRsGJ3skKVq33jJgT/WH+yDc=' 'sha256-7lBK6wlFHjl6tV74OA/Df2r4gOiClnU3nxMnZJQvbLo=' 'sha256-7xDjo2X53t3p3w5O/66XkJRrLrYP4BolkoKOjhBaQ18=' 'sha256-83ioGcchzfdRDLGMcFCHjDPS7HZJfvrYjAly0xIC3fM=' 'sha256-8ER2+OkzKCugkK7Vm/Uk9Q8wG9+QfLmIBVTgWlN7/mg=' 'sha256-9+gDIB/FoOZbtN1NX7WLQUlPsi9h3u6HN1J0LVyv/44=' 'sha256-99UQai5rp0hhaOiU/AJWBeJOyVoO6s+t372hxKjIioY=' 'sha256-9tzuo39tJroe/r2NlVsIvJyqKOy42Cjot4ltZYfv3CM=' 'sha256-9wGbTwyvRgFpBYRmkSDWmGtmvCHhcYtEJclqmP9FpJo=' 'sha256-AoOtS/Oy98lq33Bzi2Ql2ULsxM3fbrxb09xvuAGMkWw=' 'sha256-FWN9B8uy7wve1RW95exrOkVb7x5h7NEDOLNZwNveEZw=' 'sha256-GKIJk2KT9bugkTZ9RfxPHCF2kcALaX3H0vH44ht247E=' 'sha256-JSwcPjWGXDAYaTZGfCB+6cpd0/AW82XCWneB7fLvyJo=' 'sha256-KPE5ui6CfQFY1vcShV5JQqG/wFuo8fkRFVxhoOlZo8A=' 'sha256-Onl0f/cB5mLfyrrQukG9H6HRVimBA+jiu8yf0axtdB4=' 'sha256-PvyhwLG2C4G93uK5NQbCcvL13llGqQOXkM9LLmDoNcY=' 'sha256-SEHWdY59isAzkbHGHWllo65NDvHkHxeUkDe5F3kHRQY=' 'sha256-Tas+0h0CkkBgZYJbPhHpNPO3V3PfPz8NXZJSp/H7xKY=' 'sha256-UdYfAt1aQja9FysEK0D0jsXLboZrY+t6qas3a2HSIjY=' 'sha256-WWf3hBnOj3Rat/lZq/+EP01wLY+BbdDtt5GC8wVX0Vg=' 'sha256-Z+w6pVqsMQYx1xBxn8G/poPHt0FjlwTZK1mVAarDvWc=' 'sha256-ZCip9CRySfoKaD5D2GhNFISP5pMJCXca5ESTFC14RuQ=' 'sha256-cZJXILumS0FUQ6p0mfgpETRLlx1H7UnUngBR1TQNgmk=' 'sha256-eoZKPPj7R1opAA3EaZUGTmO56gm1hhyiyo8phdpFl9c=' 'sha256-h3MviqQvY0Uwcgm9pQwXNx2B0853JumxOwz+7mBrC9w=' 'sha256-l/PdTy5HWMe1nzt7m5liItsDDozCwJs4PXnNtMfVw8Q=' 'sha256-mp6lyUlmS9p/vWjep6wkQJYFgohVN7+KFcLvsnyQgIY=' 'sha256-nU0+oOAqLxqjEAv8k55sVlJgPERt+aAj510eKLImmbw=' 'sha256-qvG3/sy4564Gcxgdc8GNN/fp4aLykKs92wZwsgTTkoQ=' 'sha256-t9VCwdw2kcI/DMN48uPJbbhjpzbKHBuZkAk+dmNEQ+I=' 'sha256-vbjnumaGfnX0chgJjnlz2mHY4K4YSldoiIN5tMpsJ8w=' 'sha256-wBcOJ/YnBvIVcoHaS1Hof0u/IrpkD4IR2zSxMB3DD1k=' 'sha256-yUOkJaqPNIZARyYqMlDbRGTCmZ/C+wMChomy6GJP3QI=' 'sha256-z+kbhAfYnais1UUyDCDwulWuXH8+RLiV94ugXlzKRl8='; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com 'sha256-+DuoRys2KWRSvKjNDt7/k81fGAk1mj0LV7QwEUgw9cc=' 'sha256-0QkYBXAyWbAd+/+nFHY9cljukfpFu5bFhdlk3YoPQes=' 'sha256-3rXzGZyCGY/OVDxZiMBfnkS2fH9AXfBwppkBkfpDTcM=' 'sha256-4S4hNIn3R4fXu51NbtGixVbuBtMyv/xuWa9dnJ/K1zY=' 'sha256-4Xd4GsDrggzvuwPp8w1D3HhUfVU3WvRSMpQz7XXh69Q=' 'sha256-4tOJl/LDQ37yihVDrOJTU8JF655RR92gpymrNA5hPak=' 'sha256-5fB/cG26X/GWxOroe55A7ZR2NgUDLMUDZnGMJDYA0wU=' 'sha256-62y96T9/+J3L9R1iR/ssIJXDvqXgf0LgAysUqlNb+cc=' 'sha256-6gM+j+kC1/JHId3OqVvWeXp4l48VcQGGvhRAu92/D4A=' 'sha256-7dqR3H9BfsYTH56GdwuUrSU1mQw/LdqAHm3Xig0lbpU=' 'sha256-8J4UKaxTL2RrEdD4mxd0EKMKZYBokRCvkpmvVICxohY=' 'sha256-AC3CbEeLPJf2W6daVbkfUpWh5e6gLviBovIHzqhb7I4=' 'sha256-AlNLydf8Oo5zmMamD/DJk9dU5pwObug1XdR55yXiBVc=' 'sha256-BVQwI1XMs+judwuBp6qTSKeBm7Qe/9Y0vierNK2EKW4=' 'sha256-CwL8RwCa8bGob1QG1vu5QZ6TxexJ8CNov/rHr16Kj6k=' 'sha256-D9ruVcBN33LGzX8q7yRAsPrZS5KjgX3EPWvX7sWWyrI=' 'sha256-Dw2yuZXpfLbQGVSS6+Dc1yQqtnkxA5bItx0dDpfEL7k=' 'sha256-G/EXI3nAn343k9zX00AXuWnDLIfGCfMFrLNYLazYwn4=' 'sha256-HNiWpXaWt2LIZnxwvhkuVd7Wm1LEyIXrCJ3LC4ED7jw=' 'sha256-HZToBBzNZUT4f842CDqTj0wexLFqDlz7e6PzQJp7da0=' 'sha256-IoGd6lEHMpdza7MIN3fgayUK8kvvq6aZp029RG1k4Fw=' 'sha256-JamKOmpIVQSPv+gDrYtzbxnVclnrvhrOMLmA+WaGPIE=' 'sha256-JkcUl1N8/ZqQ17T0hfO0ayOxtdvjh/bW1olXdBFpYew=' 'sha256-Kl1qRwd69L58NCto5s2eMIA0Lv4kWHer39ZKgNhUlkk=' 'sha256-Lc5JaXdSUbBDictCgqP12MJf4onOif/usdJP4T011Yc=' 'sha256-MiPgDldwa8URbFCSFpd0KvoCGs8+6zbAqQuQl1hGjU4=' 'sha256-NOIvf1CRb2XEfzH3VfG4B/Y63udbPNxuYP8fo1MRekQ=' 'sha256-NXTqLL8/I59UmOnV7tNjFWxURPt85KaZpa7nT1w/lDE=' 'sha256-O7VLA0NueNwvxBIPZG15AlOxETXxs9AfaAjCDorfKbg=' 'sha256-OpiawLL7Gu5feRhyNkZzBIiFFkOXLtqBvUGMuBdUWfM=' 'sha256-PEtoq1OJP+fDbtgJDGnJHlBwpwlQva6s5Kjad3ifM1s=' 'sha256-PcnIAdtr1NmNZcLFf5ftF5SvhkwLfoF+o79JrRr9ylA=' 'sha256-RTdaYHfr9TefF+AwkE/Uf/+Caw7RKK0FVhga+S/zmD8=' 'sha256-SZEeY3BjbbuYB9q7WMKkH+vVi//Im1FmD+bhHtViozw=' 'sha256-TOaIIZeh/Z50l+BRNbNisks9iBtnjrws592kTESLTN0=' 'sha256-U8kyFWenPtjSIMJITOzW0RBmEXkOX4VDh/ZZj506MpA=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-W2obUnMNnd+9L3r2CTfeQeaIV8OEKaAtcZycSK0dw/o=' 'sha256-WF+qLPFaH+RzchQWJohuietzqX7D7IjMJmb7wGqgLKc=' 'sha256-XIBB7vkTmAUIJl44z0N7ywoeVnnl7kVsLHvhi2EwqUE=' 'sha256-c6J4qHmzxJHrwXSgQrasGrwH0spulqDtVCZzRgFDce8=' 'sha256-cqi81knIZxngzyb4XrnqGdtxXgRacT17c5EgKXhc/BQ=' 'sha256-e/cdeSESwI9o9kTaVlwXghP35ZMjn7+5ZP5DB0UmaKk=' 'sha256-fWuzeFSknoBl4UkX7W0IvH+w9wFOdl07m2CfeKSBaH4=' 'sha256-i2sZysJsK6bSduhXCopySYrSJWwkyofJX+CaFV8z00c=' 'sha256-jmQSGe8fyxcQnYynl+2n50Q9M23KLUR2rRs3T3xCxAM=' 'sha256-k7I6qK5PklzlB762ItLpiRae3HmFmcIik7jI5hD+ce4=' 'sha256-nFJ+3/yrhOnSCrBolwPAUiQEtW1aoa7C2PTPVOP3MZ4=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-r7zPOqM+1h0txetMIbk4qyJDeS62YpiQ8jkhkzFtS2k=' 'sha256-t9BHAe/cVuN8O0/IKUhhJYmVlsQ0uzGvS87o8BOqBWQ=' 'sha256-taDayx3lNjDkiAoozt00Nd0BdBR0pmBLiFXKt30RZMw=' 'sha256-v234sgY5ep0DbpmLXSO8oWt97mwa6jK4Cu93toKqMWY=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-xzY/LdykOGxgvwgEwvnWKP2PLguAhvL7vhi2gZHwsqo=' 'sha256-y5obLVRChtKifE0CL62I5G9KcKibCbsobXYQpYejssY=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y=' 'sha256-z+AkgkT28yIyST9LT2RBjr0JxOfBXijJkLuTEYGGKLg='; style-src-attr 'unsafe-hashes' 'sha256-+DuoRys2KWRSvKjNDt7/k81fGAk1mj0LV7QwEUgw9cc=' 'sha256-0QkYBXAyWbAd+/+nFHY9cljukfpFu5bFhdlk3YoPQes=' 'sha256-3rXzGZyCGY/OVDxZiMBfnkS2fH9AXfBwppkBkfpDTcM=' 'sha256-4S4hNIn3R4fXu51NbtGixVbuBtMyv/xuWa9dnJ/K1zY=' 'sha256-4Xd4GsDrggzvuwPp8w1D3HhUfVU3WvRSMpQz7XXh69Q=' 'sha256-4tOJl/LDQ37yihVDrOJTU8JF655RR92gpymrNA5hPak=' 'sha256-5fB/cG26X/GWxOroe55A7ZR2NgUDLMUDZnGMJDYA0wU=' 'sha256-62y96T9/+J3L9R1iR/ssIJXDvqXgf0LgAysUqlNb+cc=' 'sha256-6gM+j+kC1/JHId3OqVvWeXp4l48VcQGGvhRAu92/D4A=' 'sha256-7dqR3H9BfsYTH56GdwuUrSU1mQw/LdqAHm3Xig0lbpU=' 'sha256-8J4UKaxTL2RrEdD4mxd0EKMKZYBokRCvkpmvVICxohY=' 'sha256-AC3CbEeLPJf2W6daVbkfUpWh5e6gLviBovIHzqhb7I4=' 'sha256-AlNLydf8Oo5zmMamD/DJk9dU5pwObug1XdR55yXiBVc=' 'sha256-BVQwI1XMs+judwuBp6qTSKeBm7Qe/9Y0vierNK2EKW4=' 'sha256-CwL8RwCa8bGob1QG1vu5QZ6TxexJ8CNov/rHr16Kj6k=' 'sha256-D9ruVcBN33LGzX8q7yRAsPrZS5KjgX3EPWvX7sWWyrI=' 'sha256-Dw2yuZXpfLbQGVSS6+Dc1yQqtnkxA5bItx0dDpfEL7k=' 'sha256-G/EXI3nAn343k9zX00AXuWnDLIfGCfMFrLNYLazYwn4=' 'sha256-HNiWpXaWt2LIZnxwvhkuVd7Wm1LEyIXrCJ3LC4ED7jw=' 'sha256-HZToBBzNZUT4f842CDqTj0wexLFqDlz7e6PzQJp7da0=' 'sha256-IoGd6lEHMpdza7MIN3fgayUK8kvvq6aZp029RG1k4Fw=' 'sha256-JamKOmpIVQSPv+gDrYtzbxnVclnrvhrOMLmA+WaGPIE=' 'sha256-JkcUl1N8/ZqQ17T0hfO0ayOxtdvjh/bW1olXdBFpYew=' 'sha256-Kl1qRwd69L58NCto5s2eMIA0Lv4kWHer39ZKgNhUlkk=' 'sha256-Lc5JaXdSUbBDictCgqP12MJf4onOif/usdJP4T011Yc=' 'sha256-MiPgDldwa8URbFCSFpd0KvoCGs8+6zbAqQuQl1hGjU4=' 'sha256-NOIvf1CRb2XEfzH3VfG4B/Y63udbPNxuYP8fo1MRekQ=' 'sha256-NXTqLL8/I59UmOnV7tNjFWxURPt85KaZpa7nT1w/lDE=' 'sha256-O7VLA0NueNwvxBIPZG15AlOxETXxs9AfaAjCDorfKbg=' 'sha256-OpiawLL7Gu5feRhyNkZzBIiFFkOXLtqBvUGMuBdUWfM=' 'sha256-PEtoq1OJP+fDbtgJDGnJHlBwpwlQva6s5Kjad3ifM1s=' 'sha256-PcnIAdtr1NmNZcLFf5ftF5SvhkwLfoF+o79JrRr9ylA=' 'sha256-RTdaYHfr9TefF+AwkE/Uf/+Caw7RKK0FVhga+S/zmD8=' 'sha256-SZEeY3BjbbuYB9q7WMKkH+vVi//Im1FmD+bhHtViozw=' 'sha256-TOaIIZeh/Z50l+BRNbNisks9iBtnjrws592kTESLTN0=' 'sha256-U8kyFWenPtjSIMJITOzW0RBmEXkOX4VDh/ZZj506MpA=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-W2obUnMNnd+9L3r2CTfeQeaIV8OEKaAtcZycSK0dw/o=' 'sha256-WF+qLPFaH+RzchQWJohuietzqX7D7IjMJmb7wGqgLKc=' 'sha256-XIBB7vkTmAUIJl44z0N7ywoeVnnl7kVsLHvhi2EwqUE=' 'sha256-c6J4qHmzxJHrwXSgQrasGrwH0spulqDtVCZzRgFDce8=' 'sha256-cqi81knIZxngzyb4XrnqGdtxXgRacT17c5EgKXhc/BQ=' 'sha256-e/cdeSESwI9o9kTaVlwXghP35ZMjn7+5ZP5DB0UmaKk=' 'sha256-fWuzeFSknoBl4UkX7W0IvH+w9wFOdl07m2CfeKSBaH4=' 'sha256-i2sZysJsK6bSduhXCopySYrSJWwkyofJX+CaFV8z00c=' 'sha256-jmQSGe8fyxcQnYynl+2n50Q9M23KLUR2rRs3T3xCxAM=' 'sha256-k7I6qK5PklzlB762ItLpiRae3HmFmcIik7jI5hD+ce4=' 'sha256-nFJ+3/yrhOnSCrBolwPAUiQEtW1aoa7C2PTPVOP3MZ4=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-r7zPOqM+1h0txetMIbk4qyJDeS62YpiQ8jkhkzFtS2k=' 'sha256-t9BHAe/cVuN8O0/IKUhhJYmVlsQ0uzGvS87o8BOqBWQ=' 'sha256-taDayx3lNjDkiAoozt00Nd0BdBR0pmBLiFXKt30RZMw=' 'sha256-v234sgY5ep0DbpmLXSO8oWt97mwa6jK4Cu93toKqMWY=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-xzY/LdykOGxgvwgEwvnWKP2PLguAhvL7vhi2gZHwsqo=' 'sha256-y5obLVRChtKifE0CL62I5G9KcKibCbsobXYQpYejssY=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y=' 'sha256-z+AkgkT28yIyST9LT2RBjr0JxOfBXijJkLuTEYGGKLg='; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://overkillhill.com https://*.github.io; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests" />
-    <meta name="language" content="English" />
-
-    <!-- ========================================
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://cdn.jsdelivr.net 'sha256-2NPQY0ewseycVRsC+HHUhYLy0axbXFwhzfvpOSU+nIw=' 'sha256-3Cackdtp7Do2OrDkhZ8HQxibdFsvQhw0sUCB/9aSLkI=' 'sha256-4TvgmTekoiy9MiGX4pcZPC1+zpVRlpFZWZvCDuxuoRg=' 'sha256-6DuhTBpiipuy9jERXvPLChPCwm7AsB7YeVZHJ5ksPQk=' 'sha256-6qQFrumK+MBJP2jBD5/c2oyyWQl9kmfvYhkrAHbwAQI=' 'sha256-7//FvIo12Na/Gl24V5LF1JFIQrbnz6eFUWZuNysAJ98=' 'sha256-73/ZUPvlPEbQ2atsvJlr4+++azHPIy80M8liyrGynCY=' 'sha256-7cBx9QY/Bh31VpbxxCQoRsGJ3skKVq33jJgT/WH+yDc=' 'sha256-7lBK6wlFHjl6tV74OA/Df2r4gOiClnU3nxMnZJQvbLo=' 'sha256-7xDjo2X53t3p3w5O/66XkJRrLrYP4BolkoKOjhBaQ18=' 'sha256-83ioGcchzfdRDLGMcFCHjDPS7HZJfvrYjAly0xIC3fM=' 'sha256-8ER2+OkzKCugkK7Vm/Uk9Q8wG9+QfLmIBVTgWlN7/mg=' 'sha256-9+gDIB/FoOZbtN1NX7WLQUlPsi9h3u6HN1J0LVyv/44=' 'sha256-99UQai5rp0hhaOiU/AJWBeJOyVoO6s+t372hxKjIioY=' 'sha256-9tzuo39tJroe/r2NlVsIvJyqKOy42Cjot4ltZYfv3CM=' 'sha256-9wGbTwyvRgFpBYRmkSDWmGtmvCHhcYtEJclqmP9FpJo=' 'sha256-AoOtS/Oy98lq33Bzi2Ql2ULsxM3fbrxb09xvuAGMkWw=' 'sha256-FWN9B8uy7wve1RW95exrOkVb7x5h7NEDOLNZwNveEZw=' 'sha256-GKIJk2KT9bugkTZ9RfxPHCF2kcALaX3H0vH44ht247E=' 'sha256-JSwcPjWGXDAYaTZGfCB+6cpd0/AW82XCWneB7fLvyJo=' 'sha256-KPE5ui6CfQFY1vcShV5JQqG/wFuo8fkRFVxhoOlZo8A=' 'sha256-Onl0f/cB5mLfyrrQukG9H6HRVimBA+jiu8yf0axtdB4=' 'sha256-PvyhwLG2C4G93uK5NQbCcvL13llGqQOXkM9LLmDoNcY=' 'sha256-SEHWdY59isAzkbHGHWllo65NDvHkHxeUkDe5F3kHRQY=' 'sha256-Tas+0h0CkkBgZYJbPhHpNPO3V3PfPz8NXZJSp/H7xKY=' 'sha256-UdYfAt1aQja9FysEK0D0jsXLboZrY+t6qas3a2HSIjY=' 'sha256-WWf3hBnOj3Rat/lZq/+EP01wLY+BbdDtt5GC8wVX0Vg=' 'sha256-Z+w6pVqsMQYx1xBxn8G/poPHt0FjlwTZK1mVAarDvWc=' 'sha256-ZCip9CRySfoKaD5D2GhNFISP5pMJCXca5ESTFC14RuQ=' 'sha256-eoZKPPj7R1opAA3EaZUGTmO56gm1hhyiyo8phdpFl9c=' 'sha256-h3MviqQvY0Uwcgm9pQwXNx2B0853JumxOwz+7mBrC9w=' 'sha256-l/PdTy5HWMe1nzt7m5liItsDDozCwJs4PXnNtMfVw8Q=' 'sha256-mp6lyUlmS9p/vWjep6wkQJYFgohVN7+KFcLvsnyQgIY=' 'sha256-qvG3/sy4564Gcxgdc8GNN/fp4aLykKs92wZwsgTTkoQ=' 'sha256-t9VCwdw2kcI/DMN48uPJbbhjpzbKHBuZkAk+dmNEQ+I=' 'sha256-vbjnumaGfnX0chgJjnlz2mHY4K4YSldoiIN5tMpsJ8w=' 'sha256-wBcOJ/YnBvIVcoHaS1Hof0u/IrpkD4IR2zSxMB3DD1k=' 'sha256-yUOkJaqPNIZARyYqMlDbRGTCmZ/C+wMChomy6GJP3QI=' 'sha256-z+kbhAfYnais1UUyDCDwulWuXH8+RLiV94ugXlzKRl8='; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com 'sha256-+DuoRys2KWRSvKjNDt7/k81fGAk1mj0LV7QwEUgw9cc=' 'sha256-0QkYBXAyWbAd+/+nFHY9cljukfpFu5bFhdlk3YoPQes=' 'sha256-3rXzGZyCGY/OVDxZiMBfnkS2fH9AXfBwppkBkfpDTcM=' 'sha256-4S4hNIn3R4fXu51NbtGixVbuBtMyv/xuWa9dnJ/K1zY=' 'sha256-4Xd4GsDrggzvuwPp8w1D3HhUfVU3WvRSMpQz7XXh69Q=' 'sha256-4tOJl/LDQ37yihVDrOJTU8JF655RR92gpymrNA5hPak=' 'sha256-5fB/cG26X/GWxOroe55A7ZR2NgUDLMUDZnGMJDYA0wU=' 'sha256-62y96T9/+J3L9R1iR/ssIJXDvqXgf0LgAysUqlNb+cc=' 'sha256-6gM+j+kC1/JHId3OqVvWeXp4l48VcQGGvhRAu92/D4A=' 'sha256-7dqR3H9BfsYTH56GdwuUrSU1mQw/LdqAHm3Xig0lbpU=' 'sha256-8J4UKaxTL2RrEdD4mxd0EKMKZYBokRCvkpmvVICxohY=' 'sha256-AC3CbEeLPJf2W6daVbkfUpWh5e6gLviBovIHzqhb7I4=' 'sha256-AlNLydf8Oo5zmMamD/DJk9dU5pwObug1XdR55yXiBVc=' 'sha256-BVQwI1XMs+judwuBp6qTSKeBm7Qe/9Y0vierNK2EKW4=' 'sha256-CwL8RwCa8bGob1QG1vu5QZ6TxexJ8CNov/rHr16Kj6k=' 'sha256-D9ruVcBN33LGzX8q7yRAsPrZS5KjgX3EPWvX7sWWyrI=' 'sha256-Dw2yuZXpfLbQGVSS6+Dc1yQqtnkxA5bItx0dDpfEL7k=' 'sha256-G/EXI3nAn343k9zX00AXuWnDLIfGCfMFrLNYLazYwn4=' 'sha256-HNiWpXaWt2LIZnxwvhkuVd7Wm1LEyIXrCJ3LC4ED7jw=' 'sha256-HZToBBzNZUT4f842CDqTj0wexLFqDlz7e6PzQJp7da0=' 'sha256-IoGd6lEHMpdza7MIN3fgayUK8kvvq6aZp029RG1k4Fw=' 'sha256-JamKOmpIVQSPv+gDrYtzbxnVclnrvhrOMLmA+WaGPIE=' 'sha256-JkcUl1N8/ZqQ17T0hfO0ayOxtdvjh/bW1olXdBFpYew=' 'sha256-Kl1qRwd69L58NCto5s2eMIA0Lv4kWHer39ZKgNhUlkk=' 'sha256-Lc5JaXdSUbBDictCgqP12MJf4onOif/usdJP4T011Yc=' 'sha256-MiPgDldwa8URbFCSFpd0KvoCGs8+6zbAqQuQl1hGjU4=' 'sha256-NOIvf1CRb2XEfzH3VfG4B/Y63udbPNxuYP8fo1MRekQ=' 'sha256-NXTqLL8/I59UmOnV7tNjFWxURPt85KaZpa7nT1w/lDE=' 'sha256-O7VLA0NueNwvxBIPZG15AlOxETXxs9AfaAjCDorfKbg=' 'sha256-OpiawLL7Gu5feRhyNkZzBIiFFkOXLtqBvUGMuBdUWfM=' 'sha256-PEtoq1OJP+fDbtgJDGnJHlBwpwlQva6s5Kjad3ifM1s=' 'sha256-PcnIAdtr1NmNZcLFf5ftF5SvhkwLfoF+o79JrRr9ylA=' 'sha256-RTdaYHfr9TefF+AwkE/Uf/+Caw7RKK0FVhga+S/zmD8=' 'sha256-SZEeY3BjbbuYB9q7WMKkH+vVi//Im1FmD+bhHtViozw=' 'sha256-TOaIIZeh/Z50l+BRNbNisks9iBtnjrws592kTESLTN0=' 'sha256-U8kyFWenPtjSIMJITOzW0RBmEXkOX4VDh/ZZj506MpA=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-W2obUnMNnd+9L3r2CTfeQeaIV8OEKaAtcZycSK0dw/o=' 'sha256-WF+qLPFaH+RzchQWJohuietzqX7D7IjMJmb7wGqgLKc=' 'sha256-XIBB7vkTmAUIJl44z0N7ywoeVnnl7kVsLHvhi2EwqUE=' 'sha256-c6J4qHmzxJHrwXSgQrasGrwH0spulqDtVCZzRgFDce8=' 'sha256-cqi81knIZxngzyb4XrnqGdtxXgRacT17c5EgKXhc/BQ=' 'sha256-e/cdeSESwI9o9kTaVlwXghP35ZMjn7+5ZP5DB0UmaKk=' 'sha256-fWuzeFSknoBl4UkX7W0IvH+w9wFOdl07m2CfeKSBaH4=' 'sha256-i2sZysJsK6bSduhXCopySYrSJWwkyofJX+CaFV8z00c=' 'sha256-jmQSGe8fyxcQnYynl+2n50Q9M23KLUR2rRs3T3xCxAM=' 'sha256-k7I6qK5PklzlB762ItLpiRae3HmFmcIik7jI5hD+ce4=' 'sha256-nFJ+3/yrhOnSCrBolwPAUiQEtW1aoa7C2PTPVOP3MZ4=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-r7zPOqM+1h0txetMIbk4qyJDeS62YpiQ8jkhkzFtS2k=' 'sha256-t9BHAe/cVuN8O0/IKUhhJYmVlsQ0uzGvS87o8BOqBWQ=' 'sha256-taDayx3lNjDkiAoozt00Nd0BdBR0pmBLiFXKt30RZMw=' 'sha256-v234sgY5ep0DbpmLXSO8oWt97mwa6jK4Cu93toKqMWY=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-xzY/LdykOGxgvwgEwvnWKP2PLguAhvL7vhi2gZHwsqo=' 'sha256-y5obLVRChtKifE0CL62I5G9KcKibCbsobXYQpYejssY=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y=' 'sha256-z+AkgkT28yIyST9LT2RBjr0JxOfBXijJkLuTEYGGKLg='; style-src-attr 'unsafe-hashes' 'sha256-+DuoRys2KWRSvKjNDt7/k81fGAk1mj0LV7QwEUgw9cc=' 'sha256-0QkYBXAyWbAd+/+nFHY9cljukfpFu5bFhdlk3YoPQes=' 'sha256-3rXzGZyCGY/OVDxZiMBfnkS2fH9AXfBwppkBkfpDTcM=' 'sha256-4S4hNIn3R4fXu51NbtGixVbuBtMyv/xuWa9dnJ/K1zY=' 'sha256-4Xd4GsDrggzvuwPp8w1D3HhUfVU3WvRSMpQz7XXh69Q=' 'sha256-4tOJl/LDQ37yihVDrOJTU8JF655RR92gpymrNA5hPak=' 'sha256-5fB/cG26X/GWxOroe55A7ZR2NgUDLMUDZnGMJDYA0wU=' 'sha256-62y96T9/+J3L9R1iR/ssIJXDvqXgf0LgAysUqlNb+cc=' 'sha256-6gM+j+kC1/JHId3OqVvWeXp4l48VcQGGvhRAu92/D4A=' 'sha256-7dqR3H9BfsYTH56GdwuUrSU1mQw/LdqAHm3Xig0lbpU=' 'sha256-8J4UKaxTL2RrEdD4mxd0EKMKZYBokRCvkpmvVICxohY=' 'sha256-AC3CbEeLPJf2W6daVbkfUpWh5e6gLviBovIHzqhb7I4=' 'sha256-AlNLydf8Oo5zmMamD/DJk9dU5pwObug1XdR55yXiBVc=' 'sha256-BVQwI1XMs+judwuBp6qTSKeBm7Qe/9Y0vierNK2EKW4=' 'sha256-CwL8RwCa8bGob1QG1vu5QZ6TxexJ8CNov/rHr16Kj6k=' 'sha256-D9ruVcBN33LGzX8q7yRAsPrZS5KjgX3EPWvX7sWWyrI=' 'sha256-Dw2yuZXpfLbQGVSS6+Dc1yQqtnkxA5bItx0dDpfEL7k=' 'sha256-G/EXI3nAn343k9zX00AXuWnDLIfGCfMFrLNYLazYwn4=' 'sha256-HNiWpXaWt2LIZnxwvhkuVd7Wm1LEyIXrCJ3LC4ED7jw=' 'sha256-HZToBBzNZUT4f842CDqTj0wexLFqDlz7e6PzQJp7da0=' 'sha256-IoGd6lEHMpdza7MIN3fgayUK8kvvq6aZp029RG1k4Fw=' 'sha256-JamKOmpIVQSPv+gDrYtzbxnVclnrvhrOMLmA+WaGPIE=' 'sha256-JkcUl1N8/ZqQ17T0hfO0ayOxtdvjh/bW1olXdBFpYew=' 'sha256-Kl1qRwd69L58NCto5s2eMIA0Lv4kWHer39ZKgNhUlkk=' 'sha256-Lc5JaXdSUbBDictCgqP12MJf4onOif/usdJP4T011Yc=' 'sha256-MiPgDldwa8URbFCSFpd0KvoCGs8+6zbAqQuQl1hGjU4=' 'sha256-NOIvf1CRb2XEfzH3VfG4B/Y63udbPNxuYP8fo1MRekQ=' 'sha256-NXTqLL8/I59UmOnV7tNjFWxURPt85KaZpa7nT1w/lDE=' 'sha256-O7VLA0NueNwvxBIPZG15AlOxETXxs9AfaAjCDorfKbg=' 'sha256-OpiawLL7Gu5feRhyNkZzBIiFFkOXLtqBvUGMuBdUWfM=' 'sha256-PEtoq1OJP+fDbtgJDGnJHlBwpwlQva6s5Kjad3ifM1s=' 'sha256-PcnIAdtr1NmNZcLFf5ftF5SvhkwLfoF+o79JrRr9ylA=' 'sha256-RTdaYHfr9TefF+AwkE/Uf/+Caw7RKK0FVhga+S/zmD8=' 'sha256-SZEeY3BjbbuYB9q7WMKkH+vVi//Im1FmD+bhHtViozw=' 'sha256-TOaIIZeh/Z50l+BRNbNisks9iBtnjrws592kTESLTN0=' 'sha256-U8kyFWenPtjSIMJITOzW0RBmEXkOX4VDh/ZZj506MpA=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-W2obUnMNnd+9L3r2CTfeQeaIV8OEKaAtcZycSK0dw/o=' 'sha256-WF+qLPFaH+RzchQWJohuietzqX7D7IjMJmb7wGqgLKc=' 'sha256-XIBB7vkTmAUIJl44z0N7ywoeVnnl7kVsLHvhi2EwqUE=' 'sha256-c6J4qHmzxJHrwXSgQrasGrwH0spulqDtVCZzRgFDce8=' 'sha256-cqi81knIZxngzyb4XrnqGdtxXgRacT17c5EgKXhc/BQ=' 'sha256-e/cdeSESwI9o9kTaVlwXghP35ZMjn7+5ZP5DB0UmaKk=' 'sha256-fWuzeFSknoBl4UkX7W0IvH+w9wFOdl07m2CfeKSBaH4=' 'sha256-i2sZysJsK6bSduhXCopySYrSJWwkyofJX+CaFV8z00c=' 'sha256-jmQSGe8fyxcQnYynl+2n50Q9M23KLUR2rRs3T3xCxAM=' 'sha256-k7I6qK5PklzlB762ItLpiRae3HmFmcIik7jI5hD+ce4=' 'sha256-nFJ+3/yrhOnSCrBolwPAUiQEtW1aoa7C2PTPVOP3MZ4=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-r7zPOqM+1h0txetMIbk4qyJDeS62YpiQ8jkhkzFtS2k=' 'sha256-t9BHAe/cVuN8O0/IKUhhJYmVlsQ0uzGvS87o8BOqBWQ=' 'sha256-taDayx3lNjDkiAoozt00Nd0BdBR0pmBLiFXKt30RZMw=' 'sha256-v234sgY5ep0DbpmLXSO8oWt97mwa6jK4Cu93toKqMWY=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-xzY/LdykOGxgvwgEwvnWKP2PLguAhvL7vhi2gZHwsqo=' 'sha256-y5obLVRChtKifE0CL62I5G9KcKibCbsobXYQpYejssY=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y=' 'sha256-z+AkgkT28yIyST9LT2RBjr0JxOfBXijJkLuTEYGGKLg='; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://overkillhill.com https://*.github.io; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests" /><meta content="English" name="language"/>
+<!-- ========================================
        METADATA: Primary Title & Description
        ======================================== -->
-    <title>Prompt Forge | OverKill Hill P³™</title>
-    <meta name="description" content="Prompt Forge is OverKill Hill P³™'s workshop for turning prompts into governed AI protocols, audit contracts, and production-ready system specs." />
-    <meta name="keywords" content="prompt forge, promptcraft, prompt protocols, AI workflow design, AI agent architecture, prompt governance, agent scaffolds, Replit specs, Notion AI workflows, Council of AIs, agentic AI, governed AI" />
-    <meta name="author" content="OverKill Hill P³™" />
-    <meta name="creator" content="OverKill Hill P³™" />
-    <meta name="publisher" content="OverKill Hill P³™" />
-
-    <!-- ========================================
+<title>Prompt Forge | OverKill Hill P³™</title>
+<meta content="Prompt Forge is OverKill Hill P³™&#x27;s workshop for turning prompts into governed AI protocols, audit contracts, and production-ready system specs." name="description"/>
+<meta content="prompt forge, promptcraft, prompt protocols, AI workflow design, AI agent architecture, prompt governance, agent scaffolds, Replit specs, Notion AI workflows, Council of AIs, agentic AI, governed AI" name="keywords"/>
+<meta content="OverKill Hill P³™" name="author"/>
+<meta content="OverKill Hill P³™" name="creator"/>
+<meta content="OverKill Hill P³™" name="publisher"/>
+<!-- ========================================
        METADATA: Open Graph (Social Sharing)
        ======================================== -->
-    <meta property="og:title" content="Prompt Forge | OverKill Hill P³™" />
-    <meta property="og:description" content="Explore the OverKill Hill P³™ prompt systems behind ScafFrosto-Rᵧ, PromptAscend-R, GPT Interrogation Agent, Council of AIs workflows, and protocol-driven promptcraft." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://overkillhill.com/prompt-forge/" />
-    <meta property="og:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
-    <meta property="og:image:alt" content="Mechanical raven perched on a vintage computer, OverKill Hill P³ illustration" />
-    <meta property="og:image:width" content="1024" />
-    <meta property="og:image:height" content="1024" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:site_name" content="OverKill Hill P³™" />
-    <meta property="og:locale" content="en_US" />
-
-    <!-- ========================================
+<meta content="Prompt Forge | OverKill Hill P³™" property="og:title"/>
+<meta content="Explore the OverKill Hill P³™ prompt systems behind ScafFrosto-Rᵧ, PromptAscend-R, GPT Interrogation Agent, Council of AIs workflows, and protocol-driven promptcraft." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://overkillhill.com/prompt-forge/" property="og:url"/>
+<meta content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" property="og:image"/>
+<meta content="Mechanical raven perched on a vintage computer, OverKill Hill P³ illustration" property="og:image:alt"/>
+<meta content="1024" property="og:image:width"/>
+<meta content="1024" property="og:image:height"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="OverKill Hill P³™" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- ========================================
        METADATA: Twitter Card (X Social)
        ======================================== -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Prompt Forge | OverKill Hill P³™" />
-    <meta name="twitter:description" content="Explore the OverKill Hill P³™ prompt systems behind ScafFrosto-Rᵧ, PromptAscend-R, GPT Interrogation Agent, Council of AIs workflows, and protocol-driven promptcraft." />
-    <meta name="twitter:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
-    <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer, OverKill Hill P³ illustration" />
-    <meta name="twitter:site" content="@OverKillHillP3" />
-    <meta name="twitter:creator" content="@OverKillHillP3" />
-
-    <!-- ========================================
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Prompt Forge | OverKill Hill P³™" name="twitter:title"/>
+<meta content="Explore the OverKill Hill P³™ prompt systems behind ScafFrosto-Rᵧ, PromptAscend-R, GPT Interrogation Agent, Council of AIs workflows, and protocol-driven promptcraft." name="twitter:description"/>
+<meta content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" name="twitter:image"/>
+<meta content="Mechanical raven perched on a vintage computer, OverKill Hill P³ illustration" name="twitter:image:alt"/>
+<meta content="@OverKillHillP3" name="twitter:site"/>
+<meta content="@OverKillHillP3" name="twitter:creator"/>
+<!-- ========================================
        METADATA: Search & Crawling
        ======================================== -->
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="bingbot" content="index, follow" />
-    <meta name="revisit-after" content="30 days" />
-    <link rel="author" href="/humans.txt" />
-    <link rel="canonical" href="https://overkillhill.com/prompt-forge/" />
-    <link rel="alternate" hreflang="en" href="https://overkillhill.com/prompt-forge/" />
-
-    <!-- ========================================
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="index, follow" name="googlebot"/>
+<meta content="index, follow" name="bingbot"/>
+<meta content="7 days" name="revisit-after"/>
+<link href="/humans.txt" rel="author"/>
+<link href="https://overkillhill.com/prompt-forge/" rel="canonical"/>
+<link href="https://overkillhill.com/prompt-forge/" hreflang="en" rel="alternate"/>
+<!-- ========================================
        METADATA: Color Scheme & Theme
        ======================================== -->
-    <meta name="theme-color" content="#2a2320" />
-    <meta name="color-scheme" content="dark light" />
-
-    <!-- ========================================
+<meta content="#2a2320" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<!-- ========================================
        METADATA: Web App & PWA
        ======================================== -->
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-    <!-- ========================================
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<!-- ========================================
        FAVICONS: Multi-Format Icon Support
        ======================================== -->
-    <link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
-    <link rel="icon" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
-    <link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180" type="image/png" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="manifest" href="/site.webmanifest" />
-
-    <!-- ========================================
-       STRUCTURED DATA: WebPage schema
-       ======================================== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Prompt Forge",
-      "url": "https://overkillhill.com/prompt-forge/",
-      "description": "Prompt Forge is OverKill Hill P³™'s workshop for turning prompts into governed AI protocols, audit contracts, and Replit-ready specs.",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "OverKill Hill P³™",
-        "url": "https://overkillhill.com/"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "OverKill Hill P³™",
-        "url": "https://overkillhill.com/",
-        "logo": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png"
-      }
-    }
-    </script>
-
-    <!-- ========================================
-       STRUCTURED DATA: ItemList — Six Flagship Prompt Systems
-       ======================================== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Prompt Forge: Six Flagship Prompt Systems",
-      "url": "https://overkillhill.com/prompt-forge/",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "ScafFrosto-Rᵧ / Canon Ruling Order", "url": "https://overkillhill.com/prompt-forge/#scaffrosto" },
-        { "@type": "ListItem", "position": 2, "name": "ArcSyntrixo-Rᵧ / Recursive Equilibrium Architect", "url": "https://overkillhill.com/prompt-forge/#arcsyntrixo" },
-        { "@type": "ListItem", "position": 3, "name": "GPT Interrogation Agent / GPT Audit Contract", "url": "https://overkillhill.com/prompt-forge/#gpt-audit" },
-        { "@type": "ListItem", "position": 4, "name": "PromptAscend-R", "url": "https://overkillhill.com/prompt-forge/#promptascend" },
-        { "@type": "ListItem", "position": 5, "name": "Flowpilot Scribbler", "url": "https://overkillhill.com/prompt-forge/#flowpilot" },
-        { "@type": "ListItem", "position": 6, "name": "Council of AIs / Research-to-Replit Spec Lock", "url": "https://overkillhill.com/prompt-forge/#council" }
-      ]
-    }
-    </script>
-
-    <!-- ========================================
-       STRUCTURED DATA: BreadcrumbList
-       ======================================== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "OverKill Hill P³™",
-        "item": "https://overkillhill.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Prompt Forge",
-        "item": "https://overkillhill.com/prompt-forge/"
-      }
-      ]
-    }
-    </script>
-
-    <!-- ========================================
+<link href="/assets/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/assets/img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- ========================================
        STYLESHEETS & FONTS
        ======================================== -->
-    <!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" />
-    <script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
-    <link rel="stylesheet" href="/assets/css/theme.css?v=4b831f47" />
-
-    <script type="speculationrules">
+<!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
+<link href="/assets/css/theme.css?v=4b831f47" rel="stylesheet"/>
+<script type="speculationrules">
     {
       "prefetch": [
         { "source": "document", "where": { "and": [
@@ -169,317 +90,300 @@
       ]
     }
     </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
-    <script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
+<script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-VJ1BKXS27H');
     </script>
-  
 </head>
 <body>
-    <a class="okh-skip-link" href="#main">Skip to main content</a>
-    <header class="site-header" id="top">
-      <div class="container">
-        <div class="logo">
-          <a href="/">
-            <img src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png" alt="OverKill Hill P³ logo" width="40" height="40" loading="lazy" />
-            <span class="sr-only">OverKill&nbsp;Hill&nbsp;P³™ Home</span>
-          </a>
-        </div>
-        <nav class="primary-nav" id="navigation" aria-label="Primary">
-          <ul>
-            <li><a href="/#forge">The Forge</a></li>
-            <li class="has-submenu">
-              <a href="/projects/">Our Projects</a>
-              <ul class="submenu">
-                <li><a href="/projects/skillz/">Skillz Forge</a></li>
-                <li><a href="/projects/found-ry/">Found‑Rᵧ</a></li>
-                <li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
-                <li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
-                <li><a href="/projects/mac-studio-local-ai-workbench/">Mac Studio Local AI Workbench</a></li>
-                <li><a href="/projects/abrahamic-reference-engine/">Abrahamic Reference Engine</a></li>
-                <li><a href="/projects/glee-fully-chai-chasers/">Glee-fully Chai Chasers</a></li>
-              </ul>
-            </li>
-            <!-- Writings cluster: Manifesto / Promptcraft / FDIAL -->
-            <li class="has-submenu">
-              <a href="/writings/">Writings</a>
-              <ul class="submenu">
-                <li><a href="/manifesto/">The Manifesto</a></li>
-                <li><a href="/prompt-forge/" aria-current="page">The Prompt Forge</a></li>
-                <li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="/about/">About</a>
-              <ul class="submenu">
-                <li><a href="/universe/">OKHP³™ Universe</a></li>
-                <li><a href="/about/">About OKHP³™</a></li>
-                <li><a href="/contact/">Contact</a></li>
-                <li><a href="/legal/">Legal</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-        <button class="nav-toggle" aria-controls="navigation" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </button>
-      </div>
-
-      <section class="site-specials site-specials--okh" aria-label="Forge update">
-        <span class="site-specials-label">🔥 Hot off the FORGE ⚒️</span>
-        <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
+  <a class="okh-skip-link" href="#main">Skip to main content</a>
+<header class="site-header" id="top">
+<div class="container">
+<div class="logo">
+<a href="#top">
+<img alt="OverKill Hill P³ logo" height="40" loading="lazy" src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png" width="40"/>
+<span class="sr-only">OverKill Hill P³™ Home</span>
+</a>
+</div>
+<nav aria-label="Primary" class="primary-nav" id="navigation">
+<ul>
+<li><a href="/#forge">The Forge</a></li>
+<li class="has-submenu">
+<a href="/projects/">Our Projects</a>
+<ul class="submenu">
+<li><a href="/projects/skillz/">Skillz Forge</a></li>
+<li><a href="/projects/found-ry/">Found‑Rᵧ</a></li>
+<li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
+<li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
+<li><a href="/projects/mac-studio-local-ai-workbench/">Mac Studio Local AI Workbench</a></li>
+<li><a href="/projects/abrahamic-reference-engine/">Abrahamic Reference Engine</a></li>
+<li><a href="/projects/glee-fully-chai-chasers/">Glee-fully Chai Chasers</a></li>
+</ul>
+</li>
+<!-- Writings cluster: Manifesto / Promptcraft / FDIAL -->
+<li class="has-submenu">
+<a href="/writings/">Writings</a>
+<ul class="submenu">
+<li><a href="/manifesto/">The Manifesto</a></li>
+<li><a aria-current="page" href="/prompt-forge/">The Prompt Forge</a></li>
+<li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
+</ul>
+</li>
+<!-- About cluster: Universe / About / Contact / Legal -->
+<li class="has-submenu">
+<a href="/about/">About</a>
+<ul class="submenu">
+<li><a href="/universe/">OKHP³™ Universe</a></li>
+<li><a href="/about/">About OKHP³™</a></li>
+<li><a href="/contact/">Contact</a></li>
+<li><a href="/legal/">Legal</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<button aria-controls="navigation" aria-expanded="false" class="nav-toggle">
+<span class="sr-only">Toggle navigation</span>
+<span class="bar"></span><span class="bar"></span><span class="bar"></span>
+</button>
+</div>
+<section aria-label="Forge update" class="site-specials site-specials--okh">
+<span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
+<a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
           v0.5 is live: the Council of AIs scored each other, every model was harder on itself than the architect was. Read it →
         </a>
-      </section>
-    </header>
+</section>
+</header>
+  <main id="main">
 
-    <main id="main">
 
-      <!-- ── 1. HERO ─────────────────────────────────────────────────────── -->
-      <section class="hero" aria-labelledby="pf-h1">
-        <div class="brand-stripes brand-stripes--okh" aria-hidden="true"></div>
-        <div class="container">
-          <div class="hero-content">
-            <p class="article-eyebrow">Promptcraft Workshop</p>
-            <h1 id="pf-h1">Prompt&nbsp;Forge</h1>
-            <p class="article-subtitle">Raw prompts are disposable. Prompt protocols are reusable instruments.</p>
-            <p>Prompt Forge is the OverKill&nbsp;Hill&nbsp;P³™ workshop for turning messy intent into governed AI protocols, audit contracts, Replit execution specs, Notion knowledge systems, and public-facing promptcraft patterns.</p>
-            <div class="pf-cta-group">
-              <a href="#flagship-systems" class="btn btn-primary">Explore the Six Flagship Systems</a>
-              <a href="#anatomy" class="btn btn-quiet">Read the Prompt Anatomy</a>
-              <a href="/writings/" class="btn btn-quiet">Visit the Writings Library</a>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <div class="pf-body-with-sidebar">
-        <div class="pf-body-main">
 
-      <!-- ── 2. FORGE THESIS ─────────────────────────────────────────────── -->
-      <section class="content-section" id="thesis" aria-labelledby="pf-thesis-h">
-        <div class="container">
-          <div class="section-label">The Thesis</div>
-          <h2 id="pf-thesis-h">Prompts Are Not the Artifact</h2>
-          <p>A prompt is the interface layer between intent, context, constraints, tools, memory, and execution. Weak prompts ask for output. Strong prompts define the operating conditions under which useful output can exist.</p>
-          <p>OverKill&nbsp;Hill&nbsp;P³™ treats promptcraft as architecture: define the role, bind the context, declare the boundaries, shape the output, test the result, and route the artifact to the next system.</p>
-          <p>Most prompts are disposable. OverKill Hill treats prompts as durable instruments. A strong prompt carries context, role, boundaries, test criteria, failure modes, output shape, and revision logic. The best prompts become protocols. The best protocols become systems. The best systems become reusable public methods.</p>
-          <blockquote class="pull-quote" aria-label="Pull quote">
-            <p>The best prompt is not clever. The best prompt is durable.</p>
-          </blockquote>
-        </div>
-      </section>
 
-      <!-- ── 3. WHAT MAKES A PROMPT A PROTOCOL ──────────────────────────── -->
-      <section class="content-section" id="protocols" aria-labelledby="pf-protocols-h">
-        <div class="container">
-          <div class="section-label">Anatomy</div>
-          <h2 id="pf-protocols-h">What Makes a Prompt a Protocol</h2>
-          <p>A disposable prompt asks a question. A protocol defines the operating envelope. These ten elements separate prompts that work once from prompts that work every time.</p>
-          <div class="pf-card-grid" role="list">
 
-            <div class="pf-proto-card" role="listitem">
-              <div class="pf-proto-card__label">Intent</div>
-              <p class="pf-proto-card__def">What the user is actually trying to accomplish, not just what they typed.</p>
-              <p class="pf-proto-card__fail">Failure: the model answers the words but misses the job.</p>
-            </div>
 
-            <div class="pf-proto-card" role="listitem">
-              <div class="pf-proto-card__label">Role</div>
-              <p class="pf-proto-card__def">What the model is being asked to become for this task: expert, auditor, synthesizer, critic.</p>
-              <p class="pf-proto-card__fail">Failure: generic outputs with no specialized stance.</p>
-            </div>
 
-            <div class="pf-proto-card" role="listitem">
-              <div class="pf-proto-card__label">Context</div>
-              <p class="pf-proto-card__def">Source facts, constraints, business setting, prior state, and domain vocabulary the model must know.</p>
-              <p class="pf-proto-card__fail">Failure: the model hallucinates what it was never given.</p>
-            </div>
 
-            <div class="pf-proto-card" role="listitem">
-              <div class="pf-proto-card__label">Boundaries</div>
-              <p class="pf-proto-card__def">What must not happen: topics to avoid, actions to refuse, outputs that are out of scope.</p>
-              <p class="pf-proto-card__fail">Failure: the model helpfully produces the wrong thing.</p>
-            </div>
-
-            <div class="pf-proto-card" role="listitem">
-              <div class="pf-proto-card__label">Inputs</div>
-              <p class="pf-proto-card__def">Documents, links, files, data, memory state, and tool access the model may draw from.</p>
-              <p class="pf-proto-card__fail">Failure: the model reasons from nothing and drifts.</p>
-            </div>
-
-            <div class="pf-proto-card" role="listitem">
-              <div class="pf-proto-card__label">Method</div>
-              <p class="pf-proto-card__def">Reasoning mode, workflow, audit path, critique path: how the model should think, not just what it should produce.</p>
-              <p class="pf-proto-card__fail">Failure: random reasoning quality across runs.</p>
-            </div>
-
-            <div class="pf-proto-card" role="listitem">
-              <div class="pf-proto-card__label">Output Contract</div>
-              <p class="pf-proto-card__def">Format, fields, tables, artifacts, file names: what the result must look like to be usable downstream.</p>
-              <p class="pf-proto-card__fail">Failure: the output cannot be parsed, routed, or acted on.</p>
-            </div>
-
-            <div class="pf-proto-card" role="listitem">
-              <div class="pf-proto-card__label">Validation</div>
-              <p class="pf-proto-card__def">Tests, acceptance criteria, edge cases: how to confirm the output actually solved the problem.</p>
-              <p class="pf-proto-card__fail">Failure: confident output that is silently wrong.</p>
-            </div>
-
-            <div class="pf-proto-card" role="listitem">
-              <div class="pf-proto-card__label">Failure Handling</div>
-              <p class="pf-proto-card__def">What to do when information is missing, unsafe, contradictory, or outside the model's knowledge boundary.</p>
-              <p class="pf-proto-card__fail">Failure: the model invents rather than flags.</p>
-            </div>
-
-            <div class="pf-proto-card" role="listitem">
-              <div class="pf-proto-card__label">Handoff</div>
-              <p class="pf-proto-card__def">How the result moves to Notion, Replit, GitHub, LinkedIn, or another agent, so the artifact doesn't end in a chat window.</p>
-              <p class="pf-proto-card__fail">Failure: valuable output with no route forward.</p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- ── 4. SIX FLAGSHIP SYSTEMS ─────────────────────────────────────── -->
-      <section class="content-section" id="flagship-systems" aria-labelledby="pf-flagship-h">
-        <div class="container">
-          <div class="section-label">The Catalog</div>
-          <h2 id="pf-flagship-h">Six Flagship Prompt Systems</h2>
-          <p>These are the deepest prompt systems in the OverKill&nbsp;Hill&nbsp;P³™ catalog, each built to solve a real structural problem, not to demonstrate prompt cleverness.</p>
-          <div class="pf-system-grid">
-
-            <!-- 1. ScafFrosto-Rᵧ -->
-            <article class="pf-system-card" id="scaffrosto" aria-labelledby="pf-scaffrosto-name">
-              <div class="pf-system-card__header">
-                <div class="pf-system-card__name" id="pf-scaffrosto-name">ScafFrosto-Rᵧ<br><small>Canon Ruling Order · DataLedger v3</small></div>
-                <span class="pf-status pf-status--internal">Internal canon</span>
-              </div>
-              <p class="pf-system-card__purpose"><strong>Purpose:</strong> Ledger governance, state recovery, and canonical export simulation.</p>
-              <p class="pf-system-card__why">Solves the statelessness problem by forcing read → audit → simulate-merge → verify → export discipline. Turns model drift and hallucinated deltas into a verifiable workflow.</p>
-              <p class="pf-system-card__why">This is not a prompt. It is a state-management doctrine. It recognizes that prompts need lifecycle governance, not just clever phrasing.</p>
-              <div class="pf-tags" aria-label="Method tags">
-                <span class="pf-tag">ledger governance</span>
-                <span class="pf-tag">context engineering</span>
-                <span class="pf-tag">recursive salvage</span>
-                <span class="pf-tag">audit trail</span>
-                <span class="pf-tag">mega-prompt</span>
-              </div>
-              <a href="#anatomy" class="pf-system-card__cta">See the anatomy this system uses →</a>
-            </article>
-
-            <!-- 2. ArcSyntrixo-Rᵧ -->
-            <article class="pf-system-card" id="arcsyntrixo" aria-labelledby="pf-arcsyntrixo-name">
-              <div class="pf-system-card__header">
-                <div class="pf-system-card__name" id="pf-arcsyntrixo-name">ArcSyntrixo-Rᵧ<br><small>Aurifexo-R · Recursive Equilibrium Architect</small></div>
-                <span class="pf-status pf-status--publicsafe">Public-safe theory</span>
-              </div>
-              <p class="pf-system-card__purpose"><strong>Purpose:</strong> Multi-agent equilibrium across structure, semantics, tone, mutation, and critique.</p>
-              <p class="pf-system-card__why">Keeps prompts coherent without killing surprise. Optimizes for equilibrium rather than instruction compliance, treating promptcraft as a balancing field among precision, style, adaptability, and constraint.</p>
-              <p class="pf-system-card__why">Too much structure kills insight. Too much creativity kills reliability. Too much tone turns into theater. ArcSyntrixo holds all three without collapsing.</p>
-              <div class="pf-tags" aria-label="Method tags">
-                <span class="pf-tag">multi-agent orchestration</span>
-                <span class="pf-tag">prompt equilibrium</span>
-                <span class="pf-tag">synthesis</span>
-                <span class="pf-tag">critique</span>
-                <span class="pf-tag">constitutional prompting</span>
-              </div>
-              <a href="#operating-model" class="pf-system-card__cta">See the operating model →</a>
-            </article>
-
-            <!-- 3. GPT Interrogation Agent -->
-            <article class="pf-system-card" id="gpt-audit" aria-labelledby="pf-gptaudit-name">
-              <div class="pf-system-card__header">
-                <div class="pf-system-card__name" id="pf-gptaudit-name">GPT Interrogation Agent<br><small>GPT Audit Contract</small></div>
-                <span class="pf-status pf-status--public">Public-safe pattern</span>
-              </div>
-              <p class="pf-system-card__purpose"><strong>Purpose:</strong> Forces Custom GPTs to disclose identity, capabilities, limits, modes, knowledge boundaries, routing, and guardrails.</p>
-              <p class="pf-system-card__why">Turns black-box assistants into auditable systems. Flips the normal relationship: instead of asking a GPT to perform, it asks the GPT to confess its operating envelope.</p>
-              <p class="pf-system-card__why">Before trusting a Custom GPT: force it to state what it thinks it is, what it has access to, what it cannot do, and where the builder instructions are steering it.</p>
-              <div class="pf-tags" aria-label="Method tags">
-                <span class="pf-tag">audit contract</span>
-                <span class="pf-tag">governance</span>
-                <span class="pf-tag">capability disclosure</span>
-                <span class="pf-tag">safe completions</span>
-                <span class="pf-tag">meta-prompt</span>
-              </div>
-              <a href="#vault" class="pf-system-card__cta">See the prompt vault →</a>
-            </article>
-
-            <!-- 4. PromptAscend-R -->
-            <article class="pf-system-card" id="promptascend" aria-labelledby="pf-promptascend-name">
-              <div class="pf-system-card__header">
-                <div class="pf-system-card__name" id="pf-promptascend-name">PromptAscend-R</div>
-                <span class="pf-status pf-status--public">Public-facing evaluator</span>
-              </div>
-              <p class="pf-system-card__purpose"><strong>Purpose:</strong> Evaluates promptcraft maturity through the Jedi Path, Chess Scale, and Lexashev Scale, with deliberately unreachable capstone tiers.</p>
-              <p class="pf-system-card__why">Turns abstract prompt skill into a growth ladder. The unreachable final tier prevents completion psychology, making promptcraft a lifelong discipline rather than a certification to collect.</p>
-              <p class="pf-system-card__why">"You are not just writing prompts. You are leveling up your ability to think with machines."</p>
-              <div class="pf-tags" aria-label="Method tags">
-                <span class="pf-tag">rubric evaluation</span>
-                <span class="pf-tag">learning system</span>
-                <span class="pf-tag">maturity model</span>
-                <span class="pf-tag">prompt optimizer</span>
-              </div>
-              <a href="#protocols" class="pf-system-card__cta">See what a protocol requires →</a>
-            </article>
-
-            <!-- 5. Flowpilot Scribbler -->
-            <article class="pf-system-card" id="flowpilot" aria-labelledby="pf-flowpilot-name">
-              <div class="pf-system-card__header">
-                <div class="pf-system-card__name" id="pf-flowpilot-name">Flowpilot Scribbler</div>
-                <span class="pf-status pf-status--private">Private enterprise pattern</span>
-              </div>
-              <p class="pf-system-card__purpose"><strong>Purpose:</strong> Converts voice and text process capture into structured process artifacts, diagrams, responsibility models, and governance-ready outputs.</p>
-              <p class="pf-system-card__why">Proves promptcraft can become enterprise workflow architecture. Diagrams are not the goal; process comprehension is. Diagramming is the artifact layer. The prompt system handles the translation.</p>
-              <p class="pf-system-card__note">This system is shown as an anonymized enterprise-process pattern. Employer-specific implementation details are not published.</p>
-              <div class="pf-tags" aria-label="Method tags">
-                <span class="pf-tag">process modeling</span>
-                <span class="pf-tag">Mermaid</span>
-                <span class="pf-tag">BPMN</span>
-                <span class="pf-tag">RACI</span>
-                <span class="pf-tag">interview mode</span>
-                <span class="pf-tag">ReAct-adjacent</span>
-              </div>
-              <a href="/projects/bpmn-for-mermaid/" class="pf-system-card__cta">Related: BPMN for Mermaid →</a>
-            </article>
-
-            <!-- 6. Council of AIs -->
-            <article class="pf-system-card" id="council-card" aria-labelledby="pf-council-name">
-              <div class="pf-system-card__header">
-                <div class="pf-system-card__name" id="pf-council-name">Council of AIs<br><small>Research-to-Replit Spec Lock</small></div>
-                <span class="pf-status pf-status--public">Public operating model</span>
-              </div>
-              <p class="pf-system-card__purpose"><strong>Purpose:</strong> Uses multiple AI systems for adversarial critique and synthesis before producing a locked execution spec for Replit.</p>
-              <p class="pf-system-card__why">Prevents expensive execution agents from acting on vague requirements. One model researches. Another critiques. Another synthesizes. Another locks the spec. Replit executes against a specification rather than a vibe.</p>
-              <p class="pf-system-card__why">This is not "ask several AIs and compare." It is an AI governance board with role separation: research, critique, synthesis, execution, and verification.</p>
-              <div class="pf-tags" aria-label="Method tags">
-                <span class="pf-tag">multi-model critique</span>
-                <span class="pf-tag">ReAct-adjacent</span>
-                <span class="pf-tag">spec lock</span>
-                <span class="pf-tag">Notion-to-Replit handoff</span>
-                <span class="pf-tag">human-in-the-loop QA</span>
-              </div>
-              <a href="#council" class="pf-system-card__cta">See the workflow →</a>
-            </article>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- ── 5. PROMPT ANATOMY SKELETON ─────────────────────────────────── -->
-      <section class="content-section" id="anatomy" aria-labelledby="pf-anatomy-h">
-        <div class="container">
-          <div class="section-label">Framework</div>
-          <h2 id="pf-anatomy-h">The Prompt Forge Anatomy</h2>
-          <p>Every element above has a place in the protocol skeleton. A serious prompt is not a paragraph; it is a structured operating brief. Copy the skeleton below as a starting scaffold for any governed prompt.</p>
-          <pre class="pf-skeleton" aria-label="Prompt protocol skeleton template" tabindex="0">Role:
+ ── 1. HERO ─────────────────────────────────────────────────────── 
+<section aria-labelledby="pf-h1" class="hero">
+<div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div>
+<div class="container">
+<div class="hero-content">
+<p class="article-eyebrow">Promptcraft Workshop</p>
+<h1 id="pf-h1">Prompt Forge</h1>
+<p class="article-subtitle">Raw prompts are disposable. Prompt protocols are reusable instruments.</p>
+<p>Prompt Forge is the OverKill Hill P³™ workshop for turning messy intent into governed AI protocols, audit contracts, Replit execution specs, Notion knowledge systems, and public-facing promptcraft patterns.</p>
+<div class="pf-cta-group">
+<a class="btn btn-primary" href="#flagship-systems">Explore the Six Flagship Systems</a>
+<a class="btn btn-quiet" href="#anatomy">Read the Prompt Anatomy</a>
+<a class="btn btn-quiet" href="/writings/">Visit the Writings Library</a>
+</div>
+</div>
+</div>
+</section>
+<div class="pf-body-with-sidebar">
+<div class="pf-body-main">
+<!-- ── 2. FORGE THESIS ─────────────────────────────────────────────── -->
+<section aria-labelledby="pf-thesis-h" class="content-section" id="thesis">
+<div class="container">
+<div class="section-label">The Thesis</div>
+<h2 id="pf-thesis-h">Prompts Are Not the Artifact</h2>
+<p>A prompt is the interface layer between intent, context, constraints, tools, memory, and execution. Weak prompts ask for output. Strong prompts define the operating conditions under which useful output can exist.</p>
+<p>OverKill Hill P³™ treats promptcraft as architecture: define the role, bind the context, declare the boundaries, shape the output, test the result, and route the artifact to the next system.</p>
+<p>Most prompts are disposable. OverKill Hill treats prompts as durable instruments. A strong prompt carries context, role, boundaries, test criteria, failure modes, output shape, and revision logic. The best prompts become protocols. The best protocols become systems. The best systems become reusable public methods.</p>
+<blockquote aria-label="Pull quote" class="pull-quote">
+<p>The best prompt is not clever. The best prompt is durable.</p>
+</blockquote>
+</div>
+</section>
+<!-- ── 3. WHAT MAKES A PROMPT A PROTOCOL ──────────────────────────── -->
+<section aria-labelledby="pf-protocols-h" class="content-section" id="protocols">
+<div class="container">
+<div class="section-label">Anatomy</div>
+<h2 id="pf-protocols-h">What Makes a Prompt a Protocol</h2>
+<p>A disposable prompt asks a question. A protocol defines the operating envelope. These ten elements separate prompts that work once from prompts that work every time.</p>
+<div class="pf-card-grid" role="list">
+<div class="pf-proto-card" role="listitem">
+<div class="pf-proto-card__label">Intent</div>
+<p class="pf-proto-card__def">What the user is actually trying to accomplish, not just what they typed.</p>
+<p class="pf-proto-card__fail">Failure: the model answers the words but misses the job.</p>
+</div>
+<div class="pf-proto-card" role="listitem">
+<div class="pf-proto-card__label">Role</div>
+<p class="pf-proto-card__def">What the model is being asked to become for this task: expert, auditor, synthesizer, critic.</p>
+<p class="pf-proto-card__fail">Failure: generic outputs with no specialized stance.</p>
+</div>
+<div class="pf-proto-card" role="listitem">
+<div class="pf-proto-card__label">Context</div>
+<p class="pf-proto-card__def">Source facts, constraints, business setting, prior state, and domain vocabulary the model must know.</p>
+<p class="pf-proto-card__fail">Failure: the model hallucinates what it was never given.</p>
+</div>
+<div class="pf-proto-card" role="listitem">
+<div class="pf-proto-card__label">Boundaries</div>
+<p class="pf-proto-card__def">What must not happen: topics to avoid, actions to refuse, outputs that are out of scope.</p>
+<p class="pf-proto-card__fail">Failure: the model helpfully produces the wrong thing.</p>
+</div>
+<div class="pf-proto-card" role="listitem">
+<div class="pf-proto-card__label">Inputs</div>
+<p class="pf-proto-card__def">Documents, links, files, data, memory state, and tool access the model may draw from.</p>
+<p class="pf-proto-card__fail">Failure: the model reasons from nothing and drifts.</p>
+</div>
+<div class="pf-proto-card" role="listitem">
+<div class="pf-proto-card__label">Method</div>
+<p class="pf-proto-card__def">Reasoning mode, workflow, audit path, critique path: how the model should think, not just what it should produce.</p>
+<p class="pf-proto-card__fail">Failure: random reasoning quality across runs.</p>
+</div>
+<div class="pf-proto-card" role="listitem">
+<div class="pf-proto-card__label">Output Contract</div>
+<p class="pf-proto-card__def">Format, fields, tables, artifacts, file names: what the result must look like to be usable downstream.</p>
+<p class="pf-proto-card__fail">Failure: the output cannot be parsed, routed, or acted on.</p>
+</div>
+<div class="pf-proto-card" role="listitem">
+<div class="pf-proto-card__label">Validation</div>
+<p class="pf-proto-card__def">Tests, acceptance criteria, edge cases: how to confirm the output actually solved the problem.</p>
+<p class="pf-proto-card__fail">Failure: confident output that is silently wrong.</p>
+</div>
+<div class="pf-proto-card" role="listitem">
+<div class="pf-proto-card__label">Failure Handling</div>
+<p class="pf-proto-card__def">What to do when information is missing, unsafe, contradictory, or outside the model's knowledge boundary.</p>
+<p class="pf-proto-card__fail">Failure: the model invents rather than flags.</p>
+</div>
+<div class="pf-proto-card" role="listitem">
+<div class="pf-proto-card__label">Handoff</div>
+<p class="pf-proto-card__def">How the result moves to Notion, Replit, GitHub, LinkedIn, or another agent, so the artifact doesn't end in a chat window.</p>
+<p class="pf-proto-card__fail">Failure: valuable output with no route forward.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ── 4. SIX FLAGSHIP SYSTEMS ─────────────────────────────────────── -->
+<section aria-labelledby="pf-flagship-h" class="content-section" id="flagship-systems">
+<div class="container">
+<div class="section-label">The Catalog</div>
+<h2 id="pf-flagship-h">Six Flagship Prompt Systems</h2>
+<p>These are the deepest prompt systems in the OverKill Hill P³™ catalog, each built to solve a real structural problem, not to demonstrate prompt cleverness.</p>
+<div class="pf-system-grid">
+<!-- 1. ScafFrosto-Rᵧ -->
+<article aria-labelledby="pf-scaffrosto-name" class="pf-system-card" id="scaffrosto">
+<div class="pf-system-card__header">
+<div class="pf-system-card__name" id="pf-scaffrosto-name">ScafFrosto-Rᵧ<br/><small>Canon Ruling Order · DataLedger v3</small></div>
+<span class="pf-status pf-status--internal">Internal canon</span>
+</div>
+<p class="pf-system-card__purpose"><strong>Purpose:</strong> Ledger governance, state recovery, and canonical export simulation.</p>
+<p class="pf-system-card__why">Solves the statelessness problem by forcing read → audit → simulate-merge → verify → export discipline. Turns model drift and hallucinated deltas into a verifiable workflow.</p>
+<p class="pf-system-card__why">This is not a prompt. It is a state-management doctrine. It recognizes that prompts need lifecycle governance, not just clever phrasing.</p>
+<div aria-label="Method tags" class="pf-tags">
+<span class="pf-tag">ledger governance</span>
+<span class="pf-tag">context engineering</span>
+<span class="pf-tag">recursive salvage</span>
+<span class="pf-tag">audit trail</span>
+<span class="pf-tag">mega-prompt</span>
+</div>
+<a class="pf-system-card__cta" href="#anatomy">See the anatomy this system uses →</a>
+</article>
+<!-- 2. ArcSyntrixo-Rᵧ -->
+<article aria-labelledby="pf-arcsyntrixo-name" class="pf-system-card" id="arcsyntrixo">
+<div class="pf-system-card__header">
+<div class="pf-system-card__name" id="pf-arcsyntrixo-name">ArcSyntrixo-Rᵧ<br/><small>Aurifexo-R · Recursive Equilibrium Architect</small></div>
+<span class="pf-status pf-status--publicsafe">Public-safe theory</span>
+</div>
+<p class="pf-system-card__purpose"><strong>Purpose:</strong> Multi-agent equilibrium across structure, semantics, tone, mutation, and critique.</p>
+<p class="pf-system-card__why">Keeps prompts coherent without killing surprise. Optimizes for equilibrium rather than instruction compliance, treating promptcraft as a balancing field among precision, style, adaptability, and constraint.</p>
+<p class="pf-system-card__why">Too much structure kills insight. Too much creativity kills reliability. Too much tone turns into theater. ArcSyntrixo holds all three without collapsing.</p>
+<div aria-label="Method tags" class="pf-tags">
+<span class="pf-tag">multi-agent orchestration</span>
+<span class="pf-tag">prompt equilibrium</span>
+<span class="pf-tag">synthesis</span>
+<span class="pf-tag">critique</span>
+<span class="pf-tag">constitutional prompting</span>
+</div>
+<a class="pf-system-card__cta" href="#operating-model">See the operating model →</a>
+</article>
+<!-- 3. GPT Interrogation Agent -->
+<article aria-labelledby="pf-gptaudit-name" class="pf-system-card" id="gpt-audit">
+<div class="pf-system-card__header">
+<div class="pf-system-card__name" id="pf-gptaudit-name">GPT Interrogation Agent<br/><small>GPT Audit Contract</small></div>
+<span class="pf-status pf-status--public">Public-safe pattern</span>
+</div>
+<p class="pf-system-card__purpose"><strong>Purpose:</strong> Forces Custom GPTs to disclose identity, capabilities, limits, modes, knowledge boundaries, routing, and guardrails.</p>
+<p class="pf-system-card__why">Turns black-box assistants into auditable systems. Flips the normal relationship: instead of asking a GPT to perform, it asks the GPT to confess its operating envelope.</p>
+<p class="pf-system-card__why">Before trusting a Custom GPT: force it to state what it thinks it is, what it has access to, what it cannot do, and where the builder instructions are steering it.</p>
+<div aria-label="Method tags" class="pf-tags">
+<span class="pf-tag">audit contract</span>
+<span class="pf-tag">governance</span>
+<span class="pf-tag">capability disclosure</span>
+<span class="pf-tag">safe completions</span>
+<span class="pf-tag">meta-prompt</span>
+</div>
+<a class="pf-system-card__cta" href="#vault">See the prompt vault →</a>
+</article>
+<!-- 4. PromptAscend-R -->
+<article aria-labelledby="pf-promptascend-name" class="pf-system-card" id="promptascend">
+<div class="pf-system-card__header">
+<div class="pf-system-card__name" id="pf-promptascend-name">PromptAscend-R</div>
+<span class="pf-status pf-status--public">Public-facing evaluator</span>
+</div>
+<p class="pf-system-card__purpose"><strong>Purpose:</strong> Evaluates promptcraft maturity through the Jedi Path, Chess Scale, and Lexashev Scale, with deliberately unreachable capstone tiers.</p>
+<p class="pf-system-card__why">Turns abstract prompt skill into a growth ladder. The unreachable final tier prevents completion psychology, making promptcraft a lifelong discipline rather than a certification to collect.</p>
+<p class="pf-system-card__why">"You are not just writing prompts. You are leveling up your ability to think with machines."</p>
+<div aria-label="Method tags" class="pf-tags">
+<span class="pf-tag">rubric evaluation</span>
+<span class="pf-tag">learning system</span>
+<span class="pf-tag">maturity model</span>
+<span class="pf-tag">prompt optimizer</span>
+</div>
+<a class="pf-system-card__cta" href="#protocols">See what a protocol requires →</a>
+</article>
+<!-- 5. Flowpilot Scribbler -->
+<article aria-labelledby="pf-flowpilot-name" class="pf-system-card" id="flowpilot">
+<div class="pf-system-card__header">
+<div class="pf-system-card__name" id="pf-flowpilot-name">Flowpilot Scribbler</div>
+<span class="pf-status pf-status--private">Private enterprise pattern</span>
+</div>
+<p class="pf-system-card__purpose"><strong>Purpose:</strong> Converts voice and text process capture into structured process artifacts, diagrams, responsibility models, and governance-ready outputs.</p>
+<p class="pf-system-card__why">Proves promptcraft can become enterprise workflow architecture. Diagrams are not the goal; process comprehension is. Diagramming is the artifact layer. The prompt system handles the translation.</p>
+<p class="pf-system-card__note">This system is shown as an anonymized enterprise-process pattern. Employer-specific implementation details are not published.</p>
+<div aria-label="Method tags" class="pf-tags">
+<span class="pf-tag">process modeling</span>
+<span class="pf-tag">Mermaid</span>
+<span class="pf-tag">BPMN</span>
+<span class="pf-tag">RACI</span>
+<span class="pf-tag">interview mode</span>
+<span class="pf-tag">ReAct-adjacent</span>
+</div>
+<a class="pf-system-card__cta" href="/projects/bpmn-for-mermaid/">Related: BPMN for Mermaid →</a>
+</article>
+<!-- 6. Council of AIs -->
+<article aria-labelledby="pf-council-name" class="pf-system-card" id="council-card">
+<div class="pf-system-card__header">
+<div class="pf-system-card__name" id="pf-council-name">Council of AIs<br/><small>Research-to-Replit Spec Lock</small></div>
+<span class="pf-status pf-status--public">Public operating model</span>
+</div>
+<p class="pf-system-card__purpose"><strong>Purpose:</strong> Uses multiple AI systems for adversarial critique and synthesis before producing a locked execution spec for Replit.</p>
+<p class="pf-system-card__why">Prevents expensive execution agents from acting on vague requirements. One model researches. Another critiques. Another synthesizes. Another locks the spec. Replit executes against a specification rather than a vibe.</p>
+<p class="pf-system-card__why">This is not "ask several AIs and compare." It is an AI governance board with role separation: research, critique, synthesis, execution, and verification.</p>
+<div aria-label="Method tags" class="pf-tags">
+<span class="pf-tag">multi-model critique</span>
+<span class="pf-tag">ReAct-adjacent</span>
+<span class="pf-tag">spec lock</span>
+<span class="pf-tag">Notion-to-Replit handoff</span>
+<span class="pf-tag">human-in-the-loop QA</span>
+</div>
+<a class="pf-system-card__cta" href="#council">See the workflow →</a>
+</article>
+</div>
+</div>
+</section>
+<!-- ── 5. PROMPT ANATOMY SKELETON ─────────────────────────────────── -->
+<section aria-labelledby="pf-anatomy-h" class="content-section" id="anatomy">
+<div class="container">
+<div class="section-label">Framework</div>
+<h2 id="pf-anatomy-h">The Prompt Forge Anatomy</h2>
+<p>Every element above has a place in the protocol skeleton. A serious prompt is not a paragraph; it is a structured operating brief. Copy the skeleton below as a starting scaffold for any governed prompt.</p>
+<pre aria-label="Prompt protocol skeleton template" class="pf-skeleton" tabindex="0">Role:
     Who or what is this model being asked to become for this task?
 
 Context:
@@ -508,317 +412,338 @@ Failure Handling:
 
 Handoff:
     Where does the output go? Notion? Replit? GitHub? Another agent?</pre>
-        </div>
-      </section>
-
-      <!-- ── 6. OPERATING MODEL ───────────────────────────────────────────── -->
-      <section class="content-section" id="operating-model" aria-labelledby="pf-opmodel-h">
-        <div class="container">
-          <div class="section-label">The Process</div>
-          <h2 id="pf-opmodel-h">From Raw Intent to Working Protocol</h2>
-          <p>OverKill&nbsp;Hill&nbsp;P³™ uses a six-step forge cycle to convert messy intent into a deployable prompt protocol. Each step has an artifact. Each step has a failure mode.</p>
-          <div class="pf-step-grid">
-
-            <div class="pf-step">
-              <div class="pf-step__number">Step 1</div>
-              <div class="pf-step__name">Mine</div>
-              <p class="pf-step__what">Capture raw notes, voice dictation, links, files, or messy intent. Nothing is too rough at this stage.</p>
-              <div class="pf-step__artifact">Artifact: raw capture document</div>
-              <div class="pf-step__fail">Failure: skipping this step and starting from assumptions instead of actual intent.</div>
-            </div>
-
-            <div class="pf-step">
-              <div class="pf-step__number">Step 2</div>
-              <div class="pf-step__name">Smelt</div>
-              <p class="pf-step__what">Separate signal from noise. Define the actual job. Identify what the prompt must accomplish versus what is context or constraint.</p>
-              <div class="pf-step__artifact">Artifact: distilled problem statement</div>
-              <div class="pf-step__fail">Failure: building the wrong thing with precision.</div>
-            </div>
-
-            <div class="pf-step">
-              <div class="pf-step__number">Step 3</div>
-              <div class="pf-step__name">Cast</div>
-              <p class="pf-step__what">Convert the job into a structured prompt protocol using the ten anatomy elements. Assign role, context, objective, and method.</p>
-              <div class="pf-step__artifact">Artifact: first protocol draft</div>
-              <div class="pf-step__fail">Failure: a prompt that is too vague to produce consistent output.</div>
-            </div>
-
-            <div class="pf-step">
-              <div class="pf-step__number">Step 4</div>
-              <div class="pf-step__name">Temper</div>
-              <p class="pf-step__what">Add constraints, validation criteria, failure handling, and governance rules. Make the prompt safe to run without human review of every output.</p>
-              <div class="pf-step__artifact">Artifact: governed protocol</div>
-              <div class="pf-step__fail">Failure: a prompt that works until it doesn't, with no safe fallback.</div>
-            </div>
-
-            <div class="pf-step">
-              <div class="pf-step__number">Step 5</div>
-              <div class="pf-step__name">Polish</div>
-              <p class="pf-step__what">Tune tone, format, and usability. A protocol that is technically correct but unusable is still a failure.</p>
-              <div class="pf-step__artifact">Artifact: production-ready prompt</div>
-              <div class="pf-step__fail">Failure: a prompt that works technically but creates friction for every human who touches it.</div>
-            </div>
-
-            <div class="pf-step">
-              <div class="pf-step__number">Step 6</div>
-              <div class="pf-step__name">Deploy</div>
-              <p class="pf-step__what">Route to ChatGPT, Claude, Notion, Replit, GitHub, Copilot, or another execution surface. The handoff is part of the protocol.</p>
-              <div class="pf-step__artifact">Artifact: deployed, repeatable system</div>
-              <div class="pf-step__fail">Failure: a perfect prompt that lives only in a chat window and never becomes a reusable asset.</div>
-            </div>
-
-          </div>
-
-          <div style="margin-top:2rem;padding:1.25rem 1.5rem;border:1px solid var(--color-border-subtle);border-left:3px solid var(--okh-orange);border-radius:var(--radius-md);background:var(--color-surface);">
-            <p style="font-size:0.875rem;color:var(--color-muted);margin:0;line-height:1.7;">
-              <strong style="color:var(--color-fg);">When a method outgrows a single prompt:</strong> when it becomes a governed, reusable capability that an AI agent can load and apply without re-prompting, it becomes a <code>SKILL.md</code>. Those skills are discoverable, installable, and improvable in
+</div>
+</section>
+<!-- ── 6. OPERATING MODEL ───────────────────────────────────────────── -->
+<section aria-labelledby="pf-opmodel-h" class="content-section" id="operating-model">
+<div class="container">
+<div class="section-label">The Process</div>
+<h2 id="pf-opmodel-h">From Raw Intent to Working Protocol</h2>
+<p>OverKill Hill P³™ uses a six-step forge cycle to convert messy intent into a deployable prompt protocol. Each step has an artifact. Each step has a failure mode.</p>
+<div class="pf-step-grid">
+<div class="pf-step">
+<div class="pf-step__number">Step 1</div>
+<div class="pf-step__name">Mine</div>
+<p class="pf-step__what">Capture raw notes, voice dictation, links, files, or messy intent. Nothing is too rough at this stage.</p>
+<div class="pf-step__artifact">Artifact: raw capture document</div>
+<div class="pf-step__fail">Failure: skipping this step and starting from assumptions instead of actual intent.</div>
+</div>
+<div class="pf-step">
+<div class="pf-step__number">Step 2</div>
+<div class="pf-step__name">Smelt</div>
+<p class="pf-step__what">Separate signal from noise. Define the actual job. Identify what the prompt must accomplish versus what is context or constraint.</p>
+<div class="pf-step__artifact">Artifact: distilled problem statement</div>
+<div class="pf-step__fail">Failure: building the wrong thing with precision.</div>
+</div>
+<div class="pf-step">
+<div class="pf-step__number">Step 3</div>
+<div class="pf-step__name">Cast</div>
+<p class="pf-step__what">Convert the job into a structured prompt protocol using the ten anatomy elements. Assign role, context, objective, and method.</p>
+<div class="pf-step__artifact">Artifact: first protocol draft</div>
+<div class="pf-step__fail">Failure: a prompt that is too vague to produce consistent output.</div>
+</div>
+<div class="pf-step">
+<div class="pf-step__number">Step 4</div>
+<div class="pf-step__name">Temper</div>
+<p class="pf-step__what">Add constraints, validation criteria, failure handling, and governance rules. Make the prompt safe to run without human review of every output.</p>
+<div class="pf-step__artifact">Artifact: governed protocol</div>
+<div class="pf-step__fail">Failure: a prompt that works until it doesn't, with no safe fallback.</div>
+</div>
+<div class="pf-step">
+<div class="pf-step__number">Step 5</div>
+<div class="pf-step__name">Polish</div>
+<p class="pf-step__what">Tune tone, format, and usability. A protocol that is technically correct but unusable is still a failure.</p>
+<div class="pf-step__artifact">Artifact: production-ready prompt</div>
+<div class="pf-step__fail">Failure: a prompt that works technically but creates friction for every human who touches it.</div>
+</div>
+<div class="pf-step">
+<div class="pf-step__number">Step 6</div>
+<div class="pf-step__name">Deploy</div>
+<p class="pf-step__what">Route to ChatGPT, Claude, Notion, Replit, GitHub, Copilot, or another execution surface. The handoff is part of the protocol.</p>
+<div class="pf-step__artifact">Artifact: deployed, repeatable system</div>
+<div class="pf-step__fail">Failure: a perfect prompt that lives only in a chat window and never becomes a reusable asset.</div>
+</div>
+</div>
+<div style="margin-top:2rem;padding:1.25rem 1.5rem;border:1px solid var(--color-border-subtle);border-left:3px solid var(--okh-orange);border-radius:var(--radius-md);background:var(--color-surface);">
+<p style="font-size:0.875rem;color:var(--color-muted);margin:0;line-height:1.7;">
+<strong style="color:var(--color-fg);">When a method outgrows a single prompt:</strong> when it becomes a governed, reusable capability that an AI agent can load and apply without re-prompting, it becomes a <code>SKILL.md</code>. Those skills are discoverable, installable, and improvable in
               <a href="/projects/skillz/" style="color:var(--okh-orange);font-weight:600;">Skillz Forge →</a>
-              the flagship OverKill&nbsp;Hill&nbsp;P³™ Agent Skills catalog.
+              the flagship OverKill Hill P³™ Agent Skills catalog.
             </p>
-          </div>
+</div>
+</div>
+</section>
+<!-- ── 7. PROMPT VAULT ─────────────────────────────────────────────── -->
+<section aria-labelledby="pf-vault-h" class="content-section" id="vault">
+<div class="container">
+<div class="section-label">The Vault</div>
+<h2 id="pf-vault-h">The Prompt Vault</h2>
+<p>Prompt Forge is also the public doorway into reusable prompt protocols: templates, audit contracts, scoring rubrics, research prompts, Replit execution specs, and public-safe excerpts from deeper systems.</p>
+<div class="pf-vault-grid">
+<div class="pf-vault-item pf-vault-item--available">
+<span class="pf-vault-status pf-vault-status--available">Available now</span>
+<p class="pf-vault-item__name">Prompt Protocol Template</p>
+<p class="pf-vault-item__desc">The canonical ten-element scaffold for a governed prompt. Includes all anatomy fields (Role through Handoff) with descriptions, blank fields, a filled example, and usage notes. Copy it. Fill every field.</p>
+<a class="pf-vault-item__cta" download="" href="/assets/downloads/okh-prompt-protocol-template.md">Download template (.md) →</a>
+</div>
+<div class="pf-vault-item">
+<span class="pf-vault-status pf-vault-status--coming">Coming next</span>
+<p class="pf-vault-item__name">Dragon Saddles Prompt Vault</p>
+<p class="pf-vault-item__desc">A prompt improvement and clarity system built around specificity, repeatability, and tone governance. Extracts the governing principles from a production prompt corpus.</p>
+</div>
+<div class="pf-vault-item">
+<span class="pf-vault-status pf-vault-status--coming">Coming next</span>
+<p class="pf-vault-item__name">Custom GPT Builder Checklist</p>
+<p class="pf-vault-item__desc">A structured checklist for building Custom GPTs that survive real-world use, covering instruction framing, capability mapping, failure handling, and governance rules.</p>
+</div>
+<div class="pf-vault-item">
+<span class="pf-vault-status pf-vault-status--coming">In progress</span>
+<p class="pf-vault-item__name">Research-to-Replit Specs</p>
+<p class="pf-vault-item__desc">Locked implementation briefs produced by the <a href="#council">Council of AIs workflow</a>. Structured so a Replit agent executes against a specification rather than a vibe.</p>
+</div>
+<div class="pf-vault-item">
+<span class="pf-vault-status pf-vault-status--coming">In progress</span>
+<p class="pf-vault-item__name">Replit Audit Prompts</p>
+<p class="pf-vault-item__desc">Prompts used to interrogate and govern Replit agent behavior, including the <a href="#gpt-audit">GPT Interrogation Agent</a> pattern and the Council's spec-lock sequence.</p>
+</div>
+<div class="pf-vault-item">
+<span class="pf-vault-status pf-vault-status--coming">Documented</span>
+<p class="pf-vault-item__name">Council of AIs Workflow</p>
+<p class="pf-vault-item__desc">The multi-model critique and spec-lock pattern: Research → Critique → Synthesis → Spec Lock → Replit Execution → Validation. <a href="#council">Read the full workflow →</a></p>
+</div>
+</div>
+<p style="margin-top:2rem;">
+<a class="btn btn-quiet" href="/vault/">View full vault →</a>
+</p>
+</div>
+</section>
+<!-- ── 8. COUNCIL OF AIS WORKFLOW ─────────────────────────────────── -->
+<section aria-labelledby="pf-council-h" class="content-section" id="council">
+<div class="container">
+<div class="section-label">Operating Model</div>
+<h2 id="pf-council-h">Council of AIs: Critique Before Execution</h2>
+<p>The Council of AIs workflow uses multiple models as an adversarial review board. One model researches. Another critiques. Another synthesizes. Another turns the result into a locked implementation brief. Replit then executes against a specification rather than a vibe.</p>
+<p>This is the operating model behind the Prompt Forge itself, and behind the <a href="/writings/first-diagram-is-a-liar/#council-origin">First Diagram Is Usually a Liar article</a>, where the Council was used to evaluate and score AI diagram outputs.</p>
+<blockquote aria-label="Pull quote" class="pull-quote">
+<p>Cheap tokens think broadly. Expensive tokens act precisely.</p>
+</blockquote>
+<h3>The Workflow</h3>
+<div aria-label="Council of AIs workflow steps" class="pf-council-flow" role="list">
+<div class="pf-council-step" role="listitem">Research</div>
+<div aria-hidden="true" class="pf-council-arrow">→</div>
+<div class="pf-council-step" role="listitem">Critique</div>
+<div aria-hidden="true" class="pf-council-arrow">→</div>
+<div class="pf-council-step" role="listitem">Synthesis</div>
+<div aria-hidden="true" class="pf-council-arrow">→</div>
+<div class="pf-council-step" role="listitem">Spec Lock</div>
+<div aria-hidden="true" class="pf-council-arrow">→</div>
+<div class="pf-council-step" role="listitem">Replit Execution</div>
+<div aria-hidden="true" class="pf-council-arrow">→</div>
+<div class="pf-council-step" role="listitem">Validation</div>
+</div>
+<p>Each role in the Council has a defined job. Research models cast wide. Critique models find gaps, contradictions, and overreach. Synthesis models consolidate signal. The spec-lock step produces a bounded brief that the execution agent cannot reinterpret. Validation closes the loop.</p>
+<p>The result is not a better answer to a prompt. It is a better operating contract for the execution agent.</p>
+</div>
+</section>
+<!-- ── 9. PUBLIC-SAFE BOUNDARY ─────────────────────────────────────── -->
+<section aria-labelledby="pf-boundary-h" class="content-section" id="boundary">
+<div class="container">
+<div class="section-label">Transparency</div>
+<h2 id="pf-boundary-h">What Gets Published, and What Does Not</h2>
+<p>Prompt Forge publishes reusable patterns, not private machinery. Some systems can be shown openly. Some can only be summarized. Some remain internal canon.</p>
+<div class="pf-boundary-grid">
+<div class="pf-boundary-card">
+<span class="pf-boundary-label pf-boundary-label--public">Public</span>
+<p>Safe to publish directly. Architecture, full purpose, method, and examples are available.</p>
+<p><em>Examples:</em> GPT Interrogation Agent, PromptAscend-R, Council of AIs workflow, Prompt Anatomy skeleton.</p>
+</div>
+<div class="pf-boundary-card">
+<span class="pf-boundary-label pf-boundary-label--publicsafe">Public-Safe Summary</span>
+<p>Architecture and lessons can be shown. Raw prompt text or private context stays internal.</p>
+<p><em>Examples:</em> ArcSyntrixo-Rᵧ (theory and architecture described; internal synthesis logic is not published).</p>
+</div>
+<div class="pf-boundary-card">
+<span class="pf-boundary-label pf-boundary-label--private">Private Pattern</span>
+<p>Useful as proof of capability, but details stay off the public web. Anonymized descriptions only.</p>
+<p><em>Examples:</em> Flowpilot Scribbler (enterprise-process pattern; employer-specific logic not published).</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ── 10. RELATED PATHS ───────────────────────────────────────────── -->
+<section aria-labelledby="pf-related-h" class="content-section" id="related">
+<div class="container">
+<div class="section-label">Navigate</div>
+<h2 id="pf-related-h">Related Paths</h2>
+<p>Prompt Forge connects to the rest of the OverKill Hill P³™ portfolio.</p>
+<div class="pf-related-grid">
+<a class="pf-related-card" href="/writings/">
+<span class="pf-related-card__category">Writings</span>
+<span class="pf-related-card__title">Writings Library</span>
+</a>
+<a class="pf-related-card" href="/writings/first-diagram-is-a-liar/">
+<span class="pf-related-card__category">Article</span>
+<span class="pf-related-card__title">The First Diagram Is Usually a Liar</span>
+</a>
+<a class="pf-related-card" href="/projects/">
+<span class="pf-related-card__category">Projects</span>
+<span class="pf-related-card__title">All Projects</span>
+</a>
+<a class="pf-related-card" href="/projects/mermaid-theme-builder/">
+<span class="pf-related-card__category">Project</span>
+<span class="pf-related-card__title">Mermaid Theme Builder</span>
+</a>
+<a class="pf-related-card" href="/projects/bpmn-for-mermaid/">
+<span class="pf-related-card__category">Project</span>
+<span class="pf-related-card__title">BPMN for Mermaid</span>
+</a>
+<a class="pf-related-card" href="/manifesto/">
+<span class="pf-related-card__category">Brand</span>
+<span class="pf-related-card__title">The Manifesto</span>
+</a>
+<a class="pf-related-card" href="/universe/">
+<span class="pf-related-card__category">Brand</span>
+<span class="pf-related-card__title">OKHP³™ Universe</span>
+</a>
+<a class="pf-related-card" href="/contact/">
+<span class="pf-related-card__category">Contact</span>
+<span class="pf-related-card__title">Work with OverKill Hill P³™</span>
+</a>
+</div>
+</div>
+</section>
+<!-- ── 11. CTA ─────────────────────────────────────────────────────── -->
+<section aria-labelledby="pf-cta-h" class="content-section" id="cta">
+<div class="container">
+<div class="section-label">Start Here</div>
+<h2 id="pf-cta-h">Bring a Messy Prompt to the Forge</h2>
+<p>The fastest way to improve an AI workflow is not to ask for a better answer. It is to define a better operating contract.</p>
+<p>Precision · Protocol · Promptcraft</p>
+<div class="pf-cta-group">
+<a class="btn btn-primary" href="/contact/">Contact OverKill Hill P³™</a>
+<a class="btn btn-quiet" href="/writings/">Read the Writings</a>
+<a class="btn btn-quiet" href="/projects/">Explore Projects</a>
+</div>
+</div>
+</section>
+</div><!-- /.pf-body-main -->
+<aside class="pf-toc-sidebar" id="toc-widget">
+<div class="section-label">On This Page</div>
+<ul class="toc-list">
+<li><a href="#thesis">Prompts Are Not the Artifact</a></li>
+<li><a href="#protocols">What Makes a Prompt a Protocol</a></li>
+<li><a href="#flagship-systems">Six Flagship Systems</a></li>
+<li><a href="#anatomy">The Prompt Anatomy</a></li>
+<li><a href="#operating-model">From Raw Intent to Protocol</a></li>
+<li><a href="#boundary">What Gets Published</a></li>
+<li><a href="#related">Related Paths</a></li>
+</ul>
+</aside>
+</div> /.pf-body-with-sidebar 
 
-        </div>
-      </section>
-
-      <!-- ── 7. PROMPT VAULT ─────────────────────────────────────────────── -->
-      <section class="content-section" id="vault" aria-labelledby="pf-vault-h">
-        <div class="container">
-          <div class="section-label">The Vault</div>
-          <h2 id="pf-vault-h">The Prompt Vault</h2>
-          <p>Prompt Forge is also the public doorway into reusable prompt protocols: templates, audit contracts, scoring rubrics, research prompts, Replit execution specs, and public-safe excerpts from deeper systems.</p>
-
-          <div class="pf-vault-grid">
-
-            <div class="pf-vault-item pf-vault-item--available">
-              <span class="pf-vault-status pf-vault-status--available">Available now</span>
-              <p class="pf-vault-item__name">Prompt Protocol Template</p>
-              <p class="pf-vault-item__desc">The canonical ten-element scaffold for a governed prompt. Includes all anatomy fields (Role through Handoff) with descriptions, blank fields, a filled example, and usage notes. Copy it. Fill every field.</p>
-              <a class="pf-vault-item__cta" href="/assets/downloads/okh-prompt-protocol-template.md" download>Download template (.md) &#8594;</a>
-            </div>
-
-            <div class="pf-vault-item">
-              <span class="pf-vault-status pf-vault-status--coming">Coming next</span>
-              <p class="pf-vault-item__name">Dragon Saddles Prompt Vault</p>
-              <p class="pf-vault-item__desc">A prompt improvement and clarity system built around specificity, repeatability, and tone governance. Extracts the governing principles from a production prompt corpus.</p>
-            </div>
-
-            <div class="pf-vault-item">
-              <span class="pf-vault-status pf-vault-status--coming">Coming next</span>
-              <p class="pf-vault-item__name">Custom GPT Builder Checklist</p>
-              <p class="pf-vault-item__desc">A structured checklist for building Custom GPTs that survive real-world use, covering instruction framing, capability mapping, failure handling, and governance rules.</p>
-            </div>
-
-            <div class="pf-vault-item">
-              <span class="pf-vault-status pf-vault-status--coming">In progress</span>
-              <p class="pf-vault-item__name">Research-to-Replit Specs</p>
-              <p class="pf-vault-item__desc">Locked implementation briefs produced by the <a href="#council">Council of AIs workflow</a>. Structured so a Replit agent executes against a specification rather than a vibe.</p>
-            </div>
-
-            <div class="pf-vault-item">
-              <span class="pf-vault-status pf-vault-status--coming">In progress</span>
-              <p class="pf-vault-item__name">Replit Audit Prompts</p>
-              <p class="pf-vault-item__desc">Prompts used to interrogate and govern Replit agent behavior, including the <a href="#gpt-audit">GPT Interrogation Agent</a> pattern and the Council's spec-lock sequence.</p>
-            </div>
-
-            <div class="pf-vault-item">
-              <span class="pf-vault-status pf-vault-status--coming">Documented</span>
-              <p class="pf-vault-item__name">Council of AIs Workflow</p>
-              <p class="pf-vault-item__desc">The multi-model critique and spec-lock pattern: Research → Critique → Synthesis → Spec Lock → Replit Execution → Validation. <a href="#council">Read the full workflow &#8594;</a></p>
-            </div>
-
-          </div>
-
-          <p style="margin-top:2rem;">
-            <a href="/vault/" class="btn btn-quiet">View full vault &#8594;</a>
-          </p>
-        </div>
-      </section>
-
-      <!-- ── 8. COUNCIL OF AIS WORKFLOW ─────────────────────────────────── -->
-      <section class="content-section" id="council" aria-labelledby="pf-council-h">
-        <div class="container">
-          <div class="section-label">Operating Model</div>
-          <h2 id="pf-council-h">Council of AIs: Critique Before Execution</h2>
-          <p>The Council of AIs workflow uses multiple models as an adversarial review board. One model researches. Another critiques. Another synthesizes. Another turns the result into a locked implementation brief. Replit then executes against a specification rather than a vibe.</p>
-          <p>This is the operating model behind the Prompt Forge itself, and behind the <a href="/writings/first-diagram-is-a-liar/#council-origin">First Diagram Is Usually a Liar article</a>, where the Council was used to evaluate and score AI diagram outputs.</p>
-          <blockquote class="pull-quote" aria-label="Pull quote">
-            <p>Cheap tokens think broadly. Expensive tokens act precisely.</p>
-          </blockquote>
-          <h3>The Workflow</h3>
-          <div class="pf-council-flow" role="list" aria-label="Council of AIs workflow steps">
-            <div class="pf-council-step" role="listitem">Research</div>
-            <div class="pf-council-arrow" aria-hidden="true">→</div>
-            <div class="pf-council-step" role="listitem">Critique</div>
-            <div class="pf-council-arrow" aria-hidden="true">→</div>
-            <div class="pf-council-step" role="listitem">Synthesis</div>
-            <div class="pf-council-arrow" aria-hidden="true">→</div>
-            <div class="pf-council-step" role="listitem">Spec Lock</div>
-            <div class="pf-council-arrow" aria-hidden="true">→</div>
-            <div class="pf-council-step" role="listitem">Replit Execution</div>
-            <div class="pf-council-arrow" aria-hidden="true">→</div>
-            <div class="pf-council-step" role="listitem">Validation</div>
-          </div>
-          <p>Each role in the Council has a defined job. Research models cast wide. Critique models find gaps, contradictions, and overreach. Synthesis models consolidate signal. The spec-lock step produces a bounded brief that the execution agent cannot reinterpret. Validation closes the loop.</p>
-          <p>The result is not a better answer to a prompt. It is a better operating contract for the execution agent.</p>
-        </div>
-      </section>
-
-      <!-- ── 9. PUBLIC-SAFE BOUNDARY ─────────────────────────────────────── -->
-      <section class="content-section" id="boundary" aria-labelledby="pf-boundary-h">
-        <div class="container">
-          <div class="section-label">Transparency</div>
-          <h2 id="pf-boundary-h">What Gets Published, and What Does Not</h2>
-          <p>Prompt Forge publishes reusable patterns, not private machinery. Some systems can be shown openly. Some can only be summarized. Some remain internal canon.</p>
-          <div class="pf-boundary-grid">
-
-            <div class="pf-boundary-card">
-              <span class="pf-boundary-label pf-boundary-label--public">Public</span>
-              <p>Safe to publish directly. Architecture, full purpose, method, and examples are available.</p>
-              <p><em>Examples:</em> GPT Interrogation Agent, PromptAscend-R, Council of AIs workflow, Prompt Anatomy skeleton.</p>
-            </div>
-
-            <div class="pf-boundary-card">
-              <span class="pf-boundary-label pf-boundary-label--publicsafe">Public-Safe Summary</span>
-              <p>Architecture and lessons can be shown. Raw prompt text or private context stays internal.</p>
-              <p><em>Examples:</em> ArcSyntrixo-Rᵧ (theory and architecture described; internal synthesis logic is not published).</p>
-            </div>
-
-            <div class="pf-boundary-card">
-              <span class="pf-boundary-label pf-boundary-label--private">Private Pattern</span>
-              <p>Useful as proof of capability, but details stay off the public web. Anonymized descriptions only.</p>
-              <p><em>Examples:</em> Flowpilot Scribbler (enterprise-process pattern; employer-specific logic not published).</p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- ── 10. RELATED PATHS ───────────────────────────────────────────── -->
-      <section class="content-section" id="related" aria-labelledby="pf-related-h">
-        <div class="container">
-          <div class="section-label">Navigate</div>
-          <h2 id="pf-related-h">Related Paths</h2>
-          <p>Prompt Forge connects to the rest of the OverKill&nbsp;Hill&nbsp;P³™ portfolio.</p>
-          <div class="pf-related-grid">
-
-            <a href="/writings/" class="pf-related-card">
-              <span class="pf-related-card__category">Writings</span>
-              <span class="pf-related-card__title">Writings Library</span>
-            </a>
-
-            <a href="/writings/first-diagram-is-a-liar/" class="pf-related-card">
-              <span class="pf-related-card__category">Article</span>
-              <span class="pf-related-card__title">The First Diagram Is Usually a Liar</span>
-            </a>
-
-            <a href="/projects/" class="pf-related-card">
-              <span class="pf-related-card__category">Projects</span>
-              <span class="pf-related-card__title">All Projects</span>
-            </a>
-
-            <a href="/projects/mermaid-theme-builder/" class="pf-related-card">
-              <span class="pf-related-card__category">Project</span>
-              <span class="pf-related-card__title">Mermaid Theme Builder</span>
-            </a>
-
-            <a href="/projects/bpmn-for-mermaid/" class="pf-related-card">
-              <span class="pf-related-card__category">Project</span>
-              <span class="pf-related-card__title">BPMN for Mermaid</span>
-            </a>
-
-            <a href="/manifesto/" class="pf-related-card">
-              <span class="pf-related-card__category">Brand</span>
-              <span class="pf-related-card__title">The Manifesto</span>
-            </a>
-
-            <a href="/universe/" class="pf-related-card">
-              <span class="pf-related-card__category">Brand</span>
-              <span class="pf-related-card__title">OKHP³™ Universe</span>
-            </a>
-
-            <a href="/contact/" class="pf-related-card">
-              <span class="pf-related-card__category">Contact</span>
-              <span class="pf-related-card__title">Work with OverKill&nbsp;Hill&nbsp;P³™</span>
-            </a>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- ── 11. CTA ─────────────────────────────────────────────────────── -->
-      <section class="content-section" id="cta" aria-labelledby="pf-cta-h">
-        <div class="container">
-          <div class="section-label">Start Here</div>
-          <h2 id="pf-cta-h">Bring a Messy Prompt to the Forge</h2>
-          <p>The fastest way to improve an AI workflow is not to ask for a better answer. It is to define a better operating contract.</p>
-          <p>Precision · Protocol · Promptcraft</p>
-          <div class="pf-cta-group">
-            <a href="/contact/" class="btn btn-primary">Contact OverKill&nbsp;Hill&nbsp;P³™</a>
-            <a href="/writings/" class="btn btn-quiet">Read the Writings</a>
-            <a href="/projects/" class="btn btn-quiet">Explore Projects</a>
-          </div>
-        </div>
-      </section>
-
-        </div><!-- /.pf-body-main -->
-
-        <aside class="pf-toc-sidebar" id="toc-widget">
-          <div class="section-label">On This Page</div>
-          <ul class="toc-list">
-            <li><a href="#thesis">Prompts Are Not the Artifact</a></li>
-            <li><a href="#protocols">What Makes a Prompt a Protocol</a></li>
-            <li><a href="#flagship-systems">Six Flagship Systems</a></li>
-            <li><a href="#anatomy">The Prompt Anatomy</a></li>
-            <li><a href="#operating-model">From Raw Intent to Protocol</a></li>
-            <li><a href="#boundary">What Gets Published</a></li>
-            <li><a href="#related">Related Paths</a></li>
-          </ul>
-        </aside>
-
-      </div><!-- /.pf-body-with-sidebar -->
-
-
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div class="footer-column">
-          <h3>OverKill&nbsp;Hill&nbsp;P³™</h3>
-          <p>Protocol-first AI systems design: local inference, multi-model coordination, and the governance layer the platforms forgot to build.</p>
-        </div>
-        <div class="footer-column">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="/#forge">The Forge</a></li>
-            <li><a href="/universe/">P³ Universe</a></li>
-            <li><a href="/manifesto/">The Manifesto</a></li>
-            <li><a href="/projects/">Our Projects</a></li>
-            <li><a href="/writings/">Writings</a></li>
-            <li><a href="/about/">About OKH P³</a></li>
-            <li><a href="/contact/">Contact OKH P³</a></li>
-            <li><a href="/legal/">Legal</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
-            <li><a href="https://ko-fi.com/overkillhillp3" target="_blank" rel="noopener noreferrer">Ko-fi</a></li>
-            <li><a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener noreferrer">Fiverr</a></li>
-            <li><a href="https://www.linkedin.com/company/overkillhillp3" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="https://facebook.com/OverKillHillP3/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-            <li><a href="https://x.com/OverKillHillP3" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
-            <li><a href="https://www.youtube.com/@OverKillHillP3" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
-        <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a></span>
-        <p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³™. All rights reserved.</p>
-        <span></span>
-      </div>
-    </footer>
-
+  
+  
+  
+  
+  
+  
+  
+  
+  </main>
+<footer class="site-footer">
+<div class="container footer-grid">
+<div class="footer-column">
+<h3>OverKill Hill P³™</h3>
+<p>Protocol-first AI systems design: local inference, multi-model coordination, and the governance layer the platforms forgot to build.</p>
+</div>
+<div class="footer-column">
+<h4>Navigation</h4>
+<ul>
+<li><a href="/#forge">The Forge</a></li>
+<li><a href="/universe/">P³ Universe</a></li>
+<li><a href="/manifesto/">The Manifesto</a></li>
+<li><a href="/projects/">Our Projects</a></li>
+<li><a href="/writings/">Writings</a></li>
+<li><a href="/about/">About OKH P³</a></li>
+<li><a href="/contact/">Contact OKH P³</a></li>
+<li><a href="/legal/">Legal</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Connect</h4>
+<ul>
+<li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
+<li><a href="https://ko-fi.com/overkillhillp3" rel="noopener noreferrer" target="_blank">Ko-fi</a></li>
+<li><a href="https://pro.fiverr.com/s/VYKPpoB" rel="noopener noreferrer" target="_blank">Fiverr</a></li>
+<li><a href="https://www.linkedin.com/company/overkillhillp3" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+<li><a href="https://facebook.com/OverKillHillP3/" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+<li><a href="https://x.com/OverKillHillP3" rel="noopener noreferrer" target="_blank">X (Twitter)</a></li>
+<li><a href="https://www.youtube.com/@OverKillHillP3" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
+<span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;" target="_blank">Replit</a></span>
+<p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill Hill P³™. All rights reserved.</p>
+<span></span>
+</div>
+</footer>
     <script src="/assets/js/app.js?v=be5eab85"></script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Prompt Forge",
+      "url": "https://overkillhill.com/prompt-forge/",
+      "description": "Prompt Forge is OverKill Hill P³™'s workshop for turning prompts into governed AI protocols, audit contracts, and Replit-ready specs.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "OverKill Hill P³™",
+        "url": "https://overkillhill.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "OverKill Hill P³™",
+        "url": "https://overkillhill.com/",
+        "logo": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png"
+      }
+    }
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Prompt Forge: Six Flagship Prompt Systems",
+      "url": "https://overkillhill.com/prompt-forge/",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ScafFrosto-Rᵧ / Canon Ruling Order", "url": "https://overkillhill.com/prompt-forge/#scaffrosto" },
+        { "@type": "ListItem", "position": 2, "name": "ArcSyntrixo-Rᵧ / Recursive Equilibrium Architect", "url": "https://overkillhill.com/prompt-forge/#arcsyntrixo" },
+        { "@type": "ListItem", "position": 3, "name": "GPT Interrogation Agent / GPT Audit Contract", "url": "https://overkillhill.com/prompt-forge/#gpt-audit" },
+        { "@type": "ListItem", "position": 4, "name": "PromptAscend-R", "url": "https://overkillhill.com/prompt-forge/#promptascend" },
+        { "@type": "ListItem", "position": 5, "name": "Flowpilot Scribbler", "url": "https://overkillhill.com/prompt-forge/#flowpilot" },
+        { "@type": "ListItem", "position": 6, "name": "Council of AIs / Research-to-Replit Spec Lock", "url": "https://overkillhill.com/prompt-forge/#council" }
+      ]
+    }
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "OverKill Hill P³™",
+        "item": "https://overkillhill.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Prompt Forge",
+        "item": "https://overkillhill.com/prompt-forge/"
+      }
+      ]
+    }
+    </script>
 </body>
 </html>

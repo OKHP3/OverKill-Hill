@@ -1,0 +1,75 @@
+<script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "OverKill Hill P³™",
+        "url": "https://overkillhill.com",
+        "description": "OverKill Hill P³™ is the digital forge for AI systems design: local inference, agentic coordination, and the protocols that make it hold.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://overkillhill.com/search/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+<script type="module">
+      import mermaid from "/assets/vendor/mermaid/mermaid.esm.min.mjs";
+
+      // Pull final, brand-specific tokens (OKH / AskJamie / Glee) from computed styles
+      const styles = getComputedStyle(document.body);
+
+      const surface = styles.getPropertyValue("--color-surface").trim() || "#111827";
+      const surfaceSoft = styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
+      const fg = styles.getPropertyValue("--color-fg").trim() || "#e5e7eb";
+      const accent = styles.getPropertyValue("--color-accent").trim() || "#c46a2c";
+      const muted = styles.getPropertyValue("--color-muted").trim() || "#6b7280";
+      const fontBody =
+        styles.getPropertyValue("--font-body").trim() ||
+        '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
+
+      mermaid.initialize({
+        startOnLoad: true,
+        securityLevel: "strict",
+        theme: "base",            // modifiable theme
+        themeVariables: {
+          primaryColor: surface,        // node background
+          primaryTextColor: fg,
+          primaryBorderColor: accent,
+          lineColor: accent,
+          secondaryColor: surfaceSoft,  // secondary fills / highlights
+          tertiaryColor: surfaceSoft,
+          textColor: fg,
+          fontFamily: fontBody,
+          noteBkgColor: surface,
+          noteTextColor: muted
+        },
+        flowchart: {
+          curve: "basis",
+          nodeSpacing: 60,
+          rankSpacing: 70
+        }
+      });
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "OverKill Hill P³™",
+        "item": "https://overkillhill.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact",
+        "item": "https://overkillhill.com/contact/"
+      }
+      ]
+    }
+    </script>

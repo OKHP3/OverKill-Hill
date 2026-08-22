@@ -37,7 +37,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "dist", "templates", ".agents"}
+SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src"}
 
 
 @dataclass(frozen=True)
@@ -178,7 +178,7 @@ def find_html_files() -> list[Path]:
         if parts & SKIP_DIRS:
             continue
         rel_posix = rel.as_posix()
-        if rel_posix.startswith("assets/templates/"):
+        if rel_posix.startswith(("assets/templates/", "assets/partials/")):
             continue
         files.append(path)
     return sorted(files)

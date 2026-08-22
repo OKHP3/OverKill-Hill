@@ -1,0 +1,121 @@
+<script>
+      (function () {
+        var SOURCE_URL = 'https://okhp3.github.io/skillz/data/project-summary.json';
+        fetch(SOURCE_URL, { cache: 'no-store' })
+          .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+          .then(function (summary) {
+            var skillCountEl = document.getElementById('skillz-live-skill-count');
+            var familyCountEl = document.getElementById('skillz-live-family-count');
+            var asOfEl = document.getElementById('skillz-live-as-of');
+            var bannerEl = document.getElementById('skillz-live-banner-count');
+            var skillCardEl = document.getElementById('skillz-live-skill-card');
+            var familyCardEl = document.getElementById('skillz-live-family-card');
+            var draftableEl = document.getElementById('skillz-live-draftable-count');
+            var skeletonEl = document.getElementById('skillz-live-skeleton-count');
+            var usableEl = document.getElementById('skillz-live-usable-count');
+            if (typeof summary.skillCount === 'number' && typeof summary.familyCount === 'number') {
+              if (skillCountEl) skillCountEl.textContent = summary.skillCount;
+              if (familyCountEl) familyCountEl.textContent = summary.familyCount;
+              if (bannerEl) bannerEl.textContent = summary.skillCount + ' skills, ' + summary.familyCount + ' families';
+              if (skillCardEl) skillCardEl.textContent = summary.skillCount;
+              if (familyCardEl) familyCardEl.textContent = summary.familyCount;
+            }
+            if (asOfEl && summary.generatedAt) {
+              asOfEl.textContent = summary.generatedAt.slice(0, 10);
+            }
+            if (summary.maturityCounts && typeof summary.maturityCounts === 'object') {
+              if (draftableEl && typeof summary.maturityCounts.draftable === 'number') draftableEl.textContent = summary.maturityCounts.draftable;
+              if (skeletonEl && typeof summary.maturityCounts.skeleton === 'number') skeletonEl.textContent = summary.maturityCounts.skeleton;
+              if (usableEl && typeof summary.maturityCounts.usable === 'number') usableEl.textContent = summary.maturityCounts.usable;
+            }
+          })
+          .catch(function (err) {
+            // Fail silent to the visitor; last hand-synced counts already in
+            // the markup stand. Log only for maintainers checking devtools.
+            console.warn('[skillz dossier] could not live-sync counts from project-summary.json:', err);
+          });
+      })();
+    </script>
+<script>
+      (function () {
+        const btn = document.getElementById('reload-btn');
+        const iframe = document.getElementById('tool-iframe');
+        const overlay = document.getElementById('iframe-overlay');
+        const fallback = document.getElementById('iframe-fallback');
+
+        if (!iframe) return;
+
+        var slowTimer = null;
+
+        function showLoading() {
+          if (overlay) overlay.classList.remove('loaded');
+          if (fallback) fallback.classList.remove('visible');
+          clearTimeout(slowTimer);
+          slowTimer = setTimeout(function () {
+            if (fallback) fallback.classList.add('visible');
+          }, 8000);
+        }
+
+        function hideLoading() {
+          clearTimeout(slowTimer);
+          if (overlay) overlay.classList.add('loaded');
+          if (fallback) fallback.classList.remove('visible');
+        }
+
+        iframe.addEventListener('load', hideLoading);
+
+        if (btn) {
+          btn.addEventListener('click', function () {
+            showLoading();
+            iframe.src = iframe.src;
+          });
+        }
+
+        showLoading();
+      })();
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "OverKill Hill P³™",
+        "item": "https://overkillhill.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "item": "https://overkillhill.com/projects/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Skillz Forge",
+        "item": "https://overkillhill.com/projects/skillz/"
+      }
+      ]
+    }
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Skillz Forge",
+      "description": "A public Agent Skills discovery workbench. Discover, inspect, compose, and install reusable SKILL.md contracts for AI agents. Browse by family, filter by maturity, copy installation URLs, and explore curated stacks. Browser-only. No login. Open source.",
+      "url": "https://okhp3.github.io/skillz/",
+      "author": {
+        "@type": "Organization",
+        "name": "OverKill Hill P³",
+        "url": "https://overkillhill.com"
+      },
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "codeRepository": "https://github.com/OKHP3/skillz",
+      "license": "https://opensource.org/licenses/MIT"
+    }
+    </script>
