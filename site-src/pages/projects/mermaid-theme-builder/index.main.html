@@ -672,20 +672,20 @@
 <h3 style="margin-top:1rem;">Install in your AI coding assistant</h3>
 <p>The skill family is published and installable today. Drop the relevant skill file(s) into your agent's skill directory; start with <code>okhp3-mermaid-theme-builder</code>, or pull the full 10-skill family from <code>skills/FAMILY.md</code> for architecture, BPMN, data, publishing, repair, and update workflows too.</p>
 <p><strong>Claude Code</strong></p>
-<pre style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .claude/skills/mermaid-theme-builder.md
+<pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .claude/skills/mermaid-theme-builder.md
 # Point Claude Code at the published SKILL.md raw URL or local copy
 curl -o .claude/skills/mermaid-theme-builder.md \
   https://raw.githubusercontent.com/OKHP3/mermaid-theme-builder/main/skills/okhp3-mermaid-theme-builder/SKILL.md</pre>
 <p><strong>Cursor</strong></p>
-<pre style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .cursor/rules/mermaid-theme-builder.mdc
+<pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .cursor/rules/mermaid-theme-builder.mdc
 # Copy skills/okhp3-mermaid-theme-builder/SKILL.md from the cloned repo
 # or reference via @mermaid-theme-builder in Cursor chat</pre>
 <p><strong>GitHub Copilot</strong></p>
-<pre style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .github/copilot-instructions.md
+<pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .github/copilot-instructions.md
 # Append contents of skills/okhp3-mermaid-theme-builder/SKILL.md under a "Mermaid Diagram Governance" heading
 # Copilot picks up repo-level instructions automatically in VS Code</pre>
 <p><strong>VS Code (any agent via workspace context)</strong></p>
-<pre style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .vscode/mermaid-theme-builder.md  (add to workspace context)
+<pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .vscode/mermaid-theme-builder.md  (add to workspace context)
 # Copy skills/okhp3-mermaid-theme-builder/SKILL.md from the cloned repo
 # Reference in any chat-mode prompt: "Apply the Mermaid Theme Builder
 # governance rules for [renderer] before generating diagram code."</pre>
@@ -1013,7 +1013,7 @@ curl -o .claude/skills/mermaid-theme-builder.md \
 <p class="builder-sig">OverKill Hill P³</p>
 </div>
 <!-- DEVELOPMENT UPDATE ───────────────────────────── -->
-<div class="builder-note" style="border-color: rgba(196,106,44,0.35);">
+<div class="builder-note" style="border-color: color-mix(in srgb, var(--color-accent) 35%, transparent);">
 <div class="section-label">Development Update: Aug 2026</div>
 <blockquote>
 <p>v0.6.1 is the current live state. The 10-skill SKILL.md family shipped, the Extract tab is live for pulling themes from existing Mermaid diagrams, and the export preview pane shows exact output before copy or download. The Reference tab carries 31 diagram family entries. Every export format is renderer-profiled.</p>
