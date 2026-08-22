@@ -21,11 +21,12 @@ jobs:
       github.event.workflow_run.event == 'pull_request' &&
       github.event.workflow_run.conclusion != 'cancelled'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Find the current pull request
         id: pr
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
         with:
           script: |
             const run = context.payload.workflow_run;
@@ -81,8 +82,9 @@ jobs:
 
       - name: Download contrast audit report
         if: steps.pr.outputs.number != ''
+        id: download
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
         with:
           name: contrast-audit-${{ github.event.workflow_run.id }}
           path: contrast-audit
@@ -92,7 +94,7 @@ jobs:
 
       - name: Update contrast feedback without executing pull-request code
         if: steps.pr.outputs.number != ''
-        uses: actions/github-script@v7
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
         env:
           CONTRAST_REPORT: contrast-audit/contrast-report.txt
           CONTRAST_EXIT_CODE: contrast-audit/contrast-exit-code.txt
@@ -101,24 +103,26 @@ jobs:
           HEAD_OWNER: ${{ steps.pr.outputs.head_owner }}
           HEAD_REPO: ${{ steps.pr.outputs.head_repo }}
           IS_FORK: ${{ steps.pr.outputs.is_fork }}
+          DOWNLOAD_OUTCOME: ${{ steps.download.outcome }}
         with:
           script: |
             const fs = require('fs');
             const reportPath = process.env.CONTRAST_REPORT;
             const exitCodePath = process.env.CONTRAST_EXIT_CODE;
             const maxArtifactBytes = 64 * 1024;
-            if (
-              !fs.existsSync(reportPath) ||
-              !fs.existsSync(exitCodePath) ||
-              fs.statSync(reportPath).size > maxArtifactBytes ||
-              fs.statSync(exitCodePath).size > 32
-            ) {
-              core.warning('No valid contrast artifact was available for this workflow run.');
-              return;
-            }
-
-            const report = fs.readFileSync(reportPath, 'utf8').trim();
-            const auditFailed = fs.readFileSync(exitCodePath, 'utf8').trim() !== '0';
+            const artifactValid =
+              fs.existsSync(reportPath) &&
+              fs.existsSync(exitCodePath) &&
+              fs.statSync(reportPath).size <= maxArtifactBytes &&
+              fs.statSync(exitCodePath).size <= 32;
+            const artifactFailureReason = process.env.DOWNLOAD_OUTCOME === 'failure'
+              ? 'The contrast audit artifact could not be downloaded.'
+              : 'The contrast audit artifact was missing or invalid.';
+            const report = artifactValid
+              ? fs.readFileSync(reportPath, 'utf8').trim()
+              : '';
+            const auditFailed = !artifactValid ||
+              fs.readFileSync(exitCodePath, 'utf8').trim() !== '0';
             const failedLines = report
               .split('\n')
               .filter((line) => /^\s*FAIL\b/.test(line));
@@ -158,7 +162,7 @@ jobs:
             );
 
             let unmappedFailures = [...failures];
-            if (!isFork) {
+            if (!isFork && artifactValid) {
               let cssLines = [];
               try {
                 const { data } = await github.rest.repos.getContent({
@@ -356,7 +360,9 @@ jobs:
               }
               return;
             }
-            const failureLines = summaryFailures.length
+            const failureLines = !artifactValid
+              ? [`- ${artifactFailureReason}`]
+              : summaryFailures.length
               ? summaryFailures.map(
                   (failure) =>
                     `- \`${failure.foreground}\` on \`${failure.background}\`: **${failure.ratio}:1** (minimum **${failure.minimum}:1**)`,
@@ -364,9 +370,13 @@ jobs:
               : ['- The audit did not complete successfully.'];
             const body = [
               summaryMarker,
-              '## ❌ WCAG contrast audit failed',
+              artifactValid
+                ? '## ❌ WCAG contrast audit failed'
+                : '## ❌ WCAG contrast audit could not be reported',
               '',
-              isFork
+              !artifactValid
+                ? 'The validation workflow completed without a usable contrast report:'
+                : isFork
                 ? 'These failures were found in this fork pull request:'
                 : 'These failures could not be attached to a changed token declaration:',
               '',
@@ -395,4 +405,7 @@ jobs:
                 issue_number: pull_number,
                 body,
               });
+            }
+            if (!artifactValid) {
+              core.setFailed(artifactFailureReason);
             }
