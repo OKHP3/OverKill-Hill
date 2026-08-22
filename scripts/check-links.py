@@ -32,6 +32,7 @@ SKIP_DIRS = {
     ".agents",
     "_replit",
     "dist",
+    "site-src",
 }
 SITE = "https://overkillhill.com"
 REPORT_DATE = date.today().isoformat()
