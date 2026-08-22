@@ -87,7 +87,7 @@ visual or content rules to them.
 
 - `references/publish-gate.md` — commit, permission, trust, and edge rules.
 - `references/regression-cases.md` — deployment failure and safety cases.
-- `evals/evals.json` — design-ready evaluation cases; no live benchmark claimed.
+- `evals/evals.json` — three narrow fixture cases; benchmark.json records limited evidence only and makes no broader publishing-reliability claim.
 - `scripts/verify-release-commit.py` — read-only local SHA/tree gate.
 
 ## About

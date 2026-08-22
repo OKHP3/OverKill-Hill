@@ -109,7 +109,7 @@ assets/templates/ are development/template boundaries, not public routes.
 - `references/evidence-contract.md` — evidence tiers and release report shape.
 - `references/regression-cases.md` — risk-based regression expectations.
 - `scripts/inventory-routes.py` — deterministic, read-only route inventory.
-- `evals/evals.json` — design-ready evaluation cases; no live benchmark claimed.
+- `evals/evals.json` — three narrow fixture cases; benchmark.json records limited evidence only and makes no broader deployment-reliability claim.
 
 ## About
 
