@@ -4849,6 +4849,13 @@ html[data-theme="light"] .article-body h2 {
 .iframe-slow-fallback.visible { display: flex; }
 .iframe-slow-fallback a { font-family: "JetBrains Mono", monospace; font-size: 0.82rem; color: #c46a2c; text-decoration: underline; text-underline-offset: 3px; }
 .embed-note { margin-top: 0.5rem; font-size: 0.78rem; color: var(--color-muted); font-family: "JetBrains Mono", monospace; text-align: center; }
+.embed-disclosure {
+  margin: 0.75rem 0 0.5rem; padding: 0.65rem 0.8rem;
+  border-left: 2px solid var(--okh-orange); background: rgba(196,106,44,0.06);
+  color: var(--color-muted); font-size: 0.78rem; line-height: 1.55;
+}
+.embed-disclosure strong { color: var(--color-text); }
+.embed-disclosure a { color: var(--okh-orange); }
 
 /* ── In-content screenshots (workbench captures) ─────────────────────── */
 .content-screenshot {

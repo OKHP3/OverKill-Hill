@@ -346,6 +346,12 @@
                 </a>
               </div>
 
+              <p class="embed-disclosure" role="note">
+                <strong>External app:</strong> This live tool is served from
+                <a href="https://okhp3.github.io/mermaid-theme-builder/" target="_blank" rel="noopener noreferrer">okhp3.github.io</a>,
+                outside this site’s trust boundary.
+              </p>
+
               <div class="embed-frame-wrapper">
                 <div class="iframe-loading-overlay" id="iframe-overlay" aria-hidden="true">
                   <div class="iframe-spinner"></div>
@@ -360,7 +366,8 @@
                   src="https://okhp3.github.io/mermaid-theme-builder/?embed=1"
                   title="Mermaid Theme Builder"
                   loading="lazy"
-                  allow="clipboard-read; clipboard-write; fullscreen"
+                  sandbox="allow-scripts allow-same-origin allow-forms allow-downloads"
+                  allow="clipboard-read 'none'; clipboard-write 'none'; fullscreen 'none'"
                   referrerpolicy="no-referrer-when-downgrade"
                   style="width:100%; border:0;"
                 ></iframe>
