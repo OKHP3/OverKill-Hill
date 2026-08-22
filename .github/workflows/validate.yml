@@ -48,6 +48,9 @@ jobs:
       - name: Run site validator
         run: python3 scripts/validate-site.py
 
+      - name: Check canonical CSP policies
+        run: python3 scripts/check-csp.py
+
       - name: Check search index is current
         run: python3 scripts/build-search-index.py --check
 
