@@ -37,7 +37,11 @@ from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+<<<<<<< HEAD
 SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src"}
+=======
+SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src"}
+>>>>>>> 29208898bb21fd4dc64fd9cefcf909600d2ab1d2
 
 
 @dataclass(frozen=True)

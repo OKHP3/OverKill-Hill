@@ -135,6 +135,18 @@ Run a check from the shell:
 python3 assets/scripts/check-contrast.py
 ```
 
+## GitHub publication contract
+
+GitHub `main` is the canonical release branch and is protected. Replit work
+must follow this publication contract:
+
+1. Work on a named branch. Never push directly to `origin/main`.
+2. Batch related generated and static changes into one coherent commit.
+3. Run the validation commands above before pushing the branch.
+4. Push the branch once and open or update one pull request.
+5. Never run per-file commit or push loops.
+6. Stop on a rejected `main` push. Do not retry or force-push.
+
 ## Site Validation (CI)
 
 The full validation harness runs automatically on every push and pull request to `main` via `.github/workflows/validate.yml`. Its structural validation command is:

@@ -83,6 +83,10 @@ function printFailure(pageName, message) {
 }
 
 function configureNixBrowserCompatibility() {
+  if (process.platform === 'win32') {
+    return;
+  }
+
   // Replit's Nix host can omit libgbm even though Chromium runs headlessly with
   // GPU disabled. Keep the shim outside the repository and load it only for the
   // child Chromium process. Ubuntu CI uses its normal browser dependencies.
@@ -147,10 +151,11 @@ async function inspectPage(page, definition) {
     ({ tableWrapperSelector, wideTableSelector, targeted }) => {
       const tolerance = 1;
       const viewportWidth = window.innerWidth;
-      const documentWidth = Math.max(
-        document.documentElement.scrollWidth,
-        document.body.scrollWidth,
-      );
+      // The document element is the viewport's horizontal scroll surface.
+      // body.scrollWidth also counts intentionally clipped or scrollable child
+      // content, which creates false failures when the root hides horizontal
+      // overflow or a table is contained by a scroll wrapper.
+      const documentWidth = document.documentElement.scrollWidth;
 
       const tables = targeted
         ? Array.from(document.querySelectorAll(wideTableSelector)).map((table, index) => {
