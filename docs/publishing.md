@@ -98,6 +98,27 @@ production DNS proxy state and Cloudflare response-header/cache rules, then
 rerun this verifier after any edge change. Until that happens, do not describe
 the production site as enforcing the `_headers` security or cache policy.
 
+### Confirmed DNS and edge-path follow-up
+
+**Checked:** August 22, 2026
+**Evidence:** live DNS resolution and HTTPS response headers from the canonical domain
+
+The follow-up check resolved `overkillhill.com` directly to GitHub Pages addresses
+(`185.199.108.153` through `185.199.111.153`, plus GitHub's IPv6 addresses).
+`www.overkillhill.com` resolved through the `okhp3.github.io` alias. HTTPS responses
+identified `server: GitHub.com`, included GitHub/Fastly cache markers, and continued
+to return `Cache-Control: max-age=600`. No Cloudflare edge marker or the headers
+declared in `_headers` was present.
+
+This confirms that the canonical hostname is currently reaching GitHub Pages
+directly rather than a Cloudflare-proxied edge. No Cloudflare zone or Transform
+Rules control was available through the approved workspace access path, so no
+edge configuration was changed. The intended configuration remains the
+`_headers` policy above: proxy the canonical DNS record through Cloudflare, apply
+the response-header rules, and apply the short HTML / immutable fingerprinted
+asset cache rules. Re-run the verifier after that DNS and rule change before
+claiming production enforcement.
+
 ## Scheduled production drift monitor
 
 The same workflow runs a read-only check against the canonical production

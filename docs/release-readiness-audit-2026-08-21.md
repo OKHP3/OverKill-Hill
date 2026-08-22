@@ -125,3 +125,21 @@ GitHub Pages-style origin behavior; it does not establish whether Cloudflare
 is configured but bypassed, or not configured for this hostname. Production
 security and cache enforcement must remain an open release blocker until the
 edge is inspected and the verifier passes.
+
+## Canonical-domain DNS follow-up — August 22, 2026
+
+The follow-up check resolved `overkillhill.com` directly to GitHub Pages IP
+addresses (`185.199.108.153` through `185.199.111.153`, plus GitHub IPv6
+addresses). `www.overkillhill.com` resolved through the `okhp3.github.io` alias.
+HTTPS responses identified `server: GitHub.com`, included GitHub/Fastly cache
+markers, and returned `Cache-Control: max-age=600`.
+
+This confirms the canonical hostname is currently reaching GitHub Pages directly,
+not a Cloudflare-proxied edge. No Cloudflare zone or Transform Rules control was
+available through the approved workspace access path, so the intended edge
+configuration was not applied in this task. The `_headers` policy remains the
+required target: proxy the canonical DNS record through Cloudflare and apply its
+security response headers plus its HTML and fingerprinted-asset cache rules.
+Production security and cache enforcement remain an open release blocker until
+those controls are applied and `scripts/verify-live-edge.py` passes against the
+deployed commit.
