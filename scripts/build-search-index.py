@@ -23,6 +23,7 @@ import json
 import os
 import re
 import sys
+from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -34,7 +35,7 @@ SKIP_FILES = {
     "404.html",
     "under-construction.html",
 }
-SKIP_DIR_PARTS = {".git", ".local", ".cache", ".vscode", ".github", ".pr-head",
+SKIP_DIR_PARTS = {".git", ".local", ".cache", ".vscode", ".github", ".pr-head", "partials",
                   ".config", ".canvas", ".agents", "attached_assets",
                    "node_modules", "_replit", "templates", "site-src"}
 
@@ -254,14 +255,14 @@ def extract_article_sections(html: str, base_url: str, base_title: str) -> list[
         title_match = re.search(r"<h[23][^>]*>(.*?)</h[23]>", body, re.S | re.I)
         if title_match:
             sec_title = re.sub(r"<[^>]+>", "", title_match.group(1))
-            sec_title = re.sub(r"\s+", " ", sec_title).strip()
+            sec_title = unescape(re.sub(r"\s+", " ", sec_title).strip())
         else:
             sec_title = sec_id.replace("-", " ").title()
         # Strip tags
         plain = re.sub(r"<script.*?</script>", " ", body, flags=re.S | re.I)
         plain = re.sub(r"<style.*?</style>", " ", plain, flags=re.S | re.I)
         plain = re.sub(r"<[^>]+>", " ", plain)
-        plain = re.sub(r"\s+", " ", plain).strip()
+        plain = unescape(re.sub(r"\s+", " ", plain).strip())
         if len(plain) < 60:
             continue
         out.append({
@@ -283,7 +284,7 @@ def extract_article_sections(html: str, base_url: str, base_title: str) -> list[
         if any(e["url"].endswith(f"#{h_id}") for e in out):
             continue
         h_title = re.sub(r"<[^>]+>", "", m.group(2))
-        h_title = re.sub(r"\s+", " ", h_title).strip()
+        h_title = unescape(re.sub(r"\s+", " ", h_title).strip())
         if not h_title:
             continue
         # Grab the text immediately following the heading until the next h2
@@ -293,7 +294,7 @@ def extract_article_sections(html: str, base_url: str, base_title: str) -> list[
         plain = re.sub(r"<script.*?</script>", " ", chunk, flags=re.S | re.I)
         plain = re.sub(r"<style.*?</style>", " ", plain, flags=re.S | re.I)
         plain = re.sub(r"<[^>]+>", " ", plain)
-        plain = re.sub(r"\s+", " ", plain).strip()
+        plain = unescape(re.sub(r"\s+", " ", plain).strip())
         if len(plain) < 80:
             continue
         out.append({
@@ -356,7 +357,7 @@ def extract_div_sections(html: str, base_url: str, base_title: str,
         title_match = re.search(r"<h[23][^>]*>(.*?)</h[23]>", body, re.S | re.I)
         if title_match:
             sec_title = re.sub(r"<[^>]+>", "", title_match.group(1))
-            sec_title = re.sub(r"\s+", " ", sec_title).strip()
+            sec_title = unescape(re.sub(r"\s+", " ", sec_title).strip())
         else:
             # Fall back to aria-labelledby: find the referenced element in the
             # full HTML and use its text (strips <br>/<small> siblings cleanly).
@@ -370,7 +371,7 @@ def extract_div_sections(html: str, base_url: str, base_title: str,
                 )
                 if label_el:
                     raw = re.sub(r"<[^>]+>", " ", label_el.group(1))
-                    sec_title = re.sub(r"\s+", " ", raw).strip()
+                    sec_title = unescape(re.sub(r"\s+", " ", raw).strip())
                 else:
                     sec_title = sec_id.replace("-", " ").title()
             else:
@@ -380,7 +381,7 @@ def extract_div_sections(html: str, base_url: str, base_title: str,
         plain = re.sub(r"<script.*?</script>", " ", body, flags=re.S | re.I)
         plain = re.sub(r"<style.*?</style>", " ", plain, flags=re.S | re.I)
         plain = re.sub(r"<[^>]+>", " ", plain)
-        plain = re.sub(r"\s+", " ", plain).strip()
+        plain = unescape(re.sub(r"\s+", " ", plain).strip())
         if len(plain) < 60:
             continue
 
