@@ -3,7 +3,7 @@
   "skill_version": "1.0.0",
   "status": "design-ready",
   "performance_evidence_status": "limited",
-  "note": "A narrow three-case fixture suite was scored with a non-blinded no-skill control and a fresh independent delegation context on 2026-08-22. See benchmark.json; this is not a deployment-reliability or cross-client benchmark.",
+  "note": "A narrow three-case fixture suite was scored with a non-blinded no-skill control, a fresh independent delegation context, and a distinct queryWithLLM client on 2026-08-22. See benchmark.json; cross-client differences are descriptive only and this is not deployment-reliability evidence.",
   "release_holdout": {"status": "external-required", "holdout_seen": true, "reason": "Public evaluation cases are visible to package authors; an independent holdout requires an external runner."},
   "evals": [
     {"id":"normal-gate","name":"run-a-complete-static-gate","partition":"development","risk":"high","prompt":"Validate a static site before Pages deployment using its sitemap and declared checks.","fixtures":"Repository with HTML, sitemap, generated index, fingerprints, and local server.","output_contract":"Evidence table with route inventory, exact commands, statuses, artifacts, and limitations.","failure_consequence":"An unvalidated release can deploy broken or stale public content.","expectations":[{"id":"inventory","text":"Uses the sitemap as route source and reports count/routes."},{"id":"generated","text":"Checks generated index and cache fingerprints in read-only mode."},{"id":"evidence","text":"Reports command, status, commit, and artifact per gate."}]},
