@@ -34,7 +34,7 @@ SKIP_FILES = {
     "404.html",
     "under-construction.html",
 }
-SKIP_DIR_PARTS = {".git", ".local", ".cache", ".vscode", ".github",
+SKIP_DIR_PARTS = {".git", ".local", ".cache", ".vscode", ".github", ".pr-head",
                   ".config", ".canvas", ".agents", "attached_assets",
                    "node_modules", "_replit", "templates", "site-src"}
 
