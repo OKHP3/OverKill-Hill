@@ -159,6 +159,20 @@ asset fingerprint check, phone browser QA, and contrast audit. On a push to
 `main`, it deploys the checked-out commit only after that validation job
 succeeds.
 
+### Accessibility QA coverage
+
+The required CI gate runs browser checks for keyboard reachability, the skip
+link, keyboard-visible focus outlines, basic ARIA attribute values and ID
+references, Mermaid text alternatives, and reduced-motion behavior. ARIA and
+Mermaid checks run across every sitemap route; keyboard and focus interaction
+checks run on representative home, article, project, and utility pages.
+Contrast and phone/viewport overflow remain separate required checks.
+
+This is automated regression coverage, not full WCAG conformance. It does not
+replace manual screen-reader testing, keyboard testing with every browser or
+assistive technology, cognitive accessibility review, or human judgment of
+alternative-text quality.
+
 ## Editing guidance
 
 - **Brand name** is `OverKill Hill P³™` (Unicode `³`, not `P3`). The script will fail the build if `P3` slips into a title or meta tag.

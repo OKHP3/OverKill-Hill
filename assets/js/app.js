@@ -31,6 +31,29 @@
   );
 })();
 
+// ── 1b. Mermaid text alternatives ───────────────────────────────────────────
+// This runs before deferred Mermaid modules on pages that use inline Mermaid
+// setup, and also covers pages using the shared mermaid-init module.
+(function () {
+  const diagrams = document.querySelectorAll(".mermaid");
+  diagrams.forEach((node, index) => {
+    if (node.getAttribute("aria-label") || node.getAttribute("aria-describedby")) return;
+    const source = node.textContent.replace(/\s+/g, " ").trim();
+    const labels = [...source.matchAll(/["']([^"']{2,120})["']/g)]
+      .map((match) => match[1].replace(/\\n/g, " "))
+      .filter((label, position, all) => all.indexOf(label) === position)
+      .slice(0, 24);
+    node.setAttribute(
+      "aria-label",
+      node.dataset.diagramLabel
+        || `Diagram ${index + 1}: ${
+          labels.join("; ") || "Diagram source is available in the page markup."
+        }`,
+    );
+    node.setAttribute("role", "img");
+  });
+})();
+
 // ── 2. Page interactions: nav, year, theme toggle, scroll reveal ───────────
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".site-header");

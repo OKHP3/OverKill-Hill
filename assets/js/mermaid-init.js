@@ -62,9 +62,32 @@ mermaid.initialize({
 
 const diagrams = Array.from(document.querySelectorAll(".mermaid"));
 
+function addAccessibleAlternative(node, index) {
+  // Mermaid replaces the source element with an SVG. Preserve a concise,
+  // screen-reader-readable alternative before that happens. Authors can
+  // provide a better label with data-diagram-label; otherwise the node labels
+  // and source type are useful text for users who cannot see the rendering.
+  if (node.getAttribute("aria-label") || node.getAttribute("aria-describedby")) {
+    return;
+  }
+  const source = node.textContent.replace(/\s+/g, " ").trim();
+  const labels = [...source.matchAll(/["']([^"']{2,120})["']/g)]
+    .map((match) => match[1].replace(/\\n/g, " "))
+    .filter((label, position, all) => all.indexOf(label) === position)
+    .slice(0, 24);
+  const fallback = labels.length > 0
+    ? labels.join("; ")
+    : "Diagram source is available in the page markup.";
+  const label = node.dataset.diagramLabel
+    || `Diagram ${index + 1}: ${fallback}`;
+  node.setAttribute("role", "img");
+  node.setAttribute("aria-label", label);
+}
+
 function renderOne(node) {
   if (node.dataset.mermaidRendered === "1") return;
   node.dataset.mermaidRendered = "1";
+  addAccessibleAlternative(node, diagrams.indexOf(node));
   if (usesClickableLinks) {
     node.textContent = sanitizeClickableLinks(node.textContent);
   }

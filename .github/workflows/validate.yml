@@ -79,6 +79,9 @@ jobs:
           npm run test:phone-overflow
           npm run test:responsive
 
+      - name: Run accessibility QA gate
+        run: npm run test:accessibility
+
       - name: Run WCAG contrast audit
         id: contrast
         env:
