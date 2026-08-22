@@ -83,6 +83,10 @@ function printFailure(pageName, message) {
 }
 
 function configureNixBrowserCompatibility() {
+  if (process.platform === 'win32') {
+    return;
+  }
+
   // Replit's Nix host can omit libgbm even though Chromium runs headlessly with
   // GPU disabled. Keep the shim outside the repository and load it only for the
   // child Chromium process. Ubuntu CI uses its normal browser dependencies.
