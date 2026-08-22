@@ -1,14 +1,13 @@
 {
   "generated": "2026-08-22",
-  "pages_scanned": 32,
-  "internal_links": 1264,
-  "external_links": 921,
+  "pages_scanned": 33,
+  "internal_links": 1302,
+  "external_links": 953,
   "broken_links": [],
   "style_issues": [],
   "sitemap": {
     "total_urls": 24,
     "missing_from_sitemap": [
-      "https://overkillhill.com/found-ry/",
       "https://overkillhill.com/projects/hometools/",
       "https://overkillhill.com/projects/pathscrib-r/",
       "https://overkillhill.com/projects/un-nocked-truth/",
@@ -16,7 +15,18 @@
       "https://overkillhill.com/writings/magnus-saga/"
     ],
     "extra_in_sitemap": [],
-    "intentionally_excluded": []
+    "intentionally_excluded": [
+      {
+        "page": "found-ry/index.html",
+        "url": "https://overkillhill.com/found-ry/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "search/index.html",
+        "url": "https://overkillhill.com/search/",
+        "reason": "robots meta declares noindex"
+      }
+    ]
   },
   "by_page": [
     {
@@ -47,7 +57,7 @@
     {
       "path": "legal/index.html",
       "internal_links": 35,
-      "external_links": 16
+      "external_links": 18
     },
     {
       "path": "manifesto/index.html",
@@ -110,6 +120,11 @@
       "external_links": 68
     },
     {
+      "path": "projects/telling-forward/index.html",
+      "internal_links": 38,
+      "external_links": 32
+    },
+    {
       "path": "projects/un-nocked-truth/index.html",
       "internal_links": 34,
       "external_links": 16
@@ -122,7 +137,7 @@
     {
       "path": "search/index.html",
       "internal_links": 37,
-      "external_links": 16
+      "external_links": 14
     },
     {
       "path": "under-construction.html",

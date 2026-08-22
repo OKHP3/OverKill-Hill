@@ -35,11 +35,7 @@ from pathlib import Path
 from urllib.parse import urlparse, unquote
 
 ROOT = Path(__file__).resolve().parent.parent
-<<<<<<< HEAD
-SKIP_DIRS = {"_replit", ".local", ".git", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src"}
-=======
 SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src"}
->>>>>>> 29208898bb21fd4dc64fd9cefcf909600d2ab1d2
 SITEMAP = ROOT / "sitemap.xml"
 SITE_ORIGIN = "https://overkillhill.com"
 THEME_STYLESHEET_PATH = "/assets/css/theme.css"
