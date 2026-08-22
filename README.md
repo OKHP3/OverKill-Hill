@@ -13,7 +13,9 @@ The public site and source materials for **OverKill Hill P³™** — the digita
 
 ## What this repo is
 
-A static HTML/CSS/JS site, hand-authored, hosted on GitHub Pages with a Cloudflare-fronted custom domain (`overkillhill.com`). No build step. No framework. No tracking beyond the analytics declared on the relevant pages.
+A static HTML/CSS/JS site, hand-authored, hosted on GitHub Pages with an
+intended Cloudflare-fronted custom domain (`overkillhill.com`). No build step.
+No framework. No tracking beyond the analytics declared on the relevant pages.
 
 The repo also serves as the public artifact archive for OverKill Hill P³ writings, projects, and the surrounding ecosystem (AskJamie™, Glee-fully Personalizable Tools™, Mermaid Theme Builder, Prompt Forge).
 
@@ -24,8 +26,28 @@ The repo also serves as the public artifact archive for OverKill Hill P³ writin
 | Markup | Plain HTML 5 |
 | Styling | Hand-authored CSS in `assets/css/theme.css` (token-driven) |
 | Scripting | Vanilla JS (`assets/js/app.js`, `mermaid-init.js`) |
-| Diagrams | [Mermaid](https://mermaid.js.org/) loaded from CDN on the v0.3 article |
+| Diagrams | [Mermaid](https://mermaid.js.org/) v11.16.0, self-hosted under `assets/vendor/mermaid/` |
 | Search | Client-side index in `assets/data/search-index.json` |
+
+### Mermaid runtime trust decision
+
+Mermaid 11.16.0 is vendored under `assets/vendor/mermaid/`, including the
+relative ESM chunks it imports. Production pages therefore do not fetch the
+diagram runtime from a third-party CDN. Update the complete vendor directory
+only when intentionally reviewing a new pinned Mermaid release.
+
+The shared initializer uses `securityLevel: "strict"` by default. An audit of
+the seven production pages using Mermaid found that only the two v2 heat-guide
+pages contain Mermaid `click` directives. Those pages opt into `loose` with a
+body data attribute because their outbound diagram links are part of the
+published artifact. Before Mermaid renders them, every click target must match
+an exact HTTPS origin and path allowlist in `assets/js/mermaid-init.js`;
+unlisted targets are removed.
+
+Residual risk: the two v2 pages still require Mermaid's looser interaction
+mode, and the vendored JavaScript remains a large third-party dependency even
+though it is now reviewed and served from this repository. The allowlist is
+not a substitute for reviewing diagram source changes.
 | Hosting | GitHub Pages with `CNAME` + Cloudflare |
 | Local preview | `python3 server.py` (port 5000, no-cache headers) |
 
@@ -123,7 +145,7 @@ All scripts in `scripts/` are pure Python, dependency-light (Pillow + bs4 + lxml
 | `cache-bust.py` | Appends `?v=<sha256[:8]>` to local CSS/JS refs in HTML |
 | `extract-templates.py` | Derives stripped layout templates into `/assets/templates/` from one donor per layout; requires `beautifulsoup4` locally |
 | `build-search-index.py` | Refreshes `/assets/data/search-index.json` from live HTML. `--check` compares the expected index in memory and exits non-zero when stale without writing the JSON. |
-| `modernize-pages.py` | Idempotently injects 2026 baselines into every page: `color-scheme` meta, skip-link, Speculation Rules API prefetch, jsdelivr preconnect + mermaid `modulepreload` (mermaid pages only); `--check` for CI |
+| `modernize-pages.py` | Idempotently injects 2026 baselines into every page: `color-scheme` meta, skip-link, Speculation Rules API prefetch, and local Mermaid `modulepreload` (Mermaid pages only); `--check` for CI |
 | `move-orphans-to-library.py` | Moves any unreferenced asset under `assets/img/` into `assets/img/library/` (preserves the file as a media-kit archive, removes from deploy hot path); `--check` for CI |
 
 Templates produced by `extract-templates.py` are **scaffolds, not pages** — they're disallowed in `robots.txt` and skipped by `validate-site.py`.
@@ -131,10 +153,25 @@ Templates produced by `extract-templates.py` are **scaffolds, not pages** — th
 ### Continuous integration
 
 `.github/workflows/validate.yml` runs `validate-site.py` and the non-mutating
-`build-search-index.py --check` on every push and pull request to `main`. On a
-push to `main`, it deploys to GitHub Pages only after that validation job
-succeeds. The workflow does not currently run `check-links.py` or
-`extract-templates.py`.
+`build-search-index.py --check` on every push and pull request to `main`. It
+also runs the comprehensive static audit, internal-link/sitemap check, shared
+asset fingerprint check, phone browser QA, and contrast audit. On a push to
+`main`, it deploys the checked-out commit only after that validation job
+succeeds.
+
+### Accessibility QA coverage
+
+The required CI gate runs browser checks for keyboard reachability, the skip
+link, keyboard-visible focus outlines, basic ARIA attribute values and ID
+references, Mermaid text alternatives, and reduced-motion behavior. ARIA and
+Mermaid checks run across every sitemap route; keyboard and focus interaction
+checks run on representative home, article, project, and utility pages.
+Contrast and phone/viewport overflow remain separate required checks.
+
+This is automated regression coverage, not full WCAG conformance. It does not
+replace manual screen-reader testing, keyboard testing with every browser or
+assistive technology, cognitive accessibility review, or human judgment of
+alternative-text quality.
 
 ## Editing guidance
 
@@ -158,10 +195,22 @@ succeeds. The workflow does not currently run `check-links.py` or
 ## Known limitations
 
 - Image-format optimization is script-based rather than automatic: use the PNG-to-WebP and picture-upgrade scripts, then review the generated diff.
-- `_headers` provides a report-only CSP and related security headers; enforcement and live edge behavior still require deployment-specific verification.
+- `_headers` declares a report-only CSP and related security/cache headers for
+  the intended edge. The August 22, 2026 live check found those headers absent
+  and observed `Cache-Control: max-age=600` on the canonical domain, so
+  production enforcement is **not confirmed**. See
+  `assets/audit/live-edge-report-2026-08-22.json` and
+  `docs/publishing.md`; do not treat `_headers` as active on GitHub Pages.
 - Search index (`assets/data/search-index.json`) is committed. Refresh it after
   searchable content changes, then use `build-search-index.py --check` to
   verify the generated file without rewriting it.
+- Publishing authentication: use the GitHub Actions Pages workflow for normal
+  releases. If a controlled API publish is required from Replit, store a
+  fine-grained GitHub credential as the `GITHUB_PAT` workspace secret and run
+  `GITHUB_TOKEN="$GITHUB_PAT" python3 scripts/push-to-github.py`. Never put the
+  credential in a remote URL, repository file, shell history, or chat. The
+  helper sends it only in an HTTPS Authorization header and exits on any API
+  failure. See `docs/publishing.md`.
 
 ## Contact
 
