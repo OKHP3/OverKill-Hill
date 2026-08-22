@@ -1,94 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- ========================================
+<head>
+<!-- ========================================
        METADATA: Core Document & Character Set
        ======================================== -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="language" content="English" />
-
-    <!-- ========================================
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://cdn.jsdelivr.net 'sha256-0w9MiOplLF4U/KzMsFtHdRxlVXfMyee1YEXKQCpHgRM=' 'sha256-3Cackdtp7Do2OrDkhZ8HQxibdFsvQhw0sUCB/9aSLkI=' 'sha256-54HVTXWFw7Zkr6ae0qjzYmuEfX7zeNPSmmgBbGcvXYA=' 'sha256-57wI2U/qr1O6ptBywIuIr7i+I356rhGPUzQu7ritMQQ=' 'sha256-7kS4taYxOotanhpObMfQ3o0rgebN1P3aqxrG1oJavMY=' 'sha256-83ioGcchzfdRDLGMcFCHjDPS7HZJfvrYjAly0xIC3fM=' 'sha256-KVtCu6gsjaQElccFMMifvbE1jLHXwFA78succB1lZkc=' 'sha256-MFoAv98Qwd6MHaIf+1PFpz4ALVYG4o1iX1DwNOQX9Eo=' 'sha256-STmaN+6lMvCR9wPObeDHm9914SI5bqfxgUYrResP2Hs=' 'sha256-YEpQUGpUx33y9ygrngAcvgYidkIpKrrgmhRunGMEqx0=' 'sha256-buLA739BVD6Ci3951TK/q+SzC2VYGxfJ58o3CtjSmB0=' 'sha256-e23SgYYz6PmmBNsag5O/bllarTwbAlqPcpHLNDuwcJA=' 'sha256-ee4qj7PmWdicS1+8BfoZ7gKUmUkNk9fCPvLK3CwGE18=' 'sha256-eoZKPPj7R1opAA3EaZUGTmO56gm1hhyiyo8phdpFl9c=' 'sha256-gHiFvULFIsXf5hUshwpKF11tDkvGBPOvfyc29G6vP1A=' 'sha256-ldN9wYpudPxPNk+mQabbziTX1HFuPZg2yy2T3c+aB90=' 'sha256-nqTrz2UX2KwyqXRQsfv1I4JXHG2qecDa4ZzF78zzUhg=' 'sha256-sSMqNNAauNnTk/pd1iPIz5clmGc4R5IA5LE9lnMFJK4=' 'sha256-sdwyZHRqE+fhQNLHz15izJXmyapmsIaxKnbX3exyeZQ=' 'sha256-ssEUflZoKdkHVfmZG5RO7NCLh3qHJC0nomBEARWO7HE=' 'sha256-tjlTzCw8mOcG8HZeEhgJJg/GEokwcRIfkRLKCmpRfyI=' 'sha256-z+kbhAfYnais1UUyDCDwulWuXH8+RLiV94ugXlzKRl8='; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com 'sha256-+/8l6fxQyrdundiK66ViWS5VlHiQUAi4V/Ir8XXFYh0=' 'sha256-+9jP7I5yRDNniaD2krT0dDi3BPYf2yw+67DWtjrdCT4=' 'sha256-+NWaEWEiOokl6/ucapRIPoU6asHGXKK1zVVyER15XhU=' 'sha256-+hs2WWbnf7y2ytdtXgIdlYNSq4hxX2K0Wl7v70yBwE4=' 'sha256-/WQLt0O4667878Qkwzat/C8h2Hfoh1y8VMh4NnaR++Q=' 'sha256-02ObSVUox8Jemge0oiQ9C1xwK2uZrOMeqo8pLzcnFpU=' 'sha256-0LPehmr2igikxTM6fICLGVQe9zNT05oCNqGEz97HYJw=' 'sha256-0Z6BO7cUVkTL/64d4a2Etu/8JsOv2Z37F/sW/TAo0lQ=' 'sha256-0mGWIZpfGEiSyfs7EOqTzToN2xnn2wmK1MavGc6+2g4=' 'sha256-14I0xhEDhgrt9wQ0lOYVQzSZ3qjal0gfoeq/gRthR+Y=' 'sha256-3pPm6HM/L3qW8lARkxhbSGTSUr3mIwtdbyvPkqSS44k=' 'sha256-4ABrSkoP1/Af9jwER6ZHoKy+DIHE9hcdKtberkZwsQI=' 'sha256-4UGMPKFU4zYVlJG/f0f/11EM1XxpNzCqKlJDqH8Ehjs=' 'sha256-5+OSNQ+fq9YlrvTQq26C7lsJG2Ozca21ycLN/Ddngno=' 'sha256-6+OoY3OtE7fYL9P1yU1F4Niud53yBieMAFyBkXiGb2Y=' 'sha256-63zVsn35aCT/QnDh8ppEEkqRzXGHihukARx71zc1L6c=' 'sha256-7U31ZIvmzHzecBIxj2oxE/1JEFlxxwf77bw0czlq2Ck=' 'sha256-7gKArtK6ARgJ8ClYKlpZ5dtpg0458bAsfaT1uHg0Nik=' 'sha256-8+aw/GPDnsEP5p9I84UgZvqzNbEbXSVIdFVNrwprqdg=' 'sha256-8Y0tUJoB3woFTaCRV0HUvzGfa4oAb9POznyt3+OX29c=' 'sha256-8kskclswgoAJgMIdO95KiOr6ot+4HCyPtS8ZsRhVGQY=' 'sha256-8mOgHe5JQKHuvGcFYROrRLvOTrcZW5zApq1plvOlZlU=' 'sha256-9bfCCwGSr1Rxd4Iskd65MnTsqaueDkfleeVMCSZblcY=' 'sha256-ApvrjydsrFFND5aB5EdB19oa++aXLaGwuYfXpYUXS5E=' 'sha256-BJ9KjGmp9vSDvxBEhheqisJiYFYfQan/0saV0Got0xo=' 'sha256-BoRIKPhrPpF5dKnHlfhZUzyR+DGJG/McheRQy/5hKnA=' 'sha256-DIQvgYNsE6ygLkpVjrMzTjHfkCzj6QhYcFMz/0KCo6A=' 'sha256-DLV7nXSEUAZgAi/ImzopB3kAbiN2+ac5oNt1Pcsbbfk=' 'sha256-DrsITAEAFiydGbSwToX2gDxu7jVJF2KuNa1VvKLrLKA=' 'sha256-DzlPv7bqFdHCUQWBtDVuHAIKCJnJHTBAB1zdV+aAkXM=' 'sha256-EaQQo6r+9RnV2p1vUFJvXKePcTv9wd1W3PX5StXBrcE=' 'sha256-F2nLHvEDyomd5RTjsfkbPPXxLNt0yUAGYvuV3LLsOD8=' 'sha256-GeuTHR31gC4YhST+Pmki/3UF2cGI2JTtXWyAOHzoMeg=' 'sha256-Gw27IjM8abyIdUYHmIL+RVuYR3vMMcHp2NU3W6nASN4=' 'sha256-H7liKfTnHv+yPQhaGGz/C3DbtqqlCW1GmwmQqtL/CZc=' 'sha256-HRAgwcWH8S3GPDMERCN0X/WINofjxuOWwUbP85Got3o=' 'sha256-Hln1u3JbEQHJkR7Ps8J4qM7GPRqNES4yYqqSbVL4DQg=' 'sha256-IE/emEkJA2hT13ZFrrBKFrJaJKrwT2fzL837OYS7i40=' 'sha256-J5sTY/rDr7JAs1jgco5cnWMq6peTN9FWSFmBAKw1F1k=' 'sha256-K4XtRnaj2lzE3boZnOv8YXeSxuPaCmNtQrWg/CvgVAw=' 'sha256-KNyFB29etgQ1hOF++NPDgXkWmqOpn5JGD7Nb0o48Wog=' 'sha256-KOZuf3qlb/1LMYoDQGHZEb0MkLU14aScIdtpz3RwEGc=' 'sha256-Kiv7dWWPPn49TTZgDgv2u4URkJHxe3kz4RDX1gZG2x4=' 'sha256-MMp5XDCCSHUd9Ij1xcI1roUL2w47Lvi1zMU3fI111KQ=' 'sha256-Meslg56kbN+8QDPFZHK+TqvM4bAobOXCWfLHQW324Wk=' 'sha256-MqFQYnStmE7P5bnyFMRRZHs+t4t0+QtZqxJeaHAgTgA=' 'sha256-MuRqXTotcJlT23rNMm8COAeJiE77TD0FffWuwU2za3c=' 'sha256-Mw+aAm7ucl+rf31t7UyBVAzDVji/bR95tXZqg/222uI=' 'sha256-Npi0e/ANNXKbSeTAhR1w1yNS9RIF6i1FAJRy0vDJ2Wo=' 'sha256-OFTcqjwabgeSVHiyd4FSAH/lKYr3CpAwp30q7DGZexM=' 'sha256-OHUrsR9aDjV/SSJRGMUphog5eQ3LNhM5R0WYRjvs/5M=' 'sha256-OIMJqZv4UTq4ArlOLjujzpzeHIhDxqMBQKqe2UMmuTg=' 'sha256-PGJ8tjuz2DXGgB1Sie9pW8BrxBGK6EQndbLEkXd44T8=' 'sha256-Plu4F2hGS+wC9dOCZ771Toql2ifD4ciZcMAoOF5ee88=' 'sha256-Pvr9k2TxL6P0L+opA7KAicNg81I+IPeC4aLu0uaSmZ4=' 'sha256-QEIf/cMA4YKs6vpVkqDcp3GiNDH0RAD9QnMpGDvCvts=' 'sha256-RCsCPlU52CtIRNNS7jAHKQnZEcAOjjd8Oeo0MPekLSw=' 'sha256-T7kKa8xi0YETebjOTYkFP89svJ2zWV+5KX8WPGV8hbY=' 'sha256-TbVO6/XTaawgYdudR8tNoTcZoViyovsPOXJoqxEU1vE=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-Wb64Hqavr0WEsXs2PWRdr5MrF9e6xyhvWwVcgLK/hRY=' 'sha256-Wmktxzz3Xgrfr1dh83JwyjZXYB2B8hpOUWjszTi6u1w=' 'sha256-XgeARjgOKVzxaBBRUhkwWxlPyO2F+5yjmLzebDIdjPI=' 'sha256-YCn4kVAKxXbQ1vpmfPoJGZ+LrWiwbI0jR97gF781/rQ=' 'sha256-abZk601zV19/TDgd5Ars7HX1y1OOO4hsuth7J93tvYo=' 'sha256-bIar/cPJnqntN9qnOOmn1j/aU60ON2A8/ny78LOGFuU=' 'sha256-c7UnSi5GHMneLprBUkJ4+qX0hdPRBiV49lfKmOYrBJc=' 'sha256-cJKKiqq21PYEOE2twdo0d6pBZR0HqVWFZh/9HTTWd7Q=' 'sha256-dovafdmRD7y5TNjxhO6ij/p5PU9plMpKIPJlRnsA07I=' 'sha256-edfpRw9792wC/pUnE/dTFQ7OqGyPWLR9hKe4bRUa87Q=' 'sha256-ff36XR2UuO456YRawoLrU8tavSlNiPmENy698h7gMWY=' 'sha256-jpaRQxx4Gk1h1MqZEZI0AsDURAzdugEE/jAoDLoh3O0=' 'sha256-lhwF0yb/IfjEFWPvm9s1OKmpyrGgXYWyGkIU1/l+oi4=' 'sha256-mIJVRiJpVEwsRXKwOM2bLVteuoGfccvta8oAtOXvn3g=' 'sha256-nsaN9XXBQnL1UScc6XpjGyl9Ep7HVpI2z2c5psSnGgM=' 'sha256-nv8L7K3maocl9migKRDjB7I1u0Q01IjMZ5Ibac4le6c=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-oyxMjRYa7GZvb9/cTRE3BC669tZl6QK0cYkx+8GRMDg=' 'sha256-pHZRBddnSViMydSQLyM3wcf29jGEaXgMfjgJHXrdZCQ=' 'sha256-r0u0jqJAcpnEz72EEzmA4Dc6+jcEX+jf2YeL08f2NDg=' 'sha256-rr9MHMazKuHH0aNfQ5DDfoBVHVqZiZIvfw0ylnvCAso=' 'sha256-rxuCKgeN6L6KRThbygcS+S0j0+o//t6jONM6lYQM8LI=' 'sha256-sRMo+7BipNtcYGMt0p/wAvb3s3FtepLNy97GRskQDWY=' 'sha256-sUymMv8Qpo8082tl66K1kS6/mlKovaui4vyHZ8ZQyyA=' 'sha256-sXRweIQb8OFRJgaO5Nnwxy7N1NVYdEYROW7U0tBuWxw=' 'sha256-subzVTE+mWheOUrV0leCjfwMGxoXtsmXiEpcIXmHBXM=' 'sha256-t/h1/ZuhPp+alttQauTlPW0G+i6YOUkE6tdmN+vzjQc=' 'sha256-tfbSoODAVuNJowpt2V4y6bqhqVUzhFExxq8NlEahPDY=' 'sha256-tx9SjSE35N+AyUcwGbioyhlpL7dK6WTgOU55CdIG+X0=' 'sha256-uPtBRKB8u1TURvzYFDeDAyNIGWDOPnOWKSjwnre37Y8=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-vfMrP+9ENatXjfOvPnjF44QawYxXd7oWPvQmM84orkM=' 'sha256-vjArgTCUptCAbm4mirAfMKUu1Pz/XFvQqDWXTeDjh5Y=' 'sha256-x9GBI2VBIAq78NqbwbbVFteKoOZFC/97KomNRiP1jOo=' 'sha256-xhOtUUj0TSdEvjpFHZ57LvbK5PD0cWWdW0Y6w0PS3C4=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y='; style-src-attr 'unsafe-hashes' 'sha256-+/8l6fxQyrdundiK66ViWS5VlHiQUAi4V/Ir8XXFYh0=' 'sha256-+9jP7I5yRDNniaD2krT0dDi3BPYf2yw+67DWtjrdCT4=' 'sha256-+NWaEWEiOokl6/ucapRIPoU6asHGXKK1zVVyER15XhU=' 'sha256-+hs2WWbnf7y2ytdtXgIdlYNSq4hxX2K0Wl7v70yBwE4=' 'sha256-/WQLt0O4667878Qkwzat/C8h2Hfoh1y8VMh4NnaR++Q=' 'sha256-02ObSVUox8Jemge0oiQ9C1xwK2uZrOMeqo8pLzcnFpU=' 'sha256-0LPehmr2igikxTM6fICLGVQe9zNT05oCNqGEz97HYJw=' 'sha256-0Z6BO7cUVkTL/64d4a2Etu/8JsOv2Z37F/sW/TAo0lQ=' 'sha256-0mGWIZpfGEiSyfs7EOqTzToN2xnn2wmK1MavGc6+2g4=' 'sha256-14I0xhEDhgrt9wQ0lOYVQzSZ3qjal0gfoeq/gRthR+Y=' 'sha256-3pPm6HM/L3qW8lARkxhbSGTSUr3mIwtdbyvPkqSS44k=' 'sha256-4ABrSkoP1/Af9jwER6ZHoKy+DIHE9hcdKtberkZwsQI=' 'sha256-4UGMPKFU4zYVlJG/f0f/11EM1XxpNzCqKlJDqH8Ehjs=' 'sha256-5+OSNQ+fq9YlrvTQq26C7lsJG2Ozca21ycLN/Ddngno=' 'sha256-6+OoY3OtE7fYL9P1yU1F4Niud53yBieMAFyBkXiGb2Y=' 'sha256-63zVsn35aCT/QnDh8ppEEkqRzXGHihukARx71zc1L6c=' 'sha256-7U31ZIvmzHzecBIxj2oxE/1JEFlxxwf77bw0czlq2Ck=' 'sha256-7gKArtK6ARgJ8ClYKlpZ5dtpg0458bAsfaT1uHg0Nik=' 'sha256-8+aw/GPDnsEP5p9I84UgZvqzNbEbXSVIdFVNrwprqdg=' 'sha256-8Y0tUJoB3woFTaCRV0HUvzGfa4oAb9POznyt3+OX29c=' 'sha256-8kskclswgoAJgMIdO95KiOr6ot+4HCyPtS8ZsRhVGQY=' 'sha256-8mOgHe5JQKHuvGcFYROrRLvOTrcZW5zApq1plvOlZlU=' 'sha256-9bfCCwGSr1Rxd4Iskd65MnTsqaueDkfleeVMCSZblcY=' 'sha256-ApvrjydsrFFND5aB5EdB19oa++aXLaGwuYfXpYUXS5E=' 'sha256-BJ9KjGmp9vSDvxBEhheqisJiYFYfQan/0saV0Got0xo=' 'sha256-BoRIKPhrPpF5dKnHlfhZUzyR+DGJG/McheRQy/5hKnA=' 'sha256-DIQvgYNsE6ygLkpVjrMzTjHfkCzj6QhYcFMz/0KCo6A=' 'sha256-DLV7nXSEUAZgAi/ImzopB3kAbiN2+ac5oNt1Pcsbbfk=' 'sha256-DrsITAEAFiydGbSwToX2gDxu7jVJF2KuNa1VvKLrLKA=' 'sha256-DzlPv7bqFdHCUQWBtDVuHAIKCJnJHTBAB1zdV+aAkXM=' 'sha256-EaQQo6r+9RnV2p1vUFJvXKePcTv9wd1W3PX5StXBrcE=' 'sha256-F2nLHvEDyomd5RTjsfkbPPXxLNt0yUAGYvuV3LLsOD8=' 'sha256-GeuTHR31gC4YhST+Pmki/3UF2cGI2JTtXWyAOHzoMeg=' 'sha256-Gw27IjM8abyIdUYHmIL+RVuYR3vMMcHp2NU3W6nASN4=' 'sha256-H7liKfTnHv+yPQhaGGz/C3DbtqqlCW1GmwmQqtL/CZc=' 'sha256-HRAgwcWH8S3GPDMERCN0X/WINofjxuOWwUbP85Got3o=' 'sha256-Hln1u3JbEQHJkR7Ps8J4qM7GPRqNES4yYqqSbVL4DQg=' 'sha256-IE/emEkJA2hT13ZFrrBKFrJaJKrwT2fzL837OYS7i40=' 'sha256-J5sTY/rDr7JAs1jgco5cnWMq6peTN9FWSFmBAKw1F1k=' 'sha256-K4XtRnaj2lzE3boZnOv8YXeSxuPaCmNtQrWg/CvgVAw=' 'sha256-KNyFB29etgQ1hOF++NPDgXkWmqOpn5JGD7Nb0o48Wog=' 'sha256-KOZuf3qlb/1LMYoDQGHZEb0MkLU14aScIdtpz3RwEGc=' 'sha256-Kiv7dWWPPn49TTZgDgv2u4URkJHxe3kz4RDX1gZG2x4=' 'sha256-MMp5XDCCSHUd9Ij1xcI1roUL2w47Lvi1zMU3fI111KQ=' 'sha256-Meslg56kbN+8QDPFZHK+TqvM4bAobOXCWfLHQW324Wk=' 'sha256-MqFQYnStmE7P5bnyFMRRZHs+t4t0+QtZqxJeaHAgTgA=' 'sha256-MuRqXTotcJlT23rNMm8COAeJiE77TD0FffWuwU2za3c=' 'sha256-Mw+aAm7ucl+rf31t7UyBVAzDVji/bR95tXZqg/222uI=' 'sha256-Npi0e/ANNXKbSeTAhR1w1yNS9RIF6i1FAJRy0vDJ2Wo=' 'sha256-OFTcqjwabgeSVHiyd4FSAH/lKYr3CpAwp30q7DGZexM=' 'sha256-OHUrsR9aDjV/SSJRGMUphog5eQ3LNhM5R0WYRjvs/5M=' 'sha256-OIMJqZv4UTq4ArlOLjujzpzeHIhDxqMBQKqe2UMmuTg=' 'sha256-PGJ8tjuz2DXGgB1Sie9pW8BrxBGK6EQndbLEkXd44T8=' 'sha256-Plu4F2hGS+wC9dOCZ771Toql2ifD4ciZcMAoOF5ee88=' 'sha256-Pvr9k2TxL6P0L+opA7KAicNg81I+IPeC4aLu0uaSmZ4=' 'sha256-QEIf/cMA4YKs6vpVkqDcp3GiNDH0RAD9QnMpGDvCvts=' 'sha256-RCsCPlU52CtIRNNS7jAHKQnZEcAOjjd8Oeo0MPekLSw=' 'sha256-T7kKa8xi0YETebjOTYkFP89svJ2zWV+5KX8WPGV8hbY=' 'sha256-TbVO6/XTaawgYdudR8tNoTcZoViyovsPOXJoqxEU1vE=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-Wb64Hqavr0WEsXs2PWRdr5MrF9e6xyhvWwVcgLK/hRY=' 'sha256-Wmktxzz3Xgrfr1dh83JwyjZXYB2B8hpOUWjszTi6u1w=' 'sha256-XgeARjgOKVzxaBBRUhkwWxlPyO2F+5yjmLzebDIdjPI=' 'sha256-YCn4kVAKxXbQ1vpmfPoJGZ+LrWiwbI0jR97gF781/rQ=' 'sha256-abZk601zV19/TDgd5Ars7HX1y1OOO4hsuth7J93tvYo=' 'sha256-bIar/cPJnqntN9qnOOmn1j/aU60ON2A8/ny78LOGFuU=' 'sha256-c7UnSi5GHMneLprBUkJ4+qX0hdPRBiV49lfKmOYrBJc=' 'sha256-cJKKiqq21PYEOE2twdo0d6pBZR0HqVWFZh/9HTTWd7Q=' 'sha256-dovafdmRD7y5TNjxhO6ij/p5PU9plMpKIPJlRnsA07I=' 'sha256-edfpRw9792wC/pUnE/dTFQ7OqGyPWLR9hKe4bRUa87Q=' 'sha256-ff36XR2UuO456YRawoLrU8tavSlNiPmENy698h7gMWY=' 'sha256-jpaRQxx4Gk1h1MqZEZI0AsDURAzdugEE/jAoDLoh3O0=' 'sha256-lhwF0yb/IfjEFWPvm9s1OKmpyrGgXYWyGkIU1/l+oi4=' 'sha256-mIJVRiJpVEwsRXKwOM2bLVteuoGfccvta8oAtOXvn3g=' 'sha256-nsaN9XXBQnL1UScc6XpjGyl9Ep7HVpI2z2c5psSnGgM=' 'sha256-nv8L7K3maocl9migKRDjB7I1u0Q01IjMZ5Ibac4le6c=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-oyxMjRYa7GZvb9/cTRE3BC669tZl6QK0cYkx+8GRMDg=' 'sha256-pHZRBddnSViMydSQLyM3wcf29jGEaXgMfjgJHXrdZCQ=' 'sha256-r0u0jqJAcpnEz72EEzmA4Dc6+jcEX+jf2YeL08f2NDg=' 'sha256-rr9MHMazKuHH0aNfQ5DDfoBVHVqZiZIvfw0ylnvCAso=' 'sha256-rxuCKgeN6L6KRThbygcS+S0j0+o//t6jONM6lYQM8LI=' 'sha256-sRMo+7BipNtcYGMt0p/wAvb3s3FtepLNy97GRskQDWY=' 'sha256-sUymMv8Qpo8082tl66K1kS6/mlKovaui4vyHZ8ZQyyA=' 'sha256-sXRweIQb8OFRJgaO5Nnwxy7N1NVYdEYROW7U0tBuWxw=' 'sha256-subzVTE+mWheOUrV0leCjfwMGxoXtsmXiEpcIXmHBXM=' 'sha256-t/h1/ZuhPp+alttQauTlPW0G+i6YOUkE6tdmN+vzjQc=' 'sha256-tfbSoODAVuNJowpt2V4y6bqhqVUzhFExxq8NlEahPDY=' 'sha256-tx9SjSE35N+AyUcwGbioyhlpL7dK6WTgOU55CdIG+X0=' 'sha256-uPtBRKB8u1TURvzYFDeDAyNIGWDOPnOWKSjwnre37Y8=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-vfMrP+9ENatXjfOvPnjF44QawYxXd7oWPvQmM84orkM=' 'sha256-vjArgTCUptCAbm4mirAfMKUu1Pz/XFvQqDWXTeDjh5Y=' 'sha256-x9GBI2VBIAq78NqbwbbVFteKoOZFC/97KomNRiP1jOo=' 'sha256-xhOtUUj0TSdEvjpFHZ57LvbK5PD0cWWdW0Y6w0PS3C4=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y='; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://overkillhill.com https://*.github.io; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; frame-src 'self' https://okhp3.github.io; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests" /><meta content="English" name="language"/>
+<!-- ========================================
        METADATA: Primary Title & Description
        ======================================== -->
-    <title>Found‑Rᵧ | OverKill Hill P³™</title>
-    <meta name="description" content="A browser-only build workbench for production-grade Custom GPTs. Nine stations from build brief to ship gate, plus audit scoring and a full spec export." />
-    <meta name="keywords" content="Found-Ry, Custom GPT builder, GPT build workbench, instruction stack, GPT audit rubric, Gemini Gem, Copilot declarative agent, OverKill Hill P³" />
-    <meta name="author" content="OverKill Hill P³™" />
-    <meta name="creator" content="OverKill Hill P³™" />
-    <meta name="publisher" content="OverKill Hill P³™" />
-
-    <!-- ========================================
+<title>Found‑Rᵧ | OverKill Hill P³™</title>
+<meta content="A browser-only build workbench for production-grade Custom GPTs. Nine stations from build brief to ship gate, plus audit scoring and a full spec export." name="description"/>
+<meta content="Found-Ry, Custom GPT builder, GPT build workbench, instruction stack, GPT audit rubric, Gemini Gem, Copilot declarative agent, OverKill Hill P³" name="keywords"/>
+<meta content="OverKill Hill P³™" name="author"/>
+<meta content="OverKill Hill P³™" name="creator"/>
+<meta content="OverKill Hill P³™" name="publisher"/>
+<!-- ========================================
        METADATA: Open Graph (Social Sharing)
        ======================================== -->
-    <meta property="og:title" content="Found‑Rᵧ | OverKill Hill P³™" />
-    <meta property="og:description" content="Tools for making tools. A browser-only workbench that walks a Custom GPT from raw intent to a governed, shippable artifact. Nine stations. No backend." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://overkillhill.com/projects/found-ry/" />
-    <meta property="og:image" content="https://overkillhill.com/assets/img/projects/found-ry/found-ry-hero-1024.png" />
-    <meta property="og:image:alt" content="Six glyphs for ore, heat, anvil, quench, mark, and shelf arcing down onto a blueprint anvil -- the Found-Ry nine-station build pipeline" />
-    <meta property="og:image:width" content="1024" />
-    <meta property="og:image:height" content="1024" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:site_name" content="OverKill Hill P³™" />
-    <meta property="og:locale" content="en_US" />
-
-    <!-- ========================================
+<meta content="Found‑Rᵧ | OverKill Hill P³™" property="og:title"/>
+<meta content="Tools for making tools. A browser-only workbench that walks a Custom GPT from raw intent to a governed, shippable artifact. Nine stations. No backend." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://overkillhill.com/projects/found-ry/" property="og:url"/>
+<meta content="https://overkillhill.com/assets/img/projects/found-ry/found-ry-hero-1024.png" property="og:image"/>
+<meta content="Six glyphs for ore, heat, anvil, quench, mark, and shelf arcing down onto a blueprint anvil -- the Found-Ry nine-station build pipeline" property="og:image:alt"/>
+<meta content="1024" property="og:image:width"/>
+<meta content="1024" property="og:image:height"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="OverKill Hill P³™" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- ========================================
        METADATA: Twitter Card (X Social)
        ======================================== -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Found‑Rᵧ | OverKill Hill P³™" />
-    <meta name="twitter:description" content="Tools for making tools. A browser-only workbench that walks a Custom GPT from raw intent to a governed, shippable artifact. Nine stations. No backend." />
-    <meta name="twitter:image" content="https://overkillhill.com/assets/img/projects/found-ry/found-ry-hero-1024.png" />
-    <meta name="twitter:image:alt" content="Six glyphs for ore, heat, anvil, quench, mark, and shelf arcing down onto a blueprint anvil -- the Found-Ry nine-station build pipeline" />
-    <meta name="twitter:site" content="@OverKillHillP3" />
-    <meta name="twitter:creator" content="@OverKillHillP3" />
-
-    <!-- ========================================
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Found‑Rᵧ | OverKill Hill P³™" name="twitter:title"/>
+<meta content="Tools for making tools. A browser-only workbench that walks a Custom GPT from raw intent to a governed, shippable artifact. Nine stations. No backend." name="twitter:description"/>
+<meta content="https://overkillhill.com/assets/img/projects/found-ry/found-ry-hero-1024.png" name="twitter:image"/>
+<meta content="Six glyphs for ore, heat, anvil, quench, mark, and shelf arcing down onto a blueprint anvil -- the Found-Ry nine-station build pipeline" name="twitter:image:alt"/>
+<meta content="@OverKillHillP3" name="twitter:site"/>
+<meta content="@OverKillHillP3" name="twitter:creator"/>
+<!-- ========================================
        METADATA: Search & Crawling
        ======================================== -->
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="bingbot" content="index, follow" />
-    <meta name="revisit-after" content="7 days" />
-    <link rel="author" href="/humans.txt" />
-    <link rel="canonical" href="https://overkillhill.com/projects/found-ry/" />
-    <link rel="alternate" hreflang="en" href="https://overkillhill.com/projects/found-ry/" />
-
-    <!-- ========================================
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="index, follow" name="googlebot"/>
+<meta content="index, follow" name="bingbot"/>
+<meta content="7 days" name="revisit-after"/>
+<link href="/humans.txt" rel="author"/>
+<link href="https://overkillhill.com/projects/found-ry/" rel="canonical"/>
+<link href="https://overkillhill.com/projects/found-ry/" hreflang="en" rel="alternate"/>
+<!-- ========================================
        METADATA: Color Scheme & Theme
        ======================================== -->
-    <meta name="theme-color" content="#2a2320" />
-    <meta name="color-scheme" content="dark light" />
-
-    <!-- ========================================
+<meta content="#2a2320" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<!-- ========================================
        METADATA: Web App & PWA
        ======================================== -->
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-    <!-- ========================================
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<!-- ========================================
        FAVICONS: Multi-Format Icon Support
        ======================================== -->
-    <link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
-    <link rel="icon" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
-    <link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180" type="image/png" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="manifest" href="/site.webmanifest" />
-
-    <!-- ========================================
+<link href="/assets/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/assets/img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- ========================================
        STYLESHEETS & FONTS
        ======================================== -->
-    <!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body), JetBrains Mono (code/mono) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" />
-    <link rel="stylesheet" href="/assets/css/theme.css?v=66e640fe" />
-
-    <script type="speculationrules">
+<!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
+<link href="/assets/css/theme.css?v=4b831f47" rel="stylesheet"/>
+<script type="speculationrules">
     {
       "prefetch": [
         { "source": "document", "where": { "and": [
@@ -99,45 +90,71 @@
       ]
     }
     </script>
-
-    <!-- ========================================
-       STRUCTURED DATA: BreadcrumbList
-       ======================================== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "OverKill Hill P³™",
-        "item": "https://overkillhill.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Projects",
-        "item": "https://overkillhill.com/projects/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Found-Ry",
-        "item": "https://overkillhill.com/projects/found-ry/"
-      }
-      ]
-    }
-    </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
-    <script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
+<script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-VJ1BKXS27H');
     </script>
+<<<<<<< HEAD
+</head>
+<body class="projects-main">
+  <a class="okh-skip-link" href="#main">Skip to main content</a>
+<header class="site-header" id="top">
+<div class="container">
+<div class="logo">
+<a href="#top">
+<img alt="OverKill Hill P³ logo" height="40" loading="lazy" src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png" width="40"/>
+<span class="sr-only">OverKill Hill P³™ Home</span>
+</a>
+</div>
+<nav aria-label="Primary" class="primary-nav" id="navigation">
+<ul>
+<li><a href="/#forge">The Forge</a></li>
+<li class="has-submenu">
+<a href="/projects/">Our Projects</a>
+<ul class="submenu">
+<li><a href="/projects/skillz/">Skillz Forge</a></li>
+<li><a aria-current="page" href="/projects/found-ry/">Found‑Rᵧ</a></li>
+<li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
+<li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
+<li><a href="/projects/mac-studio-local-ai-workbench/">Mac Studio Local AI Workbench</a></li>
+<li><a href="/projects/abrahamic-reference-engine/">Abrahamic Reference Engine</a></li>
+<li><a href="/projects/glee-fully-chai-chasers/">Glee-fully Chai Chasers</a></li>
+</ul>
+</li>
+<!-- Writings cluster: Manifesto / Promptcraft / FDIAL -->
+<li class="has-submenu">
+<a href="/writings/">Writings</a>
+<ul class="submenu">
+<li><a href="/manifesto/">The Manifesto</a></li>
+<li><a href="/prompt-forge/">The Prompt Forge</a></li>
+<li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
+</ul>
+</li>
+<!-- About cluster: Universe / About / Contact / Legal -->
+<li class="has-submenu">
+<a href="/about/">About</a>
+<ul class="submenu">
+<li><a href="/universe/">OKHP³™ Universe</a></li>
+<li><a href="/about/">About OKHP³™</a></li>
+<li><a href="/contact/">Contact</a></li>
+<li><a href="/legal/">Legal</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<button aria-controls="navigation" aria-expanded="false" class="nav-toggle">
+<span class="sr-only">Toggle navigation</span>
+<span class="bar"></span><span class="bar"></span><span class="bar"></span>
+</button>
+</div>
+<section aria-label="Forge update" class="site-specials site-specials--okh">
+<span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
+<a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
+=======
   </head>
 
   <body class="projects-main">
@@ -201,912 +218,826 @@
       <section class="site-specials site-specials--okh" aria-label="Forge update">
         <span class="site-specials-label">🔥 Hot off the FORGE ⚒️</span>
         <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
+>>>>>>> 344e046d7ba1e95be2f8d01907d18129240024e6
           v0.5 is live: the Council of AIs scored each other, every model was harder on itself than the architect was. Read it →
         </a>
-      </section>
-    </header>
+</section>
+</header>
+  <main id="main">
 
-    <!-- ============================================================
-         MAIN
-         ============================================================ -->
-    <main id="main">
-      <div class="container">
-
-        <!-- HERO ────────────────────────────────────────────────── -->
-        <section class="project-hero" aria-label="Project overview">
-          <div class="brand-stripes brand-stripes--okh" aria-hidden="true"></div>
-          <div class="hero-grid reveal-on-scroll">
-            <div>
-              <nav class="breadcrumb" aria-label="Breadcrumb">
-                <a href="/">overkillhill.com</a><span>/</span>
-                <a href="/projects/">projects</a><span>/</span>
-                <span>found-ry</span>
-              </nav>
-
-              <div class="tag-row">
-                <span class="tag">Foundry Project</span>
-                <span class="tag">Open Source</span>
-                <span class="tag tag--accent">Live</span>
-                <span class="tag tag--accent">Browser-Only</span>
-              </div>
-
-              <h1>Found‑Rᵧ</h1>
-              <p class="hero-sub">Tools for making tools.</p>
-
-              <p>
+<div class="container">
+<!-- HERO ────────────────────────────────────────────────── -->
+<section aria-label="Project overview" class="project-hero">
+<div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div>
+<div class="hero-grid reveal-on-scroll">
+<div>
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">overkillhill.com</a><span>/</span>
+<a href="/projects/">projects</a><span>/</span>
+<span>found-ry</span>
+</nav>
+<div class="tag-row">
+<span class="tag">Foundry Project</span>
+<span class="tag">Open Source</span>
+<span class="tag tag--accent">Live</span>
+<span class="tag tag--accent">Browser-Only</span>
+</div>
+<h1>Found‑Rᵧ</h1>
+<p class="hero-sub">Tools for making tools.</p>
+<p>
                 A browser-only build workbench for production-grade Custom GPTs. Nine stations carry a build
                 from raw intent to a governed, shippable artifact: brief, contract, instruction stack, knowledge
                 routing, capabilities, actions, starters, test matrix, ship gate. Then audit it against a rubric,
                 compare it across platforms, and export the whole specification as one document.
                 No backend. No database. No login. Everything stays in your browser.
               </p>
-
-              <div class="hero-ctas">
-                <a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
-                   onclick="gtag('event','foundry_live_app_open',{event_category:'cta',event_label:'hero'});">⤢ Enter the Found‑Rᵧ</a>
-                <a href="https://github.com/OKHP3/OverKill-Hill-FoundRy" target="_blank" rel="noopener noreferrer" class="btn btn-quiet"
-                   onclick="gtag('event','foundry_github_open',{event_category:'cta',event_label:'hero'});">View Source on GitHub</a>
-                <a href="/prompt-forge/" class="btn btn-quiet"
-                   onclick="gtag('event','foundry_prompt_forge_open',{event_category:'cta',event_label:'hero'});">Start at the Prompt Forge</a>
-              </div>
-            </div>
-
-            <div class="hero-side">
-              <div class="hero-visual">
-                <img
-                  src="/assets/img/projects/found-ry/found-ry-hero-1024.png"
-                  alt="Six glyphs for ore, heat, anvil, quench, mark, and shelf arcing down onto a blueprint anvil -- the Found-Ry nine-station build pipeline"
-                  class="hero-illustration"
-                  width="1024"
-                  height="1024"
-                  loading="eager"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
-        <div class="project-layout">
-
-          <!-- MAIN COLUMN ──────────────────────────────────────── -->
-          <div>
-
-            <!-- PROBLEM STATEMENT ───────────────────────────────── -->
-            <div class="content-block card reveal-on-scroll" id="problem" data-search-index>
-              <div class="section-label">The Problem</div>
-              <h2>A good prototype is not a thing you can hand to anyone</h2>
-              <div class="feature-grid" style="margin-top:0.75rem;">
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">◑</div>
-                  <div>
-                    <h3>The builder UI rewards vagueness</h3>
-                    <p>Every Custom GPT builder opens with a chat box and an encouraging tone. You describe what you want, it writes instructions for you, and you ship something that behaves fine in the demo and drifts the moment a real user arrives. Nothing in that flow ever asks what the GPT must refuse to do.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">⊕</div>
-                  <div>
-                    <h3>The hard parts have no surface</h3>
-                    <p>Scope boundaries, catastrophic failure modes, knowledge retrieval routing, capability rationale, red-team cases, version ownership. These are the decisions that separate a working GPT from a demo, and no builder interface has a field for any of them.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">◎</div>
-                  <div>
-                    <h3>The reasoning evaporates</h3>
-                    <p>Six weeks later nobody remembers why Code Interpreter was enabled, which data sources were deliberately excluded, or what the acceptance criteria were. The GPT still runs. The thinking behind it is gone, which means it cannot be reviewed, inherited, or safely changed.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">◈</div>
-                  <div>
-                    <h3>There is no exit</h3>
-                    <p>Work done inside one vendor's builder stays inside that vendor's builder. Moving the same capability to a Gemini Gem or a Copilot declarative agent means starting over from memory, because the specification only ever existed as configuration in someone else's product.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- THE METAPHOR ────────────────────────────────────── -->
-            <div class="content-block reveal-on-scroll" id="the-forge" data-search-index>
-              <div class="section-label">The Shape of the Thing</div>
-              <h2>Ore, heat, anvil, quench</h2>
-              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
+<div class="hero-ctas">
+<a class="btn btn-primary" href="https://okhp3.github.io/OverKill-Hill-FoundRy/" onclick="gtag('event','foundry_live_app_open',{event_category:'cta',event_label:'hero'});" rel="noopener noreferrer" target="_blank">⤢ Enter the Found‑Rᵧ</a>
+<a class="btn btn-quiet" href="https://github.com/OKHP3/OverKill-Hill-FoundRy" onclick="gtag('event','foundry_github_open',{event_category:'cta',event_label:'hero'});" rel="noopener noreferrer" target="_blank">View Source on GitHub</a>
+<a class="btn btn-quiet" href="/prompt-forge/" onclick="gtag('event','foundry_prompt_forge_open',{event_category:'cta',event_label:'hero'});">Start at the Prompt Forge</a>
+</div>
+</div>
+<div class="hero-side">
+<div class="hero-visual">
+<img alt="Six glyphs for ore, heat, anvil, quench, mark, and shelf arcing down onto a blueprint anvil -- the Found-Ry nine-station build pipeline" class="hero-illustration" fetchpriority="high" height="1024" loading="eager" src="/assets/img/projects/found-ry/found-ry-hero-1024.png" width="1024"/>
+</div>
+</div>
+</div>
+</section>
+<!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
+<div class="project-layout">
+<!-- MAIN COLUMN ──────────────────────────────────────── -->
+<div>
+<!-- PROBLEM STATEMENT ───────────────────────────────── -->
+<div class="content-block card reveal-on-scroll" data-search-index="" id="problem">
+<div class="section-label">The Problem</div>
+<h2>A good prototype is not a thing you can hand to anyone</h2>
+<div class="feature-grid" style="margin-top:0.75rem;">
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">◑</div>
+<div>
+<h3>The builder UI rewards vagueness</h3>
+<p>Every Custom GPT builder opens with a chat box and an encouraging tone. You describe what you want, it writes instructions for you, and you ship something that behaves fine in the demo and drifts the moment a real user arrives. Nothing in that flow ever asks what the GPT must refuse to do.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">⊕</div>
+<div>
+<h3>The hard parts have no surface</h3>
+<p>Scope boundaries, catastrophic failure modes, knowledge retrieval routing, capability rationale, red-team cases, version ownership. These are the decisions that separate a working GPT from a demo, and no builder interface has a field for any of them.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">◎</div>
+<div>
+<h3>The reasoning evaporates</h3>
+<p>Six weeks later nobody remembers why Code Interpreter was enabled, which data sources were deliberately excluded, or what the acceptance criteria were. The GPT still runs. The thinking behind it is gone, which means it cannot be reviewed, inherited, or safely changed.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">◈</div>
+<div>
+<h3>There is no exit</h3>
+<p>Work done inside one vendor's builder stays inside that vendor's builder. Moving the same capability to a Gemini Gem or a Copilot declarative agent means starting over from memory, because the specification only ever existed as configuration in someone else's product.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- THE METAPHOR ────────────────────────────────────── -->
+<div class="content-block reveal-on-scroll" data-search-index="" id="the-forge">
+<div class="section-label">The Shape of the Thing</div>
+<h2>Ore, heat, anvil, quench</h2>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
                 The naming is not decoration. A blacksmith's shop is a sequence of stations, and each one does
                 something the previous station made possible. Raw material arrives, gets worked, gets tested,
                 gets marked, goes on the shelf. The Found‑Rᵧ is the building. The stations are the method.
               </p>
-              <div class="feature-grid" style="margin-top:0.75rem;">
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">⛏</div>
-                  <div>
-                    <h3>The ore is the prompt</h3>
-                    <p>Raw, valuable, and useless in its current state. A prompt that worked once is a lump of something promising. It is not yet a tool, and treating it like one is how teams end up with forty clever prompts nobody can reuse. The ore is mined and graded at the <a href="/prompt-forge/">Prompt Forge</a>.</p>
-                  </div>
+<div class="feature-grid" style="margin-top:0.75rem;">
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">⛏</div>
+<div>
+<h3>The ore is the prompt</h3>
+<p>Raw, valuable, and useless in its current state. A prompt that worked once is a lump of something promising. It is not yet a tool, and treating it like one is how teams end up with forty clever prompts nobody can reuse. The ore is mined and graded at the <a href="/prompt-forge/">Prompt Forge</a>.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">🔥</div>
+<div>
+<h3>The heat is the pressure of specificity</h3>
+<p>Material only moves when it is hot enough. Here the heat is being forced to answer questions the builder UI never asks: who is this for, what does done look like, what must it refuse, what happens when it fails. Uncomfortable questions are the working temperature.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">⚒</div>
+<div>
+<h3>The anvil is the nine stations</h3>
+<p>Shape gets beaten in one deliberate strike at a time. Brief, contract, instruction stack, knowledge, capabilities, actions, starters, tests, ship. Each station produces an artifact the next one depends on, which is why the order is not negotiable.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">💧</div>
+<div>
+<h3>The quench is where you find out</h3>
+<p>Steel goes into water and either hardens or cracks. The test matrix and the audit rubric are the quench: a scored pass across six categories plus a red-team pack, with a gate that will tell you the build is not ready. A quench that never fails anything is not a quench.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">✦</div>
+<div>
+<h3>The maker's mark is governance</h3>
+<p>A smith stamps the work because someone will need to know who made it and when. Visibility, version scheme, named owner, change log, scheduled review. Unsigned work is anonymous work, and anonymous work never gets maintained.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">⬡</div>
+<div>
+<h3>The shelf is where it becomes reusable</h3>
+<p>A finished tool that stays on the workbench is still a private object. Packaged as a portable contract and placed in <a href="/projects/skillz/">Skillz Forge</a>, it becomes something another agent, another project, or another person can pick up and use without asking you first.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- LIVE DEMO ───────────────────────────────────────── -->
+<div class="content-block reveal-on-scroll" id="embed-tool" style="scroll-margin-top: 8rem;">
+<div class="embed-toolbar">
+<div class="embed-label">
+<span class="embed-live-dot"></span>
+                  Live Workbench  ·  okhp3.github.io
                 </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">🔥</div>
-                  <div>
-                    <h3>The heat is the pressure of specificity</h3>
-                    <p>Material only moves when it is hot enough. Here the heat is being forced to answer questions the builder UI never asks: who is this for, what does done look like, what must it refuse, what happens when it fails. Uncomfortable questions are the working temperature.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">⚒</div>
-                  <div>
-                    <h3>The anvil is the nine stations</h3>
-                    <p>Shape gets beaten in one deliberate strike at a time. Brief, contract, instruction stack, knowledge, capabilities, actions, starters, tests, ship. Each station produces an artifact the next one depends on, which is why the order is not negotiable.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">💧</div>
-                  <div>
-                    <h3>The quench is where you find out</h3>
-                    <p>Steel goes into water and either hardens or cracks. The test matrix and the audit rubric are the quench: a scored pass across six categories plus a red-team pack, with a gate that will tell you the build is not ready. A quench that never fails anything is not a quench.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">✦</div>
-                  <div>
-                    <h3>The maker's mark is governance</h3>
-                    <p>A smith stamps the work because someone will need to know who made it and when. Visibility, version scheme, named owner, change log, scheduled review. Unsigned work is anonymous work, and anonymous work never gets maintained.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">⬡</div>
-                  <div>
-                    <h3>The shelf is where it becomes reusable</h3>
-                    <p>A finished tool that stays on the workbench is still a private object. Packaged as a portable contract and placed in <a href="/projects/skillz/">Skillz Forge</a>, it becomes something another agent, another project, or another person can pick up and use without asking you first.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- LIVE DEMO ───────────────────────────────────────── -->
-            <div class="content-block reveal-on-scroll" id="embed-tool" style="scroll-margin-top: 8rem;">
-              <div class="embed-toolbar">
-                <div class="embed-label">
-                  <span class="embed-live-dot"></span>
-                  Live Workbench &nbsp;·&nbsp; okhp3.github.io
-                </div>
-                <div class="embed-actions">
-                  <button class="embed-btn" id="foundry-reload-btn" title="Reload workbench" aria-label="Reload workbench">
+<div class="embed-actions">
+<button aria-label="Reload workbench" class="embed-btn" id="foundry-reload-btn" title="Reload workbench">
                     ↺ Reload
                   </button>
-                  <a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" target="_blank" rel="noopener noreferrer" class="embed-btn embed-btn--primary"
-                     onclick="gtag('event','foundry_live_app_open',{event_category:'embed',event_label:'fullscreen'});">
+<a class="embed-btn embed-btn--primary" href="https://okhp3.github.io/OverKill-Hill-FoundRy/" onclick="gtag('event','foundry_live_app_open',{event_category:'embed',event_label:'fullscreen'});" rel="noopener noreferrer" target="_blank">
                     ⤢ Full Screen
                   </a>
-                </div>
-              </div>
-
-              <div class="embed-fallback-cta">
-                <a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" target="_blank" rel="noopener noreferrer">
+</div>
+</div>
+<div class="embed-fallback-cta">
+<a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" rel="noopener noreferrer" target="_blank">
                   ⤢ Open the Found‑Rᵧ Full Screen
                 </a>
-              </div>
-
-              <div class="embed-frame-wrapper">
-                <div class="iframe-loading-overlay" id="foundry-iframe-overlay" aria-hidden="true">
-                  <div class="iframe-spinner"></div>
-                  <span class="iframe-loading-text">Loading the Found‑Rᵧ…</span>
-                  <div class="iframe-slow-fallback" id="foundry-iframe-fallback">
-                    <span class="iframe-loading-text" style="opacity:0.6;">Taking longer than expected?</span>
-                    <a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" target="_blank" rel="noopener noreferrer">Open the workbench in a new tab →</a>
-                  </div>
-                </div>
-                <iframe
-                  id="foundry-tool-iframe"
-                  src="https://okhp3.github.io/OverKill-Hill-FoundRy/"
-                  title="The OverKill Hill Found-Ry: Custom GPT build workbench"
-                  loading="lazy"
-                  allow="clipboard-read; clipboard-write; fullscreen"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  style="width:100%; border:0;"
-                ></iframe>
-              </div>
-
-              <p class="embed-note">
-                Embedded from <a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" target="_blank" rel="noopener noreferrer">okhp3.github.io/OverKill-Hill-FoundRy</a>
+</div>
+<p class="embed-disclosure" role="note">
+<strong>External app:</strong> This workbench is served from
+                <a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" rel="noopener noreferrer" target="_blank">okhp3.github.io</a>,
+                outside this site’s trust boundary.
+              </p>
+<div class="embed-frame-wrapper">
+<div aria-hidden="true" class="iframe-loading-overlay" id="foundry-iframe-overlay">
+<div class="iframe-spinner"></div>
+<span class="iframe-loading-text">Loading the Found‑Rᵧ…</span>
+<div class="iframe-slow-fallback" id="foundry-iframe-fallback">
+<span class="iframe-loading-text" style="opacity:0.6;">Taking longer than expected?</span>
+<a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" rel="noopener noreferrer" target="_blank">Open the workbench in a new tab →</a>
+</div>
+</div>
+<iframe allow="clipboard-read 'none'; clipboard-write 'none'; fullscreen 'none'" id="foundry-tool-iframe" loading="lazy" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-scripts allow-same-origin allow-forms" src="https://okhp3.github.io/OverKill-Hill-FoundRy/" style="width:100%; border:0;" title="The OverKill Hill Found-Ry: Custom GPT build workbench"></iframe>
+</div>
+<p class="embed-note">
+                Embedded from <a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" rel="noopener noreferrer" target="_blank">okhp3.github.io/OverKill-Hill-FoundRy</a>
                 -- the workbench is wide by nature, so open it full screen for real work
               </p>
-            </div>
-
-            <!-- ECOSYSTEM PATH ──────────────────────────────────── -->
-            <div class="content-block card reveal-on-scroll" id="ecosystem" data-search-index>
-              <div class="section-label">The Forge Path</div>
-              <h2>Where this sits in the ecosystem</h2>
-              <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">The same capability moves through four surfaces: design, packaging, discovery, and preservation. Each surface does one job and hands off. Found‑Rᵧ is the second.</p>
-
-              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);overflow:hidden;">
-                <div style="padding:1.25rem;border-right:1px solid var(--color-border-subtle);background:rgba(0,0,0,0.15);">
-                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 01</div>
-                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Prompt Forge</div>
-                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Designs and hardens prompts, protocols, audit contracts, and reusable AI workflows. Where the ore is graded.</div>
-                  <div style="margin-top:0.75rem;"><a href="/prompt-forge/" style="font-size:0.78rem;color:var(--okh-orange);"
-                     onclick="gtag('event','foundry_prompt_forge_open',{event_category:'forge-path',event_label:'map'});">Enter Prompt Forge →</a></div>
-                </div>
-                <div style="padding:1.25rem;border-right:1px solid var(--color-border-subtle);background:rgba(196,106,44,0.08);border-top:2px solid var(--okh-orange);">
-                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Stage 02: You are here</div>
-                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Found‑Rᵧ</div>
-                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Packages a reusable AI capability into a governed, inspectable artifact with a specification attached.</div>
-                  <div style="margin-top:0.75rem;"><a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--okh-orange);"
-                     onclick="gtag('event','foundry_live_app_open',{event_category:'forge-path',event_label:'map'});">Enter the Found‑Rᵧ ↗</a></div>
-                </div>
-                <div style="padding:1.25rem;border-right:1px solid var(--color-border-subtle);background:rgba(0,0,0,0.1);">
-                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 03</div>
-                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Skillz Forge</div>
-                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Helps visitors discover, understand, install, compose, share, and improve those capabilities.</div>
-                  <div style="margin-top:0.75rem;"><a href="/projects/skillz/" style="font-size:0.78rem;color:var(--okh-orange);"
-                     onclick="gtag('event','foundry_skillz_open',{event_category:'forge-path',event_label:'map'});">Browse Skillz Forge →</a></div>
-                </div>
-                <div style="padding:1.25rem;background:rgba(0,0,0,0.1);">
-                  <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 04</div>
-                  <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">GitHub</div>
-                  <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Stores the source, history, issues, pull requests, discussions, and review record.</div>
-                  <div style="margin-top:0.75rem;"><a href="https://github.com/OKHP3/OverKill-Hill-FoundRy" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--okh-orange);"
-                     onclick="gtag('event','foundry_github_open',{event_category:'forge-path',event_label:'map'});">OKHP3/OverKill-Hill-FoundRy ↗</a></div>
-                </div>
-              </div>
-
-              <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.75rem;line-height:1.6;">No surface duplicates another. A prompt is hardened at Stage 01, given a specification and a governance record at Stage 02, made discoverable at Stage 03, and preserved with its full change history at Stage 04.</p>
-
-              <div class="mermaid">
+</div>
+<!-- ECOSYSTEM PATH ──────────────────────────────────── -->
+<div class="content-block card reveal-on-scroll" data-search-index="" id="ecosystem">
+<div class="section-label">The Forge Path</div>
+<h2>Where this sits in the ecosystem</h2>
+<p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">The same capability moves through four surfaces: design, packaging, discovery, and preservation. Each surface does one job and hands off. Found‑Rᵧ is the second.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);overflow:hidden;">
+<div style="padding:1.25rem;border-right:1px solid var(--color-border-subtle);background:rgba(0,0,0,0.15);">
+<div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 01</div>
+<div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Prompt Forge</div>
+<div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Designs and hardens prompts, protocols, audit contracts, and reusable AI workflows. Where the ore is graded.</div>
+<div style="margin-top:0.75rem;"><a href="/prompt-forge/" onclick="gtag('event','foundry_prompt_forge_open',{event_category:'forge-path',event_label:'map'});" style="font-size:0.78rem;color:var(--okh-orange);">Enter Prompt Forge →</a></div>
+</div>
+<div style="padding:1.25rem;border-right:1px solid var(--color-border-subtle);background:rgba(196,106,44,0.08);border-top:2px solid var(--okh-orange);">
+<div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Stage 02: You are here</div>
+<div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Found‑Rᵧ</div>
+<div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Packages a reusable AI capability into a governed, inspectable artifact with a specification attached.</div>
+<div style="margin-top:0.75rem;"><a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" onclick="gtag('event','foundry_live_app_open',{event_category:'forge-path',event_label:'map'});" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--okh-orange);" target="_blank">Enter the Found‑Rᵧ ↗</a></div>
+</div>
+<div style="padding:1.25rem;border-right:1px solid var(--color-border-subtle);background:rgba(0,0,0,0.1);">
+<div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 03</div>
+<div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Skillz Forge</div>
+<div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Helps visitors discover, understand, install, compose, share, and improve those capabilities.</div>
+<div style="margin-top:0.75rem;"><a href="/projects/skillz/" onclick="gtag('event','foundry_skillz_open',{event_category:'forge-path',event_label:'map'});" style="font-size:0.78rem;color:var(--okh-orange);">Browse Skillz Forge →</a></div>
+</div>
+<div style="padding:1.25rem;background:rgba(0,0,0,0.1);">
+<div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 04</div>
+<div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">GitHub</div>
+<div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Stores the source, history, issues, pull requests, discussions, and review record.</div>
+<div style="margin-top:0.75rem;"><a href="https://github.com/OKHP3/OverKill-Hill-FoundRy" onclick="gtag('event','foundry_github_open',{event_category:'forge-path',event_label:'map'});" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--okh-orange);" target="_blank">OKHP3/OverKill-Hill-FoundRy ↗</a></div>
+</div>
+</div>
+<p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.75rem;line-height:1.6;">No surface duplicates another. A prompt is hardened at Stage 01, given a specification and a governance record at Stage 02, made discoverable at Stage 03, and preserved with its full change history at Stage 04.</p>
+<div class="mermaid">
 
 %%{init: {'theme': 'dark'}}%%
 
 flowchart LR
 
-    A["Raw prompt\nthe ore"] --> B["Prompt Forge\nheat and pressure"]
-    B --> C["Found-Ry\nnine stations on the anvil"]
-    C --> D["Test matrix and audit\nthe quench"]
-    D -->|"fails the gate"| C
-    D -->|"passes the gate"| E["Ship and govern\nthe maker's mark"]
-    E --> F["Skillz Forge\nthe shelf"]
-    F --> G["GitHub\nthe record"]
+    A["Raw prompt\nthe ore"] --&gt; B["Prompt Forge\nheat and pressure"]
+    B --&gt; C["Found-Ry\nnine stations on the anvil"]
+    C --&gt; D["Test matrix and audit\nthe quench"]
+    D --&gt;|"fails the gate"| C
+    D --&gt;|"passes the gate"| E["Ship and govern\nthe maker's mark"]
+    E --&gt; F["Skillz Forge\nthe shelf"]
+    F --&gt; G["GitHub\nthe record"]
 
               </div>
-              <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.5rem;line-height:1.6;font-style:italic;">The loop from the quench back to the anvil is the part most build guides leave out.</p>
-            </div>
-
-            <!-- THE NINE STATIONS ───────────────────────────────── -->
-            <div class="content-block card reveal-on-scroll" id="stations" data-search-index>
-              <div class="section-label">The Build Pipeline</div>
-              <h2>Nine stations, in this order, for a reason</h2>
-              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">
+<p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.5rem;line-height:1.6;font-style:italic;">The loop from the quench back to the anvil is the part most build guides leave out.</p>
+</div>
+<!-- THE NINE STATIONS ───────────────────────────────── -->
+<div class="content-block card reveal-on-scroll" data-search-index="" id="stations">
+<div class="section-label">The Build Pipeline</div>
+<h2>Nine stations, in this order, for a reason</h2>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">
                 Each station writes an artifact the next station consumes. You can skip ahead, and the tool will
                 let you, but the instruction stack is much harder to write when the conversation contract is
                 still blank. The sequence is the opinion.
               </p>
-              <div style="overflow-x:auto;">
-                <table class="scope-table">
-                  <thead>
-                    <tr>
-                      <th>Station</th>
-                      <th>Name</th>
-                      <th>What you settle here</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>00</td>
-                      <td>Build Brief</td>
-                      <td>The job, the users, primary outcomes, explicit non-goals, measurable acceptance criteria, allowed and disallowed data sources</td>
-                    </tr>
-                    <tr>
-                      <td>01</td>
-                      <td>Conversation Contract</td>
-                      <td>Inputs in, outputs out, the top tasks it must nail, and the catastrophic failure modes that would make it worse than nothing</td>
-                    </tr>
-                    <tr>
-                      <td>02</td>
-                      <td>Instruction Stack</td>
-                      <td>Eight ordered layers inside a hard character budget, so instruction weight lands where behavior actually changes</td>
-                    </tr>
-                    <tr>
-                      <td>03</td>
-                      <td>Knowledge Files</td>
-                      <td>The file manifest and the retrieval routing notes that tell the model which document answers which kind of question</td>
-                    </tr>
-                    <tr>
-                      <td>04</td>
-                      <td>Capabilities</td>
-                      <td>Every capability on or off with a written rationale, because a capability nobody can justify is a capability nobody can defend</td>
-                    </tr>
-                    <tr>
-                      <td>05</td>
-                      <td>Actions and Apps</td>
-                      <td>OpenAPI schema authoring or connector selection, held mutually exclusive so the integration surface stays legible</td>
-                    </tr>
-                    <tr>
-                      <td>06</td>
-                      <td>Conversation Starters</td>
-                      <td>Three or four prompts that launch real workflows, scored against a quality checklist that rejects slogans</td>
-                    </tr>
-                    <tr>
-                      <td>07</td>
-                      <td>Test Matrix</td>
-                      <td>Ten to fifteen cases across six categories, red-team pack included, with pass and fail recorded rather than remembered</td>
-                    </tr>
-                    <tr>
-                      <td>08</td>
-                      <td>Ship and Govern</td>
-                      <td>Visibility, version scheme, named owner, change log, scheduled review date, and a gate that checks the rest is done</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <p class="scope-meta">
+<div style="overflow-x:auto;">
+<table class="scope-table">
+<thead>
+<tr>
+<th>Station</th>
+<th>Name</th>
+<th>What you settle here</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00</td>
+<td>Build Brief</td>
+<td>The job, the users, primary outcomes, explicit non-goals, measurable acceptance criteria, allowed and disallowed data sources</td>
+</tr>
+<tr>
+<td>01</td>
+<td>Conversation Contract</td>
+<td>Inputs in, outputs out, the top tasks it must nail, and the catastrophic failure modes that would make it worse than nothing</td>
+</tr>
+<tr>
+<td>02</td>
+<td>Instruction Stack</td>
+<td>Eight ordered layers inside a hard character budget, so instruction weight lands where behavior actually changes</td>
+</tr>
+<tr>
+<td>03</td>
+<td>Knowledge Files</td>
+<td>The file manifest and the retrieval routing notes that tell the model which document answers which kind of question</td>
+</tr>
+<tr>
+<td>04</td>
+<td>Capabilities</td>
+<td>Every capability on or off with a written rationale, because a capability nobody can justify is a capability nobody can defend</td>
+</tr>
+<tr>
+<td>05</td>
+<td>Actions and Apps</td>
+<td>OpenAPI schema authoring or connector selection, held mutually exclusive so the integration surface stays legible</td>
+</tr>
+<tr>
+<td>06</td>
+<td>Conversation Starters</td>
+<td>Three or four prompts that launch real workflows, scored against a quality checklist that rejects slogans</td>
+</tr>
+<tr>
+<td>07</td>
+<td>Test Matrix</td>
+<td>Ten to fifteen cases across six categories, red-team pack included, with pass and fail recorded rather than remembered</td>
+</tr>
+<tr>
+<td>08</td>
+<td>Ship and Govern</td>
+<td>Visibility, version scheme, named owner, change log, scheduled review date, and a gate that checks the rest is done</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="scope-meta">
                 Every station persists to your browser's local storage as you type. Nothing is transmitted anywhere.
               </p>
-              <div class="content-screenshot">
-                <img
-                  src="/assets/img/projects/found-ry/found-ry-screenshot-build-brief.png"
-                  alt="Found-Ry Step 0, Build Brief station, with fields for GPT Name, Primary Users, Primary Outcomes, and Non-Goals"
-                  loading="lazy"
-                  width="1160"
-                  height="833"
-                />
-              </div>
-              <p class="embed-note">Station 00, Build Brief, live in the workbench</p>
-            </div>
-
-            <!-- THREE MORE TOOLS ────────────────────────────────── -->
-            <div class="content-block reveal-on-scroll" id="tools" data-search-index>
-              <div class="section-label">Beyond the Pipeline</div>
-              <h2>Three tools that run on the finished work</h2>
-              <div class="relationship-grid">
-                <div class="relationship-card">
-                  <span class="rel-tag">Audit Mode</span>
-                  <h3>Score it before you defend it</h3>
-                  <p>A ten-item rubric scored zero to five, with a ship gate that requires an average at or above four and a safety score no lower than four. Audit Mode is designed to fail builds. A rubric that passes everything is a decoration, not a control.</p>
-                </div>
-                <div class="relationship-card">
-                  <span class="rel-tag">Platform Comparison</span>
-                  <h3>Decide where it should live</h3>
-                  <p>A decision tree and feature matrix across OpenAI Custom GPTs, Gemini Gems, and Microsoft Copilot declarative agents, plus a taxonomy and an evolution timeline. Because the right answer is sometimes a different platform, and sometimes it is a plain prompt.</p>
-                </div>
-                <div class="relationship-card">
-                  <span class="rel-tag">Export Package</span>
-                  <h3>Leave with the specification</h3>
-                  <p>Assembles every station into one Markdown specification you can copy, download, commit, or hand to a reviewer. There is also an instructions-only view for pasting straight into a builder. The export is the artifact. The tool is just how you got there.</p>
-                </div>
-              </div>
-              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:1.5rem;">
-                <div>
-                  <div class="content-screenshot">
-                    <img
-                      src="/assets/img/projects/found-ry/found-ry-screenshot-audit-mode.png"
-                      alt="Audit Mode showing a completed 10-item score of 4.1 out of 5 and 'Ship gate passed'"
-                      loading="lazy"
-                      width="1160"
-                      height="833"
-                    />
-                  </div>
-                  <p class="embed-note">Audit Mode: ship gate passed at 4.1 / 5</p>
-                </div>
-                <div>
-                  <div class="content-screenshot">
-                    <img
-                      src="/assets/img/projects/found-ry/found-ry-screenshot-platform-comparison.png"
-                      alt="Platform Comparison decision tree with a live recommendation based on the answered questions"
-                      loading="lazy"
-                      width="1160"
-                      height="833"
-                    />
-                  </div>
-                  <p class="embed-note">Platform Comparison: a live recommendation, not just a chart</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- HONEST SCOPE ────────────────────────────────────── -->
-            <div class="content-block reveal-on-scroll" id="what-it-is" data-search-index>
-              <div class="section-label">Honest Scope</div>
-              <h2>A design workbench, not a hosting platform</h2>
-              <div class="is-isnot-grid">
-                <div class="is-isnot-col is-isnot-col--is">
-                  <div class="is-isnot-header is-isnot-header--is">Found‑Rᵧ Is</div>
-                  <ul>
-                    <li><span class="bullet">◆</span>A structured workbench for designing a Custom GPT properly</li>
-                    <li><span class="bullet">◆</span>An audit surface with a rubric that can withhold a pass</li>
-                    <li><span class="bullet">◆</span>A platform comparison for GPT, Gem, and Copilot agent</li>
-                    <li><span class="bullet">◆</span>A Markdown specification generator you can commit anywhere</li>
-                    <li><span class="bullet">◆</span>Browser-only, no login, local storage, free always</li>
-                    <li><span class="bullet">◆</span>The operational face of the <code>okhp3-custom-gpt-builder</code> method</li>
-                  </ul>
-                </div>
-                <div class="is-isnot-col is-isnot-col--isnot">
-                  <div class="is-isnot-header is-isnot-header--isnot">Found‑Rᵧ Is Not</div>
-                  <ul>
-                    <li><span class="bullet">•</span>Not a place to run or host a Custom GPT</li>
-                    <li><span class="bullet">•</span>Not connected to any vendor API or account</li>
-                    <li><span class="bullet">•</span>Not a prompt generator that writes the GPT for you</li>
-                    <li><span class="bullet">•</span>Not a guarantee that a scored build will behave in production</li>
-                    <li><span class="bullet">•</span>Not a replacement for testing against real users</li>
-                    <li><span class="bullet">•</span>Not a marketplace, a directory, or a social layer</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- PRINCIPLES ──────────────────────────────────────── -->
-            <div class="content-block reveal-on-scroll" id="principles" data-search-index>
-              <div class="section-label">Principles</div>
-              <h2>The rules the workbench runs on.</h2>
-              <div class="feature-grid" style="margin-top:0.75rem;">
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">1</div>
-                  <div>
-                    <h3>If a prompt would do the job, do not build a GPT</h3>
-                    <p>The workbench opens with this as its stated core principle. A Custom GPT that cannot outperform a well-written one-off prompt does not deserve to exist, and the Build Brief is designed to surface that verdict early rather than after the build.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">2</div>
-                  <div>
-                    <h3>Non-goals are a first-class field</h3>
-                    <p>Scope drift is the default failure mode of anything built for everyone. Explicit out-of-scope bounds are captured at station zero and carried forward, because what a tool refuses is as much a design decision as what it does.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">3</div>
-                  <div>
-                    <h3>Every capability carries a rationale</h3>
-                    <p>Toggling a capability on is easy and reversible. Writing down why is neither, which is exactly the point. The rationale field is what makes a capability decision reviewable six months later by someone who was not in the room.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">4</div>
-                  <div>
-                    <h3>The gate has to be able to say no</h3>
-                    <p>Audit Mode enforces a minimum average and a separate safety floor. A build can score well overall and still be blocked on safety alone. A quality gate that cannot fail a build is a progress bar wearing a costume.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">5</div>
-                  <div>
-                    <h3>The specification leaves with you</h3>
-                    <p>Everything exports to plain Markdown. No account, no lock-in, no proprietary format, no dependency on this site continuing to exist. If the workbench disappeared tomorrow, the artifacts it produced would still be readable and still be yours.</p>
-                  </div>
-                </div>
-                <div class="feature-item">
-                  <div class="feature-icon" aria-hidden="true">6</div>
-                  <div>
-                    <h3>Nothing leaves the browser</h3>
-                    <p>No backend, no database, no authentication, no telemetry on your build content. Every station persists to local storage only. The design brief for a GPT often contains the most sensitive thinking in a project, and it stays on your machine.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- ORIGIN ──────────────────────────────────────────── -->
-            <div class="content-block card reveal-on-scroll" id="origin" data-search-index>
-              <div class="section-label">Origin</div>
-              <h2>The first five hundred pieces</h2>
-              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
+<div class="content-screenshot">
+<img alt="Found-Ry Step 0, Build Brief station, with fields for GPT Name, Primary Users, Primary Outcomes, and Non-Goals" height="833" loading="lazy" src="/assets/img/projects/found-ry/found-ry-screenshot-build-brief.png" width="1160"/>
+</div>
+<p class="embed-note">Station 00, Build Brief, live in the workbench</p>
+</div>
+<!-- THREE MORE TOOLS ────────────────────────────────── -->
+<div class="content-block reveal-on-scroll" data-search-index="" id="tools">
+<div class="section-label">Beyond the Pipeline</div>
+<h2>Three tools that run on the finished work</h2>
+<div class="relationship-grid">
+<div class="relationship-card">
+<span class="rel-tag">Audit Mode</span>
+<h3>Score it before you defend it</h3>
+<p>A ten-item rubric scored zero to five, with a ship gate that requires an average at or above four and a safety score no lower than four. Audit Mode is designed to fail builds. A rubric that passes everything is a decoration, not a control.</p>
+</div>
+<div class="relationship-card">
+<span class="rel-tag">Platform Comparison</span>
+<h3>Decide where it should live</h3>
+<p>A decision tree and feature matrix across OpenAI Custom GPTs, Gemini Gems, and Microsoft Copilot declarative agents, plus a taxonomy and an evolution timeline. Because the right answer is sometimes a different platform, and sometimes it is a plain prompt.</p>
+</div>
+<div class="relationship-card">
+<span class="rel-tag">Export Package</span>
+<h3>Leave with the specification</h3>
+<p>Assembles every station into one Markdown specification you can copy, download, commit, or hand to a reviewer. There is also an instructions-only view for pasting straight into a builder. The export is the artifact. The tool is just how you got there.</p>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:1.5rem;">
+<div>
+<div class="content-screenshot">
+<img alt="Audit Mode showing a completed 10-item score of 4.1 out of 5 and 'Ship gate passed'" height="833" loading="lazy" src="/assets/img/projects/found-ry/found-ry-screenshot-audit-mode.png" width="1160"/>
+</div>
+<p class="embed-note">Audit Mode: ship gate passed at 4.1 / 5</p>
+</div>
+<div>
+<div class="content-screenshot">
+<img alt="Platform Comparison decision tree with a live recommendation based on the answered questions" height="833" loading="lazy" src="/assets/img/projects/found-ry/found-ry-screenshot-platform-comparison.png" width="1160"/>
+</div>
+<p class="embed-note">Platform Comparison: a live recommendation, not just a chart</p>
+</div>
+</div>
+</div>
+<!-- HONEST SCOPE ────────────────────────────────────── -->
+<div class="content-block reveal-on-scroll" data-search-index="" id="what-it-is">
+<div class="section-label">Honest Scope</div>
+<h2>A design workbench, not a hosting platform</h2>
+<div class="is-isnot-grid">
+<div class="is-isnot-col is-isnot-col--is">
+<div class="is-isnot-header is-isnot-header--is">Found‑Rᵧ Is</div>
+<ul>
+<li><span class="bullet">◆</span>A structured workbench for designing a Custom GPT properly</li>
+<li><span class="bullet">◆</span>An audit surface with a rubric that can withhold a pass</li>
+<li><span class="bullet">◆</span>A platform comparison for GPT, Gem, and Copilot agent</li>
+<li><span class="bullet">◆</span>A Markdown specification generator you can commit anywhere</li>
+<li><span class="bullet">◆</span>Browser-only, no login, local storage, free always</li>
+<li><span class="bullet">◆</span>The operational face of the <code>okhp3-custom-gpt-builder</code> method</li>
+</ul>
+</div>
+<div class="is-isnot-col is-isnot-col--isnot">
+<div class="is-isnot-header is-isnot-header--isnot">Found‑Rᵧ Is Not</div>
+<ul>
+<li><span class="bullet">•</span>Not a place to run or host a Custom GPT</li>
+<li><span class="bullet">•</span>Not connected to any vendor API or account</li>
+<li><span class="bullet">•</span>Not a prompt generator that writes the GPT for you</li>
+<li><span class="bullet">•</span>Not a guarantee that a scored build will behave in production</li>
+<li><span class="bullet">•</span>Not a replacement for testing against real users</li>
+<li><span class="bullet">•</span>Not a marketplace, a directory, or a social layer</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- PRINCIPLES ──────────────────────────────────────── -->
+<div class="content-block reveal-on-scroll" data-search-index="" id="principles">
+<div class="section-label">Principles</div>
+<h2>The rules the workbench runs on.</h2>
+<div class="feature-grid" style="margin-top:0.75rem;">
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">1</div>
+<div>
+<h3>If a prompt would do the job, do not build a GPT</h3>
+<p>The workbench opens with this as its stated core principle. A Custom GPT that cannot outperform a well-written one-off prompt does not deserve to exist, and the Build Brief is designed to surface that verdict early rather than after the build.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">2</div>
+<div>
+<h3>Non-goals are a first-class field</h3>
+<p>Scope drift is the default failure mode of anything built for everyone. Explicit out-of-scope bounds are captured at station zero and carried forward, because what a tool refuses is as much a design decision as what it does.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">3</div>
+<div>
+<h3>Every capability carries a rationale</h3>
+<p>Toggling a capability on is easy and reversible. Writing down why is neither, which is exactly the point. The rationale field is what makes a capability decision reviewable six months later by someone who was not in the room.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">4</div>
+<div>
+<h3>The gate has to be able to say no</h3>
+<p>Audit Mode enforces a minimum average and a separate safety floor. A build can score well overall and still be blocked on safety alone. A quality gate that cannot fail a build is a progress bar wearing a costume.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">5</div>
+<div>
+<h3>The specification leaves with you</h3>
+<p>Everything exports to plain Markdown. No account, no lock-in, no proprietary format, no dependency on this site continuing to exist. If the workbench disappeared tomorrow, the artifacts it produced would still be readable and still be yours.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">6</div>
+<div>
+<h3>Nothing leaves the browser</h3>
+<p>No backend, no database, no authentication, no telemetry on your build content. Every station persists to local storage only. The design brief for a GPT often contains the most sensitive thinking in a project, and it stays on your machine.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- ORIGIN ──────────────────────────────────────────── -->
+<div class="content-block card reveal-on-scroll" data-search-index="" id="origin">
+<div class="section-label">Origin</div>
+<h2>The first five hundred pieces</h2>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
                 Custom GPTs are yesterday's news, and that is beside the point. They were the first set with
                 enough pieces to be genuinely hard, and building them badly, then less badly, is where the
                 systems thinking behind everything else on this site actually came from.
               </p>
-              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
                 The original Found‑Rᵧ was an idea rather than an application: tools for making tools. Prompts
                 that became GPTs that wrote better prompts, which produced better GPTs. That loop worked. It
                 produced the prototypes and the working method that made
                 <a href="/projects/glee-fully-chai-chasers/">Glee-fully Chai Chasers</a> possible.
               </p>
-              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
                 What it could not do was package anything. The prompts, the scripts, and the proto-GPTs stayed
                 trapped as clever artifacts in a private workspace, reusable only by the person who wrote them
                 and only while he still remembered how. The gap was never the thinking. It was the absence of a
                 way to turn the thinking into something with an interface, a repository, and a URL.
               </p>
-              <p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.5rem;line-height:1.8;">
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.5rem;line-height:1.8;">
                 That gap is now closed. The page you are reading sits in front of the workbench that the
                 original idea was always describing.
               </p>
-              <div class="origin-callout-grid">
-                <div class="origin-callout-card">
-                  <div class="origin-callout-label">The Method</div>
-                  <p class="origin-callout-desc">The workbench operationalizes the <code>okhp3-custom-gpt-builder</code> Agent Skill: the canonical build methodology, phases, audit criteria, and platform comparison data. The skill runs in agent environments. The workbench runs in a browser. They stay in sync deliberately.</p>
-                  <a href="/projects/skillz/" class="btn btn-quiet" style="margin-top:0.75rem;display:inline-block;">Find it in Skillz Forge →</a>
-                </div>
-                <div class="origin-callout-card">
-                  <div class="origin-callout-label">The Repository</div>
-                  <p class="origin-callout-desc">The workbench lives inside a FoundRy relay repository alongside the ReFolDec process framework, the brand style registry, and the Agent Skills library. Source, build workflow, and deployment are all public.</p>
-                  <a href="https://github.com/OKHP3/OverKill-Hill-FoundRy" target="_blank" rel="noopener noreferrer" class="btn btn-quiet" style="margin-top:0.75rem;display:inline-block;">OKHP3/OverKill-Hill-FoundRy ↗</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- ROADMAP ─────────────────────────────────────────── -->
-            <div class="content-block reveal-on-scroll" id="roadmap" data-search-index>
-              <div class="section-label">Roadmap</div>
-              <h2>Where the build is going</h2>
-              <ul class="progress-track">
-                <li class="progress-phase">
-                  <span class="progress-marker progress-marker--done">✓</span>
-                  <div class="progress-phase-content">
-                    <div class="progress-phase-title">
+<div class="origin-callout-grid">
+<div class="origin-callout-card">
+<div class="origin-callout-label">The Method</div>
+<p class="origin-callout-desc">The workbench operationalizes the <code>okhp3-custom-gpt-builder</code> Agent Skill: the canonical build methodology, phases, audit criteria, and platform comparison data. The skill runs in agent environments. The workbench runs in a browser. They stay in sync deliberately.</p>
+<a class="btn btn-quiet" href="/projects/skillz/" style="margin-top:0.75rem;display:inline-block;">Find it in Skillz Forge →</a>
+</div>
+<div class="origin-callout-card">
+<div class="origin-callout-label">The Repository</div>
+<p class="origin-callout-desc">The workbench lives inside a FoundRy relay repository alongside the ReFolDec process framework, the brand style registry, and the Agent Skills library. Source, build workflow, and deployment are all public.</p>
+<a class="btn btn-quiet" href="https://github.com/OKHP3/OverKill-Hill-FoundRy" rel="noopener noreferrer" style="margin-top:0.75rem;display:inline-block;" target="_blank">OKHP3/OverKill-Hill-FoundRy ↗</a>
+</div>
+</div>
+</div>
+<!-- ROADMAP ─────────────────────────────────────────── -->
+<div class="content-block reveal-on-scroll" data-search-index="" id="roadmap">
+<div class="section-label">Roadmap</div>
+<h2>Where the build is going</h2>
+<ul class="progress-track">
+<li class="progress-phase">
+<span class="progress-marker progress-marker--done">✓</span>
+<div class="progress-phase-content">
+<div class="progress-phase-title">
                       Nine-Station Build Pipeline
                       <span class="phase-pill phase-pill--shipped">Shipped</span>
-                    </div>
-                    <p class="progress-phase-desc">All nine stations live with per-station local storage persistence, completeness meters, a sidebar pipeline with progress tracking, and light, dark, and system theme support resolved before first paint.</p>
-                  </div>
-                </li>
-                <li class="progress-phase">
-                  <span class="progress-marker progress-marker--done">✓</span>
-                  <div class="progress-phase-content">
-                    <div class="progress-phase-title">
+</div>
+<p class="progress-phase-desc">All nine stations live with per-station local storage persistence, completeness meters, a sidebar pipeline with progress tracking, and light, dark, and system theme support resolved before first paint.</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--done">✓</span>
+<div class="progress-phase-content">
+<div class="progress-phase-title">
                       Audit Mode, Platform Comparison, Export Package
                       <span class="phase-pill phase-pill--shipped">Shipped</span>
-                    </div>
-                    <p class="progress-phase-desc">Ten-item scoring rubric with an enforced ship gate, a three-platform decision tree and feature matrix, and full Markdown specification export with an instructions-only view.</p>
-                  </div>
-                </li>
-                <li class="progress-phase">
-                  <span class="progress-marker progress-marker--done">✓</span>
-                  <div class="progress-phase-content">
-                    <div class="progress-phase-title">
+</div>
+<p class="progress-phase-desc">Ten-item scoring rubric with an enforced ship gate, a three-platform decision tree and feature matrix, and full Markdown specification export with an instructions-only view.</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--done">✓</span>
+<div class="progress-phase-content">
+<div class="progress-phase-title">
                       Public Deployment
                       <span class="phase-pill phase-pill--shipped">Shipped</span>
-                    </div>
-                    <p class="progress-phase-desc">Continuous deployment to GitHub Pages from the repository's main branch via GitHub Actions. Client-only build, no server, no secrets in the bundle.</p>
-                  </div>
-                </li>
-                <li class="progress-phase">
-                  <span class="progress-marker progress-marker--active">▶</span>
-                  <div class="progress-phase-content">
-                    <div class="progress-phase-title">
+</div>
+<p class="progress-phase-desc">Continuous deployment to GitHub Pages from the repository's main branch via GitHub Actions. Client-only build, no server, no secrets in the bundle.</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--active">▶</span>
+<div class="progress-phase-content">
+<div class="progress-phase-title">
                       Project Page and Ecosystem Alignment
                       <span class="phase-pill phase-pill--active">Active</span>
-                    </div>
-                    <p class="progress-phase-desc">This page. Bringing the public surface into line with what actually shipped, and wiring the Prompt Forge and Skillz Forge cross-links so the four-stage path is navigable in both directions.</p>
-                  </div>
-                </li>
-                <li class="progress-phase">
-                  <span class="progress-marker progress-marker--planned">○</span>
-                  <div class="progress-phase-content">
-                    <div class="progress-phase-title">
+</div>
+<p class="progress-phase-desc">This page. Bringing the public surface into line with what actually shipped, and wiring the Prompt Forge and Skillz Forge cross-links so the four-stage path is navigable in both directions.</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--planned">○</span>
+<div class="progress-phase-content">
+<div class="progress-phase-title">
                       Named Project Slots
                       <span class="phase-pill phase-pill--planned">Planned</span>
-                    </div>
-                    <p class="progress-phase-desc">Replace the single-project storage model with named slots so several builds can be kept in flight without overwriting each other. Still local storage only, with per-slot export.</p>
-                  </div>
-                </li>
-                <li class="progress-phase">
-                  <span class="progress-marker progress-marker--planned">○</span>
-                  <div class="progress-phase-content">
-                    <div class="progress-phase-title">
+</div>
+<p class="progress-phase-desc">Replace the single-project storage model with named slots so several builds can be kept in flight without overwriting each other. Still local storage only, with per-slot export.</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--planned">○</span>
+<div class="progress-phase-content">
+<div class="progress-phase-title">
                       Push to Forge
                       <span class="phase-pill phase-pill--planned">Planned</span>
-                    </div>
-                    <p class="progress-phase-desc">Commit a finished specification straight to the repository from the export station. Gated on a credential architecture that keeps write tokens out of the client bundle, which is the entire difficulty and the reason it is not shipped.</p>
-                  </div>
-                </li>
-                <li class="progress-phase">
-                  <span class="progress-marker progress-marker--planned">○</span>
-                  <div class="progress-phase-content">
-                    <div class="progress-phase-title">
+</div>
+<p class="progress-phase-desc">Commit a finished specification straight to the repository from the export station. Gated on a credential architecture that keeps write tokens out of the client bundle, which is the entire difficulty and the reason it is not shipped.</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--planned">○</span>
+<div class="progress-phase-content">
+<div class="progress-phase-title">
                       Live Specification Preview
                       <span class="phase-pill phase-pill--planned">Planned</span>
-                    </div>
-                    <p class="progress-phase-desc">A rendered Markdown preview beside the raw export, so a specification can be read as a document before it is handed to a reviewer.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <!-- WORK WITH ME ─────────────────────────────────────── -->
-            <aside class="article-footer-cta reveal-on-scroll" id="work-with-me">
-              <div>
-                <h3>Need a Custom GPT that survives contact with real users?</h3>
-                <p>Custom GPT architecture, instruction stack design, audit rubrics, red-team test matrices, and the governance layer that keeps a build reviewable after the person who made it moves on.</p>
-              </div>
-              <div class="cta-actions">
-                <a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
-                   onclick="gtag('event','foundry_project_cta_click',{event_category:'cta',event_label:'fiverr'});">Hire me on Fiverr</a>
-                <a href="/contact/" class="btn btn-quiet"
-                   onclick="gtag('event','foundry_project_cta_click',{event_category:'cta',event_label:'contact'});">Get in touch</a>
-              </div>
-            </aside>
-
-            <!-- COLLAPSIBLE SECTIONS ─────────────────────────────── -->
-            <div class="content-block collapsibles reveal-on-scroll">
-
-              <!-- User Guide -->
-              <details class="collapsible">
-                <summary class="collapsible-toggle">
-                  <span>Quick start: your first build</span>
-                  <span class="collapsible-chevron" aria-hidden="true">▾</span>
-                </summary>
-                <div class="collapsible-body">
-                  <p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.75rem;">From a blank workbench to an exported specification. Nothing to install and no account to create.</p>
-                  <ol class="guide-steps">
-                    <li class="guide-step">
-                      <span class="step-num">01</span>
-                      <div class="step-content">
-                        <strong>Open the workbench</strong>
-                        <p>Use the embedded frame above, or open <a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" target="_blank" rel="noopener noreferrer">okhp3.github.io/OverKill-Hill-FoundRy</a> full screen. The workbench is dense by design and wants the room.</p>
-                      </div>
-                    </li>
-                    <li class="guide-step">
-                      <span class="step-num">02</span>
-                      <div class="step-content">
-                        <strong>Answer the Build Brief honestly</strong>
-                        <p>Especially the non-goals and the acceptance criteria. If you cannot write five measurable checks that would prove the GPT works, that is a finding, and it is cheaper to discover it here than after the build.</p>
-                      </div>
-                    </li>
-                    <li class="guide-step">
-                      <span class="step-num">03</span>
-                      <div class="step-content">
-                        <strong>Work the stations in order</strong>
-                        <p>Each station feeds the next. The Knowledge station generates a routing snippet that belongs in your instruction stack, so doing them out of order means going back anyway.</p>
-                      </div>
-                    </li>
-                    <li class="guide-step">
-                      <span class="step-num">04</span>
-                      <div class="step-content">
-                        <strong>Run Audit Mode before you ship</strong>
-                        <p>Score the build against the ten-item rubric. If it does not clear the average or the safety floor, the gate will say so. Go back to the station that caused it rather than arguing with the score.</p>
-                      </div>
-                    </li>
-                    <li class="guide-step">
-                      <span class="step-num">05</span>
-                      <div class="step-content">
-                        <strong>Export the specification</strong>
-                        <p>Copy or download the full Markdown package, or take the instructions-only view straight into your builder of choice. Commit the specification somewhere durable. That document is the thing you will actually need in six months.</p>
-                      </div>
-                    </li>
-                  </ol>
-                </div>
-              </details>
-
-              <!-- FAQ -->
-              <details class="collapsible">
-                <summary class="collapsible-toggle">
-                  <span>Frequently asked questions</span>
-                  <span class="collapsible-chevron" aria-hidden="true">▾</span>
-                </summary>
-                <div class="collapsible-body">
-                  <dl class="faq-list">
-                    <div class="faq-item">
-                      <dt class="faq-q">Does this connect to my OpenAI account?</dt>
-                      <dd class="faq-a">No. There is no API connection, no authentication, and no vendor integration of any kind. The workbench produces a specification. You take that specification to whichever builder you are using and configure the GPT there yourself.</dd>
-                    </div>
-                    <div class="faq-item">
-                      <dt class="faq-q">Where is my work stored?</dt>
-                      <dd class="faq-a">In your browser's local storage, one key per station. Nothing is transmitted to any server. Clearing site data will clear your build, so export the specification when you finish a session. Named project slots are on the roadmap to make this less fragile.</dd>
-                    </div>
-                    <div class="faq-item">
-                      <dt class="faq-q">Are Custom GPTs not a bit dated at this point?</dt>
-                      <dd class="faq-a">The packaging format moves. The underlying discipline does not. Scope boundaries, capability rationale, retrieval routing, red-team cases, and a named owner are the same problems whether the artifact is a Custom GPT, a Gem, a declarative agent, or an Agent Skill. The Platform Comparison exists precisely because the right destination changes.</dd>
-                    </div>
-                    <div class="faq-item">
-                      <dt class="faq-q">Does it work for Gemini Gems or Copilot agents?</dt>
-                      <dd class="faq-a">The pipeline is written primarily for OpenAI Custom GPTs, and most of it transfers directly. The Platform Comparison tool covers the differences in capability surface, limits, and packaging across all three, including the cases where the honest recommendation is a different platform.</dd>
-                    </div>
-                    <div class="faq-item">
-                      <dt class="faq-q">What is the relationship to Skillz Forge?</dt>
-                      <dd class="faq-a">Found‑Rᵧ is where a capability gets its specification and its governance record. Skillz Forge is where portable capability contracts are discovered, inspected, and installed by other people and other agents. The build method used here is itself published there as an Agent Skill.</dd>
-                    </div>
-                    <div class="faq-item">
-                      <dt class="faq-q">Can I use this commercially?</dt>
-                      <dd class="faq-a">Yes. The repository is Apache-2.0 licensed. Fork it, adapt it, run it locally, or take the exported specifications into commercial work. Attribution is appreciated and not required.</dd>
-                    </div>
-                    <div class="faq-item">
-                      <dt class="faq-q">Why is the audit gate so strict?</dt>
-                      <dd class="faq-a">Because a gate that passes everything provides no information. The rubric requires both an overall average and a separate safety minimum, so a build cannot compensate for a weak safety posture by scoring well elsewhere. It is meant to be occasionally annoying.</dd>
-                    </div>
-                  </dl>
-                </div>
-              </details>
-
-            </div><!-- /collapsibles -->
-
-            <!-- BUILDER'S NOTE ───────────────────────────────────── -->
-            <div class="builder-note reveal-on-scroll">
-              <div class="section-label">Builder's Note</div>
-              <blockquote>
-                <p>I cut my teeth on Custom GPTs. People will tell you that is a dated thing to admit, and they are welcome to. It was the first set of pieces large enough that building carelessly produced something visibly broken, which turns out to be the fastest way to learn how systems actually fail.</p>
-                <p>The original Found‑Rᵧ was a vision more than a product: tools for making tools, prompts that became GPTs that wrote better prompts. The loop worked. What I lacked was any way to package the result. Every good prototype stayed a private artifact, useful to exactly one person for exactly as long as he remembered how it worked.</p>
-                <p>That is the whole gap this closes. Not a better prompt. A wrapper: an interface, a repository, a specification that outlives the session, and a public URL where someone other than me can use it.</p>
-                <p><em>The forge was always the metaphor. It just took a while to build the actual shop.</em></p>
-              </blockquote>
-              <p class="builder-sig">OverKill&nbsp;Hill&nbsp;P³</p>
-            </div>
-
-            <!-- FINAL CTA ────────────────────────────────────────── -->
-            <div class="content-block reveal-on-scroll" style="text-align:center;padding:2rem 1.5rem;">
-              <h2 style="margin-bottom:0.5rem;">Bring something to the anvil</h2>
-              <p style="color:var(--color-muted);margin-bottom:1.5rem;">Open the workbench, answer the brief, and see what your idea looks like with the vague parts removed.</p>
-              <div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;">
-                <a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
-                   onclick="gtag('event','foundry_live_app_open',{event_category:'cta',event_label:'footer'});">⤢ Enter the Found‑Rᵧ</a>
-                <a href="https://github.com/OKHP3/OverKill-Hill-FoundRy" target="_blank" rel="noopener noreferrer" class="btn btn-quiet"
-                   onclick="gtag('event','foundry_github_open',{event_category:'cta',event_label:'footer'});">View the Repository</a>
-                <a href="/prompt-forge/" class="btn btn-quiet"
-                   onclick="gtag('event','foundry_prompt_forge_open',{event_category:'cta',event_label:'footer'});">Back to the Prompt Forge</a>
-                <a href="/projects/skillz/" class="btn btn-quiet"
-                   onclick="gtag('event','foundry_skillz_open',{event_category:'cta',event_label:'footer'});">On to Skillz Forge</a>
-              </div>
-            </div>
-
-          </div><!-- /main column -->
-
-          <!-- SIDEBAR ──────────────────────────────────────────── -->
-          <aside class="sidebar-rail" aria-label="Project information">
-
-            <!-- Start Now CTA -->
-            <div class="sidebar-meta" style="background:rgba(196,106,44,0.1);border-color:rgba(196,106,44,0.35);">
-              <div class="section-label">Start Now</div>
-              <p style="font-size:0.85rem;color:var(--color-muted);line-height:1.6;margin-bottom:0.9rem;">
+</div>
+<p class="progress-phase-desc">A rendered Markdown preview beside the raw export, so a specification can be read as a document before it is handed to a reviewer.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- WORK WITH ME ─────────────────────────────────────── -->
+<aside class="article-footer-cta reveal-on-scroll" id="work-with-me">
+<div>
+<h3>Need a Custom GPT that survives contact with real users?</h3>
+<p>Custom GPT architecture, instruction stack design, audit rubrics, red-team test matrices, and the governance layer that keeps a build reviewable after the person who made it moves on.</p>
+</div>
+<div class="cta-actions">
+<a class="btn btn-primary" href="https://pro.fiverr.com/s/VYKPpoB" onclick="gtag('event','foundry_project_cta_click',{event_category:'cta',event_label:'fiverr'});" rel="noopener noreferrer" target="_blank">Hire me on Fiverr</a>
+<a class="btn btn-quiet" href="/contact/" onclick="gtag('event','foundry_project_cta_click',{event_category:'cta',event_label:'contact'});">Get in touch</a>
+</div>
+</aside>
+<!-- COLLAPSIBLE SECTIONS ─────────────────────────────── -->
+<div class="content-block collapsibles reveal-on-scroll">
+<!-- User Guide -->
+<details class="collapsible">
+<summary class="collapsible-toggle">
+<span>Quick start: your first build</span>
+<span aria-hidden="true" class="collapsible-chevron">▾</span>
+</summary>
+<div class="collapsible-body">
+<p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.75rem;">From a blank workbench to an exported specification. Nothing to install and no account to create.</p>
+<ol class="guide-steps">
+<li class="guide-step">
+<span class="step-num">01</span>
+<div class="step-content">
+<strong>Open the workbench</strong>
+<p>Use the embedded frame above, or open <a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" rel="noopener noreferrer" target="_blank">okhp3.github.io/OverKill-Hill-FoundRy</a> full screen. The workbench is dense by design and wants the room.</p>
+</div>
+</li>
+<li class="guide-step">
+<span class="step-num">02</span>
+<div class="step-content">
+<strong>Answer the Build Brief honestly</strong>
+<p>Especially the non-goals and the acceptance criteria. If you cannot write five measurable checks that would prove the GPT works, that is a finding, and it is cheaper to discover it here than after the build.</p>
+</div>
+</li>
+<li class="guide-step">
+<span class="step-num">03</span>
+<div class="step-content">
+<strong>Work the stations in order</strong>
+<p>Each station feeds the next. The Knowledge station generates a routing snippet that belongs in your instruction stack, so doing them out of order means going back anyway.</p>
+</div>
+</li>
+<li class="guide-step">
+<span class="step-num">04</span>
+<div class="step-content">
+<strong>Run Audit Mode before you ship</strong>
+<p>Score the build against the ten-item rubric. If it does not clear the average or the safety floor, the gate will say so. Go back to the station that caused it rather than arguing with the score.</p>
+</div>
+</li>
+<li class="guide-step">
+<span class="step-num">05</span>
+<div class="step-content">
+<strong>Export the specification</strong>
+<p>Copy or download the full Markdown package, or take the instructions-only view straight into your builder of choice. Commit the specification somewhere durable. That document is the thing you will actually need in six months.</p>
+</div>
+</li>
+</ol>
+</div>
+</details>
+<!-- FAQ -->
+<details class="collapsible">
+<summary class="collapsible-toggle">
+<span>Frequently asked questions</span>
+<span aria-hidden="true" class="collapsible-chevron">▾</span>
+</summary>
+<div class="collapsible-body">
+<dl class="faq-list">
+<div class="faq-item">
+<dt class="faq-q">Does this connect to my OpenAI account?</dt>
+<dd class="faq-a">No. There is no API connection, no authentication, and no vendor integration of any kind. The workbench produces a specification. You take that specification to whichever builder you are using and configure the GPT there yourself.</dd>
+</div>
+<div class="faq-item">
+<dt class="faq-q">Where is my work stored?</dt>
+<dd class="faq-a">In your browser's local storage, one key per station. Nothing is transmitted to any server. Clearing site data will clear your build, so export the specification when you finish a session. Named project slots are on the roadmap to make this less fragile.</dd>
+</div>
+<div class="faq-item">
+<dt class="faq-q">Are Custom GPTs not a bit dated at this point?</dt>
+<dd class="faq-a">The packaging format moves. The underlying discipline does not. Scope boundaries, capability rationale, retrieval routing, red-team cases, and a named owner are the same problems whether the artifact is a Custom GPT, a Gem, a declarative agent, or an Agent Skill. The Platform Comparison exists precisely because the right destination changes.</dd>
+</div>
+<div class="faq-item">
+<dt class="faq-q">Does it work for Gemini Gems or Copilot agents?</dt>
+<dd class="faq-a">The pipeline is written primarily for OpenAI Custom GPTs, and most of it transfers directly. The Platform Comparison tool covers the differences in capability surface, limits, and packaging across all three, including the cases where the honest recommendation is a different platform.</dd>
+</div>
+<div class="faq-item">
+<dt class="faq-q">What is the relationship to Skillz Forge?</dt>
+<dd class="faq-a">Found‑Rᵧ is where a capability gets its specification and its governance record. Skillz Forge is where portable capability contracts are discovered, inspected, and installed by other people and other agents. The build method used here is itself published there as an Agent Skill.</dd>
+</div>
+<div class="faq-item">
+<dt class="faq-q">Can I use this commercially?</dt>
+<dd class="faq-a">Yes. The repository is Apache-2.0 licensed. Fork it, adapt it, run it locally, or take the exported specifications into commercial work. Attribution is appreciated and not required.</dd>
+</div>
+<div class="faq-item">
+<dt class="faq-q">Why is the audit gate so strict?</dt>
+<dd class="faq-a">Because a gate that passes everything provides no information. The rubric requires both an overall average and a separate safety minimum, so a build cannot compensate for a weak safety posture by scoring well elsewhere. It is meant to be occasionally annoying.</dd>
+</div>
+</dl>
+</div>
+</details>
+</div><!-- /collapsibles -->
+<!-- BUILDER'S NOTE ───────────────────────────────────── -->
+<div class="builder-note reveal-on-scroll">
+<div class="section-label">Builder's Note</div>
+<blockquote>
+<p>I cut my teeth on Custom GPTs. People will tell you that is a dated thing to admit, and they are welcome to. It was the first set of pieces large enough that building carelessly produced something visibly broken, which turns out to be the fastest way to learn how systems actually fail.</p>
+<p>The original Found‑Rᵧ was a vision more than a product: tools for making tools, prompts that became GPTs that wrote better prompts. The loop worked. What I lacked was any way to package the result. Every good prototype stayed a private artifact, useful to exactly one person for exactly as long as he remembered how it worked.</p>
+<p>That is the whole gap this closes. Not a better prompt. A wrapper: an interface, a repository, a specification that outlives the session, and a public URL where someone other than me can use it.</p>
+<p><em>The forge was always the metaphor. It just took a while to build the actual shop.</em></p>
+</blockquote>
+<p class="builder-sig">OverKill Hill P³</p>
+</div>
+<!-- FINAL CTA ────────────────────────────────────────── -->
+<div class="content-block reveal-on-scroll" style="text-align:center;padding:2rem 1.5rem;">
+<h2 style="margin-bottom:0.5rem;">Bring something to the anvil</h2>
+<p style="color:var(--color-muted);margin-bottom:1.5rem;">Open the workbench, answer the brief, and see what your idea looks like with the vague parts removed.</p>
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;">
+<a class="btn btn-primary" href="https://okhp3.github.io/OverKill-Hill-FoundRy/" onclick="gtag('event','foundry_live_app_open',{event_category:'cta',event_label:'footer'});" rel="noopener noreferrer" target="_blank">⤢ Enter the Found‑Rᵧ</a>
+<a class="btn btn-quiet" href="https://github.com/OKHP3/OverKill-Hill-FoundRy" onclick="gtag('event','foundry_github_open',{event_category:'cta',event_label:'footer'});" rel="noopener noreferrer" target="_blank">View the Repository</a>
+<a class="btn btn-quiet" href="/prompt-forge/" onclick="gtag('event','foundry_prompt_forge_open',{event_category:'cta',event_label:'footer'});">Back to the Prompt Forge</a>
+<a class="btn btn-quiet" href="/projects/skillz/" onclick="gtag('event','foundry_skillz_open',{event_category:'cta',event_label:'footer'});">On to Skillz Forge</a>
+</div>
+</div>
+</div><!-- /main column -->
+<!-- SIDEBAR ──────────────────────────────────────────── -->
+<aside aria-label="Project information" class="sidebar-rail">
+<!-- Start Now CTA -->
+<div class="sidebar-meta" style="background:rgba(196,106,44,0.1);border-color:rgba(196,106,44,0.35);">
+<div class="section-label">Start Now</div>
+<p style="font-size:0.85rem;color:var(--color-muted);line-height:1.6;margin-bottom:0.9rem;">
                 No install. No account. Your build stays in your browser.
               </p>
-              <div class="sidebar-links">
-                <a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" target="_blank" rel="noopener noreferrer" class="sidebar-link"
-                   onclick="gtag('event','foundry_live_app_open',{event_category:'cta',event_label:'sidebar'});">
+<div class="sidebar-links">
+<a class="sidebar-link" href="https://okhp3.github.io/OverKill-Hill-FoundRy/" onclick="gtag('event','foundry_live_app_open',{event_category:'cta',event_label:'sidebar'});" rel="noopener noreferrer" target="_blank">
                   ▶ Enter the Found‑Rᵧ
                 </a>
-              </div>
-            </div>
-
-            <!-- Project Info -->
-            <div class="sidebar-meta">
-              <div class="section-label">Project Info</div>
-              <div class="meta-row">
-                <div class="meta-item">
-                  <span class="meta-key">Status</span>
-                  <span class="meta-val"><span class="status-dot status-dot--live"></span>Active / Live</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Build Phase</span>
-                  <span class="meta-val">Pipeline shipped, slots planned</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">GitHub</span>
-                  <span class="meta-val"><a href="https://github.com/OKHP3/OverKill-Hill-FoundRy" target="_blank" rel="noopener noreferrer">OKHP3/OverKill-Hill-FoundRy ↗</a></span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Live URL</span>
-                  <span class="meta-val"><a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" target="_blank" rel="noopener noreferrer">okhp3.github.io/OverKill-Hill-FoundRy ↗</a></span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Stack</span>
-                  <span class="meta-val">React, Vite, TypeScript, Tailwind</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Backend</span>
-                  <span class="meta-val">None. Local storage only</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Hosting</span>
-                  <span class="meta-val">GitHub Pages via Actions</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">License</span>
-                  <span class="meta-val">Apache-2.0</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Cost</span>
-                  <span class="meta-val">Free / Open Source</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Maintained by</span>
-                  <span class="meta-val"><a href="https://overkillhill.com">OverKill&nbsp;Hill&nbsp;P³</a></span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-key">Forge Path</span>
-                  <span class="meta-val">Stage 02 of 04</span>
-                </div>
-              </div>
-              <div class="sidebar-links">
-                <a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+</div>
+</div>
+<!-- Project Info -->
+<div class="sidebar-meta">
+<div class="section-label">Project Info</div>
+<div class="meta-row">
+<div class="meta-item">
+<span class="meta-key">Status</span>
+<span class="meta-val"><span class="status-dot status-dot--live"></span>Active / Live</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Build Phase</span>
+<span class="meta-val">Pipeline shipped, slots planned</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">GitHub</span>
+<span class="meta-val"><a href="https://github.com/OKHP3/OverKill-Hill-FoundRy" rel="noopener noreferrer" target="_blank">OKHP3/OverKill-Hill-FoundRy ↗</a></span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Live URL</span>
+<span class="meta-val"><a href="https://okhp3.github.io/OverKill-Hill-FoundRy/" rel="noopener noreferrer" target="_blank">okhp3.github.io/OverKill-Hill-FoundRy ↗</a></span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Stack</span>
+<span class="meta-val">React, Vite, TypeScript, Tailwind</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Backend</span>
+<span class="meta-val">None. Local storage only</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Hosting</span>
+<span class="meta-val">GitHub Pages via Actions</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">License</span>
+<span class="meta-val">Apache-2.0</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Cost</span>
+<span class="meta-val">Free / Open Source</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Maintained by</span>
+<span class="meta-val"><a href="https://overkillhill.com">OverKill Hill P³</a></span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Forge Path</span>
+<span class="meta-val">Stage 02 of 04</span>
+</div>
+</div>
+<div class="sidebar-links">
+<a class="sidebar-link" href="https://okhp3.github.io/OverKill-Hill-FoundRy/" rel="noopener noreferrer" target="_blank">
                   ▶ Launch the Workbench
                 </a>
-                <a href="/prompt-forge/" class="sidebar-link">
+<a class="sidebar-link" href="/prompt-forge/">
                   ⛏ Prompt Forge (Stage 01)
                 </a>
-                <a href="/projects/skillz/" class="sidebar-link">
+<a class="sidebar-link" href="/projects/skillz/">
                   ⬡ Skillz Forge (Stage 03)
                 </a>
-                <a href="https://github.com/OKHP3/OverKill-Hill-FoundRy" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+<a class="sidebar-link" href="https://github.com/OKHP3/OverKill-Hill-FoundRy" rel="noopener noreferrer" target="_blank">
                   ◻ GitHub Repo
                 </a>
-                <a href="https://github.com/OKHP3/OverKill-Hill-FoundRy/issues" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+<a class="sidebar-link" href="https://github.com/OKHP3/OverKill-Hill-FoundRy/issues" rel="noopener noreferrer" target="_blank">
                   ⚐ Open an Issue
                 </a>
-              </div>
-            </div>
+</div>
+</div>
+<!-- Related -->
+<div class="sidebar-related" data-search-index="" id="related-resources">
+<div class="section-label">Related</div>
+<ul>
+<li><a href="/prompt-forge/">The Prompt Forge -- where the ore is graded</a></li>
+<li><a href="/projects/skillz/">Skillz Forge -- the capability shelf</a></li>
+<li><a href="/projects/glee-fully-chai-chasers/">Glee-fully Chai Chasers</a></li>
+<li><a href="/universe/">OKHP³™ Universe</a></li>
+<li><a href="/projects/">All OverKill Hill Projects</a></li>
+</ul>
+</div>
+<!-- On This Page -->
+<div class="sidebar-related" id="toc-widget">
+<div class="section-label">On This Page</div>
+<ul class="toc-list">
+<li><a href="#problem">The Problem</a></li>
+<li><a href="#the-forge">Ore, Heat, Anvil, Quench</a></li>
+<li><a href="#embed-tool">Live Workbench</a></li>
+<li><a href="#ecosystem">The Forge Path</a></li>
+<li><a href="#stations">The Nine Stations</a></li>
+<li><a href="#tools">Beyond the Pipeline</a></li>
+<li><a href="#what-it-is">Honest Scope</a></li>
+<li><a href="#principles">Principles</a></li>
+<li><a href="#origin">Origin</a></li>
+<li><a href="#roadmap">Roadmap</a></li>
+</ul>
+</div>
+</aside>
+</div><!-- /project-layout -->
+</div> /container 
 
-            <!-- Related -->
-            <div class="sidebar-related" id="related-resources" data-search-index>
-              <div class="section-label">Related</div>
-              <ul>
-                <li><a href="/prompt-forge/">The Prompt Forge -- where the ore is graded</a></li>
-                <li><a href="/projects/skillz/">Skillz Forge -- the capability shelf</a></li>
-                <li><a href="/projects/glee-fully-chai-chasers/">Glee-fully Chai Chasers</a></li>
-                <li><a href="/universe/">OKHP³™ Universe</a></li>
-                <li><a href="/projects/">All OverKill Hill Projects</a></li>
-              </ul>
-            </div>
-
-            <!-- On This Page -->
-            <div class="sidebar-related" id="toc-widget">
-              <div class="section-label">On This Page</div>
-              <ul class="toc-list">
-                <li><a href="#problem">The Problem</a></li>
-                <li><a href="#the-forge">Ore, Heat, Anvil, Quench</a></li>
-                <li><a href="#embed-tool">Live Workbench</a></li>
-                <li><a href="#ecosystem">The Forge Path</a></li>
-                <li><a href="#stations">The Nine Stations</a></li>
-                <li><a href="#tools">Beyond the Pipeline</a></li>
-                <li><a href="#what-it-is">Honest Scope</a></li>
-                <li><a href="#principles">Principles</a></li>
-                <li><a href="#origin">Origin</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
-              </ul>
-            </div>
-
-          </aside>
-
-        </div><!-- /project-layout -->
-
-      </div><!-- /container -->
-    </main>
-
-    <!-- ============================================================
-         FOOTER
-         ============================================================ -->
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div class="footer-column">
-          <h3>OverKill&nbsp;Hill&nbsp;P³™</h3>
-          <p>Protocol-first AI systems design: local inference, multi-model coordination, and the governance layer the platforms forgot to build.</p>
-        </div>
-        <div class="footer-column">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="/#forge">The Forge</a></li>
-            <li><a href="/universe/">P³ Universe</a></li>
-            <li><a href="/manifesto/">The Manifesto</a></li>
-            <li><a href="/projects/">Our Projects</a></li>
-            <li><a href="/writings/">Writings</a></li>
-            <li><a href="/about/">About OKH P³</a></li>
-            <li><a href="/contact/">Contact OKH P³</a></li>
-            <li><a href="/legal/">Legal</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
-            <li><a href="https://ko-fi.com/overkillhillp3" target="_blank" rel="noopener noreferrer">Ko-fi</a></li>
-            <li><a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener noreferrer">Fiverr</a></li>
-            <li><a href="https://www.linkedin.com/company/overkillhillp3" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="https://facebook.com/OverKillHillP3/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-            <li><a href="https://x.com/OverKillHillP3" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
-            <li><a href="https://www.youtube.com/@OverKillHillP3" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
-        <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">
-          Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a>
-        </span>
-        <p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³™. All rights reserved.</p>
-        <span></span>
-      </div>
-    </footer>
-
-    <!-- ============================================================
-         SCRIPTS
-         ============================================================ -->
-    <script src="/assets/js/app.js?v=e29596a8"></script>
-
-    <!-- Found-Ry iframe loading overlay + reload control -->
-    <script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </main>
+<footer class="site-footer">
+<div class="container footer-grid">
+<div class="footer-column">
+<h3>OverKill Hill P³™</h3>
+<p>Protocol-first AI systems design: local inference, multi-model coordination, and the governance layer the platforms forgot to build.</p>
+</div>
+<div class="footer-column">
+<h4>Navigation</h4>
+<ul>
+<li><a href="/#forge">The Forge</a></li>
+<li><a href="/universe/">P³ Universe</a></li>
+<li><a href="/manifesto/">The Manifesto</a></li>
+<li><a href="/projects/">Our Projects</a></li>
+<li><a href="/writings/">Writings</a></li>
+<li><a href="/about/">About OKH P³</a></li>
+<li><a href="/contact/">Contact OKH P³</a></li>
+<li><a href="/legal/">Legal</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Connect</h4>
+<ul>
+<li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
+<li><a href="https://ko-fi.com/overkillhillp3" rel="noopener noreferrer" target="_blank">Ko-fi</a></li>
+<li><a href="https://pro.fiverr.com/s/VYKPpoB" rel="noopener noreferrer" target="_blank">Fiverr</a></li>
+<li><a href="https://www.linkedin.com/company/overkillhillp3" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+<li><a href="https://facebook.com/OverKillHillP3/" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+<li><a href="https://x.com/OverKillHillP3" rel="noopener noreferrer" target="_blank">X (Twitter)</a></li>
+<li><a href="https://www.youtube.com/@OverKillHillP3" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
+<span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;" target="_blank">Replit</a></span>
+<p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill Hill P³™. All rights reserved.</p>
+<span></span>
+</div>
+</footer>
+    <script src="/assets/js/app.js?v=be5eab85"></script>
+<script>
       (function () {
         var btn = document.getElementById('foundry-reload-btn');
         var iframe = document.getElementById('foundry-tool-iframe');
@@ -1144,10 +1075,8 @@ flowchart LR
         showLoading();
       })();
     </script>
-
-    <!-- Mermaid: forge-path diagram, themed from brand tokens -->
-    <script type="module">
-      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs";
+<script type="module">
+      import mermaid from "/assets/vendor/mermaid/mermaid.esm.min.mjs";
 
       const styles = getComputedStyle(document.body);
 
@@ -1162,7 +1091,7 @@ flowchart LR
 
       mermaid.initialize({
         startOnLoad: true,
-        securityLevel: "loose",
+        securityLevel: "strict",
         theme: "base",
         themeVariables: {
           primaryColor: surface,
@@ -1183,5 +1112,31 @@ flowchart LR
         }
       });
     </script>
-  </body>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "OverKill Hill P³™",
+        "item": "https://overkillhill.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "item": "https://overkillhill.com/projects/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Found-Ry",
+        "item": "https://overkillhill.com/projects/found-ry/"
+      }
+      ]
+    }
+    </script>
+</body>
 </html>
