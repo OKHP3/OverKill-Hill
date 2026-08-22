@@ -1,270 +1,160 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
-  <head>
-
-    <!-- ========================================
-
+<head>
+<!-- ========================================
        METADATA: Core Document & Character Set
-
        ======================================== -->
-
-    <meta charset="utf-8" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <meta name="language" content="English" />
-
-
-
-    <!-- ========================================
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://cdn.jsdelivr.net 'sha256-2NPQY0ewseycVRsC+HHUhYLy0axbXFwhzfvpOSU+nIw=' 'sha256-3Cackdtp7Do2OrDkhZ8HQxibdFsvQhw0sUCB/9aSLkI=' 'sha256-4TvgmTekoiy9MiGX4pcZPC1+zpVRlpFZWZvCDuxuoRg=' 'sha256-6DuhTBpiipuy9jERXvPLChPCwm7AsB7YeVZHJ5ksPQk=' 'sha256-6qQFrumK+MBJP2jBD5/c2oyyWQl9kmfvYhkrAHbwAQI=' 'sha256-7//FvIo12Na/Gl24V5LF1JFIQrbnz6eFUWZuNysAJ98=' 'sha256-73/ZUPvlPEbQ2atsvJlr4+++azHPIy80M8liyrGynCY=' 'sha256-7cBx9QY/Bh31VpbxxCQoRsGJ3skKVq33jJgT/WH+yDc=' 'sha256-7lBK6wlFHjl6tV74OA/Df2r4gOiClnU3nxMnZJQvbLo=' 'sha256-7xDjo2X53t3p3w5O/66XkJRrLrYP4BolkoKOjhBaQ18=' 'sha256-83ioGcchzfdRDLGMcFCHjDPS7HZJfvrYjAly0xIC3fM=' 'sha256-8ER2+OkzKCugkK7Vm/Uk9Q8wG9+QfLmIBVTgWlN7/mg=' 'sha256-9+gDIB/FoOZbtN1NX7WLQUlPsi9h3u6HN1J0LVyv/44=' 'sha256-99UQai5rp0hhaOiU/AJWBeJOyVoO6s+t372hxKjIioY=' 'sha256-9tzuo39tJroe/r2NlVsIvJyqKOy42Cjot4ltZYfv3CM=' 'sha256-9wGbTwyvRgFpBYRmkSDWmGtmvCHhcYtEJclqmP9FpJo=' 'sha256-AoOtS/Oy98lq33Bzi2Ql2ULsxM3fbrxb09xvuAGMkWw=' 'sha256-FWN9B8uy7wve1RW95exrOkVb7x5h7NEDOLNZwNveEZw=' 'sha256-GKIJk2KT9bugkTZ9RfxPHCF2kcALaX3H0vH44ht247E=' 'sha256-JSwcPjWGXDAYaTZGfCB+6cpd0/AW82XCWneB7fLvyJo=' 'sha256-KPE5ui6CfQFY1vcShV5JQqG/wFuo8fkRFVxhoOlZo8A=' 'sha256-Onl0f/cB5mLfyrrQukG9H6HRVimBA+jiu8yf0axtdB4=' 'sha256-PvyhwLG2C4G93uK5NQbCcvL13llGqQOXkM9LLmDoNcY=' 'sha256-SEHWdY59isAzkbHGHWllo65NDvHkHxeUkDe5F3kHRQY=' 'sha256-Tas+0h0CkkBgZYJbPhHpNPO3V3PfPz8NXZJSp/H7xKY=' 'sha256-UdYfAt1aQja9FysEK0D0jsXLboZrY+t6qas3a2HSIjY=' 'sha256-WWf3hBnOj3Rat/lZq/+EP01wLY+BbdDtt5GC8wVX0Vg=' 'sha256-Z+w6pVqsMQYx1xBxn8G/poPHt0FjlwTZK1mVAarDvWc=' 'sha256-ZCip9CRySfoKaD5D2GhNFISP5pMJCXca5ESTFC14RuQ=' 'sha256-eoZKPPj7R1opAA3EaZUGTmO56gm1hhyiyo8phdpFl9c=' 'sha256-h3MviqQvY0Uwcgm9pQwXNx2B0853JumxOwz+7mBrC9w=' 'sha256-l/PdTy5HWMe1nzt7m5liItsDDozCwJs4PXnNtMfVw8Q=' 'sha256-mp6lyUlmS9p/vWjep6wkQJYFgohVN7+KFcLvsnyQgIY=' 'sha256-qvG3/sy4564Gcxgdc8GNN/fp4aLykKs92wZwsgTTkoQ=' 'sha256-t9VCwdw2kcI/DMN48uPJbbhjpzbKHBuZkAk+dmNEQ+I=' 'sha256-vbjnumaGfnX0chgJjnlz2mHY4K4YSldoiIN5tMpsJ8w=' 'sha256-wBcOJ/YnBvIVcoHaS1Hof0u/IrpkD4IR2zSxMB3DD1k=' 'sha256-yUOkJaqPNIZARyYqMlDbRGTCmZ/C+wMChomy6GJP3QI=' 'sha256-z+kbhAfYnais1UUyDCDwulWuXH8+RLiV94ugXlzKRl8='; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com 'sha256-+DuoRys2KWRSvKjNDt7/k81fGAk1mj0LV7QwEUgw9cc=' 'sha256-0QkYBXAyWbAd+/+nFHY9cljukfpFu5bFhdlk3YoPQes=' 'sha256-3rXzGZyCGY/OVDxZiMBfnkS2fH9AXfBwppkBkfpDTcM=' 'sha256-4S4hNIn3R4fXu51NbtGixVbuBtMyv/xuWa9dnJ/K1zY=' 'sha256-4Xd4GsDrggzvuwPp8w1D3HhUfVU3WvRSMpQz7XXh69Q=' 'sha256-4tOJl/LDQ37yihVDrOJTU8JF655RR92gpymrNA5hPak=' 'sha256-5fB/cG26X/GWxOroe55A7ZR2NgUDLMUDZnGMJDYA0wU=' 'sha256-62y96T9/+J3L9R1iR/ssIJXDvqXgf0LgAysUqlNb+cc=' 'sha256-6gM+j+kC1/JHId3OqVvWeXp4l48VcQGGvhRAu92/D4A=' 'sha256-7dqR3H9BfsYTH56GdwuUrSU1mQw/LdqAHm3Xig0lbpU=' 'sha256-8J4UKaxTL2RrEdD4mxd0EKMKZYBokRCvkpmvVICxohY=' 'sha256-AC3CbEeLPJf2W6daVbkfUpWh5e6gLviBovIHzqhb7I4=' 'sha256-AlNLydf8Oo5zmMamD/DJk9dU5pwObug1XdR55yXiBVc=' 'sha256-BVQwI1XMs+judwuBp6qTSKeBm7Qe/9Y0vierNK2EKW4=' 'sha256-CwL8RwCa8bGob1QG1vu5QZ6TxexJ8CNov/rHr16Kj6k=' 'sha256-D9ruVcBN33LGzX8q7yRAsPrZS5KjgX3EPWvX7sWWyrI=' 'sha256-Dw2yuZXpfLbQGVSS6+Dc1yQqtnkxA5bItx0dDpfEL7k=' 'sha256-G/EXI3nAn343k9zX00AXuWnDLIfGCfMFrLNYLazYwn4=' 'sha256-HNiWpXaWt2LIZnxwvhkuVd7Wm1LEyIXrCJ3LC4ED7jw=' 'sha256-HZToBBzNZUT4f842CDqTj0wexLFqDlz7e6PzQJp7da0=' 'sha256-IoGd6lEHMpdza7MIN3fgayUK8kvvq6aZp029RG1k4Fw=' 'sha256-JamKOmpIVQSPv+gDrYtzbxnVclnrvhrOMLmA+WaGPIE=' 'sha256-JkcUl1N8/ZqQ17T0hfO0ayOxtdvjh/bW1olXdBFpYew=' 'sha256-Kl1qRwd69L58NCto5s2eMIA0Lv4kWHer39ZKgNhUlkk=' 'sha256-Lc5JaXdSUbBDictCgqP12MJf4onOif/usdJP4T011Yc=' 'sha256-MiPgDldwa8URbFCSFpd0KvoCGs8+6zbAqQuQl1hGjU4=' 'sha256-NOIvf1CRb2XEfzH3VfG4B/Y63udbPNxuYP8fo1MRekQ=' 'sha256-NXTqLL8/I59UmOnV7tNjFWxURPt85KaZpa7nT1w/lDE=' 'sha256-O7VLA0NueNwvxBIPZG15AlOxETXxs9AfaAjCDorfKbg=' 'sha256-OpiawLL7Gu5feRhyNkZzBIiFFkOXLtqBvUGMuBdUWfM=' 'sha256-PEtoq1OJP+fDbtgJDGnJHlBwpwlQva6s5Kjad3ifM1s=' 'sha256-PcnIAdtr1NmNZcLFf5ftF5SvhkwLfoF+o79JrRr9ylA=' 'sha256-RTdaYHfr9TefF+AwkE/Uf/+Caw7RKK0FVhga+S/zmD8=' 'sha256-SZEeY3BjbbuYB9q7WMKkH+vVi//Im1FmD+bhHtViozw=' 'sha256-TOaIIZeh/Z50l+BRNbNisks9iBtnjrws592kTESLTN0=' 'sha256-U8kyFWenPtjSIMJITOzW0RBmEXkOX4VDh/ZZj506MpA=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-W2obUnMNnd+9L3r2CTfeQeaIV8OEKaAtcZycSK0dw/o=' 'sha256-WF+qLPFaH+RzchQWJohuietzqX7D7IjMJmb7wGqgLKc=' 'sha256-XIBB7vkTmAUIJl44z0N7ywoeVnnl7kVsLHvhi2EwqUE=' 'sha256-c6J4qHmzxJHrwXSgQrasGrwH0spulqDtVCZzRgFDce8=' 'sha256-cqi81knIZxngzyb4XrnqGdtxXgRacT17c5EgKXhc/BQ=' 'sha256-e/cdeSESwI9o9kTaVlwXghP35ZMjn7+5ZP5DB0UmaKk=' 'sha256-fWuzeFSknoBl4UkX7W0IvH+w9wFOdl07m2CfeKSBaH4=' 'sha256-i2sZysJsK6bSduhXCopySYrSJWwkyofJX+CaFV8z00c=' 'sha256-jmQSGe8fyxcQnYynl+2n50Q9M23KLUR2rRs3T3xCxAM=' 'sha256-k7I6qK5PklzlB762ItLpiRae3HmFmcIik7jI5hD+ce4=' 'sha256-nFJ+3/yrhOnSCrBolwPAUiQEtW1aoa7C2PTPVOP3MZ4=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-r7zPOqM+1h0txetMIbk4qyJDeS62YpiQ8jkhkzFtS2k=' 'sha256-t9BHAe/cVuN8O0/IKUhhJYmVlsQ0uzGvS87o8BOqBWQ=' 'sha256-taDayx3lNjDkiAoozt00Nd0BdBR0pmBLiFXKt30RZMw=' 'sha256-v234sgY5ep0DbpmLXSO8oWt97mwa6jK4Cu93toKqMWY=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-xzY/LdykOGxgvwgEwvnWKP2PLguAhvL7vhi2gZHwsqo=' 'sha256-y5obLVRChtKifE0CL62I5G9KcKibCbsobXYQpYejssY=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y=' 'sha256-z+AkgkT28yIyST9LT2RBjr0JxOfBXijJkLuTEYGGKLg='; style-src-attr 'unsafe-hashes' 'sha256-+DuoRys2KWRSvKjNDt7/k81fGAk1mj0LV7QwEUgw9cc=' 'sha256-0QkYBXAyWbAd+/+nFHY9cljukfpFu5bFhdlk3YoPQes=' 'sha256-3rXzGZyCGY/OVDxZiMBfnkS2fH9AXfBwppkBkfpDTcM=' 'sha256-4S4hNIn3R4fXu51NbtGixVbuBtMyv/xuWa9dnJ/K1zY=' 'sha256-4Xd4GsDrggzvuwPp8w1D3HhUfVU3WvRSMpQz7XXh69Q=' 'sha256-4tOJl/LDQ37yihVDrOJTU8JF655RR92gpymrNA5hPak=' 'sha256-5fB/cG26X/GWxOroe55A7ZR2NgUDLMUDZnGMJDYA0wU=' 'sha256-62y96T9/+J3L9R1iR/ssIJXDvqXgf0LgAysUqlNb+cc=' 'sha256-6gM+j+kC1/JHId3OqVvWeXp4l48VcQGGvhRAu92/D4A=' 'sha256-7dqR3H9BfsYTH56GdwuUrSU1mQw/LdqAHm3Xig0lbpU=' 'sha256-8J4UKaxTL2RrEdD4mxd0EKMKZYBokRCvkpmvVICxohY=' 'sha256-AC3CbEeLPJf2W6daVbkfUpWh5e6gLviBovIHzqhb7I4=' 'sha256-AlNLydf8Oo5zmMamD/DJk9dU5pwObug1XdR55yXiBVc=' 'sha256-BVQwI1XMs+judwuBp6qTSKeBm7Qe/9Y0vierNK2EKW4=' 'sha256-CwL8RwCa8bGob1QG1vu5QZ6TxexJ8CNov/rHr16Kj6k=' 'sha256-D9ruVcBN33LGzX8q7yRAsPrZS5KjgX3EPWvX7sWWyrI=' 'sha256-Dw2yuZXpfLbQGVSS6+Dc1yQqtnkxA5bItx0dDpfEL7k=' 'sha256-G/EXI3nAn343k9zX00AXuWnDLIfGCfMFrLNYLazYwn4=' 'sha256-HNiWpXaWt2LIZnxwvhkuVd7Wm1LEyIXrCJ3LC4ED7jw=' 'sha256-HZToBBzNZUT4f842CDqTj0wexLFqDlz7e6PzQJp7da0=' 'sha256-IoGd6lEHMpdza7MIN3fgayUK8kvvq6aZp029RG1k4Fw=' 'sha256-JamKOmpIVQSPv+gDrYtzbxnVclnrvhrOMLmA+WaGPIE=' 'sha256-JkcUl1N8/ZqQ17T0hfO0ayOxtdvjh/bW1olXdBFpYew=' 'sha256-Kl1qRwd69L58NCto5s2eMIA0Lv4kWHer39ZKgNhUlkk=' 'sha256-Lc5JaXdSUbBDictCgqP12MJf4onOif/usdJP4T011Yc=' 'sha256-MiPgDldwa8URbFCSFpd0KvoCGs8+6zbAqQuQl1hGjU4=' 'sha256-NOIvf1CRb2XEfzH3VfG4B/Y63udbPNxuYP8fo1MRekQ=' 'sha256-NXTqLL8/I59UmOnV7tNjFWxURPt85KaZpa7nT1w/lDE=' 'sha256-O7VLA0NueNwvxBIPZG15AlOxETXxs9AfaAjCDorfKbg=' 'sha256-OpiawLL7Gu5feRhyNkZzBIiFFkOXLtqBvUGMuBdUWfM=' 'sha256-PEtoq1OJP+fDbtgJDGnJHlBwpwlQva6s5Kjad3ifM1s=' 'sha256-PcnIAdtr1NmNZcLFf5ftF5SvhkwLfoF+o79JrRr9ylA=' 'sha256-RTdaYHfr9TefF+AwkE/Uf/+Caw7RKK0FVhga+S/zmD8=' 'sha256-SZEeY3BjbbuYB9q7WMKkH+vVi//Im1FmD+bhHtViozw=' 'sha256-TOaIIZeh/Z50l+BRNbNisks9iBtnjrws592kTESLTN0=' 'sha256-U8kyFWenPtjSIMJITOzW0RBmEXkOX4VDh/ZZj506MpA=' 'sha256-USD5I0Uke2BomMRvYHGNEhIx9KMRLgQmk1gmgD2WSF0=' 'sha256-W2obUnMNnd+9L3r2CTfeQeaIV8OEKaAtcZycSK0dw/o=' 'sha256-WF+qLPFaH+RzchQWJohuietzqX7D7IjMJmb7wGqgLKc=' 'sha256-XIBB7vkTmAUIJl44z0N7ywoeVnnl7kVsLHvhi2EwqUE=' 'sha256-c6J4qHmzxJHrwXSgQrasGrwH0spulqDtVCZzRgFDce8=' 'sha256-cqi81knIZxngzyb4XrnqGdtxXgRacT17c5EgKXhc/BQ=' 'sha256-e/cdeSESwI9o9kTaVlwXghP35ZMjn7+5ZP5DB0UmaKk=' 'sha256-fWuzeFSknoBl4UkX7W0IvH+w9wFOdl07m2CfeKSBaH4=' 'sha256-i2sZysJsK6bSduhXCopySYrSJWwkyofJX+CaFV8z00c=' 'sha256-jmQSGe8fyxcQnYynl+2n50Q9M23KLUR2rRs3T3xCxAM=' 'sha256-k7I6qK5PklzlB762ItLpiRae3HmFmcIik7jI5hD+ce4=' 'sha256-nFJ+3/yrhOnSCrBolwPAUiQEtW1aoa7C2PTPVOP3MZ4=' 'sha256-o2F2YEaxG8fhv5dlsldKKYjrxn9xS0ZZkRgMgMMjXps=' 'sha256-o3X9eICU5TfP5iOqxTPTsZzimGb0BN7MXNgV8l+EDlM=' 'sha256-o8nFr6pN4NzYV5vroc+6INvuMSqnMnjDaeyL6r9Khf0=' 'sha256-r7zPOqM+1h0txetMIbk4qyJDeS62YpiQ8jkhkzFtS2k=' 'sha256-t9BHAe/cVuN8O0/IKUhhJYmVlsQ0uzGvS87o8BOqBWQ=' 'sha256-taDayx3lNjDkiAoozt00Nd0BdBR0pmBLiFXKt30RZMw=' 'sha256-v234sgY5ep0DbpmLXSO8oWt97mwa6jK4Cu93toKqMWY=' 'sha256-v3BKVjHiGTZjMIpW5iftvqPOKq4aSily0/9f03heWfc=' 'sha256-xzY/LdykOGxgvwgEwvnWKP2PLguAhvL7vhi2gZHwsqo=' 'sha256-y5obLVRChtKifE0CL62I5G9KcKibCbsobXYQpYejssY=' 'sha256-yjvc7/PVFyKrRPLBhYlnZwzEBmcBmmnaW90UAQtlJ9Y=' 'sha256-z+AkgkT28yIyST9LT2RBjr0JxOfBXijJkLuTEYGGKLg='; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://overkillhill.com https://*.github.io; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests" /><meta content="English" name="language"/>
+<!-- ========================================
        METADATA: Primary Title & Description
-
        ======================================== -->
-
-    <title>OKHP³™ Universe | OverKill Hill P³™</title>
-
-    <meta name="description" content="A visual systems map of the OverKill Hill P³™ universe: how the forge, experiments, and sibling brands like AskJamie™ connect." />
-
-    <meta name="keywords" content="OverKill Hill P³, OKHP³, AI systems map, agentic AI, local AI, Glee-fully Tools, AskJamie, BrandGuard, narrative experiments, AI systems, speculative fiction, protocol-driven AI, multi-model AI" />
-
-    <meta name="author" content="OverKill Hill P³™" />
-
-    <meta name="creator" content="OverKill Hill P³™" />
-
-    <meta name="publisher" content="OverKill Hill P³™" />
-
-
-
-    <!-- ========================================
-
+<title>OKHP³™ Universe | OverKill Hill P³™</title>
+<meta content="A visual systems map of the OverKill Hill P³™ universe: how the forge, experiments, and sibling brands like AskJamie™ connect." name="description"/>
+<meta content="OverKill Hill P³, OKHP³, AI systems map, agentic AI, local AI, Glee-fully Tools, AskJamie, BrandGuard, narrative experiments, AI systems, speculative fiction, protocol-driven AI, multi-model AI" name="keywords"/>
+<meta content="OverKill Hill P³™" name="author"/>
+<meta content="OverKill Hill P³™" name="creator"/>
+<meta content="OverKill Hill P³™" name="publisher"/>
+<!-- ========================================
        METADATA: Open Graph (Social Sharing)
-
        ======================================== -->
-
-    <meta property="og:title" content="OverKill Hill P³™: OKHP³™ Universe Map" />
-
-    <meta property="og:description" content="A visual systems map of the OverKill Hill P³™ universe: how the forge, experiments, and sibling brands like AskJamie™ connect." />
-
-    <meta property="og:type" content="website" />
-
-    <meta property="og:url" content="https://overkillhill.com/universe/" />
-
-    <meta property="og:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
-
-    <meta property="og:image:alt" content="Mechanical raven perched on a vintage computer, OverKill Hill P³ illustration" />
-
-    <meta property="og:image:width" content="1024" />
-
-    <meta property="og:image:height" content="1024" />
-
-    <meta property="og:image:type" content="image/png" />
-
-    <meta property="og:site_name" content="OverKill Hill P³™" />
-
-    <meta property="og:locale" content="en_US" />
-
-
-
-    <!-- ========================================
-
+<meta content="OverKill Hill P³™: OKHP³™ Universe Map" property="og:title"/>
+<meta content="A visual systems map of the OverKill Hill P³™ universe: how the forge, experiments, and sibling brands like AskJamie™ connect." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://overkillhill.com/universe/" property="og:url"/>
+<meta content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" property="og:image"/>
+<meta content="Mechanical raven perched on a vintage computer, OverKill Hill P³ illustration" property="og:image:alt"/>
+<meta content="1024" property="og:image:width"/>
+<meta content="1024" property="og:image:height"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="OverKill Hill P³™" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- ========================================
        METADATA: Twitter Card (X Social)
-
        ======================================== -->
-
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <meta name="twitter:title" content="OverKill Hill P³™: OKHP³™ Universe Map" />
-
-    <meta name="twitter:description" content="A visual systems map of the OverKill Hill P³™ universe: how the forge, experiments, and sibling brands like AskJamie™ connect." />
-
-    <meta name="twitter:image" content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" />
-
-    <meta name="twitter:image:alt" content="Mechanical raven perched on a vintage computer, OverKill Hill P³ illustration" />
-
-    <meta name="twitter:site" content="@OverKillHillP3" />
-
-    <meta name="twitter:creator" content="@OverKillHillP3" />
-
-
-
-    <!-- ========================================
-
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="OverKill Hill P³™: OKHP³™ Universe Map" name="twitter:title"/>
+<meta content="A visual systems map of the OverKill Hill P³™ universe: how the forge, experiments, and sibling brands like AskJamie™ connect." name="twitter:description"/>
+<meta content="https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" name="twitter:image"/>
+<meta content="Mechanical raven perched on a vintage computer, OverKill Hill P³ illustration" name="twitter:image:alt"/>
+<meta content="@OverKillHillP3" name="twitter:site"/>
+<meta content="@OverKillHillP3" name="twitter:creator"/>
+<!-- ========================================
        METADATA: Search & Crawling
-
        ======================================== -->
-
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-
-    <meta name="googlebot" content="index, follow" />
-
-    <meta name="bingbot" content="index, follow" />
-
-    <meta name="revisit-after" content="7 days" />
-
-    <link rel="author" href="/humans.txt" />
-
-    <link rel="canonical" href="https://overkillhill.com/universe/" />
-
-    <link rel="alternate" hreflang="en" href="https://overkillhill.com/universe/" />
-
-
-
-    <!-- ========================================
-
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="index, follow" name="googlebot"/>
+<meta content="index, follow" name="bingbot"/>
+<meta content="7 days" name="revisit-after"/>
+<link href="/humans.txt" rel="author"/>
+<link href="https://overkillhill.com/universe/" rel="canonical"/>
+<link href="https://overkillhill.com/universe/" hreflang="en" rel="alternate"/>
+<!-- ========================================
        METADATA: Color Scheme & Theme
-
        ======================================== -->
-
-    <meta name="theme-color" content="#2a2320" />
-
-    <meta name="color-scheme" content="dark light" />
-
-
-
-    <!-- ========================================
-
+<meta content="#2a2320" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<!-- ========================================
        METADATA: Web App & PWA
-
        ======================================== -->
-
-    <meta name="mobile-web-app-capable" content="yes" />
-
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-
-
-    <!-- ========================================
-
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<!-- ========================================
        FAVICONS: Multi-Format Icon Support
-
        ======================================== -->
-
-    <link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
-
-    <link rel="icon" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
-
-    <link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180" type="image/png" />
-
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-
-    <link rel="manifest" href="/site.webmanifest" />
-
-
-
-    <!-- ========================================
-
+<link href="/assets/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/assets/img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- ========================================
        STYLESHEETS & FONTS
-
        ======================================== -->
-
-    <!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body) -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" />
-
-    <link rel="stylesheet" href="/assets/css/theme.css?v=66e640fe" />
-
-
-
-      <script type="speculationrules">
-
+<!-- OverKill Hill P³ typography: Alfa Slab One (headings), DM Sans (body) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
+<link href="/assets/css/theme.css?v=4b831f47" rel="stylesheet"/>
+<script type="speculationrules">
     {
-
       "prefetch": [
-
         { "source": "document", "where": { "and": [
-
           { "href_matches": "/*" },
-
           { "not": { "selector_matches": "[rel~=nofollow]" } },
-
           { "not": { "href_matches": "/*.{png,jpg,jpeg,webp,svg,ico,gif,pdf,zip}" } }
-
         ]}, "eagerness": "moderate" }
-
       ]
-
     }
-
     </script>
-
-      <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-
-      <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs" crossorigin />
-
-  
-
-    <!-- ========================================
-
-       STRUCTURED DATA: BreadcrumbList
-
-       ======================================== -->
-
-    <script type="application/ld+json">
-
-    {
-
-      "@context": "https://schema.org",
-
-      "@type": "BreadcrumbList",
-
-      "itemListElement": [
-
-      {
-
-        "@type": "ListItem",
-
-        "position": 1,
-
-        "name": "OverKill Hill P³™",
-
-        "item": "https://overkillhill.com/"
-
-      },
-
-      {
-
-        "@type": "ListItem",
-
-        "position": 2,
-
-        "name": "Universe",
-
-        "item": "https://overkillhill.com/universe/"
-
-      }
-
-      ]
-
-    }
-
-    </script>
-
-      <!-- Google tag (gtag.js) -->
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
-
-    <script>
-
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"></script>
+<script>
       window.dataLayer = window.dataLayer || [];
-
       function gtag(){dataLayer.push(arguments);}
-
       gtag('js', new Date());
-
       gtag('config', 'G-VJ1BKXS27H');
-
     </script>
+<<<<<<< HEAD
+</head>
+<body>
+  <a class="okh-skip-link" href="#main">Skip to main content</a>
+<header class="site-header" id="top">
+<div class="container">
+<div class="logo">
+<a href="#top">
+<img alt="OverKill Hill P³ logo" height="40" loading="lazy" src="/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png" width="40"/>
+<span class="sr-only">OverKill Hill P³™ Home</span>
+</a>
+</div>
+<nav aria-label="Primary" class="primary-nav" id="navigation">
+<ul>
+<li><a href="/#forge">The Forge</a></li>
+<li class="has-submenu">
+<a href="/projects/">Our Projects</a>
+<ul class="submenu">
+<li><a href="/projects/skillz/">Skillz Forge</a></li>
+<li><a href="/projects/found-ry/">Found‑Rᵧ</a></li>
+<li><a href="/projects/mermaid-theme-builder/">Mermaid Theme Builder</a></li>
+<li><a href="/projects/bpmn-for-mermaid/">BPMN for Mermaid</a></li>
+<li><a href="/projects/mac-studio-local-ai-workbench/">Mac Studio Local AI Workbench</a></li>
+<li><a href="/projects/abrahamic-reference-engine/">Abrahamic Reference Engine</a></li>
+<li><a href="/projects/glee-fully-chai-chasers/">Glee-fully Chai Chasers</a></li>
+</ul>
+</li>
+<!-- Writings cluster: Manifesto / Promptcraft / FDIAL -->
+<li class="has-submenu">
+<a href="/writings/">Writings</a>
+<ul class="submenu">
+<li><a href="/manifesto/">The Manifesto</a></li>
+<li><a href="/prompt-forge/">The Prompt Forge</a></li>
+<li><a href="/writings/first-diagram-is-a-liar/">The First Diagram is a Liar</a></li>
+</ul>
+</li>
+<!-- About cluster: Universe / About / Contact / Legal -->
+<li class="has-submenu">
+<a href="/about/">About</a>
+<ul class="submenu">
+<li><a aria-current="page" href="/universe/">OKHP³™ Universe</a></li>
+<li><a href="/about/">About OKHP³™</a></li>
+<li><a href="/contact/">Contact</a></li>
+<li><a href="/legal/">Legal</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<button aria-controls="navigation" aria-expanded="false" class="nav-toggle">
+<span class="sr-only">Toggle navigation</span>
+<span class="bar"></span><span class="bar"></span><span class="bar"></span>
+</button>
+</div>
+<section aria-label="Forge update" class="site-specials site-specials--okh">
+<span class="site-specials-label">🔥Hot off the FORGE⚒️</span>
+<a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
+=======
 
   </head>
 
@@ -382,73 +272,57 @@
 
         <a class="site-specials-link" href="/writings/first-diagram-is-a-liar/#council-scoring">
 
+>>>>>>> 344e046d7ba1e95be2f8d01907d18129240024e6
           v0.5 is live: the Council of AIs scored each other, every model was harder on itself than the architect was. Read it →
-
         </a>
-
-      </section>
-
-
-
-    </header>
+</section>
+</header>
+  <main id="main">
 
 
 
-    <main id="main">
-
-      <!-- HERO -->
-
-      <section class="hero" id="universe" aria-labelledby="hero-title">
-
-        <div class="hero-blueprint-bg"></div>
-
-        <div class="brand-stripes brand-stripes--okh" aria-hidden="true"></div>
 
 
 
-        <div class="container hero-inner reveal-on-scroll">
 
-          <div class="hero-grid">
 
-            <div>
 
-              <p class="hero-eyebrow">OKHP³™ Universe</p>
 
-              <h1 id="hero-title">Systems, stories &amp; GPT ecosystems on one map.</h1>
 
-              <p class="hero-subline">Blueprint of the Hill</p>
+ HERO 
+<section aria-labelledby="hero-title" class="hero" id="universe">
+<div class="hero-blueprint-bg"></div>
+<div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div>
+<div class="container hero-inner reveal-on-scroll">
+<div class="hero-grid">
+<div>
+<p class="hero-eyebrow">OKHP³™ Universe</p>
+<h1 id="hero-title">Systems, stories &amp; GPT ecosystems on one map.</h1>
+<p class="hero-subline">Blueprint of the Hill</p>
+<p class="hero-tagline">
 
-              <p class="hero-tagline">
-
-                OverKill&nbsp;Hill&nbsp;P³™ sits at the center of a network of sibling brands, experimental GPT stacks and
+                OverKill Hill P³™ sits at the center of a network of sibling brands, experimental GPT stacks and
 
                 narrative worlds. This map shows how those layers are wired together: the forge, the friendly
 
                 faces and the deliberately weird experiments.
 
               </p>
-
-              <div class="hero-actions">
-
-                <a href="/projects/" class="btn btn-primary">
+<div class="hero-actions">
+<a class="btn btn-primary" href="/projects/">
 
                   Explore the projects
 
                 </a>
-
-                <a href="/#forge" class="btn btn-quiet">
+<a class="btn btn-quiet" href="/#forge">
 
                   Back to the forge
 
                 </a>
-
-              </div>
-
-              <div>
-
-                <figure class="okh-mermaid-shell">
-
-                  <pre class="mermaid">
+</div>
+<div>
+<figure class="okh-mermaid-shell">
+<pre class="mermaid">
 
                     %%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#111827', 'primaryTextColor': '#e5e7eb', 'primaryBorderColor': '#c46a2c', 'lineColor': '#c46a2c', 'secondaryColor': '#181f26', 'tertiaryColor': '#1c3a34', 'textColor': '#e5e7eb'}}}%%
 
@@ -456,11 +330,11 @@
 
 
 
-                      OKH["OverKill&nbsp;Hill&nbsp;P³™"]
+                      OKH["OverKill Hill P³™"]
 
-                      GPT["Glee&#8209;fully Personalizable Tools™"]
+                      GPT["Glee‑fully Personalizable Tools™"]
 
-                      GTTB00["00: Glee&#8209;fully Toolbox"]
+                      GTTB00["00: Glee‑fully Toolbox"]
 
                       GTDC01["01: Discovered Careers"]
 
@@ -538,11 +412,11 @@
 
                       FDY99["GPTs to build GPTs"]
 
-                      WRIT["Writing & Narrative Experiments"]
+                      WRIT["Writing &amp; Narrative Experiments"]
 
                       KNO["Knowledge Files"]
 
-                      PRO["Protocols & Promptcraft"]
+                      PRO["Protocols &amp; Promptcraft"]
 
                       MPS["Magnus Progenitor Saga"]
 
@@ -550,101 +424,101 @@
 
 
 
-                      OKH --> GPT
+                      OKH --&gt; GPT
 
-                      GPT --> GTTB00
+                      GPT --&gt; GTTB00
 
-                      GTTB00 --> GTDC01
+                      GTTB00 --&gt; GTDC01
 
-                      GTTB00 --> GTTF02
+                      GTTB00 --&gt; GTTF02
 
-                      GTTB00 --> GTTT03
+                      GTTB00 --&gt; GTTT03
 
-                      GTTB00 --> GTTG04
+                      GTTB00 --&gt; GTTG04
 
-                      GTTB00 --> GTOL05
+                      GTTB00 --&gt; GTOL05
 
-                      GTTB00 --> GTHB06
+                      GTTB00 --&gt; GTHB06
 
-                      GTTB00 --> GTIK07
+                      GTTB00 --&gt; GTIK07
 
-                      OKH --> ASJ
+                      OKH --&gt; ASJ
 
-                      ASJ --> AJ01
+                      ASJ --&gt; AJ01
 
-                      ASJ --> AJ02
+                      ASJ --&gt; AJ02
 
-                      ASJ --> AJ03
+                      ASJ --&gt; AJ03
 
-                      ASJ --> AJ04
+                      ASJ --&gt; AJ04
 
-                      AJ04 --> BRG00
+                      AJ04 --&gt; BRG00
 
-                      AJ04 --> BRG01
+                      AJ04 --&gt; BRG01
 
-                      AJ04 --> BRG02
+                      AJ04 --&gt; BRG02
 
-                      AJ04 --> BRG03
+                      AJ04 --&gt; BRG03
 
-                      AJ04 --> BRG04
+                      AJ04 --&gt; BRG04
 
-                      AJ04 --> BRG05
+                      AJ04 --&gt; BRG05
 
-                      AJ04 --> BRG06
+                      AJ04 --&gt; BRG06
 
-                      AJ04 --> BRG07
+                      AJ04 --&gt; BRG07
 
-                      AJ04 --> BRG08
+                      AJ04 --&gt; BRG08
 
-                      AJ04 --> BRG09
+                      AJ04 --&gt; BRG09
 
-                      AJ04 --> BRG10
+                      AJ04 --&gt; BRG10
 
-                      AJ04 --> BRG11
+                      AJ04 --&gt; BRG11
 
-                      OKH --> BFS01
+                      OKH --&gt; BFS01
 
-                      OKH --> UNT00
+                      OKH --&gt; UNT00
 
-                      UNT00 --> UNT01
+                      UNT00 --&gt; UNT01
 
-                      UNT00 --> UNT02
+                      UNT00 --&gt; UNT02
 
-                      UNT00 --> UNT03
+                      UNT00 --&gt; UNT03
 
-                      OKH --> PSR00
+                      OKH --&gt; PSR00
 
-                      OKH --> ARE00
+                      OKH --&gt; ARE00
 
-                      OKH --> HMT00
+                      OKH --&gt; HMT00
 
-                      HMT00 --> HMT01
+                      HMT00 --&gt; HMT01
 
-                      HMT00 --> HMT02
+                      HMT00 --&gt; HMT02
 
-                      HMT00 --> HMT03
+                      HMT00 --&gt; HMT03
 
-                      HMT00 --> HMT04
+                      HMT00 --&gt; HMT04
 
-                      OKH --> FDY00
+                      OKH --&gt; FDY00
 
-                      FDY00 --> FDY99
+                      FDY00 --&gt; FDY99
 
-                      OKH --> WRIT
+                      OKH --&gt; WRIT
 
-                      WRIT --> KNO
+                      WRIT --&gt; KNO
 
-                      WRIT --> PRO
+                      WRIT --&gt; PRO
 
-                      WRIT --> MPS
+                      WRIT --&gt; MPS
 
-                      WRIT --> BAC
+                      WRIT --&gt; BAC
 
 
 
                       %% Clickable links
 
-                        click GPT "https://glee-fully.tools/" "Visit Glee&#8209;fully Tools™" _blank
+                        click GPT "https://glee-fully.tools/" "Visit Glee‑fully Tools™" _blank
 
                         click GTTB00 "https://glee-fully.tools/toolbox/" "Open the Toolbox hub" _self
 
@@ -674,7 +548,7 @@
 
                         click BRG00 "https://askjamie.bot/lens-system/okhp3-brandguard/bfs-framing-intelligent-futures/" "Open BFS – Framing Intelligent Futures" _self
 
-                        click OKH "https://overkillhill.com/" "Visit OverKill&nbsp;Hill&nbsp;P³™" _blank
+                        click OKH "https://overkillhill.com/" "Visit OverKill Hill P³™" _blank
 
                         click BFS01 "https://overkillhill.com/projects/bfs-framing-intelligent-futures/" "Open BFS – Framing Intelligent Futures" _self
 
@@ -695,44 +569,30 @@
 
 
                   </pre>
+<figcaption class="sr-only">
 
-                  <figcaption class="sr-only">
+                    Diagram of the OverKill Hill P³™ universe, showing
 
-                    Diagram of the OverKill&nbsp;Hill&nbsp;P³™ universe, showing
-
-                    connections between OverKill&nbsp;Hill, AskJamie™, Glee‑fully
+                    connections between OverKill Hill, AskJamie™, Glee‑fully
 
                     Personalizable Tools™, BrandGuard™, BFS, and narrative
 
                     experiments like Magnus Progenitor Saga.
 
                   </figcaption>
+</figure>
+<p class="diagram-gallery-note">Diagram rendered with Mermaid.js. <a class="mermaid-referral-link" href="https://mermaidchart.cello.so/UhVlNtC2MlS" rel="noopener noreferrer" target="_blank">Try Mermaid.AI →</a> if you want to explore the syntax yourself.</p>
+</div>
+</div>
+</div>
+</div></section>
+ HOW TO READ THIS MAP 
+<section class="content-section container reveal-on-scroll">
+<header class="section-header">
+<h2>How to read this map</h2>
+<p>
 
-                </figure>
-
-                <p class="diagram-gallery-note">Diagram rendered with Mermaid.js. <a href="https://mermaidchart.cello.so/UhVlNtC2MlS" class="mermaid-referral-link" target="_blank" rel="noopener noreferrer">Try Mermaid.AI &#8594;</a> if you want to explore the syntax yourself.</p>
-
-              </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-
-      <!-- HOW TO READ THIS MAP -->
-
-      <section class="content-section container reveal-on-scroll">
-
-        <header class="section-header">
-
-          <h2>How to read this map</h2>
-
-          <p>
-
-            Each node is a pillar in the OverKill&nbsp;Hill&nbsp;P³™ stack. Some pieces
+            Each node is a pillar in the OverKill Hill P³™ stack. Some pieces
 
             are production‑ready, others are active experiments. From an OKH
 
@@ -741,18 +601,11 @@
             R&amp;D and how the sibling brands plug into the spine.
 
           </p>
-
-        </header>
-
-
-
-        <div class="grid grid-3">
-
-          <article class="card">
-
-            <h3>OverKill&nbsp;Hill&nbsp;P³™</h3>
-
-            <p>
+</header>
+<div class="grid grid-3">
+<article class="card">
+<h3>OverKill Hill P³™</h3>
+<p>
 
               The engineering spine. This is where protocol patterns, canon and
 
@@ -761,14 +614,10 @@
               behave under ambiguity, load and real‑world constraints.
 
             </p>
-
-          </article>
-
-          <article class="card">
-
-            <h3>AskJamie™</h3>
-
-            <p>
+</article>
+<article class="card">
+<h3>AskJamie™</h3>
+<p>
 
               The voice layer. A mid‑century helpdesk persona and its spin‑offs
 
@@ -777,42 +626,27 @@
               people through decisions across the wider system.
 
             </p>
-
-          </article>
-
-          <article class="card">
-
-            <h3>Glee‑fully Tools™</h3>
-
-            <p>
+</article>
+<article class="card">
+<h3>Glee‑fully Tools™</h3>
+<p>
 
               The joy layer. A retro‑bright ecosystem of personalizable GPTs
 
               for everyday life (career, food, travel, health, and identity),
 
-              all built on OverKill&nbsp;Hill&nbsp;P³™ architecture.
+              all built on OverKill Hill P³™ architecture.
 
             </p>
-
-          </article>
-
-        </div>
-
-      </section>
-
-
-
-      <!-- SYSTEMS & ECOSYSTEMS -->
-
-      <section class="stripe-bg">
-
-        <div class="container content-section reveal-on-scroll">
-
-          <header class="section-header">
-
-            <h2>Systems &amp; ecosystems</h2>
-
-            <p>
+</article>
+</div>
+</section>
+ SYSTEMS &amp; ECOSYSTEMS 
+<section class="stripe-bg">
+<div class="container content-section reveal-on-scroll">
+<header class="section-header">
+<h2>Systems &amp; ecosystems</h2>
+<p>
 
               Most of the universe starts at the Hill, then branches into
 
@@ -821,286 +655,132 @@
               now, and what’s explicitly in “work in progress” territory.
 
             </p>
-
-          </header>
-
-
-
-          <ul class="feature-list">
-
-            <li>
-
-              <strong
-
-                ><a href="https://glee-fully.tools/"
-
-                  >Glee‑fully Personalizable Tools™</a
-
-                >:</strong
-
-              >
+</header>
+<ul class="feature-list">
+<li>
+<strong><a href="https://glee-fully.tools/">Glee‑fully Personalizable Tools™</a>:</strong>
 
               A retro‑modern toolbox of GPTs built for joy, organization and
 
               creative play.
 
             </li>
-
-            <li>
-
-              <strong
-
-                ><a href="https://askjamie.bot/" target="_blank" rel="noopener noreferrer">AskJamie™</a>:</strong
-
-              >
+<li>
+<strong><a href="https://askjamie.bot/" rel="noopener noreferrer" target="_blank">AskJamie™</a>:</strong>
 
               A mid‑century helpdesk persona with several specialist spin‑offs
 
               for documentation, technical coaching and more.
 
             </li>
-
-            <li>
-
-              <strong
-
-                ><a
-
-                  href="https://askjamie.bot/lens-system/okhp3-brandguard/"
-
-                  target="_blank" rel="noopener noreferrer"
-
-                  >OKH P³ BrandGuard™</a
-
-                >:</strong
-
-              >
+<li>
+<strong><a href="https://askjamie.bot/lens-system/okhp3-brandguard/" rel="noopener noreferrer" target="_blank">OKH P³ BrandGuard™</a>:</strong>
 
               Guardian GPTs to enforce tone, consistency and ethical framing,
 
               including the BFS: Framing Intelligent Futures strategic tool.
 
             </li>
-
-            <li>
-
-              <strong
-
-                ><a href="/projects/un-nocked-truth/"
-
-                  >Un‑NOCKed Truth</a
-
-                >:</strong
-
-              >
+<li>
+<strong><a href="/projects/un-nocked-truth/">Un‑NOCKed Truth</a>:</strong>
 
               Archery for anyone: a beginner‑friendly archery learning suite
 
               built on AI.
 
             </li>
-
-            <li>
-
-              <strong
-
-                ><a href="/projects/pathscrib-r/"
-
-                  >PathScrib‑R</a
-
-                >:</strong
-
-              >
+<li>
+<strong><a href="/projects/pathscrib-r/">PathScrib‑R</a>:</strong>
 
               A narrative copilot and generative writing assistant that explores
 
               plot and character arcs.
 
             </li>
-
-            <li>
-
-              <strong
-
-                ><a href="/projects/hometools/"
-
-                  >Homestead‑R</a
-
-                >:</strong
-
-              >
+<li>
+<strong><a href="/projects/hometools/">Homestead‑R</a>:</strong>
 
               Homestead‑oriented GPTs for sustainable living, from seed planning
 
               to livestock care.
 
             </li>
-
-            <li>
-
-              <strong
-
-                ><a href="/projects/found-ry/">Found‑Rᵧ</a>:</strong
-
-              >
+<li>
+<strong><a href="/projects/found-ry/">Found‑Rᵧ</a>:</strong>
 
               GPTs that build GPTs. This meta‑ecosystem explores recursive
 
               design and emergent behavior.
 
             </li>
-
-            <li>
-
-              <strong>Work in progress:</strong>
-
-              <ul>
-
-                <li>
-
-                  <strong
-
-                    ><a
-
-                      href="/projects/abrahamic-reference-engine/"
-
-                      >Abrahamic Reference Engine</a
-
-                    >:</strong
-
-                  >
+<li>
+<strong>Work in progress:</strong>
+<ul>
+<li>
+<strong><a href="/projects/abrahamic-reference-engine/">Abrahamic Reference Engine</a>:</strong>
 
                   A semantic engine for interfaith textual exploration.
 
                 </li>
-
-                <li>
-
-                  <strong
-
-                    ><a href="/writings/magnus-saga/"
-
-                      >Magnus Progenitor Saga</a
-
-                    >:</strong
-
-                  >
+<li>
+<strong><a href="/writings/magnus-saga/">Magnus Progenitor Saga</a>:</strong>
 
                   An epic fiction project exploring origin and destiny.
 
                 </li>
-
-                <li>
-
-                  <strong
-
-                    ><a href="/writings/biases-as-constants/"
-
-                      >Biases as Constants</a
-
-                    >:</strong
-
-                  >
+<li>
+<strong><a href="/writings/biases-as-constants/">Biases as Constants</a>:</strong>
 
                   A project interrogating how bias manifests across AI systems.
 
                 </li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
 
-              </ul>
-
-            </li>
-
-          </ul>
-
-        </div>
-
-      </section>
-
-    </main>
-
-
-
-    <footer class="site-footer">
-
-      <div class="container footer-grid">
-
-        <div class="footer-column">
-
-          <h3>OverKill&nbsp;Hill&nbsp;P³™</h3>
-
-          <p>Protocol-first AI systems design: local inference, multi-model coordination, and the governance layer the platforms forgot to build.</p>
-
-        </div>
-
-        <div class="footer-column">
-
-          <h4>Navigation</h4>
-
-          <ul>
-
-            <li><a href="/#forge">The Forge</a></li>
-
-            <li><a href="/universe/">P³ Universe</a></li>
-
-            <li><a href="/manifesto/">The Manifesto</a></li>
-
-            <li><a href="/projects/">Our Projects</a></li>
-
-            <li><a href="/writings/">Writings</a></li>
-
-            <li><a href="/about/">About OKH P³</a></li>
-
-            <li><a href="/contact/">Contact OKH P³</a></li>
-
-            <li><a href="/legal/">Legal</a></li>
-
-          </ul>
-
-        </div>
-
-        <div class="footer-column">
-
-          <h4>Connect</h4>
-
-          <ul>
-
-            <li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
-
-            <li><a href="https://ko-fi.com/overkillhillp3" target="_blank" rel="noopener noreferrer">Ko-fi</a></li>
-
-            <li><a href="https://pro.fiverr.com/s/VYKPpoB" target="_blank" rel="noopener noreferrer">Fiverr</a></li>
-
-            <li><a href="https://www.linkedin.com/company/overkillhillp3" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-
-            <li><a href="https://facebook.com/OverKillHillP3/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-
-            <li><a href="https://x.com/OverKillHillP3" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
-
-            <li><a href="https://www.youtube.com/@OverKillHillP3" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
-      <div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
-
-        <span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" target="_blank" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;">Replit</a></span>
-
-        <p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill&nbsp;Hill&nbsp;P³™. All rights reserved.</p>
-
-        <span></span>
-
-      </div>
-
-    </footer>
-
-
-
-    <script src="/assets/js/app.js?v=e29596a8"></script>
-
-    <script type="application/ld+json">
+  </main>
+<footer class="site-footer">
+<div class="container footer-grid">
+<div class="footer-column">
+<h3>OverKill Hill P³™</h3>
+<p>Protocol-first AI systems design: local inference, multi-model coordination, and the governance layer the platforms forgot to build.</p>
+</div>
+<div class="footer-column">
+<h4>Navigation</h4>
+<ul>
+<li><a href="/#forge">The Forge</a></li>
+<li><a href="/universe/">P³ Universe</a></li>
+<li><a href="/manifesto/">The Manifesto</a></li>
+<li><a href="/projects/">Our Projects</a></li>
+<li><a href="/writings/">Writings</a></li>
+<li><a href="/about/">About OKH P³</a></li>
+<li><a href="/contact/">Contact OKH P³</a></li>
+<li><a href="/legal/">Legal</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Connect</h4>
+<ul>
+<li><a href="mailto:contact@overkillhill.com">contact@overkillhill.com</a></li>
+<li><a href="https://ko-fi.com/overkillhillp3" rel="noopener noreferrer" target="_blank">Ko-fi</a></li>
+<li><a href="https://pro.fiverr.com/s/VYKPpoB" rel="noopener noreferrer" target="_blank">Fiverr</a></li>
+<li><a href="https://www.linkedin.com/company/overkillhillp3" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+<li><a href="https://facebook.com/OverKillHillP3/" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+<li><a href="https://x.com/OverKillHillP3" rel="noopener noreferrer" target="_blank">X (Twitter)</a></li>
+<li><a href="https://www.youtube.com/@OverKillHillP3" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;">
+<span style="font-size:0.8rem;color:var(--color-muted);white-space:nowrap;padding-left:1rem;">Built with <a href="https://replit.com/refer/overkillhillp3/" rel="noopener noreferrer" style="color:#FF3C00;text-decoration:none;font-weight:600;" target="_blank">Replit</a></span>
+<p style="margin:0;text-align:center;">© <span id="current-year"></span> OverKill Hill P³™. All rights reserved.</p>
+<span></span>
+</div>
+</footer>
+    <script src="/assets/js/app.js?v=be5eab85"></script>
+<script type="application/ld+json">
 
       {
 
@@ -1133,12 +813,36 @@
       }
 
     </script>
+<script type="module">
 
+      import mermaid from "/assets/vendor/mermaid/mermaid.esm.min.mjs";
 
+      const allowedClickTargets = [
+        ["https://glee-fully.tools", /^\/(?:|toolbox(?:\/|$))/],
+        ["https://askjamie.bot", /^\/lens-system(?:\/|$)/],
+        ["https://overkillhill.com", /^\/(?:|projects\/|writings\/)/],
+      ];
+      const sanitizeClickTargets = (source) =>
+        source.replace(
+          /^(\s*click\s+\S+\s+)"([^"]+)"(?:\s+"[^"]*")?(?:\s+\S+)?\s*$/gm,
+          (line, prefix, target) => {
+            try {
+              const url = new URL(target);
+              return url.protocol === "https:" &&
+                allowedClickTargets.some(
+                  ([origin, path]) => url.origin === origin && path.test(url.pathname)
+                )
+                ? line
+                : "%% Removed disallowed click target";
+            } catch {
+              return "%% Removed disallowed click target";
+            }
+          }
+        );
 
-    <script type="module">
-
-      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs";
+      document.querySelectorAll(".mermaid").forEach((node) => {
+        node.textContent = sanitizeClickTargets(node.textContent);
+      });
 
 
 
@@ -1213,8 +917,44 @@
       });
 
     </script>
+<script type="application/ld+json">
 
+    {
+
+      "@context": "https://schema.org",
+
+      "@type": "BreadcrumbList",
+
+      "itemListElement": [
+
+      {
+
+        "@type": "ListItem",
+
+        "position": 1,
+
+        "name": "OverKill Hill P³™",
+
+        "item": "https://overkillhill.com/"
+
+      },
+
+      {
+
+        "@type": "ListItem",
+
+        "position": 2,
+
+        "name": "Universe",
+
+        "item": "https://overkillhill.com/universe/"
+
+      }
+
+      ]
+
+    }
+
+    </script>
 </body>
-
 </html>
-
