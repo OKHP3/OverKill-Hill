@@ -13,7 +13,9 @@ The public site and source materials for **OverKill Hill P³™** — the digita
 
 ## What this repo is
 
-A static HTML/CSS/JS site, hand-authored, hosted on GitHub Pages with a Cloudflare-fronted custom domain (`overkillhill.com`). No build step. No framework. No tracking beyond the analytics declared on the relevant pages.
+A static HTML/CSS/JS site, hand-authored, hosted on GitHub Pages with an
+intended Cloudflare-fronted custom domain (`overkillhill.com`). No build step.
+No framework. No tracking beyond the analytics declared on the relevant pages.
 
 The repo also serves as the public artifact archive for OverKill Hill P³ writings, projects, and the surrounding ecosystem (AskJamie™, Glee-fully Personalizable Tools™, Mermaid Theme Builder, Prompt Forge).
 
@@ -159,7 +161,12 @@ succeeds.
 ## Known limitations
 
 - Image-format optimization is script-based rather than automatic: use the PNG-to-WebP and picture-upgrade scripts, then review the generated diff.
-- `_headers` provides a report-only CSP and related security headers; enforcement and live edge behavior still require deployment-specific verification.
+- `_headers` declares a report-only CSP and related security/cache headers for
+  the intended edge. The August 22, 2026 live check found those headers absent
+  and observed `Cache-Control: max-age=600` on the canonical domain, so
+  production enforcement is **not confirmed**. See
+  `assets/audit/live-edge-report-2026-08-22.json` and
+  `docs/publishing.md`; do not treat `_headers` as active on GitHub Pages.
 - Search index (`assets/data/search-index.json`) is committed. Refresh it after
   searchable content changes, then use `build-search-index.py --check` to
   verify the generated file without rewriting it.

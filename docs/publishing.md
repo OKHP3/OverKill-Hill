@@ -66,6 +66,38 @@ as a policy pass. Use
 `--expected-commit` for release verification. Do not omit `--base` or
 substitute a guessed deployment URL.
 
+### Latest canonical-domain result
+
+**Run date:** August 22, 2026
+**Base:** `https://overkillhill.com`
+**Expected deployed commit:** `344e046d7ba1e95be2f8d01907d18129240024e6`
+**Evidence:** `assets/audit/live-edge-report-2026-08-22.json`
+**Result:** **FAILED — content availability passed, edge policy proof did not**
+
+The verifier reached the canonical domain with no blocked requests. The home
+route (`/`), Mermaid Theme Builder project route
+(`/projects/mermaid-theme-builder/`), and noindex boundary (`/found-ry/`) all
+returned HTTP 200 and had the expected robots boundary. Their live
+`Cache-Control` was `max-age=600`, not the declared
+`public, max-age=300, must-revalidate`.
+
+Every header declared in `_headers` was absent on those representative routes:
+`X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`,
+`Permissions-Policy`, `Strict-Transport-Security`,
+`Cross-Origin-Opener-Policy`, `Cross-Origin-Resource-Policy`,
+`Origin-Agent-Cluster`, and `Content-Security-Policy-Report-Only`. The live
+response also did not expose the release manifest, so the verifier could not
+cryptographically bind the served bytes to the expected commit. The report
+records the expected SHA as an investigation input, not as confirmed live
+deployment identity.
+
+This is evidence of the current public response, not proof that Cloudflare is
+configured incorrectly: no Cloudflare zone or Transform Rules access was
+available during this check. The exact remaining gap is to inspect the
+production DNS proxy state and Cloudflare response-header/cache rules, then
+rerun this verifier after any edge change. Until that happens, do not describe
+the production site as enforcing the `_headers` security or cache policy.
+
 ## Scheduled production drift monitor
 
 The same workflow runs a read-only check against the canonical production
@@ -91,5 +123,7 @@ is the layer that emits the security headers and replaces the origin's default
 
 Before treating a release as complete, confirm that the production DNS record is
 orange-cloud proxied and run the verifier against `https://overkillhill.com`.
-If the response still identifies `GitHub.com` without the required headers,
-Cloudflare is not in the request path and the release is not edge-complete.
+The August 22, 2026 run did not prove that Cloudflare was in the request path:
+the live response had GitHub Pages-style `max-age=600` caching and none of the
+declared headers. If those observations persist after DNS and Transform Rules
+are inspected, the release is not edge-complete.

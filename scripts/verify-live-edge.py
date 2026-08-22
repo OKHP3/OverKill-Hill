@@ -40,12 +40,12 @@ SECURITY_HEADERS = {
     "x-content-type-options": "nosniff",
     "x-frame-options": "SAMEORIGIN",
     "referrer-policy": "strict-origin-when-cross-origin",
-    "permissions-policy": None,
-    "strict-transport-security": None,
+    "permissions-policy": "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), display-capture=(), document-domain=(), encrypted-media=(), fullscreen=(self), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), interest-cohort=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(self), publickey-credentials-get=(), screen-wake-lock=(), serial=(), sync-xhr=(), usb=(), web-share=(self), xr-spatial-tracking=()",
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
     "cross-origin-opener-policy": "same-origin",
     "cross-origin-resource-policy": "same-origin",
     "origin-agent-cluster": "?1",
-    "content-security-policy-report-only": None,
+    "content-security-policy-report-only": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests",
 }
 HTML_CACHE_RE = re.compile(r"max-age=300\b", re.I)
 REVALIDATE_RE = re.compile(r"\bmust-revalidate\b", re.I)
@@ -180,9 +180,25 @@ def check_page(
     content_type = response["headers"].get("content-type", "")
     body = response["body"].decode("utf-8", errors="replace")
     if "text/html" not in content_type.lower():
-        report.append(result(label, "FAIL", f"content-type is {content_type!r}", http_status=status))
+        report.append(
+            result(
+                label,
+                "FAIL",
+                f"content-type is {content_type!r}",
+                http_status=status,
+                response_headers=dict(sorted(response["headers"].items())),
+            )
+        )
     else:
-        report.append(result(label, "PASS", f"HTTP 200; {content_type}", http_status=status))
+        report.append(
+            result(
+                label,
+                "PASS",
+                f"HTTP 200; {content_type}",
+                http_status=status,
+                response_headers=dict(sorted(response["headers"].items())),
+            )
+        )
     robots_match = ROBOTS_RE.search(body)
     robots = robots_match.group(1).lower() if robots_match else ""
     has_noindex = "noindex" in robots
@@ -428,6 +444,7 @@ def main() -> int:
         "run_at": now(),
         "base": args.base.rstrip("/"),
         "timeout_seconds": args.timeout,
+        "expected_commit": args.expected_commit,
         "status": "FAILED" if failures else ("PARTIAL" if blocked else "PASS"),
         "summary": {"checks": len(report), "failures": failures, "blocked": blocked},
         "checks": report,
