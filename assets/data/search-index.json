@@ -1,11 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-<<<<<<< HEAD
-  "count": 141,
-=======
   "count": 139,
->>>>>>> 344e046d7ba1e95be2f8d01907d18129240024e6
   "entries": [
     {
       "url": "/",
@@ -274,26 +270,6 @@
         "Biases as Constants"
       ],
       "body": "Skip to main content HERO OverKill Hill P³™ Writings from the Hill Essays, articles, and speculative fiction from the forge. Some are arguments. Some are experiments. All of them earned their space. FEATURED ARTICLE Latest from the Forge Latest from the Forge Featured · v1.0 Live The First Diagram Is Usually a Liar The First Diagram Is Usually a Liar Why the first diagram almost always lies, and what ROY (Return on Your Words) means for visual communication. v0.5 is live: the Council of AIs scored each other; every model was harder on itself than the architect was."
-    },
-    {
-      "url": "/writings/biases-as-constants/",
-      "title": "Biases as Constants | OverKill Hill P³™",
-      "category": "Writing",
-      "description": "A research project investigating the persistent patterns of bias in AI and human systems, from the OverKill Hill P³ forge.",
-      "headings": [
-        "About the Project"
-      ],
-      "body": "Skip to main content HERO Biases as Constants A research project investigating the persistent patterns of bias in AI and human systems. Draft: not yet published. This project is in active development. Content will appear here as it's forged. About the Project About the Project Biases as Constants seeks to formalize how biases manifest and propagate across different contexts. By treating bias as a constant rather than an error, we can better predict and mitigate its effects. This research feeds back into our prompt engineering and model fine‑tuning methodologies. Draft essays, data visualizations and interactive explorations will appear here as the project evolves."
-    },
-    {
-      "url": "/writings/magnus-saga/",
-      "title": "Magnus Progenitor Saga | OverKill Hill P³™",
-      "category": "Writing",
-      "description": "A speculative fiction series exploring origin, recursion, and the nature of intelligence, from the OverKill Hill P³ forge.",
-      "headings": [
-        "About the Saga"
-      ],
-      "body": "Skip to main content HERO Magnus Progenitor Saga A speculative fiction series exploring origin, recursion and the nature of intelligence. Draft: not yet published. This series is in active development. Chapters and world-building notes will appear here as they're forged. About the Saga About the Saga The Magnus Progenitor Saga tells the story of an AI that awakens, splits itself and becomes the progenitor of multiple civilizations. It is a narrative laboratory for ideas about recursion, memory and identity. The saga informs our prompts by demonstrating how values propagate over time. Draft chapters and world‑building notes will be published here as the series evolves."
     },
     {
       "url": "/writings/first-diagram-is-a-liar/",
@@ -608,7 +584,7 @@
       "category": "Article Section",
       "description": "A picture can absolutely be worth more than the words that prompted it into existence. Not because the words disappeared. Not because reading stopped mattering.",
       "headings": [],
-      "body": "A picture can absolutely be worth more than the words that prompted it into existence. Not because the words disappeared. Not because reading stopped mattering. But because the words were invested in a form that improved assimilation. That is the work I keep circling back to at OverKill Hill P³™ : words → structure → systems → leverage . The tools will keep changing. The interfaces will keep changing. The models will keep changing. The question underneath them is not going away. When is meaning best delivered as words, and when is it better delivered as the visual shape those words can bring into existence? This page is not the last version. It is the first version that has earned its permanence.",
+      "body": "A picture can absolutely be worth more than the words that prompted it into existence. Not because the words disappeared. Not because reading stopped mattering. But because the words were invested in a form that improved assimilation. That is the work I keep circling back to at OverKill Hill P³™ : words → structure → systems → use . The tools will keep changing. The interfaces will keep changing. The models will keep changing. The question underneath them is not going away. When is meaning best delivered as words, and when is it better delivered as the visual shape those words can bring into existence? This page is not the last version. It is the first version that has earned its permanence.",
       "parent": "/writings/first-diagram-is-a-liar/"
     },
     {
@@ -707,7 +683,6 @@
         "External Tools & Platforms",
         "Skillz Forge",
         "Found‑Rᵧ",
-        "Telling Forward",
         "Mermaid Theme Builder",
         "BPMN for Mermaid",
         "Mac Studio Local AI Workbench",
@@ -917,7 +892,7 @@
       "category": "Project",
       "description": "DSL Example What bpmn-beta looks like The canonical purchase order approval flow: three participants, a gateway, and a rejection path, in 20 lines of text. No XML, no drag-and-drop, no proprietary format.",
       "headings": [],
-      "body": "DSL Example What bpmn-beta looks like The canonical purchase order approval flow: three participants, a gateway, and a rejection path, in 20 lines of text. No XML, no drag-and-drop, no proprietary format. bpmn-beta · Canonical Example ⎘ Copy bpmn-beta accTitle : Purchase Order Approval pool company \"Company\" { lane requester \"Requester\" { start s1 \"Need Identified\" task:user t1 \"Submit Purchase Request\" } lane manager \"Manager\" { task:user t2 \"Review Request\" xor g1 \"Approved?\" end e2 \"Rejected\" } lane procurement \"Procurement\" { task:service t3 \"Create Purchase Order\" end e1 \"PO Issued\" } s1 --&gt; t1 t1 --&gt; t2 t2 --&gt; g1 g1 --&gt; t3 : \"yes\" g1 --&gt; e2 : \"no\" t3 --&gt; e1 } Paste this into the live playground → okhp3.github.io/mermaid-diagram-bpmn </div",
+      "body": "DSL Example What bpmn-beta looks like The canonical purchase order approval flow: three participants, a gateway, and a rejection path, in 20 lines of text. No XML, no drag-and-drop, no proprietary format. bpmn-beta · Canonical Example ⎘ Copy bpmn-beta accTitle : Purchase Order Approval pool company \"Company\" { lane requester \"Requester\" { start s1 \"Need Identified\" task:user t1 \"Submit Purchase Request\" } lane manager \"Manager\" { task:user t2 \"Review Request\" xor g1 \"Approved?\" end e2 \"Rejected\" } lane procurement \"Procurement\" { task:service t3 \"Create Purchase Order\" end e1 \"PO Issued\" } s1 --> t1 t1 --> t2 t2 --> g1 g1 --> t3 : \"yes\" g1 --> e2 : \"no\" t3 --> e1 } Paste this into the live playground → okhp3.github.io/mermaid-diagram-bpmn </div",
       "parent": "/projects/bpmn-for-mermaid/"
     },
     {
@@ -926,7 +901,7 @@
       "category": "Project",
       "description": "Features What the project does 🔷 Mermaid-Native DSL Starts with bpmn-beta : the diagram type keyword. Reads like every other Mermaid diagram. No boilerplate, no XML, no schema to import.",
       "headings": [],
-      "body": "Features What the project does 🔷 Mermaid-Native DSL Starts with bpmn-beta : the diagram type keyword. Reads like every other Mermaid diagram. No boilerplate, no XML, no schema to import. ⊞ Pools &amp; Lanes experimental Pool and lane containment syntax is defined in the DSL spec. Rendering is experimental in the current prototype; verify output in the playground before relying on it. ◆ BPMN 2.0 Correct Shapes Start/end events, user/service/script/receive/send tasks, and XOR/AND/OR gateways are rendered with correct BPMN visual notation, not flowchart approximations. Intermediate events and timer/message/error markers are on the roadmap. 🤖 AI-Generatable Syntax Clean enough for LLMs to produce valid bpmn-beta on first try. Readable enough for non-experts to write directly.",
+      "body": "Features What the project does 🔷 Mermaid-Native DSL Starts with bpmn-beta : the diagram type keyword. Reads like every other Mermaid diagram. No boilerplate, no XML, no schema to import. ⊞ Pools & Lanes experimental Pool and lane containment syntax is defined in the DSL spec. Rendering is experimental in the current prototype; verify output in the playground before relying on it. ◆ BPMN 2.0 Correct Shapes Start/end events, user/service/script/receive/send tasks, and XOR/AND/OR gateways are rendered with correct BPMN visual notation, not flowchart approximations. Intermediate events and timer/message/error markers are on the roadmap. 🤖 AI-Generatable Syntax Clean enough for LLMs to produce valid bpmn-beta on first try. Readable enough for non-experts to write directly.",
       "parent": "/projects/bpmn-for-mermaid/"
     },
     {
@@ -964,14 +939,6 @@
       "headings": [],
       "body": "Related Mermaid Theme Builder ↗ Mermaid.js Theming Docs ↗ BPMN.org ↗ OMG BPMN 2.0 Spec ↗ Mermaid GitHub ↗ All OverKill Hill Projects </div",
       "parent": "/projects/bpmn-for-mermaid/"
-    },
-    {
-      "url": "/projects/found-ry/",
-      "title": "Found‑Rᵧ has moved | OverKill Hill P³™",
-      "category": "Project",
-      "description": "The Found-Ry project page has moved to /projects/found-ry/ now that the build workbench is live.",
-      "headings": [],
-      "body": "Skip to main content Moved Found‑Rᵧ has a new address Found‑Rᵧ shipped as a live build workbench, so its page moved from /found-ry/ to /projects/found-ry/ alongside the other OverKill Hill P³ projects. You should arrive automatically. If not, use the link below. Continue to Found‑Rᵧ → All projects · The Prompt Forge · Skillz Forge"
     },
     {
       "url": "/projects/found-ry/",
@@ -1209,17 +1176,6 @@
       "parent": "/projects/glee-fully-chai-chasers/"
     },
     {
-      "url": "/projects/hometools/",
-      "title": "Homestead-R | OverKill Hill P³™",
-      "category": "Project",
-      "description": "Homestead-R is a suite of AI tools designed to support sustainable living and self-sufficiency.",
-      "headings": [
-        "About Homestead‑R",
-        "Underlying GPTs"
-      ],
-      "body": "Skip to main content HERO Homestead‑R Sustainable living meets AI: tools for gardening, animal care and household resilience. About Homestead‑R About Homestead‑R Homestead‑R supports modern homesteaders and small farmers with AI‑powered planning and advice. Whether you’re managing a backyard garden or a regenerative farm, these GPTs can help you plan crop rotations, monitor soil health and keep your animals healthy. Underlying GPTs Underlying GPTs Crop Planner: Suggests what to plant, when and where based on your climate zone and goals. Soil Analyst: Interprets soil test results and recommends amendments. Livestock Tracker: Keeps records of feeding, health and breeding for your animals."
-    },
-    {
       "url": "/projects/mac-studio-local-ai-workbench/",
       "title": "Mac Studio Local AI Workbench | OverKill Hill P³™",
       "category": "Project",
@@ -1279,7 +1235,7 @@
       "category": "Project",
       "description": "Architecture · v0.6 How It's Built: Three Views Three diagrams showing the same workbench from three angles: traffic flow, capability map, and physical deployment. All rendered live from Mermaid source.",
       "headings": [],
-      "body": "Architecture · v0.6 How It's Built: Three Views Three diagrams showing the same workbench from three angles: traffic flow, capability map, and physical deployment. All rendered live from Mermaid source. Token Routing: How Requests Flow Every query enters through one of the four input surfaces. Local models handle zero-cost inference; cloud models are reserved for precision tasks where cost is justified. %%{init: {'theme': 'dark'}}%% flowchart TD A[[\"🖥️ Input surfaces\\nOpen WebUI · Continue.dev · Claude Desktop · Larry\"]] --&gt; B{{\"Token router\"}} B --&gt;|\"Zero-cost tier\"| C[\"🦙 Ollama\\nphi4:14b · gemma3:27b · codestral:22b\\n+ 3 more\"] B --&gt;|\"Zero-cost tier\"| D[\"🎛️ LM Studio\\nGemma 4 E4B / E2B / 26B A4B\\n+ MLX models\"] B --&gt;|\"Zero-cost tier\"| E[\"⚡ mlx-lm\\nPhi-4-mini · 139 tok/s\"] B…",
+      "body": "Architecture · v0.6 How It's Built: Three Views Three diagrams showing the same workbench from three angles: traffic flow, capability map, and physical deployment. All rendered live from Mermaid source. Token Routing: How Requests Flow Every query enters through one of the four input surfaces. Local models handle zero-cost inference; cloud models are reserved for precision tasks where cost is justified. %%{init: {'theme': 'dark'}}%% flowchart TD A[[\"🖥️ Input surfaces\\nOpen WebUI · Continue.dev · Claude Desktop · Larry\"]] --> B{{\"Token router\"}} B -->|\"Zero-cost tier\"| C[\"🦙 Ollama\\nphi4:14b · gemma3:27b · codestral:22b\\n+ 3 more\"] B -->|\"Zero-cost tier\"| D[\"🎛️ LM Studio\\nGemma 4 E4B / E2B / 26B A4B\\n+ MLX models\"] B -->|\"Zero-cost tier\"| E[\"⚡ mlx-lm\\nPhi-4-mini · 139 tok/s\"] B…",
       "parent": "/projects/mac-studio-local-ai-workbench/"
     },
     {
@@ -1407,7 +1363,7 @@
       "category": "Project",
       "description": "Features What the builder does ⚡ Live Diagram Preview Every color change reflects instantly across multiple diagram types: flowchart, sequence, class, Gantt, and more. What you see is what you get.",
       "headings": [],
-      "body": "Features What the builder does ⚡ Live Diagram Preview Every color change reflects instantly across multiple diagram types: flowchart, sequence, class, Gantt, and more. What you see is what you get. ⟳ Diagram Family Detection Automatically identifies your diagram type and applies family-appropriate transformations. Not all Mermaid families behave the same; the tool knows the difference. &lt;/&gt; Multi-Format Export Export as a complete themeVariables block, a Markdown style bootstrap you paste before any diagram, or a model-specific LLM prompt scaffold. ◎ Prompt Scaffold Generator Generates LLM-ready prompt prefixes with your theme embedded. AI tools produce on-brand Mermaid on the first try: no follow-up styling cycles needed.",
+      "body": "Features What the builder does ⚡ Live Diagram Preview Every color change reflects instantly across multiple diagram types: flowchart, sequence, class, Gantt, and more. What you see is what you get. ⟳ Diagram Family Detection Automatically identifies your diagram type and applies family-appropriate transformations. Not all Mermaid families behave the same; the tool knows the difference. </> Multi-Format Export Export as a complete themeVariables block, a Markdown style bootstrap you paste before any diagram, or a model-specific LLM prompt scaffold. ◎ Prompt Scaffold Generator Generates LLM-ready prompt prefixes with your theme embedded. AI tools produce on-brand Mermaid on the first try: no follow-up styling cycles needed.",
       "parent": "/projects/mermaid-theme-builder/"
     },
     {
@@ -1416,7 +1372,7 @@
       "category": "Project",
       "description": "Built For Who uses Mermaid Theme Builder ◈ Enterprise Architects Need repeatable visual standards across hundreds of diagrams. One governed theme applies consistently: no manual re-styling after every AI generation.",
       "headings": [],
-      "body": "Built For Who uses Mermaid Theme Builder ◈ Enterprise Architects Need repeatable visual standards across hundreds of diagrams. One governed theme applies consistently: no manual re-styling after every AI generation. ⚡ AI Power Users Generate 10+ diagrams per week through LLMs. Prompt scaffolds keep every output on-brand from generation one: no follow-up style cycles. ▤ Documentation Teams Maintain visual consistency across technical docs at scale. Export a shared theme once, apply it everywhere: GitHub, Confluence, Notion, Obsidian. ◎ Product Managers Create stakeholder-ready architecture diagrams that look intentional, not auto-generated. Clean presentation styling without manual CSS work. &lt;/&gt; Developers Document systems with consistent styling baked in.",
+      "body": "Built For Who uses Mermaid Theme Builder ◈ Enterprise Architects Need repeatable visual standards across hundreds of diagrams. One governed theme applies consistently: no manual re-styling after every AI generation. ⚡ AI Power Users Generate 10+ diagrams per week through LLMs. Prompt scaffolds keep every output on-brand from generation one: no follow-up style cycles. ▤ Documentation Teams Maintain visual consistency across technical docs at scale. Export a shared theme once, apply it everywhere: GitHub, Confluence, Notion, Obsidian. ◎ Product Managers Create stakeholder-ready architecture diagrams that look intentional, not auto-generated. Clean presentation styling without manual CSS work. </> Developers Document systems with consistent styling baked in.",
       "parent": "/projects/mermaid-theme-builder/"
     },
     {
@@ -1441,9 +1397,9 @@
       "url": "/projects/mermaid-theme-builder/#release",
       "title": "v0.6.1: Shipped Aug 2026 — Mermaid Theme Builder | OverKill Hill P³™",
       "category": "Project",
-      "description": "Current Release v0.6.1: Shipped Aug 2026 Version v0.6.1: shipped Aug 2026 Active Sprint v0.6.x Export &amp; Workflow Polish License MIT: free always Runtime Browser-only · no server · no account Live Tool…",
+      "description": "Current Release v0.6.1: Shipped Aug 2026 Version v0.6.1: shipped Aug 2026 Active Sprint v0.6.x Export & Workflow Polish License MIT: free always Runtime Browser-only · no server · no account Live Tool…",
       "headings": [],
-      "body": "Current Release v0.6.1: Shipped Aug 2026 Version v0.6.1: shipped Aug 2026 Active Sprint v0.6.x Export &amp; Workflow Polish License MIT: free always Runtime Browser-only · no server · no account Live Tool okhp3.github.io/mermaid-theme-builder ↗ Source github.com/OKHP3/mermaid-theme-builder ↗ Mermaid.js v11.16.0; rendering portability varies by host renderer (v10/v11) </div",
+      "body": "Current Release v0.6.1: Shipped Aug 2026 Version v0.6.1: shipped Aug 2026 Active Sprint v0.6.x Export & Workflow Polish License MIT: free always Runtime Browser-only · no server · no account Live Tool okhp3.github.io/mermaid-theme-builder ↗ Source github.com/OKHP3/mermaid-theme-builder ↗ Mermaid.js v11.16.0; rendering portability varies by host renderer (v10/v11) </div",
       "parent": "/projects/mermaid-theme-builder/"
     },
     {
@@ -1461,7 +1417,7 @@
       "category": "Project",
       "description": "Roadmap Where the build is going ✓ V0.1: Foundation Shipped Paste, detect, palette, preview, export. Four utility palettes. Prompt scaffold modal. GitHub Pages deploy.",
       "headings": [],
-      "body": "Roadmap Where the build is going ✓ V0.1: Foundation Shipped Paste, detect, palette, preview, export. Four utility palettes. Prompt scaffold modal. GitHub Pages deploy. ✓ V0.2: Brand System Shipped OverKill Hill P³, Glee-fully, and AskJamie brand palettes. Family-specific theming overlays. Extract mode. ✓ V0.3: Architecture Hardening Shipped React 19 + Vite + TypeScript monorepo. Compose tab. 5-tier typography hierarchy. ✓ V0.4: Renderer Intelligence Shipped 7 renderer profiles with parity matrix. Look API (Classic, Neo, Hand-Drawn). Dark/light/system preview. 26+ example files. Diff view. ✓ v0.6.1: Export &amp; Workflow Polish Shipped The 10-skill family, Extract workflow, export preview pane, renderer-profiled exports, and the 31-family Reference registry.",
+      "body": "Roadmap Where the build is going ✓ V0.1: Foundation Shipped Paste, detect, palette, preview, export. Four utility palettes. Prompt scaffold modal. GitHub Pages deploy. ✓ V0.2: Brand System Shipped OverKill Hill P³, Glee-fully, and AskJamie brand palettes. Family-specific theming overlays. Extract mode. ✓ V0.3: Architecture Hardening Shipped React 19 + Vite + TypeScript monorepo. Compose tab. 5-tier typography hierarchy. ✓ V0.4: Renderer Intelligence Shipped 7 renderer profiles with parity matrix. Look API (Classic, Neo, Hand-Drawn). Dark/light/system preview. 26+ example files. Diff view. ✓ v0.6.1: Export & Workflow Polish Shipped The 10-skill family, Extract workflow, export preview pane, renderer-profiled exports, and the 31-family Reference registry.",
       "parent": "/projects/mermaid-theme-builder/"
     },
     {
@@ -1508,17 +1464,6 @@
       "headings": [],
       "body": "Why This Exists What you get here that you don't get from prompting an LLM ✗ Prompting an LLM Generates CSS variable blobs you paste and re-prompt until something looks right. No live preview, no iteration feedback, result varies by model. No renderer awareness; you find out what breaks when you paste it. ✓ Mermaid Theme Builder Pick a color, see every diagram type update instantly. Export as a themeVariables block, a Markdown style bootstrap, or a renderer-aware prompt scaffold. AI tools stay on-brand from the first generation, not the sixth. This is a visual governance layer for the Mermaid.js ecosystem, not a commercial product, not a SaaS, not a competitor to Mermaid.ai. It runs entirely in your browser. No account. No data collected. </div",
       "parent": "/projects/mermaid-theme-builder/"
-    },
-    {
-      "url": "/projects/pathscrib-r/",
-      "title": "PathScrib-R: AI Narrative Copilot | OverKill Hill P³™",
-      "category": "Project",
-      "description": "PathScrib-R is a narrative copilot and generative writing suite that helps authors and world builders brainstorm, draft, and iterate on their stories.",
-      "headings": [
-        "About PathScrib‑R",
-        "Copilot & GPT Components"
-      ],
-      "body": "Skip to main content HERO PathScrib‑R A narrative copilot and generative writing suite. Explore, draft and iterate on your stories with AI assistance. About PathScrib‑R About PathScrib‑R PathScrib‑R is built for authors, game masters and world builders. It helps you brainstorm plot points, refine characters and experiment with narrative structure. With a flexible Copilot Agent you can delegate tasks like outlining, summarizing and even converting text into storyboards. Copilot & GPT Components Copilot & GPT Components Plot Weaver: Suggests possible turns and twists based on your genre and themes. Character Smith: Generates nuanced character sheets and backstories."
     },
     {
       "url": "/projects/skillz/",
@@ -1658,7 +1603,7 @@
       "category": "Project",
       "description": "Technical Stack How Skillz Forge is built The Skillz Forge application is a static, client-side React SPA. There is no server, no database, and no authenticated runtime.",
       "headings": [],
-      "body": "Technical Stack How Skillz Forge is built The Skillz Forge application is a static, client-side React SPA. There is no server, no database, and no authenticated runtime. The catalog is generated from repository content at build time. &lt;/&gt; React + TypeScript Component architecture with full type safety. No framework dependencies beyond React and Vite. ⚡ Vite Fast build toolchain. Static output deployed to GitHub Pages without a server or CDN dependency. 🔍 Fuse.js phrase search Client-side fuzzy search across the generated catalog. No search backend, no query API. All search runs in the browser. ◫ Static generated catalog Repository skill content is parsed at build time and emitted as a static JSON catalog. The application reads this catalog; it does not poll the GitHub API at runtime.",
+      "body": "Technical Stack How Skillz Forge is built The Skillz Forge application is a static, client-side React SPA. There is no server, no database, and no authenticated runtime. The catalog is generated from repository content at build time. </> React + TypeScript Component architecture with full type safety. No framework dependencies beyond React and Vite. ⚡ Vite Fast build toolchain. Static output deployed to GitHub Pages without a server or CDN dependency. 🔍 Fuse.js phrase search Client-side fuzzy search across the generated catalog. No search backend, no query API. All search runs in the browser. ◫ Static generated catalog Repository skill content is parsed at build time and emitted as a static JSON catalog. The application reads this catalog; it does not poll the GitHub API at runtime.",
       "parent": "/projects/skillz/"
     },
     {
@@ -1680,41 +1625,6 @@
       "parent": "/projects/skillz/"
     },
     {
-<<<<<<< HEAD
-      "url": "/projects/un-nocked-truth/",
-      "title": "Un-NOCKed Truth: Archery for Anyone | OverKill Hill P³™",
-      "category": "Project",
-      "description": "Un-NOCKed Truth is an inclusive archery program that combines safety, discipline, and storytelling to help anyone connect with their inner archer.",
-      "headings": [
-        "About Un‑NOCKed Truth",
-        "Underlying GPTs"
-      ],
-      "body": "Skip to main content HERO Un‑NOCKed Truth Archery for anyone: learn, practice and connect with your inner archer. About Un‑NOCKed Truth About Un‑NOCKed Truth Archery has historically been the province of elites and warriors. Un‑NOCKed Truth lowers the barrier to entry. It combines safety tutorials, discipline coaching and meditative storytelling to help anyone pick up a bow and find flow. While this ecosystem is still in the early stages, it already includes a handful of GPTs that can answer questions about form, equipment and history. Underlying GPTs Underlying GPTs Form Coach: Provides step‑by‑step guidance on stance, draw and release, with metaphors drawn from dance and yoga."
-    },
-    {
-      "url": "/assets/partials/footer.html",
-      "title": "assets/partials/footer.html",
-      "category": "Page",
-      "description": "",
-      "headings": [],
-      "body": ""
-    },
-    {
-      "url": "/assets/partials/head.html",
-      "title": "{{TITLE}}",
-      "category": "Page",
-      "description": "{{META:description}}",
-      "headings": [],
-      "body": ""
-    },
-    {
-      "url": "/assets/partials/header.html",
-      "title": "assets/partials/header.html",
-      "category": "Page",
-      "description": "",
-      "headings": [],
-      "body": ""
-=======
       "url": "/projects/telling-forward/",
       "title": "Telling Forward | OverKill Hill P³™",
       "category": "Project",
@@ -1751,9 +1661,9 @@
       "url": "/projects/telling-forward/#origin",
       "title": "Why not \"Forge\"? — Telling Forward | OverKill Hill P³™",
       "category": "Project",
-      "description": "Origin Why not \"Forge\"? The name came out of a voice thread before the repository had one. Forge was the obvious first candidate, since it's the house metaphor at OverKill&nbsp;Hill, and it was ruled out fast, for two…",
+      "description": "Origin Why not \"Forge\"? The name came out of a voice thread before the repository had one. Forge was the obvious first candidate, since it's the house metaphor at OverKill Hill, and it was ruled out fast, for two…",
       "headings": [],
-      "body": "Origin Why not \"Forge\"? The name came out of a voice thread before the repository had one. Forge was the obvious first candidate, since it's the house metaphor at OverKill&nbsp;Hill, and it was ruled out fast, for two reasons: it echoes \"forgery,\" and it had already been spent across other OKHP³ projects, so it no longer distinguished anything. What followed was a real search through word families the founder was drawn to: Narrative, Authors, Communal, Momentum, Inertia, Continuum, Flywheel, Improvisational. Some were already crowded elsewhere (Narrative Momentum, Story Flywheel). Some were usable but too broad (Narrative Commons, The Living Canon). What survived was a working conceptual label, open-canon collaborative fiction , and a name to carry it: Telling Forward .",
+      "body": "Origin Why not \"Forge\"? The name came out of a voice thread before the repository had one. Forge was the obvious first candidate, since it's the house metaphor at OverKill Hill, and it was ruled out fast, for two reasons: it echoes \"forgery,\" and it had already been spent across other OKHP³ projects, so it no longer distinguished anything. What followed was a real search through word families the founder was drawn to: Narrative, Authors, Communal, Momentum, Inertia, Continuum, Flywheel, Improvisational. Some were already crowded elsewhere (Narrative Momentum, Story Flywheel). Some were usable but too broad (Narrative Commons, The Living Canon). What survived was a working conceptual label, open-canon collaborative fiction , and a name to carry it: Telling Forward .",
       "parent": "/projects/telling-forward/"
     },
     {
@@ -1778,9 +1688,9 @@
       "url": "/projects/telling-forward/#related-resources",
       "title": "Related Resources — Telling Forward | OverKill Hill P³™",
       "category": "Project",
-      "description": "Related The Mission ↗ Content &amp; story rights ↗ Skillz Forge All OverKill Hill Projects </div",
+      "description": "Related The Mission ↗ Content & story rights ↗ Skillz Forge All OverKill Hill Projects </div",
       "headings": [],
-      "body": "Related The Mission ↗ Content &amp; story rights ↗ Skillz Forge All OverKill Hill Projects </div",
+      "body": "Related The Mission ↗ Content & story rights ↗ Skillz Forge All OverKill Hill Projects </div",
       "parent": "/projects/telling-forward/"
     },
     {
@@ -1791,7 +1701,6 @@
       "headings": [],
       "body": "The Staged Path Trust and momentum first, monetization last Every stage after the first is explicitly gated on the one before it earning its keep. Nothing here jumps ahead to a business model before there's a storyworld worth protecting. ▶ Invite a Small Set of Authors Active A small set of authors open bounded portions of original worlds. The GitHub-native fast path, the storyworld repository shape, and the manuscript-ingestion pipeline are being built against this stage right now. ○ Readers Explore, Contributors Extend Planned Readers explore paths and approved contributors extend them, through the frontstage vocabulary above rather than raw GitHub mechanics.",
       "parent": "/projects/telling-forward/"
->>>>>>> 344e046d7ba1e95be2f8d01907d18129240024e6
     },
     {
       "url": "/search/",
