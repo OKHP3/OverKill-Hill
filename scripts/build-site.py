@@ -166,7 +166,8 @@ def make_head_partial(index: BeautifulSoup) -> str:
             tag["href"] = "{{ALTERNATE}}"
     rendered = str(head)
     rendered = re.sub(
-        r'<meta\b[^>]*http-equiv="Content-Security-Policy"[^>]*/?>',
+        r'<meta\b(?=[^>]*\bhttp-equiv="Content-Security-Policy")'
+        r'(?=[^>]*\bcontent="[^"]*")[^>]*/?>',
         '<meta http-equiv="Content-Security-Policy" content="{{CSP}}" />',
         rendered,
         count=1,
