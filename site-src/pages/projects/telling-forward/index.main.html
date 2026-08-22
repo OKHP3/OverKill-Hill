@@ -1,0 +1,367 @@
+
+<div class="container">
+<!-- HERO ────────────────────────────────────────────────── -->
+<section aria-label="Project overview" class="project-hero">
+<div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div>
+<div class="hero-grid reveal-on-scroll">
+<div>
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">overkillhill.com</a><span>/</span>
+<a href="/projects/">projects</a><span>/</span>
+<span>telling-forward</span>
+</nav>
+<div class="tag-row">
+<span class="tag">Prototype Seed</span>
+<span class="tag">Open Source</span>
+<span class="tag tag--accent">Active Build</span>
+<span class="tag">GitHub-Native</span>
+</div>
+<h1>Telling Forward</h1>
+<p class="hero-sub">"A quiet place for stories to grow."</p>
+<p>
+            Telling Forward is a voice-first, agent-assisted platform for <strong>open-canon collaborative fiction</strong>:
+            an originating author opens a storyworld, other people extend it through distinct, attributed paths, and
+            readers can follow the resulting lineage without ever mistaking a community branch for the author's canon.
+            GitHub holds the manuscript, the review history, and the provenance record. A custom app is being built so
+            that none of it feels like GitHub.
+          </p>
+<div class="hero-ctas">
+<a class="btn btn-primary" href="https://okhp3.github.io/telling-forward/" rel="noopener noreferrer" target="_blank">Visit the Prototype</a>
+<a class="btn btn-quiet" href="https://github.com/OKHP3/telling-forward" rel="noopener noreferrer" target="_blank">View on GitHub</a>
+<a class="btn btn-quiet" href="https://github.com/OKHP3/telling-forward/blob/main/docs/MISSION.md" rel="noopener noreferrer" target="_blank">Read the Mission</a>
+</div>
+</div>
+<div class="hero-side">
+<div class="hero-visual">
+<picture>
+<source srcset="/assets/img/projects/telling-forward/telling-forward-hero-1024.webp" type="image/webp"/>
+<img alt="Three story paths in teal, espresso, and rust curve inward to a single glowing amber nucleus, the Telling Forward mark" class="hero-illustration" height="1024" loading="eager" src="/assets/img/projects/telling-forward/telling-forward-hero-1024.png" width="1024"/>
+</picture>
+</div>
+</div>
+</div>
+</section>
+<!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
+<div class="project-layout">
+<!-- MAIN COLUMN ──────────────────────────────────────── -->
+<div>
+<!-- THE PREMISE ──────────────────────────────────────── -->
+<div class="content-block card" data-search-index="" id="premise">
+<div class="section-label">The Premise</div>
+<h2>Open canon, not open chaos</h2>
+<p>
+                The working proposition is simple to state and hard to build: authorship can stay accessible
+                without becoming anonymous, and collaboration can stay open without leaving ownership unclear.
+                Most "everyone can contribute" systems solve this by flattening every voice into one undifferentiated
+                pile. Telling Forward keeps a storyworld legible instead, so a reader can always tell what's canon,
+                what's a branch, and who wrote which.
+              </p>
+<div class="feature-grid" style="margin-top:0.75rem;">
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">◈</div>
+<div>
+<h3>The seed and the canon</h3>
+<p>An originating author's story and protected canon stay clearly marked as theirs, even as the world grows around them.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">⑂</div>
+<div>
+<h3>Branches and alternate continuities</h3>
+<p>Community paths can extend a world in new directions without ever being confused for its official line.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">✓</div>
+<div>
+<h3>A governed canon</h3>
+<p>Contributions enter canon by an explicit steward decision, not by popularity, volume, or who showed up first.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">▤</div>
+<div>
+<h3>A provenance record</h3>
+<p>Every accepted contribution keeps its source, its contributor, and its review history attached, permanently.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- HOW IT WORKS ─────────────────────────────────────── -->
+<div class="content-block card" data-search-index="" id="mechanics">
+<div class="section-label">How It Works</div>
+<h2>GitHub stays backstage</h2>
+<p>
+                Telling Forward runs on real Git mechanics: a storyworld is a repository, a contribution is a
+                pull request, canon is what's merged. But the person telling the story is never asked to know that.
+                The founder has said plainly that he only recently learned what a pull request actually was, and the target contributor is expected to know even less. So the platform keeps one vocabulary
+                backstage and shows a different one to everyone writing.
+              </p>
+<div style="overflow-x:auto;">
+<table class="scope-table">
+<thead>
+<tr>
+<th>Backstage (GitHub)</th>
+<th>What a contributor sees</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repository</td>
+<td>The storyworld</td>
+</tr>
+<tr>
+<td>Branch</td>
+<td>Your story path</td>
+</tr>
+<tr>
+<td>Commit</td>
+<td>Saved moment</td>
+</tr>
+<tr>
+<td>Pull request</td>
+<td>Submit your scene</td>
+</tr>
+<tr>
+<td>Merge</td>
+<td>Accepted into canon</td>
+</tr>
+<tr>
+<td>Issue or comment</td>
+<td>Story note or editor feedback</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="margin-top:1.25rem;">
+                A submission moves through six real states on its way to canon, and the app is expected to
+                surface all six rather than a simplified summary:
+              </p>
+<div class="tag-row">
+<span class="tag">Draft</span>
+<span class="tag">Submitted</span>
+<span class="tag">Under review</span>
+<span class="tag">Returned with notes</span>
+<span class="tag tag--accent">Accepted into canon</span>
+<span class="tag tag--accent">Published as alternate path</span>
+</div>
+</div>
+<!-- WORKING PRINCIPLES ───────────────────────────────── -->
+<div class="content-block card" data-search-index="" id="principles">
+<div class="section-label">Working Principles</div>
+<h2>The rules the platform runs on</h2>
+<div class="feature-grid">
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">1</div>
+<div>
+<h3>Start with the person, not the prose.</h3>
+<p>A contribution may begin as speech, memory, an outline, or just a question: never a required blank page.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">2</div>
+<div>
+<h3>Assist without taking authorship.</h3>
+<p>Agents may transform, organize, and flag a contribution. Contributors approve what actually represents their intent.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">3</div>
+<div>
+<h3>Keep provenance visible.</h3>
+<p>Every accepted contribution retains its source, its contributor credit, and its review history, in full.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">4</div>
+<div>
+<h3>Separate canon from possibility.</h3>
+<p>An alternate path can be worth reading without being the originating author's canon. The interface has to make that difference obvious.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">5</div>
+<div>
+<h3>Give every world a steward.</h3>
+<p>Each shared world needs one identified person responsible for its permissions, its canon policy, and its moderation.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">6</div>
+<div>
+<h3>Earn the right to monetize.</h3>
+<p>Prove people actually want to read and contribute before any paid access, virtual credits, or adaptation economics enter the picture.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- THE STAGED PATH ──────────────────────────────────── -->
+<div class="content-block" data-search-index="" id="staged-path">
+<div class="section-label">The Staged Path</div>
+<h2>Trust and momentum first, monetization last</h2>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">
+                Every stage after the first is explicitly gated on the one before it earning its keep. Nothing here
+                jumps ahead to a business model before there's a storyworld worth protecting.
+              </p>
+<ul class="progress-track">
+<li class="progress-phase">
+<span class="progress-marker progress-marker--active">▶</span>
+<div class="progress-phase-content">
+<div class="progress-phase-title">
+                      Invite a Small Set of Authors
+                      <span class="phase-pill phase-pill--active">Active</span>
+</div>
+<p class="progress-phase-desc">A small set of authors open bounded portions of original worlds. The GitHub-native fast path, the storyworld repository shape, and the manuscript-ingestion pipeline are being built against this stage right now.</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--planned">○</span>
+<div class="progress-phase-content">
+<div class="progress-phase-title">
+                      Readers Explore, Contributors Extend
+                      <span class="phase-pill phase-pill--planned">Planned</span>
+</div>
+<p class="progress-phase-desc">Readers explore paths and approved contributors extend them, through the frontstage vocabulary above rather than raw GitHub mechanics.</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--planned">○</span>
+<div class="progress-phase-content">
+<div class="progress-phase-title">
+                      Attribution, Permissions, Lineage
+                      <span class="phase-pill phase-pill--planned">Planned</span>
+</div>
+<p class="progress-phase-desc">Attribution, permissions, lineage, and canon decisions get recorded from the beginning, not retrofitted once a world has grown large enough to need them.</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--planned">○</span>
+<div class="progress-phase-content">
+<div class="progress-phase-title">
+                      Test Whether People Return
+                      <span class="phase-pill phase-pill--planned">Planned</span>
+</div>
+<p class="progress-phase-desc">The only metric that matters at this stage: do people come back to read, come back to contribute, and bring others with them.</p>
+</div>
+</li>
+<li class="progress-phase">
+<span class="progress-marker progress-marker--planned">○</span>
+<div class="progress-phase-content">
+<div class="progress-phase-title">
+                      Commercial Adaptation, Only If Earned
+                      <span class="phase-pill phase-pill--planned">Planned</span>
+</div>
+<p class="progress-phase-desc">Only after a real storyworld earns real attention does the project explore contributor rewards, platform fees, or adaptation deals. Even then, participation alone wouldn't automatically buy a branch a seat in any commercial package.</p>
+</div>
+</li>
+</ul>
+<p style="margin-top:1rem;">
+                Terms like <strong>open canon</strong>, <strong>world steward</strong>, <strong>story lineage</strong>,
+                and <strong>support credits</strong> describe ideas the project is actively working through, not
+                features or promises that exist today.
+              </p>
+</div>
+<!-- ORIGIN ────────────────────────────────────────────── -->
+<div class="content-block card" data-search-index="" id="origin">
+<div class="section-label">Origin</div>
+<h2>Why not "Forge"?</h2>
+<p>
+                The name came out of a voice thread before the repository had one. <strong>Forge</strong> was the
+                obvious first candidate, since it's the house metaphor at OverKill Hill, and it was ruled
+                out fast, for two reasons: it echoes "forgery," and it had already been spent across other OKHP³
+                projects, so it no longer distinguished anything.
+              </p>
+<p>
+                What followed was a real search through word families the founder was drawn to: Narrative, Authors,
+                Communal, Momentum, Inertia, Continuum, Flywheel, Improvisational. Some were already crowded
+                elsewhere (Narrative Momentum, Story Flywheel). Some were usable but too broad (Narrative Commons,
+                The Living Canon). What survived was a working conceptual label, <strong>open-canon
+                collaborative fiction</strong>, and a name to carry it: <strong>Telling Forward</strong>.
+              </p>
+<p>
+                The same thread is where the frontstage/backstage vocabulary above actually came from. It wasn't a
+                design exercise; it was a founder admitting, mid-conversation, that he'd only just learned what a
+                pull request was, and reasoning from there that whoever this was built for would know less. GitHub
+                stays the engine. It was never going to be the language.
+              </p>
+</div>
+</div><!-- /main column -->
+<!-- SIDEBAR ──────────────────────────────────────────── -->
+<aside aria-label="Project information" class="sidebar-rail">
+<!-- Project Info -->
+<div class="sidebar-meta">
+<div class="section-label">Project Info</div>
+<div class="meta-row">
+<div class="meta-item">
+<span class="meta-key">Status</span>
+<span class="meta-val"><span class="status-dot"></span>Early concept &amp; prototype, actively building</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Type</span>
+<span class="meta-val">Platform / collaborative storytelling engine</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Stack</span>
+<span class="meta-val">TypeScript pnpm workspace, Express 5, PostgreSQL + Drizzle, React, GitHub-native storage</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Hosting</span>
+<span class="meta-val">GitHub Pages (web), built and synced from Replit</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">License</span>
+<span class="meta-val">Proprietary, all rights reserved (platform code)</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Suite</span>
+<span class="meta-val">OverKill Hill P³, independent product</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">GitHub</span>
+<span class="meta-val"><a href="https://github.com/OKHP3/telling-forward" rel="noopener noreferrer" target="_blank">OKHP3/telling-forward ↗</a></span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Live URL</span>
+<span class="meta-val"><a href="https://okhp3.github.io/telling-forward/" rel="noopener noreferrer" target="_blank">okhp3.github.io/telling-forward ↗</a></span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Maintained by</span>
+<span class="meta-val"><a href="https://overkillhill.com">OverKill Hill P³</a></span>
+</div>
+</div>
+<div class="sidebar-links">
+<a class="sidebar-link" href="https://okhp3.github.io/telling-forward/" rel="noopener noreferrer" target="_blank">
+                  ▶ Visit the Prototype
+                </a>
+<a class="sidebar-link" href="https://github.com/OKHP3/telling-forward" rel="noopener noreferrer" target="_blank">
+                  ◻ GitHub Repo
+                </a>
+<a class="sidebar-link" href="https://github.com/OKHP3/telling-forward/tree/main/docs/adr" rel="noopener noreferrer" target="_blank">
+                  ⚐ Read the Decision Record
+                </a>
+</div>
+</div>
+<!-- Related -->
+<div class="sidebar-related" data-search-index="" id="related-resources">
+<div class="section-label">Related</div>
+<ul>
+<li><a href="https://github.com/OKHP3/telling-forward/blob/main/docs/MISSION.md" rel="noopener noreferrer" target="_blank">The Mission ↗</a></li>
+<li><a href="https://github.com/OKHP3/telling-forward/blob/main/CONTENT-LICENSE.md" rel="noopener noreferrer" target="_blank">Content &amp; story rights ↗</a></li>
+<li><a href="/projects/skillz/">Skillz Forge</a></li>
+<li><a href="/projects/">All OverKill Hill Projects</a></li>
+</ul>
+</div>
+<!-- On This Page -->
+<div class="sidebar-related" id="toc-widget">
+<div class="section-label">On This Page</div>
+<ul class="toc-list">
+<li><a href="#premise">The Premise</a></li>
+<li><a href="#mechanics">How It Works</a></li>
+<li><a href="#principles">Working Principles</a></li>
+<li><a href="#staged-path">The Staged Path</a></li>
+<li><a href="#origin">Origin</a></li>
+</ul>
+</div>
+</aside>
+</div><!-- /project-layout -->
+</div><!-- /container -->
