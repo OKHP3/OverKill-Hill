@@ -54,8 +54,8 @@ def canonical_meta(soup: BeautifulSoup) -> dict[str, str]:
             metadata[f"meta:{key}"] = tag["content"]
     canonical = soup.head.find("link", rel=lambda value: value and "canonical" in value)
     alternate = soup.head.find("link", rel=lambda value: value and "alternate" in value)
-    metadata["canonical"] = canonical.get("href", "") if canonical else route_for(Path("index.html"))
-    metadata["alternate"] = alternate.get("href", metadata["canonical"]) if alternate else metadata["canonical"]
+    metadata["canonical"] = canonical.get("href", "") if canonical else ""
+    metadata["alternate"] = alternate.get("href", "") if alternate else ""
     return metadata
 
 
@@ -221,7 +221,11 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
     head = (PARTIALS / "head.html").read_text(encoding="utf-8")
     header = (PARTIALS / "header.html").read_text(encoding="utf-8")
     footer = (PARTIALS / "footer.html").read_text(encoding="utf-8")
-    values = {"TITLE": page["title"], "CANONICAL": page["canonical"], "ALTERNATE": page["alternate"]}
+    values = {
+        "TITLE": page["title"],
+        "CANONICAL": page.get("canonical", ""),
+        "ALTERNATE": page.get("alternate", ""),
+    }
     for key, value in page.items():
         if key.startswith("meta:"):
             values["META:" + key[5:]] = value
@@ -231,6 +235,20 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
         # CSP is already a serialized policy and must retain its quotes.
         replacement = value if key == "CSP" else html.escape(value, quote=True)
         head = head.replace("{{" + key + "}}", replacement)
+    if not page.get("canonical"):
+        head = re.sub(
+            r'\s*<link href="" rel="canonical"/>\n?',
+            "",
+            head,
+            count=1,
+        )
+    if not page.get("alternate"):
+        head = re.sub(
+            r'\s*<link href="" hreflang="en" rel="alternate"/>\n?',
+            "",
+            head,
+            count=1,
+        )
     header_soup = BeautifulSoup(header, "html.parser")
     for tag in header_soup.select("[aria-current]"):
         del tag["aria-current"]

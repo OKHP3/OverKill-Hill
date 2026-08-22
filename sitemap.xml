@@ -150,12 +150,6 @@
 
   <!-- ===== UTILITY ===== -->
 
-  <url>
-    <loc>https://overkillhill.com/search/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
   <!--
     Intentionally NOT listed here:
     /found-ry/ is a noindex redirect to /projects/found-ry/, which is the
