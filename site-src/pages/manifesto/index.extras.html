@@ -1,0 +1,101 @@
+<div aria-hidden="true" class="reading-progress" id="reading-progress"></div>
+<script>
+      /* Reading progress bar */
+      (function () {
+        var bar = document.getElementById('reading-progress');
+        if (!bar) return;
+        function update() {
+          var doc = document.documentElement;
+          var top = doc.scrollTop || document.body.scrollTop;
+          var height = doc.scrollHeight - doc.clientHeight;
+          bar.style.width = height ? Math.min(100, (top / height) * 100) + '%' : '0%';
+        }
+        window.addEventListener('scroll', update, { passive: true });
+        update();
+      })();
+
+
+
+      /* Auto-year in footer */
+      var yearEl = document.getElementById('current-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Manifesto of OKHP³™",
+      "description": "Three generations of overdoing things. Twelve load-bearing principles. One refusal to confuse fast with finished, simple with true, or clean with correct.",
+      "author": {
+        "@type": "Person",
+        "name": "Jamie Hill",
+        "url": "https://www.linkedin.com/in/jamiehill75"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "OverKill Hill P³™",
+        "url": "https://overkillhill.com"
+      },
+      "datePublished": "2025-02-01",
+      "dateModified": "2026-05-28",
+      "url": "https://overkillhill.com/manifesto/",
+      "image": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png"
+    }
+    </script>
+<script type="module">
+      import mermaid from "/assets/vendor/mermaid/mermaid.esm.min.mjs";
+
+      const styles = getComputedStyle(document.body);
+
+      const surface = styles.getPropertyValue("--color-surface").trim() || "#111827";
+      const surfaceSoft = styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
+      const fg = styles.getPropertyValue("--color-fg").trim() || "#e5e7eb";
+      const accent = styles.getPropertyValue("--color-accent").trim() || "#c46a2c";
+      const muted = styles.getPropertyValue("--color-muted").trim() || "#6b7280";
+      const fontBody =
+        styles.getPropertyValue("--font-body").trim() ||
+        '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
+
+      mermaid.initialize({
+        startOnLoad: true,
+        securityLevel: "strict",
+        theme: "base",
+        themeVariables: {
+          primaryColor: surface,
+          primaryTextColor: fg,
+          primaryBorderColor: accent,
+          lineColor: accent,
+          secondaryColor: surfaceSoft,
+          tertiaryColor: surfaceSoft,
+          textColor: fg,
+          fontFamily: fontBody,
+          noteBkgColor: surface,
+          noteTextColor: muted
+        },
+        flowchart: {
+          curve: "basis",
+          nodeSpacing: 60,
+          rankSpacing: 70
+        }
+      });
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "OverKill Hill P³™",
+        "item": "https://overkillhill.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Manifesto",
+        "item": "https://overkillhill.com/manifesto/"
+      }
+      ]
+    }
+    </script>
