@@ -151,10 +151,11 @@ async function inspectPage(page, definition) {
     ({ tableWrapperSelector, wideTableSelector, targeted }) => {
       const tolerance = 1;
       const viewportWidth = window.innerWidth;
-      const documentWidth = Math.max(
-        document.documentElement.scrollWidth,
-        document.body.scrollWidth,
-      );
+      // The document element is the viewport's horizontal scroll surface.
+      // body.scrollWidth also counts intentionally clipped or scrollable child
+      // content, which creates false failures when the root hides horizontal
+      // overflow or a table is contained by a scroll wrapper.
+      const documentWidth = document.documentElement.scrollWidth;
 
       const tables = targeted
         ? Array.from(document.querySelectorAll(wideTableSelector)).map((table, index) => {
