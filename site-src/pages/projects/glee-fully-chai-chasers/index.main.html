@@ -1,0 +1,401 @@
+
+<div class="container">
+<!-- HERO ────────────────────────────────────────────────── -->
+<section aria-label="Project overview" class="project-hero">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">overkillhill.com</a><span>/</span>
+<a href="/projects/">projects</a><span>/</span>
+<span>glee-fully-chai-chasers</span>
+</nav>
+<div class="tag-row">
+<span class="tag">Foundry Project</span>
+<span class="tag">Open Source</span>
+<span class="tag tag--accent">Current build</span>
+<span class="tag tag--accent">Multi-Agent Build</span>
+<span class="tag">Zero Backend</span>
+</div>
+<h1>Glee-fully Chai Chasers</h1>
+<p class="hero-sub">One wife. Two cats. Five AI tools. Zero real money.</p>
+<p>
+            A free, original, mobile-first cascading-reels game built as a birthday gift,
+            and a working case study in multi-agent orchestration. One human PM directed
+            Claude, Codex, Replit, ChatGPT, and Copilot against a canonical spec,
+            a decision log, and a failing-test math oracle. Browser-only.
+            Fictional currency. No purchases, no ads, no accounts.
+          </p>
+<div class="hero-ctas">
+<a class="btn btn-primary" href="https://okhp3.github.io/glee-fully-chai-chasers/" rel="noopener noreferrer" target="_blank">Play Chai Chasers</a>
+<a class="btn btn-quiet" href="https://github.com/OKHP3/glee-fully-chai-chasers" rel="noopener noreferrer" target="_blank">View on GitHub</a>
+<a class="btn btn-quiet" href="https://github.com/OKHP3/glee-fully-chai-chasers/tree/main/docs" rel="noopener noreferrer" target="_blank">Read the Governance Docs</a>
+</div>
+</section>
+<!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
+<div class="project-layout">
+<!-- MAIN COLUMN ──────────────────────────────────────── -->
+<div>
+<!-- THE PROBLEM ──────────────────────────────────────── -->
+<div class="content-block card" data-search-index="" id="problem">
+<div class="section-label">The Problem</div>
+<h2>Why this needed governance</h2>
+<div class="feature-grid" style="margin-top:0.75rem;">
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">◑</div>
+<div>
+<h3>Multi-agent work usually produces multi-agent chaos.</h3>
+<p>Point five AI tools at one repo and they overwrite each other, re-litigate settled questions, and regress each other's best work. The default outcome is churn wearing a productivity costume.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">⊕</div>
+<div>
+<h3>"Looks done" is not done.</h3>
+<p>The first implementation pass compiled clean and passed 23 unit tests. It also paid out 14% RTP against a 96% spec. Every gate was green except the one that mattered, because that gate did not exist yet.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">◎</div>
+<div>
+<h3>Vibes don't survive handoffs.</h3>
+<p>"Make it feel like her favorite game" means nothing to the fourth tool in the chain. Canon has to be written down, or it evaporates at every boundary.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">◈</div>
+<div>
+<h3>Personal projects deserve engineering discipline too.</h3>
+<p>A birthday gift with a hard deadline is exactly where governance pays: no time to rebuild, no budget to waste, one shot at the reveal.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- LIVE DEMO ───────────────────────────────────────── -->
+<div class="content-block" id="embed-demo" style="scroll-margin-top: 8rem;">
+<div class="embed-toolbar">
+<div class="embed-label">
+<span class="embed-live-dot"></span>
+                  Live Demo  ·  okhp3.github.io
+                </div>
+<div class="embed-actions">
+<button aria-label="Reload game" class="embed-btn" id="cc-reload-btn" title="Reload game">
+                    ↺ Reload
+                  </button>
+<a class="embed-btn embed-btn--primary" href="https://okhp3.github.io/glee-fully-chai-chasers/" rel="noopener noreferrer" target="_blank">
+                    ⤢ Full Screen
+                  </a>
+</div>
+</div>
+<div class="embed-fallback-cta">
+<a href="https://okhp3.github.io/glee-fully-chai-chasers/" rel="noopener noreferrer" target="_blank">
+                  ⤢ Open Chai Chasers Full Screen
+                </a>
+</div>
+<p class="embed-disclosure" role="note">
+<strong>External app:</strong> This game is served from
+                <a href="https://okhp3.github.io/glee-fully-chai-chasers/" rel="noopener noreferrer" target="_blank">okhp3.github.io</a>,
+                outside this site’s trust boundary.
+              </p>
+<div class="embed-frame-wrapper">
+<div aria-hidden="true" class="iframe-loading-overlay" id="cc-iframe-overlay">
+<div class="iframe-spinner"></div>
+<span class="iframe-loading-text">Loading Chai Chasers...</span>
+<div class="iframe-slow-fallback" id="cc-iframe-fallback">
+<span class="iframe-loading-text" style="opacity:0.6;">Taking longer than expected?</span>
+<a href="https://okhp3.github.io/glee-fully-chai-chasers/" rel="noopener noreferrer" target="_blank">Open the game in a new tab →</a>
+</div>
+</div>
+<div class="chai-phone-frame">
+<iframe allow="autoplay" id="cc-tool-iframe" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-forms" src="https://okhp3.github.io/glee-fully-chai-chasers/" title="Glee-fully Chai Chasers live demo"></iframe>
+</div>
+</div>
+<!-- SCREENSHOT SLOT: idle board 390x844 -->
+<p class="embed-note">
+                Best on a phone. Save state inside this embedded preview may live separately
+                from the full-screen game (browser storage partitioning).
+                Open it full screen for the real experience.
+              </p>
+</div>
+<!-- WHAT IT DOES ─────────────────────────────────────── -->
+<div class="content-block" data-search-index="" id="what-it-does">
+<div class="section-label">What It Does</div>
+<h2>A real game. A real spec. A real test.</h2>
+<div class="relationship-grid relationship-grid--four">
+<div class="relationship-card">
+<span class="rel-tag">The Engine</span>
+<h3>A real cascade engine.</h3>
+<p>5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a legendary event captured roughly once every 1,370 spins, on three independently rolled reels that size the reward. Pure TypeScript, zero DOM imports, fully unit-tested.</p>
+</div>
+<div class="relationship-card">
+<span class="rel-tag">The Oracle</span>
+<h3>A simulation oracle as the definition of done.</h3>
+<p>A 200,000-spin seeded test asserts the spec's layered RTP model (the base game holds a 61% band while the bonus layer carries the rest) and five event-frequency bands. A second harness plays every bonus end to end through the same engine entry points the UI uses. Independent multi-agent validation runs totalling several million paid spins converge on a full-game RTP of about 98.1%, assuming a perfect player on the two interactive bonuses. That reading superseded an earlier forty-seed internal measurement that ran hot at its sample size, which is precisely why every published figure now ships with the harness command that reproduces it. It shipped deliberately red, and no tool was permitted to weaken it. Green meant done. Nothing else did.</p>
+</div>
+<div class="relationship-card">
+<span class="rel-tag">The Product</span>
+<h3>Personalization as product spec.</h3>
+<p>Iced chai only. Two illustrated cats with different treat contracts. Keepsakes from one specific shared life. The specificity is the feature; genericness was treated as a defect.</p>
+</div>
+<div class="relationship-card">
+<span class="rel-tag">The Deploy</span>
+<h3>Zero backend, zero money.</h3>
+<p>GitHub Pages static deploy, localStorage saves, fictional currency with an automatic refill. CI gates block private assets and brand strings from every build.</p>
+</div>
+</div>
+</div>
+<!-- THE ORCHESTRATION PATTERN ────────────────────────── -->
+<div class="content-block card" data-search-index="" id="orchestration">
+<div class="section-label">The Orchestration Pattern</div>
+<h2>Five tools. One product. No chaos.</h2>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.7;">
+                Five tools, one product, no chaos. Here's the actual structure that made that sentence true.
+              </p>
+<div style="overflow-x:auto;margin-bottom:2rem;">
+<table class="scope-table">
+<thead>
+<tr>
+<th>Tool</th>
+<th>Bounded role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude</td>
+<td>Canonical spec, engine math, simulation oracle, PM and independent verification</td>
+</tr>
+<tr>
+<td>Codex / ChatGPT Work</td>
+<td>Pre-alpha foundation, product realignment, production art and UI baseline</td>
+</tr>
+<tr>
+<td>Replit</td>
+<td>Bounded implementation sprints under validation-loop prompts</td>
+</tr>
+<tr>
+<td>GitHub</td>
+<td>Single source of truth, CI gates, Pages deployment</td>
+</tr>
+<tr>
+<td>Notion</td>
+<td>Project hub and decision mirror</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section-label" style="margin-bottom:0.75rem;">Five governance artifacts</div>
+<div class="relationship-grid relationship-grid--four">
+<div class="relationship-card">
+<span class="rel-tag">Artifact 1</span>
+<h3><a href="https://github.com/OKHP3/glee-fully-chai-chasers/blob/main/docs/DESIGN-SPEC.md" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">The canonical spec</a></h3>
+<p>One document outranks every tool's opinion. Amendments are dated and ruled on, never improvised.</p>
+</div>
+<div class="relationship-card">
+<span class="rel-tag">Artifact 2</span>
+<h3><a href="https://github.com/OKHP3/glee-fully-chai-chasers/blob/main/docs/DECISION-LOG.md" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">The decision log</a></h3>
+<p>Thirty-seven settled decisions and counting. Settled questions stay settled; no tool re-litigates a closed one.</p>
+</div>
+<div class="relationship-card">
+<span class="rel-tag">Artifact 3</span>
+<h3><a href="https://github.com/OKHP3/glee-fully-chai-chasers/blob/main/src/engine/simulation.test.ts" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">The oracle</a></h3>
+<p>A deliberately failing test as a forcing function. It caught a 7x RTP miss and a 35x bonus-frequency miss that a green build would have shipped.</p>
+</div>
+<div class="relationship-card">
+<span class="rel-tag">Artifact 4</span>
+<h3><a href="https://github.com/OKHP3/glee-fully-chai-chasers/blob/main/docs/IMPLEMENTATION-BASELINE.md" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">Layered authority</a></h3>
+<p>Each tool's strongest layer is protected from every other tool. Nobody regenerates someone else's best work.</p>
+</div>
+<div class="relationship-card">
+<span class="rel-tag">Artifact 5</span>
+<h3><a href="https://github.com/OKHP3/glee-fully-chai-chasers/tree/main/docs/prompts" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">Bounded prompts with validation loops</a></h3>
+<p>Every agent got scope fences, a rubric, and a minimum cycle count. "Improve the game" was never a task.</p>
+</div>
+</div>
+</div>
+<!-- PRINCIPLES ───────────────────────────────────────── -->
+<div class="content-block" data-search-index="" id="principles">
+<div class="section-label">Principles</div>
+<h2>The rules the build ran on.</h2>
+<div class="feature-grid" style="margin-top:0.75rem;">
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">1</div>
+<div>
+<h3>One spec to rule them all.</h3>
+<p>Tools propose; the decision log disposes.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">2</div>
+<div>
+<h3>Tests are the product owner at 2 a.m.</h3>
+<p>The oracle doesn't get tired, doesn't get charmed by a pretty build, and doesn't ship 14% RTP.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">3</div>
+<div>
+<h3>Bounded work or no work.</h3>
+<p>Every agent got one deliverable, one file fence, one owner.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">4</div>
+<div>
+<h3>Generous by design.</h3>
+<p>Real slot variance, honest meters, a bust-proof balance, no dark patterns. The fun is the anticipation, not the extraction.</p>
+</div>
+</div>
+<div class="feature-item">
+<div aria-hidden="true" class="feature-icon">5</div>
+<div>
+<h3>The gift outranks the architecture.</h3>
+<p>Every technical decision lost if it made the product less hers.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- WHAT HAPPENED AFTER THE GIFT ─────────────────────── -->
+<div class="content-block" data-search-index="" id="after-the-gift">
+<div class="section-label">What Happened After the Gift</div>
+<h2>What Happened After the Gift</h2>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
+                The gift shipped on July 17. The interesting part is what the governance layer was worth after the deadline stopped mattering.
+              </p>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
+                More than four hundred commits later, the game carries five bonus chapters that did not exist at ship: Joey's Laundry Helper, Phoebe's Lap Quest, the Moonlit Keepsake Trail memory game, Morning and Nighttime Treat Time, and a five-act UniGlee marathon that plays out across all of them. It also grew a progression economy, a wager ladder, an ingredient almanac, and a cabinet UI built around an illustrated marquee. None of that regressed the engine, because the oracle never moved.
+              </p>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.25rem;line-height:1.8;">
+                The maintenance record is the part the original build could not demonstrate. The test suite went from 149 to 360. A threat model landed. The package manager now enforces a one-day minimum release age on every dependency as a supply-chain defense, with two logged CVE overrides. Architecture decisions moved into ADRs. The repository README was rewritten against the code, not against the previous README, with every number in it re-measured on the commit it describes.
+              </p>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:0;line-height:1.8;">
+                That last sentence is the whole thesis. Documentation that quotes documentation drifts. Documentation that quotes a test run cannot.
+              </p>
+</div>
+<!-- WHAT THIS IS NOT ─────────────────────────────────── -->
+<div class="content-block" data-search-index="" id="what-is-not">
+<div class="section-label">What This Is Not</div>
+<h2>A birthday gift. Not a casino. Not a wagering product.</h2>
+<div class="isnot-block">
+<p style="font-size:0.875rem;color:var(--color-fg);margin:0;font-weight:600;">This project is not:</p>
+<ul>
+<li><span class="isnot-dash">--</span>a gambling product or a real-money system of any kind</li>
+<li><span class="isnot-dash">--</span>a casino affiliate, promotion, or template for wagering software</li>
+<li><span class="isnot-dash">--</span>affiliated with any game studio, beverage brand, or pet-food brand</li>
+<li><span class="isnot-dash">--</span>a data product (no accounts, no purchases, no ads, no cash-out)</li>
+</ul>
+<p class="isnot-note">
+                  It is a birthday gift with a public repo, and a demonstration that one person can direct
+                  a council of AI tools to ship a polished product in nine days.
+                </p>
+</div>
+</div>
+<!-- ORIGIN ──────────────────────────────────────────── -->
+<div class="content-block" data-search-index="" id="origin">
+<div class="section-label">Origin</div>
+<h2>Nine days. One shot at the reveal.</h2>
+<p style="font-size:0.9rem;color:var(--color-muted);margin-bottom:1.5rem;line-height:1.8;">
+                Chai Chasers went from first research prompt to shippable in nine days of nights and weekends.
+                Spec and mechanics research landed July 9 and 10. The first implementation slice arrived
+                July 10 and promptly failed the brand-new simulation oracle at 14% RTP, which is exactly
+                what the oracle was for. A bounded Round-2 sprint rebuilt the math. A July 12 realignment
+                reset the product fantasy and brought production art. Ship week tuned, froze, and wrapped it.
+                The final build passed 149 tests, and the last edit before the freeze was one sentence from Jamie to Glee.
+                The full narrative lives in the build log, and the receipts live in
+                <a href="https://github.com/OKHP3/glee-fully-chai-chasers/blob/main/docs/DECISION-LOG.md" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">docs/DECISION-LOG.md</a>.
+              </p>
+</div>
+</div><!-- /main column -->
+<!-- SIDEBAR ──────────────────────────────────────────── -->
+<aside aria-label="Project information" class="sidebar-rail">
+<!-- Project Info -->
+<div class="sidebar-meta">
+<div class="section-label">Project Info</div>
+<div class="meta-row">
+<div class="meta-item">
+<span class="meta-key">Status</span>
+<span class="meta-val"><span class="status-dot"></span>Active / shipped, still maintained</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Type</span>
+<span class="meta-val">Gift / Foundry Project</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Stack</span>
+<span class="meta-val">Vite + TypeScript + Tailwind, vanilla DOM, Web Audio</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Hosting</span>
+<span class="meta-val">GitHub Pages, zero backend</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">License</span>
+<span class="meta-val">MIT</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Cost</span>
+<span class="meta-val">Free</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Suite</span>
+<span class="meta-val">FoundRy</span>
+</div>
+<div class="meta-item">
+<span class="meta-key">GitHub</span>
+<span class="meta-val"><a href="https://github.com/OKHP3/glee-fully-chai-chasers" rel="noopener noreferrer" target="_blank">OKHP3/glee-fully-chai-chasers ↗</a></span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Live URL</span>
+<span class="meta-val"><a href="https://okhp3.github.io/glee-fully-chai-chasers/" rel="noopener noreferrer" target="_blank">okhp3.github.io/glee-fully-chai-chasers ↗</a></span>
+</div>
+<div class="meta-item">
+<span class="meta-key">Maintained by</span>
+<span class="meta-val"><a href="https://overkillhill.com">OverKill Hill P³</a></span>
+</div>
+</div>
+<div class="sidebar-links">
+<a class="sidebar-link" href="https://okhp3.github.io/glee-fully-chai-chasers/" rel="noopener noreferrer" target="_blank">
+                  ▶ Play Chai Chasers
+                </a>
+<a class="sidebar-link" href="https://github.com/OKHP3/glee-fully-chai-chasers" rel="noopener noreferrer" target="_blank">
+                  ◻ GitHub Repo
+                </a>
+<a class="sidebar-link" href="https://github.com/OKHP3/glee-fully-chai-chasers/issues" rel="noopener noreferrer" target="_blank">
+                  ⚐ Open an Issue
+                </a>
+</div>
+</div>
+<!-- Related -->
+<div class="sidebar-related" data-search-index="" id="related-resources">
+<div class="section-label">Related</div>
+<ul>
+<li><a href="https://glee-fully.tools/arcade/" rel="noopener noreferrer" target="_blank">The Arcade on glee-fully.tools ↗</a></li>
+<li><a href="https://glee-fully.tools/" rel="noopener noreferrer" target="_blank">Glee-fully Personalizable Tools ↗</a></li>
+<li><a href="/projects/abrahamic-reference-engine/">Abrahamic Reference Engine</a></li>
+<li><a href="/projects/">All OverKill Hill Projects</a></li>
+</ul>
+</div>
+<!-- On This Page -->
+<div class="sidebar-related" id="toc-widget">
+<div class="section-label">On This Page</div>
+<ul class="toc-list">
+<li><a href="#problem">The Problem</a></li>
+<li><a href="#embed-demo">Live Demo</a></li>
+<li><a href="#what-it-does">What It Does</a></li>
+<li><a href="#orchestration">The Orchestration Pattern</a></li>
+<li><a href="#principles">Principles</a></li>
+<li><a href="#after-the-gift">What Happened After the Gift</a></li>
+<li><a href="#what-is-not">What This Is Not</a></li>
+<li><a href="#origin">Origin</a></li>
+</ul>
+</div>
+</aside>
+</div><!-- /project-layout -->
+</div> /container 
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
