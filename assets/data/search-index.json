@@ -1,11 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-<<<<<<< HEAD
-  "count": 141,
-=======
-  "count": 139,
->>>>>>> 344e046d7ba1e95be2f8d01907d18129240024e6
+  "count": 142,
   "entries": [
     {
       "url": "/",
@@ -274,26 +270,6 @@
         "Biases as Constants"
       ],
       "body": "Skip to main content HERO OverKill Hill P³™ Writings from the Hill Essays, articles, and speculative fiction from the forge. Some are arguments. Some are experiments. All of them earned their space. FEATURED ARTICLE Latest from the Forge Latest from the Forge Featured · v1.0 Live The First Diagram Is Usually a Liar The First Diagram Is Usually a Liar Why the first diagram almost always lies, and what ROY (Return on Your Words) means for visual communication. v0.5 is live: the Council of AIs scored each other; every model was harder on itself than the architect was."
-    },
-    {
-      "url": "/writings/biases-as-constants/",
-      "title": "Biases as Constants | OverKill Hill P³™",
-      "category": "Writing",
-      "description": "A research project investigating the persistent patterns of bias in AI and human systems, from the OverKill Hill P³ forge.",
-      "headings": [
-        "About the Project"
-      ],
-      "body": "Skip to main content HERO Biases as Constants A research project investigating the persistent patterns of bias in AI and human systems. Draft: not yet published. This project is in active development. Content will appear here as it's forged. About the Project About the Project Biases as Constants seeks to formalize how biases manifest and propagate across different contexts. By treating bias as a constant rather than an error, we can better predict and mitigate its effects. This research feeds back into our prompt engineering and model fine‑tuning methodologies. Draft essays, data visualizations and interactive explorations will appear here as the project evolves."
-    },
-    {
-      "url": "/writings/magnus-saga/",
-      "title": "Magnus Progenitor Saga | OverKill Hill P³™",
-      "category": "Writing",
-      "description": "A speculative fiction series exploring origin, recursion, and the nature of intelligence, from the OverKill Hill P³ forge.",
-      "headings": [
-        "About the Saga"
-      ],
-      "body": "Skip to main content HERO Magnus Progenitor Saga A speculative fiction series exploring origin, recursion and the nature of intelligence. Draft: not yet published. This series is in active development. Chapters and world-building notes will appear here as they're forged. About the Saga About the Saga The Magnus Progenitor Saga tells the story of an AI that awakens, splits itself and becomes the progenitor of multiple civilizations. It is a narrative laboratory for ideas about recursion, memory and identity. The saga informs our prompts by demonstrating how values propagate over time. Draft chapters and world‑building notes will be published here as the series evolves."
     },
     {
       "url": "/writings/first-diagram-is-a-liar/",
@@ -608,7 +584,7 @@
       "category": "Article Section",
       "description": "A picture can absolutely be worth more than the words that prompted it into existence. Not because the words disappeared. Not because reading stopped mattering.",
       "headings": [],
-      "body": "A picture can absolutely be worth more than the words that prompted it into existence. Not because the words disappeared. Not because reading stopped mattering. But because the words were invested in a form that improved assimilation. That is the work I keep circling back to at OverKill Hill P³™ : words → structure → systems → leverage . The tools will keep changing. The interfaces will keep changing. The models will keep changing. The question underneath them is not going away. When is meaning best delivered as words, and when is it better delivered as the visual shape those words can bring into existence? This page is not the last version. It is the first version that has earned its permanence.",
+      "body": "A picture can absolutely be worth more than the words that prompted it into existence. Not because the words disappeared. Not because reading stopped mattering. But because the words were invested in a form that improved assimilation. That is the work I keep circling back to at OverKill&nbsp;Hill&nbsp;P³™ : words → structure → systems → leverage . The tools will keep changing. The interfaces will keep changing. The models will keep changing. The question underneath them is not going away. When is meaning best delivered as words, and when is it better delivered as the visual shape those words can bring into existence? This page is not the last version. It is the first version that has earned its permanence.",
       "parent": "/writings/first-diagram-is-a-liar/"
     },
     {
@@ -707,7 +683,6 @@
         "External Tools & Platforms",
         "Skillz Forge",
         "Found‑Rᵧ",
-        "Telling Forward",
         "Mermaid Theme Builder",
         "BPMN for Mermaid",
         "Mac Studio Local AI Workbench",
@@ -967,14 +942,6 @@
     },
     {
       "url": "/projects/found-ry/",
-      "title": "Found‑Rᵧ has moved | OverKill Hill P³™",
-      "category": "Project",
-      "description": "The Found-Ry project page has moved to /projects/found-ry/ now that the build workbench is live.",
-      "headings": [],
-      "body": "Skip to main content Moved Found‑Rᵧ has a new address Found‑Rᵧ shipped as a live build workbench, so its page moved from /found-ry/ to /projects/found-ry/ alongside the other OverKill Hill P³ projects. You should arrive automatically. If not, use the link below. Continue to Found‑Rᵧ → All projects · The Prompt Forge · Skillz Forge"
-    },
-    {
-      "url": "/projects/found-ry/",
       "title": "Found‑Rᵧ | OverKill Hill P³™",
       "category": "Project",
       "description": "A browser-only build workbench for production-grade Custom GPTs. Nine stations from build brief to ship gate, plus audit scoring and a full spec export.",
@@ -1207,17 +1174,6 @@
       "headings": [],
       "body": "What It Does A real game. A real spec. A real test. The Engine A real cascade engine. 5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a legendary event captured roughly once every 1,370 spins, on three independently rolled reels that size the reward. Pure TypeScript, zero DOM imports, fully unit-tested. The Oracle A simulation oracle as the definition of done. A 200,000-spin seeded test asserts the spec's layered RTP model (the base game holds a 61% band while the bonus layer carries the rest) and five event-frequency bands. A second harness plays every bonus end to end through the same engine entry points the UI uses.",
       "parent": "/projects/glee-fully-chai-chasers/"
-    },
-    {
-      "url": "/projects/hometools/",
-      "title": "Homestead-R | OverKill Hill P³™",
-      "category": "Project",
-      "description": "Homestead-R is a suite of AI tools designed to support sustainable living and self-sufficiency.",
-      "headings": [
-        "About Homestead‑R",
-        "Underlying GPTs"
-      ],
-      "body": "Skip to main content HERO Homestead‑R Sustainable living meets AI: tools for gardening, animal care and household resilience. About Homestead‑R About Homestead‑R Homestead‑R supports modern homesteaders and small farmers with AI‑powered planning and advice. Whether you’re managing a backyard garden or a regenerative farm, these GPTs can help you plan crop rotations, monitor soil health and keep your animals healthy. Underlying GPTs Underlying GPTs Crop Planner: Suggests what to plant, when and where based on your climate zone and goals. Soil Analyst: Interprets soil test results and recommends amendments. Livestock Tracker: Keeps records of feeding, health and breeding for your animals."
     },
     {
       "url": "/projects/mac-studio-local-ai-workbench/",
@@ -1510,17 +1466,6 @@
       "parent": "/projects/mermaid-theme-builder/"
     },
     {
-      "url": "/projects/pathscrib-r/",
-      "title": "PathScrib-R: AI Narrative Copilot | OverKill Hill P³™",
-      "category": "Project",
-      "description": "PathScrib-R is a narrative copilot and generative writing suite that helps authors and world builders brainstorm, draft, and iterate on their stories.",
-      "headings": [
-        "About PathScrib‑R",
-        "Copilot & GPT Components"
-      ],
-      "body": "Skip to main content HERO PathScrib‑R A narrative copilot and generative writing suite. Explore, draft and iterate on your stories with AI assistance. About PathScrib‑R About PathScrib‑R PathScrib‑R is built for authors, game masters and world builders. It helps you brainstorm plot points, refine characters and experiment with narrative structure. With a flexible Copilot Agent you can delegate tasks like outlining, summarizing and even converting text into storyboards. Copilot & GPT Components Copilot & GPT Components Plot Weaver: Suggests possible turns and twists based on your genre and themes. Character Smith: Generates nuanced character sheets and backstories."
-    },
-    {
       "url": "/projects/skillz/",
       "title": "Skillz Forge | OverKill Hill P³™",
       "category": "Project",
@@ -1680,41 +1625,6 @@
       "parent": "/projects/skillz/"
     },
     {
-<<<<<<< HEAD
-      "url": "/projects/un-nocked-truth/",
-      "title": "Un-NOCKed Truth: Archery for Anyone | OverKill Hill P³™",
-      "category": "Project",
-      "description": "Un-NOCKed Truth is an inclusive archery program that combines safety, discipline, and storytelling to help anyone connect with their inner archer.",
-      "headings": [
-        "About Un‑NOCKed Truth",
-        "Underlying GPTs"
-      ],
-      "body": "Skip to main content HERO Un‑NOCKed Truth Archery for anyone: learn, practice and connect with your inner archer. About Un‑NOCKed Truth About Un‑NOCKed Truth Archery has historically been the province of elites and warriors. Un‑NOCKed Truth lowers the barrier to entry. It combines safety tutorials, discipline coaching and meditative storytelling to help anyone pick up a bow and find flow. While this ecosystem is still in the early stages, it already includes a handful of GPTs that can answer questions about form, equipment and history. Underlying GPTs Underlying GPTs Form Coach: Provides step‑by‑step guidance on stance, draw and release, with metaphors drawn from dance and yoga."
-    },
-    {
-      "url": "/assets/partials/footer.html",
-      "title": "assets/partials/footer.html",
-      "category": "Page",
-      "description": "",
-      "headings": [],
-      "body": ""
-    },
-    {
-      "url": "/assets/partials/head.html",
-      "title": "{{TITLE}}",
-      "category": "Page",
-      "description": "{{META:description}}",
-      "headings": [],
-      "body": ""
-    },
-    {
-      "url": "/assets/partials/header.html",
-      "title": "assets/partials/header.html",
-      "category": "Page",
-      "description": "",
-      "headings": [],
-      "body": ""
-=======
       "url": "/projects/telling-forward/",
       "title": "Telling Forward | OverKill Hill P³™",
       "category": "Project",
@@ -1751,9 +1661,9 @@
       "url": "/projects/telling-forward/#origin",
       "title": "Why not \"Forge\"? — Telling Forward | OverKill Hill P³™",
       "category": "Project",
-      "description": "Origin Why not \"Forge\"? The name came out of a voice thread before the repository had one. Forge was the obvious first candidate, since it's the house metaphor at OverKill&nbsp;Hill, and it was ruled out fast, for two…",
+      "description": "Origin Why not \"Forge\"? The name came out of a voice thread before the repository had one. Forge was the obvious first candidate, since it's the house metaphor at OverKill Hill, and it was ruled out fast, for two…",
       "headings": [],
-      "body": "Origin Why not \"Forge\"? The name came out of a voice thread before the repository had one. Forge was the obvious first candidate, since it's the house metaphor at OverKill&nbsp;Hill, and it was ruled out fast, for two reasons: it echoes \"forgery,\" and it had already been spent across other OKHP³ projects, so it no longer distinguished anything. What followed was a real search through word families the founder was drawn to: Narrative, Authors, Communal, Momentum, Inertia, Continuum, Flywheel, Improvisational. Some were already crowded elsewhere (Narrative Momentum, Story Flywheel). Some were usable but too broad (Narrative Commons, The Living Canon). What survived was a working conceptual label, open-canon collaborative fiction , and a name to carry it: Telling Forward .",
+      "body": "Origin Why not \"Forge\"? The name came out of a voice thread before the repository had one. Forge was the obvious first candidate, since it's the house metaphor at OverKill Hill, and it was ruled out fast, for two reasons: it echoes \"forgery,\" and it had already been spent across other OKHP³ projects, so it no longer distinguished anything. What followed was a real search through word families the founder was drawn to: Narrative, Authors, Communal, Momentum, Inertia, Continuum, Flywheel, Improvisational. Some were already crowded elsewhere (Narrative Momentum, Story Flywheel). Some were usable but too broad (Narrative Commons, The Living Canon). What survived was a working conceptual label, open-canon collaborative fiction , and a name to carry it: Telling Forward .",
       "parent": "/projects/telling-forward/"
     },
     {
@@ -1791,7 +1701,30 @@
       "headings": [],
       "body": "The Staged Path Trust and momentum first, monetization last Every stage after the first is explicitly gated on the one before it earning its keep. Nothing here jumps ahead to a business model before there's a storyworld worth protecting. ▶ Invite a Small Set of Authors Active A small set of authors open bounded portions of original worlds. The GitHub-native fast path, the storyworld repository shape, and the manuscript-ingestion pipeline are being built against this stage right now. ○ Readers Explore, Contributors Extend Planned Readers explore paths and approved contributors extend them, through the frontstage vocabulary above rather than raw GitHub mechanics.",
       "parent": "/projects/telling-forward/"
->>>>>>> 344e046d7ba1e95be2f8d01907d18129240024e6
+    },
+    {
+      "url": "/assets/partials/footer.html",
+      "title": "assets/partials/footer.html",
+      "category": "Page",
+      "description": "",
+      "headings": [],
+      "body": ""
+    },
+    {
+      "url": "/assets/partials/head.html",
+      "title": "{{TITLE}}",
+      "category": "Page",
+      "description": "{{META:description}}",
+      "headings": [],
+      "body": ""
+    },
+    {
+      "url": "/assets/partials/header.html",
+      "title": "assets/partials/header.html",
+      "category": "Page",
+      "description": "",
+      "headings": [],
+      "body": ""
     },
     {
       "url": "/search/",
