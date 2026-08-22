@@ -107,7 +107,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" />
+<<<<<<< HEAD
+    <link rel="stylesheet" href="/assets/css/theme.css?v=4b831f47" />
+=======
     <link rel="stylesheet" href="/assets/css/theme.css?v=7e6cfe01" />
+>>>>>>> 344e046d7ba1e95be2f8d01907d18129240024e6
 
     <script type="speculationrules">
     {
@@ -317,12 +321,16 @@
       </div>
     </footer>
 
+<<<<<<< HEAD
+    <script src="/assets/js/app.js?v=be5eab85"></script>
+=======
     <script src="/assets/js/app.js?v=7f2ab47a"></script>
+>>>>>>> 344e046d7ba1e95be2f8d01907d18129240024e6
     <script type="application/ld+json">
       {/* [[SCHEMA-JSON-LD]] */}
     </script>
     <script type="module">
-      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      import mermaid from "/assets/vendor/mermaid/mermaid.esm.min.mjs";
       const styles = getComputedStyle(document.body);
       const surface = styles.getPropertyValue("--color-surface").trim() || "#111827";
       const surfaceSoft = styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
@@ -332,7 +340,7 @@
       const fontBody = styles.getPropertyValue("--font-body").trim() || '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
       mermaid.initialize({
         startOnLoad: true,
-        securityLevel: "loose",
+        securityLevel: "strict",
         theme: "base",
         themeVariables: {
           primaryColor: surface,
