@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "site-src"
 PARTIALS = ROOT / "assets" / "partials"
 MANIFEST = SRC / "pages.json"
-EXCLUDED = ("assets/", ".agents/", ".local/", "node_modules/")
+EXCLUDED = ("assets/", ".agents/", ".local/", "node_modules/", "site-src/")
 APP_RE = re.compile(r"/assets/js/app\.js(?:\?[^\"']*)?")
 
 
