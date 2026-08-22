@@ -26,8 +26,28 @@ The repo also serves as the public artifact archive for OverKill Hill P³ writin
 | Markup | Plain HTML 5 |
 | Styling | Hand-authored CSS in `assets/css/theme.css` (token-driven) |
 | Scripting | Vanilla JS (`assets/js/app.js`, `mermaid-init.js`) |
-| Diagrams | [Mermaid](https://mermaid.js.org/) loaded from CDN on the v0.3 article |
+| Diagrams | [Mermaid](https://mermaid.js.org/) v11.16.0, self-hosted under `assets/vendor/mermaid/` |
 | Search | Client-side index in `assets/data/search-index.json` |
+
+### Mermaid runtime trust decision
+
+Mermaid 11.16.0 is vendored under `assets/vendor/mermaid/`, including the
+relative ESM chunks it imports. Production pages therefore do not fetch the
+diagram runtime from a third-party CDN. Update the complete vendor directory
+only when intentionally reviewing a new pinned Mermaid release.
+
+The shared initializer uses `securityLevel: "strict"` by default. An audit of
+the seven production pages using Mermaid found that only the two v2 heat-guide
+pages contain Mermaid `click` directives. Those pages opt into `loose` with a
+body data attribute because their outbound diagram links are part of the
+published artifact. Before Mermaid renders them, every click target must match
+an exact HTTPS origin and path allowlist in `assets/js/mermaid-init.js`;
+unlisted targets are removed.
+
+Residual risk: the two v2 pages still require Mermaid's looser interaction
+mode, and the vendored JavaScript remains a large third-party dependency even
+though it is now reviewed and served from this repository. The allowlist is
+not a substitute for reviewing diagram source changes.
 | Hosting | GitHub Pages with `CNAME` + Cloudflare |
 | Local preview | `python3 server.py` (port 5000, no-cache headers) |
 
@@ -125,7 +145,7 @@ All scripts in `scripts/` are pure Python, dependency-light (Pillow + bs4 + lxml
 | `cache-bust.py` | Appends `?v=<sha256[:8]>` to local CSS/JS refs in HTML |
 | `extract-templates.py` | Derives stripped layout templates into `/assets/templates/` from one donor per layout; requires `beautifulsoup4` locally |
 | `build-search-index.py` | Refreshes `/assets/data/search-index.json` from live HTML. `--check` compares the expected index in memory and exits non-zero when stale without writing the JSON. |
-| `modernize-pages.py` | Idempotently injects 2026 baselines into every page: `color-scheme` meta, skip-link, Speculation Rules API prefetch, jsdelivr preconnect + mermaid `modulepreload` (mermaid pages only); `--check` for CI |
+| `modernize-pages.py` | Idempotently injects 2026 baselines into every page: `color-scheme` meta, skip-link, Speculation Rules API prefetch, and local Mermaid `modulepreload` (Mermaid pages only); `--check` for CI |
 | `move-orphans-to-library.py` | Moves any unreferenced asset under `assets/img/` into `assets/img/library/` (preserves the file as a media-kit archive, removes from deploy hot path); `--check` for CI |
 
 Templates produced by `extract-templates.py` are **scaffolds, not pages** — they're disallowed in `robots.txt` and skipped by `validate-site.py`.

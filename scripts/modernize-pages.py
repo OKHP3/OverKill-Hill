@@ -36,8 +36,7 @@ SPECULATION_RULES = '''    <script type="speculationrules">
     </script>
 '''
 
-MERMAID_PRECONNECT = '    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />\n'
-MERMAID_MODULEPRELOAD = '    <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs" crossorigin />\n'
+MERMAID_MODULEPRELOAD = '    <link rel="modulepreload" href="/assets/vendor/mermaid/mermaid.esm.min.mjs" />\n'
 
 
 def is_production_page(p: Path) -> bool:
@@ -67,11 +66,8 @@ def apply(text: str, mermaid: bool) -> tuple[str, list[str]]:
 
     # 3. mermaid preconnect + modulepreload (only on diagram pages)
     if mermaid:
-        if 'href="https://cdn.jsdelivr.net"' not in text and 'href=\'https://cdn.jsdelivr.net\'' not in text:
-            text = text.replace("</head>", MERMAID_PRECONNECT + "  </head>", 1)
-            notes.append("jsdelivr-preconnect")
         if 'rel="modulepreload"' not in text or "mermaid.esm.min.mjs" not in text.split('rel="modulepreload"')[0]:
-            if "rel=\"modulepreload\" href=\"https://cdn.jsdelivr.net/npm/mermaid" not in text:
+            if "rel=\"modulepreload\" href=\"/assets/vendor/mermaid/mermaid.esm.min.mjs\"" not in text:
                 text = text.replace("</head>", MERMAID_MODULEPRELOAD + "  </head>", 1)
                 notes.append("mermaid-modulepreload")
 

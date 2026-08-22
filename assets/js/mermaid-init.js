@@ -6,11 +6,52 @@
 // Performance: on pages with many diagrams (e.g. the v0.3 article) we use
 // IntersectionObserver to defer rendering until each diagram approaches the
 // viewport. Falls back to immediate render where the API is unavailable.
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs";
+import mermaid from "/assets/vendor/mermaid/mermaid.esm.min.mjs";
+
+// Most diagrams are informational and do not need Mermaid's click handling.
+// The two v2 heat pages opt in with data-mermaid-security="loose" because
+// their diagrams contain curated outbound click directives.
+const usesClickableLinks =
+  document.body?.dataset.mermaidSecurity === "loose";
+
+const ALLOWED_CLICK_TARGETS = [
+  { origin: "https://mermaidchart.cello.so", pathname: "/UhVlNtC2MlS" },
+  { origin: "https://replit.com", pathname: "/refer/overkillhillp3" },
+  { origin: "https://overkillhill.com", pathname: "/writings/first-diagram-is-a-liar/" },
+  { origin: "https://overkillhill.com", pathname: "/" },
+  { origin: "https://www.linkedin.com", pathname: "/company/overkillhillp3" },
+  { origin: "https://ko-fi.com", pathname: "/T6T71HCY6A" },
+];
+
+function isAllowedClickTarget(value) {
+  try {
+    const url = new URL(value);
+    return (
+      url.protocol === "https:" &&
+      ALLOWED_CLICK_TARGETS.some(
+        ({ origin, pathname }) =>
+          url.origin === origin &&
+          url.pathname === pathname
+      )
+    );
+  } catch {
+    return false;
+  }
+}
+
+function sanitizeClickableLinks(source) {
+  // Mermaid's click syntax is line-oriented: click NODE "URL" "tooltip".
+  // Remove an entire directive when its URL is not an exact allowlist match.
+  return source.replace(
+    /^(\s*click\s+\S+\s+)"([^"]+)"(?:\s+"[^"]*")?\s*$/gm,
+    (line, prefix, target) =>
+      isAllowedClickTarget(target) ? line : "%% Removed disallowed click target"
+  );
+}
 
 mermaid.initialize({
   startOnLoad: false,
-  securityLevel: "loose",
+  securityLevel: usesClickableLinks ? "loose" : "strict",
   flowchart: {
     curve: "basis",
     nodeSpacing: 55,
@@ -24,6 +65,9 @@ const diagrams = Array.from(document.querySelectorAll(".mermaid"));
 function renderOne(node) {
   if (node.dataset.mermaidRendered === "1") return;
   node.dataset.mermaidRendered = "1";
+  if (usesClickableLinks) {
+    node.textContent = sanitizeClickableLinks(node.textContent);
+  }
   mermaid.run({ nodes: [node] }).catch((err) => {
     console.warn("[mermaid-init] render error:", err);
   });
