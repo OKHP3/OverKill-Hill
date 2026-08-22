@@ -1,0 +1,34 @@
+{
+  "status": "unpublished-scaffold",
+  "target_locale": "fr",
+  "translation_policy": "human-reviewed-required",
+  "source_of_truth": "site-src/pages.json",
+  "pages": [
+    {
+      "source_route": "/",
+      "target_route": "/fr/",
+      "source_path": "index.html",
+      "target_path": "fr/index.html",
+      "status": "translation-required"
+    },
+    {
+      "source_route": "/about/",
+      "target_route": "/fr/about/",
+      "source_path": "about/index.html",
+      "target_path": "fr/about/index.html",
+      "status": "translation-required"
+    },
+    {
+      "source_route": "/projects/",
+      "target_route": "/fr/projects/",
+      "source_path": "projects/index.html",
+      "target_path": "fr/projects/index.html",
+      "status": "translation-required"
+    }
+  ],
+  "search_index": {
+    "command": "python3 scripts/build-search-index.py --locale=fr",
+    "output": "assets/data/search-index.fr.json",
+    "status": "waiting-for-human-translated-pages"
+  }
+}

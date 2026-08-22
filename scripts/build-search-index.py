@@ -427,7 +427,7 @@ def discover_sentinel_sections(html: str) -> list[tuple[str, str]]:
     return results
 
 
-def process_file(path: Path) -> list[dict]:
+def process_file(path: Path, locale: str = "") -> list[dict]:
     rel = path.relative_to(ROOT).as_posix()
     if path.name in SKIP_FILES:
         return []
@@ -452,10 +452,16 @@ def process_file(path: Path) -> list[dict]:
     url_path = canonical.replace(SITE, "") if canonical.startswith(SITE) else url_for(path)
     body = parser.collected_text()
 
+    category_path = url_path
+    if locale and category_path.startswith(f"/{locale}/"):
+        category_path = category_path[len(locale) + 1:]
+        if not category_path.startswith("/"):
+            category_path = "/" + category_path
+
     entry = {
         "url": url_path,
         "title": title,
-        "category": categorise(url_path),
+        "category": categorise(category_path),
         "description": description,
         "headings": [t for _id, t in parser._h2_parts] + parser._h3_parts,
         "body": excerpt(body, 700),
@@ -470,7 +476,7 @@ def process_file(path: Path) -> list[dict]:
     # To index a new section, add data-search-index to its opening tag in the HTML:
     #   <div class="content-block" id="my-section" data-search-index>
     # No script edit is required.
-    if categorise(url_path) == "Project":
+    if categorise(category_path) == "Project":
         sentinels = discover_sentinel_sections(html)
         by_tag: dict[str, list[str]] = {}
         for stag, sec_id in sentinels:
@@ -498,15 +504,15 @@ def process_file(path: Path) -> list[dict]:
     return out
 
 
-def build_payload() -> dict:
+def build_payload(scan_root: Path = ROOT, locale: str = "") -> dict:
     """Build the deterministic search-index payload without writing to disk."""
     entries: list[dict] = []
-    for path in sorted(ROOT.rglob("*.html")):
+    for path in sorted(scan_root.rglob("*.html")):
         # Filter directories
         rel_parts = path.relative_to(ROOT).parts
         if any(p in SKIP_DIR_PARTS for p in rel_parts):
             continue
-        entries.extend(process_file(path))
+        entries.extend(process_file(path, locale=locale))
 
     # Stable sort: Home → Brand → Writing/Article → Article Section → Project → Page
     cat_order = {"Home": 0, "Brand": 1, "Writing": 2, "Article": 3,
@@ -515,15 +521,16 @@ def build_payload() -> dict:
 
     return {
         "site": SITE,
+        **({"locale": locale} if locale else {}),
         "generated": "static",
         "count": len(entries),
         "entries": entries,
     }
 
 
-def print_summary(payload: dict, action: str) -> None:
+def print_summary(payload: dict, action: str, output: Path = OUT) -> None:
     """Print the entry count and category breakdown for a built payload."""
-    print(f"{action} {OUT.relative_to(ROOT)} — {payload['count']} entries")
+    print(f"{action} {output.relative_to(ROOT)} — {payload['count']} entries")
     by_cat: dict[str, int] = {}
     for e in payload["entries"]:
         by_cat[e["category"]] = by_cat.get(e["category"], 0) + 1
@@ -533,40 +540,65 @@ def print_summary(payload: dict, action: str) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     args = sys.argv[1:] if argv is None else argv
-    unknown_args = [arg for arg in args if arg != "--check"]
+    check = "--check" in args
+    locale_args = [arg for arg in args if arg.startswith("--locale=")]
+    unknown_args = [
+        arg for arg in args
+        if arg != "--check" and not arg.startswith("--locale=")
+    ]
     if unknown_args:
         print(
-            "Usage: python3 scripts/build-search-index.py [--check]",
+            "Usage: python3 scripts/build-search-index.py [--check] [--locale=fr]",
             file=sys.stderr,
         )
         return 2
 
-    payload = build_payload()
+    locale = locale_args[0].split("=", 1)[1].strip() if locale_args else ""
+    if len(locale_args) > 1 or (locale and not re.fullmatch(r"[a-z]{2}", locale)):
+        print("Locale must be a single lowercase two-letter code, such as fr.", file=sys.stderr)
+        return 2
+    output = ROOT / "assets" / "data" / (
+        f"search-index.{locale}.json" if locale else "search-index.json"
+    )
+    scan_root = ROOT / locale if locale else ROOT
+    if locale and not scan_root.exists():
+        # Keep the unpublished pilot scaffold runnable without creating a
+        # deployable /fr/ tree. A real locale takes precedence when present.
+        scan_root = ROOT / "i18n" / "pilot" / locale
+    if locale and not scan_root.exists():
+        print(
+            f"Locale source directory is missing: {scan_root.relative_to(ROOT)}. "
+            "Create the translated pages before building its index.",
+            file=sys.stderr,
+        )
+        return 1
+
+    payload = build_payload(scan_root=scan_root, locale=locale)
     rendered = json.dumps(payload, ensure_ascii=False, indent=2)
 
-    if "--check" in args:
-        if not OUT.exists():
+    if check:
+        if not output.exists():
             print(
-                f"Search index is missing: {OUT.relative_to(ROOT)}. "
-                "Run python3 scripts/build-search-index.py.",
+                f"Search index is missing: {output.relative_to(ROOT)}. "
+                "Run the matching build-search-index command.",
                 file=sys.stderr,
             )
             return 1
-        current = OUT.read_text(encoding="utf-8")
+        current = output.read_text(encoding="utf-8")
         if current != rendered:
             print(
-                f"Search index is stale: {OUT.relative_to(ROOT)}. "
-                "Run python3 scripts/build-search-index.py, review the diff, "
+                f"Search index is stale: {output.relative_to(ROOT)}. "
+                "Run the matching build-search-index command, review the diff, "
                 "then run this command again.",
                 file=sys.stderr,
             )
             return 1
-        print_summary(payload, "Search index is current:")
+        print_summary(payload, "Search index is current:", output)
         return 0
 
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(rendered, encoding="utf-8")
-    print_summary(payload, "Wrote")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(rendered, encoding="utf-8")
+    print_summary(payload, "Wrote", output)
     return 0
 
 
