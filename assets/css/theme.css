@@ -1142,6 +1142,18 @@ button {
   padding-top: 1rem;
 }
 
+.writing-card-kicker {
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.writing-card-kicker--featured {
+  color: var(--okh-orange);
+}
+
 /* About */
 .about-grid {
   display: grid;
@@ -1218,6 +1230,30 @@ button {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 0.5rem;
+}
+
+.footer-built-with {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  padding-left: 1rem;
+  white-space: nowrap;
+}
+
+.footer-built-with a {
+  color: var(--color-link-hover);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer-built-with a:hover,
+.footer-built-with a:focus-visible {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.footer-copyright {
+  margin: 0;
+  text-align: center;
 }
 
 /* ===== SCROLL REVEAL ===================================================== */
