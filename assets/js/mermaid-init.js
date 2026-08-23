@@ -49,6 +49,32 @@ function sanitizeClickableLinks(source) {
   );
 }
 
+// Diagram authors often bring a light, editor-specific palette in YAML
+// front-matter or classDef rules. Resolve those literals against the active
+// site's semantic tokens before Mermaid parses the source so diagrams follow
+// the light/dark theme without changing the source examples shown to readers.
+function resolveThemeColors(source) {
+  const styles = getComputedStyle(document.documentElement);
+  const token = (name, fallback) =>
+    styles.getPropertyValue(name).trim() || fallback;
+  const colors = {
+    "#111827": token("--mermaid-primary-color", "#111827"),
+    "#14213D": token("--mermaid-primary-text-color", "#e5e7eb"),
+    "#102A43": token("--mermaid-primary-text-color", "#e5e7eb"),
+    "#325DCC": token("--mermaid-primary-border-color", "#c46a2c"),
+    "#4A5CCC": token("--mermaid-primary-border-color", "#c46a2c"),
+    "#64748B": token("--mermaid-line-color", "#c46a2c"),
+    "#6B7280": token("--color-muted", "#9ca3af"),
+    "#94A3B8": token("--color-muted", "#9ca3af"),
+    "#CBD5E0": token("--mermaid-primary-border-color", "#c46a2c"),
+    "#181f26": token("--mermaid-secondary-color", "#181f26"),
+    "#FFF7E8": token("--mermaid-secondary-color", "#181f26"),
+    "#EEFDF3": token("--mermaid-tertiary-color", "#1c3a34"),
+    "#FFFFFF": token("--mermaid-edge-label-bg", "#181f26"),
+  };
+  return source.replace(/#[0-9A-Fa-f]{6}/g, (value) => colors[value] || value);
+}
+
 mermaid.initialize({
   startOnLoad: false,
   securityLevel: usesClickableLinks ? "loose" : "strict",
@@ -91,6 +117,7 @@ function renderOne(node) {
   if (usesClickableLinks) {
     node.textContent = sanitizeClickableLinks(node.textContent);
   }
+  node.textContent = resolveThemeColors(node.textContent);
   mermaid.run({ nodes: [node] }).catch((err) => {
     console.warn("[mermaid-init] render error:", err);
   });

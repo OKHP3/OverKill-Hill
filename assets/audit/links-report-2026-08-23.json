@@ -8,9 +8,6 @@
   "sitemap": {
     "total_urls": 24,
     "missing_from_sitemap": [
-      "https://overkillhill.com/projects/hometools/",
-      "https://overkillhill.com/projects/pathscrib-r/",
-      "https://overkillhill.com/projects/un-nocked-truth/",
       "https://overkillhill.com/writings/biases-as-constants/",
       "https://overkillhill.com/writings/magnus-saga/"
     ],
@@ -19,6 +16,21 @@
       {
         "page": "found-ry/index.html",
         "url": "https://overkillhill.com/found-ry/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "projects/hometools/index.html",
+        "url": "https://overkillhill.com/projects/hometools/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "projects/pathscrib-r/index.html",
+        "url": "https://overkillhill.com/projects/pathscrib-r/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "projects/un-nocked-truth/index.html",
+        "url": "https://overkillhill.com/projects/un-nocked-truth/",
         "reason": "robots meta declares noindex"
       },
       {
