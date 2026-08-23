@@ -4046,6 +4046,17 @@ sentinel artwork used on this error page, we override two rules:
   color: var(--gpt-hero-fg);
 }
 
+.gpt-hero--bfs .gpt-hero__actions .btn-secondary {
+  color: var(--gpt-hero-fg);
+  border-color: var(--gpt-hero-border);
+}
+
+.gpt-hero--bfs .gpt-hero__actions .btn-secondary:hover,
+.gpt-hero--bfs .gpt-hero__actions .btn-secondary:focus-visible {
+  color: var(--gpt-hero-bg);
+  background: var(--gpt-hero-border);
+}
+
 
 /* ----------------------------------------
    BFS Framing Intelligent Futures hero
