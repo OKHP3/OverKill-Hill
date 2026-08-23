@@ -4031,6 +4031,19 @@ sentinel artwork used on this error page, we override two rules:
   --gpt-hero-badge-bg: #003b66;     /* deep BFS blue */
   --gpt-hero-cta-bg: #f7a236;
   --gpt-hero-cta-bg-hover: #ffb955;
+  --gpt-hero-fg: #f8fafc;
+  --gpt-hero-link: #f7a236;
+  color: var(--gpt-hero-fg);
+}
+
+.gpt-hero--bfs .gpt-hero__card a:not(.btn) {
+  color: var(--gpt-hero-link);
+}
+
+.gpt-hero--bfs .gpt-hero__card .gpt-hero__title,
+.gpt-hero--bfs .gpt-hero__card .gpt-hero__subtitle,
+.gpt-hero--bfs .gpt-hero__card .gpt-hero__note {
+  color: var(--gpt-hero-fg);
 }
 
 
