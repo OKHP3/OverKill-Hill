@@ -60,7 +60,7 @@ ASSET_RE = re.compile(
     re.I,
 )
 ROBOTS_RE = re.compile(
-    r"""<meta\b[^>]*\bname=["']robots["'][^>]*\bcontent=["']([^"']+)["']""",
+    r"""<meta\b(?=[^>]*\bname=["']robots["'])(?=[^>]*\bcontent=["']([^"']+)["'])[^>]*>""",
     re.I,
 )
 
