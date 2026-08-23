@@ -1658,25 +1658,6 @@ body.construction-dismissed .construction-overlay,
   line-height: 1.5;
 }
 
-/* Footer built-with bar */
-.footer-built-with {
-  font-size: 0.8rem;
-  color: var(--color-muted);
-  white-space: nowrap;
-  padding-left: 1rem;
-}
-
-.footer-built-with a {
-  color: #FF3C00;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.footer-copyright {
-  margin: 0;
-  text-align: center;
-}
-
 /* ── TOC widget: GPU-layer hint for smooth animation */
 @media (min-width: 1024px) {
   #toc-widget {
