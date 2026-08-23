@@ -120,8 +120,14 @@ async function runWithPlaywright() {
   // are reported separately as warnings on every affected viewport row.
   for (const w of workers) {
     w.page.on('console', msg => {
+      const sourceUrl = msg.location().url || '';
+      const mermaidRuntimeCspWarning =
+        msg.type() === 'error' &&
+        msg.text().startsWith('Applying inline style violates the following Content Security Policy directive') &&
+        /\/assets\/vendor\/mermaid\//.test(sourceUrl);
       if (msg.type() === 'error' &&
-          !msg.text().includes('ERR_FAILED'))
+          !msg.text().includes('ERR_FAILED') &&
+          !mermaidRuntimeCspWarning)
         w.consoleErrors.push(msg.text());
     });
     w.page.on('response', resp => {
@@ -183,29 +189,7 @@ async function runWithPlaywright() {
         ![...blockedExternal].some(blocked => blocked === src)
       );
 
-      // Mermaid generates geometry-dependent SVG style attributes at runtime.
-      // Give its local module a bounded opportunity to finish before classifying
-      // its CSP diagnostics; otherwise DOMContentLoaded races the renderer and
-      // the page is incorrectly reported as a phone-layout failure.
-      const hasMermaidMarkup = await page.evaluate(() =>
-        document.querySelectorAll('.mermaid').length > 0
-      );
-      if (hasMermaidMarkup) {
-        await page.waitForFunction(
-          () => document.querySelectorAll('.mermaid svg, svg[id^="mermaid-"]').length > 0,
-          { timeout: 1000 }
-        ).catch(() => {});
-      }
-      // Keep CSP strict for the site and exclude only this known Mermaid
-      // diagnostic; page-owned inline-style violations remain hard failures.
-      const runtimeMermaid = hasMermaidMarkup && await page.evaluate(() =>
-        document.querySelectorAll('.mermaid svg, svg[id^="mermaid-"]').length > 0
-      );
-      const effectiveConsoleErrors = consoleErrors.filter(error =>
-        !error.startsWith('Applying inline style violates the following Content Security Policy directive') ||
-        !runtimeMermaid
-      );
-      const pageConsoleErrors = effectiveConsoleErrors.filter(error =>
+      const pageConsoleErrors = consoleErrors.filter(error =>
         !error.includes('https://okhp3.github.io/') &&
         !error.includes('Fetch API cannot load https://okhp3.github.io/')
       );
