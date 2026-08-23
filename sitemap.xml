@@ -22,6 +22,18 @@
   </url>
 
   <url>
+    <loc>https://overkillhill.com/writings/biases-as-constants/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://overkillhill.com/writings/magnus-saga/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
     <loc>https://overkillhill.com/manifesto/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
@@ -155,12 +167,11 @@
     /found-ry/ is a noindex redirect to /projects/found-ry/, which is the
     canonical, indexable project URL listed above.
 
-    /projects/hometools/, /projects/pathscrib-r/, /projects/un-nocked-truth/,
-    /writings/biases-as-constants/, and /writings/magnus-saga/ are all
-    noindex WIP pages behind an active "under construction" gate
-    (data-wip-key="found-ry"). Add them only when their noindex status and WIP
-    gate are removed. scripts/validate-site.py rejects noindex URLs in this
-    sitemap; scripts/check-links.py records them as intentional exclusions.
+    /projects/hometools/, /projects/pathscrib-r/, and /projects/un-nocked-truth/
+    are noindex WIP pages behind an active "under construction" gate
+    (data-wip-key="found-ry"). scripts/validate-site.py rejects noindex URLs
+    in this sitemap; scripts/check-links.py records them as intentional
+    exclusions.
   -->
 
 </urlset>
