@@ -90,7 +90,18 @@ jobs:
           npm run test:responsive
 
       - name: Run accessibility QA gate
-        run: npm run test:accessibility
+        run: |
+          python3 server.py > accessibility-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for attempt in {1..20}; do
+            if curl --silent --fail http://127.0.0.1:5000/ >/dev/null; then
+              break
+            fi
+            sleep 0.5
+          done
+          curl --silent --fail http://127.0.0.1:5000/ >/dev/null
+          npm run test:accessibility
 
       - name: Run WCAG contrast audit
         id: contrast
