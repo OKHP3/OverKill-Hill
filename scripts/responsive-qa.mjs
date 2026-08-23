@@ -184,15 +184,26 @@ async function runWithPlaywright() {
       );
 
       // Mermaid generates geometry-dependent SVG style attributes at runtime.
-      // Keep CSP strict for the site and exclude only this known SVG warning;
-      // page-owned inline-style violations remain hard failures. Static inline
-      // styles are covered by the generated CSP hashes before this point.
-      const runtimeSvgStyles = await page.evaluate(() =>
-        document.querySelectorAll('svg [style]').length > 0
+      // Give its local module a bounded opportunity to finish before classifying
+      // its CSP diagnostics; otherwise DOMContentLoaded races the renderer and
+      // the page is incorrectly reported as a phone-layout failure.
+      const hasMermaidMarkup = await page.evaluate(() =>
+        document.querySelectorAll('.mermaid').length > 0
+      );
+      if (hasMermaidMarkup) {
+        await page.waitForFunction(
+          () => document.querySelectorAll('.mermaid svg, svg[id^="mermaid-"]').length > 0,
+          { timeout: 1000 }
+        ).catch(() => {});
+      }
+      // Keep CSP strict for the site and exclude only this known Mermaid
+      // diagnostic; page-owned inline-style violations remain hard failures.
+      const runtimeMermaid = hasMermaidMarkup && await page.evaluate(() =>
+        document.querySelectorAll('.mermaid svg, svg[id^="mermaid-"]').length > 0
       );
       const effectiveConsoleErrors = consoleErrors.filter(error =>
         !error.startsWith('Applying inline style violates the following Content Security Policy directive') ||
-        !runtimeSvgStyles
+        !runtimeMermaid
       );
       const pageConsoleErrors = effectiveConsoleErrors.filter(error =>
         !error.includes('https://okhp3.github.io/') &&
