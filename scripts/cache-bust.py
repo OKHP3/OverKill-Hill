@@ -15,7 +15,8 @@ Usage:
     python3 scripts/cache-bust.py --check    # exit 1 if anything would change
 
 Conventions:
-- Hash is the first 8 chars of sha256 of each shared asset's file bytes.
+- Hash is the first 8 chars of sha256 of each shared asset's canonical text
+  bytes (LF line endings, independent of the checkout platform).
 - Relative and legacy query-string references are rewritten to the canonical URL.
 - Skips _replit/, .local/, attached_assets/, node_modules/.
 """
@@ -48,7 +49,8 @@ SHARED_ASSET_REF = re.compile(
 def file_hash(path: Path) -> str | None:
     if not path.is_file():
         return None
-    h = hashlib.sha256(path.read_bytes()).hexdigest()
+    canonical = path.read_bytes().replace(b"\r\n", b"\n")
+    h = hashlib.sha256(canonical).hexdigest()
     return h[:8]
 
 

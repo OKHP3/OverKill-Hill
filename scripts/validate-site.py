@@ -179,7 +179,8 @@ def current_content_hashed_url(asset_path: str) -> str | None:
     asset = ROOT / asset_path.lstrip("/")
     if not asset.is_file():
         return None
-    fingerprint = hashlib.sha256(asset.read_bytes()).hexdigest()[:8]
+    canonical = asset.read_bytes().replace(b"\r\n", b"\n")
+    fingerprint = hashlib.sha256(canonical).hexdigest()[:8]
     return f"{asset_path}?v={fingerprint}"
 
 

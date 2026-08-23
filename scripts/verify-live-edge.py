@@ -61,6 +61,11 @@ ROBOTS_RE = re.compile(
 )
 
 
+def canonical_text_bytes(path: Path) -> bytes:
+    """Match GitHub Pages' LF text bytes from Windows CRLF checkouts."""
+    return path.read_bytes().replace(b"\r\n", b"\n")
+
+
 def now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
@@ -269,7 +274,7 @@ def check_release_manifest(
         entry = artifacts.get(public_path)
         manifest_hash = entry.get("sha256") if isinstance(entry, dict) else None
         local_hash = (
-            hashlib.sha256(local_path.read_bytes()).hexdigest()
+            hashlib.sha256(canonical_text_bytes(local_path)).hexdigest()
             if local_path.is_file()
             else None
         )
@@ -361,7 +366,11 @@ def main() -> int:
                                  response.get("error", f"HTTP {response.get('status')}")))
             continue
         remote_hash = hashlib.sha256(response["body"]).hexdigest()
-        local_hash = hashlib.sha256(local_path.read_bytes()).hexdigest() if local_path.is_file() else None
+        local_hash = (
+            hashlib.sha256(canonical_text_bytes(local_path)).hexdigest()
+            if local_path.is_file()
+            else None
+        )
         if local_hash is None:
             report.append(
                 result(
@@ -422,7 +431,11 @@ def main() -> int:
         fingerprint = FINGERPRINT_RE.search(parsed.query)
         path = parsed.path
         local_path = ROOT / path.lstrip("/")
-        expected_hash = hashlib.sha256(local_path.read_bytes()).hexdigest()[:8] if local_path.is_file() else None
+        expected_hash = (
+            hashlib.sha256(canonical_text_bytes(local_path)).hexdigest()[:8]
+            if local_path.is_file()
+            else None
+        )
         response = fetch(args.base, asset_url, args.timeout)
         if not fingerprint:
             report.append(result(f"asset {path}", "FAIL", "missing 8-character ?v= fingerprint"))
