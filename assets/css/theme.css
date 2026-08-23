@@ -1658,12 +1658,7 @@ body.construction-dismissed .construction-overlay,
   line-height: 1.5;
 }
 
-/* ── TOC widget: GPU-layer hint for smooth animation */
-@media (min-width: 1024px) {
-  #toc-widget {
-    will-change: transform;
-  }
-}/* Trigger button injected into the primary nav on every page */
+/* Trigger button injected into the primary nav on every page */
 .okh-search-trigger {
   display: inline-flex;
   align-items: center;

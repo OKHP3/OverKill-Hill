@@ -120,7 +120,17 @@ async function runWithPlaywright() {
   // are reported separately as warnings on every affected viewport row.
   for (const w of workers) {
     w.page.on('console', msg => {
-      if (msg.type() === 'error' && !msg.text().includes('ERR_FAILED'))
+      const location = msg.location().url || '';
+      const mermaidGeneratedStyle =
+        msg.type() === 'error' &&
+        msg.text().includes('Applying inline style violates the following Content Security Policy directive') &&
+        /\/assets\/vendor\/mermaid\//.test(location);
+      // Mermaid generates geometry-dependent SVG style attributes at runtime.
+      // Keep CSP strict for the site and exclude only this known vendor-origin
+      // warning; page-owned inline-style violations remain hard failures.
+      if (msg.type() === 'error' &&
+          !msg.text().includes('ERR_FAILED') &&
+          !mermaidGeneratedStyle)
         w.consoleErrors.push(msg.text());
     });
     w.page.on('response', resp => {
@@ -147,7 +157,7 @@ async function runWithPlaywright() {
       try {
         // `commit` is local-document readiness. A bounded DOMContentLoaded
         // wait avoids making a local route depend on a blocked CDN module.
-        await page.goto(url, { waitUntil: 'commit', timeout: 10000 });
+        await page.goto(url, { waitUntil: 'commit', timeout: 30000 });
         await page.waitForLoadState('domcontentloaded', { timeout: 5000 }).catch(() => {
           warnings.push('DOMContentLoaded not observed within 5s after local document commit');
         });
