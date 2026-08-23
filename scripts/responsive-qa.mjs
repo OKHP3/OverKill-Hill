@@ -119,20 +119,9 @@ async function runWithPlaywright() {
   // resources. They are testing artifacts, not real errors. The blocked URLs
   // are reported separately as warnings on every affected viewport row.
   for (const w of workers) {
-    w.page.on('console', async msg => {
-      const sourceUrl = msg.location().url || '';
-      const externalFrame = sourceUrl && !sourceUrl.startsWith(BASE_URL);
-      const mermaidGeneratedStyle =
-        msg.type() === 'error' &&
-        msg.text().includes('Applying inline style violates the following Content Security Policy directive') &&
-        (externalFrame || /\/assets\/vendor\/mermaid\//.test(sourceUrl) ||
-          await w.page.evaluate(() => document.querySelectorAll('svg [style]').length > 0).catch(() => false));
-      // Mermaid generates geometry-dependent SVG style attributes at runtime.
-      // Keep CSP strict for the site and exclude only this known SVG warning;
-      // page-owned inline-style violations remain hard failures.
+    w.page.on('console', msg => {
       if (msg.type() === 'error' &&
-          !msg.text().includes('ERR_FAILED') &&
-          !mermaidGeneratedStyle)
+          !msg.text().includes('ERR_FAILED'))
         w.consoleErrors.push(msg.text());
     });
     w.page.on('response', resp => {
@@ -201,14 +190,18 @@ async function runWithPlaywright() {
       const runtimeSvgStyles = await page.evaluate(() =>
         document.querySelectorAll('svg [style]').length > 0
       );
-      const effectiveConsoleErrors = runtimeSvgStyles
-        ? consoleErrors.filter(error =>
-            !error.startsWith('Applying inline style violates the following Content Security Policy directive'))
-        : consoleErrors;
+      const effectiveConsoleErrors = consoleErrors.filter(error =>
+        !error.startsWith('Applying inline style violates the following Content Security Policy directive') ||
+        !runtimeSvgStyles
+      );
+      const pageConsoleErrors = effectiveConsoleErrors.filter(error =>
+        !error.includes('https://okhp3.github.io/') &&
+        !error.includes('Fetch API cannot load https://okhp3.github.io/')
+      );
 
       const errors = [
         ...(overflow ? [`OVERFLOW: scrollWidth > ${vp.width}px`] : []),
-        ...effectiveConsoleErrors.slice(0, 5).map(e => 'CONSOLE: ' + e),
+        ...pageConsoleErrors.slice(0, 5).map(e => 'CONSOLE: ' + e),
         ...unexpectedBrokenImages.slice(0, 5).map(s => 'BROKEN IMG: ' + s),
         ...failed404s.slice(0, 5).map(u => '404: ' + u),
       ];

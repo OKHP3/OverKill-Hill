@@ -42,8 +42,8 @@ def inline_sources(path: Path) -> tuple[set[str], set[str]]:
         if match.group(1).strip()
     }
     style_attr_hashes = {
-        sha256_source(html.unescape(match.group(1)))
-        for match in re.finditer(r'\bstyle=["\']([^"\']*)["\']', source, re.I)
+        sha256_source(html.unescape(match.group(2)))
+        for match in re.finditer(r'\bstyle=(["\'])(.*?)\1', source, re.I)
     }
     return script_hashes, style_attr_hashes
 
