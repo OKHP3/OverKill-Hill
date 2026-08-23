@@ -39,6 +39,9 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install Python validation dependencies
+        run: python3 -m pip install --disable-pip-version-check --no-input beautifulsoup4
+
       - name: Set up Node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
