@@ -37,6 +37,10 @@ socketserver.TCPServer.allow_reuse_address = True
 
 class ThreadingServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     daemon_threads = True
+    # Responsive QA opens eight browser pages in parallel, each requesting
+    # several local assets. Keep the accept queue ahead of that burst so the
+    # test server reports site behavior rather than transient refusals.
+    request_queue_size = 128
 
 with ThreadingServer(("0.0.0.0", PORT), NoCacheHandler) as httpd:
     print(f"Serving on port {PORT} with no-cache headers")
