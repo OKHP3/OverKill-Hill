@@ -36,6 +36,10 @@ SEARCH_INDEX = ROOT / "assets" / "data" / "search-index.json"
 RELEASE_MANIFEST = "/assets/audit/release-manifest.json"
 TIMEOUT = 10.0
 USER_AGENT = "OKHP3-live-edge-verifier/1.0 (read-only)"
+GITHUB_PAGES_POLICY_NOTE = (
+    "GitHub Pages serves this response but does not apply repository _headers; "
+    "configure the custom edge proxy before treating this policy as enforced"
+)
 SECURITY_HEADERS = {
     "x-content-type-options": "nosniff",
     "x-frame-options": "SAMEORIGIN",
@@ -146,13 +150,16 @@ def load_routes() -> tuple[list[str], str | None]:
 
 
 def check_headers(
-    report: list[dict[str, Any]], label: str, response: dict[str, Any]
+    report: list[dict[str, Any]], label: str, response: dict[str, Any], hosting: str
 ) -> None:
     if not response.get("ok"):
         return
     headers = response["headers"]
     for name, expected in SECURITY_HEADERS.items():
         value = headers.get(name)
+        if hosting == "github-pages":
+            report.append(result(f"{label} security header {name}", "BLOCKED", GITHUB_PAGES_POLICY_NOTE))
+            continue
         if not value:
             report.append(result(f"{label} security header {name}", "FAIL", "header absent"))
         elif expected and value.lower() != expected.lower():
@@ -173,6 +180,7 @@ def check_page(
     path: str,
     expected_indexable: bool,
     timeout: float,
+    hosting: str,
 ) -> tuple[dict[str, Any] | None, str]:
     response = fetch(base, path, timeout)
     label = f"route {path}"
@@ -215,9 +223,12 @@ def check_page(
         report.append(result(f"{label} robots boundary", "PASS", f"{wanted}; {robots or 'no robots meta'}"))
     cache = response["headers"].get("cache-control", "")
     cache_passed = bool(HTML_CACHE_RE.search(cache)) and bool(REVALIDATE_RE.search(cache))
-    report.append(result(f"{label} cache policy", "PASS" if cache_passed else "FAIL",
-                         cache or "Cache-Control absent"))
-    check_headers(report, label, response)
+    cache_status = "PASS" if cache_passed else "FAIL"
+    if hosting == "github-pages":
+        cache_status = "BLOCKED"
+    report.append(result(f"{label} cache policy", cache_status,
+                         GITHUB_PAGES_POLICY_NOTE if hosting == "github-pages" else (cache or "Cache-Control absent")))
+    check_headers(report, label, response, hosting)
     return response, body
 
 
@@ -321,6 +332,17 @@ def main() -> int:
         "--expected-commit",
         help="Require the deployed release manifest to identify this validated commit",
     )
+    parser.add_argument(
+        "--hosting",
+        choices=("strict", "github-pages"),
+        default="strict",
+        help="Hosting policy to verify; GitHub Pages cannot apply repository _headers",
+    )
+    parser.add_argument(
+        "--accept-blocked",
+        action="store_true",
+        help="Return success when only hosting limitations are BLOCKED",
+    )
     parser.add_argument("--noindex-route", action="append", default=["/404.html", "/found-ry/"],
                         help="Additional utility/noindex route (repeatable)")
     args = parser.parse_args()
@@ -342,7 +364,7 @@ def main() -> int:
     responses: dict[str, dict[str, Any]] = {}
     bodies: dict[str, str] = {}
     for route in routes:
-        response, body = check_page(report, args.base, route, True, args.timeout)
+        response, body = check_page(report, args.base, route, True, args.timeout, args.hosting)
         if response:
             responses[route] = response
             bodies[route] = body
@@ -350,7 +372,7 @@ def main() -> int:
     for route in dict.fromkeys(args.noindex_route):
         if route in responses:
             continue
-        response, body = check_page(report, args.base, route, False, args.timeout)
+        response, body = check_page(report, args.base, route, False, args.timeout, args.hosting)
         if response:
             responses[route] = response
             bodies[route] = body
@@ -413,10 +435,16 @@ def main() -> int:
         cache = response["headers"].get("cache-control", "")
         if kind == "search index":
             passed = bool(cache) and not IMMUTABLE_RE.search(cache) and bool(re.search(r"max-age=(?:[0-9]|[1-2][0-9]{1,2}|300)\b", cache, re.I))
-            report.append(result("search index cache policy", "PASS" if passed else "FAIL", cache or "Cache-Control absent"))
+            cache_status = "PASS" if passed else "FAIL"
+            if args.hosting == "github-pages":
+                cache_status = "BLOCKED"
+            report.append(result("search index cache policy", cache_status, GITHUB_PAGES_POLICY_NOTE if args.hosting == "github-pages" else (cache or "Cache-Control absent")))
         else:
-            report.append(result("sitemap cache policy", "PASS" if HTML_CACHE_RE.search(cache) and REVALIDATE_RE.search(cache) else "FAIL", cache or "Cache-Control absent"))
-        check_headers(report, f"generated {kind}", response)
+            cache_status = "PASS" if HTML_CACHE_RE.search(cache) and REVALIDATE_RE.search(cache) else "FAIL"
+            if args.hosting == "github-pages":
+                cache_status = "BLOCKED"
+            report.append(result("sitemap cache policy", cache_status, GITHUB_PAGES_POLICY_NOTE if args.hosting == "github-pages" else (cache or "Cache-Control absent")))
+        check_headers(report, f"generated {kind}", response, args.hosting)
 
     # Every shared CSS/JS asset referenced by fetched HTML must carry its
     # content hash and be served immutable at the live edge.
@@ -448,7 +476,10 @@ def main() -> int:
         else:
             cache = response["headers"].get("cache-control", "")
             passed = bool(IMMUTABLE_RE.search(cache)) and bool(re.search(r"max-age=(?:[0-9]{8,}|31536000)\b", cache, re.I))
-            report.append(result(f"asset {path}", "PASS" if passed else "FAIL", f"HTTP 200; {cache or 'Cache-Control absent'}"))
+            asset_status = "PASS" if passed else "FAIL"
+            if args.hosting == "github-pages":
+                asset_status = "BLOCKED"
+            report.append(result(f"asset {path}", asset_status, GITHUB_PAGES_POLICY_NOTE if args.hosting == "github-pages" else f"HTTP 200; {cache or 'Cache-Control absent'}"))
 
     failures = sum(item["status"] == "FAIL" for item in report)
     blocked = sum(item["status"] == "BLOCKED" for item in report)
@@ -458,6 +489,7 @@ def main() -> int:
         "base": args.base.rstrip("/"),
         "timeout_seconds": args.timeout,
         "expected_commit": args.expected_commit,
+        "hosting": args.hosting,
         "status": "FAILED" if failures else ("PARTIAL" if blocked else "PASS"),
         "summary": {"checks": len(report), "failures": failures, "blocked": blocked},
         "checks": report,
@@ -467,7 +499,7 @@ def main() -> int:
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(encoded, encoding="utf-8")
-    return 1 if failures or blocked or not routes else 0
+    return 1 if failures or (blocked and not args.accept_blocked) or not routes else 0
 
 
 if __name__ == "__main__":
