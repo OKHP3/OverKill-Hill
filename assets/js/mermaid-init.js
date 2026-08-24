@@ -191,6 +191,24 @@ function resolveThemeColors(source) {
     "#FFF8E8": "--mermaid-secondary-color",
     "#FFF8FB": "--mermaid-secondary-color",
     "#FFFCF2": "--mermaid-secondary-color",
+    // v2 heat-b editor palettes.
+    "#0A1628": "--mermaid-primary-text-color",
+    "#1A2060": "--mermaid-primary-text-color",
+    "#1E3A5F": "--mermaid-primary-text-color",
+    "#3E6EA8": "--mermaid-primary-border-color",
+    "#627184": "--mermaid-line-color",
+    "#A06E28": "--mermaid-line-color",
+    "#A8C1DD": "--mermaid-primary-border-color",
+    "#C9D2DE": "--mermaid-primary-border-color",
+    "#D1FAE5": "--mermaid-tertiary-color",
+    "#D9C7A5": "--mermaid-line-color",
+    "#E5E7EB": "--mermaid-primary-text-color",
+    "#F0F4FF": "--mermaid-primary-color",
+    "#F0FDF4": "--mermaid-tertiary-color",
+    "#F1F5F9": "--mermaid-primary-color",
+    "#F9FAFB": "--mermaid-primary-color",
+    "#FAFBFC": "--mermaid-primary-color",
+    "#FFFCF7": "--mermaid-secondary-color",
   };
   return source.replace(/#[0-9A-Fa-f]{6}/g, (value) => {
     const normalized = value.toUpperCase();
