@@ -6,7 +6,7 @@
   "broken_links": [],
   "style_issues": [],
   "sitemap": {
-    "total_urls": 26,
+    "total_urls": 24,
     "missing_from_sitemap": [],
     "extra_in_sitemap": [],
     "intentionally_excluded": [
@@ -33,6 +33,16 @@
       {
         "page": "search/index.html",
         "url": "https://overkillhill.com/search/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "writings/biases-as-constants/index.html",
+        "url": "https://overkillhill.com/writings/biases-as-constants/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "writings/magnus-saga/index.html",
+        "url": "https://overkillhill.com/writings/magnus-saga/",
         "reason": "robots meta declares noindex"
       }
     ]
