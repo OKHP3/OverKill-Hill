@@ -72,7 +72,61 @@ function resolveThemeColors(source) {
     "#EEFDF3": token("--mermaid-tertiary-color", "#1c3a34"),
     "#FFFFFF": token("--mermaid-edge-label-bg", "#181f26"),
   };
-  return source.replace(/#[0-9A-Fa-f]{6}/g, (value) => colors[value] || value);
+  const pagePalette = {
+    // v1 heat-a diagrams: preserve each semantic role while switching the
+    // editor palettes to the active site theme.
+    "#4A90D9": "--mermaid-primary-border-color",
+    "#1A5FA8": "--mermaid-primary-border-color",
+    "#F0F4F8": "--mermaid-primary-color",
+    "#9EB3C2": "--mermaid-primary-border-color",
+    "#2D3748": "--mermaid-primary-text-color",
+    "#FFF8E7": "--mermaid-secondary-color",
+    "#D4A017": "--mermaid-line-color",
+    "#4A3300": "--mermaid-primary-text-color",
+    "#FDE8E8": "--mermaid-secondary-color",
+    "#C0392B": "--mermaid-line-color",
+    "#7B1A1A": "--mermaid-primary-text-color",
+    "#E8F5E9": "--mermaid-tertiary-color",
+    "#2E7D32": "--mermaid-line-color",
+    "#1A3D1E": "--mermaid-primary-text-color",
+    "#6C5CE7": "--mermaid-primary-border-color",
+    "#4A3AB5": "--mermaid-line-color",
+    "#00B894": "--mermaid-tertiary-color",
+    "#007A61": "--mermaid-line-color",
+    "#EBF4FF": "--mermaid-primary-color",
+    "#1A3D5C": "--mermaid-primary-text-color",
+    "#FFFBF0": "--mermaid-secondary-color",
+    "#F5F5F5": "--mermaid-primary-color",
+    "#F0FFF4": "--mermaid-tertiary-color",
+    "#F3F0FF": "--mermaid-secondary-color",
+    "#2D1B6E": "--mermaid-primary-text-color",
+    "#2B6CB0": "--mermaid-primary-border-color",
+    "#0B2A4A": "--mermaid-primary-text-color",
+    "#EFE9FF": "--mermaid-secondary-color",
+    "#6B46C1": "--mermaid-primary-border-color",
+    "#2A124D": "--mermaid-primary-text-color",
+    "#5A1010": "--mermaid-primary-text-color",
+    "#E9FBEF": "--mermaid-tertiary-color",
+    "#0F3D25": "--mermaid-primary-text-color",
+    "#E3F2FD": "--mermaid-primary-color",
+    "#1565C0": "--mermaid-primary-border-color",
+    "#1B5E20": "--mermaid-primary-text-color",
+    "#FFF3E0": "--mermaid-secondary-color",
+    "#EF6C00": "--mermaid-line-color",
+    "#E65100": "--mermaid-primary-text-color",
+    "#FFEBEE": "--mermaid-secondary-color",
+    "#7B1111": "--mermaid-primary-text-color",
+    "#EDE7F6": "--mermaid-secondary-color",
+    "#5E35B1": "--mermaid-primary-border-color",
+    "#311B92": "--mermaid-primary-text-color",
+  };
+  return source.replace(/#[0-9A-Fa-f]{6}/g, (value) => {
+    const normalized = value.toUpperCase();
+    const direct = colors[normalized] || colors[value];
+    if (direct) return direct;
+    const tokenName = pagePalette[normalized];
+    return tokenName ? token(tokenName, value) : value;
+  });
 }
 
 mermaid.initialize({
