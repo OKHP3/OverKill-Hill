@@ -123,7 +123,6 @@ def fetch(base: str, path: str, timeout: float = TIMEOUT) -> dict[str, Any]:
             "elapsed_ms": round((time.monotonic() - started) * 1000),
         }
 
-
 def path_from_url(url: str) -> str:
     parsed = urllib.parse.urlparse(url)
     path = parsed.path or "/"
