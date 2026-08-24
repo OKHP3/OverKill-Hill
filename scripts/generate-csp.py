@@ -37,7 +37,8 @@ def main(argv: list[str] | None = None) -> int:
 
     failures = locals().get("failures", [])
     meta_pattern = re.compile(
-        r'<meta\s+http-equiv=["\']Content-Security-Policy["\']\s+content=(["\']).*?\1\s*/?>',
+        r'<meta\b(?=[^>]*\bhttp-equiv=["\']Content-Security-Policy["\'])'
+        r'(?=[^>]*\bcontent=(["\']))[^>]*\s*/?>',
         re.IGNORECASE,
     )
     for page in all_pages():
@@ -61,7 +62,8 @@ def main(argv: list[str] | None = None) -> int:
 
 def meta_policy(source: str) -> str | None:
     match = re.search(
-        r'<meta\s+http-equiv=["\']Content-Security-Policy["\']\s+content=(["\'])(.*?)\1',
+        r'<meta\b(?=[^>]*\bhttp-equiv=["\']Content-Security-Policy["\'])'
+        r'(?=[^>]*\bcontent=(["\']))[^>]*\bcontent=\1(.*?)\1',
         source,
         re.IGNORECASE,
     )

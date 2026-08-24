@@ -238,6 +238,21 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
         # CSP is already a serialized policy and must retain its quotes.
         replacement = value if key == "CSP" else html.escape(value, quote=True)
         head = head.replace("{{" + key + "}}", replacement)
+    # Metadata is optional for utility routes. Remove dynamic tags whose
+    # manifest values are intentionally absent instead of shipping literal
+    # template placeholders into the generated document.
+    rendered_head = BeautifulSoup(head, "html.parser")
+    for tag in list(rendered_head.find_all("meta")):
+        if str(tag.get("content", "")).startswith("{{META:"):
+            tag.decompose()
+    # Utility/error routes deliberately have no social metadata in the
+    # manifest. Remove the remaining fixed OG/Twitter scaffolding from the
+    # shared donor head as well, rather than leaving partial card tags behind.
+    if "meta:og:title" not in page:
+        for tag in list(rendered_head.find_all("meta")):
+            if tag.get("property", "").startswith("og:") or tag.get("name", "").startswith("twitter:"):
+                tag.decompose()
+    head = str(rendered_head)
     if not page.get("canonical"):
         head = re.sub(
             r'\s*<link href="" rel="canonical"/>\n?',
