@@ -36,12 +36,13 @@ relative ESM chunks it imports. Production pages therefore do not fetch the
 diagram runtime from a third-party CDN. Update the complete vendor directory
 only when intentionally reviewing a new pinned Mermaid release.
 
-The shared initializer uses `securityLevel: "strict"` by default. An audit of
-the seven production pages using Mermaid found that only the two v2 heat-guide
-pages contain Mermaid `click` directives. Those pages opt into `loose` with a
-body data attribute because their outbound diagram links are part of the
-published artifact. Before Mermaid renders them, every click target must match
-an exact HTTPS origin and path allowlist in `assets/js/mermaid-init.js`;
+The shared initializer uses `securityLevel: "strict"` by default. The two v2
+heat-guide pages opt into `loose` with a body data attribute because their
+outbound diagram links are part of the published artifact. The Universe page
+has its own inline Mermaid configuration and is the only other approved
+loose-security page; its links are constrained to documented partner and site
+path prefixes. Before rendering, every heat-guide click target must match an
+exact HTTPS origin and path allowlist in `assets/js/mermaid-init.js`;
 unlisted targets are removed.
 
 Residual risk: the two v2 pages still require Mermaid's looser interaction

@@ -609,7 +609,7 @@
 </footer>
     <script src="/assets/js/app.js?v=b36c89ac"></script>
 <script type="module">
-      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs";
+      import mermaid from "/assets/vendor/mermaid/mermaid.esm.min.mjs";
       const styles = getComputedStyle(document.body);
       const surface = styles.getPropertyValue("--color-surface").trim() || "#111827";
       const surfaceSoft = styles.getPropertyValue("--color-surface-soft").trim() || "#181f26";
@@ -619,7 +619,7 @@
       const fontBody = styles.getPropertyValue("--font-body").trim() || '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
       mermaid.initialize({
         startOnLoad: true,
-        securityLevel: "loose",
+        securityLevel: "strict",
         theme: "base",
         themeVariables: {
           primaryColor: surface,

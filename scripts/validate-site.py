@@ -43,6 +43,25 @@ THEME_STYLESHEET = ROOT / THEME_STYLESHEET_PATH.lstrip("/")
 APP_SCRIPT_PATH = "/assets/js/app.js"
 MERMAID_INIT_SCRIPT_PATH = "/assets/js/mermaid-init.js"
 SHARED_SCRIPT_PATHS = (APP_SCRIPT_PATH, MERMAID_INIT_SCRIPT_PATH)
+MERMAID_VENDOR_ROOT = ROOT / "assets/vendor/mermaid"
+MERMAID_VENDOR_ENTRY = MERMAID_VENDOR_ROOT / "mermaid.esm.min.mjs"
+MERMAID_LOOSE_ROUTES = {
+    "universe/index.html",
+    "writings/first-diagram-is-a-liar/v03/v2-heat-a/index.html",
+    "writings/first-diagram-is-a-liar/v03/v2-heat-b/index.html",
+}
+MERMAID_HEAT_ROUTES = {
+    "writings/first-diagram-is-a-liar/v03/v2-heat-a/index.html",
+    "writings/first-diagram-is-a-liar/v03/v2-heat-b/index.html",
+}
+MERMAID_HEAT_TARGETS = {
+    ("https://mermaidchart.cello.so", "/UhVlNtC2MlS"),
+    ("https://replit.com", "/refer/overkillhillp3"),
+    ("https://overkillhill.com", "/writings/first-diagram-is-a-liar/"),
+    ("https://overkillhill.com", "/"),
+    ("https://www.linkedin.com", "/company/overkillhillp3"),
+    ("https://ko-fi.com", "/T6T71HCY6A"),
+}
 
 # Em dash in all three forms: literal U+2014, named entity, numeric entity
 EM_DASH_RE = re.compile(r"\u2014|&mdash;|&#8212;")
@@ -213,6 +232,118 @@ def target_exists(target: Path) -> bool:
     if str(target).endswith("/") and (target / "index.html").exists():
         return True
     return False
+
+
+def _mermaid_imports(text: str) -> list[str]:
+    """Return import specifiers from static and dynamic ESM imports."""
+    pattern = re.compile(
+        r"""(?:\bimport\s*\(\s*|\b(?:import|export)\b[^;]*?\bfrom\s*)["']([^"']+)["']"""
+    )
+    return [match.group(1) for match in pattern.finditer(text)]
+
+
+def _mermaid_target_is_allowed(route: str, target: str) -> bool:
+    try:
+        parsed = urlparse(target)
+    except ValueError:
+        return False
+    origin = f"{parsed.scheme}://{parsed.netloc}"
+    if parsed.scheme != "https" or parsed.query or parsed.fragment:
+        return False
+    if route in MERMAID_HEAT_ROUTES:
+        return (origin, parsed.path) in MERMAID_HEAT_TARGETS
+    if route == "universe/index.html":
+        if origin == "https://glee-fully.tools":
+            return parsed.path == "/" or parsed.path.startswith("/toolbox/")
+        if origin == "https://askjamie.bot":
+            return parsed.path == "/" or parsed.path.startswith("/lens-system/")
+        if origin == "https://overkillhill.com":
+            return (
+                parsed.path == "/"
+                or parsed.path.startswith("/projects/")
+                or parsed.path.startswith("/writings/")
+            )
+    return False
+
+
+def validate_mermaid_runtime(pages: list[Path]) -> list[Finding]:
+    """Check the vendored graph, Mermaid sources, security, and click policies."""
+    findings: list[Finding] = []
+
+    if not MERMAID_VENDOR_ENTRY.is_file():
+        findings.append(Finding("ERROR", str(MERMAID_VENDOR_ENTRY.relative_to(ROOT)),
+                                "vendored Mermaid entry module is missing"))
+    elif not MERMAID_VENDOR_ROOT.is_dir():
+        findings.append(Finding("ERROR", "assets/vendor/mermaid",
+                                "vendored Mermaid directory is missing"))
+
+    # Every relative import in the entry module and its chunks must resolve.
+    if MERMAID_VENDOR_ROOT.is_dir():
+        for module in sorted(MERMAID_VENDOR_ROOT.rglob("*.mjs")):
+            text = module.read_text(encoding="utf-8", errors="replace")
+            for specifier in _mermaid_imports(text):
+                if specifier.startswith("."):
+                    target = (module.parent / specifier).resolve()
+                    if not target.is_file():
+                        findings.append(Finding(
+                            "ERROR", module.relative_to(ROOT).as_posix(),
+                            f"missing local Mermaid import: {specifier}",
+                        ))
+                elif specifier.startswith("/assets/vendor/mermaid/"):
+                    target = ROOT / specifier.split("?", 1)[0].lstrip("/")
+                    if not target.is_file():
+                        findings.append(Finding(
+                            "ERROR", module.relative_to(ROOT).as_posix(),
+                            f"missing local Mermaid import: {specifier}",
+                        ))
+
+    # Inspect checked-in HTML/JS sources as well as generated production pages.
+    source_files = [
+        path for path in ROOT.rglob("*")
+        if path.is_file()
+        and path.suffix.lower() in {".html", ".js", ".mjs"}
+        and not (set(path.relative_to(ROOT).parts) & SKIP_DIRS)
+    ]
+    for path in sorted(source_files):
+        rel = path.relative_to(ROOT).as_posix()
+        text = path.read_text(encoding="utf-8", errors="replace")
+        for specifier in _mermaid_imports(text):
+            if "mermaid" in specifier.lower() and urlparse(specifier).scheme in ("http", "https"):
+                findings.append(Finding("ERROR", rel,
+                                        f"external Mermaid import is not allowed: {specifier}"))
+            if specifier.startswith("/assets/vendor/mermaid/"):
+                target = ROOT / specifier.split("?", 1)[0].lstrip("/")
+                if not target.is_file():
+                    findings.append(Finding("ERROR", rel,
+                                            f"missing local Mermaid import: {specifier}"))
+        for specifier in re.findall(r"""<script\b[^>]*\bsrc=["']([^"']+)["']""", text, re.I):
+            if "mermaid" in specifier.lower() and urlparse(specifier).scheme in ("http", "https"):
+                findings.append(Finding("ERROR", rel,
+                                        f"external Mermaid script is not allowed: {specifier}"))
+
+    for path in pages:
+        rel = path.relative_to(ROOT).as_posix()
+        raw = path.read_text(encoding="utf-8", errors="replace")
+        has_loose = bool(re.search(
+            r"""data-mermaid-security\s*=\s*["']loose["']|securityLevel\s*:\s*["']loose["']""",
+            raw, re.I,
+        ))
+        if has_loose and rel not in MERMAID_LOOSE_ROUTES:
+            findings.append(Finding("ERROR", rel,
+                                    "Mermaid loose security is not approved for this page"))
+
+        click_targets = re.findall(
+            r"""^\s*click\s+\S+\s+"([^"]+)""", raw, re.MULTILINE
+        )
+        if click_targets and rel not in MERMAID_LOOSE_ROUTES:
+            findings.append(Finding("ERROR", rel,
+                                    "Mermaid click targets are only approved on the documented pages"))
+        for target in click_targets:
+            if not _mermaid_target_is_allowed(rel, target):
+                findings.append(Finding("ERROR", rel,
+                                        f"Mermaid click target is outside its allowlist: {target}"))
+
+    return findings
 
 
 # Single class for all findings; severity drives behavior.
@@ -530,6 +661,7 @@ def main() -> int:
 
     all_findings: list[Finding] = []
     all_findings.extend(validate_sitemap_inventory(sitemap_urls))
+    all_findings.extend(validate_mermaid_runtime(pages))
     expected_theme_url = current_content_hashed_url(THEME_STYLESHEET_PATH)
     expected_script_urls = {
         script_path: current_content_hashed_url(script_path)
