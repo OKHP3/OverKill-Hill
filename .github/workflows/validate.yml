@@ -65,6 +65,9 @@ jobs:
       - name: Check search index is current
         run: python3 scripts/build-search-index.py --check
 
+      - name: Check locale release links and coverage
+        run: python3 scripts/check-locale-links.py
+
       - name: Check shared asset fingerprints
         run: python3 scripts/cache-bust.py --check
 

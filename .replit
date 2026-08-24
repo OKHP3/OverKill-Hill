@@ -22,6 +22,10 @@ args = "Start application"
 task = "workflow.run"
 args = "contrast"
 
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "locale-links"
+
 [[workflows.workflow]]
 name = "Start application"
 author = "agent"
@@ -41,6 +45,17 @@ author = "agent"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "python3 assets/scripts/check-contrast.py"
+
+[workflows.workflow.metadata]
+isValidation = true
+
+[[workflows.workflow]]
+name = "locale-links"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python3 scripts/check-locale-links.py"
 
 [workflows.workflow.metadata]
 isValidation = true
