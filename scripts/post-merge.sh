@@ -29,6 +29,8 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Post-merge: running full site validator..."
+echo "Post-merge: regenerating CSP policies and page metadata..."
+python3 scripts/generate-csp.py
 if ! python3 scripts/build-site.py --check; then
   echo "ERROR: generated HTML is out of sync with site sources." >&2
   exit 1
