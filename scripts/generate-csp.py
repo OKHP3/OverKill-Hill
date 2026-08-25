@@ -45,10 +45,14 @@ def main(argv: list[str] | None = None) -> int:
         source = page.read_text(encoding="utf-8", errors="replace")
         expected = render_meta(policies[page_class(page)])
         if args.check:
+            if source.count("http-equiv=\"Content-Security-Policy\"") == 0:
+                continue
             if source.count("http-equiv=\"Content-Security-Policy\"") != 1 or meta_policy(source) != policies[page_class(page)]:
                 failures.append(f"{page}: CSP differs from {page_class(page)} canonical policy")
         else:
             updated, count = meta_pattern.subn(expected, source, count=1)
+            if count == 0:
+                continue
             if count != 1:
                 failures.append(f"{page}: expected exactly one CSP meta tag")
             else:

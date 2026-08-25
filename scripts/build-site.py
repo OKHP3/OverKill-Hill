@@ -228,6 +228,8 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
         "TITLE": page["title"],
         "CANONICAL": page.get("canonical", ""),
         "ALTERNATE": page.get("alternate", ""),
+        "ALTERNATE_FR": page.get("alternate_fr", ""),
+        "ALTERNATE_X_DEFAULT": page.get("alternate_x_default", ""),
     }
     for key, value in page.items():
         if key.startswith("meta:"):
@@ -267,6 +269,14 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
             head,
             count=1,
         )
+    for key, hreflang in (("alternate_fr", "fr"), ("alternate_x_default", "x-default")):
+        if not page.get(key):
+            head = re.sub(
+                rf'\s*<link href="" hreflang="{hreflang}" rel="alternate"/>\n?',
+                "",
+                head,
+                count=1,
+            )
     header_soup = BeautifulSoup(header, "html.parser")
     for tag in header_soup.select("[aria-current]"):
         del tag["aria-current"]
