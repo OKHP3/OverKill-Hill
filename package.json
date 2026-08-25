@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "test:accessibility": "node scripts/accessibility-qa.mjs",
+    "test:screen-reader": "node scripts/screen-reader-tree-audit.mjs",
     "test:phone-overflow": "node scripts/phone-overflow-qa.mjs",
     "test:responsive": "node scripts/responsive-qa.mjs --base=http://127.0.0.1:5000"
   },

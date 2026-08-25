@@ -174,6 +174,52 @@ replace manual screen-reader testing, keyboard testing with every browser or
 assistive technology, cognitive accessibility review, or human judgment of
 alternative-text quality.
 
+### Screen-reader verification (manual QA, August 25, 2026)
+
+This workspace is a headless Linux sandbox: no audio device, no desktop
+session, and no installed screen reader (NVDA/JAWS require Windows, VoiceOver
+requires macOS, and Orca needs a graphical AT-SPI session that isn't present
+here). A literal "run NVDA and listen" session is not possible in this
+environment, so verification used the same accessibility tree that screen
+readers consume on the user's own machine:
+
+```bash
+python3 server.py &
+node scripts/screen-reader-tree-audit.mjs
+```
+
+`scripts/screen-reader-tree-audit.mjs` opens Chromium, pulls the CDP
+Accessibility domain's full tree (the same tree Chromium hands to
+UIA/AT-SPI/AX platform APIs, which NVDA, JAWS, VoiceOver, and Orca all read
+from), and checks the home, article, project, utility, universe, and
+found-ry pages for: landmark exposure (banner/navigation/main/contentinfo),
+Mermaid diagrams exposed with `role="image"` and a real accessible name,
+table structures exposed with `role="table"`, and the search overlay
+exposing `role="dialog"` with focus moving in on open and returning to the
+trigger on close.
+
+This run found and fixed one real gap: the Council Snapshot table on the
+First Diagram Is a Liar article (`class="council-table"`) has no `<th>`
+cells, so Chromium's accessibility tree applied its layout-table heuristic
+and stripped its `table`/`row`/`cell` semantics -- screen-reader users
+would have heard the seven name/role pairs as a flat run of text instead of
+a navigable table. Adding an explicit `role="table"` (in both
+`writings/first-diagram-is-a-liar/index.html` and its `site-src` source)
+restores table semantics without changing the visual design. Re-running the
+audit and `npm run test:accessibility` confirmed the fix and found no
+further gaps on the checked pages.
+
+**Coverage:** Chromium (headless), the same engine and accessibility-tree
+plumbing used by Chrome/Edge on Windows and Linux with NVDA or Narrator.
+**Not covered by this pass:** a live NVDA+Chrome or JAWS+Chrome session on
+Windows, a live VoiceOver+Safari session on macOS/iOS, and TalkBack on
+Android. The accessibility-tree audit verifies what is exposed to assistive
+technology (roles, names, landmarks, dialog semantics); it does not verify
+a specific screen reader's spoken phrasing, verbosity settings, or
+browser-specific AT interop quirks. Before a major accessibility-sensitive
+release, pair this automated pass with at least one real NVDA+Chrome (or
+VoiceOver+Safari) session on the home, article, project, and utility pages.
+
 ## Editing guidance
 
 - **Brand name** is `OverKill Hill P³™` (Unicode `³`, not `P3`). The script will fail the build if `P3` slips into a title or meta tag.
