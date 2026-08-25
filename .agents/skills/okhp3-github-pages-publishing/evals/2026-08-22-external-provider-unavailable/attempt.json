@@ -39,6 +39,14 @@
       "http_status": 404,
       "provider_code": "not_found",
       "detail": "The GitHub token could not obtain an inference access token, so no model request was made."
+    },
+    {
+      "provider": "GitHub",
+      "model": null,
+      "outcome": "unavailable",
+      "http_status": 404,
+      "provider_code": "github_connector_models_route_not_found",
+      "detail": "A fresh secret-safe check through the authorized GitHub connection reached its REST proxy, but /models is not an inference route; no model request or model identity was produced."
     }
   ],
   "scoring": {
