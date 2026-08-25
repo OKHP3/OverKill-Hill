@@ -1,5 +1,5 @@
 {
-  "status": "unpublished-scaffold",
+  "status": "pilot-ready",
   "target_locale": "fr",
   "translation_policy": "human-reviewed-required",
   "source_of_truth": "site-src/pages.json",
@@ -9,26 +9,33 @@
       "target_route": "/fr/",
       "source_path": "index.html",
       "target_path": "fr/index.html",
-      "status": "translation-required"
+      "status": "translated"
     },
     {
       "source_route": "/about/",
       "target_route": "/fr/about/",
       "source_path": "about/index.html",
       "target_path": "fr/about/index.html",
-      "status": "translation-required"
+      "status": "translated"
     },
     {
       "source_route": "/projects/",
       "target_route": "/fr/projects/",
       "source_path": "projects/index.html",
       "target_path": "fr/projects/index.html",
-      "status": "translation-required"
+      "status": "translated"
+    },
+    {
+      "source_route": "/contact/",
+      "target_route": "/fr/contact/",
+      "source_path": "contact/index.html",
+      "target_path": "fr/contact/index.html",
+      "status": "translated"
     }
   ],
   "search_index": {
     "command": "python3 scripts/build-search-index.py --locale=fr",
     "output": "assets/data/search-index.fr.json",
-    "status": "waiting-for-human-translated-pages"
+    "status": "current"
   }
 }
