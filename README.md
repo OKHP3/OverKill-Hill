@@ -164,10 +164,19 @@ succeeds.
 
 The required CI gate runs browser checks for keyboard reachability, the skip
 link, keyboard-visible focus outlines, basic ARIA attribute values and ID
-references, Mermaid text alternatives, and reduced-motion behavior. ARIA and
-Mermaid checks run across every sitemap route; keyboard and focus interaction
-checks run on representative home, article, project, and utility pages.
-Contrast and phone/viewport overflow remain separate required checks.
+references, Mermaid text alternatives, layout tables that would lose their
+row/cell semantics for screen readers, and reduced-motion behavior. ARIA,
+Mermaid, and layout-table checks run across every sitemap route; keyboard and
+focus interaction checks run on representative home, article, project, and
+utility pages. Contrast and phone/viewport overflow remain separate required
+checks.
+
+Chromium exposes a bare `<table>` with real `table`/`row`/`cell` semantics
+only when it has at least one `<th>`, a `<caption>`, or an explicit `role`;
+otherwise it applies a "layout table" heuristic and silently strips those
+semantics, so a screen reader loses row/column navigation even though the
+table renders normally. `scripts/accessibility-qa.mjs` flags any table that
+would fall into that heuristic before it can ship.
 
 This is automated regression coverage, not full WCAG conformance. It does not
 replace manual screen-reader testing, keyboard testing with every browser or

@@ -111,6 +111,25 @@ async function inspectAriaAndDiagrams(page, path) {
       }
     });
 
+    // Chromium exposes a bare <table> to the accessibility tree as a real
+    // "table"/"row"/"cell" structure only when it has at least one <th>, a
+    // <caption>, or an explicit role. Lacking all three, Chromium applies its
+    // "layout table" heuristic and silently strips table semantics, so a
+    // screen reader user loses row/column navigation entirely even though
+    // the table renders normally. Flag any table that would fall into that
+    // heuristic before it ships.
+    document.querySelectorAll("table").forEach((table, index) => {
+      const hasHeaderCell = Boolean(table.querySelector("th"));
+      const hasCaption = Boolean(table.querySelector("caption"));
+      const explicitRole = (table.getAttribute("role") || "").trim();
+      if (!hasHeaderCell && !hasCaption && !explicitRole) {
+        failures.push(
+          `table ${index + 1} has no <th>, no <caption>, and no explicit role — ` +
+          `it will be exposed as a layout table with no row/cell semantics for screen readers`,
+        );
+      }
+    });
+
     const diagrams = [...document.querySelectorAll(
       ".mermaid, svg[role='img'][aria-label^='Diagram ']",
     )];
