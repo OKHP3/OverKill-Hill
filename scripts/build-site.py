@@ -69,7 +69,8 @@ def active_route(route: str) -> str:
                 "/projects/mermaid-theme-builder/", "/projects/bpmn-for-mermaid/",
                 "/projects/mac-studio-local-ai-workbench/",
                 "/projects/abrahamic-reference-engine/",
-                "/projects/glee-fully-chai-chasers/", "/writings/",
+                "/projects/glee-fully-chai-chasers/", "/projects/kierans-lifetrkr/",
+                "/writings/",
                 "/writings/first-diagram-is-a-liar/", "/manifesto/",
                 "/prompt-forge/", "/universe/", "/about/", "/contact/", "/legal/",
             } else section
