@@ -532,6 +532,21 @@ def validate_page(
     if "Precision. Power. Presence" in raw or "Precision · Power · Presence" in raw:
         findings.append(Finding("ERROR", rel, "old tagline 'Power. Presence.' found — must be 'Precision · Protocol · Promptcraft'"))
 
+    # A malformed closing annotation such as `</div> /container` is parsed as
+    # visible body text. Keep these template labels inside HTML comments.
+    for match in re.finditer(
+        r"</[a-z][\w:-]*>\s+/(?:[.#])?[A-Za-z][\w.-]*(?=\s|$)",
+        raw,
+        re.IGNORECASE,
+    ):
+        findings.append(
+            Finding(
+                "ERROR",
+                rel,
+                f"leaked closing annotation rendered as body text: {match.group(0).strip()!r}",
+            )
+        )
+
     # P3 (no superscript) inside <title> or <meta ...>
     for m in re.finditer(r"<(title|meta)[^>]*>", raw):
         chunk = m.group(0)
