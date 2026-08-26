@@ -24,6 +24,14 @@ PARTIALS = ROOT / "assets" / "partials"
 MANIFEST = SRC / "pages.json"
 EXCLUDED = ("assets/", ".agents/", ".local/", "node_modules/", "site-src/")
 APP_RE = re.compile(r"/assets/js/app\.js(?:\?[^\"']*)?")
+# The French pilot only covers these four routes. The shared header must not
+# grow a language switcher on any other English page.
+PILOT_LANG_SWITCH = {
+    "/": "/fr/",
+    "/about/": "/fr/about/",
+    "/projects/": "/fr/projects/",
+    "/contact/": "/fr/contact/",
+}
 
 
 def tracked_pages() -> list[Path]:
@@ -291,6 +299,21 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
         chosen = next((a for a in candidates if a.get("href", "").split("#")[0] == target), None)
     if chosen is not None:
         chosen["aria-current"] = "page"
+    fr_target = PILOT_LANG_SWITCH.get(page["route"])
+    if fr_target:
+        nav_list = header_soup.select_one("nav.primary-nav > ul")
+        if nav_list is None:
+            raise ValueError(f"{rel}: expected primary nav list for language switcher")
+        switch_li = BeautifulSoup(
+            '<li class="lang-switch">'
+            '<span class="sr-only">Language</span>'
+            f'<a aria-current="true" class="lang-switch-link is-active" href="{html.escape(page["route"], quote=True)}" hreflang="en" lang="en">EN</a>'
+            '<span aria-hidden="true" class="lang-switch-sep">/</span>'
+            f'<a class="lang-switch-link" href="{html.escape(fr_target, quote=True)}" hreflang="fr" lang="fr">FR</a>'
+            "</li>",
+            "html.parser",
+        ).li
+        nav_list.append(switch_li)
     body_class = f' class="{html.escape(page["body_class"], quote=True)}"' if page["body_class"] else ""
     app = next((x for x in BeautifulSoup((ROOT / "index.html").read_text(), "html.parser").body.find_all("script")
                 if APP_RE.search(x.get("src", ""))), None)

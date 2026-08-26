@@ -734,6 +734,36 @@ button {
   }
 }
 
+/* ========== Primary nav: French pilot language switcher ========== */
+/* Only rendered on the four pilot routes (home, about, projects, contact)
+   and their /fr/ equivalents. */
+.primary-nav .lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-transform: uppercase;
+}
+
+.primary-nav .lang-switch-link {
+  color: var(--color-muted);
+}
+
+.primary-nav .lang-switch-link.is-active {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.primary-nav .lang-switch-sep {
+  color: var(--color-muted);
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .primary-nav .lang-switch {
+    padding: 0.35rem 0;
+  }
+}
+
 /* ===== PRE‑OPENING / ACTIVE BUILD NOTE =============================== */
 
 .site-status {
