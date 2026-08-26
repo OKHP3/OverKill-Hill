@@ -34,6 +34,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 
+from csp import build_policies, page_class, sha256_source
+
 ROOT = Path(__file__).resolve().parent.parent
 SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src"}
 SITEMAP = ROOT / "sitemap.xml"
@@ -45,6 +47,7 @@ MERMAID_INIT_SCRIPT_PATH = "/assets/js/mermaid-init.js"
 SHARED_SCRIPT_PATHS = (APP_SCRIPT_PATH, MERMAID_INIT_SCRIPT_PATH)
 MERMAID_VENDOR_ROOT = ROOT / "assets/vendor/mermaid"
 MERMAID_VENDOR_ENTRY = MERMAID_VENDOR_ROOT / "mermaid.esm.min.mjs"
+INLINE_CSP_SOURCE_ROUTES = {"projects/telling-forward/index.html"}
 MERMAID_LOOSE_ROUTES = {
     "universe/index.html",
     "writings/first-diagram-is-a-liar/v03/v2-heat-a/index.html",
@@ -232,6 +235,85 @@ def target_exists(target: Path) -> bool:
     if str(target).endswith("/") and (target / "index.html").exists():
         return True
     return False
+
+
+def _csp_script_hashes(policy: str | None) -> set[str]:
+    """Extract script hashes from a serialized CSP policy."""
+    if not policy:
+        return set()
+    match = re.search(r"(?:^|;\s*)script-src\s+([^;]+)", policy)
+    if not match:
+        return set()
+    return {
+        token for token in match.group(1).split()
+        if token.startswith("'sha256-") and token.endswith("'")
+    }
+
+
+def _csp_meta_policy(raw: str) -> str | None:
+    """Read a CSP meta tag regardless of HTML attribute ordering."""
+    match = re.search(
+        r'<meta\b(?=[^>]*\bhttp-equiv=["\']Content-Security-Policy["\'])'
+        r'(?=[^>]*\bcontent=(["\']))[^>]*\bcontent=\1(.*?)\1',
+        raw,
+        re.IGNORECASE,
+    )
+    return match.group(2) if match else None
+
+
+def _source_inline_script_hashes(page: Path) -> set[str]:
+    """Return hashes for inline scripts in a page's source fragments."""
+    rel = page.relative_to(ROOT).as_posix()
+    stem = ROOT / "site-src" / "pages" / rel
+    hashes: set[str] = set()
+    for suffix in (".main.html", ".extras.html"):
+        source = stem.with_suffix(suffix)
+        if not source.is_file():
+            continue
+        text = source.read_text(encoding="utf-8", errors="replace")
+        hashes.update(
+            sha256_source(match.group(1))
+            for match in re.finditer(
+                r"<script\b(?![^>]*\bsrc=)[^>]*>([\s\S]*?)</script>",
+                text,
+                re.IGNORECASE,
+            )
+            if match.group(1).strip()
+        )
+    return hashes
+
+
+def validate_csp_hashes(pages: list[Path]) -> list[Finding]:
+    """Ensure the telling-forward source script and generated CSP stay aligned."""
+    findings: list[Finding] = []
+    policies = build_policies()
+
+    for page in pages:
+        rel = page.relative_to(ROOT).as_posix()
+        if rel not in INLINE_CSP_SOURCE_ROUTES:
+            continue
+        raw = page.read_text(encoding="utf-8", errors="replace")
+        actual = _csp_meta_policy(raw)
+        expected = policies[page_class(page)]
+        if actual != expected:
+            findings.append(Finding(
+                "ERROR", rel,
+                "CSP policy or inline script hash list is stale; run "
+                "python3 scripts/generate-csp.py",
+            ))
+            continue
+
+        actual_hashes = _csp_script_hashes(actual)
+        source_hashes = _source_inline_script_hashes(page)
+        missing = sorted(source_hashes - actual_hashes)
+        if missing:
+            findings.append(Finding(
+                "ERROR", rel,
+                "CSP is missing inline script hash(es) from site-src: "
+                + ", ".join(missing),
+            ))
+
+    return findings
 
 
 def _mermaid_imports(text: str) -> list[str]:
@@ -661,6 +743,7 @@ def main() -> int:
 
     all_findings: list[Finding] = []
     all_findings.extend(validate_sitemap_inventory(sitemap_urls))
+    all_findings.extend(validate_csp_hashes(pages))
     all_findings.extend(validate_mermaid_runtime(pages))
     expected_theme_url = current_content_hashed_url(THEME_STYLESHEET_PATH)
     expected_script_urls = {
