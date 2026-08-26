@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 140,
+  "count": 147,
   "entries": [
     {
       "url": "/",
@@ -709,6 +709,7 @@
         "Prompt Forge",
         "Glee-fully Chai Chasers",
         "Abrahamic Reference Engine",
+        "Kieran's LifeTrkr",
         "Glee-fully Personalizable Tools",
         "AskJamie",
         "Protocol Libraries",
@@ -1194,6 +1195,86 @@
       "headings": [],
       "body": "What It Does A real game. A real spec. A real test. The Engine A real cascade engine. 5x4 board, 40 paylines, tumbling wins, a cascade meter feeding a free-spin ladder, specialty wilds, and a legendary event captured roughly once every 1,370 spins, on three independently rolled reels that size the reward. Pure TypeScript, zero DOM imports, fully unit-tested. The Oracle A simulation oracle as the definition of done. A 200,000-spin seeded test asserts the spec's layered RTP model (the base game holds a 61% band while the bonus layer carries the rest) and five event-frequency bands. A second harness plays every bonus end to end through the same engine entry points the UI uses.",
       "parent": "/projects/glee-fully-chai-chasers/"
+    },
+    {
+      "url": "/projects/kierans-lifetrkr/",
+      "title": "Kieran's LifeTrkr | OverKill Hill P³™",
+      "category": "Project",
+      "description": "A quiet, client-only life OS for rituals, habits, tasks, calendar events, and a daily oracle, built for Kieran.",
+      "headings": [
+        "One day, too many places to look",
+        "A quiet answer to “What does today require?”",
+        "Personal by design",
+        "An infrastructure for the next generation",
+        "A life OS. Not a life manager.",
+        "Routines get scattered",
+        "Small progress needs a home",
+        "Today is not the same as someday",
+        "Reflection belongs beside action",
+        "Home",
+        "Rituals and habits",
+        "Calendar and Today",
+        "Someday and the oracle",
+        "Browser-owned records",
+        "Read, do not write",
+        "Fallbacks are part of the product",
+        "Low noise wins"
+      ],
+      "body": "Skip to main content overkillhill.com / projects / kierans-lifetrkr Personal Tool Open Source Pre-production / v0.1.10 Client-only Kieran's LifeTrkr Rituals. Habits. Today. A little bit of magic. A quiet, mobile-first life OS built for Kieran. LifeTrkr brings routines, habits, local tasks, calendar events, and a daily oracle into one low-noise interface. It keeps personal records in the browser, treats Google Calendar and Google Tasks as read-only sources, and leaves the day in the user's hands."
+    },
+    {
+      "url": "/projects/kierans-lifetrkr/#origin",
+      "title": "An infrastructure for the next generation — Kieran's LifeTrkr | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Origin An infrastructure for the next generation LifeTrkr began as a father-to-daughter project for Kieran, also named Rylee Hill in the generational story of the Hill.",
+      "headings": [],
+      "body": "Origin An infrastructure for the next generation LifeTrkr began as a father-to-daughter project for Kieran, also named Rylee Hill in the generational story of the Hill. The intention is not to hand down pressure or a work ethic alone, but to leave behind a useful piece of infrastructure: a tool that helps a person notice the day, keep promises to herself, and make room for what matters. The wider family context is documented in The Manifesto's generational origin section , which names Rylee Hill as the next generation and frames the inheritance as infrastructure rather than pressure. The application itself remains deliberately modest: client-only, browser-owned, open source, and still honestly marked pre-production while its external integrations and handoff gates are verified. </div",
+      "parent": "/projects/kierans-lifetrkr/"
+    },
+    {
+      "url": "/projects/kierans-lifetrkr/#principles",
+      "title": "Personal by design — Kieran's LifeTrkr | OverKill Hill P³™",
+      "category": "Project",
+      "description": "The Rules Personal by design 1 Browser-owned records Local routines, habits, tasks, and manual events stay in namespaced browser storage. The publisher does not own a copy.",
+      "headings": [],
+      "body": "The Rules Personal by design 1 Browser-owned records Local routines, habits, tasks, and manual events stay in namespaced browser storage. The publisher does not own a copy. 2 Read, do not write Google Calendar and Google Tasks are optional read-only sources. LifeTrkr does not modify the user's Google data. 3 Fallbacks are part of the product The daily oracle remains useful when the worker, tarot endpoint, horoscope endpoint, or network is unavailable. 4 Low noise wins The interface is designed as a calm nighttime companion, not a productivity contest or a public social feed. </div",
+      "parent": "/projects/kierans-lifetrkr/"
+    },
+    {
+      "url": "/projects/kierans-lifetrkr/#problem",
+      "title": "One day, too many places to look — Kieran's LifeTrkr | OverKill Hill P³™",
+      "category": "Project",
+      "description": "The Problem One day, too many places to look ◑ Routines get scattered Recurring work should be visible in the rhythm of the day, not buried in separate notes and reminders.",
+      "headings": [],
+      "body": "The Problem One day, too many places to look ◑ Routines get scattered Recurring work should be visible in the rhythm of the day, not buried in separate notes and reminders. ⊕ Small progress needs a home Habits are easier to return to when completion is light, local, and visible without turning life into a dashboard. ◎ Today is not the same as someday Committed tasks and deferred ideas need different places, so the backlog does not compete with the present. ◈ Reflection belongs beside action A daily oracle adds a moment of meaning without pretending to schedule, diagnose, or decide the user's life. </div",
+      "parent": "/projects/kierans-lifetrkr/"
+    },
+    {
+      "url": "/projects/kierans-lifetrkr/#related-resources",
+      "title": "Related Resources — Kieran's LifeTrkr | OverKill Hill P³™",
+      "category": "Project",
+      "description": "Related The Manifesto: generational origin ↗ Abrahamic Reference Engine Glee-fully Chai Chasers All OverKill Hill Projects </div",
+      "headings": [],
+      "body": "Related The Manifesto: generational origin ↗ Abrahamic Reference Engine Glee-fully Chai Chasers All OverKill Hill Projects </div",
+      "parent": "/projects/kierans-lifetrkr/"
+    },
+    {
+      "url": "/projects/kierans-lifetrkr/#what-is-not",
+      "title": "A life OS. Not a life manager. — Kieran's LifeTrkr | OverKill Hill P³™",
+      "category": "Project",
+      "description": "What This Is Not A life OS. Not a life manager. This project is not: -- a multi-tenant productivity service -- a replacement for Google Calendar or Google Tasks -- a social feed, accountability system, or public profile…",
+      "headings": [],
+      "body": "What This Is Not A life OS. Not a life manager. This project is not: -- a multi-tenant productivity service -- a replacement for Google Calendar or Google Tasks -- a social feed, accountability system, or public profile -- a medical, therapeutic, or spiritual authority -- a backend that stores the user's life It is a small, personal interface for noticing what today requires and choosing what to do with it. </div",
+      "parent": "/projects/kierans-lifetrkr/"
+    },
+    {
+      "url": "/projects/kierans-lifetrkr/#what-it-does",
+      "title": "A quiet answer to “What does today require?” — Kieran's LifeTrkr | OverKill Hill P³™",
+      "category": "Project",
+      "description": "What It Does A quiet answer to “What does today require?” 1 Home See today's ritual, upcoming events, celestial context, habits, tasks, and the daily oracle in one morning-glance view.",
+      "headings": [],
+      "body": "What It Does A quiet answer to “What does today require?” 1 Home See today's ritual, upcoming events, celestial context, habits, tasks, and the daily oracle in one morning-glance view. 2 Rituals and habits Track day-based routines and repeating habits with local completion history, categories, tags, and gentle streaks. 3 Calendar and Today Keep manual events and committed local tasks close, with optional read-only Google Calendar and Google Tasks views. 4 Someday and the oracle Move uncommitted work out of today's line of sight, then make room for a cached daily card, moon, season, and optional oracle message. </div",
+      "parent": "/projects/kierans-lifetrkr/"
     },
     {
       "url": "/projects/mac-studio-local-ai-workbench/",
