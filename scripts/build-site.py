@@ -71,6 +71,7 @@ def active_route(route: str) -> str:
                 "/projects/abrahamic-reference-engine/",
                 "/projects/glee-fully-chai-chasers/", "/projects/kierans-lifetrkr/",
                 "/projects/first-diagram-is-a-liar/",
+                "/projects/telling-forward/",
                 "/writings/",
                 "/writings/first-diagram-is-a-liar/", "/manifesto/",
                 "/prompt-forge/", "/universe/", "/about/", "/contact/", "/legal/",
