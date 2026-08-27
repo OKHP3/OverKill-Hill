@@ -887,7 +887,7 @@ button {
   width: 26px;
   height: 3px;
   border-radius: 999px;
-  background: var(--color-fg);
+  background: #e5e7eb; /* header is always dark; keep bars light-fixed, not var(--color-fg) which flips near-black in light theme and vanishes on the dark header (iOS default-light bug) */
   margin: 4px 0;
 }
 
