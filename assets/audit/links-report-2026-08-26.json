@@ -1,12 +1,12 @@
 {
   "generated": "2026-08-26",
-  "pages_scanned": 34,
-  "internal_links": 1376,
-  "external_links": 990,
+  "pages_scanned": 35,
+  "internal_links": 1423,
+  "external_links": 1022,
   "broken_links": [],
   "style_issues": [],
   "sitemap": {
-    "total_urls": 27,
+    "total_urls": 28,
     "missing_from_sitemap": [],
     "extra_in_sitemap": [],
     "intentionally_excluded": [
@@ -89,6 +89,11 @@
       "external_links": 45
     },
     {
+      "path": "projects/first-diagram-is-a-liar/index.html",
+      "internal_links": 46,
+      "external_links": 32
+    },
+    {
       "path": "projects/found-ry/index.html",
       "internal_links": 54,
       "external_links": 47
@@ -105,7 +110,7 @@
     },
     {
       "path": "projects/index.html",
-      "internal_links": 45,
+      "internal_links": 46,
       "external_links": 20
     },
     {
