@@ -70,6 +70,7 @@ def active_route(route: str) -> str:
                 "/projects/mac-studio-local-ai-workbench/",
                 "/projects/abrahamic-reference-engine/",
                 "/projects/glee-fully-chai-chasers/", "/projects/kierans-lifetrkr/",
+                "/projects/first-diagram-is-a-liar/",
                 "/writings/",
                 "/writings/first-diagram-is-a-liar/", "/manifesto/",
                 "/prompt-forge/", "/universe/", "/about/", "/contact/", "/legal/",
@@ -316,3 +317,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
