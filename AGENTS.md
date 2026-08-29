@@ -18,8 +18,10 @@ validation workflow changes.
 - Confirmed: this is one Git repository for the OverKill Hill P³™ public static
   site and its public writings, project pages, and supporting artifacts.
 - Confirmed: the production-facing site is hand-authored HTML, one shared CSS
-  file, and browser JavaScript. There is no root `package.json` or root build
-  system.
+  file, and browser JavaScript. A root `package.json` exists, but only to
+  declare 4 QA scripts (`test:accessibility`, `test:screen-reader`,
+  `test:phone-overflow`, `test:responsive`) and a `playwright` dependency —
+  there is no root application build system.
 - Confirmed: `_replit/mermaid-theme-builder-preview/` is a separate,
   standalone React/Vite prototype used for local page prototyping. It is not
   the live project page and its build output is not deployed.
