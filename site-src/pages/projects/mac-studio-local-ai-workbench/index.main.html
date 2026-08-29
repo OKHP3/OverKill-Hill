@@ -723,80 +723,43 @@ flowchart TD
 <h3>Capability Map: What the Workbench Can Do</h3>
 <p>The full capability surface: local inference, protocol orchestration, retrieval, autonomous operation, and the external integrations that complete the Council of AIs workflow.</p>
 <div class="mermaid">
-
 %%{init: {'theme': 'dark', 'themeVariables': {'background': '#1f2020', 'mainBkg': '#1f2020'}}}%%
-
 mindmap
-
   root((Mac Studio M4 Max))
-
     Local Inference
-
       Ollama 0.23.1
-
         phi4:14b
-
         gemma3:27b
-
         codestral:22b
-
       LM Studio 0.4.12
-
         Gemma 4 E4B
-
         Gemma 4 26B A4B
-
       mlx-lm 0.31.3
-
         139 tok/s
-
     Orchestration
-
       Claude Desktop
-
         11 MCP servers
-
       Open WebUI
-
         Docker localhost:3000
-
       Continue.dev
-
         Codestral autocomplete
-
     Autonomous Agent
-
       OpenClaw 2026.5.26
-
         Larry persona
-
         gemma3:27b primary
-
         28 skills eligible
-
         SearXNG web search
-
     Retrieval (next phase)
-
       Qdrant vector store
-
       nomic-embed-text
-
       Open WebUI Knowledge
-
     Cloud Tier
-
       Council of AIs
-
         Claude
-
         ChatGPT
-
         Copilot
-
         Perplexity
-
-                  </div>
+</div>
 </div>
 <div class="diagram-block">
 <h3>Physical Architecture: Where Everything Lives</h3>
