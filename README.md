@@ -34,7 +34,18 @@ The repo also serves as the public artifact archive for OverKill Hill P³ writin
 Mermaid 11.16.0 is vendored under `assets/vendor/mermaid/`, including the
 relative ESM chunks it imports. Production pages therefore do not fetch the
 diagram runtime from a third-party CDN. Update the complete vendor directory
-only when intentionally reviewing a new pinned Mermaid release.
+only when intentionally reviewing a new pinned Mermaid release; the pinned
+version is the single line in `assets/vendor/mermaid/VERSION`, and it must
+always match the version string actually inside `mermaid.esm.min.mjs`
+(`scripts/validate-site.py` checks this on every run).
+
+The scheduled **Mermaid Version Watch** workflow
+(`.github/workflows/mermaid-version-watch.yml`) checks `mermaid@latest` on
+npm daily and opens (or updates) a tracking issue the moment the vendored
+pin falls behind. It never re-vendors automatically -- that stays an
+intentional, reviewed step -- it only makes sure the gap gets noticed the
+same day instead of weeks later. The identical VERSION-pin + watcher
+mechanism is also deployed on askjamie.bot and glee-fully.tools.
 
 The shared initializer uses `securityLevel: "strict"` by default. The two v2
 heat-guide pages opt into `loose` with a body data attribute because their
@@ -44,6 +55,18 @@ loose-security page; its links are constrained to documented partner and site
 path prefixes. Before rendering, every heat-guide click target must match an
 exact HTTPS origin and path allowlist in `assets/js/mermaid-init.js`;
 unlisted targets are removed.
+
+CSP / Mermaid style alignment: `scripts/csp.py` computes the `style-src` /
+`style-src-attr` allowlists by statically hashing inline styles in the built
+HTML, but Mermaid generates its own inline styles and `<style>` blocks at
+render time in the browser -- no static hash can ever cover that. Pages
+carrying a live Mermaid diagram now get a scoped `diagram` (or
+`embed-diagram`, for the found-ry page) CSP class instead: `style-src` /
+`style-src-attr` grant `unsafe-inline` for style only, while `script-src`
+stays exactly as hash-locked as every other page class. This is deployed on
+all three OKHP3 sites the same way. `scripts/validate-site.py` flags any
+page that renders a live diagram under a CSP class without this allowance,
+so a future page can't silently regress.
 
 Residual risk: the two v2 pages still require Mermaid's looser interaction
 mode, and the vendored JavaScript remains a large third-party dependency even

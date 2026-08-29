@@ -1,0 +1,143 @@
+name: Mermaid Version Watch
+
+on:
+  schedule:
+    - cron: '41 14 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: mermaid-version-watch
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Compare vendored Mermaid against the latest npm release
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Read pinned Mermaid version
+        id: pinned
+        run: |
+          version_file="assets/vendor/mermaid/VERSION"
+          if [[ ! -f "$version_file" ]]; then
+            echo "ERROR: $version_file is missing." >&2
+            exit 1
+          fi
+          pinned="$(tr -d '[:space:]' < "$version_file")"
+          if [[ ! "$pinned" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "ERROR: $version_file does not contain a plain X.Y.Z version (got '$pinned')." >&2
+            exit 1
+          fi
+          echo "version=$pinned" >> "$GITHUB_OUTPUT"
+
+      - name: Fetch latest Mermaid release from npm
+        id: latest
+        run: |
+          response="$(curl --silent --show-error --fail https://registry.npmjs.org/mermaid/latest)"
+          latest="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["version"])' "$response")"
+          if [[ ! "$latest" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "ERROR: npm registry did not return a plain X.Y.Z version (got '$latest')." >&2
+            exit 1
+          fi
+          echo "version=$latest" >> "$GITHUB_OUTPUT"
+
+      - name: Compare versions
+        id: compare
+        env:
+          PINNED: ${{ steps.pinned.outputs.version }}
+          LATEST: ${{ steps.latest.outputs.version }}
+        run: |
+          is_behind="$(python3 -c '
+          import os
+          pinned = tuple(int(part) for part in os.environ["PINNED"].split("."))
+          latest = tuple(int(part) for part in os.environ["LATEST"].split("."))
+          print("true" if latest > pinned else "false")
+          ')"
+          echo "is_behind=$is_behind" >> "$GITHUB_OUTPUT"
+          echo "Pinned: $PINNED   Latest on npm: $LATEST   Behind: $is_behind"
+
+      - name: Open or update the version-watch issue
+        if: steps.compare.outputs.is_behind == 'true'
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
+        env:
+          PINNED: ${{ steps.pinned.outputs.version }}
+          LATEST: ${{ steps.latest.outputs.version }}
+        with:
+          script: |
+            const marker = '<!-- mermaid-version-watch -->';
+            const pinned = process.env.PINNED;
+            const latest = process.env.LATEST;
+            const { owner, repo } = context.repo;
+
+            const title = `Mermaid vendored runtime is behind: ${latest} available (pinned ${pinned})`;
+            const body = [
+              marker,
+              `The daily Mermaid Version Watch check found a newer release on npm.`,
+              '',
+              `- Pinned in \`assets/vendor/mermaid/VERSION\`: **${pinned}**`,
+              `- Latest on npm (\`mermaid@latest\`): **${latest}**`,
+              '',
+              'This repo vendors Mermaid locally on purpose (see README, "Mermaid runtime ' +
+              'trust decision") and updates it only through an intentional, reviewed re-vendor ' +
+              '-- not an automatic swap. This issue exists so that review happens promptly ' +
+              'instead of silently drifting for weeks.',
+              '',
+              'To resolve:',
+              '1. Pull the new release, review its changelog for breaking changes (init config, ' +
+              'security defaults, click-target handling).',
+              '2. Re-vendor `assets/vendor/mermaid/` (entry module + chunks) and update ' +
+              '`assets/vendor/mermaid/VERSION` and the README stack table to match.',
+              '3. Rebuild (`scripts/build-site.py`) and run `scripts/validate-site.py` -- it checks ' +
+              'that the VERSION pin and the vendored bundle agree.',
+              '4. Live-verify every page that renders Mermaid diagrams before merging.',
+              '',
+              'This issue closes itself automatically once the pin catches up.',
+            ].join('\n');
+
+            const existing = await github.paginate(
+              github.rest.issues.listForRepo,
+              { owner, repo, state: 'open', per_page: 100 },
+            );
+            const match = existing.find((issue) => issue.body?.includes(marker));
+
+            if (match) {
+              await github.rest.issues.update({
+                owner, repo, issue_number: match.number, title, body,
+              });
+            } else {
+              await github.rest.issues.create({ owner, repo, title, body });
+            }
+
+      - name: Close a stale version-watch issue once the pin is current
+        if: steps.compare.outputs.is_behind == 'false'
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
+        env:
+          PINNED: ${{ steps.pinned.outputs.version }}
+        with:
+          script: |
+            const marker = '<!-- mermaid-version-watch -->';
+            const pinned = process.env.PINNED;
+            const { owner, repo } = context.repo;
+
+            const existing = await github.paginate(
+              github.rest.issues.listForRepo,
+              { owner, repo, state: 'open', per_page: 100 },
+            );
+            const match = existing.find((issue) => issue.body?.includes(marker));
+            if (!match) return;
+
+            await github.rest.issues.createComment({
+              owner, repo, issue_number: match.number,
+              body: `\`assets/vendor/mermaid/VERSION\` is now pinned at **${pinned}**, which matches (or exceeds) the release that opened this issue. Closing.`,
+            });
+            await github.rest.issues.update({
+              owner, repo, issue_number: match.number, state: 'closed',
+            });

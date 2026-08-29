@@ -22,11 +22,29 @@ def page_class(path: Path) -> str:
     rel = path.relative_to(ROOT).as_posix()
     if rel in {"404.html", "under-construction.html", "search/index.html", "vault/index.html"}:
         return "utility"
-    # Pages that host another application need an explicit frame destination.
     source = path.read_text(encoding="utf-8", errors="replace")
-    if 'id="tool-iframe"' in source or 'id="skillz-iframe"' in source or "<iframe" in source:
+    # Pages that host another application need an explicit frame destination.
+    is_embed = 'id="tool-iframe"' in source or 'id="skillz-iframe"' in source or "<iframe" in source
+    # Mermaid renders its own inline styles and <style> blocks at runtime, per
+    # diagram, per page load. A build-time hash allowlist can never cover
+    # that, so pages with a live diagram get a scoped style-src relaxation
+    # instead of silently losing their theme styling under a hash-only
+    # policy. script-src is unaffected -- these pages stay just as
+    # hash-locked for scripts as every other page. The two conditions are
+    # independent (projects/found-ry hosts both an iframe and a diagram),
+    # so a page can need both allowances at once.
+    is_diagram = _renders_live_mermaid(source)
+    if is_embed and is_diagram:
+        return "embed-diagram"
+    if is_embed:
         return "embed"
+    if is_diagram:
+        return "diagram"
     return "standard"
+
+
+def _renders_live_mermaid(source: str) -> bool:
+    return bool(re.search(r"""class=["\'][^"\']*\bmermaid\b""", source, re.IGNORECASE))
 
 
 def sha256_source(value: str) -> str:
@@ -64,8 +82,9 @@ def all_pages() -> list[Path]:
 
 
 def build_policies() -> dict[str, str]:
-    hashes: dict[str, set[str]] = {"standard": set(), "embed": set(), "utility": set()}
-    style_hashes: dict[str, set[str]] = {"standard": set(), "embed": set(), "utility": set()}
+    classes = ("standard", "embed", "utility", "diagram", "embed-diagram")
+    hashes: dict[str, set[str]] = {kind: set() for kind in classes}
+    style_hashes: dict[str, set[str]] = {kind: set() for kind in classes}
     for page in all_pages():
         scripts, styles = inline_sources(page)
         kind = page_class(page)
@@ -90,18 +109,44 @@ def build_policies() -> dict[str, str]:
 
     # Keep each class explicit even where it currently shares most directives.
     # This prevents an embed allowance from silently spreading to ordinary pages.
+    #
+    # "diagram_style" is a scoped style-src/style-src-attr relaxation for
+    # page classes that render a live Mermaid diagram: Mermaid generates its
+    # inline styles and <style> blocks at render time in the browser, so a
+    # build-time hash allowlist can never cover them. Hashes and
+    # 'unsafe-inline' must not appear together in the same directive --
+    # CSP ignores 'unsafe-inline' whenever a hash-source is present -- so
+    # the style hashes are omitted entirely for these classes rather than
+    # added alongside it. script-src is identical in rigor across every
+    # class regardless of diagram_style.
     policies = {"standard": common}
-    for kind, frame in (("embed", "https://okhp3.github.io"), ("utility", "")):
+    class_config = (
+        ("embed", "https://okhp3.github.io", False),
+        ("utility", "", False),
+        ("diagram", "", True),
+        ("embed-diagram", "https://okhp3.github.io", True),
+    )
+    for kind, frame, diagram_style in class_config:
+        if diagram_style:
+            style_directives = (
+                "style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; "
+                "style-src-attr 'unsafe-inline'; "
+            )
+        else:
+            style_directives = (
+                "style-src 'self' https://fonts.googleapis.com "
+                + " ".join(sorted(style_hashes[kind]))
+                + "; style-src-attr 'unsafe-hashes' "
+                + " ".join(sorted(style_hashes[kind]))
+                + "; "
+            )
         policy = (
             "default-src 'self'; "
             "script-src 'self' https://www.googletagmanager.com https://cdn.jsdelivr.net "
             + " ".join(sorted(hashes[kind]))
             + "; script-src-attr 'none'; "
-            "style-src 'self' https://fonts.googleapis.com "
-            + " " .join(sorted(style_hashes[kind]))
-            + "; style-src-attr 'unsafe-hashes' "
-            + " ".join(sorted(style_hashes[kind]))
-            + "; font-src 'self' data: https://fonts.gstatic.com; "
+            + style_directives
+            + "font-src 'self' data: https://fonts.gstatic.com; "
             "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com; "
             "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; "
             + (f"frame-src 'self' {frame}; " if frame else "")
@@ -125,13 +170,20 @@ def build_edge_policy() -> str:
         page_scripts, page_styles = inline_sources(page)
         scripts.update(page_scripts)
         styles.update(page_styles)
+    # style-src stays 'unsafe-inline' here rather than hash-only: this
+    # envelope has to be broad enough to cover the "diagram" and
+    # "embed-diagram" page classes too (see build_policies), and a
+    # hash-source alongside 'unsafe-inline' in the same directive causes
+    # browsers to ignore 'unsafe-inline' entirely. Per-page meta policies
+    # remain the real, tighter enforcement for every other page; this
+    # header is only ever meant to be a permissive outer bound (see the
+    # module docstring above).
     return (
         "default-src 'self'; script-src 'self' https://www.googletagmanager.com "
         "https://cdn.jsdelivr.net " + " ".join(sorted(scripts))
-        + "; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com "
-        + " ".join(sorted(styles))
-        + "; style-src-attr 'unsafe-hashes' " + " ".join(sorted(styles))
-        + "; font-src 'self' data: https://fonts.gstatic.com; "
+        + "; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; "
+        "style-src-attr 'unsafe-inline'; "
+        "font-src 'self' data: https://fonts.gstatic.com; "
         "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com; "
         "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com "
         "https://www.googletagmanager.com https://cdn.jsdelivr.net; "
