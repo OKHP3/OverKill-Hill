@@ -660,10 +660,29 @@ baseline -- update it here when the inventory changes materially.
   for cross-site reference); evaluate moving to `assets/img/library/` for clarity
 
 **OKH-specific scripts not present on siblings:**
-`check-mtb-version.py`, `cross-site-sync.py`, `modernize-pages.py`,
-`move-orphans-to-library.py`, `release-mtb.py`, `reorg-theme-css.py`,
-`site-audit.py` -- all tied to the Mermaid Theme Builder toolchain or
-OverKill Hill-specific page structure.
+Active: `build-site.py`, `cache-bust.py`, `check-banner.py`,
+`check-locale-links.py`, `check-mtb-version.py`, `lint-voice.py`,
+`verify-live-edge.py`, `accessibility-qa.mjs`, `phone-overflow-qa.mjs`,
+`screen-reader-tree-audit.mjs` -- tied to the Mermaid Theme Builder
+toolchain, OverKill Hill-specific page structure, or the `npm run test:*`
+QA suite. `cross-site-sync.py`, `modernize-pages.py`,
+`move-orphans-to-library.py`, `release-mtb.py`, `reorg-theme-css.py`, and
+`site-audit.py` were also OKH-specific but are reference-only or retired
+as of 2026-08-30 -- see `scripts/README.md`, they now live in
+`scripts/archive/` and are no longer part of the active toolchain.
+
+**Using `scripts/`:** `scripts/README.md` classifies every script as active,
+reference-only, or retired -- only active scripts remain at the top level of
+`scripts/`; everything else lives in `scripts/archive/` with the
+classification and rationale recorded there. Use `scripts/audit-site.py`
+for the canonical site audit, `scripts/validate-site.py` for structural
+validation, and `scripts/check-links.py`/`scripts/responsive-qa.mjs` for
+link and responsive QA. Do not run an archived script without reading its
+header and confirming its target paths still apply -- several were written
+for an earlier repo layout or reference sibling-site constants. This
+convention was ported from `askjamie/scripts/README.md`; see
+`docs/sxs-infrastructure-audit-2026-08-29.md` for the full classification
+evidence.
 
 
 ---
