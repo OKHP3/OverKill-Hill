@@ -211,6 +211,52 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.setAttribute("data-theme", "light");
   }
 
+  // Language switcher dropdown (i18n pilot pages only -- the markup only
+  // exists on the four pilot routes and their /fr/, /de/, /es/
+  // equivalents, so this is a no-op everywhere else). Same disclosure
+  // shape as the theme toggle above: a small button shows the current
+  // state (here, the active page's language flag) and a click reveals
+  // the other options. Unlike the theme toggle this doesn't hold its own
+  // state -- each option is a real link to a different page.
+  document.querySelectorAll(".lang-switch").forEach((wrap) => {
+    const toggle = wrap.querySelector(".lang-switch-toggle");
+    const menu = wrap.querySelector(".lang-switch-menu");
+    if (!toggle || !menu) return;
+
+    const closeMenu = () => {
+      menu.hidden = true;
+      toggle.setAttribute("aria-expanded", "false");
+    };
+    const openMenu = () => {
+      menu.hidden = false;
+      toggle.setAttribute("aria-expanded", "true");
+    };
+
+    toggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      if (menu.hidden) {
+        openMenu();
+      } else {
+        closeMenu();
+      }
+    });
+
+    wrap.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !menu.hidden) {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!menu.hidden && !wrap.contains(event.target)) closeMenu();
+    });
+
+    document.addEventListener("focusin", (event) => {
+      if (!menu.hidden && !wrap.contains(event.target)) closeMenu();
+    });
+  });
+
   // Scroll reveal
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"

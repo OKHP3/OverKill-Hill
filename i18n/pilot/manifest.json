@@ -1,41 +1,132 @@
 {
   "status": "pilot-ready",
-  "target_locale": "fr",
+  "target_locales": [
+    "fr",
+    "de",
+    "es"
+  ],
   "translation_policy": "human-reviewed-required",
   "source_of_truth": "site-src/pages.json",
-  "pages": [
-    {
-      "source_route": "/",
-      "target_route": "/fr/",
-      "source_path": "index.html",
-      "target_path": "fr/index.html",
-      "status": "translated"
-    },
-    {
-      "source_route": "/about/",
-      "target_route": "/fr/about/",
-      "source_path": "about/index.html",
-      "target_path": "fr/about/index.html",
-      "status": "translated"
-    },
-    {
-      "source_route": "/projects/",
-      "target_route": "/fr/projects/",
-      "source_path": "projects/index.html",
-      "target_path": "fr/projects/index.html",
-      "status": "translated"
-    },
-    {
-      "source_route": "/contact/",
-      "target_route": "/fr/contact/",
-      "source_path": "contact/index.html",
-      "target_path": "fr/contact/index.html",
-      "status": "translated"
-    }
+  "routes": [
+    "/",
+    "/about/",
+    "/projects/",
+    "/contact/"
   ],
-  "search_index": {
-    "command": "python3 scripts/build-search-index.py --locale=fr",
-    "output": "assets/data/search-index.fr.json",
-    "status": "current"
+  "locales": {
+    "fr": {
+      "status": "translated",
+      "pages": [
+        {
+          "source_route": "/",
+          "target_route": "/fr/",
+          "source_path": "index.html",
+          "target_path": "fr/index.html",
+          "status": "translated"
+        },
+        {
+          "source_route": "/about/",
+          "target_route": "/fr/about/",
+          "source_path": "about/index.html",
+          "target_path": "fr/about/index.html",
+          "status": "translated"
+        },
+        {
+          "source_route": "/projects/",
+          "target_route": "/fr/projects/",
+          "source_path": "projects/index.html",
+          "target_path": "fr/projects/index.html",
+          "status": "translated"
+        },
+        {
+          "source_route": "/contact/",
+          "target_route": "/fr/contact/",
+          "source_path": "contact/index.html",
+          "target_path": "fr/contact/index.html",
+          "status": "translated"
+        }
+      ],
+      "search_index": {
+        "command": "python3 scripts/build-search-index.py --locale=fr",
+        "output": "assets/data/search-index.fr.json",
+        "status": "current"
+      }
+    },
+    "de": {
+      "status": "drafted-pending-human-review",
+      "pages": [
+        {
+          "source_route": "/",
+          "target_route": "/de/",
+          "source_path": "index.html",
+          "target_path": "de/index.html",
+          "status": "drafted-pending-human-review"
+        },
+        {
+          "source_route": "/about/",
+          "target_route": "/de/about/",
+          "source_path": "about/index.html",
+          "target_path": "de/about/index.html",
+          "status": "drafted-pending-human-review"
+        },
+        {
+          "source_route": "/projects/",
+          "target_route": "/de/projects/",
+          "source_path": "projects/index.html",
+          "target_path": "de/projects/index.html",
+          "status": "drafted-pending-human-review"
+        },
+        {
+          "source_route": "/contact/",
+          "target_route": "/de/contact/",
+          "source_path": "contact/index.html",
+          "target_path": "de/contact/index.html",
+          "status": "drafted-pending-human-review"
+        }
+      ],
+      "search_index": {
+        "command": "python3 scripts/build-search-index.py --locale=de",
+        "output": "assets/data/search-index.de.json",
+        "status": "current"
+      }
+    },
+    "es": {
+      "status": "drafted-pending-human-review",
+      "pages": [
+        {
+          "source_route": "/",
+          "target_route": "/es/",
+          "source_path": "index.html",
+          "target_path": "es/index.html",
+          "status": "drafted-pending-human-review"
+        },
+        {
+          "source_route": "/about/",
+          "target_route": "/es/about/",
+          "source_path": "about/index.html",
+          "target_path": "es/about/index.html",
+          "status": "drafted-pending-human-review"
+        },
+        {
+          "source_route": "/projects/",
+          "target_route": "/es/projects/",
+          "source_path": "projects/index.html",
+          "target_path": "es/projects/index.html",
+          "status": "drafted-pending-human-review"
+        },
+        {
+          "source_route": "/contact/",
+          "target_route": "/es/contact/",
+          "source_path": "contact/index.html",
+          "target_path": "es/contact/index.html",
+          "status": "drafted-pending-human-review"
+        }
+      ],
+      "search_index": {
+        "command": "python3 scripts/build-search-index.py --locale=es",
+        "output": "assets/data/search-index.es.json",
+        "status": "current"
+      }
+    }
   }
 }

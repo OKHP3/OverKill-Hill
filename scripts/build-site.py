@@ -26,17 +26,20 @@ EXCLUDED = ("assets/", ".agents/", ".local/", "node_modules/", "site-src/")
 APP_RE = re.compile(r"/assets/js/app\.js(?:\?[^\"']*)?")
 # The French pilot only covers these four routes. The shared header must not
 # grow a language switcher on any other English page.
+# Pilot languages beyond English, in display order, for the four evergreen
+# routes below. Each entry is route -> {lang_code: target_route}.
+PILOT_LANGUAGES = ["fr", "de", "es"]
 PILOT_LANG_SWITCH = {
-    "/": "/fr/",
-    "/about/": "/fr/about/",
-    "/projects/": "/fr/projects/",
-    "/contact/": "/fr/contact/",
+    "/": {"fr": "/fr/", "de": "/de/", "es": "/es/"},
+    "/about/": {"fr": "/fr/about/", "de": "/de/about/", "es": "/es/about/"},
+    "/projects/": {"fr": "/fr/projects/", "de": "/de/projects/", "es": "/es/projects/"},
+    "/contact/": {"fr": "/fr/contact/", "de": "/de/contact/", "es": "/es/contact/"},
 }
 
 # Small inline flag icons for the language switcher (USA, not UK -- this is
-# an en-US site) and France. Kept as compact SVG rather than emoji so
-# rendering is identical across every OS/browser instead of depending on
-# platform emoji-flag support.
+# an en-US site). Kept as compact SVG rather than emoji so rendering is
+# identical across every OS/browser instead of depending on platform
+# emoji-flag support.
 USA_FLAG_SVG = (
     '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21">'
     '<rect fill="#B22234" height="20" width="30"/>'
@@ -56,6 +59,23 @@ FRANCE_FLAG_SVG = (
     '<rect fill="#EF4135" height="20" width="10" x="20"/>'
     "</svg>"
 )
+GERMANY_FLAG_SVG = (
+    '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21">'
+    '<rect fill="#000000" height="6.67" width="30"/>'
+    '<rect fill="#DD0000" height="6.67" width="30" y="6.67"/>'
+    '<rect fill="#FFCE00" height="6.66" width="30" y="13.34"/>'
+    "</svg>"
+)
+SPAIN_FLAG_SVG = (
+    '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21">'
+    '<rect fill="#AA151B" height="5" width="30"/>'
+    '<rect fill="#F1BF00" height="10" width="30" y="5"/>'
+    '<rect fill="#AA151B" height="5" width="30" y="15"/>'
+    "</svg>"
+)
+
+LANG_FLAG_SVG = {"en": USA_FLAG_SVG, "fr": FRANCE_FLAG_SVG, "de": GERMANY_FLAG_SVG, "es": SPAIN_FLAG_SVG}
+LANG_LABEL = {"en": "English (US)", "fr": "Fran\u00e7ais", "de": "Deutsch", "es": "Espa\u00f1ol"}
 
 
 def tracked_pages() -> list[Path]:
@@ -261,6 +281,8 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
         "CANONICAL": page.get("canonical", ""),
         "ALTERNATE": page.get("alternate", ""),
         "ALTERNATE_FR": page.get("alternate_fr", ""),
+        "ALTERNATE_DE": page.get("alternate_de", ""),
+        "ALTERNATE_ES": page.get("alternate_es", ""),
         "ALTERNATE_X_DEFAULT": page.get("alternate_x_default", ""),
     }
     for key, value in page.items():
@@ -301,7 +323,7 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
             head,
             count=1,
         )
-    for key, hreflang in (("alternate_fr", "fr"), ("alternate_x_default", "x-default")):
+    for key, hreflang in (("alternate_fr", "fr"), ("alternate_de", "de"), ("alternate_es", "es"), ("alternate_x_default", "x-default")):
         if not page.get(key):
             head = re.sub(
                 rf'\s*<link href="" hreflang="{hreflang}" rel="alternate"/>\n?',
@@ -323,17 +345,38 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
         chosen = next((a for a in candidates if a.get("href", "").split("#")[0] == target), None)
     if chosen is not None:
         chosen["aria-current"] = "page"
-    fr_target = PILOT_LANG_SWITCH.get(page["route"])
-    if fr_target:
+    lang_targets = PILOT_LANG_SWITCH.get(page["route"])
+    if lang_targets:
         nav_list = header_soup.select_one("nav.primary-nav > ul")
         if nav_list is None:
             raise ValueError(f"{rel}: expected primary nav list for language switcher")
+        # Dropdown language switcher: a toggle button showing the current
+        # page's language flag (English/USA by default on every EN page),
+        # plus a hidden menu of the other pilot languages revealed on
+        # click -- same interaction shape as the light/dark/system theme
+        # toggle, adapted for real navigation since each option is a link
+        # to a different page rather than a client-side state change.
+        options = [
+            f'<li><a aria-current="true" aria-label="{LANG_LABEL["en"]}" class="lang-switch-option is-current" '
+            f'href="{html.escape(page["route"], quote=True)}" hreflang="en" lang="en">{LANG_FLAG_SVG["en"]}'
+            f'<span class="lang-switch-option-label">{LANG_LABEL["en"]}</span></a></li>'
+        ]
+        for lang in PILOT_LANGUAGES:
+            target = lang_targets.get(lang)
+            if not target:
+                continue
+            options.append(
+                f'<li><a aria-label="{LANG_LABEL[lang]}" class="lang-switch-option" '
+                f'href="{html.escape(target, quote=True)}" hreflang="{lang}" lang="{lang}">{LANG_FLAG_SVG[lang]}'
+                f'<span class="lang-switch-option-label">{LANG_LABEL[lang]}</span></a></li>'
+            )
+        toggle = (
+            f'<button aria-expanded="false" aria-haspopup="true" aria-label="Language: {LANG_LABEL["en"]}" '
+            f'class="lang-switch-toggle" type="button"><span class="lang-flag-current">{LANG_FLAG_SVG["en"]}</span></button>'
+        )
+        menu = '<ul class="lang-switch-menu" hidden>' + "".join(options) + "</ul>"
         switch_li = BeautifulSoup(
-            '<li class="lang-switch">'
-            f'<a aria-current="true" aria-label="English (US)" class="lang-switch-link is-active" href="{html.escape(page["route"], quote=True)}" hreflang="en" lang="en">{USA_FLAG_SVG}</a>'
-            '<span aria-hidden="true" class="lang-switch-sep">/</span>'
-            f'<a aria-label="Fran\u00e7ais" class="lang-switch-link" href="{html.escape(fr_target, quote=True)}" hreflang="fr" lang="fr">{FRANCE_FLAG_SVG}</a>'
-            "</li>",
+            '<li class="lang-switch">' + toggle + menu + "</li>",
             "html.parser",
         ).li
         nav_list.append(switch_li)

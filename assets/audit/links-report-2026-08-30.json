@@ -1,13 +1,22 @@
 {
   "generated": "2026-08-30",
-  "pages_scanned": 39,
-  "internal_links": 1538,
-  "external_links": 1069,
+  "pages_scanned": 47,
+  "internal_links": 1706,
+  "external_links": 1187,
   "broken_links": [],
   "style_issues": [],
   "sitemap": {
     "total_urls": 30,
-    "missing_from_sitemap": [],
+    "missing_from_sitemap": [
+      "https://overkillhill.com/de/",
+      "https://overkillhill.com/de/about/",
+      "https://overkillhill.com/de/contact/",
+      "https://overkillhill.com/de/projects/",
+      "https://overkillhill.com/es/",
+      "https://overkillhill.com/es/about/",
+      "https://overkillhill.com/es/contact/",
+      "https://overkillhill.com/es/projects/"
+    ],
     "extra_in_sitemap": [],
     "intentionally_excluded": [
       {
@@ -55,13 +64,53 @@
     },
     {
       "path": "about/index.html",
-      "internal_links": 41,
-      "external_links": 19
+      "internal_links": 43,
+      "external_links": 21
     },
     {
       "path": "contact/index.html",
-      "internal_links": 40,
-      "external_links": 20
+      "internal_links": 42,
+      "external_links": 22
+    },
+    {
+      "path": "de/about/index.html",
+      "internal_links": 17,
+      "external_links": 11
+    },
+    {
+      "path": "de/contact/index.html",
+      "internal_links": 18,
+      "external_links": 12
+    },
+    {
+      "path": "de/index.html",
+      "internal_links": 18,
+      "external_links": 14
+    },
+    {
+      "path": "de/projects/index.html",
+      "internal_links": 23,
+      "external_links": 14
+    },
+    {
+      "path": "es/about/index.html",
+      "internal_links": 17,
+      "external_links": 11
+    },
+    {
+      "path": "es/contact/index.html",
+      "internal_links": 18,
+      "external_links": 12
+    },
+    {
+      "path": "es/index.html",
+      "internal_links": 18,
+      "external_links": 14
+    },
+    {
+      "path": "es/projects/index.html",
+      "internal_links": 23,
+      "external_links": 14
     },
     {
       "path": "found-ry/index.html",
@@ -70,28 +119,28 @@
     },
     {
       "path": "fr/about/index.html",
-      "internal_links": 14,
-      "external_links": 7
-    },
-    {
-      "path": "fr/contact/index.html",
       "internal_links": 16,
-      "external_links": 10
-    },
-    {
-      "path": "fr/index.html",
-      "internal_links": 15,
-      "external_links": 10
-    },
-    {
-      "path": "fr/projects/index.html",
-      "internal_links": 21,
       "external_links": 9
     },
     {
+      "path": "fr/contact/index.html",
+      "internal_links": 18,
+      "external_links": 12
+    },
+    {
+      "path": "fr/index.html",
+      "internal_links": 17,
+      "external_links": 12
+    },
+    {
+      "path": "fr/projects/index.html",
+      "internal_links": 23,
+      "external_links": 11
+    },
+    {
       "path": "index.html",
-      "internal_links": 43,
-      "external_links": 22
+      "internal_links": 45,
+      "external_links": 24
     },
     {
       "path": "legal/index.html",
@@ -140,8 +189,8 @@
     },
     {
       "path": "projects/index.html",
-      "internal_links": 50,
-      "external_links": 22
+      "internal_links": 52,
+      "external_links": 24
     },
     {
       "path": "projects/kierans-lifetrkr/index.html",
