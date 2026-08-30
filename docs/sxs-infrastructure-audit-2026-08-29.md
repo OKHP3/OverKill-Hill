@@ -408,3 +408,125 @@ Executed the consolidation work held back from the previous addendum, plus resol
 - AskJamie's untracked leftover `fonts.css`/woff2 files from an earlier phase.
 
 Check-links.py, responsive-qa.mjs, audit-site.py, csp.py, and generate-csp.py are now consolidated and verified across all three sites. Clear to move to the theme.css pass.
+
+## Execution report (2026-08-30, phase 3) — theme.css consolidation
+
+Blended, optimized, and canonicalized the three sites' independently-drifted
+copies of theme.css back into one superset, matching the target end state
+this document already called for. OKH: 6,535 -> 7,519 lines. AskJamie:
+committed at `7f4048a`.
+
+**Blend (uniqueness census, via a block-level fingerprint diff, not just a
+line diff):** 1,106 top-level blocks in OKH, 913 in Glee, 808 in AskJamie;
+358/143/37 were fingerprint-unique to each. The real news: most of what
+looked like "Glee-only" content was Glee's `data-color-scheme="dark"`
+dark-mode system -- a genuine, working feature (Glee's own app.js sets this
+attribute; AskJamie's does not yet) that already covered `.glee-main` AND
+`.askjamie-main` more completely than either OKH's or AskJamie's own copy.
+Absorbed it whole. Also absorbed Glee's search page, breadcrumb nav, and
+arcade page styles (all genuinely Glee-only, verified against Glee's own
+HTML), and confirmed OKH's ~283-block "unique" set is entirely OKH's own
+article/project-page component library (writings, project layouts, DSL
+showcase) -- correctly stays in the shared file per the existing
+architecture (ships to all three, scoped inert on pages that don't use it).
+
+**Optimize (~30 real conflicts, resolved case by case, not by a blind
+"prefer X" rule):** checked each one's actual token resolution and contrast
+math rather than assuming newest-wins. Two notable finds: (1) OKH's own
+`.okh-search-trigger:hover` had a stale `outline: none` that both Glee and
+AskJamie had already independently removed as a focus-visibility fix (WCAG
+2.4.7/2.4.11) -- adopted the fix. (2) Glee's `.search-page ... 
+[aria-pressed="true"]` still referenced the raw (WCAG-failing, ~2:1) amber
+value under a different token name than the one OKH had already fixed --
+kept OKH's tokenized, corrected version instead of assuming the sibling
+was ahead just because it differed.
+
+**Trash:** dropped 8 AskJamie-only `html[data-theme="dark"] .askjamie-*`
+blocks, confirmed dead -- AskJamie's app.js unconditionally forces
+`data-theme="light"`; its real dark mode is the (now-merged) 
+`data-color-scheme` system. Kept `.skip-link, .okh-skip-link` in spite of
+OKH's own "legacy, removed" comment -- AskJamie's HTML (404.html,
+about/index.html, several templates) still ships `class="skip-link"`,
+confirmed via grep; dropping it would have broken the skip link there.
+
+**Tooling:** extended `scripts/archive/reorg-theme-css.py`'s brand
+classifier (GLEE_PAT/ASKJAMIE_PAT predated several newer Glee class
+prefixes) and fixed a selector-list disambiguation bug, then used it to
+re-canonicalize the merged file into GLOBAL -> OKH -> GLEE -> ASKJAMIE
+order. Committed the tool fix separately (`dc4d82a`).
+
+**Verification:** css-tree (real parser, 0 errors), brace balance,
+idempotent re-run, a fingerprint diff confirming zero blocks lost and zero
+duplicates introduced by the merge, `validate-site.py`, `audit-site.py`,
+`check-links.py`, `check-csp.py`, and `assets/scripts/check-contrast.py`
+(every WCAG AA pair still passes, dark and light) on all three repos.
+
+**Not fixed, flagged:** Glee's own `validate-site.py` runs a
+"dark-mode coverage" check that flags `.glee-search-page__form` and
+`.glee-search-page__results > li` as missing a dark-mode override --
+confirmed via `git show HEAD` that this gap predates this session's merge
+entirely; it needs an actual color decision, not a mechanical port, so it
+was left for a follow-up rather than guessed at.
+
+**Blocked on Glee-fullyTools specifically -- see chat for the full
+writeup:** this repo's git state changed under this session multiple times
+today while this work was in progress (a `codex/publish-local-main-work`
+branch got rebased, force-updated, and merged to `main` via a "protected
+PR" mid-session, evidently by another actor with push credentials this
+sandbox doesn't have). The consolidated theme.css was committed there once
+but the commit is now orphaned (object intact, not reachable from any
+branch) after the repo moved again. OKH and AskJamie were not affected the
+same way and are both committed clean. Re-applying the merge to
+Glee-fullyTools' current `main` is a five-minute job once it's confirmed
+safe to touch that repo again.
+
+## Execution report (2026-08-30, phase 4) -- Glee-fullyTools reapply + 3-way sync script
+
+**Glee-fullyTools reapply:** confirmed `main` had been stable at `25049b1`
+(the "protected PR" merge from phase 3) for 5+ hours with no further branch
+movement, so reapplied the tested, verified theme.css consolidation:
+wrote the canonical file (md5 `0c2eac73f1891ad627e09347e141c7f2`, 7,519
+lines) into `assets/css/theme.css`, re-ran `sync-css-version.py` (63 files
+re-tokenized) and `sync-portfolio-stats.py` (`css-lines=7519`,
+`showcase/index.html` updated), then re-ran `validate-site.py`,
+`audit-site.py`, `check-links.py`, and `check-csp.py`. All clean except the
+pre-existing, already-flagged `.glee-search-page__form` /
+`.glee-search-page__results > li` dark-mode-coverage gap (unrelated to this
+merge; still needs a human color decision) and `audit-site.py`'s 44
+findings, which are pre-existing content/accessibility issues unrelated to
+theme.css (toolbox pages, `under-construction.html`) confirmed unrelated by
+inspection.
+
+**3-way sync script (`scripts/sync-foundation-files.py`):** built and
+deployed identically to all three repos' `scripts/`, replacing the
+one-directional "OKH source of truth, hand-drop a zip" model documented in
+`replit.md`. Groups each foundation file's three current copies by exact
+content: 1 group = in sync; 2 groups = the group with the newest
+`git log` touch wins and is written into whichever repo(s) lack it (this is
+what produces both directions -- sibling-to-OKH-to-other-sibling, and
+OKH-to-both-siblings -- without hand-coded routing); 3 groups (every repo
+different) is reported as a conflict and left untouched. Verified against a
+synthetic 3-repo git fixture covering all four cases plus commit-lock
+contention, before running for real. Real dry run against the mirror:
+`theme.css` confirmed in sync across all three repos; `app.js` and
+`mermaid-init.js` are correctly flagged as genuine 3-way conflicts (sizes
+differ substantially per site -- OKH's own dark/light toggle vs. the
+siblings' brand-locked-light `data-color-scheme` wiring) and need a
+deliberate blend pass, the same treatment theme.css got, before this tool
+will report them in sync.
+
+**New, more serious concurrent-modification finding:** partway through
+staging the sync-script commit, `.git/index.lock` appeared and could not be
+removed (`Operation not permitted`) not just in Glee-fullyTools but
+*simultaneously in all three repos* -- overkill-hill and askjamie included,
+neither of which showed this in phase 3. This is different from the
+phase-3 incident (a GitHub-side rebase/PR-merge with real push credentials
+this sandbox doesn't have): a `.git/index.lock` is purely local, so
+something running directly on the machine is touching all three mirrors'
+git state at the same moment this session is. Content on disk is unaffected
+either way (this session writes files directly, not through git), but no
+commit could be made in any of the three repos as of this writeup. The
+sync-foundation-files.py write to Glee-fullyTools' theme.css/HTML files and
+the sync script + doc updates to all three repos are on disk and (in
+OKH's case) staged, just not committed -- see chat for the exact commands
+to re-run once the lock clears.
