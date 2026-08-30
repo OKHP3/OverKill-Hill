@@ -605,26 +605,42 @@ button {
 
 /* ========== Primary nav: French pilot language switcher ========== */
 /* Only rendered on the four pilot routes (home, about, projects, contact)
-   and their /fr/ equivalents. */
+   and their /fr/ equivalents. Small flag icons (USA, not UK -- an en-US
+   site -- and France), not text, so "current language" reads as a flag
+   ring rather than color/weight, which doesn't apply to an image glyph. */
 .primary-nav .lang-switch {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
-  text-transform: uppercase;
+  gap: 0.4rem;
 }
 
 .primary-nav .lang-switch-link {
-  color: var(--color-muted);
+  display: inline-flex;
+  align-items: center;
+  border-radius: 3px;
+  opacity: 0.55;
+  transition: opacity 0.15s ease, box-shadow 0.15s ease;
+}
+
+.primary-nav .lang-switch-link:hover,
+.primary-nav .lang-switch-link:focus-visible {
+  opacity: 0.85;
 }
 
 .primary-nav .lang-switch-link.is-active {
-  color: var(--color-accent);
-  font-weight: 600;
+  opacity: 1;
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+.primary-nav .lang-flag {
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
 }
 
 .primary-nav .lang-switch-sep {
   color: var(--color-muted);
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 /* ===== PRE‑OPENING / ACTIVE BUILD NOTE =============================== */

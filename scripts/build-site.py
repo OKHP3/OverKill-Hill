@@ -33,6 +33,30 @@ PILOT_LANG_SWITCH = {
     "/contact/": "/fr/contact/",
 }
 
+# Small inline flag icons for the language switcher (USA, not UK -- this is
+# an en-US site) and France. Kept as compact SVG rather than emoji so
+# rendering is identical across every OS/browser instead of depending on
+# platform emoji-flag support.
+USA_FLAG_SVG = (
+    '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21">'
+    '<rect fill="#B22234" height="20" width="30"/>'
+    '<rect fill="#FFFFFF" height="1.54" width="30" y="1.54"/>'
+    '<rect fill="#FFFFFF" height="1.54" width="30" y="4.62"/>'
+    '<rect fill="#FFFFFF" height="1.54" width="30" y="7.69"/>'
+    '<rect fill="#FFFFFF" height="1.54" width="30" y="10.77"/>'
+    '<rect fill="#FFFFFF" height="1.54" width="30" y="13.85"/>'
+    '<rect fill="#FFFFFF" height="1.54" width="30" y="16.92"/>'
+    '<rect fill="#3C3B6E" height="10.77" width="12"/>'
+    "</svg>"
+)
+FRANCE_FLAG_SVG = (
+    '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21">'
+    '<rect fill="#0055A4" height="20" width="10"/>'
+    '<rect fill="#FFFFFF" height="20" width="10" x="10"/>'
+    '<rect fill="#EF4135" height="20" width="10" x="20"/>'
+    "</svg>"
+)
+
 
 def tracked_pages() -> list[Path]:
     result = subprocess.run(
@@ -306,10 +330,9 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
             raise ValueError(f"{rel}: expected primary nav list for language switcher")
         switch_li = BeautifulSoup(
             '<li class="lang-switch">'
-            '<span class="sr-only">Language</span>'
-            f'<a aria-current="true" class="lang-switch-link is-active" href="{html.escape(page["route"], quote=True)}" hreflang="en" lang="en">EN</a>'
+            f'<a aria-current="true" aria-label="English (US)" class="lang-switch-link is-active" href="{html.escape(page["route"], quote=True)}" hreflang="en" lang="en">{USA_FLAG_SVG}</a>'
             '<span aria-hidden="true" class="lang-switch-sep">/</span>'
-            f'<a class="lang-switch-link" href="{html.escape(fr_target, quote=True)}" hreflang="fr" lang="fr">FR</a>'
+            f'<a aria-label="Fran\u00e7ais" class="lang-switch-link" href="{html.escape(fr_target, quote=True)}" hreflang="fr" lang="fr">{FRANCE_FLAG_SVG}</a>'
             "</li>",
             "html.parser",
         ).li
