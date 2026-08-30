@@ -80,8 +80,37 @@ jobs:
               String(pullRequest.head.repo.full_name !== repository),
             );
 
-      - name: Download contrast audit report
+      - name: Inspect upstream contrast audit status
         if: steps.pr.outputs.number != ''
+        id: upstream
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
+        with:
+          script: |
+            const run = context.payload.workflow_run;
+            const jobs = await github.paginate(
+              github.rest.actions.listJobsForWorkflowRun,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: run.id,
+                per_page: 100,
+              },
+            );
+            const validationJob = jobs.find(
+              (job) => job.name === 'Validate site HTML, links, and structure',
+            );
+            const contrastStep = validationJob?.steps?.find(
+              (step) => step.name === 'Run WCAG contrast audit',
+            );
+            core.setOutput('contrast_outcome', contrastStep?.conclusion || 'unknown');
+            core.info(
+              `Upstream contrast audit outcome: ${contrastStep?.conclusion || 'unknown'}`,
+            );
+
+      - name: Download contrast audit report
+        if: >-
+          steps.pr.outputs.number != '' &&
+          steps.upstream.outputs.contrast_outcome != 'skipped'
         id: download
         continue-on-error: true
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
@@ -92,8 +121,14 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Note that contrast audit was not reached
+        if: steps.pr.outputs.number != '' && steps.upstream.outputs.contrast_outcome == 'skipped'
+        run: echo 'The validation workflow stopped before the contrast audit; no contrast report is expected.'
+
       - name: Update contrast feedback without executing pull-request code
-        if: steps.pr.outputs.number != ''
+        if: >-
+          steps.pr.outputs.number != '' &&
+          steps.upstream.outputs.contrast_outcome != 'skipped'
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
         env:
           CONTRAST_REPORT: contrast-audit/contrast-report.txt
