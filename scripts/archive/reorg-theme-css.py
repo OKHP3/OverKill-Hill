@@ -147,8 +147,9 @@ def build_blocks(tokens):
 
 GLEE_PAT = re.compile(
     r'\.glee-main\b|'
-    r'\.glee-(?:hero|mermaid|wip|glow|fully)|'
-    r'\bgleeSweep\b|'
+    r'\.glee-(?:hero|mermaid|wip|glow|fully|color-toggle|search-page|breadcrumb|notice)|'
+    r'\.arcade-|'                   # arcade/ is a Glee-only project page (no other site has it)
+    r'\bglee[A-Z]\w*\b|'          # camelCase Glee keyframes (gleeSweep, gleeSailSway, ...)
     r'--glee\b'                     # BEM brand modifier suffix (e.g. .brand-stripes--glee, .site-specials--glee)
 )
 ASKJAMIE_PAT = re.compile(
@@ -216,8 +217,30 @@ def classify(rule_text: str, leading_text: str = '') -> str:
     if has_askjamie and not has_glee:
         return 'ASKJAMIE'
     if has_glee and has_askjamie:
-        # Multi-brand selector list (e.g. ".glee-main .x, .askjamie-main .x")
-        # — neither brand owns this exclusively, so it's a shared override.
+        # Both brand patterns matched. Two different situations look the
+        # same to a flat regex search, so disambiguate: (a) a single
+        # (non-comma) selector where one brand's scope class leads and a
+        # component nested inside it just carries the other brand's name
+        # in its own class (e.g. ".askjamie-main .glee-color-toggle" --
+        # a shared "glee-*"-named widget reused on AskJamie pages). The
+        # LEADING brand there is the real scope owner. (b) a genuine
+        # comma-separated list of per-brand alternatives (e.g.
+        # ".glee-main .x, .askjamie-main .x") -- neither brand owns this
+        # exclusively, so it's a shared override.
+        prelude = positive.split('{', 1)[0]
+        alts = [a.strip() for a in prelude.split(',') if a.strip()]
+        leads = set()
+        for alt in alts:
+            if re.match(r'\.askjamie(?:-main)?\b', alt):
+                leads.add('ASKJAMIE')
+            elif re.match(r'\.glee-main\b', alt):
+                leads.add('GLEE')
+            else:
+                leads.add(None)
+        if leads == {'ASKJAMIE'}:
+            return 'ASKJAMIE'
+        if leads == {'GLEE'}:
+            return 'GLEE'
         return 'GLOBAL'
 
     # 5. OKH-only component class.
