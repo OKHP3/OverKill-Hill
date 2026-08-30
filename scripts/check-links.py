@@ -30,6 +30,7 @@ SKIP_DIRS = {
     ".pythonlibs",
     ".cache",
     ".agents",
+    ".pr-head",
     "_replit",
     "dist",
     "site-src",

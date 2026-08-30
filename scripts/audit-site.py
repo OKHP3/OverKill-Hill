@@ -3,7 +3,8 @@
 audit-site.py — static-site auditor for overkillhill.com.
 
 Walks every .html file in the repo (excluding .local/, attached_assets/,
-node_modules/, .cache/, .git/, .vscode/) and produces a Markdown report.
+node_modules/, .cache/, .git/, .vscode/, and the PR comparison checkout)
+and produces a Markdown report.
 
 Per-page checks actually emitted as issues:
   * <title> length (<=70) and presence
@@ -73,7 +74,7 @@ from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent.parent
 EXCLUDE_DIRS = {".local", ".agents", "attached_assets", "node_modules", ".cache", ".git",
-                "_replit", "templates", "site-src"}
+                ".pr-head", "_replit", "templates", "site-src"}
 EXCLUDE_FROM_SITEMAP = {"404.html", "under-construction.html"}
 
 # Title / description recommended length budgets
