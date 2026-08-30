@@ -58,7 +58,7 @@ python3 scripts/reorg-theme-css.py --dry-run   # report classifier output + flag
 
 The reorg script tokenizes every top-level rule, classifies it by selector, and re-emits in canonical order. Within-brand source order is **always preserved** so cascade winners for same-selector duplicates stay intact. Brace balance is verified after every run.
 
-After running the reorg, copy `assets/css/theme.css` and `assets/js/app.js` to the sibling sync drops (see "Cross-Site Foundation Files" below).
+After running the reorg, run `scripts/sync-foundation-files.py --commit` to propagate `assets/css/theme.css` to the siblings (see "Cross-Site Foundation Files" below).
 
 ## Current Feature: Article — The First Diagram Is Usually a Liar
 
@@ -301,36 +301,29 @@ The attribute value is ignored; its presence is the signal. The script discovers
 
 ## Cross-Site Foundation Files
 
-`overkillhill.com`, `glee-fully.tools`, and `askjamie.bot` each live in their own GitHub Pages repo but share three byte-identical foundation files:
+`overkillhill.com`, `glee-fully.tools`, and `askjamie.bot` each live in their own GitHub Pages repo but share three foundation files that must stay byte-identical:
 
 - `assets/css/theme.css`
 - `assets/js/app.js`
 - `assets/js/mermaid-init.js`
 
-**OverKill-Hill is the source of truth.** When making a change to any of these three files, edit it here, then propagate to the siblings.
+**As of 2026-08-30 this is a 3-way sync, not a one-directional "OKH is source of truth" push.** A change made in glee-fully.tools or askjamie.bot flows into overkill-hill, and a change made in overkill-hill flows out to both siblings. OverKill Hill is the *hub* the other two sync through, not a permanent single source of truth to hand-edit-then-broadcast.
 
 ### Propagation workflow
 
-After editing any of the three foundation files:
+Run `scripts/sync-foundation-files.py` (identical copy in all three repos' `scripts/`, self-locating from `../..` relative to its own path):
 
 ```bash
-mkdir -p dist/sync/glee/assets/{css,js} dist/sync/askjamie/assets/{css,js}
-for repo in glee askjamie; do
-  cp assets/css/theme.css      dist/sync/$repo/assets/css/theme.css
-  cp assets/js/app.js          dist/sync/$repo/assets/js/app.js
-  cp assets/js/mermaid-init.js dist/sync/$repo/assets/js/mermaid-init.js
-done
-cd dist && python3 -c "
-import zipfile, os
-with zipfile.ZipFile(f'okh-cross-repo-sync-$(date +%F).zip', 'w', zipfile.ZIP_DEFLATED) as zf:
-    for root, _, files in os.walk('sync'):
-        for f in sorted(files):
-            p = os.path.join(root, f); zf.write(p, p)
-    if os.path.exists('MIGRATION.md'): zf.write('MIGRATION.md', 'MIGRATION.md')
-"
+python3 scripts/sync-foundation-files.py            # dry run: report only, writes nothing
+python3 scripts/sync-foundation-files.py --apply     # write resolved content to disk
+python3 scripts/sync-foundation-files.py --commit    # write + git commit in each changed repo
 ```
 
-Then drop the per-repo subdirectories into the corresponding sibling clones and commit there with `chore(sync): align foundation files with overkillhill.com canonical (YYYY-MM-DD)`.
+For each foundation file it groups the three repos' copies by exact content. One group means already in sync. Two groups means it overwrites whichever repo(s) don't hold the version with the most recent `git log` touch — this is what produces both directions above without hand-coded routing. Three groups (every repo genuinely different) is reported as a **conflict** and nothing is written; that needs the same manual/agent blend-and-resolve treatment `theme.css` went through on 2026-08-30, not an automatic pick. Writing `theme.css` into glee-fullytools also re-runs that repo's `sync-css-version.py` and `sync-portfolio-stats.py` automatically, since a plain file copy alone leaves its cache-bust tokens and portfolio stats stale.
+
+If a repo's `.git/index.lock` is actively held by another process at commit time, the script writes the file but skips that repo's commit and says so rather than fighting the lock — commit it by hand once the other process is done.
+
+**Known open item (2026-08-30):** `theme.css` is confirmed in sync across all three repos. `app.js` and `mermaid-init.js` are currently flagged as genuine 3-way conflicts — they differ substantially in size per site (OKH's own dark/light toggle vs. the siblings' brand-locked-light `data-color-scheme` wiring), so `sync-foundation-files.py` correctly refuses to auto-resolve them. They still need a deliberate blend pass before this tool will report them in sync.
 
 ### Site-specific divergence is expressed via class hooks, not separate files
 
