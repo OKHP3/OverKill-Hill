@@ -652,7 +652,7 @@ baseline -- update it here when the inventory changes materially.
 | `dist/` | Not present in this checkout | Reserved, ignored cross-site sync staging area when the sync workflow is run |
 | `docs/` | 4 cross-site planning docs | `cross-site-sync-plan.md`, `cross-site-search-dispatch.md`, `cross-site-search-prompt.md`, `project-page-mermaid-theme-builder-salvage.md` |
 | `docs/archive/` | 6 archived sprint and audit docs | Sprint plans from 2026 |
-| `scripts/` | 60 scripts | Full shared plus OKH-specific toolchain |
+| `scripts/` | 19 active scripts + 50 in `scripts/archive/` | See `scripts/README.md` for the active/reference-only/retired classification (updated 2026-08-30) |
 
 **OKH-specific sub-folders under `assets/img/`:**
 - `assets/img/library/` -- fully populated; 49 PNG + 49 WebP project/article images
