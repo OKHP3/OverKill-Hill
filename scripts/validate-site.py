@@ -641,6 +641,23 @@ def validate_page(
             )
         )
 
+    # A malformed section-marker comment such as `</section>\nLABEL TEXT\n<section`
+    # is parsed as visible orphaned body text between sections (the opening-side
+    # counterpart to the closing-annotation check above -- same root cause,
+    # different flavor: `<!-- LABEL -->` losing its comment delimiters). Keep
+    # these template labels inside HTML comments.
+    for match in re.finditer(
+        r"</section>\s*\n[ \t]*([^\s<][^\n]*?)[ \t]*\n\s*<",
+        raw,
+    ):
+        findings.append(
+            Finding(
+                "ERROR",
+                rel,
+                f"leaked section-marker annotation rendered as body text: {match.group(1)!r}",
+            )
+        )
+
     # P3 (no superscript) inside <title> or <meta ...>
     for m in re.finditer(r"<(title|meta)[^>]*>", raw):
         chunk = m.group(0)
