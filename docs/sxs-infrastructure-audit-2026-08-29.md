@@ -530,3 +530,61 @@ sync-foundation-files.py write to Glee-fullyTools' theme.css/HTML files and
 the sync script + doc updates to all three repos are on disk and (in
 OKH's case) staged, just not committed -- see chat for the exact commands
 to re-run once the lock clears.
+
+## Execution report (2026-08-30, phase 5) -- overkillhill.com heading/breadcrumb bug (user-reported)
+
+Jamie reported unexpected page-section headings and breadcrumb-area
+content on overkillhill.com specifically (not askjamie.bot or
+glee-fully.tools), citing `/manifesto/` ("OG MANIFESTO: locked origin,
+never to be revised", "MURDERBIRD: the visual manifestation, with
+prompt evolution") and two other pages as examples.
+
+**Root cause confirmed:** a second flavor of the "leaked HTML comment"
+bug the Aug 26 fix (`d7f495ee`) partially addressed. That fix caught
+leaked *closing*-style annotations (`</div> /container`). It missed the
+opening-style counterpart: a line like
+`<!-- OG MANIFESTO: locked origin, never to be revised -->` that lost
+its `<!--`/`-->` delimiters somewhere upstream, leaving bare text
+sitting directly between `</section>` and the next `<section>` --
+unstyled, unwrapped, rendered as plain visible text in the page flow.
+Confirmed visually via browser screenshot on the live site before
+fixing (the orphan text renders as plain black text with none of the
+surrounding sections' styling).
+
+The two other pages Jamie cited (mac-studio-local-ai-workbench,
+mermaid-theme-builder) turned out NOT to have this bug -- their quoted
+headings ("Value Framing", "What This Is", etc.) are legitimately
+marked-up, correctly-styled content, confirmed via WebFetch heading
+extraction and a live screenshot. They were most likely just the
+examples Jamie's manual page-by-page review happened to note down
+alongside the real ones, not additional instances.
+
+**Fix:** scanned every `site-src/**/*.html` page for a line with no
+leading `<`, sitting between a `</section>` and the following tag --
+this exact-location heuristic had zero false positives against the
+whole site-src tree (every other "orphan-looking" line was legitimate
+line-wrapped tag content, e.g. `<summary>FAQ</summary>` split across
+raw lines). Found and hand-verified 13 real instances across 6 pages:
+404, manifesto (x6), projects/bfs-framing-intelligent-futures (x2),
+projects/index (x2), under-construction, universe. Re-wrapped each in
+`<!-- -->`, regenerated built HTML with `build-site.py`, confirmed
+`build-site.py --check` passes.
+
+Extended `validate-site.py` with a matching regex
+(`</section>\s*\n...\n\s*<`) next to the existing closing-annotation
+check, so this flavor is now caught automatically. Also found and fixed
+a related, separate gap while validating: 50 pages had a stale
+`theme.css` cache-bust token left over from today's earlier
+consolidation never being followed by a cache-bust pass on this repo
+specifically (Glee's `sync-css-version.py` equivalent). Ran
+`scripts/cache-bust.py`.
+
+Committed as `c00c024`: the 13-instance annotation fix, the
+validate-site.py regex extension, and (incidentally, since it touched
+one of the same files) manifesto's cache-bust token. **The remaining
+44 pages' cache-bust token refresh is NOT yet committed** -- git
+staging hit the same `.git/index.lock` contention documented in phase
+4 (this time on overkill-hill itself, not just Glee-fullyTools),
+confirming the lock contention is a live, recurring condition on this
+machine across multiple repos, not a one-off. Content is correct and
+on disk; commit is pending the lock clearing.
