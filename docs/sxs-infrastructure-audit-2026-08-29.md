@@ -217,3 +217,83 @@ Jamie's call: no locally-hosted files, CDN only, converge AskJamie onto the same
 Verified clean: `check-csp.py` (26/26), `validate-site.py` (0 errors/warnings), `check-links.py` (0 broken links).
 
 **Unrelated finding surfaced along the way, not fixed:** this repo's working tree has widespread line-ending drift — over 100 files (workflow YAML, JSON audit reports, markdown docs, ADRs, brand-styles YAML, none of them touched by this pass) show as locally modified against `git`'s tracked content, and the diff on every one is a pure CRLF/LF flip with no content change. Some of the HTML pages this commit touched picked up the same flip as a side effect of the edit (three of the nine templates show large line-count diffs that are line-ending noise, not content noise — `check-links.py`/`validate-site.py` confirm the actual content is correct). Worth a `.gitattributes` pass (`* text=auto eol=lf` or similar) at some point so local Windows checkouts stop drifting from what's actually committed — it's currently masking real diffs during review, the same class of false-drift-signal as the NTFS case-insensitivity issue caught earlier in this audit. Not urgent, not part of this scope, flagging so it doesn't get mistaken for content churn later.
+
+## Addendum (2026-08-30) — scripts/ directory: SxS and unification scoping
+
+Requested ahead of the theme.css pass: "if it works for one, why not all; if it's necessary for one, why not all," applied to each repo's `scripts/` directory. Short answer: this set doesn't behave like app.js or fonts.css. Those were one file each, doing one job, diverged by accident. `scripts/` is 73–76 files per repo doing dozens of unrelated jobs, and the divergence is mostly real — different sites, different content, different one-time migrations. Convergence is worth doing on a specific slice, not the whole directory.
+
+### Inventory
+
+| | OverKill-Hill | Glee-fullyTools | AskJamie |
+|---|---|---|---|
+| Total files in `scripts/` | 73 | 76 (+ `tests/`) | 16 (+ `README.md`, `archive/`) |
+| Present in all three repos | 9 | 9 | 9 |
+| Shared with exactly one other repo | 0 | 0 | 0 |
+| Unique to this repo | 12 (incl. `voice-lint-baseline.json`) | 11 | 5 |
+| Shared with the other two-way overlap (OKH+Glee only) | 47 | 47 | — |
+
+AskJamie is the outlier in shape, not just content: it has no `voice-lint`/`banner`/`mtb-version`/`illustrations`/`kebab-rename` machinery at all, because it never went through the same years-long content-migration history OKH and Glee-fullyTools share. It's the newest, leanest repo of the three, and its `scripts/README.md` + `archive/` convention (documenting retired tooling instead of leaving it to rot in the working tree) is the best practice of the three and worth backporting on its own, independent of anything below.
+
+The 47 files shared only between OKH and Glee-fullyTools are almost entirely one-shot content-migration and asset-conversion scripts from their shared build history — `generate-illustrations.py`, `wire-illustrations.py`, `kebab-rename-images.py`, `inject-toolette-hub.py`, `reorg-theme-css.py`, and so on. These already ran, already did their job, and have no ongoing execution path (not called from `post-merge.sh`, not called from CI). They're historical record, not live infrastructure. Unifying them would mean maintaining three-way parity on code that never runs again — pure cost, no benefit. Recommend leaving these alone and, if anything, moving the ones with zero references left into each repo's own `archive/` (AskJamie already has the convention).
+
+### The core 9 — present in all three, actually live infrastructure
+
+| Script | OKH lines | Glee lines | AskJamie lines | OKH↔Glee diff | OKH↔AskJamie diff | Glee↔AskJamie diff |
+|---|---|---|---|---|---|---|
+| `check-csp.py` | 8 | 9 | 9 | 21 | 21 | **0** |
+| `check-links.py` | 233 | 161 | 161 | 123 | 123 | **4** |
+| `responsive-qa.mjs` | 386 | 398 | 398 | 250 | 254 | **4** |
+| `csp.py` | 207 | 194 | 172 | 403 | 381 | 46 |
+| `generate-csp.py` | 77 | 143 | 110 | 147 | 83 | 104 |
+| `post-merge.sh` | 55 | 19 | 70 | 53 | 98 | 58 |
+| `audit-site.py` | 580 | 593 | 758 | 200 | 410 | 427 |
+| `build-search-index.py` | 606 | 369 | 338 | 933 | 907 | 657 |
+| `validate-site.py` | 920 | 1,079 | 597 | 1,964 | 1,109 | 1,623 |
+
+Two different stories in that table, and they call for two different responses.
+
+**`check-csp.py`, `check-links.py`, `responsive-qa.mjs`: already converged, just not admitted to it.** `check-csp.py` is byte-identical across all three (it's a 9-line `runpy` shim into `generate-csp.py --check`). `check-links.py` and `responsive-qa.mjs` are 4 lines apart between Glee-fullyTools and AskJamie — noise, not drift — and only diverge from OKH's copy because OKH's is carrying extra OKH-specific logic (its own extra route table, mostly). These are the actual "if it works for one, why not all" case: pull each into a genuine single shared file, parameterized by the couple of site-specific constants (site origin, route allowlist) that currently get hand-copied. Low risk, immediate payoff, no architecture change required.
+
+**`csp.py` / `generate-csp.py`: same shape, different content on purpose — and OKH's is the best version.** The Glee-fullyTools↔AskJamie diff on `csp.py` (46 lines) is entirely per-site allowlist content: Glee-fullyTools' CSP permits its Ko-fi widget and its own `img-src` rationale comment; AskJamie's permits `https://www.google.com` in `connect-src` that Glee-fullyTools doesn't need. Same functions, same page-classifier approach, different third-party services each site actually embeds — this is config divergence, not logic divergence, and it's correct that it exists. OKH's version is functionally ahead of both: it has a 5-way page classifier (`standard` / `embed` / `utility` / `diagram` / `embed-diagram`) that Glee-fullyTools and AskJamie's 3-way classifiers don't carry, built to handle Mermaid-diagram pages needing a scoped `style-src` relaxation that a hash-only policy can't satisfy. AskJamie's `generate-csp.py` already shows the direction of travel — its own header comment says *"Ported from OverKill Hill P3's scripts/generate-csp.py"* and it independently rebuilt `build_edge_policy()` to match OKH's. Recommendation: promote OKH's classifier + edge-policy structure as the shared skeleton, keep each site's allowlist content (the actual different-origins list) as the per-site config block. Same "no single winner, composite" pattern as the app.js verdict — except here one repo (OKH) is unambiguously carrying the more complete logic, so this composite leans OKH's way more than app.js's did.
+
+**`audit-site.py`, `build-search-index.py`, `validate-site.py`: real divergence, not a convergence candidate as a monolith.** These three are the largest files and the ones with the least line-for-line overlap, and it's because they're not really "one script" per repo — each is a grab-bag of independent checks or independent content-extraction logic that happens to live in one file. Pulling the function names out of `validate-site.py` makes the shape obvious:
+
+| | OKH-only checks | Glee-fullyTools-only checks | AskJamie-only checks |
+|---|---|---|---|
+| Examples | voice-lint, banner text, MTB version consistency | ADR-index sync, sparkle-loader drift, dark-mode coverage, CSS token drift, offline-shell check | governance-docs consistency, plain-language terms |
+| Shared core | `_page_renders_mermaid`, `validate_mermaid_csp_alignment`, `validate_mermaid_version_pin`, `html_to_route`, `find_html_files`, `load_sitemap_urls`, `resolve_internal`, `target_exists` (present in OKH and AskJamie; Glee-fullyTools' `main`/`check_page` structure has already diverged even on this shared core) | | |
+
+`build-search-index.py` is worse: the three repos don't even share function names beyond `main`. OKH and AskJamie both center on a `TextExtractor` class, but with different internals; Glee-fullyTools uses an unrelated `PageParser` class. This isn't three implementations of the same idea that drifted apart — closer to three separate implementations of the same *goal* that were never the same code to begin with.
+
+Forcing these three into one shared file per repo would mean either every site running every other site's irrelevant checks (OKH running AskJamie's plain-language linter, Glee-fullyTools running OKH's motorcycle-version checker), or building a real plugin/module system where each site opts into a shared core plus its own check modules. The second option is a legitimate long-term improvement, but it's a real architecture project, not a same-day unification pass, and it doesn't have the urgency the CSP/deploy work had. Recommend leaving these three alone for now and revisiting only if you want to formally invest in a shared validator framework later.
+
+### A gap this comparison surfaced, unrelated to unification
+
+`post-merge.sh` is correctly site-specific (it's each repo's own gate-sequencing recipe), but reading the three side by side surfaces a real coverage gap, not just a style difference:
+
+- **OKH's hook** runs `check-mtb-version.py`, `build-site.py` (x2 + `--check`), `generate-csp.py`, `check-csp.py`, `validate-site.py` — but never calls `check-links.py` or `audit-site.py`, despite both scripts living in OKH's own `scripts/` directory.
+- **Glee-fullyTools' hook** is 19 lines: rebuild search index, sync portfolio stats, done. It doesn't call `csp.py`/`check-csp.py`, `validate-site.py`, or `check-links.py` at all — none of Glee-fullyTools' own validation tooling runs on merge.
+- **AskJamie's hook** is the most complete: search index, `audit-site.py --quiet`, `validate-site.py`, `check-links.py`, then spins up a local server and runs both `responsive-qa.mjs` and a Playwright JS smoke spec.
+
+So the three sites aren't just running different checks because they have different content — Glee-fullyTools in particular is set up with real validation tooling (`check-csp.py`, `validate-site.py`, `check-links.py` all exist and work in that repo) that its own merge hook never invokes. That's a live gap independent of anything else in this document.
+
+### Recommendation
+
+- Converge `check-csp.py`, `check-links.py`, and `responsive-qa.mjs` into one real shared file each, parameterized by the small per-site config each already needs (site origin, route allowlist). Do this alongside the theme.css pass — low risk, immediate payoff.
+- Rebuild `csp.py` / `generate-csp.py` as a shared skeleton (OKH's 5-way classifier + edge-policy builder) plus a per-site allowlist config block, same shape as the app.js composite recommendation. AskJamie's own code comments already point this direction.
+- Leave `audit-site.py`, `build-search-index.py`, and `validate-site.py` as independent, site-specific files. Don't force them into a shared shape without a real plugin-architecture decision first.
+- Leave the 47 OKH+Glee-fullyTools one-shot migration scripts alone; they're historical, not live. Consider retiring the ones with zero remaining references into each repo's `archive/`, following AskJamie's own `scripts/README.md` convention.
+- Fix Glee-fullyTools' `post-merge.sh` to actually call its own `csp.py`/`validate-site.py`/`check-links.py` tooling, and OKH's to call `check-links.py` and `audit-site.py` — independent of the unification question, this is validation coverage that already exists and currently isn't wired in.
+
+### Risks + mitigations
+
+- **Shared `check-links.py`/`responsive-qa.mjs` could silently drop an OKH-specific route or check during the merge** → diff the pre- and post-unification output on all three sites before landing, not just a code review of the merged script.
+- **The CSP skeleton promotion touches the same file the AskJamie fonts-CDN change just modified** → sequence this after that change is merged and live-verified, not concurrently, to avoid a three-way merge conflict on `csp.py`.
+- **Wiring Glee-fullyTools' hook to actually run its validators for the first time may surface findings that have been silently accumulating** → run `validate-site.py`/`check-links.py` manually on Glee-fullyTools first and clear or triage whatever it reports before making the hook enforce it.
+
+### Next actions
+
+- [ ] Confirm the tiered approach above (converge the 3 thin scripts + CSP skeleton; leave the 3 large validators and the 47 legacy migration scripts alone)
+- [ ] Build the shared `check-csp.py`/`check-links.py`/`responsive-qa.mjs` + CSP skeleton on the same branches already open for the CSP/font work, once those are confirmed live
+- [ ] Wire Glee-fullyTools' and OKH's `post-merge.sh` to call the validation tooling they already have but don't run
+- [ ] Decide, separately and with no urgency, whether a shared validator plugin architecture for `audit-site.py`/`build-search-index.py`/`validate-site.py` is worth building later
