@@ -42,8 +42,8 @@ The supplied translations are placed as complete HTML pages under `/fr/`,
 
 The English pages, and every pilot-locale page, gain reciprocal `hreflang`
 links to all four locales in the same release. French is listed in the
-sitemap because it has been through that review; German and Spanish are not
-yet listed -- add their eight URLs to `sitemap.xml` once reviewed.
+sitemap because it has been through that review. German and Spanish remain
+`noindex` and are not listed until their human editorial reviews are complete.
 
 ## Search index scaffold
 

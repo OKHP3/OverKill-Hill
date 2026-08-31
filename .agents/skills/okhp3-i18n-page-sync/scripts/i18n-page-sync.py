@@ -207,7 +207,7 @@ def adopt(root: Path, config: Dict[str, Any], ledger: Dict[str, Any], only_route
     results = scan(root, config, ledger, only_routes)
     adopted: List[Dict[str, Any]] = []
     pages_ledger = ledger["pages"]
-    for item in results["needs_baseline"]:
+    for item in results["needs_baseline"] + results["stale"]:
         route = item["route"]
         locale_key = item["locale"]
         source_path = root / item["source_path"]

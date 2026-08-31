@@ -91,6 +91,24 @@ class I18nPageSyncTests(unittest.TestCase):
             payload = run(root, "report")
             self.assertEqual(json.loads(payload.stdout)["stale"][0]["route"], "/about/")
 
+    def test_adopt_rebaselines_a_confirmed_stale_translation(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw)
+            write(root / "about" / "index.html", "english v1")
+            write(root / "fr" / "about" / "index.html", "french v1")
+            write(root / "assets" / "data" / "search-index.json", json.dumps(search_index([{"url": "/about/"}])))
+            config(root)
+            subprocess.run([sys.executable, str(SCRIPT), "--root", str(root), "--mode", "adopt"], check=False)
+            write(root / "about" / "index.html", "english v2")
+            write(root / "fr" / "about" / "index.html", "french v2")
+            self.assertEqual(run(root, "check").returncode, 1)
+            result = subprocess.run(
+                [sys.executable, str(SCRIPT), "--root", str(root), "--mode", "adopt", "--routes", "/about/"],
+                capture_output=True, text=True, check=False,
+            )
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertEqual(run(root, "check").returncode, 0)
+
     def test_out_of_scope_routes_are_never_flagged(self):
         with tempfile.TemporaryDirectory() as raw:
             root = Path(raw)
