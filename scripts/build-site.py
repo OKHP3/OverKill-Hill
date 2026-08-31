@@ -347,15 +347,30 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
         chosen["aria-current"] = "page"
     lang_targets = PILOT_LANG_SWITCH.get(page["route"])
     if lang_targets:
-        nav_list = header_soup.select_one("nav.primary-nav > ul")
-        if nav_list is None:
-            raise ValueError(f"{rel}: expected primary nav list for language switcher")
+        nav_toggle_el = header_soup.select_one(".nav-toggle")
+        if nav_toggle_el is None:
+            raise ValueError(f"{rel}: expected mobile nav toggle for language switcher placement")
         # Dropdown language switcher: a toggle button showing the current
         # page's language flag (English/USA by default on every EN page),
         # plus a hidden menu of the other pilot languages revealed on
         # click -- same interaction shape as the light/dark/system theme
         # toggle, adapted for real navigation since each option is a link
         # to a different page rather than a client-side state change.
+        #
+        # Lives as its own top-level section of the header row (a sibling
+        # of nav.primary-nav and .header-controls), not inside the nav
+        # link list and not folded into the search/theme-toggle cluster:
+        #   1. It must stay visually and structurally separate from
+        #      .header-controls (search + display-mode switcher) -- its
+        #      own section of the header, not a third icon bolted onto
+        #      that group.
+        #   2. It must NOT live inside nav.primary-nav > ul, because that
+        #      list collapses into the off-canvas mobile menu; a switcher
+        #      inside it would only be reachable after opening the
+        #      hamburger, at the bottom of the link list, while the
+        #      display-mode switch stays visible at the top of the page.
+        #      Placing it here keeps it visible in the header on every
+        #      viewport, matching the theme toggle's behavior.
         options = [
             f'<li><a aria-current="true" aria-label="{LANG_LABEL["en"]}" class="lang-switch-option is-current" '
             f'href="{html.escape(page["route"], quote=True)}" hreflang="en" lang="en">{LANG_FLAG_SVG["en"]}'
@@ -375,11 +390,11 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
             f'class="lang-switch-toggle" type="button"><span class="lang-flag-current">{LANG_FLAG_SVG["en"]}</span></button>'
         )
         menu = '<ul class="lang-switch-menu" hidden>' + "".join(options) + "</ul>"
-        switch_li = BeautifulSoup(
-            '<li class="lang-switch">' + toggle + menu + "</li>",
+        switch_section = BeautifulSoup(
+            '<div class="lang-switch">' + toggle + menu + "</div>",
             "html.parser",
-        ).li
-        nav_list.append(switch_li)
+        ).div
+        nav_toggle_el.insert_before(switch_section)
     body_class = f' class="{html.escape(page["body_class"], quote=True)}"' if page["body_class"] else ""
     app = next((x for x in BeautifulSoup((ROOT / "index.html").read_text(), "html.parser").body.find_all("script")
                 if APP_RE.search(x.get("src", ""))), None)
