@@ -83,7 +83,7 @@ function printFailure(pageName, message) {
 }
 
 function configureNixBrowserCompatibility() {
-  if (process.platform === 'win32') {
+  if (process.platform !== 'linux') {
     return;
   }
 
