@@ -5,20 +5,30 @@ check-links.py — Internal link validator
 Walks every HTML file and validates every internal href against the
 filesystem. Cross-references the result with `sitemap.xml`.
 
+The optional ``--external-archives`` mode performs a deliberately narrow
+network check for the GitHub archive destinations linked from the article
+``first-diagram-is-a-liar``. It does not turn the normal internal-link audit
+into a check of every external service used by the site.
+
 Outputs:
   assets/audit/links-report-YYYY-MM-DD.json
 
 Usage:
     python3 scripts/check-links.py
+    python3 scripts/check-links.py --external-archives
 """
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import sys
 from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.error import HTTPError, URLError
+from urllib.parse import urlsplit
+from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parent.parent
 SKIP_DIRS = {
@@ -37,6 +47,12 @@ SKIP_DIRS = {
 }
 SITE = "https://overkillhill.com"
 REPORT_DATE = date.today().isoformat()
+ARTICLE_ARCHIVE_PAGE = (
+    "site-src/pages/writings/first-diagram-is-a-liar/index.main.html"
+)
+ARCHIVE_REPOSITORY = "https://github.com/OKHP3/first-diagram-is-a-liar"
+ARCHIVE_REPOSITORY_PATH = urlsplit(ARCHIVE_REPOSITORY).path
+ARCHIVE_LINK_TIMEOUT = 15
 
 
 class PageIndexingMeta(HTMLParser):
@@ -64,6 +80,111 @@ class PageIndexingMeta(HTMLParser):
             )
             if match:
                 self.redirect_target = match.group(1).strip("'\" ")
+
+
+class ArticleArchiveLinkParser(HTMLParser):
+    """Collect labeled GitHub archive links from the canonical article."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.links: list[dict[str, str]] = []
+        self._href: str | None = None
+        self._label: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs_list) -> None:
+        if tag.lower() != "a" or self._href is not None:
+            return
+        attrs = {key.lower(): (value or "") for key, value in attrs_list}
+        href = attrs.get("href", "")
+        if is_article_archive_url(href):
+            self._href = href
+            self._label = []
+
+    def handle_data(self, data: str) -> None:
+        if self._href is not None:
+            self._label.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.lower() != "a" or self._href is None:
+            return
+        label = " ".join("".join(self._label).split()).strip(" →↗")
+        self.links.append({"label": label or "Unlabeled archive link",
+                           "href": self._href})
+        self._href = None
+        self._label = []
+
+
+def is_article_archive_url(href: str) -> bool:
+    """Return whether href is an archive destination in the linked repo."""
+    parsed = urlsplit(href)
+    return (
+        parsed.scheme == "https"
+        and parsed.netloc == "github.com"
+        and parsed.path.startswith(f"{ARCHIVE_REPOSITORY_PATH}/")
+        and "/archive/" in parsed.path
+        and parsed.path.count("/") >= 5
+    )
+
+
+def check_external_archive_links() -> int:
+    """Check only the article's GitHub archive URLs."""
+    article = ROOT / ARTICLE_ARCHIVE_PAGE
+    if not article.is_file():
+        print(f"External archive link check: FAIL")
+        print(f"  ! Article source not found: {ARTICLE_ARCHIVE_PAGE}")
+        return 1
+
+    parser = ArticleArchiveLinkParser()
+    parser.feed(article.read_text(encoding="utf-8", errors="replace"))
+    if not parser.links:
+        print("External archive link check: FAIL")
+        print(f"  ! No GitHub archive links found in {ARTICLE_ARCHIVE_PAGE}")
+        return 1
+
+    links_by_url: dict[str, list[str]] = {}
+    for link in parser.links:
+        links_by_url.setdefault(link["href"], []).append(link["label"])
+
+    failures: list[dict[str, str]] = []
+    for href, labels in links_by_url.items():
+        request = Request(
+            href,
+            method="HEAD",
+            headers={"User-Agent": "OverKill-Hill-archive-link-check/1.0"},
+        )
+        try:
+            with urlopen(request, timeout=ARCHIVE_LINK_TIMEOUT) as response:
+                status = response.status
+                if not 200 <= status < 400:
+                    failures.extend(
+                        {"label": label, "href": href, "error": f"HTTP {status}"}
+                        for label in labels
+                    )
+        except HTTPError as error:
+            failures.extend(
+                {"label": label, "href": href, "error": f"HTTP {error.code}"}
+                for label in labels
+            )
+        except (URLError, TimeoutError, OSError) as error:
+            failures.extend(
+                {"label": label, "href": href, "error": str(error)}
+                for label in labels
+            )
+
+    if failures:
+        print("External archive link check: FAIL")
+        for failure in failures:
+            print(
+                f"  ! {failure['label']}: {failure['href']} "
+                f"({failure['error']})"
+            )
+        return 1
+
+    print(
+        "External archive link check: PASS "
+        f"({len(parser.links)} article links, {len(links_by_url)} destinations)"
+    )
+    return 0
 
 
 def is_external(href: str) -> bool:
@@ -118,6 +239,16 @@ def sitemap_exclusion(path: Path) -> dict | None:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--external-archives",
+        action="store_true",
+        help="check the article's GitHub archive destinations only",
+    )
+    args = parser.parse_args()
+    if args.external_archives:
+        return check_external_archive_links()
+
     pages = []
     all_internal = 0
     all_external = 0
