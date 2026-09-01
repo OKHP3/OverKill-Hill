@@ -1,6 +1,6 @@
 # overkillhill.com — Automated Site Audit
 
-**Pages scanned:** 39  
+**Pages scanned:** 47
 **Total issues:** 0
 
 ## Sitemap reconciliation

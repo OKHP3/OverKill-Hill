@@ -113,7 +113,7 @@ vague "Spanish" or "English" to proceed.
    units; never overwrite it blindly.
 8. Run `scripts/validate-en-us-to-es-es.py` for a manifest and optional source/
    target pair. Run `scripts/plan-en-us-to-es-es.py` to enumerate new or stale
-   targets. Both helpers are read-only and cannot judge idiomatic Spanish.
+    targets. Both helpers are read-only and cannot judge idiomatic Spanish.
 9. Return `machine-drafted` or `ready-for-native-review`. Use `approved` only
    with an authorized review record. Do not publish, add `hreflang`, update a
    sitemap, or modify an external document system solely because a translation

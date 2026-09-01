@@ -33,6 +33,7 @@ class HeadMetadata(HTMLParser):
         self.lang = ""
         self.canonical = ""
         self.alternates: dict[str, set[str]] = {}
+        self.is_noindex = False
         self._in_html = False
 
     def handle_starttag(self, tag: str, attrs_list) -> None:
@@ -48,6 +49,8 @@ class HeadMetadata(HTMLParser):
                 self.canonical = href
             if "alternate" in rel and attrs.get("hreflang", "").strip() and href:
                 self.alternates.setdefault(attrs["hreflang"].strip().lower(), set()).add(href)
+        elif tag == "meta" and attrs.get("name", "").lower() == "robots":
+            self.is_noindex = "noindex" in attrs.get("content", "").lower()
 
 
 def route_file(root: Path, route: str) -> Path:
@@ -97,7 +100,12 @@ def sitemap_urls(path: Path) -> set[str]:
 
 
 def check_search_index(
-    index_path: Path, target_routes: set[str], locale: str, findings: list[str]
+    index_path: Path,
+    target_routes: set[str],
+    locale: str,
+    findings: list[str],
+    *,
+    require_routes: bool,
 ) -> None:
     if not index_path.is_file():
         fail(findings, f"locale search index is missing: {index_path}")
@@ -114,9 +122,15 @@ def check_search_index(
         fail(findings, "locale search index entries must be a list")
         return
     urls = [entry.get("url") for entry in entries if isinstance(entry, dict)]
-    missing = sorted(target_routes - set(urls))
-    if missing:
-        fail(findings, f"locale search index is missing routes: {', '.join(missing)}")
+    indexed_routes = set(urls)
+    if require_routes:
+        missing = sorted(target_routes - indexed_routes)
+        if missing:
+            fail(findings, f"locale search index is missing routes: {', '.join(missing)}")
+    else:
+        indexed_drafts = sorted(target_routes & indexed_routes)
+        if indexed_drafts:
+            fail(findings, f"draft locale routes appear in the search index: {', '.join(indexed_drafts)}")
     if len(urls) != len(set(urls)):
         fail(findings, "locale search index contains duplicate URLs")
     if payload.get("count") != len(entries):
@@ -138,29 +152,43 @@ def run_index_freshness_check(index_path: Path, locale: str, findings: list[str]
         fail(findings, f"locale search index is stale: {detail[-1] if detail else 'build check failed'}")
 
 
-def validate(
-    manifest_path: Path = DEFAULT_MANIFEST,
-    sitemap_path: Path = DEFAULT_SITEMAP,
-    index_path: Path | None = None,
-    root: Path = ROOT,
-) -> list[str]:
-    manifest = load_manifest(manifest_path)
+def locale_specs(manifest: dict) -> list[dict]:
+    """Normalize legacy one-locale and current multi-locale pilot manifests."""
     locale = manifest.get("target_locale")
     pages = manifest.get("pages")
-    findings: list[str] = []
-    if not isinstance(locale, str) or not locale:
-        fail(findings, "manifest target_locale must be a non-empty string")
-        return findings
-    if not isinstance(pages, list) or not pages:
-        fail(findings, "manifest pages must be a non-empty list")
-        return findings
-    index_path = index_path or root / "assets" / "data" / f"search-index.{locale}.json"
-    try:
-        urls = sitemap_urls(sitemap_path)
-    except ValueError as exc:
-        fail(findings, str(exc))
-        urls = set()
+    if isinstance(locale, str) and locale and isinstance(pages, list):
+        return [{"locale": locale, "pages": pages, "status": manifest.get("status", "published")}]
 
+    target_locales = manifest.get("target_locales")
+    locales = manifest.get("locales")
+    if not isinstance(target_locales, list) or not target_locales:
+        raise ValueError("manifest target_locale must be a non-empty string, or target_locales must be a non-empty list")
+    if not isinstance(locales, dict):
+        raise ValueError("multi-locale manifest locales must be an object")
+
+    specs: list[dict] = []
+    for locale in target_locales:
+        entry = locales.get(locale) if isinstance(locale, str) else None
+        if not isinstance(locale, str) or not locale or not isinstance(entry, dict):
+            raise ValueError(f"manifest locale entry is missing or invalid: {locale!r}")
+        pages = entry.get("pages")
+        if not isinstance(pages, list) or not pages:
+            raise ValueError(f"manifest locale {locale!r} pages must be a non-empty list")
+        specs.append({"locale": locale, "pages": pages, "status": entry.get("status", "")})
+    return specs
+
+
+def validate_locale(
+    locale: str,
+    pages: list,
+    status: str,
+    urls: set[str],
+    root: Path,
+    index_path: Path,
+    findings: list[str],
+) -> None:
+    is_unpublished = status == "unpublished-scaffold"
+    is_published = status in {"published", "released", "translated"}
     source_routes: set[str] = set()
     target_routes: set[str] = set()
     for page in pages:
@@ -182,7 +210,7 @@ def validate(
             fail(findings, f"English source page is missing: {source_path}")
         if not target_route.startswith(f"/{locale}/"):
             fail(findings, f"target route is outside /{locale}/: {target_route}")
-        if manifest.get("status") == "unpublished-scaffold":
+        if is_unpublished:
             if target_file.exists():
                 fail(findings, f"unpublished scaffold contains target page: {target_path}")
             if route_url(target_route) in urls:
@@ -220,15 +248,51 @@ def validate(
             fail(findings, f"{target_path} html lang is {target_meta.lang!r}, expected {locale!r}")
         if source_meta.lang.lower() not in ("", "en"):
             fail(findings, f"{source_path} html lang is {source_meta.lang!r}, expected 'en'")
+        if not is_published:
+            if not target_meta.is_noindex:
+                fail(findings, f"draft locale page must be noindex: {target_path}")
+            if expected_target in urls:
+                fail(findings, f"draft locale route is in sitemap.xml: {target_route}")
 
-    if manifest.get("status") == "unpublished-scaffold":
-        check_search_index(index_path, set(), locale, findings)
-    else:
-        for route in sorted(source_routes | target_routes):
+    if is_unpublished:
+        check_search_index(index_path, set(), locale, findings, require_routes=False)
+        return
+
+    for route in sorted(source_routes):
+        if route_url(route) not in urls:
+            fail(findings, f"source route is missing from sitemap.xml: {route}")
+    if is_published:
+        for route in sorted(target_routes):
             if route_url(route) not in urls:
-                fail(findings, f"route is missing from sitemap.xml: {route}")
-        check_search_index(index_path, target_routes, locale, findings)
-        run_index_freshness_check(index_path, locale, findings)
+                fail(findings, f"published locale route is missing from sitemap.xml: {route}")
+    check_search_index(index_path, target_routes, locale, findings, require_routes=is_published)
+    run_index_freshness_check(index_path, locale, findings)
+
+
+def validate(
+    manifest_path: Path = DEFAULT_MANIFEST,
+    sitemap_path: Path = DEFAULT_SITEMAP,
+    index_path: Path | None = None,
+    root: Path = ROOT,
+) -> list[str]:
+    manifest = load_manifest(manifest_path)
+    findings: list[str] = []
+    try:
+        urls = sitemap_urls(sitemap_path)
+    except ValueError as exc:
+        fail(findings, str(exc))
+        urls = set()
+
+    try:
+        specs = locale_specs(manifest)
+    except ValueError as exc:
+        fail(findings, str(exc))
+        return findings
+
+    for spec in specs:
+        locale = spec["locale"]
+        locale_index = index_path or root / "assets" / "data" / f"search-index.{locale}.json"
+        validate_locale(locale, spec["pages"], spec["status"], urls, root, locale_index, findings)
     return findings
 
 
@@ -244,7 +308,8 @@ def main(argv: list[str] | None = None) -> int:
         for finding in findings:
             print(f"  - {finding}", file=sys.stderr)
         return 1
-    print(f"Locale link check passed: {args.manifest} ({load_manifest(args.manifest).get('target_locale')})")
+    labels = ", ".join(spec["locale"] for spec in locale_specs(load_manifest(args.manifest)))
+    print(f"Locale link check passed: {args.manifest} ({labels})")
     return 0
 
 

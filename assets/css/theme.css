@@ -1956,6 +1956,7 @@ body.construction-dismissed .construction-overlay,
   font-size: 0.82rem;
   line-height: 1.75;
   overflow-x: auto;
+  contain: paint;
   white-space: pre;
   color: var(--color-fg);
   margin-top: 1.25rem;
@@ -3222,6 +3223,12 @@ html[data-theme="light"] .pf-boundary-label--private    { color: #475569; }
    page layout at narrow viewports. Safe globally — these are reset-level rules.
    Tables and code inside .data-table-wrap are exempt (handled by the wrapper). */
 @media (max-width: 768px) {
+  /* Keep decorative paint within the document on narrow screens. Components
+     that intentionally scroll horizontally retain their own overflow rules. */
+  main {
+    overflow-x: clip;
+  }
+
   img,
   video,
   iframe,
@@ -3233,6 +3240,11 @@ html[data-theme="light"] .pf-boundary-label--private    { color: #475569; }
   /* Exception: let the data-table-wrap handle overflow for its table */
   .data-table-wrap table {
     max-width: none;
+  }
+
+  .pf-skeleton {
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
   }
 }
 
@@ -3277,6 +3289,9 @@ html[data-theme="light"] .pf-boundary-label--private    { color: #475569; }
 @media (max-width: 768px) {
   .primary-nav .has-submenu {
     position: static;
+    align-self: stretch;
+    min-width: 0;
+    width: 100%;
   }
 
   .primary-nav .submenu {
@@ -3285,11 +3300,15 @@ html[data-theme="light"] .pf-boundary-label--private    { color: #475569; }
     box-shadow: none;
     background: transparent;
     padding: 0.25rem 0 0.5rem 0;
+    max-width: 100%;
+    width: 100%;
   }
 
   .primary-nav .submenu a {
     padding-left: 1.5rem;     /* simple visual indent under "About" */
     font-size: 0.95em;        /* optional: slightly smaller to read as secondary */
+    overflow-wrap: anywhere;
+    white-space: normal;
   }
 }
 

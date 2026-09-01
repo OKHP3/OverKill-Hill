@@ -1,496 +1,15 @@
 {
-  "generated": "2026-08-21T15:44:42.935Z",
+  "generated": "2026-08-31T19:06:25.147Z",
   "mode": "playwright",
-  "base_url": "http://127.0.0.1:5000",
-  "pages_checked": 24,
+  "base_url": "http://127.0.0.1:5001",
+  "pages_checked": 30,
   "viewports_checked": 8,
-  "total_checks": 192,
-  "passing_checks": 192,
+  "total_checks": 240,
+  "passing_checks": 240,
   "failing_checks": 0,
   "results": [
     {
-      "url": "http://127.0.0.1:5000/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "DOMContentLoaded not observed within 5s after local document commit",
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/manifesto/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/manifesto/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/manifesto/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/manifesto/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/manifesto/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/manifesto/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/manifesto/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/manifesto/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/skillz/",
+      "url": "http://127.0.0.1:5001/",
       "viewport": "mobile-360",
       "width": 360,
       "height": 780,
@@ -502,7 +21,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/skillz/",
+      "url": "http://127.0.0.1:5001/",
       "viewport": "mobile-390",
       "width": 390,
       "height": 844,
@@ -514,7 +33,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/skillz/",
+      "url": "http://127.0.0.1:5001/",
       "viewport": "mobile-430",
       "width": 430,
       "height": 932,
@@ -526,7 +45,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/skillz/",
+      "url": "http://127.0.0.1:5001/",
       "viewport": "tablet-768",
       "width": 768,
       "height": 1024,
@@ -538,7 +57,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/skillz/",
+      "url": "http://127.0.0.1:5001/",
       "viewport": "desktop-1024",
       "width": 1024,
       "height": 768,
@@ -550,7 +69,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/skillz/",
+      "url": "http://127.0.0.1:5001/",
       "viewport": "desktop-1280",
       "width": 1280,
       "height": 800,
@@ -562,7 +81,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/skillz/",
+      "url": "http://127.0.0.1:5001/",
       "viewport": "desktop-1440",
       "width": 1440,
       "height": 900,
@@ -574,7 +93,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/skillz/",
+      "url": "http://127.0.0.1:5001/",
       "viewport": "desktop-1920",
       "width": 1920,
       "height": 1080,
@@ -586,103 +105,87 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "url": "http://127.0.0.1:5001/fr/",
       "viewport": "mobile-360",
       "width": 360,
       "height": 780,
       "mode": "playwright",
       "pass": true,
       "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
+      "warnings": []
     },
     {
-      "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "url": "http://127.0.0.1:5001/fr/",
       "viewport": "mobile-390",
       "width": 390,
       "height": 844,
       "mode": "playwright",
       "pass": true,
       "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
+      "warnings": []
     },
     {
-      "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "url": "http://127.0.0.1:5001/fr/",
       "viewport": "mobile-430",
       "width": 430,
       "height": 932,
       "mode": "playwright",
       "pass": true,
       "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-      ]
+      "warnings": []
     },
     {
-      "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "url": "http://127.0.0.1:5001/fr/",
       "viewport": "tablet-768",
       "width": 768,
       "height": 1024,
       "mode": "playwright",
       "pass": true,
       "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-      ]
+      "warnings": []
     },
     {
-      "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "url": "http://127.0.0.1:5001/fr/",
       "viewport": "desktop-1024",
       "width": 1024,
       "height": 768,
       "mode": "playwright",
       "pass": true,
       "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-      ]
+      "warnings": []
     },
     {
-      "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "url": "http://127.0.0.1:5001/fr/",
       "viewport": "desktop-1280",
       "width": 1280,
       "height": 800,
       "mode": "playwright",
       "pass": true,
       "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-      ]
+      "warnings": []
     },
     {
-      "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "url": "http://127.0.0.1:5001/fr/",
       "viewport": "desktop-1440",
       "width": 1440,
       "height": 900,
       "mode": "playwright",
       "pass": true,
       "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-      ]
+      "warnings": []
     },
     {
-      "url": "http://127.0.0.1:5000/projects/found-ry/",
+      "url": "http://127.0.0.1:5001/fr/",
       "viewport": "desktop-1920",
       "width": 1920,
       "height": 1080,
       "mode": "playwright",
       "pass": true,
       "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-      ]
+      "warnings": []
     },
     {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
+      "url": "http://127.0.0.1:5001/writings/",
       "viewport": "mobile-360",
       "width": 360,
       "height": 780,
@@ -694,7 +197,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
+      "url": "http://127.0.0.1:5001/writings/",
       "viewport": "mobile-390",
       "width": 390,
       "height": 844,
@@ -706,103 +209,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mermaid-theme-builder/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
+      "url": "http://127.0.0.1:5001/writings/",
       "viewport": "mobile-430",
       "width": 430,
       "height": 932,
@@ -814,7 +221,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
+      "url": "http://127.0.0.1:5001/writings/",
       "viewport": "tablet-768",
       "width": 768,
       "height": 1024,
@@ -826,968 +233,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bpmn-for-mermaid/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "DOMContentLoaded not observed within 5s after local document commit",
-        "blocked third-party resources: https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/mac-studio-local-ai-workbench/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/universe/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/universe/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/universe/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/universe/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/universe/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/universe/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/universe/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/universe/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/about/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/contact/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/legal/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/legal/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/legal/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/legal/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/legal/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/legal/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/legal/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/legal/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/prompt-forge/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/prompt-forge/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/prompt-forge/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/prompt-forge/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/prompt-forge/",
+      "url": "http://127.0.0.1:5001/writings/",
       "viewport": "desktop-1024",
       "width": 1024,
       "height": 768,
@@ -1799,7 +245,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/prompt-forge/",
+      "url": "http://127.0.0.1:5001/writings/",
       "viewport": "desktop-1280",
       "width": 1280,
       "height": 800,
@@ -1811,7 +257,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/prompt-forge/",
+      "url": "http://127.0.0.1:5001/writings/",
       "viewport": "desktop-1440",
       "width": 1440,
       "height": 900,
@@ -1823,7 +269,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/prompt-forge/",
+      "url": "http://127.0.0.1:5001/writings/",
       "viewport": "desktop-1920",
       "width": 1920,
       "height": 1080,
@@ -1835,7 +281,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/vault/",
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/",
       "viewport": "mobile-360",
       "width": 360,
       "height": 780,
@@ -1847,7 +293,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/vault/",
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/",
       "viewport": "mobile-390",
       "width": 390,
       "height": 844,
@@ -1859,7 +305,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/vault/",
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/",
       "viewport": "mobile-430",
       "width": 430,
       "height": 932,
@@ -1871,7 +317,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/vault/",
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/",
       "viewport": "tablet-768",
       "width": 768,
       "height": 1024,
@@ -1883,7 +329,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/vault/",
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/",
       "viewport": "desktop-1024",
       "width": 1024,
       "height": 768,
@@ -1895,7 +341,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/vault/",
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/",
       "viewport": "desktop-1280",
       "width": 1280,
       "height": 800,
@@ -1907,7 +353,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/vault/",
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/",
       "viewport": "desktop-1440",
       "width": 1440,
       "height": 900,
@@ -1919,7 +365,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/vault/",
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/",
       "viewport": "desktop-1920",
       "width": 1920,
       "height": 1080,
@@ -1931,103 +377,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/bfs-framing-intelligent-futures/",
-      "viewport": "mobile-360",
-      "width": 360,
-      "height": 780,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bfs-framing-intelligent-futures/",
-      "viewport": "mobile-390",
-      "width": 390,
-      "height": 844,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bfs-framing-intelligent-futures/",
-      "viewport": "mobile-430",
-      "width": 430,
-      "height": 932,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bfs-framing-intelligent-futures/",
-      "viewport": "tablet-768",
-      "width": 768,
-      "height": 1024,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bfs-framing-intelligent-futures/",
-      "viewport": "desktop-1024",
-      "width": 1024,
-      "height": 768,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bfs-framing-intelligent-futures/",
-      "viewport": "desktop-1280",
-      "width": 1280,
-      "height": 800,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bfs-framing-intelligent-futures/",
-      "viewport": "desktop-1440",
-      "width": 1440,
-      "height": 900,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/bfs-framing-intelligent-futures/",
-      "viewport": "desktop-1920",
-      "width": 1920,
-      "height": 1080,
-      "mode": "playwright",
-      "pass": true,
-      "errors": [],
-      "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
-      ]
-    },
-    {
-      "url": "http://127.0.0.1:5000/projects/abrahamic-reference-engine/",
+      "url": "http://127.0.0.1:5001/manifesto/",
       "viewport": "mobile-360",
       "width": 360,
       "height": 780,
@@ -2039,7 +389,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/abrahamic-reference-engine/",
+      "url": "http://127.0.0.1:5001/manifesto/",
       "viewport": "mobile-390",
       "width": 390,
       "height": 844,
@@ -2051,7 +401,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/abrahamic-reference-engine/",
+      "url": "http://127.0.0.1:5001/manifesto/",
       "viewport": "mobile-430",
       "width": 430,
       "height": 932,
@@ -2063,7 +413,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/abrahamic-reference-engine/",
+      "url": "http://127.0.0.1:5001/manifesto/",
       "viewport": "tablet-768",
       "width": 768,
       "height": 1024,
@@ -2071,12 +421,11 @@
       "pass": true,
       "errors": [],
       "warnings": [
-        "DOMContentLoaded not observed within 5s after local document commit",
         "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/abrahamic-reference-engine/",
+      "url": "http://127.0.0.1:5001/manifesto/",
       "viewport": "desktop-1024",
       "width": 1024,
       "height": 768,
@@ -2088,7 +437,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/abrahamic-reference-engine/",
+      "url": "http://127.0.0.1:5001/manifesto/",
       "viewport": "desktop-1280",
       "width": 1280,
       "height": 800,
@@ -2096,12 +445,11 @@
       "pass": true,
       "errors": [],
       "warnings": [
-        "DOMContentLoaded not observed within 5s after local document commit",
         "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/abrahamic-reference-engine/",
+      "url": "http://127.0.0.1:5001/manifesto/",
       "viewport": "desktop-1440",
       "width": 1440,
       "height": 900,
@@ -2113,7 +461,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/abrahamic-reference-engine/",
+      "url": "http://127.0.0.1:5001/manifesto/",
       "viewport": "desktop-1920",
       "width": 1920,
       "height": 1080,
@@ -2125,7 +473,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
+      "url": "http://127.0.0.1:5001/projects/",
       "viewport": "mobile-360",
       "width": 360,
       "height": 780,
@@ -2137,7 +485,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
+      "url": "http://127.0.0.1:5001/projects/",
       "viewport": "mobile-390",
       "width": 390,
       "height": 844,
@@ -2145,11 +493,11 @@
       "pass": true,
       "errors": [],
       "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://www.googletagmanager.com/gtag/js?id=G-89W66VMGPB"
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
+      "url": "http://127.0.0.1:5001/projects/",
       "viewport": "mobile-430",
       "width": 430,
       "height": 932,
@@ -2157,11 +505,11 @@
       "pass": true,
       "errors": [],
       "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://www.googletagmanager.com/gtag/js?id=G-89W66VMGPB"
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
+      "url": "http://127.0.0.1:5001/projects/",
       "viewport": "tablet-768",
       "width": 768,
       "height": 1024,
@@ -2169,11 +517,11 @@
       "pass": true,
       "errors": [],
       "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://www.googletagmanager.com/gtag/js?id=G-89W66VMGPB"
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
+      "url": "http://127.0.0.1:5001/projects/",
       "viewport": "desktop-1024",
       "width": 1024,
       "height": 768,
@@ -2181,11 +529,11 @@
       "pass": true,
       "errors": [],
       "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://www.googletagmanager.com/gtag/js?id=G-89W66VMGPB"
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
+      "url": "http://127.0.0.1:5001/projects/",
       "viewport": "desktop-1280",
       "width": 1280,
       "height": 800,
@@ -2193,11 +541,11 @@
       "pass": true,
       "errors": [],
       "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://www.googletagmanager.com/gtag/js?id=G-89W66VMGPB"
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
+      "url": "http://127.0.0.1:5001/projects/",
       "viewport": "desktop-1440",
       "width": 1440,
       "height": 900,
@@ -2205,11 +553,11 @@
       "pass": true,
       "errors": [],
       "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://www.googletagmanager.com/gtag/js?id=G-89W66VMGPB"
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/projects/glee-fully-chai-chasers/",
+      "url": "http://127.0.0.1:5001/projects/",
       "viewport": "desktop-1920",
       "width": 1920,
       "height": 1080,
@@ -2217,11 +565,91 @@
       "pass": true,
       "errors": [],
       "warnings": [
-        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://www.googletagmanager.com/gtag/js?id=G-89W66VMGPB"
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/search/",
+      "url": "http://127.0.0.1:5001/fr/projects/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/projects/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/projects/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/projects/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/projects/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/projects/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/projects/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/projects/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/skillz/",
       "viewport": "mobile-360",
       "width": 360,
       "height": 780,
@@ -2233,7 +661,391 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/search/",
+      "url": "http://127.0.0.1:5001/projects/skillz/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/skillz/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/skillz/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/skillz/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/skillz/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/skillz/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/skillz/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/skillz/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/skillz/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/skillz/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/skillz/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/skillz/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/skillz/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/skillz/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/found-ry/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/found-ry/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/OverKill-Hill-FoundRy/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/found-ry/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/OverKill-Hill-FoundRy/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/found-ry/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/OverKill-Hill-FoundRy/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/found-ry/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/OverKill-Hill-FoundRy/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/found-ry/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/OverKill-Hill-FoundRy/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/found-ry/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/OverKill-Hill-FoundRy/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/found-ry/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/OverKill-Hill-FoundRy/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/mermaid-theme-builder/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-theme-builder/?embed=1"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/mermaid-theme-builder/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-theme-builder/?embed=1"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/mermaid-theme-builder/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-theme-builder/?embed=1"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/mermaid-theme-builder/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-theme-builder/?embed=1"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/mermaid-theme-builder/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-theme-builder/?embed=1"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/mermaid-theme-builder/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-theme-builder/?embed=1"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/mermaid-theme-builder/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-theme-builder/?embed=1"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/mermaid-theme-builder/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-theme-builder/?embed=1"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bpmn-for-mermaid/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-diagram-bpmn/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bpmn-for-mermaid/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-diagram-bpmn/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bpmn-for-mermaid/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-diagram-bpmn/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bpmn-for-mermaid/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-diagram-bpmn/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bpmn-for-mermaid/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-diagram-bpmn/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bpmn-for-mermaid/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-diagram-bpmn/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bpmn-for-mermaid/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-diagram-bpmn/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bpmn-for-mermaid/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/mermaid-diagram-bpmn/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/mac-studio-local-ai-workbench/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/mac-studio-local-ai-workbench/",
       "viewport": "mobile-390",
       "width": 390,
       "height": 844,
@@ -2245,7 +1057,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/search/",
+      "url": "http://127.0.0.1:5001/projects/mac-studio-local-ai-workbench/",
       "viewport": "mobile-430",
       "width": 430,
       "height": 932,
@@ -2257,7 +1069,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/search/",
+      "url": "http://127.0.0.1:5001/projects/mac-studio-local-ai-workbench/",
       "viewport": "tablet-768",
       "width": 768,
       "height": 1024,
@@ -2269,7 +1081,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/search/",
+      "url": "http://127.0.0.1:5001/projects/mac-studio-local-ai-workbench/",
       "viewport": "desktop-1024",
       "width": 1024,
       "height": 768,
@@ -2281,7 +1093,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/search/",
+      "url": "http://127.0.0.1:5001/projects/mac-studio-local-ai-workbench/",
       "viewport": "desktop-1280",
       "width": 1280,
       "height": 800,
@@ -2293,7 +1105,7 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/search/",
+      "url": "http://127.0.0.1:5001/projects/mac-studio-local-ai-workbench/",
       "viewport": "desktop-1440",
       "width": 1440,
       "height": 900,
@@ -2305,7 +1117,1703 @@
       ]
     },
     {
-      "url": "http://127.0.0.1:5000/search/",
+      "url": "http://127.0.0.1:5001/projects/mac-studio-local-ai-workbench/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/first-diagram-is-a-liar/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/first-diagram-is-a-liar/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/first-diagram-is-a-liar/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/first-diagram-is-a-liar/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/first-diagram-is-a-liar/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/first-diagram-is-a-liar/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/first-diagram-is-a-liar/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/first-diagram-is-a-liar/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/universe/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/universe/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/universe/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/universe/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/universe/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/universe/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/universe/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/universe/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/about/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/about/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/about/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/about/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/about/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/about/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/about/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/about/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/about/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/about/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/about/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/about/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/about/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/about/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/about/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/about/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/contact/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/contact/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/contact/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/contact/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/contact/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/contact/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/contact/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/fr/contact/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "http://127.0.0.1:5001/contact/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/contact/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/contact/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/contact/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/contact/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/contact/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/contact/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/contact/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/legal/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/legal/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/legal/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/legal/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/legal/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/legal/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/legal/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/legal/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://avatars.githubusercontent.com/u/57169982?s=60&v=4"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://avatars.githubusercontent.com/u/57169982?s=60&v=4"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://avatars.githubusercontent.com/u/57169982?s=60&v=4"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://avatars.githubusercontent.com/u/57169982?s=60&v=4"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://avatars.githubusercontent.com/u/57169982?s=60&v=4"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://avatars.githubusercontent.com/u/57169982?s=60&v=4"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://avatars.githubusercontent.com/u/57169982?s=60&v=4"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://avatars.githubusercontent.com/u/57169982?s=60&v=4, https://avatars.githubusercontent.com/u/983879?s=60&v=4"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/prompt-forge/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/prompt-forge/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/prompt-forge/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/prompt-forge/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/prompt-forge/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/prompt-forge/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/prompt-forge/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/prompt-forge/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/vault/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/vault/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/vault/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/vault/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/vault/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/vault/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/vault/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/vault/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bfs-framing-intelligent-futures/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bfs-framing-intelligent-futures/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bfs-framing-intelligent-futures/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bfs-framing-intelligent-futures/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bfs-framing-intelligent-futures/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bfs-framing-intelligent-futures/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bfs-framing-intelligent-futures/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/bfs-framing-intelligent-futures/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/abrahamic-reference-engine/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/abrahamic-reference-engine/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/abrahamic-reference-engine/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/abrahamic-reference-engine/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/abrahamic-reference-engine/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/abrahamic-reference-engine/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/abrahamic-reference-engine/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/abrahamic-reference-engine/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/abrahamic-reference-engine/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/abrahamic-reference-engine/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/abrahamic-reference-engine/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/abrahamic-reference-engine/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/abrahamic-reference-engine/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/abrahamic-reference-engine/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/abrahamic-reference-engine/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/abrahamic-reference-engine/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/glee-fully-chai-chasers/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/glee-fully-chai-chasers/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/glee-fully-chai-chasers/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/glee-fully-chai-chasers/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/glee-fully-chai-chasers/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/glee-fully-chai-chasers/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/glee-fully-chai-chasers/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/glee-fully-chai-chasers/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/glee-fully-chai-chasers/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/glee-fully-chai-chasers/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/glee-fully-chai-chasers/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/glee-fully-chai-chasers/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/glee-fully-chai-chasers/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/glee-fully-chai-chasers/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/glee-fully-chai-chasers/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/glee-fully-chai-chasers/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/kierans-lifetrkr/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/kierans-lifetrkr/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/kierans-lifetrkr/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/kierans-lifetrkr/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/kierans-lifetrkr/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/kierans-lifetrkr/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/kierans-lifetrkr/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/kierans-lifetrkr/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/kierans-lifetrkr/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/kierans-lifetrkr/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/kierans-lifetrkr/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/kierans-lifetrkr/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/kierans-lifetrkr/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/kierans-lifetrkr/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/kierans-lifetrkr/",
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H, https://okhp3.github.io/kierans-lifetrkr/"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/telling-forward/",
+      "viewport": "mobile-360",
+      "width": 360,
+      "height": 780,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/telling-forward/",
+      "viewport": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/telling-forward/",
+      "viewport": "mobile-430",
+      "width": 430,
+      "height": 932,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/telling-forward/",
+      "viewport": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/telling-forward/",
+      "viewport": "desktop-1024",
+      "width": 1024,
+      "height": 768,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/telling-forward/",
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "height": 800,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/telling-forward/",
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "mode": "playwright",
+      "pass": true,
+      "errors": [],
+      "warnings": [
+        "blocked third-party resources: https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap, https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5001/projects/telling-forward/",
       "viewport": "desktop-1920",
       "width": 1920,
       "height": 1080,

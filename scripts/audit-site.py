@@ -501,7 +501,7 @@ def render_report(per_page: Dict[str, List[str]],
     lines = [
         "# overkillhill.com — Automated Site Audit",
         "",
-        f"**Pages scanned:** {len(per_page)}  ",
+        f"**Pages scanned:** {len(per_page)}",
         f"**Total issues:** {total_issues}",
         "",
         "## Sitemap reconciliation",
