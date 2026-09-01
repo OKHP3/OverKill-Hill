@@ -1,7 +1,7 @@
 # overkillhill.com — Automated Site Audit
 
-**Pages scanned:** 48  
-**Total issues:** 2
+**Pages scanned:** 47
+**Total issues:** 0
 
 ## Sitemap reconciliation
 
@@ -13,9 +13,4 @@
 
 ## Per-page issues
 
-### `(repo cruft)`
-- Repo cruft (delete me): .DS_Store
-
-### `es/projects/index.html`
-- Description is 175 chars (>165)
-
+_No per-page issues found._

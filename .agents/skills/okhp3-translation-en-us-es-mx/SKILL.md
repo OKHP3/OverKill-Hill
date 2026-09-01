@@ -116,8 +116,8 @@ downgrade the contract to vague "Spanish" or "English" to proceed.
    source revision, profile/dictionary versions, status, review flags,
    unresolved terms, and assumptions. Preserve reviewed Spanish work outside
    changed source units; never overwrite it blindly.
-8. Run `scripts/validate_en_us_to_es_mx.py` for a manifest and optional
-   source/target pair. Run `scripts/plan_en_us_to_es_mx.py` to enumerate new
+8. Run `scripts/validate-en-us-to-es-mx.py` for a manifest and optional
+   source/target pair. Run `scripts/plan-en-us-to-es-mx.py` to enumerate new
    or stale targets. Both helpers are read-only and cannot judge idiomatic
    Mexican Spanish.
 9. Return `machine-drafted` or `ready-for-native-review`. Use `approved`
@@ -182,8 +182,8 @@ and `Next action`. State the actual direction in every handoff:
 - Copy `assets/dictionary.en-us-es-mx.json` into the consuming project. It
   is a public-safe seed, not native certification or a substitute for owner
   terms.
-- Run `scripts/plan_en_us_to_es_mx.py --help` before using the planner and
-  `scripts/validate_en_us_to_es_mx.py --help` before using the validator.
+- Run `scripts/plan-en-us-to-es-mx.py --help` before using the planner and
+  `scripts/validate-en-us-to-es-mx.py --help` before using the validator.
 
 ## Evaluation and release
 

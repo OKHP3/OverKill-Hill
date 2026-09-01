@@ -20,7 +20,7 @@ but retain the language pair, provenance, status, and review fields.
     "register_state": "plainspoken",
     "register_mediation_record": "records/structural-to-plain-en-us.json"
   },
-  "target": {"path": "content/fr/about.md", "sha256": "..."},
+  "target": {"path": "content/en-uk/about.md", "sha256": "..."},
   "artifact_type": "markdown",
   "voice_profile": "config/voice-profile.en-us.json@1.0.0",
   "dictionary": "config/dictionary.en-us-en-uk.json@1.0.0",

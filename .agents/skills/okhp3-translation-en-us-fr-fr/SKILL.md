@@ -31,7 +31,7 @@ Create one derived France French text artifact from one authoritative,
 plainspoken United States English source. This package has exactly one direction,
 `en-US -> fr-FR`.
 Its pair dictionary is a consistency aid, while explicit source, structure, and
-review gates protect the author's voice from formalisation or target-to-target
+review gates protect the author's voice from formalization or target-to-target
 drift.
 
 ## Scope
@@ -111,9 +111,9 @@ vague “French” or “English” to proceed.
    revision, profile/dictionary versions, status, review flags, unresolved
    terms, and assumptions. Preserve reviewed French work outside changed source
    units; never overwrite it blindly.
-8. Run `scripts/validate_en_us_to_fr_fr.py` for a manifest and optional source/
-   target pair. Run `scripts/plan_en_us_to_fr_fr.py` to enumerate new or stale
-   targets. Both helpers are read-only and cannot judge idiomatic French.
+8. Run `scripts/validate-en-us-to-fr-fr.py` for a manifest and optional source/
+   target pair. Run `scripts/plan-en-us-to-fr-fr.py` to enumerate new or stale
+    targets. Both helpers are read-only and cannot judge idiomatic French.
 9. Return `machine-drafted` or `ready-for-native-review`. Use `approved` only
    with an authorized review record. Do not publish, add `hreflang`, update a
    sitemap, or modify an external document system solely because a translation
@@ -170,8 +170,8 @@ Return `Source artifact`, `France French target artifact`, `Pair record`,
   naming.
 - Copy `assets/dictionary.en-us-fr-fr.json` into the consuming project. It is a
   public-safe seed, not native certification or a substitute for owner terms.
-- Run `scripts/plan_en_us_to_fr_fr.py --help` before using the planner and
-  `scripts/validate_en_us_to_fr_fr.py --help` before using the validator.
+- Run `scripts/plan-en-us-to-fr-fr.py --help` before using the planner and
+  `scripts/validate-en-us-to-fr-fr.py --help` before using the validator.
 
 ## Evaluation and release
 

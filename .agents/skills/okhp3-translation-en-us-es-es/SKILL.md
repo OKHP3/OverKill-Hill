@@ -31,7 +31,7 @@ Create one derived Spain Spanish text artifact from one authoritative,
 plainspoken United States English source. This package has exactly one direction,
 `en-US -> es-ES`.
 Its pair dictionary is a consistency aid, while explicit source, structure, and
-review gates protect the author's voice from formalisation or target-to-target
+review gates protect the author's voice from formalization or target-to-target
 drift.
 
 ## Scope
@@ -111,9 +111,9 @@ vague "Spanish" or "English" to proceed.
    revision, profile/dictionary versions, status, review flags, unresolved
    terms, and assumptions. Preserve reviewed Spanish work outside changed source
    units; never overwrite it blindly.
-8. Run `scripts/validate_en_us_to_es_es.py` for a manifest and optional source/
-   target pair. Run `scripts/plan_en_us_to_es_es.py` to enumerate new or stale
-   targets. Both helpers are read-only and cannot judge idiomatic Spanish.
+8. Run `scripts/validate-en-us-to-es-es.py` for a manifest and optional source/
+   target pair. Run `scripts/plan-en-us-to-es-es.py` to enumerate new or stale
+    targets. Both helpers are read-only and cannot judge idiomatic Spanish.
 9. Return `machine-drafted` or `ready-for-native-review`. Use `approved` only
    with an authorized review record. Do not publish, add `hreflang`, update a
    sitemap, or modify an external document system solely because a translation
@@ -171,8 +171,8 @@ Return `Source artifact`, `Spain Spanish target artifact`, `Pair record`,
   naming.
 - Copy `assets/dictionary.en-us-es-es.json` into the consuming project. It is a
   public-safe seed, not native certification or a substitute for owner terms.
-- Run `scripts/plan_en_us_to_es_es.py --help` before using the planner and
-  `scripts/validate_en_us_to_es_es.py --help` before using the validator.
+- Run `scripts/plan-en-us-to-es-es.py --help` before using the planner and
+  `scripts/validate-en-us-to-es-es.py --help` before using the validator.
 
 ## Evaluation and release
 

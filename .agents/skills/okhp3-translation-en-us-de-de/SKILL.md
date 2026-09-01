@@ -31,7 +31,7 @@ Create one derived Germany German text artifact from one authoritative,
 plainspoken United States English source. This package has exactly one direction,
 `en-US -> de-DE`.
 Its pair dictionary is a consistency aid, while explicit source, structure, and
-review gates protect the author's voice from formalisation or target-to-target
+review gates protect the author's voice from formalization or target-to-target
 drift.
 
 ## Scope
@@ -112,8 +112,8 @@ vague "German" or "English" to proceed.
    revision, profile/dictionary versions, status, review flags, unresolved
    terms, and assumptions. Preserve reviewed German work outside changed source
    units; never overwrite it blindly.
-8. Run `scripts/validate_en_us_to_de_de.py` for a manifest and optional source/
-   target pair. Run `scripts/plan_en_us_to_de_de.py` to enumerate new or stale
+8. Run `scripts/validate-en-us-to-de-de.py` for a manifest and optional source/
+   target pair. Run `scripts/plan-en-us-to-de-de.py` to enumerate new or stale
    targets. Both helpers are read-only and cannot judge idiomatic German.
 9. Return `machine-drafted` or `ready-for-native-review`. Use `approved` only
    with an authorized review record. Do not publish, add `hreflang`, update a
@@ -172,8 +172,8 @@ Return `Source artifact`, `Germany German target artifact`, `Pair record`,
   naming.
 - Copy `assets/dictionary.en-us-de-de.json` into the consuming project. It is a
   public-safe seed, not native certification or a substitute for owner terms.
-- Run `scripts/plan_en_us_to_de_de.py --help` before using the planner and
-  `scripts/validate_en_us_to_de_de.py --help` before using the validator.
+- Run `scripts/plan-en-us-to-de-de.py --help` before using the planner and
+  `scripts/validate-en-us-to-de-de.py --help` before using the validator.
 
 ## Evaluation and release
 

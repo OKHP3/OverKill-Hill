@@ -6,10 +6,50 @@
   "broken_links": [],
   "style_issues": [],
   "sitemap": {
-    "total_urls": 38,
+    "total_urls": 30,
     "missing_from_sitemap": [],
     "extra_in_sitemap": [],
     "intentionally_excluded": [
+      {
+        "page": "de/about/index.html",
+        "url": "https://overkillhill.com/de/about/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "de/contact/index.html",
+        "url": "https://overkillhill.com/de/contact/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "de/index.html",
+        "url": "https://overkillhill.com/de/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "de/projects/index.html",
+        "url": "https://overkillhill.com/de/projects/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "es/about/index.html",
+        "url": "https://overkillhill.com/es/about/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "es/contact/index.html",
+        "url": "https://overkillhill.com/es/contact/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "es/index.html",
+        "url": "https://overkillhill.com/es/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "es/projects/index.html",
+        "url": "https://overkillhill.com/es/projects/",
+        "reason": "robots meta declares noindex"
+      },
       {
         "page": "found-ry/index.html",
         "url": "https://overkillhill.com/found-ry/",

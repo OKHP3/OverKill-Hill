@@ -80,7 +80,7 @@
     },
     {
       "id": "E-05",
-      "source": "seven passing tests in tests/test_en_us_to_fr_fr.py",
+      "source": "seven passing tests in tests/test-en-us-to-fr-fr.py",
       "type": "deterministic execution",
       "status": "analytical",
       "relevance": "Covers valid controls, wrong locale and many targets, protected-token drift, missing controls, no-write planning, incomplete voice profiles, and empty or wrong-pair dictionaries."
