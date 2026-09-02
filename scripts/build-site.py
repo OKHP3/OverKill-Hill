@@ -77,6 +77,30 @@ SPAIN_FLAG_SVG = (
 LANG_FLAG_SVG = {"en": USA_FLAG_SVG, "fr": FRANCE_FLAG_SVG, "de": GERMANY_FLAG_SVG, "es": SPAIN_FLAG_SVG}
 LANG_LABEL = {"en": "English (US)", "fr": "Fran\u00e7ais", "de": "Deutsch", "es": "Espa\u00f1ol"}
 
+# Keep one identity node for the whole site. Page-specific JSON-LD should
+# reference this node with @id instead of defining divergent organizations.
+ORGANIZATION_JSONLD = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://overkillhill.com/#organization",
+    "name": "OverKill Hill P³™",
+    "url": "https://overkillhill.com/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png",
+        "width": 256,
+        "height": 256,
+    },
+    "sameAs": [
+        "https://www.linkedin.com/company/overkillhillp3",
+        "https://facebook.com/OverKillHillP3/",
+        "https://x.com/OverKillHillP3",
+        "https://www.youtube.com/@OverKillHillP3",
+        "https://ko-fi.com/overkillhillp3",
+        "https://pro.fiverr.com/s/VYKPpoB",
+    ],
+}
+
 
 def tracked_pages() -> list[Path]:
     result = subprocess.run(
@@ -203,6 +227,7 @@ def make_head_partial(index: BeautifulSoup) -> str:
     }
     dynamic_properties = {
         "og:title", "og:description", "og:type", "og:url", "og:image", "og:image:alt",
+        "og:image:width", "og:image:height", "og:image:type", "article:published_time",
     }
     for tag in head.find_all("meta"):
         name = tag.get("name")
@@ -211,6 +236,20 @@ def make_head_partial(index: BeautifulSoup) -> str:
             tag["content"] = "{{META:" + name + "}}"
         elif prop in dynamic_properties:
             tag["content"] = "{{META:" + prop + "}}"
+    for tag in list(head.find_all("link", rel=lambda value: value and any(
+        rel in value for rel in ("prev", "next")
+    ))):
+        tag.decompose()
+    head.append(BeautifulSoup(
+        '<link href="{{PREV}}" rel="prev"/><link href="{{NEXT}}" rel="next"/>',
+        "html.parser",
+    ))
+    organization = BeautifulSoup(
+        '<script type="application/ld+json"></script>',
+        "html.parser",
+    ).script
+    organization.string = json.dumps(ORGANIZATION_JSONLD, ensure_ascii=False, indent=2)
+    head.append(organization)
     if head.title:
         head.title.string = "{{TITLE}}"
     for tag in head.find_all("link"):
@@ -284,10 +323,23 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
         "ALTERNATE_DE": page.get("alternate_de", ""),
         "ALTERNATE_ES": page.get("alternate_es", ""),
         "ALTERNATE_X_DEFAULT": page.get("alternate_x_default", ""),
+        "PREV": page.get("prev", ""),
+        "NEXT": page.get("next", ""),
     }
     for key, value in page.items():
         if key.startswith("meta:"):
             values["META:" + key[5:]] = value
+    # Keep the two social card surfaces in lockstep when an older manifest
+    # entry still points Twitter at the retired generic sentinel image.
+    if (
+        page.get("meta:og:image")
+        and page.get("meta:twitter:image", "").endswith(
+            "/over-kill-hill-p3-sentinel-waiting-square-1024.png"
+        )
+    ):
+        values["META:twitter:image"] = page["meta:og:image"]
+        if page.get("meta:og:image:alt"):
+            values["META:twitter:image:alt"] = page["meta:og:image:alt"]
     kind = classify(ROOT / rel)
     values["CSP"] = csp_policies[kind]
     for key, value in values.items():
@@ -327,6 +379,14 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
         if not page.get(key):
             head = re.sub(
                 rf'\s*<link href="" hreflang="{hreflang}" rel="alternate"/>\n?',
+                "",
+                head,
+                count=1,
+            )
+    for key, rel in (("prev", "prev"), ("next", "next")):
+        if not page.get(key):
+            head = re.sub(
+                rf'\s*<link href="" rel="{rel}"/>\n?',
                 "",
                 head,
                 count=1,

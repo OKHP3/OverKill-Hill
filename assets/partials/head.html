@@ -23,11 +23,12 @@
 <meta content="{{META:og:url}}" property="og:url"/>
 <meta content="{{META:og:image}}" property="og:image"/>
 <meta content="{{META:og:image:alt}}" property="og:image:alt"/>
-<meta content="1024" property="og:image:width"/>
-<meta content="1024" property="og:image:height"/>
-<meta content="image/png" property="og:image:type"/>
+<meta content="{{META:og:image:width}}" property="og:image:width"/>
+<meta content="{{META:og:image:height}}" property="og:image:height"/>
+<meta content="{{META:og:image:type}}" property="og:image:type"/>
 <meta content="OverKill Hill P³™" property="og:site_name"/>
 <meta content="en_US" property="og:locale"/>
+<meta content="{{META:article:published_time}}" property="article:published_time"/>
 <!-- ========================================
        METADATA: Twitter Card (X Social)
        ======================================== -->
@@ -100,4 +101,29 @@
       gtag('js', new Date());
       gtag('config', 'G-VJ1BKXS27H');
     </script>
+<link href="{{PREV}}" rel="prev"/>
+<link href="{{NEXT}}" rel="next"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://overkillhill.com/#organization",
+  "name": "OverKill Hill P³™",
+  "url": "https://overkillhill.com/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png",
+    "width": 256,
+    "height": 256
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/overkillhillp3",
+    "https://facebook.com/OverKillHillP3/",
+    "https://x.com/OverKillHillP3",
+    "https://www.youtube.com/@OverKillHillP3",
+    "https://ko-fi.com/overkillhillp3",
+    "https://pro.fiverr.com/s/VYKPpoB"
+  ]
+}
+</script>
 </head>
