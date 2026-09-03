@@ -2,9 +2,9 @@
 """Read-only post-deploy verifier for a static site live edge.
 
 The base URL is intentionally required.  This helper never publishes, mutates
-the repository, or uses credentials.  It checks the repository's sitemap,
-representative noindex boundaries, security headers, generated search index,
-and content-hashed CSS/JS responses.
+the repository, or uses credentials. It checks the repository's sitemap,
+representative noindex boundaries, security headers, release-manifest binding,
+generated search index, and content-hashed CSS/JS responses.
 
 Usage:
     python3 scripts/verify-live-edge.py --base https://example.com
@@ -55,6 +55,7 @@ HTML_CACHE_RE = re.compile(r"max-age=300\b", re.I)
 REVALIDATE_RE = re.compile(r"\bmust-revalidate\b", re.I)
 IMMUTABLE_RE = re.compile(r"\bimmutable\b", re.I)
 FINGERPRINT_RE = re.compile(r"(?:^|&)v=([0-9a-f]{8})(?:&|$)", re.I)
+COMMIT_RE = re.compile(r"[0-9a-f]{40}", re.I)
 ASSET_RE = re.compile(
     r"""(?:href|src)=(['"])(?P<url>/assets/(?:css|js)/[^'"?#]+(?:\?[^'"#]*)?)\1""",
     re.I,
@@ -231,13 +232,54 @@ def check_page(
     return response, body
 
 
+def check_hosting_path(
+    report: list[dict[str, Any]],
+    responses: dict[str, dict[str, Any]],
+    hosting: str,
+) -> None:
+    """Prove that the selected hosting exception is the edge serving the site."""
+    if hosting != "github-pages":
+        return
+    if not responses:
+        report.append(result("hosting path", "FAIL", "no successful route response available"))
+        return
+
+    route, response = next(iter(responses.items()))
+    headers = response.get("headers", {})
+    server = headers.get("server", "")
+    has_github_marker = bool(
+        headers.get("x-github-edge-region")
+        or headers.get("x-github-request-id")
+        or headers.get("x-fastly-request-id")
+    )
+    has_cloudflare_marker = bool(headers.get("cf-ray") or headers.get("cf-cache-status"))
+    if server.lower() == "github.com" and has_github_marker and not has_cloudflare_marker:
+        report.append(
+            result(
+                "hosting path",
+                "PASS",
+                f"{route} is served directly by GitHub Pages ({server})",
+            )
+        )
+    else:
+        report.append(
+            result(
+                "hosting path",
+                "FAIL",
+                "expected direct GitHub Pages markers; "
+                f"server={server or 'absent'!r}, "
+                f"cloudflare={'present' if has_cloudflare_marker else 'absent'}",
+            )
+        )
+
+
 def check_release_manifest(
     report: list[dict[str, Any]],
     base: str,
-    expected_commit: str,
+    expected_commit: str | None,
     timeout: float,
 ) -> None:
-    """Require the live edge to identify the commit whose files were validated."""
+    """Validate the manifest against the checkout or the live artifacts."""
     response = fetch(base, RELEASE_MANIFEST, timeout)
     label = "release manifest"
     if not response.get("ok") or response.get("status") != 200:
@@ -261,7 +303,7 @@ def check_release_manifest(
         return
     commit = manifest.get("commit")
     artifacts = manifest.get("artifacts")
-    if commit != expected_commit:
+    if expected_commit and commit != expected_commit:
         report.append(
             result(
                 label,
@@ -269,10 +311,17 @@ def check_release_manifest(
                 f"expected validated commit {expected_commit}, received {commit!r}",
             )
         )
+    elif not isinstance(commit, str) or not COMMIT_RE.fullmatch(commit):
+        report.append(result(label, "FAIL", f"malformed deployed commit {commit!r}"))
     elif not isinstance(artifacts, dict):
         report.append(result(label, "FAIL", "artifacts map is missing"))
     else:
-        report.append(result(label, "PASS", f"validated commit {commit}"))
+        evidence = (
+            f"validated commit {commit}"
+            if expected_commit
+            else f"deployed commit {commit}"
+        )
+        report.append(result(label, "PASS", evidence))
 
     expected_artifacts = {
         "/sitemap.xml": SITEMAP,
@@ -283,11 +332,39 @@ def check_release_manifest(
     for public_path, local_path in expected_artifacts.items():
         entry = artifacts.get(public_path)
         manifest_hash = entry.get("sha256") if isinstance(entry, dict) else None
-        local_hash = (
-            hashlib.sha256(canonical_text_bytes(local_path)).hexdigest()
-            if local_path.is_file()
-            else None
-        )
+        if not isinstance(manifest_hash, str) or not re.fullmatch(
+            r"[0-9a-f]{64}", manifest_hash, re.I
+        ):
+            report.append(
+                result(
+                    f"release manifest {public_path}",
+                    "FAIL",
+                    f"invalid artifact SHA-256 {manifest_hash!r}",
+                )
+            )
+            continue
+        if expected_commit:
+            target_hash = (
+                hashlib.sha256(canonical_text_bytes(local_path)).hexdigest()
+                if local_path.is_file()
+                else None
+            )
+            target_description = "validated files"
+        else:
+            live_artifact = fetch(base, public_path, timeout)
+            if not live_artifact.get("ok") or live_artifact.get("status") != 200:
+                report.append(
+                    result(
+                        f"release manifest {public_path}",
+                        transport_status(live_artifact),
+                        live_artifact.get(
+                            "error", f"HTTP {live_artifact.get('status')}"
+                        ),
+                    )
+                )
+                continue
+            target_hash = hashlib.sha256(live_artifact["body"]).hexdigest()
+            target_description = "live artifact"
         if not manifest_hash:
             report.append(
                 result(
@@ -296,7 +373,7 @@ def check_release_manifest(
                     "artifact SHA-256 is missing",
                 )
             )
-        elif local_hash is None:
+        elif target_hash is None:
             report.append(
                 result(
                     f"release manifest {public_path}",
@@ -304,12 +381,13 @@ def check_release_manifest(
                     f"local artifact missing: {local_path}",
                 )
             )
-        elif manifest_hash != local_hash:
+        elif manifest_hash != target_hash:
             report.append(
                 result(
                     f"release manifest {public_path}",
                     "FAIL",
-                    f"manifest SHA-256 {manifest_hash[:12]} differs from local {local_hash[:12]}",
+                    f"manifest SHA-256 {manifest_hash[:12]} differs from "
+                    f"{target_description} {target_hash[:12]}",
                 )
             )
         else:
@@ -317,7 +395,7 @@ def check_release_manifest(
                 result(
                     f"release manifest {public_path}",
                     "PASS",
-                    f"SHA-256 {manifest_hash[:12]} matches validated files",
+                    f"SHA-256 {manifest_hash[:12]} matches {target_description}",
                 )
             )
 
@@ -352,8 +430,7 @@ def main() -> int:
         parser.error("--timeout must be greater than zero")
 
     report: list[dict[str, Any]] = []
-    if args.expected_commit:
-        check_release_manifest(report, args.base, args.expected_commit, args.timeout)
+    check_release_manifest(report, args.base, args.expected_commit, args.timeout)
     routes, sitemap_error = load_routes()
     if sitemap_error:
         report.append(result("local sitemap inventory", "FAIL", sitemap_error))
@@ -376,7 +453,11 @@ def main() -> int:
             responses[route] = response
             bodies[route] = body
 
-    # Verify the two generated public artifacts against the checked-out release.
+    check_hosting_path(report, responses, args.hosting)
+
+    # With an expected commit, compare against the validated checkout. Scheduled
+    # monitoring intentionally accepts an older deployed release and relies on
+    # the manifest-to-live-byte checks above instead.
     for path, local_path, kind in [
         ("/sitemap.xml", SITEMAP, "sitemap"),
         ("/assets/data/search-index.json", SEARCH_INDEX, "search index"),
@@ -392,7 +473,7 @@ def main() -> int:
             if local_path.is_file()
             else None
         )
-        if local_hash is None:
+        if args.expected_commit and local_hash is None:
             report.append(
                 result(
                     f"generated {kind}",
@@ -401,7 +482,7 @@ def main() -> int:
                     remote_sha256=remote_hash,
                 )
             )
-        elif remote_hash != local_hash:
+        elif args.expected_commit and remote_hash != local_hash:
             report.append(
                 result(
                     f"generated {kind}",
@@ -412,13 +493,17 @@ def main() -> int:
                 )
             )
         else:
+            binding = (
+                f"SHA-256 {remote_hash[:12]} matches validated files"
+                if args.expected_commit
+                else f"SHA-256 {remote_hash[:12]} is bound by the live release manifest"
+            )
             report.append(
                 result(
                     f"generated {kind}",
-                    "PASS",
-                    f"HTTP 200; SHA-256 {remote_hash[:12]}",
+                    "PASS", f"HTTP 200; {binding}",
                     remote_sha256=remote_hash,
-                    local_sha256=local_hash,
+                    **({"local_sha256": local_hash} if args.expected_commit else {}),
                 )
             )
         if kind == "search index":
@@ -473,6 +558,18 @@ def main() -> int:
             report.append(result(f"asset {path}", transport_status(response),
                                  response.get("error", f"HTTP {response.get('status')}")))
         else:
+            remote_hash = hashlib.sha256(
+                response["body"].replace(b"\r\n", b"\n")
+            ).hexdigest()[:8]
+            if fingerprint.group(1).lower() != remote_hash.lower():
+                report.append(
+                    result(
+                        f"asset {path}",
+                        "FAIL",
+                        f"URL fingerprint {fingerprint.group(1)} != live {remote_hash}",
+                    )
+                )
+                continue
             cache = response["headers"].get("cache-control", "")
             passed = bool(IMMUTABLE_RE.search(cache)) and bool(re.search(r"max-age=(?:[0-9]{8,}|31536000)\b", cache, re.I))
             asset_status = "PASS" if passed else "FAIL"

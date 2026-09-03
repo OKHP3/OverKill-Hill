@@ -1,0 +1,2912 @@
+{
+  "verifier": "verify-live-edge.py",
+  "run_at": "2026-09-03T19:39:51.803390+00:00",
+  "base": "https://overkillhill.com",
+  "timeout_seconds": 10.0,
+  "expected_commit": "860467f004ea88057e02764fd36a5ffc36cfa52b",
+  "hosting": "github-pages",
+  "status": "PARTIAL",
+  "summary": {
+    "checks": 415,
+    "failures": 0,
+    "blocked": 343
+  },
+  "checks": [
+    {
+      "check": "release manifest",
+      "status": "PASS",
+      "evidence": "validated commit 860467f004ea88057e02764fd36a5ffc36cfa52b"
+    },
+    {
+      "check": "release manifest /sitemap.xml",
+      "status": "PASS",
+      "evidence": "SHA-256 fd52e065dc63 matches validated files"
+    },
+    {
+      "check": "release manifest /assets/data/search-index.json",
+      "status": "PASS",
+      "evidence": "SHA-256 7c679b2e5f2f matches validated files"
+    },
+    {
+      "check": "local sitemap inventory",
+      "status": "PASS",
+      "evidence": "30 unique routes"
+    },
+    {
+      "check": "route /",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "258",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "29721",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:48 GMT",
+        "etag": "\"6a99ca35-7419\"",
+        "expires": "Thu, 03 Sep 2026 19:45:29 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "2b443b744029f8b6ce139794bd4b419950c3dc6d",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "798C:279092:10B809:127204:6A99CC01",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-kigq8000161-CHI",
+        "x-timer": "S1788464388.202451,VS0,VE1"
+      }
+    },
+    {
+      "check": "route / robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route / cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route / security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route / security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route / security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route / security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route / security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route / security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route / security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route / security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route / security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "233",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "14770",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:48 GMT",
+        "etag": "\"6a99ca35-39b2\"",
+        "expires": "Thu, 03 Sep 2026 19:45:55 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "d0a754bc58237421eaa092e2c44f314ccd9732c2",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "CE34:292CC:109481:13573C:6A99CC1B",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-kigq8000075-CHI",
+        "x-timer": "S1788464388.303898,VS0,VE3"
+      }
+    },
+    {
+      "check": "route /fr/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /fr/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "233",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "19265",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:48 GMT",
+        "etag": "\"6a99ca35-4b41\"",
+        "expires": "Thu, 03 Sep 2026 19:45:55 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "b38cf57555bd023fb6b438fb3c00e58552eb0687",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "D878:343CCC:18BDF2:1A80AF:6A99CC1B",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-kigq8000120-CHI",
+        "x-timer": "S1788464388.417003,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /writings/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /writings/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "233",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "173357",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:48 GMT",
+        "etag": "\"6a99ca35-2a52d\"",
+        "expires": "Thu, 03 Sep 2026 19:45:55 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "1d61d1b6b2103289d45c171393573a42eca6dc47",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "C79C:343CCC:18BE1A:1A80D8:6A99CC1B",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100089-CHI",
+        "x-timer": "S1788464389.511460,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /manifesto/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "233",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "72484",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:48 GMT",
+        "etag": "\"6a99ca35-11b24\"",
+        "expires": "Thu, 03 Sep 2026 19:45:55 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "5cb48223c5b09c9198e569c472359b516ad3bd31",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "2F56:29A511:1654E7:1816D0:6A99CC1B",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100047-CHI",
+        "x-timer": "S1788464389.625234,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /manifesto/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /manifesto/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /manifesto/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /manifesto/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /manifesto/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /manifesto/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /manifesto/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /manifesto/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /manifesto/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /manifesto/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /manifesto/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "233",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "28608",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:48 GMT",
+        "etag": "\"6a99ca35-6fc0\"",
+        "expires": "Thu, 03 Sep 2026 19:45:55 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "05c330f4e987d22561fc511d1b0f4c255280d0e7",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "FC38:3C0767:166850:182B42:6A99CC1B",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100153-CHI",
+        "x-timer": "S1788464389.749692,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /projects/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/projects/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "233",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "15805",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:48 GMT",
+        "etag": "\"6a99ca35-3dbd\"",
+        "expires": "Thu, 03 Sep 2026 19:45:56 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "9a847b9e599c9cdfd7b002cde54bb2fb6f2b8f64",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "7C44:207797:C728F:F358B:6A99CC1C",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100031-CHI",
+        "x-timer": "S1788464389.834267,VS0,VE4"
+      }
+    },
+    {
+      "check": "route /fr/projects/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow"
+    },
+    {
+      "check": "route /fr/projects/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/projects/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/projects/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/projects/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/projects/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/projects/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/projects/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/projects/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/projects/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/projects/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/skillz/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "233",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "92821",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:48 GMT",
+        "etag": "\"6a99ca35-16a95\"",
+        "expires": "Thu, 03 Sep 2026 19:45:56 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "fe14f41feb0e1c4681e8f9c77bc97d8db70743af",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "509E:ADC4E:17AF6B:197293:6A99CC19",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-kigq8000162-CHI",
+        "x-timer": "S1788464389.926751,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /projects/skillz/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/skillz/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/skillz/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/skillz/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/skillz/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/skillz/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/skillz/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/skillz/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/skillz/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/skillz/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/skillz/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/found-ry/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "233",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "62495",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:49 GMT",
+        "etag": "\"6a99ca35-f41f\"",
+        "expires": "Thu, 03 Sep 2026 19:45:56 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "40fbb7c4ea282221c8716424434ca3ba6770ed38",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "0F46:27883:F3930:11FC42:6A99CC1C",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100033-CHI",
+        "x-timer": "S1788464389.051309,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /projects/found-ry/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/found-ry/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/found-ry/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/found-ry/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/found-ry/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/found-ry/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/found-ry/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/found-ry/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/found-ry/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/found-ry/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/found-ry/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "233",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "91823",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:49 GMT",
+        "etag": "\"6a99ca35-166af\"",
+        "expires": "Thu, 03 Sep 2026 19:45:56 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "bda184bfb29b0ade3fb2eabea10022300a62e852",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "D086:3AD004:153154:16F2A7:6A99CC1C",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100152-CHI",
+        "x-timer": "S1788464389.167630,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "233",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "76534",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:49 GMT",
+        "etag": "\"6a99ca35-12af6\"",
+        "expires": "Thu, 03 Sep 2026 19:45:56 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "5ae9f25674b457ac106f8e249b696feee94575e2",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "25B0:3C3EAC:E27C5:10EA97:6A99CC1C",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-kigq8000141-CHI",
+        "x-timer": "S1788464389.301678,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "233",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "71954",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:49 GMT",
+        "etag": "\"6a99ca35-11912\"",
+        "expires": "Thu, 03 Sep 2026 19:45:56 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "fdf7470db692b217c212225728f0f7ce4f7c92db",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "94FE:12F695:104D22:131152:6A99CC1C",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-kigq8000058-CHI",
+        "x-timer": "S1788464389.422853,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "31456",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:49 GMT",
+        "etag": "\"6a99ca35-7ae0\"",
+        "expires": "Thu, 03 Sep 2026 19:45:57 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "857205d16b9b84cc2e32e5ce4b9a3a27c845833c",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "88C8:2CB58A:1209A9:13CAC1:6A99CC1C",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100164-CHI",
+        "x-timer": "S1788464390.547292,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /universe/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "30915",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:49 GMT",
+        "etag": "\"6a99ca35-78c3\"",
+        "expires": "Thu, 03 Sep 2026 19:45:57 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "5",
+        "x-fastly-request-id": "d5e519ca0a335de6cbfcd6a22aef42cfc2408a25",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "CE54:3F40F8:105831:131A7A:6A99CC1C",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100088-CHI",
+        "x-timer": "S1788464390.654541,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /universe/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /universe/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /universe/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /universe/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /universe/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /universe/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /universe/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /universe/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /universe/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /universe/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /universe/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /about/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "26546",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:49 GMT",
+        "etag": "\"6a99ca35-67b2\"",
+        "expires": "Thu, 03 Sep 2026 19:45:57 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "feab69b327cba93b53f2c6a6149661d45413d88d",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "33A8:37273E:17BE76:198013:6A99CC1D",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100033-CHI",
+        "x-timer": "S1788464390.746738,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /about/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /about/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /about/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /about/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /about/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /about/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /about/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /about/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /about/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /about/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /about/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/about/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "14773",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:49 GMT",
+        "etag": "\"6a99ca35-39b5\"",
+        "expires": "Thu, 03 Sep 2026 19:45:57 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "aceee55735c5defe587097c77bce378c03a5569e",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "1E40:FAD46:1184DD:14481F:6A99CC1D",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100059-CHI",
+        "x-timer": "S1788464390.846022,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /fr/about/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow"
+    },
+    {
+      "check": "route /fr/about/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/about/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/about/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/about/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/about/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/about/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/about/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/about/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/about/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/about/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/contact/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "14823",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:49 GMT",
+        "etag": "\"6a99ca35-39e7\"",
+        "expires": "Thu, 03 Sep 2026 19:45:57 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "069a823197214c3a87fbe9a6ce89b129bc2a63c4",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "F14E:1779B6:16BF39:188138:6A99CC1D",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-kigq8000061-CHI",
+        "x-timer": "S1788464390.938797,VS0,VE16"
+      }
+    },
+    {
+      "check": "route /fr/contact/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow"
+    },
+    {
+      "check": "route /fr/contact/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/contact/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/contact/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/contact/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/contact/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/contact/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/contact/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/contact/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/contact/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/contact/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /contact/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "25915",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:50 GMT",
+        "etag": "\"6a99ca35-653b\"",
+        "expires": "Thu, 03 Sep 2026 19:45:57 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "bcc694f542272ec648239e297a72bfa594f01273",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "EC04:104AEE:18C081:1A82B8:6A99CC1D",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-kigq8000145-CHI",
+        "x-timer": "S1788464390.025562,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /contact/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /contact/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /contact/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /contact/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /contact/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /contact/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /contact/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /contact/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /contact/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /contact/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /contact/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /legal/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "23957",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:50 GMT",
+        "etag": "\"6a99ca35-5d95\"",
+        "expires": "Thu, 03 Sep 2026 19:45:57 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "bcd3bb140c36fb6bcb944f590c79c99792caac15",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "2252:21A40E:FB28F:1276B8:6A99CC1C",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-kigq8000034-CHI",
+        "x-timer": "S1788464390.102342,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /legal/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /legal/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /legal/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /legal/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /legal/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /legal/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /legal/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /legal/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /legal/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /legal/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /legal/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "31803",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:50 GMT",
+        "etag": "\"6a99ca35-7c3b\"",
+        "expires": "Thu, 03 Sep 2026 19:45:58 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "7753608bff406a140679315e93ce315f13503c51",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "A1FE:2C413F:157694:173898:6A99CC1E",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100156-CHI",
+        "x-timer": "S1788464390.183825,VS0,VE3"
+      }
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "26589",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:50 GMT",
+        "etag": "\"6a99ca35-67dd\"",
+        "expires": "Thu, 03 Sep 2026 19:45:58 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "37d72a6a5a0ae44d94ee54c5140bd2350db6b0cf",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "7878:287A6B:166CF9:182F7A:6A99CC1E",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100167-CHI",
+        "x-timer": "S1788464390.262337,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "36641",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:50 GMT",
+        "etag": "\"6a99ca35-8f21\"",
+        "expires": "Thu, 03 Sep 2026 19:45:58 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "4415126b364df6089bf8d930826bf445e5dd4cf8",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "17E4:2E58DB:154411:1706E6:6A99CC1E",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100116-CHI",
+        "x-timer": "S1788464390.345475,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "36672",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:50 GMT",
+        "etag": "\"6a99ca35-8f40\"",
+        "expires": "Thu, 03 Sep 2026 19:45:58 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "69039750a12007099bcd46e5a2d8126a900777a3",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "F4A0:FAD46:1185E7:14494D:6A99CC1D",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-kigq8000094-CHI",
+        "x-timer": "S1788464390.442209,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /prompt-forge/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "48571",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:50 GMT",
+        "etag": "\"6a99ca35-bdbb\"",
+        "expires": "Thu, 03 Sep 2026 19:45:58 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "7a16382421079da14611ebbf3d14b84c0062985a",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "2F56:29A511:165936:181B65:6A99CC1E",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-kigq8000100-CHI",
+        "x-timer": "S1788464391.539078,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /prompt-forge/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /prompt-forge/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /prompt-forge/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /prompt-forge/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /prompt-forge/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /prompt-forge/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /prompt-forge/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /prompt-forge/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /prompt-forge/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /prompt-forge/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /prompt-forge/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /vault/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "18690",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:50 GMT",
+        "etag": "\"6a99ca35-4902\"",
+        "expires": "Thu, 03 Sep 2026 19:45:58 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "8310c14b4749cc86c94058759c214a31b77a1462",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "F560:3AD004:15346D:16F600:6A99CC1E",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100053-CHI",
+        "x-timer": "S1788464391.630043,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /vault/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /vault/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /vault/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /vault/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /vault/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /vault/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /vault/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /vault/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /vault/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /vault/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /vault/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "36596",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:50 GMT",
+        "etag": "\"6a99ca35-8ef4\"",
+        "expires": "Thu, 03 Sep 2026 19:45:58 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "7ffa50a548a0ade644885f07457849b0f1498993",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "8E6E:1AE12A:CCA0D:F8C96:6A99CC1E",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-kigq8000148-CHI",
+        "x-timer": "S1788464391.710972,VS0,VE5"
+      }
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "47488",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:50 GMT",
+        "etag": "\"6a99ca35-b980\"",
+        "expires": "Thu, 03 Sep 2026 19:45:59 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "b9e54749c8efeb177129a35c6c90dd79687ce660",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "BB0E:22A6E0:ECF2A:119261:6A99CC1E",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100070-CHI",
+        "x-timer": "S1788464391.802043,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "47751",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:50 GMT",
+        "etag": "\"6a99ca35-ba87\"",
+        "expires": "Thu, 03 Sep 2026 19:45:59 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "83b99bf35c863da1f2bd49b8c20999f1f3dc984d",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "BC6C:2CF859:12FD1C:14BF11:6A99CC1F",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-kigq8000161-CHI",
+        "x-timer": "S1788464391.883205,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "36555",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:50 GMT",
+        "etag": "\"6a99ca35-8ecb\"",
+        "expires": "Thu, 03 Sep 2026 19:45:59 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "7c8f1581859cffca2cbb3a0870cc3728fcb0818a",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "586A:94077:EA733:116B89:6A99CC1E",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100169-CHI",
+        "x-timer": "S1788464391.976179,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/telling-forward/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "37481",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:51 GMT",
+        "etag": "\"6a99ca35-9269\"",
+        "expires": "Thu, 03 Sep 2026 19:45:59 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "6c23ba8bcf5e46e114b0b7e4079365ac8f6ef82c",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "8CB8:DAD5F:F6C8A:123059:6A99CC1F",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100106-CHI",
+        "x-timer": "S1788464391.067636,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /projects/telling-forward/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/telling-forward/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/telling-forward/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/telling-forward/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/telling-forward/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/telling-forward/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/telling-forward/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/telling-forward/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/telling-forward/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/telling-forward/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/telling-forward/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /404.html",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "14603",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:51 GMT",
+        "etag": "\"6a99ca35-390b\"",
+        "expires": "Thu, 03 Sep 2026 19:45:59 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "66e88d704df12eefbc0fec0c984d03b57ec605fe",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "6952:39AE3F:133F61:1501BE:6A99CC1F",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100133-CHI",
+        "x-timer": "S1788464391.149861,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /404.html robots boundary",
+      "status": "PASS",
+      "evidence": "noindex; noindex, nofollow"
+    },
+    {
+      "check": "route /404.html cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /404.html security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /404.html security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /404.html security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /404.html security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /404.html security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /404.html security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /404.html security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /404.html security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /404.html security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /found-ry/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "232",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "16806",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 03 Sep 2026 19:39:51 GMT",
+        "etag": "\"6a99ca35-41a6\"",
+        "expires": "Thu, 03 Sep 2026 19:45:59 GMT",
+        "last-modified": "Thu, 03 Sep 2026 19:27:49 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "60215e7df9af8e84829e8f665332dea01c440771",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "B812:343CCC:18C36F:1A8697:6A99CC1F",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-chi-klot8100134-CHI",
+        "x-timer": "S1788464391.235973,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /found-ry/ robots boundary",
+      "status": "PASS",
+      "evidence": "noindex; noindex, follow"
+    },
+    {
+      "check": "route /found-ry/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /found-ry/ security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /found-ry/ security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /found-ry/ security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /found-ry/ security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /found-ry/ security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /found-ry/ security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /found-ry/ security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /found-ry/ security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /found-ry/ security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "hosting path",
+      "status": "PASS",
+      "evidence": "/ is served directly by GitHub Pages (GitHub.com)"
+    },
+    {
+      "check": "generated sitemap",
+      "status": "PASS",
+      "evidence": "HTTP 200; SHA-256 fd52e065dc63 matches validated files",
+      "remote_sha256": "fd52e065dc63c2dacda74246a562a97603640801c8ed93f94d539bcde0808311",
+      "local_sha256": "fd52e065dc63c2dacda74246a562a97603640801c8ed93f94d539bcde0808311"
+    },
+    {
+      "check": "sitemap cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated sitemap security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated sitemap security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated sitemap security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated sitemap security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated sitemap security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated sitemap security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated sitemap security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated sitemap security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated sitemap security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated search index",
+      "status": "PASS",
+      "evidence": "HTTP 200; SHA-256 7c679b2e5f2f matches validated files",
+      "remote_sha256": "7c679b2e5f2fa9c511517391780079ec1d464e3cbdc2e672e23359f8949d3541",
+      "local_sha256": "7c679b2e5f2fa9c511517391780079ec1d464e3cbdc2e672e23359f8949d3541"
+    },
+    {
+      "check": "search index shape",
+      "status": "PASS",
+      "evidence": "159 indexed pages"
+    },
+    {
+      "check": "search index cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated search index security header x-content-type-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated search index security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated search index security header referrer-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated search index security header permissions-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated search index security header strict-transport-security",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated search index security header cross-origin-opener-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated search index security header cross-origin-resource-policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated search index security header origin-agent-cluster",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated search index security header content-security-policy-report-only",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "asset /assets/css/theme.css",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "asset /assets/js/app.js",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "asset /assets/js/mermaid-init.js",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    }
+  ]
+}

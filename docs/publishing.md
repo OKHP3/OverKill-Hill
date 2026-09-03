@@ -68,39 +68,53 @@ substitute a guessed deployment URL.
 
 ### Latest canonical-domain result
 
-**Run date:** August 22, 2026
+**Run date:** September 3, 2026
 **Base:** `https://overkillhill.com`
-**Expected deployed commit:** `344e046d7ba1e95be2f8d01907d18129240024e6`
-**Evidence:** `assets/audit/live-edge-report-2026-08-22.json`
-**Result:** **FAILED — content availability passed, edge policy proof did not**
+**Expected deployed commit:** `860467f004ea88057e02764fd36a5ffc36cfa52b`
+**Evidence:** `assets/audit/live-edge-report-2026-09-03.json`
+**Result:** **PARTIAL — accepted direct GitHub Pages strategy; policy headers remain blocked**
 
-The verifier reached the canonical domain with no blocked requests. The home
-route (`/`), Mermaid Theme Builder project route
-(`/projects/mermaid-theme-builder/`), and noindex boundary (`/found-ry/`) all
-returned HTTP 200 and had the expected robots boundary. Their live
-`Cache-Control` was `max-age=600`, not the declared
-`public, max-age=300, must-revalidate`.
+The verifier reached the canonical domain with no blocked content-availability requests. The
+live release manifest is reachable and identifies commit
+`860467f004ea88057e02764fd36a5ffc36cfa52b`. Its SHA-256 values match both the
+served `/sitemap.xml` and `/assets/data/search-index.json`, and those files
+match the validated release checkout. The sitemap routes, noindex boundary, and
+fingerprinted shared assets also passed.
 
-Every header declared in `_headers` was absent on those representative routes:
-`X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`,
-`Permissions-Policy`, `Strict-Transport-Security`,
-`Cross-Origin-Opener-Policy`, `Cross-Origin-Resource-Policy`,
-`Origin-Agent-Cluster`, and `Content-Security-Policy-Report-Only`. The live
-response also did not expose the release manifest, so the verifier could not
-cryptographically bind the served bytes to the expected commit. The report
-records the expected SHA as an investigation input, not as confirmed live
-deployment identity.
+DNS still resolves `overkillhill.com` directly to GitHub Pages
+(`185.199.108.153` through `185.199.111.153`, plus GitHub's IPv6 addresses).
+The live response identifies `server: GitHub.com`, includes GitHub/Fastly
+markers, and returns `Cache-Control: max-age=600`. GitHub Pages does not read
+the repository `_headers` file, so the declared security headers and cache
+policies are reported as `BLOCKED`, not as policy passes. The current evidence
+is therefore `PARTIAL`, not `PASS` and not a claim that the `_headers` contract
+is enforced.
 
-This is evidence of the current public response, not proof that Cloudflare is
-configured incorrectly: no Cloudflare zone or Transform Rules access was
-available during this check. The exact remaining gap is to inspect the
-production DNS proxy state and Cloudflare response-header/cache rules, then
-rerun this verifier after any edge change. Until that happens, do not describe
-the production site as enforcing the `_headers` security or cache policy.
+### Accepted direct GitHub Pages strategy
+
+For the current release, direct GitHub Pages is the explicitly accepted
+hosting strategy for this canonical static site. The acceptance is limited to
+the evidence GitHub Pages can provide: route availability, robots boundaries,
+generated-artifact integrity, release-manifest binding, and content-fingerprint
+integrity. It does not waive the security or cache requirements in `_headers`.
+
+The verifier's `--hosting github-pages` mode proves that the request path is
+still direct GitHub Pages, marks controls that GitHub Pages cannot apply as
+`BLOCKED`, and returns `PARTIAL` when no deterministic checks fail. It returns
+`FAILED` for a real route, artifact, manifest, fingerprint, or hosting-path
+failure. Scheduled monitoring uses this mode with `--accept-blocked`, so a
+known hosting limitation is visible as `PARTIAL` while real drift still fails
+the workflow.
+
+To enforce the full `_headers` contract later, proxy the custom domain through
+an authorized edge that can emit response headers and override the origin cache
+policy, then rerun the verifier in its default `strict` mode. Until that
+happens, do not describe the production site as enforcing the `_headers`
+security or cache policy.
 
 ### Confirmed DNS and edge-path follow-up
 
-**Checked:** August 22, 2026
+**Checked:** September 3, 2026
 **Evidence:** live DNS resolution and HTTPS response headers from the canonical domain
 
 The follow-up check resolved `overkillhill.com` directly to GitHub Pages addresses
@@ -112,12 +126,10 @@ declared in `_headers` was present.
 
 This confirms that the canonical hostname is currently reaching GitHub Pages
 directly rather than a Cloudflare-proxied edge. No Cloudflare zone or Transform
-Rules control was available through the approved workspace access path, so no
-edge configuration was changed. The intended configuration remains the
-`_headers` policy above: proxy the canonical DNS record through Cloudflare, apply
-the response-header rules, and apply the short HTML / immutable fingerprinted
-asset cache rules. Re-run the verifier after that DNS and rule change before
-claiming production enforcement.
+Rules control is available through the approved workspace access path, so no
+edge configuration was changed. The accepted direct-Pages strategy and its
+limits are recorded above. Re-run the verifier in `strict` mode after any
+future edge change before claiming production enforcement.
 
 ## Scheduled production drift monitor
 
@@ -125,7 +137,10 @@ The same workflow runs a read-only check against the canonical production
 origin every six hours and on manual dispatch. It does not assume that the
 latest GitHub commit is already published, so scheduled monitoring checks the
 production edge's routes, generated artifacts, security headers, cache
-policies, and fingerprints without `--expected-commit`.
+policies, fingerprints, and the release manifest without `--expected-commit`.
+In that mode the manifest's artifact hashes are compared with the live
+artifact bytes, while the verifier does not compare those bytes with the
+newest checkout.
 
 Each run uploads `live-edge-monitor-<run-id>` as evidence for 30 days. A
 `FAILED` report fails the monitor and identifies deterministic policy or
@@ -135,16 +150,15 @@ policy regression. A missing or malformed report also fails the monitor.
 
 ## Production edge requirement
 
-GitHub Pages does not read `_headers`. The custom domain must therefore be
-proxied through the configured Cloudflare zone, with the response-header and
-cache rules from `_headers` applied at that edge. The GitHub Pages deployment
-remains the origin and continues to publish the repository contents; Cloudflare
-is the layer that emits the security headers and replaces the origin's default
+GitHub Pages does not read `_headers`. Under the accepted direct-Pages
+strategy, GitHub Pages remains the origin and serves the repository contents
+with its native cache behavior; the verifier records the unfulfilled header
+and cache controls as `BLOCKED`. The full contract still requires a configured
+edge proxy to emit the security headers and replace the origin's default
 `Cache-Control: max-age=600`.
 
-Before treating a release as complete, confirm that the production DNS record is
-orange-cloud proxied and run the verifier against `https://overkillhill.com`.
-The August 22, 2026 run did not prove that Cloudflare was in the request path:
-the live response had GitHub Pages-style `max-age=600` caching and none of the
-declared headers. If those observations persist after DNS and Transform Rules
-are inspected, the release is not edge-complete.
+For the accepted direct-Pages strategy, confirm the hosting-path check, release
+manifest, artifact hashes, routes, and fingerprints, then run the verifier
+against `https://overkillhill.com` with `--hosting github-pages
+--accept-blocked`. For full edge enforcement, confirm that the production DNS
+record is proxied and run the verifier without `--hosting github-pages`.
