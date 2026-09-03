@@ -3,11 +3,11 @@
 //
 //  Sections (in load order):
 //   1. GLOBAL   · Reading-progress bar (article pages)
-//   2. GLOBAL   · DOMContentLoaded: nav, year stamps, theme toggle (OKH only),
+//   2. GLOBAL   · DOMContentLoaded: nav, year stamps, theme controls,
 //                 scroll reveal, smooth anchors
-//   3. GLEE     · Under-construction overlay gate (toolbox WIP pages)
-//   4. GLOBAL   · Sticky TOC scroll-follow (article pages, ≥1024px)
-//   5. OKH      · Site search — overlay + dedicated /search/ page
+//   3. GLOBAL   · Under-construction overlay gate (when present)
+//   4. GLOBAL   · Sticky TOC scroll-follow + scrollspy (article pages, ≥1024px)
+//   5. GLOBAL   · Search — overlay + dedicated /search/ page
 //                 (search.js consolidated here 2026-05-03)
 // ════════════════════════════════════════════════════════════════════════════
 
@@ -154,6 +154,28 @@ document.addEventListener("DOMContentLoaded", () => {
     body.classList.contains("glee-main") ||
     body.classList.contains("askjamie-main");
 
+  const readStorage = (key) => {
+    try {
+      return localStorage.getItem(key);
+    } catch (_) {
+      return null;
+    }
+  };
+  const writeStorage = (key, value) => {
+    try {
+      localStorage.setItem(key, value);
+    } catch (_) {
+      // Private browsing and disabled storage must not break the page.
+    }
+  };
+  const removeStorage = (key) => {
+    try {
+      localStorage.removeItem(key);
+    } catch (_) {
+      // Private browsing and disabled storage must not break the page.
+    }
+  };
+
   if (!brandLocked) {
     const STATES      = ["system", "light", "dark"];
     const STATE_ICONS = {
@@ -167,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
       dark:   "Switch to system mode",
     };
 
-    const savedTheme = localStorage.getItem("okh-theme");
+    const savedTheme = readStorage("okh-theme");
     let currentState = STATES.includes(savedTheme) ? savedTheme : "system";
 
     function applyThemeState(state) {
@@ -200,15 +222,90 @@ document.addEventListener("DOMContentLoaded", () => {
       themeToggle.setAttribute("aria-label", STATE_ARIA[currentState]);
       themeToggle.innerHTML = STATE_ICONS[currentState];
       applyThemeState(currentState);
-      localStorage.setItem("okh-theme", currentState);
+      writeStorage("okh-theme", currentState);
     });
 
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    const systemThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const syncSystemTheme = () => {
       if (currentState === "system") applyThemeState("system");
-    });
+    };
+    if (typeof systemThemeQuery.addEventListener === "function") {
+      systemThemeQuery.addEventListener("change", syncSystemTheme);
+    } else {
+      systemThemeQuery.addListener(syncSystemTheme);
+    }
   } else {
-    // Subsites stay on their brand "light" look
+    // Glee-fully and AskJamie keep data-theme="light" for shared light rules,
+    // while their optional dark scheme is controlled independently.
     document.documentElement.setAttribute("data-theme", "light");
+
+    const isGlee = body.classList.contains("glee-main");
+    const schemeKey = isGlee ? "glee-color-scheme" : "askjamie-color-scheme";
+    const schemeStates = ["auto", "light", "dark"];
+    const schemeColors = isGlee
+      ? { light: "#d35b2d", dark: "#1e1b19" }
+      : { light: "#f5efe1", dark: "#2c5e6f" };
+    const schemeIcons = {
+      auto: '<svg class="tt-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+      light: '<svg class="tt-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>',
+      dark: '<svg class="tt-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
+    };
+    const schemeLabels = {
+      auto: "Color scheme: following your device — click to pin light",
+      light: "Color scheme: pinned light — click to switch to dark",
+      dark: "Color scheme: pinned dark — click to follow device",
+    };
+    const savedScheme = readStorage(schemeKey);
+    let schemeState = schemeStates.includes(savedScheme) ? savedScheme : "auto";
+
+    function applySchemeState(state) {
+      if (state === "auto") {
+        document.documentElement.removeAttribute("data-color-scheme");
+      } else {
+        document.documentElement.setAttribute("data-color-scheme", state);
+      }
+
+      document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+        if (state !== "auto") {
+          meta.setAttribute("content", schemeColors[state]);
+          return;
+        }
+        const media = meta.getAttribute("media") || "";
+        meta.setAttribute(
+          "content",
+          media.includes("prefers-color-scheme: dark")
+            ? schemeColors.dark
+            : schemeColors.light
+        );
+      });
+    }
+
+    applySchemeState(schemeState);
+    const schemeToggle = document.createElement("button");
+    schemeToggle.type = "button";
+    schemeToggle.className = "glee-color-toggle";
+    schemeToggle.dataset.state = schemeState;
+    schemeToggle.setAttribute("aria-label", schemeLabels[schemeState]);
+    schemeToggle.innerHTML = schemeIcons[schemeState];
+    if (headerControls) {
+      headerControls.appendChild(schemeToggle);
+    } else if (header && header.querySelector(".container")) {
+      header.querySelector(".container").appendChild(schemeToggle);
+    }
+
+    schemeToggle.addEventListener("click", () => {
+      const currentIndex = schemeStates.indexOf(schemeState);
+      schemeState = schemeStates[(currentIndex + 1) % schemeStates.length];
+      schemeToggle.dataset.state = schemeState;
+      schemeToggle.setAttribute("aria-label", schemeLabels[schemeState]);
+      schemeToggle.innerHTML = schemeIcons[schemeState];
+      applySchemeState(schemeState);
+      if (schemeState === "auto") {
+        removeStorage(schemeKey);
+      } else {
+        writeStorage(schemeKey, schemeState);
+      }
+    });
   }
 
   // Language switcher dropdown (i18n pilot pages only -- the markup only
@@ -301,7 +398,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const constructionOverlay = document.querySelector(".construction-overlay");
 
   if (constructionOverlay) {
-    const body = document.body;
+    constructionOverlay.setAttribute("role", "dialog");
+    constructionOverlay.setAttribute("aria-modal", "true");
+    constructionOverlay.setAttribute("aria-label", "Work-in-progress page notice");
+    const opener = document.activeElement &&
+      document.activeElement !== document.body &&
+      document.activeElement !== document.documentElement
+      ? document.activeElement
+      : null;
     const wipKey =
       constructionOverlay.getAttribute("data-wip-key") ||
       window.location.pathname;
@@ -309,24 +413,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const storageKey = `glee-wip-dismissed:${wipKey}`;
 
     // If user already dismissed this specific WIP page, hide overlay
-    if (localStorage.getItem(storageKey) === "true") {
+    if (readStorage(storageKey) === "true") {
       body.classList.add("construction-dismissed");
-      constructionOverlay.setAttribute("hidden", "true");
+      constructionOverlay.setAttribute("hidden", "");
     } else {
-      // Wire up dismiss buttons
+      const dismissOverlay = () => {
+        body.classList.add("construction-dismissed");
+        constructionOverlay.setAttribute("aria-hidden", "true");
+        constructionOverlay.setAttribute("hidden", "");
+        writeStorage(storageKey, "true");
+
+        if (opener && opener.isConnected && !constructionOverlay.contains(opener)) {
+          opener.focus();
+          return;
+        }
+        const mainTarget = document.querySelector("#main h1, #main");
+        if (mainTarget) {
+          if (!mainTarget.hasAttribute("tabindex")) {
+            mainTarget.setAttribute("tabindex", "-1");
+          }
+          mainTarget.focus({ preventScroll: true });
+        }
+      };
+
       const dismissButtons = constructionOverlay.querySelectorAll(
         "[data-wip-dismiss]"
       );
 
       dismissButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          body.classList.add("construction-dismissed");
-          constructionOverlay.setAttribute("aria-hidden", "true");
-          localStorage.setItem(storageKey, "true");
-        });
+        btn.addEventListener("click", dismissOverlay);
       });
 
-      // Optional: clicking the dark scrim (outside the card) also dismisses
       constructionOverlay.addEventListener("click", (event) => {
         if (event.target === constructionOverlay) {
           const primaryDismiss = constructionOverlay.querySelector(
@@ -335,15 +452,90 @@ document.addEventListener("DOMContentLoaded", () => {
           if (primaryDismiss) primaryDismiss.click();
         }
       });
+
+      const overlayFocusable = Array.from(
+        constructionOverlay.querySelectorAll(
+          'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      );
+      if (overlayFocusable.length) {
+        requestAnimationFrame(() => overlayFocusable[0].focus());
+      }
+      constructionOverlay.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          event.preventDefault();
+          dismissOverlay();
+          return;
+        }
+        if (event.key !== "Tab" || !overlayFocusable.length) return;
+        const first = overlayFocusable[0];
+        const last = overlayFocusable[overlayFocusable.length - 1];
+        if (event.shiftKey) {
+          if (document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          }
+        } else if (document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      });
     }
   }
 
 });
 
-// ── 4. Sticky TOC ──────────────────────────────────────────────────────────
-// The right rail owns sticky positioning in CSS. Keeping scroll positioning
-// declarative avoids dynamic inline styles, which are correctly rejected by
-// the page CSP and were producing browser QA errors on every TOC page.
+// ── 4. Sticky TOC: smooth-lerp scroll-follow for #toc-widget ───────────────
+// Only activates on wide viewports (≥1024px) when the widget and footer exist.
+(function () {
+  if (window.innerWidth < 1024) return;
+
+  const toc = document.getElementById("toc-widget");
+  const footer = document.querySelector(".site-footer");
+  if (!toc || !footer) return;
+
+  let lerpedY = 0;
+  let targetY = 0;
+  const SPEED = 0.08;
+  const NAV_H = 112;
+  const PAD = 32;
+
+  function lerp(a, b, t) {
+    return a + (b - a) * t;
+  }
+  function getNaturalTop(element) {
+    let top = 0;
+    while (element) {
+      top += element.offsetTop;
+      element = element.offsetParent;
+    }
+    return top;
+  }
+
+  let tocNaturalTop = getNaturalTop(toc);
+  let tocHeight = toc.offsetHeight;
+
+  function tick() {
+    const scrollY = window.scrollY;
+    const footerTop = footer.offsetTop;
+    const centeredOffset = Math.max(NAV_H, (window.innerHeight - tocHeight) / 2);
+    const raw = Math.max(0, scrollY + centeredOffset - tocNaturalTop);
+    const max = Math.max(0, footerTop - PAD - tocNaturalTop - tocHeight);
+    targetY = Math.min(raw, max);
+    lerpedY = lerp(lerpedY, targetY, SPEED);
+    toc.style.transform = `translateY(${lerpedY.toFixed(2)}px)`;
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+  window.addEventListener("resize", () => {
+    toc.style.transform = "";
+    if (window.innerWidth >= 1024) {
+      tocNaturalTop = getNaturalTop(toc);
+      tocHeight = toc.offsetHeight;
+    }
+  });
+}());
 
 // ── 4b. TOC scrollspy — active-link tracking for #toc-widget ───────────
 // Works on any page that has id="toc-widget" with .toc-list anchor links.
@@ -390,7 +582,11 @@ document.addEventListener("DOMContentLoaded", () => {
           if (!r.ok) throw new Error("Index fetch failed: " + r.status);
           return r.json();
         })
-        .then((d) => Array.isArray(d.entries) ? d.entries : [])
+        .then((d) => {
+          if (Array.isArray(d.entries)) return d.entries;
+          if (Array.isArray(d.pages)) return d.pages;
+          return [];
+        })
         .catch((err) => {
           console.warn("[okh-search] index load failed:", err);
           return [];

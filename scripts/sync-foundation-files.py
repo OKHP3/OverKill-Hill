@@ -7,6 +7,10 @@ Foundation files (must stay byte-identical across all three repos):
     assets/js/app.js
     assets/js/mermaid-init.js
 
+The files are a shared superset. Site-specific behavior is selected by the
+existing DOM/body-class hooks inside those files; it is not represented by
+different copies per site.
+
 Model
 -----
 This is NOT "OKH is the permanent source of truth, push one-way." It is a
@@ -74,6 +78,8 @@ FOUNDATION_FILES = [
     "assets/js/app.js",
     "assets/js/mermaid-init.js",
 ]
+
+FOUNDATION_CONTRACT = "byte-identical"
 
 # Local mirror-root directory names, matching the OKHP3 GitHub org repos:
 #   overkill-hill    -> OKHP3/OverKill-Hill   (overkillhill.com)
@@ -357,6 +363,7 @@ def main() -> int:
     if args.json:
         out = {
             "mirror_root": str(root),
+            "foundation_contract": FOUNDATION_CONTRACT,
             "mode": "commit" if args.commit else ("apply" if args.apply else "dry-run"),
             "files": [
                 {k: v for k, v in p.items() if k != "writes" or True}
@@ -370,6 +377,10 @@ def main() -> int:
         mode = "COMMIT" if args.commit else ("APPLY" if args.apply else "DRY RUN")
         print(f"sync-foundation-files.py -- mode: {mode}")
         print(f"mirror root: {root}\n")
+        print(
+            f"foundation contract: {FOUNDATION_CONTRACT} "
+            "(site-specific behavior uses in-file DOM/body-class hooks)\n"
+        )
         for plan in plans:
             print(f"== {plan['file']} ==")
             for name in REPO_DIRS:

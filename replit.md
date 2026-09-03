@@ -307,7 +307,7 @@ The attribute value is ignored; its presence is the signal. The script discovers
 - `assets/js/app.js`
 - `assets/js/mermaid-init.js`
 
-**As of 2026-08-30 this is a 3-way sync, not a one-directional "OKH is source of truth" push.** A change made in glee-fully.tools or askjamie.bot flows into overkill-hill, and a change made in overkill-hill flows out to both siblings. OverKill Hill is the *hub* the other two sync through, not a permanent single source of truth to hand-edit-then-broadcast.
+**As of 2026-09-02 this is a 3-way sync of one shared superset, not a one-directional "OKH is source of truth" push.** A change made in glee-fully.tools or askjamie.bot flows into overkill-hill, and a change made in overkill-hill flows out to both siblings. OverKill Hill is the *hub* the other two sync through, not a permanent single source of truth to hand-edit-then-broadcast. The compatibility decision is recorded in [`docs/adr/0001-shared-runtime-compatibility.md`](docs/adr/0001-shared-runtime-compatibility.md).
 
 ### Propagation workflow
 
@@ -321,9 +321,9 @@ python3 scripts/sync-foundation-files.py --commit    # write + git commit in eac
 
 For each foundation file it groups the three repos' copies by exact content. One group means already in sync. Two groups means it overwrites whichever repo(s) don't hold the version with the most recent `git log` touch — this is what produces both directions above without hand-coded routing. Three groups (every repo genuinely different) is reported as a **conflict** and nothing is written; that needs the same manual/agent blend-and-resolve treatment `theme.css` went through on 2026-08-30, not an automatic pick. Writing `theme.css` into glee-fullytools also re-runs that repo's `sync-css-version.py` and `sync-portfolio-stats.py` automatically, since a plain file copy alone leaves its cache-bust tokens and portfolio stats stale.
 
-If a repo's `.git/index.lock` is actively held by another process at commit time, the script writes the file but skips that repo's commit and says so rather than fighting the lock — commit it by hand once the other process is done.
+If a repo's `.git/index.lock` is actively held by another process at commit time, the script writes the file but skips that repo's commit and says so rather than fighting the lock — commit it by hand once the other process is done. If a sibling checkout is absent, the script exits with configuration status 3 rather than pretending the three-way check passed; run it from a mirror root containing all three checkouts.
 
-**Known open item (2026-08-30):** `theme.css` is confirmed in sync across all three repos. `app.js` and `mermaid-init.js` are currently flagged as genuine 3-way conflicts — they differ substantially in size per site (OKH's own dark/light toggle vs. the siblings' brand-locked-light `data-color-scheme` wiring), so `sync-foundation-files.py` correctly refuses to auto-resolve them. They still need a deliberate blend pass before this tool will report them in sync.
+The three foundation files remain a strict byte-identical contract. Site-specific behavior is expressed inside the shared superset using `.glee-main`, `.askjamie-main`, `data-theme`, `data-color-scheme`, page data attributes, and the presence or absence of optional markup. The sync tool reports a genuine three-way conflict instead of automatically choosing a winner. The runtime compatibility design and behavior classification are maintained in the ADR linked above.
 
 ### Site-specific divergence is expressed via class hooks, not separate files
 
