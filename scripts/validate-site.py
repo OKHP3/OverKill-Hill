@@ -18,6 +18,8 @@ Checks every production HTML page for:
   - "P3" without superscript inside <title> or <meta> (brand violation)
   - old tagline "Precision. Power. Presence." anywhere (brand regression)
   - current content-hashed references to shared CSS and JavaScript
+  - SEO metadata contract (Organization, article dates, social-card assets)
+    and the ordered v03 heat-guide chain
 
 Exits 0 if no errors. Exits 1 if any errors. Warnings do not fail the build.
 Run from repo root:  python3 scripts/validate-site.py
@@ -27,9 +29,12 @@ from __future__ import annotations
 
 import os
 import hashlib
+import json
 import re
+import struct
 import subprocess
 import sys
+from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
@@ -40,6 +45,9 @@ ROOT = Path(__file__).resolve().parent.parent
 SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src"}
 SITEMAP = ROOT / "sitemap.xml"
 SITE_ORIGIN = "https://overkillhill.com"
+MANIFEST = ROOT / "site-src/pages.json"
+HEAD_PARTIAL = ROOT / "assets/partials/head.html"
+MANIFEST_EXTERNAL_PREFIXES = ("de/", "es/", "fr/")
 THEME_STYLESHEET_PATH = "/assets/css/theme.css"
 THEME_STYLESHEET = ROOT / THEME_STYLESHEET_PATH.lstrip("/")
 APP_SCRIPT_PATH = "/assets/js/app.js"
@@ -67,6 +75,39 @@ MERMAID_HEAT_TARGETS = {
     ("https://ko-fi.com", "/T6T71HCY6A"),
 }
 
+# SEO metadata is generated from site-src/pages.json and the shared head
+# partial. Keep the non-editorial contract here so a content edit cannot
+# silently weaken the published head.
+RETIRED_SOCIAL_IMAGE = "/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png"
+ARTICLE_ROUTE_PREFIX = "/writings/"
+HEAT_GUIDE_ROUTES = (
+    "/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+    "/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+    "/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+    "/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+)
+EXPECTED_ORGANIZATION = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://overkillhill.com/#organization",
+    "name": "OverKill Hill P³™",
+    "url": "https://overkillhill.com/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png",
+        "width": 256,
+        "height": 256,
+    },
+    "sameAs": [
+        "https://www.linkedin.com/company/overkillhillp3",
+        "https://facebook.com/OverKillHillP3/",
+        "https://x.com/OverKillHillP3",
+        "https://www.youtube.com/@OverKillHillP3",
+        "https://ko-fi.com/overkillhillp3",
+        "https://pro.fiverr.com/s/VYKPpoB",
+    ],
+}
+
 # Em dash in all three forms: literal U+2014, named entity, numeric entity
 EM_DASH_RE = re.compile(r"\u2014|&mdash;|&#8212;")
 
@@ -88,6 +129,11 @@ class TagCounter(HTMLParser):
         self.asset_refs: list[str] = []  # src/href for css/js/img/link
         self.stylesheet_refs: list[str] = []
         self.script_refs: list[str] = []
+        self.meta: dict[str, list[str]] = {}
+        self.jsonld_blocks: list[str] = []
+        self.navigation_links: dict[str, list[str]] = {"prev": [], "next": []}
+        self._in_jsonld = False
+        self._jsonld_buf: list[str] = []
 
     def handle_starttag(self, tag: str, attrs_list):
         attrs = {k: (v or "") for k, v in attrs_list}
@@ -97,7 +143,11 @@ class TagCounter(HTMLParser):
             self.h1_count += 1
         elif tag == "meta":
             name = attrs.get("name", "").lower()
+            prop = attrs.get("property", "").lower()
             content = attrs.get("content", "")
+            key = name or prop
+            if key:
+                self.meta.setdefault(key, []).append(content)
             if name == "description" and content.strip():
                 self.has_meta_description = True
             if name == "robots" and "noindex" in content.lower():
@@ -105,6 +155,9 @@ class TagCounter(HTMLParser):
         elif tag == "link":
             rel = attrs.get("rel", "").lower()
             href = attrs.get("href", "")
+            for navigation_rel in ("prev", "next"):
+                if navigation_rel in rel.split() and href:
+                    self.navigation_links[navigation_rel].append(href)
             if rel == "canonical" and href:
                 self.has_canonical = True
             if "stylesheet" in rel.split() and href:
@@ -117,6 +170,8 @@ class TagCounter(HTMLParser):
             src = attrs.get("src", "")
             if t == "application/ld+json":
                 self.has_jsonld = True
+                self._in_jsonld = True
+                self._jsonld_buf = []
             if src:
                 self.asset_refs.append(src)
                 self.script_refs.append(src)
@@ -140,10 +195,16 @@ class TagCounter(HTMLParser):
             self._in_title = False
             self.title = "".join(self._title_buf).strip()
             self._title_buf = []
+        elif tag == "script" and self._in_jsonld:
+            self.jsonld_blocks.append("".join(self._jsonld_buf).strip())
+            self._in_jsonld = False
+            self._jsonld_buf = []
 
     def handle_data(self, data: str):
         if self._in_title:
             self._title_buf.append(data)
+        if self._in_jsonld:
+            self._jsonld_buf.append(data)
 
 
 def find_html_files() -> list[Path]:
@@ -195,6 +256,363 @@ def html_to_route(path: Path) -> str:
     if rel.endswith("/index.html"):
         return "/" + rel[: -len("index.html")]
     return "/" + rel
+
+
+def load_source_manifest() -> tuple[list[dict], list[Finding]]:
+    """Load the page manifest used to render the checked-in HTML."""
+    if not MANIFEST.is_file():
+        return [], [Finding("ERROR", "site-src/pages.json", "source page manifest is missing")]
+    try:
+        data = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return [], [Finding("ERROR", "site-src/pages.json", f"cannot read source page manifest: {exc}")]
+    pages = data.get("pages") if isinstance(data, dict) else None
+    if not isinstance(pages, list):
+        return [], [Finding("ERROR", "site-src/pages.json", "source page manifest has no pages list")]
+    if any(not isinstance(page, dict) for page in pages):
+        return [], [Finding("ERROR", "site-src/pages.json", "source page manifest contains a non-object page")]
+    return pages, []
+
+
+def is_indexable_page(page: dict) -> bool:
+    return "noindex" not in page.get("meta:robots", "").lower()
+
+
+def is_article_page(page: dict) -> bool:
+    """Identify published articles without relying only on mutable og:type."""
+    route = page.get("route", "")
+    return (
+        page.get("meta:og:type", "").lower() == "article"
+        or route == "/manifesto/"
+        or (
+            is_indexable_page(page)
+            and route.startswith(ARTICLE_ROUTE_PREFIX)
+            and route != ARTICLE_ROUTE_PREFIX
+        )
+    )
+
+
+def image_metadata(path: Path) -> tuple[int, int, str] | None:
+    """Read dimensions and MIME type from common image headers."""
+    try:
+        data = path.read_bytes()
+    except OSError:
+        return None
+
+    if data.startswith(b"\x89PNG\r\n\x1a\n") and len(data) >= 24:
+        width, height = struct.unpack(">II", data[16:24])
+        return width, height, "image/png"
+
+    if data.startswith(b"GIF87a") or data.startswith(b"GIF89a"):
+        if len(data) >= 10:
+            width, height = struct.unpack("<HH", data[6:10])
+            return width, height, "image/gif"
+
+    if data.startswith(b"\xff\xd8"):
+        # JPEG dimensions live in a Start Of Frame marker. Skip APP and
+        # comment segments until one of the baseline/progressive SOFs.
+        offset = 2
+        sof_markers = {
+            0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7,
+            0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF,
+        }
+        while offset + 3 < len(data):
+            if data[offset] != 0xFF:
+                offset += 1
+                continue
+            while offset < len(data) and data[offset] == 0xFF:
+                offset += 1
+            if offset >= len(data):
+                break
+            marker = data[offset]
+            offset += 1
+            if marker in (0xD8, 0xD9):
+                continue
+            if offset + 2 > len(data):
+                break
+            segment_length = struct.unpack(">H", data[offset:offset + 2])[0]
+            if segment_length < 2 or offset + segment_length > len(data):
+                break
+            if marker in sof_markers and segment_length >= 7:
+                height, width = struct.unpack(">HH", data[offset + 3:offset + 7])
+                return width, height, "image/jpeg"
+            offset += segment_length
+
+    if data.startswith(b"RIFF") and data[8:12] == b"WEBP" and len(data) >= 30:
+        chunk = data[12:16]
+        if chunk == b"VP8X":
+            width = 1 + int.from_bytes(data[24:27], "little")
+            height = 1 + int.from_bytes(data[27:30], "little")
+            return width, height, "image/webp"
+        if chunk == b"VP8 " and len(data) >= 30 and data[23:26] == b"\x9d\x01\x2a":
+            width, height = struct.unpack("<HH", data[26:30])
+            return width & 0x3FFF, height & 0x3FFF, "image/webp"
+        if chunk == b"VP8L" and len(data) >= 25 and data[20] == 0x2F:
+            bits = data[21:25]
+            width = 1 + ((bits[0] | bits[1] << 8) & 0x3FFF)
+            height = 1 + ((bits[1] >> 6 | bits[2] << 2 | bits[3] << 10) & 0x3FFF)
+            return width, height, "image/webp"
+
+    return None
+
+
+def _image_asset_path(url: str) -> Path | None:
+    """Resolve a social-image URL only when it points into this site."""
+    parsed = urlparse(url)
+    if parsed.scheme or parsed.netloc:
+        if parsed.scheme != "https" or parsed.netloc != urlparse(SITE_ORIGIN).netloc:
+            return None
+    if not parsed.path:
+        return None
+    return ROOT / unquote(parsed.path).lstrip("/")
+
+
+def validate_image_contract(location: str, values: dict[str, str]) -> list[Finding]:
+    """Check declared social-card metadata against the actual local asset."""
+    findings: list[Finding] = []
+    image_url = values.get("meta:og:image", "")
+    if not image_url:
+        return [Finding("ERROR", location, "indexable page is missing meta:og:image")]
+    asset = _image_asset_path(image_url)
+    if asset is None:
+        findings.append(Finding("ERROR", location, f"social image is not a local production asset: {image_url}"))
+        return findings
+    if not asset.is_file():
+        findings.append(Finding("ERROR", location, f"social image asset is missing: {image_url}"))
+        return findings
+    actual = image_metadata(asset)
+    if actual is None:
+        findings.append(Finding("ERROR", location, f"social image type or dimensions cannot be read: {image_url}"))
+        return findings
+
+    actual_width, actual_height, actual_type = actual
+    declared = (
+        values.get("meta:og:image:width", ""),
+        values.get("meta:og:image:height", ""),
+        values.get("meta:og:image:type", ""),
+    )
+    try:
+        declared_width, declared_height = int(declared[0]), int(declared[1])
+    except (TypeError, ValueError):
+        findings.append(Finding(
+            "ERROR", location,
+            f"social image dimensions must be integers (declared {declared[0]!r} × {declared[1]!r})",
+        ))
+    else:
+        if (declared_width, declared_height) != (actual_width, actual_height):
+            findings.append(Finding(
+                "ERROR", location,
+                f"social image dimensions {declared_width} × {declared_height} do not match "
+                f"asset {actual_width} × {actual_height}: {image_url}",
+            ))
+    if declared[2].lower() != actual_type:
+        findings.append(Finding(
+            "ERROR", location,
+            f"social image type {declared[2]!r} does not match asset {actual_type!r}: {image_url}",
+        ))
+    return findings
+
+
+def _jsonld_objects(parser: TagCounter) -> tuple[list[dict], list[str]]:
+    objects: list[dict] = []
+    errors: list[str] = []
+    for block in parser.jsonld_blocks:
+        try:
+            value = json.loads(block)
+        except json.JSONDecodeError as exc:
+            errors.append(str(exc))
+            continue
+        values = value if isinstance(value, list) else [value]
+        for item in values:
+            if isinstance(item, dict):
+                objects.append(item)
+                graph = item.get("@graph")
+                if isinstance(graph, list):
+                    objects.extend(node for node in graph if isinstance(node, dict))
+    return objects, errors
+
+
+def _organization_nodes(parser: TagCounter) -> tuple[list[dict], list[str]]:
+    objects, errors = _jsonld_objects(parser)
+    return [
+        item for item in objects
+        if item.get("@type") == "Organization"
+    ], errors
+
+
+def validate_organization_nodes(location: str, parser: TagCounter) -> list[Finding]:
+    """Require the one canonical Organization node and its verified links."""
+    nodes, parse_errors = _organization_nodes(parser)
+    findings = [
+        Finding("ERROR", location, f"invalid JSON-LD block: {error}")
+        for error in parse_errors
+    ]
+    if len(nodes) != 1:
+        findings.append(Finding(
+            "ERROR", location,
+            f"expected exactly one shared Organization JSON-LD node, found {len(nodes)}",
+        ))
+        return findings
+
+    node = nodes[0]
+    for key in ("@context", "@type", "@id", "name", "url"):
+        if node.get(key) != EXPECTED_ORGANIZATION[key]:
+            findings.append(Finding(
+                "ERROR", location,
+                f"shared Organization field {key!r} does not match the site contract",
+            ))
+    if node.get("logo") != EXPECTED_ORGANIZATION["logo"]:
+        findings.append(Finding("ERROR", location, "shared Organization logo does not match the site contract"))
+    same_as = node.get("sameAs")
+    expected_same_as = EXPECTED_ORGANIZATION["sameAs"]
+    if not isinstance(same_as, list) or set(same_as) != set(expected_same_as):
+        findings.append(Finding(
+            "ERROR", location,
+            "shared Organization sameAs links do not match the verified site links",
+        ))
+    return findings
+
+
+def validate_organization_source() -> list[Finding]:
+    """Validate the shared source head before checking rendered pages."""
+    if not HEAD_PARTIAL.is_file():
+        return [Finding("ERROR", "assets/partials/head.html", "shared head partial is missing")]
+    parser = TagCounter()
+    parser.feed(HEAD_PARTIAL.read_text(encoding="utf-8", errors="replace"))
+    return validate_organization_nodes("assets/partials/head.html", parser)
+
+
+def _manifest_metadata(page: dict) -> dict[str, str]:
+    return {
+        key: str(value)
+        for key, value in page.items()
+        if key.startswith("meta:")
+    }
+
+
+def validate_source_seo_contract(pages: list[dict]) -> list[Finding]:
+    """Validate SEO fields before the renderer turns them into HTML."""
+    findings: list[Finding] = []
+    seen_paths: set[str] = set()
+    for page in pages:
+        rel = str(page.get("path", "site-src/pages.json"))
+        metadata = _manifest_metadata(page)
+        if rel in seen_paths:
+            findings.append(Finding("ERROR", "site-src/pages.json", f"duplicate page path in source manifest: {rel}"))
+        seen_paths.add(rel)
+
+        if is_indexable_page(page):
+            for key in (
+                "meta:og:image", "meta:og:image:width",
+                "meta:og:image:height", "meta:og:image:type",
+            ):
+                if not metadata.get(key):
+                    findings.append(Finding("ERROR", rel, f"indexable source page is missing {key}"))
+            if RETIRED_SOCIAL_IMAGE in metadata.get("meta:og:image", ""):
+                findings.append(Finding("ERROR", rel, "indexable source page uses retired social image"))
+            findings.extend(validate_image_contract(rel, metadata))
+
+        if is_article_page(page):
+            if metadata.get("meta:og:type", "").lower() != "article":
+                findings.append(Finding("ERROR", rel, "article source page must use og:type=article"))
+            published = metadata.get("meta:article:published_time", "")
+            if not published:
+                findings.append(Finding("ERROR", rel, "article source page is missing article:published_time"))
+            else:
+                try:
+                    datetime.fromisoformat(published.replace("Z", "+00:00"))
+                except ValueError:
+                    findings.append(Finding("ERROR", rel, f"article:published_time is not ISO 8601: {published!r}"))
+    return findings
+
+
+def validate_generated_seo(
+    path: Path,
+    parser: TagCounter,
+    manifest_page: dict | None,
+) -> list[Finding]:
+    """Ensure rendered metadata still agrees with the source contract."""
+    path = path.resolve()
+    rel = path.relative_to(ROOT).as_posix()
+    if manifest_page is None:
+        # The source manifest intentionally covers the English build surface;
+        # localized pilot pages are maintained separately and must not acquire
+        # new SEO or indexing boundaries from this check.
+        if rel.startswith(MANIFEST_EXTERNAL_PREFIXES):
+            return []
+        return [Finding("ERROR", rel, "generated page is absent from source manifest")]
+    values = {
+        "meta:" + key: entries[0] if entries else ""
+        for key, entries in parser.meta.items()
+    }
+    findings = validate_organization_nodes(rel, parser)
+    if is_indexable_page(manifest_page):
+        for key in ("meta:og:image", "meta:og:image:width", "meta:og:image:height", "meta:og:image:type"):
+            if not values.get(key):
+                findings.append(Finding("ERROR", rel, f"indexable generated page is missing {key}"))
+        for key in ("meta:og:image", "meta:twitter:image"):
+            if RETIRED_SOCIAL_IMAGE in values.get(key, ""):
+                findings.append(Finding("ERROR", rel, f"indexable generated page uses retired social image: {key}"))
+        findings.extend(validate_image_contract(rel, values))
+    if is_article_page(manifest_page):
+        if values.get("meta:og:type", "").lower() != "article":
+            findings.append(Finding("ERROR", rel, "article generated page must use og:type=article"))
+        published = values.get("meta:article:published_time", "")
+        if not published:
+            findings.append(Finding("ERROR", rel, "article generated page is missing article:published_time"))
+        else:
+            try:
+                datetime.fromisoformat(published.replace("Z", "+00:00"))
+            except ValueError:
+                findings.append(Finding("ERROR", rel, f"article:published_time is not ISO 8601: {published!r}"))
+    return findings
+
+
+def validate_heat_guide_chain(pages: list[dict]) -> list[Finding]:
+    """Check the four heat guides as one ordered prev/next chain."""
+    by_route = {page.get("route"): page for page in pages}
+    findings: list[Finding] = []
+    for index, route in enumerate(HEAT_GUIDE_ROUTES):
+        page = by_route.get(route)
+        if page is None:
+            findings.append(Finding("ERROR", "site-src/pages.json", f"heat-guide route is missing: {route}"))
+            continue
+        expected_prev = HEAT_GUIDE_ROUTES[index - 1] if index else ""
+        expected_next = HEAT_GUIDE_ROUTES[index + 1] if index + 1 < len(HEAT_GUIDE_ROUTES) else ""
+        expected_prev_url = SITE_ORIGIN + expected_prev if expected_prev else ""
+        expected_next_url = SITE_ORIGIN + expected_next if expected_next else ""
+        for key, expected in (("prev", expected_prev_url), ("next", expected_next_url)):
+            if page.get(key, "") != expected:
+                findings.append(Finding(
+                    "ERROR", str(page.get("path", "site-src/pages.json")),
+                    f"heat-guide {key} link is {page.get(key, '')!r}; expected {expected!r}",
+                ))
+
+    # Rendered links are checked separately so a stale generated page cannot
+    # pass just because the manifest is correct.
+    for page in pages:
+        route = page.get("route")
+        if route not in HEAT_GUIDE_ROUTES:
+            continue
+        output = ROOT / page.get("path", "")
+        if not output.is_file():
+            continue
+        parser = TagCounter()
+        parser.feed(output.read_text(encoding="utf-8", errors="replace"))
+        index = HEAT_GUIDE_ROUTES.index(route)
+        expected = {
+            "prev": SITE_ORIGIN + HEAT_GUIDE_ROUTES[index - 1] if index else "",
+            "next": SITE_ORIGIN + HEAT_GUIDE_ROUTES[index + 1] if index + 1 < len(HEAT_GUIDE_ROUTES) else "",
+        }
+        for key, expected_url in expected.items():
+            actual = parser.navigation_links.get(key, [])
+            expected_links = [expected_url] if expected_url else []
+            if actual != expected_links:
+                findings.append(Finding(
+                    "ERROR", str(page.get("path", route)),
+                    f"generated heat-guide {key} links are {actual!r}; expected {expected_links!r}",
+                ))
+    return findings
 
 
 def current_content_hashed_url(asset_path: str) -> str | None:
@@ -617,6 +1035,7 @@ def validate_page(
     sitemap_urls: set[str],
     expected_theme_url: str | None,
     expected_script_urls: dict[str, str | None],
+    manifest_page: dict | None = None,
 ) -> list[Finding]:
     findings: list[Finding] = []
     rel = path.relative_to(ROOT).as_posix()
@@ -704,6 +1123,8 @@ def validate_page(
     except Exception as exc:  # html.parser is forgiving but be defensive
         findings.append(Finding("WARN", rel, f"HTML parser exception: {exc}"))
         return findings
+
+    findings.extend(validate_generated_seo(path, parser, manifest_page))
 
     if not parser.title:
         findings.append(Finding("ERROR", rel, "missing <title>"))
@@ -867,7 +1288,17 @@ def main() -> int:
     pages = find_html_files()
     print(f"Validating {len(pages)} HTML pages…\n")
 
+    manifest_pages, manifest_findings = load_source_manifest()
+    manifest_by_path = {
+        page.get("path"): page
+        for page in manifest_pages
+        if isinstance(page.get("path"), str)
+    }
     all_findings: list[Finding] = []
+    all_findings.extend(manifest_findings)
+    all_findings.extend(validate_source_seo_contract(manifest_pages))
+    all_findings.extend(validate_organization_source())
+    all_findings.extend(validate_heat_guide_chain(manifest_pages))
     all_findings.extend(validate_sitemap_inventory(sitemap_urls))
     all_findings.extend(validate_csp_hashes(pages))
     all_findings.extend(validate_mermaid_runtime(pages))
@@ -897,7 +1328,13 @@ def main() -> int:
             )
     for path in pages:
         all_findings.extend(
-            validate_page(path, sitemap_urls, expected_theme_url, expected_script_urls)
+            validate_page(
+                path,
+                sitemap_urls,
+                expected_theme_url,
+                expected_script_urls,
+                manifest_by_path.get(path.relative_to(ROOT).as_posix()),
+            )
         )
 
     errors = [f for f in all_findings if f.severity == "ERROR"]
