@@ -568,7 +568,10 @@ def validate_generated_seo(
     return findings
 
 
-def validate_heat_guide_chain(pages: list[dict]) -> list[Finding]:
+def validate_heat_guide_chain(
+    pages: list[dict],
+    generated_root: Path = ROOT,
+) -> list[Finding]:
     """Check the four heat guides as one ordered prev/next chain."""
     by_route = {page.get("route"): page for page in pages}
     findings: list[Finding] = []
@@ -594,7 +597,7 @@ def validate_heat_guide_chain(pages: list[dict]) -> list[Finding]:
         route = page.get("route")
         if route not in HEAT_GUIDE_ROUTES:
             continue
-        output = ROOT / page.get("path", "")
+        output = generated_root / page.get("path", "")
         if not output.is_file():
             continue
         parser = TagCounter()

@@ -1,0 +1,71 @@
+{
+  "retired_social_image": {
+    "route": "/",
+    "field": "meta:og:image",
+    "value": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png"
+  },
+  "image_contract": [
+    {
+      "id": "dimensions",
+      "route": "/",
+      "field": "meta:og:image:width",
+      "value": "1"
+    },
+    {
+      "id": "type",
+      "route": "/",
+      "field": "meta:og:image:type",
+      "value": "image/jpeg"
+    }
+  ],
+  "missing_article_metadata": {
+    "route": "/writings/first-diagram-is-a-liar/",
+    "field": "meta:article:published_time"
+  },
+  "organization_same_as_drift": {
+    "from": "https://www.linkedin.com/company/overkillhillp3",
+    "to": "https://example.com/not-the-verified-profile"
+  },
+  "heat_guide_edges": [
+    {
+      "route": "/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "key": "prev",
+      "value": "https://overkillhill.com/"
+    },
+    {
+      "route": "/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "key": "next",
+      "value": "https://overkillhill.com/"
+    },
+    {
+      "route": "/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+      "key": "prev",
+      "value": "https://overkillhill.com/"
+    },
+    {
+      "route": "/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+      "key": "next",
+      "value": "https://overkillhill.com/"
+    },
+    {
+      "route": "/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+      "key": "prev",
+      "value": "https://overkillhill.com/"
+    },
+    {
+      "route": "/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+      "key": "next",
+      "value": "https://overkillhill.com/"
+    },
+    {
+      "route": "/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+      "key": "prev",
+      "value": "https://overkillhill.com/"
+    },
+    {
+      "route": "/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+      "key": "next",
+      "value": "https://overkillhill.com/"
+    }
+  ]
+}
