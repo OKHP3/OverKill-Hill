@@ -79,7 +79,14 @@ def all_pages() -> list[Path]:
     return sorted(
         ROOT / name
         for name in tracked.stdout.splitlines()
-        if not name.startswith(("assets/templates/", "assets/partials/", "site-src/"))
+        if not name.startswith(
+            (
+                "assets/templates/",
+                "assets/partials/",
+                "site-src/",
+                "tests/fixtures/csp/",
+            )
+        )
     )
 
 

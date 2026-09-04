@@ -16,4 +16,7 @@ has applied the response header.
 validation. When changing policy generation, preserve the exact CSP meta-tag
 serialization in the static builder or the builder check and CSP generator can
 drift even when their policy values match. Keep the Skillz published summary
-origin in `connect-src` when that runtime fetch is present.
+origin in `connect-src` when that runtime fetch is present. Keep browser
+regression fixtures outside the published-page discovery set: their
+intentionally weakened or missing policies must not be regenerated or treated
+as live-page drift.
