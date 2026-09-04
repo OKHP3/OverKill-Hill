@@ -1,0 +1,327 @@
+{
+  "generated": "2026-09-04",
+  "pages_scanned": 47,
+  "internal_links": 1710,
+  "external_links": 1193,
+  "broken_links": [],
+  "style_issues": [],
+  "sitemap": {
+    "total_urls": 30,
+    "missing_from_sitemap": [],
+    "extra_in_sitemap": [],
+    "intentionally_excluded": [
+      {
+        "page": "de/about/index.html",
+        "url": "https://overkillhill.com/de/about/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "de/contact/index.html",
+        "url": "https://overkillhill.com/de/contact/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "de/index.html",
+        "url": "https://overkillhill.com/de/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "de/projects/index.html",
+        "url": "https://overkillhill.com/de/projects/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "es/about/index.html",
+        "url": "https://overkillhill.com/es/about/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "es/contact/index.html",
+        "url": "https://overkillhill.com/es/contact/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "es/index.html",
+        "url": "https://overkillhill.com/es/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "es/projects/index.html",
+        "url": "https://overkillhill.com/es/projects/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "found-ry/index.html",
+        "url": "https://overkillhill.com/found-ry/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "projects/hometools/index.html",
+        "url": "https://overkillhill.com/projects/hometools/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "projects/pathscrib-r/index.html",
+        "url": "https://overkillhill.com/projects/pathscrib-r/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "projects/un-nocked-truth/index.html",
+        "url": "https://overkillhill.com/projects/un-nocked-truth/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "search/index.html",
+        "url": "https://overkillhill.com/search/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "writings/biases-as-constants/index.html",
+        "url": "https://overkillhill.com/writings/biases-as-constants/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "writings/magnus-saga/index.html",
+        "url": "https://overkillhill.com/writings/magnus-saga/",
+        "reason": "robots meta declares noindex"
+      }
+    ]
+  },
+  "by_page": [
+    {
+      "path": "404.html",
+      "internal_links": 38,
+      "external_links": 17
+    },
+    {
+      "path": "about/index.html",
+      "internal_links": 43,
+      "external_links": 21
+    },
+    {
+      "path": "contact/index.html",
+      "internal_links": 42,
+      "external_links": 22
+    },
+    {
+      "path": "de/about/index.html",
+      "internal_links": 17,
+      "external_links": 11
+    },
+    {
+      "path": "de/contact/index.html",
+      "internal_links": 18,
+      "external_links": 12
+    },
+    {
+      "path": "de/index.html",
+      "internal_links": 18,
+      "external_links": 14
+    },
+    {
+      "path": "de/projects/index.html",
+      "internal_links": 23,
+      "external_links": 14
+    },
+    {
+      "path": "es/about/index.html",
+      "internal_links": 17,
+      "external_links": 11
+    },
+    {
+      "path": "es/contact/index.html",
+      "internal_links": 18,
+      "external_links": 12
+    },
+    {
+      "path": "es/index.html",
+      "internal_links": 18,
+      "external_links": 14
+    },
+    {
+      "path": "es/projects/index.html",
+      "internal_links": 23,
+      "external_links": 14
+    },
+    {
+      "path": "found-ry/index.html",
+      "internal_links": 40,
+      "external_links": 16
+    },
+    {
+      "path": "fr/about/index.html",
+      "internal_links": 16,
+      "external_links": 9
+    },
+    {
+      "path": "fr/contact/index.html",
+      "internal_links": 18,
+      "external_links": 12
+    },
+    {
+      "path": "fr/index.html",
+      "internal_links": 17,
+      "external_links": 12
+    },
+    {
+      "path": "fr/projects/index.html",
+      "internal_links": 23,
+      "external_links": 11
+    },
+    {
+      "path": "index.html",
+      "internal_links": 49,
+      "external_links": 24
+    },
+    {
+      "path": "legal/index.html",
+      "internal_links": 37,
+      "external_links": 18
+    },
+    {
+      "path": "manifesto/index.html",
+      "internal_links": 48,
+      "external_links": 42
+    },
+    {
+      "path": "projects/abrahamic-reference-engine/index.html",
+      "internal_links": 40,
+      "external_links": 47
+    },
+    {
+      "path": "projects/bfs-framing-intelligent-futures/index.html",
+      "internal_links": 37,
+      "external_links": 19
+    },
+    {
+      "path": "projects/bpmn-for-mermaid/index.html",
+      "internal_links": 42,
+      "external_links": 45
+    },
+    {
+      "path": "projects/first-diagram-is-a-liar/index.html",
+      "internal_links": 46,
+      "external_links": 34
+    },
+    {
+      "path": "projects/found-ry/index.html",
+      "internal_links": 55,
+      "external_links": 47
+    },
+    {
+      "path": "projects/glee-fully-chai-chasers/index.html",
+      "internal_links": 40,
+      "external_links": 45
+    },
+    {
+      "path": "projects/hometools/index.html",
+      "internal_links": 36,
+      "external_links": 16
+    },
+    {
+      "path": "projects/index.html",
+      "internal_links": 52,
+      "external_links": 24
+    },
+    {
+      "path": "projects/kierans-lifetrkr/index.html",
+      "internal_links": 41,
+      "external_links": 36
+    },
+    {
+      "path": "projects/mac-studio-local-ai-workbench/index.html",
+      "internal_links": 40,
+      "external_links": 36
+    },
+    {
+      "path": "projects/mermaid-theme-builder/index.html",
+      "internal_links": 47,
+      "external_links": 56
+    },
+    {
+      "path": "projects/pathscrib-r/index.html",
+      "internal_links": 36,
+      "external_links": 16
+    },
+    {
+      "path": "projects/skillz/index.html",
+      "internal_links": 50,
+      "external_links": 68
+    },
+    {
+      "path": "projects/telling-forward/index.html",
+      "internal_links": 46,
+      "external_links": 33
+    },
+    {
+      "path": "projects/un-nocked-truth/index.html",
+      "internal_links": 36,
+      "external_links": 16
+    },
+    {
+      "path": "prompt-forge/index.html",
+      "internal_links": 53,
+      "external_links": 33
+    },
+    {
+      "path": "search/index.html",
+      "internal_links": 39,
+      "external_links": 15
+    },
+    {
+      "path": "under-construction.html",
+      "internal_links": 38,
+      "external_links": 16
+    },
+    {
+      "path": "universe/index.html",
+      "internal_links": 45,
+      "external_links": 20
+    },
+    {
+      "path": "vault/index.html",
+      "internal_links": 41,
+      "external_links": 17
+    },
+    {
+      "path": "writings/biases-as-constants/index.html",
+      "internal_links": 36,
+      "external_links": 16
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/index.html",
+      "internal_links": 48,
+      "external_links": 96
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v1-heat-a/index.html",
+      "internal_links": 42,
+      "external_links": 26
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v1-heat-b/index.html",
+      "internal_links": 42,
+      "external_links": 25
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v2-heat-a/index.html",
+      "internal_links": 42,
+      "external_links": 27
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v2-heat-b/index.html",
+      "internal_links": 42,
+      "external_links": 26
+    },
+    {
+      "path": "writings/index.html",
+      "internal_links": 39,
+      "external_links": 16
+    },
+    {
+      "path": "writings/magnus-saga/index.html",
+      "internal_links": 36,
+      "external_links": 16
+    }
+  ]
+}
