@@ -609,8 +609,9 @@ def validate_source_seo_contract(pages: list[dict]) -> list[Finding]:
             ):
                 if not metadata.get(key):
                     findings.append(Finding("ERROR", rel, f"indexable source page is missing {key}"))
-            if RETIRED_SOCIAL_IMAGE in metadata.get("meta:og:image", ""):
-                findings.append(Finding("ERROR", rel, "indexable source page uses retired social image"))
+            for key in ("meta:og:image", "meta:twitter:image"):
+                if RETIRED_SOCIAL_IMAGE in metadata.get(key, ""):
+                    findings.append(Finding("ERROR", rel, f"indexable source page uses retired social image: {key}"))
             findings.extend(validate_image_contract(rel, metadata))
 
         if is_article_page(page):

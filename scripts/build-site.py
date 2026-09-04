@@ -329,17 +329,6 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
     for key, value in page.items():
         if key.startswith("meta:"):
             values["META:" + key[5:]] = value
-    # Keep the two social card surfaces in lockstep when an older manifest
-    # entry still points Twitter at the retired generic sentinel image.
-    if (
-        page.get("meta:og:image")
-        and page.get("meta:twitter:image", "").endswith(
-            "/over-kill-hill-p3-sentinel-waiting-square-1024.png"
-        )
-    ):
-        values["META:twitter:image"] = page["meta:og:image"]
-        if page.get("meta:og:image:alt"):
-            values["META:twitter:image:alt"] = page["meta:og:image:alt"]
     kind = classify(ROOT / rel)
     values["CSP"] = csp_policies[kind]
     for key, value in values.items():
