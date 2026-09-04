@@ -17,6 +17,7 @@ follows the same convention as `askjamie/scripts/README.md`.
 | `cache-bust.py` | active | Cache-busting query params |
 | `check-banner.py` | active | Construction-banner consistency check (invoked by `validate-site.py`) |
 | `check-csp.py` | active | CI guard against CSP drift |
+| `csp-qa.mjs` | active | Route-wide browser CSP and runtime QA (`npm run test:csp`) |
 | `check-links.py` | active | Internal/external link check |
 | `check-locale-links.py` | active | Locale link check |
 | `check-mtb-version.py` | active | MTB version consistency (invoked by `post-merge.sh` and `validate-site.py`) |

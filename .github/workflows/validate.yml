@@ -112,6 +112,20 @@ jobs:
           curl --silent --fail http://127.0.0.1:5000/ >/dev/null
           npm run test:accessibility
 
+      - name: Run route-wide CSP browser QA
+        run: |
+          python3 server.py > csp-qa-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for attempt in {1..20}; do
+            if curl --silent --fail http://127.0.0.1:5000/ >/dev/null; then
+              break
+            fi
+            sleep 0.5
+          done
+          curl --silent --fail http://127.0.0.1:5000/ >/dev/null
+          npm run test:csp -- --base-url=http://127.0.0.1:5000
+
       - name: Run WCAG contrast audit
         id: contrast
         env:
