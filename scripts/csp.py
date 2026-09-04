@@ -12,8 +12,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY_FILE = ROOT / "config" / "csp-policies.json"
+CSP_HEADER = "Content-Security-Policy"
+CSP_REPORT_ONLY_HEADER = f"{CSP_HEADER}-Report-Only"
 META_RE = re.compile(
-    r'<meta\s+http-equiv=["\']Content-Security-Policy["\']\s+content=(["\'])(.*?)\1\s*/?>',
+    rf'<meta\s+http-equiv=["\']{re.escape(CSP_HEADER)}["\']\s+content=(["\'])(.*?)\1\s*/?>',
     re.IGNORECASE,
 )
 
@@ -102,7 +104,7 @@ def build_policies() -> dict[str, str]:
         + " ".join(sorted(style_hashes["standard"]))
         + "; font-src 'self' data: https://fonts.gstatic.com; "
         "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com; "
-        "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; "
+        "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net https://okhp3.github.io; "
         "object-src 'none'; base-uri 'self'; form-action 'self'; "
         "manifest-src 'self'; upgrade-insecure-requests"
     )
@@ -148,7 +150,7 @@ def build_policies() -> dict[str, str]:
             + style_directives
             + "font-src 'self' data: https://fonts.gstatic.com; "
             "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com; "
-            "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; "
+            "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net https://okhp3.github.io; "
             + (f"frame-src 'self' {frame}; " if frame else "")
             + "object-src 'none'; base-uri 'self'; form-action 'self'; "
             "manifest-src 'self'; upgrade-insecure-requests"
@@ -186,7 +188,7 @@ def build_edge_policy() -> str:
         "font-src 'self' data: https://fonts.gstatic.com; "
         "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com; "
         "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com "
-        "https://www.googletagmanager.com https://cdn.jsdelivr.net; "
+        "https://www.googletagmanager.com https://cdn.jsdelivr.net https://okhp3.github.io; "
         "frame-src 'self' https://okhp3.github.io; frame-ancestors 'self'; "
         "object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; "
         "upgrade-insecure-requests; report-uri /__csp-report"

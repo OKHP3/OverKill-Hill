@@ -2,6 +2,17 @@
 
 All notable changes to the **OverKill Hill P³™** public repository should be recorded here.
 
+## [Unreleased — 2026-09-03]
+
+### Changed
+- **CSP moved to enforcing mode** — the canonical generator now rejects
+  Report-Only edge headers and missing/stale page policies. Regenerated
+  `_headers`, `config/csp-policies.json`, and all 47 production page meta tags
+  use `Content-Security-Policy`; the live route observation found and added the
+  legitimate `okhp3.github.io` Skillz data endpoint to `connect-src`. See
+  `docs/csp-enforcement-2026-09-03.md` for verification evidence and sibling
+  site parity requirements.
+
 ## [Unreleased — 2026-05-04]
 
 ### Changed
@@ -174,7 +185,8 @@ All notable changes to the **OverKill Hill P³™** public repository should be 
 ### Deferred (intentional)
 - Header/footer dedup (would introduce a build step — separate scoped task)
 - Notion-backed editorial review (no agent access)
-- CSP enforcement flip (leave Report-Only ~2 weeks first)
+- CSP enforcement flip — completed 2026-09-03 after local route-wide
+  verification; see `docs/csp-enforcement-2026-09-03.md`
 - `git push` (operator action)
 - Device QA for new favicon (operator action)
 

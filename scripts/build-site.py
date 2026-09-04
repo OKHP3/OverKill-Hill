@@ -361,6 +361,20 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
             if tag.get("property", "").startswith("og:") or tag.get("name", "").startswith("twitter:"):
                 tag.decompose()
     head = str(rendered_head)
+    # BeautifulSoup serializes attributes in a different order from the CSP
+    # generator. Normalize the generated tag here so build-site --check and
+    # scripts/generate-csp.py share one byte-stable representation.
+    head = re.sub(
+        r'<meta\b(?=[^>]*\bhttp-equiv=["\']Content-Security-Policy["\'])'
+        r'(?=[^>]*\bcontent="([^"]*)")[^>]*/?>',
+        lambda match: (
+            '<meta http-equiv="Content-Security-Policy" '
+            f'content="{match.group(1)}" />'
+        ),
+        head,
+        count=1,
+        flags=re.IGNORECASE,
+    )
     if not page.get("canonical"):
         head = re.sub(
             r'\s*<link href="" rel="canonical"/>\n?',

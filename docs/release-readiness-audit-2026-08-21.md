@@ -54,8 +54,10 @@ browser checks. Companion sites were used only as mechanical comparisons.
 - External-link availability is not asserted in CI because third-party
   uptime and rate limits make that check nondeterministic. Local link and asset
   resolution remain deterministic.
-- CSP remains report-only in `_headers` until deployed violation reports show
-  that inline scripts and third-party resources are fully accounted for.
+- As of this August 21 audit, CSP remained report-only in `_headers` pending
+  deployed violation reports. The policy was subsequently changed to enforcing
+  on September 3, 2026 after a fresh route-wide local observation; see
+  `docs/csp-enforcement-2026-09-03.md`.
 
 ## Priorities
 
@@ -63,7 +65,8 @@ browser checks. Companion sites were used only as mechanical comparisons.
    stable, or add a deterministic local Mermaid asset if that dependency
    becomes a release requirement.
 2. Verify the published Pages headers and key routes after deployment.
-3. Continue the existing CSP nonce/hash migration before enforcing CSP.
+3. Verify the enforcing CSP policy at the production edge after the hosting
+   configuration is moved to a header-capable proxy.
 
 ## Post-deploy verification
 

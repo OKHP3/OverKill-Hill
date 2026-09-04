@@ -1,11 +1,11 @@
 # CSP reporting
 
 The site has one checked-in CSP policy for each page class: `standard`, `embed`,
-and `utility`. `scripts/generate-csp.py` calculates hashes for the inline code
-that remains, writes `config/csp-policies.json`, and applies the matching
-enforced policy to every deployed HTML page. The edge `_headers` file contains
-the union policy required for browsers that receive headers; the page meta tag
-then tightens it by class.
+`utility`, `diagram`, and `embed-diagram`. `scripts/generate-csp.py` calculates
+hashes for the inline code that remains, writes `config/csp-policies.json`, and
+applies the matching enforcing policy to every deployed HTML page. The edge
+`_headers` file contains the union policy required for browsers that receive
+headers; the page meta tag then tightens it by class.
 
 ## Local review
 
