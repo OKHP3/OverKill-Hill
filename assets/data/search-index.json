@@ -1,7 +1,7 @@
 {
   "site": "https://overkillhill.com",
   "generated": "static",
-  "count": 159,
+  "count": 163,
   "entries": [
     {
       "url": "/",
@@ -1936,8 +1936,14 @@
       "description": "Découvrez OverKill Hill P³™ : l’approche, la philosophie et l’expérience derrière la conception de systèmes d’IA guidée par les protocoles.",
       "headings": [
         "Qui travaille sur la colline",
+        "L’expérience derrière le travail",
         "Pourquoi la colline existe",
-        "Comment nous travaillons ensemble"
+        "Comment nous travaillons ensemble",
+        "13+ ans",
+        "28",
+        "À l’échelle de l’entreprise",
+        "~5 000 utilisateurs",
+        "Formation continue"
       ],
       "body": "Aller au contenu principal La forge À propos d’OverKill Hill P³™ OverKill Hill P³™ est le point de rencontre du design, de la précision et de l’automatisation : entre l’idée et le système qui la rend concrète, entre « il faudrait automatiser ça » et « nous faisons confiance à ce que nous avons construit ensemble ». Explorer les projets Retour à la forge Qui travaille sur la colline Qui travaille sur la colline Chez OverKill Hill P³™, je conçois des systèmes d’IA capables de tenir sous la pression du monde réel : piles d’inférence locale, flux de travail agentiques, coordination multimodèle et couche de gouvernance qui rend le tout reproductible."
     },
@@ -1975,6 +1981,38 @@
         "Prêt à construire le vôtre ?"
       ],
       "body": "Aller au contenu principal Les projets de la colline Un aperçu des systèmes actuellement forgés chez OverKill Hill P³™ : certains sont publics, d’autres réalisés pour des clients, tous construits avec la même approche guidée par les protocoles. Forgés sur la colline Forgés sur la colline Des outils hébergés et des réalisations documentées, conçus, livrés et maintenus ici. Skillz Forge Skillz Forge La bibliothèque de capacités principale : des contrats SKILL.md réutilisables que les agents IA peuvent charger, composer et améliorer. Découvrez, inspectez, installez et partagez des compétences forgées sur la colline."
+    },
+    {
+      "url": "/tests/fixtures/csp/console-violation.html",
+      "title": "CSP console violation fixture",
+      "category": "Page",
+      "description": "",
+      "headings": [],
+      "body": "CSP console violation fixture"
+    },
+    {
+      "url": "/tests/fixtures/csp/missing-resource.html",
+      "title": "Missing local resource fixture",
+      "category": "Page",
+      "description": "",
+      "headings": [],
+      "body": "Missing local resource fixture"
+    },
+    {
+      "url": "/tests/fixtures/csp/page-error.html",
+      "title": "Page error fixture",
+      "category": "Page",
+      "description": "",
+      "headings": [],
+      "body": "Page error fixture"
+    },
+    {
+      "url": "/tests/fixtures/csp/unrendered-mermaid.html",
+      "title": "Unrendered Mermaid fixture",
+      "category": "Page",
+      "description": "",
+      "headings": [],
+      "body": "Unrendered Mermaid fixture graph TD; A[Start] --> B[End]"
     }
   ]
 }
