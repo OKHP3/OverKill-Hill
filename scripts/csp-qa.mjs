@@ -17,6 +17,7 @@
  * Usage:
  *   npm run test:csp
  *   node scripts/csp-qa.mjs --base-url=http://127.0.0.1:5000
+ *   node scripts/csp-qa.mjs --base-url=http://127.0.0.1:5000 --paths=/fixture.html
  */
 
 import { chromium } from "playwright";
@@ -27,8 +28,24 @@ const baseArg = process.argv.find((arg) => arg.startsWith("--base-url="));
 const baseUrl = (baseArg ? baseArg.slice("--base-url=".length) : DEFAULT_BASE_URL)
   .replace(/\/$/, "");
 const baseOrigin = new URL(baseUrl).origin;
+const pathsArg = process.argv.find((arg) => arg.startsWith("--paths="));
 
 function loadPublicPaths() {
+  if (pathsArg) {
+    const paths = pathsArg.slice("--paths=".length)
+      .split(",")
+      .map((path) => path.trim())
+      .filter(Boolean);
+    if (!paths.length) throw new Error("--paths must contain at least one route");
+    return [...new Set(paths.map((path) => {
+      const url = new URL(path, baseUrl);
+      if (url.origin !== baseOrigin || !path.startsWith("/") || url.search || url.hash) {
+        throw new Error(`Invalid --paths route: ${path}`);
+      }
+      return url.pathname || "/";
+    }))];
+  }
+
   const sitemap = readFileSync(new URL("../sitemap.xml", import.meta.url), "utf8");
   const locations = [...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
     .map((match) => match[1]);
@@ -197,6 +214,7 @@ async function main() {
   console.log("=".repeat(32));
   console.log(`Base URL: ${baseUrl}`);
   console.log(`Routes: ${PUBLIC_PATHS.length}`);
+  if (pathsArg) console.log(`Focused paths: ${PUBLIC_PATHS.join(", ")}`);
   console.log("Cross-origin requests are blocked; blocked origins are reported as warnings.");
   console.log("CSP diagnostics remain unsuppressed.\n");
 
