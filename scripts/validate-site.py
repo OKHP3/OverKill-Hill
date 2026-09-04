@@ -80,6 +80,11 @@ MERMAID_HEAT_TARGETS = {
 # silently weaken the published head.
 RETIRED_SOCIAL_IMAGE = "/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png"
 ARTICLE_ROUTE_PREFIX = "/writings/"
+FEATURED_WRITING_ROUTE = "/writings/first-diagram-is-a-liar/"
+FEATURED_WRITING_SOURCE = ROOT / "site-src/pages/writings/index.main.html"
+FEATURED_ARTICLE_SOURCE = ROOT / "site-src/pages/writings/first-diagram-is-a-liar/index.main.html"
+FEATURED_WRITING_GENERATED = ROOT / "writings/index.html"
+FEATURED_ARTICLE_GENERATED = ROOT / "writings/first-diagram-is-a-liar/index.html"
 HEAT_GUIDE_ROUTES = (
     "/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
     "/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
@@ -488,6 +493,102 @@ def _manifest_metadata(page: dict) -> dict[str, str]:
         for key, value in page.items()
         if key.startswith("meta:")
     }
+
+
+def _path_location(path: Path) -> str:
+    """Return a stable validator location for repository or fixture paths."""
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(path)
+
+
+def _release_matches(raw: str, pattern: re.Pattern[str]) -> list[str]:
+    """Extract release labels from one semantic writing-page element."""
+    matches = pattern.findall(raw)
+    return [match.lower() for match in matches]
+
+
+FEATURED_CARD_RELEASE_RE = re.compile(
+    r"<[a-z][^>]*\bclass=[\"'][^\"']*\bwriting-card-kicker--featured\b[^\"']*[\"'][^>]*>"
+    r"(.*?)</[a-z][^>]*>",
+    re.IGNORECASE | re.DOTALL,
+)
+ARTICLE_RELEASE_RE = re.compile(
+    r"<span\b[^>]*>\s*Article\s+(v\d+(?:\.\d+)+)\s*:",
+    re.IGNORECASE,
+)
+RELEASE_LABEL_RE = re.compile(r"\bv\d+(?:\.\d+)+\b", re.IGNORECASE)
+
+
+def _featured_card_releases(raw: str) -> list[str]:
+    return [
+        release
+        for element in FEATURED_CARD_RELEASE_RE.findall(raw)
+        for release in _release_matches(element, RELEASE_LABEL_RE)
+    ]
+
+
+def validate_writing_release_alignment(
+    writing_hub: Path,
+    article: Path,
+    article_route: str = FEATURED_WRITING_ROUTE,
+) -> list[Finding]:
+    """Keep the featured writing-card release equal to the article release.
+
+    This is run against both source fragments and generated pages. Requiring
+    exactly one semantic label on each side avoids silently accepting a
+    missing or ambiguous release when the content is edited.
+    """
+    findings: list[Finding] = []
+    hub_location = _path_location(writing_hub)
+    article_location = _path_location(article)
+
+    try:
+        hub_raw = writing_hub.read_text(encoding="utf-8", errors="replace")
+    except OSError as exc:
+        return [Finding("ERROR", hub_location, f"cannot read featured writing page: {exc}")]
+    try:
+        article_raw = article.read_text(encoding="utf-8", errors="replace")
+    except OSError as exc:
+        return [Finding("ERROR", article_location, f"cannot read featured article page: {exc}")]
+
+    article_releases = _release_matches(article_raw, ARTICLE_RELEASE_RE)
+    if len(article_releases) != 1:
+        findings.append(
+            Finding(
+                "ERROR",
+                article_location,
+                f"current article release is missing or ambiguous for {article_route}: "
+                'expected exactly one "Article vN.N" label',
+            )
+        )
+        return findings
+    expected = article_releases[0]
+
+    card_releases = _featured_card_releases(hub_raw)
+    if len(card_releases) != 1:
+        findings.append(
+            Finding(
+                "ERROR",
+                hub_location,
+                f"featured writing card release is missing or ambiguous for {article_route}: "
+                f"expected exactly one {expected} label from the article",
+            )
+        )
+        return findings
+    found = card_releases[0]
+
+    if found != expected:
+        findings.append(
+            Finding(
+                "ERROR",
+                hub_location,
+                f"featured writing card release mismatch for {article_route}: "
+                f"expected {expected} from the article, found {found}",
+            )
+        )
+    return findings
 
 
 def validate_source_seo_contract(pages: list[dict]) -> list[Finding]:
@@ -1302,6 +1403,18 @@ def main() -> int:
     all_findings.extend(validate_source_seo_contract(manifest_pages))
     all_findings.extend(validate_organization_source())
     all_findings.extend(validate_heat_guide_chain(manifest_pages))
+    all_findings.extend(
+        validate_writing_release_alignment(
+            FEATURED_WRITING_SOURCE,
+            FEATURED_ARTICLE_SOURCE,
+        )
+    )
+    all_findings.extend(
+        validate_writing_release_alignment(
+            FEATURED_WRITING_GENERATED,
+            FEATURED_ARTICLE_GENERATED,
+        )
+    )
     all_findings.extend(validate_sitemap_inventory(sitemap_urls))
     all_findings.extend(validate_csp_hashes(pages))
     all_findings.extend(validate_mermaid_runtime(pages))
