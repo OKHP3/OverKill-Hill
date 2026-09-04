@@ -176,6 +176,79 @@ jobs:
         if: always() && steps.contrast.outcome == 'failure'
         run: exit 1
 
+  monitor-third-party-runtime:
+    name: Monitor third-party runtime dependencies
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    concurrency:
+      group: third-party-runtime-monitor
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout monitored release
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install browser health-check dependencies
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Check deployed third-party runtime dependencies
+        id: external-health
+        continue-on-error: true
+        run: |
+          npm run test:csp:external -- \
+            --base-url=https://overkillhill.com \
+            --report=third-party-runtime-report.json
+
+      - name: Upload third-party runtime inventory
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: third-party-runtime-${{ github.run_id }}
+          path: third-party-runtime-report.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Report third-party runtime status without failing validation
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          report_path = Path("third-party-runtime-report.json")
+          try:
+              report = json.loads(report_path.read_text(encoding="utf-8"))
+          except (OSError, json.JSONDecodeError) as exc:
+              raise SystemExit(f"ERROR: third-party health check produced no usable report: {exc}")
+
+          summary = report.get("summary", {})
+          print(
+              f"Third-party runtime status: {report.get('status')}; "
+              f"routes={summary.get('routes', '?')} "
+              f"dependencies={summary.get('dependencies', '?')} "
+              f"available={summary.get('available', '?')} "
+              f"external_outages={summary.get('externalOutages', '?')} "
+              f"csp_diagnostics={summary.get('cspDiagnostics', '?')} "
+              f"local_failures={summary.get('localFailures', '?')}"
+          )
+          if report.get("externalOutages"):
+              print("WARNING: external runtime outages were observed; inspect the uploaded inventory.")
+          if report.get("cspDiagnostics"):
+              print("WARNING: CSP diagnostics were observed; inspect the CSP gate and uploaded inventory.")
+          if report.get("localFailures"):
+              print("WARNING: deployed routes failed to load; inspect the uploaded inventory.")
+          print("This scheduled health signal is non-blocking by design.")
+
   monitor-live-edge:
     name: Monitor production security and cache policies
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'

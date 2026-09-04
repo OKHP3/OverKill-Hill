@@ -18,10 +18,12 @@
  *   npm run test:csp
  *   node scripts/csp-qa.mjs --base-url=http://127.0.0.1:5000
  *   node scripts/csp-qa.mjs --base-url=http://127.0.0.1:5000 --paths=/fixture.html
+ *   node scripts/csp-qa.mjs --external-health --base-url=https://overkillhill.com
+ *   node scripts/csp-qa.mjs --external-health --report=third-party-report.json
  */
 
 import { chromium } from "playwright";
-import { readFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 
 const DEFAULT_BASE_URL = "http://127.0.0.1:5000";
 const baseArg = process.argv.find((arg) => arg.startsWith("--base-url="));
@@ -29,6 +31,13 @@ const baseUrl = (baseArg ? baseArg.slice("--base-url=".length) : DEFAULT_BASE_UR
   .replace(/\/$/, "");
 const baseOrigin = new URL(baseUrl).origin;
 const pathsArg = process.argv.find((arg) => arg.startsWith("--paths="));
+const reportArg = process.argv.find((arg) => arg.startsWith("--report="));
+const externalHealthMode =
+  process.argv.includes("--external-health") || process.argv.includes("--check-external");
+
+if (reportArg && !externalHealthMode) {
+  throw new Error("--report requires --external-health");
+}
 
 function loadPublicPaths() {
   if (pathsArg) {
@@ -209,7 +218,258 @@ async function checkRoute(browser, path) {
   };
 }
 
+function getExternalDependency(dependencies, request) {
+  const requestUrl = new URL(request.url());
+  if (!isHttpUrl(requestUrl) || requestUrl.origin === baseOrigin) return null;
+
+  // Query strings often contain per-visit analytics identifiers. They are
+  // irrelevant to endpoint availability, so keep the inventory stable and
+  // avoid copying those values into CI logs or uploaded reports.
+  requestUrl.search = "";
+  requestUrl.hash = "";
+  const key = requestUrl.href;
+  if (!dependencies.has(key)) {
+    dependencies.set(key, {
+      url: key,
+      origin: requestUrl.origin,
+      routes: new Set(),
+      resourceTypes: new Set(),
+      requestCount: 0,
+      responses: [],
+      failures: [],
+    });
+  }
+  const dependency = dependencies.get(key);
+  return dependency;
+}
+
+function serialiseExternalDependency(dependency) {
+  const hasHttpError = dependency.responses.some(({ status }) => status >= 400);
+  const hasFailure = dependency.failures.length > 0;
+  const hasResponse = dependency.responses.length > 0;
+  let state = "available";
+  if (hasHttpError || hasFailure) state = "unavailable";
+  else if (!hasResponse) state = "no-response";
+
+  return {
+    url: dependency.url,
+    origin: dependency.origin,
+    routes: [...dependency.routes].filter(Boolean).sort(),
+    resourceTypes: [...dependency.resourceTypes].sort(),
+    requestCount: dependency.requestCount,
+    responses: dependency.responses,
+    failures: dependency.failures,
+    state,
+  };
+}
+
+async function checkExternalRoute(browser, path) {
+  const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
+  const dependencies = new Map();
+  const cspDiagnostics = [];
+  const localErrors = new Set();
+
+  page.on("console", (message) => {
+    if (CSP_DIAGNOSTIC.test(message.text())) {
+      cspDiagnostics.push(formatConsoleMessage({
+        type: message.type(),
+        text: message.text(),
+        location: message.location(),
+      }));
+    }
+  });
+  page.on("request", (request) => {
+    const dependency = getExternalDependency(dependencies, request);
+    if (dependency) {
+      dependency.requestCount += 1;
+      dependency.resourceTypes.add(request.resourceType());
+      dependency.routes.add(path);
+    }
+  });
+  page.on("requestfailed", (request) => {
+    if (isLocalUrl(request.url())) {
+      localErrors.add(
+        `local request failed: ${request.url()} ` +
+        `(${request.failure()?.errorText || "unknown failure"})`,
+      );
+    }
+  });
+  page.on("response", (response) => {
+    const request = response.request();
+    const dependency = getExternalDependency(dependencies, request);
+    if (dependency) {
+      dependency.responses.push({
+        status: response.status(),
+        statusText: response.statusText(),
+      });
+    } else if (isLocalUrl(response.url()) && response.status() >= 400) {
+      localErrors.add(`local HTTP error: ${response.status()} ${response.url()}`);
+    }
+  });
+
+  try {
+    const response = await page.goto(`${baseUrl}${path}`, {
+      waitUntil: "commit",
+      timeout: 30000,
+    });
+    if (!response) {
+      localErrors.add("navigation returned no response");
+    } else if (response.status() >= 400) {
+      localErrors.add(`navigation returned HTTP ${response.status()}`);
+    }
+    try {
+      await page.waitForLoadState("domcontentloaded", { timeout: 5000 });
+    } catch {
+      localErrors.add("DOMContentLoaded was not observed within 5s");
+    }
+    // Give deferred analytics, fonts, embeds, and images a short, bounded
+    // window to make their requests without making monitoring hang on them.
+    await page.waitForTimeout(1000);
+  } catch (error) {
+    localErrors.add(`navigation failed: ${error.message.split("\n")[0]}`);
+  }
+
+  await page.close();
+  return {
+    path,
+    dependencies: [...dependencies.values()].map(serialiseExternalDependency),
+    cspDiagnostics,
+    localErrors: [...localErrors],
+  };
+}
+
+function mergeExternalDependencies(results) {
+  const merged = new Map();
+  for (const result of results) {
+    for (const dependency of result.dependencies) {
+      if (!merged.has(dependency.url)) {
+        merged.set(dependency.url, {
+          ...dependency,
+          routes: [],
+          resourceTypes: [],
+          responses: [],
+          failures: [],
+        });
+      }
+      const existing = merged.get(dependency.url);
+      existing.routes = [...new Set([...existing.routes, ...dependency.routes])].sort();
+      existing.resourceTypes = [
+        ...new Set([...existing.resourceTypes, ...dependency.resourceTypes]),
+      ].sort();
+      existing.requestCount += dependency.requestCount;
+      existing.responses.push(...dependency.responses);
+      existing.failures.push(...dependency.failures);
+      existing.state = existing.failures.length ||
+        existing.responses.some(({ status }) => status >= 400)
+        ? "unavailable"
+        : existing.responses.length
+          ? "available"
+          : "no-response";
+    }
+  }
+  return [...merged.values()].sort((left, right) => left.url.localeCompare(right.url));
+}
+
+async function runExternalHealth() {
+  console.log("OverKill Hill third-party runtime health");
+  console.log("=".repeat(40));
+  console.log(`Base URL: ${baseUrl}`);
+  console.log(`Routes: ${PUBLIC_PATHS.length}`);
+  if (pathsArg) console.log(`Focused paths: ${PUBLIC_PATHS.join(", ")}`);
+  console.log(
+    "Cross-origin requests are allowed for this non-blocking availability check.",
+  );
+  console.log(
+    "External outages, CSP diagnostics, and local route failures are reported separately.\n",
+  );
+
+  const browser = await chromium.launch({ headless: true });
+  const results = [];
+  try {
+    for (const path of PUBLIC_PATHS) {
+      const result = await checkExternalRoute(browser, path);
+      results.push(result);
+      console.log(
+        `${result.localErrors.length ? "FAIL" : "CHECK"} ${path} ` +
+        `(${result.dependencies.length} external request(s))`,
+      );
+      result.localErrors.forEach((error) => console.log(`      LOCAL: ${error}`));
+      result.cspDiagnostics.forEach((message) => console.log(`      CSP: ${message}`));
+    }
+  } finally {
+    await browser.close();
+  }
+
+  const dependencies = mergeExternalDependencies(results);
+  const externalOutages = dependencies.filter(
+    ({ state }) => state === "unavailable" || state === "no-response",
+  );
+  const cspDiagnostics = results.flatMap(({ path, cspDiagnostics: messages }) =>
+    messages.map((message) => ({ path, message })),
+  );
+  const localFailures = results.flatMap(({ path, localErrors }) =>
+    localErrors.map((error) => ({ path, error })),
+  );
+  const report = {
+    version: 1,
+    mode: "external-health",
+    baseUrl,
+    routes: PUBLIC_PATHS,
+    dependencies,
+    externalOutages,
+    cspDiagnostics,
+    localFailures,
+    summary: {
+      routes: results.length,
+      dependencies: dependencies.length,
+      available: dependencies.filter(({ state }) => state === "available").length,
+      externalOutages: externalOutages.length,
+      cspDiagnostics: cspDiagnostics.length,
+      localFailures: localFailures.length,
+    },
+    status: externalOutages.length
+      ? "EXTERNAL_OUTAGE"
+      : cspDiagnostics.length
+        ? "CSP_BLOCKED"
+        : localFailures.length
+          ? "LOCAL_FAILURE"
+          : "PASS",
+  };
+
+  console.log(
+    `\nExternal health: ${report.summary.dependencies} dependency URL(s), ` +
+    `${report.summary.available} available, ` +
+    `${report.summary.externalOutages} external outage(s), ` +
+    `${report.summary.cspDiagnostics} CSP diagnostic(s), ` +
+    `${report.summary.localFailures} local route failure(s).`,
+  );
+  externalOutages.forEach((dependency) => {
+    console.log(`  EXTERNAL OUTAGE: ${dependency.url} (${dependency.state})`);
+  });
+  if (cspDiagnostics.length) {
+    console.log("  CSP diagnostics were observed during the availability check.");
+  }
+  if (localFailures.length) {
+    console.log("  Local route failures were observed during the availability check.");
+  }
+
+  if (reportArg) {
+    const reportPath = reportArg.slice("--report=".length);
+    if (!reportPath) throw new Error("--report must contain a file path");
+    writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+    console.log(`Report: ${reportPath}`);
+  }
+
+  if (externalOutages.length || cspDiagnostics.length || localFailures.length) {
+    process.exitCode = 1;
+  }
+}
+
 async function main() {
+  if (externalHealthMode) {
+    await runExternalHealth();
+    return;
+  }
   console.log("OverKill Hill CSP browser QA");
   console.log("=".repeat(32));
   console.log(`Base URL: ${baseUrl}`);

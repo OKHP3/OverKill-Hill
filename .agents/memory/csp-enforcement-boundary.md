@@ -20,3 +20,5 @@ origin in `connect-src` when that runtime fetch is present. Keep browser
 regression fixtures outside the published-page discovery set: their
 intentionally weakened or missing policies must not be regenerated or treated
 as live-page drift.
+Runtime dependency health reports should use endpoint URLs without query
+strings so analytics identifiers do not enter CI logs or artifacts.

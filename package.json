@@ -6,6 +6,7 @@
   "scripts": {
     "test:accessibility": "node scripts/accessibility-qa.mjs",
     "test:csp": "node scripts/csp-qa.mjs",
+    "test:csp:external": "node scripts/csp-qa.mjs --external-health",
     "test:csp:regressions": "node --test tests/csp-qa.test.mjs",
     "test:screen-reader": "node scripts/screen-reader-tree-audit.mjs",
     "test:phone-overflow": "node scripts/phone-overflow-qa.mjs",
