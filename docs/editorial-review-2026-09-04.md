@@ -2,7 +2,7 @@
 
 **Review date:** 2026-09-04  
 **Review mode:** Notion staging with repository export  
-**Owner sign-off:** Pending
+**Owner sign-off:** Approved 2026-09-04
 
 ## Connector and access check
 
@@ -42,7 +42,9 @@ The Notion material consulted was the canonical website record for each route, t
 
 **Confirmed already addressed:** The prior Notion review identified agency-plural wording and the typo “part of he load.” The current source uses first-person singular wording for the personal-brand sections and says “carry part of the load.”
 
-**Still a suggestion:** The prior review also requested a scannable credentials section covering the available experience and certification claims. The current page mentions 13+ years of enterprise experience, but does not yet have a dedicated credential grid or timeline. This remains pending owner sign-off and was not added during this pass, because the Notion record is still marked as needing review.
+**Approved addition:** The owner approved a scannable credentials section covering 13+ years of enterprise systems experience, 28 professional certifications, enterprise-scale architecture work, a Salesforce rollout reaching approximately 5,000 users, and Information Technology and Cloud Computing studies at Western Governors University.
+
+The wording was reconciled against the owner's public personal and business LinkedIn pages before publication. The employer is intentionally unnamed on the About page to avoid implying a connection between the owner's employment and OverKill Hill P³™. The page keeps first-person singular framing and describes the scale and nature of the experience without naming the employer.
 
 ### `/manifesto/`
 
@@ -58,4 +60,4 @@ No direct edits were made to either sibling site.
 
 ## Review record
 
-The same findings, correction, pending credential suggestion, superseded-manifesto disposition, and cross-site note were staged in Notion. The staging record remains explicitly **Needs review** for owner sign-off; this repository export is the durable source for the pass and does not depend on a live Notion link.
+The same findings, correction, credential suggestion, superseded-manifesto disposition, and cross-site note were staged in Notion. The owner approved the LinkedIn-aligned credential wording on 2026-09-04, with the additional instruction that the public page not name the employer. This repository export is the durable source for the approval and does not depend on a live Notion link.

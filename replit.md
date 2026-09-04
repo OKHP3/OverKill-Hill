@@ -5,6 +5,7 @@
 - **Em dashes are rare, not banned.** Fine for breaking a heading/title into two parts (e.g. "Brand — Tagline"); everywhere else (body copy, meta descriptions, sentences), use commas, parentheses, or a period/new sentence instead. When in doubt, don't use one.
 - **Conventional American English** spelling, grammar, and punctuation (the register taught in a US classroom to someone born in 1975, high school class of 1994). Avoid trendy/AI-sounding phrasing.
 - Site positioning has moved on from "custom GPT" as the headline technology (that was the starting point ~14 months ago). Lead copy should foreground protocol-first AI systems design, local inference, multi-model coordination, and governance. References to custom GPTs are fine only when factually describing past work or an external product (e.g. Glee-fully) that is genuinely GPT-based.
+- Keep the owner's current employer unnamed in public biography and credential copy. Describe the scale and nature of the experience without implying that the employer is connected to OverKill Hill P³™.
 
 ## Project Overview
 
