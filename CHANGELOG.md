@@ -13,6 +13,16 @@ All notable changes to the **OverKill Hill P³™** public repository should be 
   `docs/csp-enforcement-2026-09-03.md` for verification evidence and sibling
   site parity requirements.
 
+## [Unreleased — 2026-09-04]
+
+### Changed
+- **Completed a bounded Notion-backed editorial pass** across `/writings/`,
+  `/manifesto/`, and `/about/`. Corrected the `/writings/` featured-card
+  release label from v1.0 to v0.5, confirmed the About voice and typo fixes
+  already present, and left the proposed credentials grid pending owner
+  sign-off. The review record is exported to
+  `docs/editorial-review-2026-09-04.md`; no sibling-site files were changed.
+
 ## [Unreleased — 2026-05-04]
 
 ### Changed

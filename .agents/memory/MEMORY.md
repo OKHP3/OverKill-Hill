@@ -8,3 +8,4 @@
 - [GitHub workflow push auth](github-workflow-push-auth.md) — use the workflow-scoped PAT via Basic x-access-token transport; the attached OAuth connection may only have repo scope.
 - [SEO source/render boundary](seo-source-render-boundary.md) — validate manifest intent and rendered HTML separately when the build normalizes legacy metadata or excludes pilot locales.
 - [CSP enforcement boundary](csp-enforcement-boundary.md) — source policies can enforce via meta while live response headers still depend on a header-capable edge; keep builder serialization stable.
+- [Notion editorial access](notion-editorial-access.md) — an authorized Notion connection may need binding before use; search titles, then fetch page content explicitly.
