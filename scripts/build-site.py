@@ -484,7 +484,7 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
         ).div
         nav_toggle_el.insert_before(switch_section)
     body_class = f' class="{html.escape(page["body_class"], quote=True)}"' if page["body_class"] else ""
-    app = next((x for x in BeautifulSoup((ROOT / "index.html").read_text(), "html.parser").body.find_all("script")
+    app = next((x for x in BeautifulSoup((ROOT / "index.html").read_text(encoding="utf-8"), "html.parser").body.find_all("script")
                 if APP_RE.search(x.get("src", ""))), None)
     app_html = str(app) if app else '<script src="/assets/js/app.js"></script>'
     return (

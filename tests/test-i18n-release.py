@@ -20,6 +20,12 @@ DETECTOR_MODULE = importlib.util.module_from_spec(DETECTOR_SPEC)
 assert DETECTOR_SPEC.loader is not None
 DETECTOR_SPEC.loader.exec_module(DETECTOR_MODULE)
 
+REGIONAL_BUILDER = ROOT / "scripts" / "build-locale-drafts.py"
+REGIONAL_BUILDER_SPEC = importlib.util.spec_from_file_location("build_locale_drafts", REGIONAL_BUILDER)
+REGIONAL_BUILDER_MODULE = importlib.util.module_from_spec(REGIONAL_BUILDER_SPEC)
+assert REGIONAL_BUILDER_SPEC.loader is not None
+REGIONAL_BUILDER_SPEC.loader.exec_module(REGIONAL_BUILDER_MODULE)
+
 
 class I18nReleaseTests(unittest.TestCase):
     def test_detector_hash_is_stable_across_checkout_line_endings(self):
@@ -38,6 +44,24 @@ class I18nReleaseTests(unittest.TestCase):
             self.assertEqual(DETECTOR_MODULE.sha256_file(lf), DETECTOR_MODULE.sha256_file(crlf))
             self.assertNotEqual(DETECTOR_MODULE.sha256_file(lf), DETECTOR_MODULE.sha256_file(changed))
             self.assertNotEqual(DETECTOR_MODULE.sha256_file(spaced), DETECTOR_MODULE.sha256_file(unspaced))
+
+    def test_regional_source_hash_ignores_generated_metadata_but_not_visible_content(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            original = root / "original.html"
+            regenerated = root / "regenerated.html"
+            changed = root / "changed.html"
+            original.write_text('<meta http-equiv="Content-Security-Policy" content="one"><link href="/theme.css?v=11111111"><p>stable</p>\n', encoding="utf-8")
+            regenerated.write_text('<meta content="two" http-equiv="Content-Security-Policy"><link href="/theme.css?v=22222222"><p>stable</p>\r\n', encoding="utf-8", newline="")
+            changed.write_text('<meta http-equiv="Content-Security-Policy" content="two"><link href="/theme.css?v=22222222"><p>changed</p>\n', encoding="utf-8")
+            self.assertEqual(
+                REGIONAL_BUILDER_MODULE.canonical_text_hash(original),
+                REGIONAL_BUILDER_MODULE.canonical_text_hash(regenerated),
+            )
+            self.assertNotEqual(
+                REGIONAL_BUILDER_MODULE.canonical_text_hash(original),
+                REGIONAL_BUILDER_MODULE.canonical_text_hash(changed),
+            )
 
     def test_full_report_preserves_all_pairs_and_blocks_only_french(self):
         report = {

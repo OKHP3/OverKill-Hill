@@ -41,6 +41,16 @@ from urllib.parse import urlparse, unquote
 
 from csp import build_policies, page_class, sha256_source
 
+
+def configure_utf8_console() -> None:
+    """Keep Windows validation output and child-tool decoding portable."""
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
+
+
+configure_utf8_console()
+
 ROOT = Path(__file__).resolve().parent.parent
 SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src", "tests"}
 SITEMAP = ROOT / "sitemap.xml"
@@ -1344,6 +1354,9 @@ def run_mtb_version_check() -> int:
         [sys.executable, str(script)],
         capture_output=True,
         text=True,
+        encoding="utf-8",
+        errors="replace",
+        env={**os.environ, "PYTHONUTF8": "1"},
     )
     if result.stdout:
         print(result.stdout, end="")
@@ -1360,6 +1373,9 @@ def run_banner_check() -> int:
         [sys.executable, str(script)],
         capture_output=True,
         text=True,
+        encoding="utf-8",
+        errors="replace",
+        env={**os.environ, "PYTHONUTF8": "1"},
     )
     if result.stdout:
         print(result.stdout, end="")
@@ -1378,6 +1394,9 @@ def run_voice_lint() -> int:
         [sys.executable, str(script), "--baseline", str(baseline)],
         capture_output=True,
         text=True,
+        encoding="utf-8",
+        errors="replace",
+        env={**os.environ, "PYTHONUTF8": "1"},
     )
     if result.stdout:
         print(result.stdout, end="")
