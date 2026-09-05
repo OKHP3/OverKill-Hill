@@ -74,7 +74,7 @@ from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent.parent
 EXCLUDE_DIRS = {".local", ".agents", "attached_assets", "node_modules", ".cache", ".git",
-                ".pr-head", "_replit", "templates", "site-src"}
+                ".pr-head", "_replit", "templates", "site-src", "tests"}
 EXCLUDE_FROM_SITEMAP = {"404.html", "under-construction.html"}
 
 # Title / description recommended length budgets

@@ -37,7 +37,7 @@ SKIP_FILES = {
 }
 SKIP_DIR_PARTS = {".git", ".local", ".cache", ".vscode", ".github", ".pr-head", "partials",
                   ".config", ".canvas", ".agents", "attached_assets",
-                   "node_modules", "_replit", "templates", "site-src"}
+                   "node_modules", "_replit", "templates", "site-src", "tests"}
 
 CATEGORY_RULES = [
     ("/writings/first-diagram-is-a-liar/v03/", "Field Guide"),
