@@ -3,6 +3,8 @@
 Status: reviewable artwork candidate, not owner-approved or deployed.
 Scope: one design plus one correction for painted-checkerboard defect. Platform derivatives belong to P2.
 
+In this historical record, P2 means the website-remediation project-management task, not a priority rating. Its subsequent delivered work is recorded in [delivery status](murderbird-v2-delivery-status-2026-09-05.md).
+
 ## Artifact
 
 Master: [murderbird-v2-icon-head-master-draft-01.png](assets/murderbird-camera-series-2026-09-05/murderbird-v2-icon-head-master-draft-01.png)
@@ -15,7 +17,7 @@ Brand skill profile v1.1.0 guided bronze, deep verdigris and concentrated orange
 ## Reference and provenance
 
 Owner-preferred July Image 2, inspected before generation:
-C:/Users/jamie/.codex/generated_images/019fb11d-38c5-7752-8569-76883102e38b/exec-7764b692-1ea2-4c96-b00a-7a21fb09eafc.png
+[Owner-preferred July reference](assets/murderbird-camera-series-2026-09-05/murderbird-owner-preferred-july-reference.png). Original generator identifier: `exec-7764b692-1ea2-4c96-b00a-7a21fb09eafc.png`.
 
 Initial output: exec-0576e72d-143c-4b78-bc1c-1308d4091c3e.png. Rejected for painted checkerboard.
 Corrected output: exec-75458b85-7131-4875-be79-eb9bcb4d552d.png in the same generated-images directory. Copied unchanged to the project master above.
