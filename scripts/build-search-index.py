@@ -568,10 +568,6 @@ def main(argv: list[str] | None = None) -> int:
     )
     scan_root = ROOT / locale if locale else ROOT
     if locale and not scan_root.exists():
-        # Keep the unpublished pilot scaffold runnable without creating a
-        # deployable /fr/ tree. A real locale takes precedence when present.
-        scan_root = ROOT / "i18n" / "pilot" / locale
-    if locale and not scan_root.exists():
         print(
             f"Locale source directory is missing: {scan_root.relative_to(ROOT)}. "
             "Create the translated pages before building its index.",

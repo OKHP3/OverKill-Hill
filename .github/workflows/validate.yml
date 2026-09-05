@@ -143,7 +143,7 @@ jobs:
         run: npm run test:csp:regressions
 
       - name: Run search and embedded-app regressions
-        run: node --test tests/search-page.test.mjs tests/search-index.test.mjs tests/embed-workflow.test.mjs
+        run: node --test tests/search-page.test.mjs tests/search-index.test.mjs tests/search-index-locale.test.mjs tests/embed-workflow.test.mjs
 
       - name: Run WCAG contrast audit
         id: contrast
