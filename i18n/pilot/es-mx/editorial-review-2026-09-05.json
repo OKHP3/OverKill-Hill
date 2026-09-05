@@ -1,13 +1,14 @@
 {
   "language_pair": "en-US -> es-MX",
+  "source_revision": "git:a39fcda69ebe7ec0aa215c40b24156f2d714be54+alt-correction",
   "method": "AI editorial review against canonical en-US source",
   "native_or_human_certification": false,
   "routes": {
-    "/": {"checked": ["hero meaning", "forge metaphor", "CTA intent", "technology terms", "alt text"], "corrections": ["Keep promptcraft, workflow, and protocol as intentional technology-register terms."]},
+    "/": {"checked": ["hero meaning", "forge metaphor", "CTA intent", "technology terms", "alt text"], "corrections": ["Keep promptcraft, workflow, and protocol as intentional technology-register terms.", "Corrected the canonical hero alt after inspecting the referenced asset: stylized mechanical owl with glowing amber eyes."]},
     "/about/": {"checked": ["first-person point of view", "enterprise facts", "CTA intent", "tú register"], "corrections": ["Preserve Jamie's first-person voice and US experience claims."]},
     "/projects/": {"checked": ["project names", "links", "technical claims", "CTA intent"], "corrections": ["Keep product names and code tokens unchanged; use natural Mexican project language."]},
     "/contact/": {"checked": ["contact details", "US Central Time fact", "support copy", "alt text"], "corrections": ["Corrected 'un computadora' to 'una computadora'. Keep the US location fact unchanged."]}
   },
-  "open_issues": ["No qualified native Mexican Spanish review has occurred.", "Public release acceptance remains separate and false."],
+  "open_issues": ["No native or human certification is claimed; the owner-authorized AI editorial review is complete.", "Public release acceptance remains separate and false."],
   "mechanical_checks": ["No vosotros/vosotras forms", "protected email and URLs preserved", "four routes noindex", "zero public search entries"]
 }

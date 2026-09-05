@@ -63,6 +63,7 @@ _LINK_RE = re.compile(
     re.MULTILINE,
 )
 _HREF_RE = re.compile(r'\bhref="([^"]+)"', re.IGNORECASE)
+_BANNER_RELEASE_ATTR_RE = re.compile(r'\bdata-banner-release="(v\d+(?:\.\d+)+)"', re.IGNORECASE)
 _ARTICLE_RELEASE_RE = re.compile(
     r"<span\b[^>]*>\s*Article\s+(v\d+(?:\.\d+)+)\s*:",
     re.IGNORECASE,
@@ -118,9 +119,13 @@ def _banner_release_issue(raw_text: str, opening_tag: str, expected_release: str
     if not href.startswith(FEATURED_ARTICLE_ROUTE):
         return None
 
-    normalised = _normalise(raw_text)
-    release_match = _BANNER_RELEASE_RE.match(normalised)
-    found = f"v{release_match.group(1).lower()}" if release_match else None
+    release_attr = _BANNER_RELEASE_ATTR_RE.search(opening_tag)
+    if release_attr:
+        found = release_attr.group(1).lower()
+    else:
+        normalised = _normalise(raw_text)
+        release_match = _BANNER_RELEASE_RE.match(normalised)
+        found = f"v{release_match.group(1).lower()}" if release_match else None
     if found != expected_release:
         found_label = found if found is not None else "missing"
         return (
@@ -155,6 +160,9 @@ def check_file(
         is_featured_banner = bool(
             href_match and href_match.group(1).startswith(FEATURED_ARTICLE_ROUTE)
         )
+        is_localized_featured_banner = (
+            is_featured_banner and 'data-banner-localized="true"' in m.group(1)
+        )
 
         if expected_release is not None:
             release_issue = _banner_release_issue(raw_text, m.group(1), expected_release)
@@ -163,6 +171,11 @@ def check_file(
 
         # Already canonical?
         if normalised == _normalise(CANONICAL_BANNER):
+            continue
+
+        # Localized notices retain an explicit release marker for validation,
+        # but intentionally have visitor-facing copy different from English.
+        if is_localized_featured_banner:
             continue
 
         # Intentionally different banner (template token or other article)?
