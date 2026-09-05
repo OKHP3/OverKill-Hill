@@ -5,35 +5,39 @@
   "reviewed_on": "2026-09-05",
   "review_authority": "owner-authorized AI semantic and terminology review",
   "native_or_human_approval": false,
-  "source_revision": "git:346572dc94b7bcc91fd0c0aa7c26024d09cc8972",
+  "source_revision": "git:a39fcda69ebe7ec0aa215c40b24156f2d714be54",
   "routes": [
     {
       "route": "/",
-      "source_sha256": "55bd2e5a405ddc51aaa01ece361fb8e255c5030d3cd237696845586248179c09",
+      "source_sha256": "a82be7e59c8b6f79f860275072d56b142f9e65d0fcace31a46a5bf5cbef39f34",
       "target_path": "fr/index.html",
-      "target_sha256": "042609f163c35e03c3c50259298991709600c4558bfbd3c04d0806283037051b",
-      "disposition": "retained-ai-reviewed"
+      "target_sha256": "f6289858fbaf4b3fdf0570e430710d9d10609680d30ce677c2f450180ce5d8b1",
+      "disposition": "retained-ai-reviewed",
+      "locale": "fr"
     },
     {
       "route": "/about/",
-      "source_sha256": "dc4d3113cea8a486f54f1f1a6130eb0787c1fc667b5dc66437ffd282b2fad117",
+      "source_sha256": "ecc90e0aeb9608b0bf6f065b7392e437071ec5f04b810a764600afcd73b7eddc",
       "target_path": "fr/about/index.html",
-      "target_sha256": "7a07744ce1c9e02e158bc21aa38ef0311ae830ab4203f8e7a96ae64432481cd8",
-      "disposition": "retained-ai-reviewed"
+      "target_sha256": "25382725ec42643ea82b473f587661be285b61ae1f23788d53fe8272c641e347",
+      "disposition": "retained-ai-reviewed",
+      "locale": "fr"
     },
     {
       "route": "/projects/",
-      "source_sha256": "73a5a773cec9b41e3abf0c0c4adfb22b5bf0a12520eef2027d49f0da15c3a9b8",
+      "source_sha256": "43d33d3410e747c89fc0b87e81e785b3ea123bd796460e72614cbaee9d3da93f",
       "target_path": "fr/projects/index.html",
-      "target_sha256": "da0636c6063db1fa6a87c80e14927dfbbfb3251f94a248e043c10859ca8bc4b3",
-      "disposition": "retained-ai-reviewed"
+      "target_sha256": "ec6702b72866d7d97d42f01202c641e8d17aa8f406bacc9c2add88e14edf1af9",
+      "disposition": "retained-ai-reviewed",
+      "locale": "fr"
     },
     {
       "route": "/contact/",
-      "source_sha256": "762feb1859246bfd1a5606c18bc8f437b4f3682fe820d64c0782ee70385974b6",
+      "source_sha256": "6872b146c4e030e4bcc35c1443cf3c1f2e463f79b4ba351705aff18013cae1f3",
       "target_path": "fr/contact/index.html",
-      "target_sha256": "3c359fa52e0452a4161ccdad5f986a85eb9ed895c91135d48c283da87c339a46",
-      "disposition": "no-semantic-delta"
+      "target_sha256": "04fde6dfaf1c167a75484a7c899d87957708d7a1da959d67eedd7580457aaa62",
+      "disposition": "no-semantic-delta-ai-reviewed",
+      "locale": "fr"
     }
   ],
   "terminology": {
@@ -42,5 +46,5 @@
     "register": "vous",
     "english_only_destinations": "labeled in the French copy"
   },
-  "sync_state_adoption": "pending-final-integrated-English-and-locale-hashes"
+  "sync_state_adoption": "adopted-four-routes-against-a39fcda; deployment not claimed"
 }
