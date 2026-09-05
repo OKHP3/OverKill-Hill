@@ -50,7 +50,7 @@ REQUIRED_EXCLUSIONS = (
     "assets/templates/template--homepage.html",
 )
 PUBLIC_HTML_DIRECTORIES = (
-    "about", "contact", "de", "es", "found-ry", "fr", "legal", "manifesto",
+    "about", "contact", "de", "en-gb", "es", "es-mx", "found-ry", "fr", "legal", "manifesto",
     "projects", "prompt-forge", "search", "universe", "vault", "writings",
 )
 
