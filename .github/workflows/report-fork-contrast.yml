@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: Find the current pull request
         id: pr
-        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
           script: |
             const run = context.payload.workflow_run;
@@ -83,7 +83,7 @@ jobs:
       - name: Inspect upstream contrast audit status
         if: steps.pr.outputs.number != ''
         id: upstream
-        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
           script: |
             const run = context.payload.workflow_run;
@@ -113,7 +113,7 @@ jobs:
           steps.upstream.outputs.contrast_outcome != 'skipped'
         id: download
         continue-on-error: true
-        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
           name: contrast-audit-${{ github.event.workflow_run.id }}
           path: contrast-audit
@@ -129,7 +129,7 @@ jobs:
         if: >-
           steps.pr.outputs.number != '' &&
           steps.upstream.outputs.contrast_outcome != 'skipped'
-        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         env:
           CONTRAST_REPORT: contrast-audit/contrast-report.txt
           CONTRAST_EXIT_CODE: contrast-audit/contrast-exit-code.txt

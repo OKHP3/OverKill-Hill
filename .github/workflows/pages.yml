@@ -37,7 +37,7 @@ jobs:
           ref: ${{ github.sha }}
 
       - name: Download the exact validated release artifact
-        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
           name: validated-site-${{ github.sha }}
           path: site-release
@@ -50,16 +50,16 @@ jobs:
             --commit "${{ github.sha }}"
 
       - name: Setup Pages
-        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d
 
       - name: Upload site artifact
-        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9
         with:
           path: site-release
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346
 
       - name: Verify live edge matches validated release
         env:
@@ -75,7 +75,7 @@ jobs:
 
       - name: Upload live-edge release evidence
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: live-edge-report-${{ github.run_id }}
           path: assets/audit/live-edge-report.json
