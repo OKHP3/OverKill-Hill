@@ -3,37 +3,37 @@
   "review_status": "ai-reviewed",
   "native_or_human_approval": false,
   "publication_status": "noindex draft; sync adoption is freshness evidence, not publication",
-  "source_revision": "git:ba3599c26d9dcc379b6452024e408e4be0635edb",
+  "source_revision": "git:00173f1b5dd233b74a302da164baa851468cc901",
   "routes": [
     {
       "route": "/",
-      "source_sha256": "d61f768ffa5a5dee857e356a2f684061d050a3213b9e6c22f8cda2ac02dba800",
+      "source_sha256": "254ff869f86f2bf85e0319dcd3c5f1d27b38755c8a8304006be2bf3b570e306e",
       "target_path": "de/index.html",
-      "target_sha256": "be2458063d4c9015df2540f4daa7b2e3c780888fe36b0caef2282f61e270a02e",
+      "target_sha256": "8790a9c1fe6416aa4a9d42d426e46ba350809a2acd505df68c95efaba469c434",
       "disposition": "retained-ai-reviewed",
       "locale": "de"
     },
     {
       "route": "/about/",
-      "source_sha256": "2cdf18dcc7e8a4478eea72f4e7d4b3bcb9e1004e8ffd76282e4279544bfd461d",
+      "source_sha256": "7110912543d29e362f0603cbae10735e11da1427297fb865060b26710ff1f24a",
       "target_path": "de/about/index.html",
-      "target_sha256": "e777b2de59867662e2b49adb354542dc8e00f99ed54e3ba8ba2b23d698823421",
+      "target_sha256": "ab0b482a5f82e2aebebafc2f8e12942becea810aad4b544ce3a274be883134b9",
       "disposition": "retained-ai-reviewed",
       "locale": "de"
     },
     {
       "route": "/projects/",
-      "source_sha256": "fd89ba971ad78638db08cad4ef3c34c73163a372de363f5423f52e8786cf8a90",
+      "source_sha256": "5a89d53200eb5662b6248f5f70fc9e813a3c650ac286c48e9cd19c455f0456e8",
       "target_path": "de/projects/index.html",
-      "target_sha256": "7dc26a41f0421d2474c5d5f017bf78885e625cc17714893e99fa9604d779fee3",
+      "target_sha256": "bf73dfc842a6a1fd9d702f8a1e94a1015518c537c3a4cfe1a213abeb4e7b5e7d",
       "disposition": "retained-ai-reviewed",
       "locale": "de"
     },
     {
       "route": "/contact/",
-      "source_sha256": "7af98b2010275f8070f8eadfaa62c5e66dde0bd25706fd72613654ffb6e601df",
+      "source_sha256": "87445732b7d20c405ee6d39c9b52cacb297c64dfe01b3398fd546248af20ba66",
       "target_path": "de/contact/index.html",
-      "target_sha256": "137828b627fa272a335eb27ad47eb8184a98b9b9786db18ae5d2e0982b03f6d3",
+      "target_sha256": "022b84a3aa361b1e8b27413137eca5e6aa45a80888a8213d1198de4e25cdd75e",
       "disposition": "retained-ai-reviewed",
       "locale": "de"
     }

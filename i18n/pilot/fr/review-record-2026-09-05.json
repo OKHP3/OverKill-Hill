@@ -5,37 +5,37 @@
   "reviewed_on": "2026-09-05",
   "review_authority": "owner-authorized AI semantic and terminology review",
   "native_or_human_approval": false,
-  "source_revision": "git:ba3599c26d9dcc379b6452024e408e4be0635edb",
+  "source_revision": "git:00173f1b5dd233b74a302da164baa851468cc901",
   "routes": [
     {
       "route": "/",
-      "source_sha256": "d61f768ffa5a5dee857e356a2f684061d050a3213b9e6c22f8cda2ac02dba800",
+      "source_sha256": "254ff869f86f2bf85e0319dcd3c5f1d27b38755c8a8304006be2bf3b570e306e",
       "target_path": "fr/index.html",
-      "target_sha256": "8da57fca5a63467285940185707a239e259f141885c0c2d876ea0c7693bfc92e",
+      "target_sha256": "2f0d4cba615dc13b9974ba59bfe2bf5ec872b7c23111fc5d38dc42273e4b1d7b",
       "disposition": "retained-ai-reviewed",
       "locale": "fr"
     },
     {
       "route": "/about/",
-      "source_sha256": "2cdf18dcc7e8a4478eea72f4e7d4b3bcb9e1004e8ffd76282e4279544bfd461d",
+      "source_sha256": "7110912543d29e362f0603cbae10735e11da1427297fb865060b26710ff1f24a",
       "target_path": "fr/about/index.html",
-      "target_sha256": "7c643df3186268377038a1309967f065c5a0e77e665ac2615da703eed21c74a5",
+      "target_sha256": "a4bdb98fa3808c6ea3c7c4faf6047ca727a8419c0abbc5fb97bbc2d7906f8c68",
       "disposition": "retained-ai-reviewed",
       "locale": "fr"
     },
     {
       "route": "/projects/",
-      "source_sha256": "fd89ba971ad78638db08cad4ef3c34c73163a372de363f5423f52e8786cf8a90",
+      "source_sha256": "5a89d53200eb5662b6248f5f70fc9e813a3c650ac286c48e9cd19c455f0456e8",
       "target_path": "fr/projects/index.html",
-      "target_sha256": "af15e771c200325650810e050f4c7d71320563429124036cc8d95659af6e8d8a",
+      "target_sha256": "cae317015e46c0be55e859a5cce6ba01a8f09d3b4c960accf67e48e2d4159da6",
       "disposition": "retained-ai-reviewed",
       "locale": "fr"
     },
     {
       "route": "/contact/",
-      "source_sha256": "7af98b2010275f8070f8eadfaa62c5e66dde0bd25706fd72613654ffb6e601df",
+      "source_sha256": "87445732b7d20c405ee6d39c9b52cacb297c64dfe01b3398fd546248af20ba66",
       "target_path": "fr/contact/index.html",
-      "target_sha256": "fc344bf70da22a4c2a9e78a736aae227d6370a1104381b55c8e3a00fbbd36da5",
+      "target_sha256": "27a89980295f5449dac2be847e8ccb534ae3149bf7aa0d167c2aed597a3b3e41",
       "disposition": "no-semantic-delta-ai-reviewed",
       "locale": "fr"
     }
