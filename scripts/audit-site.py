@@ -85,6 +85,11 @@ DESC_MAX = 165
 EXPECTED_THEME_COLOR = "#2a2320"
 EXPECTED_BG_COLOR = "#e8e0d6"
 
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
+except (AttributeError, OSError, ValueError):
+    pass
+
 
 def iter_html_files() -> List[Path]:
     out: List[Path] = []

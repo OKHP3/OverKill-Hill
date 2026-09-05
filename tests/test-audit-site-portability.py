@@ -98,6 +98,24 @@ assert module.reconcile_search_index([]) == []
                 finally:
                     audit_site.ROOT = original_root
 
+    def test_unicode_report_output_survives_cp1252_stdout(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="audit-site-console-") as report_dir:
+            report = Path(report_dir) / "检查报告.md"
+            environment = os.environ.copy()
+            environment.update({"PYTHONIOENCODING": "cp1252", "PYTHONUTF8": "0"})
+            result = subprocess.run(
+                [sys.executable, str(AUDIT_PATH), "--quiet", "--report", str(report)],
+                cwd=ROOT,
+                env=environment,
+                capture_output=True,
+                check=False,
+            )
+            stdout = result.stdout.decode("utf-8", errors="replace")
+            stderr = result.stderr.decode("utf-8", errors="replace")
+            self.assertEqual(result.returncode, 0, stderr)
+            self.assertTrue(report.is_file())
+            self.assertIn(f"Report written to {report.resolve()}", stdout)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
