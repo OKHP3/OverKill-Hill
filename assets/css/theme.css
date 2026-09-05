@@ -904,6 +904,18 @@ button {
   margin-bottom: 1.5rem;
 }
 
+html[data-theme="light"] body:not(.glee-main):not(.askjamie-main) .hero-subline {
+  display: inline-flex;
+  align-items: center;
+  max-width: fit-content;
+  padding: 0.22rem 0.7rem 0.26rem;
+  border-radius: 999px;
+  color: #3f2c20;
+  background: linear-gradient(180deg, rgba(255, 248, 240, 0.96), rgba(247, 239, 229, 0.9));
+  border: 1px solid rgba(196, 106, 44, 0.28);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
 .hero-tagline {
   max-width: 32rem;
   color: var(--color-fg);
@@ -3698,6 +3710,20 @@ body:not(.askjamie-main):not(.glee-main) .mermaidTooltip {
    keep text white in light mode so it stays readable against the dark card */
 html[data-theme="light"] .hero-forge-card {
   color: #f9fafb;
+}
+
+html[data-theme="light"] body:not(.glee-main):not(.askjamie-main) .hero-actions .btn-quiet {
+  color: #1f2937;
+  background: linear-gradient(180deg, rgba(255, 250, 244, 0.96), rgba(247, 240, 231, 0.9));
+  border-color: rgba(196, 106, 44, 0.34);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="light"] body:not(.glee-main):not(.askjamie-main) .hero-actions .btn-quiet:hover,
+html[data-theme="light"] body:not(.glee-main):not(.askjamie-main) .hero-actions .btn-quiet:focus-visible {
+  color: #111827;
+  background: linear-gradient(180deg, rgba(255, 245, 234, 0.98), rgba(247, 238, 225, 0.96));
+  border-color: rgba(196, 106, 44, 0.48);
 }
 
 /* ===== "LATEST MILESTONE" HIGHLIGHT SECTION ========================= */
@@ -7639,3 +7665,21 @@ html[data-color-scheme="dark"] .askjamie-main .mermaid .edgePath path {
     padding: 1rem;
   }
 }
+
+/* Cross-site runtime additions retained from the Glee and AskJamie variants. */
+.glee-main .arcade-embed-fallback { position: absolute; inset: 1rem; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding: 1rem; border-radius: 1rem; background: var(--color-surface); color: var(--color-fg); text-align: center; }
+.glee-main .arcade-embed-fallback a { color: var(--color-inline-link); text-decoration: underline; text-underline-offset: 3px; }
+.glee-main .privacy-controls { display: inline-flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0 0; }
+.glee-main .privacy-controls .btn { font-size: 0.85rem; }
+.glee-main .arcade-embed-fallback[hidden] { display: none; }
+.glee-main { --glee-paper-fg: #2e2b29; --glee-paper-muted: #5a4a44; --glee-paper-amber: #5a3a00; }
+html[data-theme="light"] .glee-main .site-header .primary-nav a[aria-current="page"], html[data-theme="light"] .glee-main .site-header .primary-nav a.is-current { color: var(--color-link-hover); }
+html[data-color-scheme="dark"] .glee-main .site-header .okh-search-trigger, html:not([data-color-scheme="light"]) .glee-main .site-header .okh-search-trigger { color: var(--glee-paper-fg); border-color: rgba(46, 43, 41, 0.25); }
+html[data-color-scheme="dark"] .glee-main .site-header .okh-search-trigger kbd, html:not([data-color-scheme="light"]) .glee-main .site-header .okh-search-trigger kbd { color: var(--glee-paper-muted); border-color: rgba(46, 43, 41, 0.2); background: rgba(46, 43, 41, 0.05); }
+html[data-color-scheme="dark"] .glee-main .site-specials--glee { color: var(--glee-paper-amber); }
+.glee-main .site-header .okh-search-trigger:hover, .glee-main .site-header .okh-search-trigger:focus-visible, .glee-main .site-header .primary-nav a[aria-current="page"]:hover, .glee-main .site-header .primary-nav a.is-current:hover { color: var(--color-link-hover); }
+html[data-color-scheme="dark"] .glee-search-page__form, html:not([data-color-scheme="light"]) .glee-search-page__form, html[data-color-scheme="dark"] .glee-search-page__results > li, html:not([data-color-scheme="light"]) .glee-search-page__results > li { background: var(--color-surface); border-color: rgba(255, 216, 210, 0.12); }
+.arcade-callout { background: var(--color-surface); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-lg, 1.25rem); padding: 1.75rem 2rem; max-width: 40rem; margin: 0 auto; }
+.arcade-callout .feature-list { margin: 0; }
+.arcade-closing-cta { margin-top: 1.5rem; text-align: center; }
+.askjamie-brandguard-page > main > section.content-section, .askjamie-brandguard-page > main > section.stripe-bg { content-visibility: auto; contain-intrinsic-size: auto 680px; }
