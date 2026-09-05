@@ -1,0 +1,34 @@
+{
+  "status": "ai-reviewed-draft",
+  "target_locales": ["en-gb", "es-mx"],
+  "translation_policy": "AI-reviewed-accurate-draft-no-native-certification",
+  "source_of_truth": "site-src/pages.json and canonical en-US HTML",
+  "routes": ["/", "/about/", "/projects/", "/contact/"],
+  "locales": {
+    "en-gb": {
+      "label": "English (UK)",
+      "status": "ai-reviewed-draft",
+      "record": "i18n/pilot/en-gb/translation-record.json",
+      "pages": [
+        {"source_route": "/", "target_route": "/en-gb/", "source_path": "index.html", "target_path": "en-gb/index.html"},
+        {"source_route": "/about/", "target_route": "/en-gb/about/", "source_path": "about/index.html", "target_path": "en-gb/about/index.html"},
+        {"source_route": "/projects/", "target_route": "/en-gb/projects/", "source_path": "projects/index.html", "target_path": "en-gb/projects/index.html"},
+        {"source_route": "/contact/", "target_route": "/en-gb/contact/", "source_path": "contact/index.html", "target_path": "en-gb/contact/index.html"}
+      ],
+      "search_index": "assets/data/search-index.en-gb.json"
+    },
+    "es-mx": {
+      "label": "Español (México)",
+      "status": "ai-reviewed-draft",
+      "record": "i18n/pilot/es-mx/translation-record.json",
+      "pages": [
+        {"source_route": "/", "target_route": "/es-mx/", "source_path": "index.html", "target_path": "es-mx/index.html"},
+        {"source_route": "/about/", "target_route": "/es-mx/about/", "source_path": "about/index.html", "target_path": "es-mx/about/index.html"},
+        {"source_route": "/projects/", "target_route": "/es-mx/projects/", "source_path": "projects/index.html", "target_path": "es-mx/projects/index.html"},
+        {"source_route": "/contact/", "target_route": "/es-mx/contact/", "source_path": "contact/index.html", "target_path": "es-mx/contact/index.html"}
+      ],
+      "search_index": "assets/data/search-index.es-mx.json"
+    }
+  },
+  "publication_gate": {"sitemap": false, "indexable_search": false, "public_hreflang": false}
+}

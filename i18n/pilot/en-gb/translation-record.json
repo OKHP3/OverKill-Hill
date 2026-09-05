@@ -1,0 +1,16 @@
+{
+  "language_pair": {"source_locale": "en-US", "target_locale": "en-GB", "direction": "one-way"},
+  "source_revision": "git:a39fcda69ebe7ec0aa215c40b24156f2d714be54+alt-correction",
+  "source_register": "plainspoken",
+  "source_paths": ["index.html", "about/index.html", "projects/index.html", "contact/index.html"],
+  "target_paths": ["en-gb/index.html", "en-gb/about/index.html", "en-gb/projects/index.html", "en-gb/contact/index.html"],
+  "voice_profile": "i18n/pilot/en-gb/voice-profile.en-us.json@1.0.0",
+  "dictionary": "i18n/pilot/en-gb/dictionary.en-us-en-uk.json@0.1.0",
+  "project_overrides": "i18n/pilot/en-gb/project-overrides.json",
+  "status": "machine-drafted",
+  "native_review_required": false,
+  "review": {"method": "AI editorial review", "complete": true, "native_or_human": false, "release_accepted": false},
+  "mechanical_checks": {"passed": true, "warnings": ["Draft routes are noindex and excluded from sitemap and public search index."]},
+  "assumptions": ["US locations, prices, contact details, brands, code, and URLs remain unchanged.", "Standard British spelling is the declared project preference where a difference occurs."],
+  "unresolved_terms": []
+}

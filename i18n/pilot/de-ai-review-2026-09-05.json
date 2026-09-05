@@ -1,0 +1,13 @@
+{
+  "language_pair": "en-US -> de-DE",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "publication_status": "noindex draft; sync adoption is freshness evidence, not publication",
+  "source_revision": "git:46bdcb74b91b43684d7fa72d5e401710d37a177f",
+  "routes": [
+    {"route": "/", "source_sha256": "099a52e35aa705f3d759faa367fb69f27fc04139ccd06925b1896900dd89cbaa", "target_path": "de/index.html", "target_sha256": "1d0f3a0d13a9f6107a9c0fc8dd901161ad2e51581a9eeb45ce7a9ec5ab337263", "disposition": "retained-ai-reviewed", "locale": "de"},
+    {"route": "/about/", "source_sha256": "f896e5b6c9f1a444ee297447261598a9aebaab7b2df0af1de2b74fa3e34ece33", "target_path": "de/about/index.html", "target_sha256": "48ed4edd21308cb07b3515f20474be187924c2ceda628a78c4d2a71b8221ce96", "disposition": "retained-ai-reviewed", "locale": "de"},
+    {"route": "/projects/", "source_sha256": "287b1b6d76161eab44592f15634cb8dd6eec08eb161df815cef7c007dd19cff8", "target_path": "de/projects/index.html", "target_sha256": "6514b0754d4e88d1f5bcae55af1317e15de8e33888377facc50c0a042012d053", "disposition": "retained-ai-reviewed", "locale": "de"},
+    {"route": "/contact/", "source_sha256": "80e27f0a95920b87d4d8e98d21e9d79950a1bc6abe6a640f243b8cf6be4fc582", "target_path": "de/contact/index.html", "target_sha256": "86aae27d0428d07f9f3d4a72afa50aa15553eb82eb9acb30eaaaa4bc1b0f9f88", "disposition": "retained-ai-reviewed", "locale": "de"}
+  ]
+}

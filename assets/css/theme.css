@@ -668,7 +668,11 @@ button {
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
-  min-width: 9.5rem;
+  box-sizing: border-box;
+  width: min(15rem, calc(100vw - 1rem));
+  min-width: 0;
+  max-height: min(28rem, calc(100dvh - 5rem));
+  overflow-y: auto;
   margin: 0;
   padding: 0.35rem;
   list-style: none;
@@ -691,6 +695,7 @@ button {
   color: #f9fafb;
   opacity: 0.8;
   transition: opacity 0.15s ease, background 0.15s ease;
+  min-width: 0;
 }
 
 .site-header .lang-switch-option:hover,
@@ -714,7 +719,8 @@ button {
 
 .site-header .lang-switch-option-label {
   font-size: 0.85rem;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 /* ===== PRE‑OPENING / ACTIVE BUILD NOTE =============================== */
@@ -3346,6 +3352,17 @@ html[data-theme="light"] .pf-boundary-label--private    { color: #475569; }
   .site-header .lang-switch {
     margin-right: 0.5rem;
     padding-right: 0.5rem;
+  }
+
+  /* Anchor the disclosure to the viewport on compact headers. The language
+     control sits between several fixed-width header controls, so positioning
+     a 15rem menu against that narrow flex item can push the menu off-screen. */
+  .site-header .lang-switch-menu {
+    position: fixed;
+    top: calc(3.75rem + 0.5rem);
+    right: 0.5rem;
+    left: 0.5rem;
+    width: auto;
   }
 }
 

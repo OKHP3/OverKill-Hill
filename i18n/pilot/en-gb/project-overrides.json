@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "language_pair": {"source_locale": "en-US", "target_locale": "en-GB"},
+  "status": "project-draft",
+  "spelling_system": "standard British (-ise, colour, centre)",
+  "entries": [
+    {"source": "English (US)", "target": "English (UK)", "handling": "adapt", "context": "visible language selector label", "review_state": "project-draft"},
+    {"source": "St George cross", "target": "St George cross", "handling": "preserve", "context": "requested England flag asset", "review_state": "project-draft"}
+  ]
+}

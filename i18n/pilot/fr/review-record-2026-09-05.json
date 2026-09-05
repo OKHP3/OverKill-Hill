@@ -5,37 +5,37 @@
   "reviewed_on": "2026-09-05",
   "review_authority": "owner-authorized AI semantic and terminology review",
   "native_or_human_approval": false,
-  "source_revision": "git:aa055461ce99a5149aa140ae27bebb2b94c1d610",
+  "source_revision": "git:46bdcb74b91b43684d7fa72d5e401710d37a177f",
   "routes": [
     {
       "route": "/",
-      "source_sha256": "b7133fef1939400a8f8eee50976506a311209d8e89253bbd5c9906c566ebfdb3",
+      "source_sha256": "f8736ec113b330f734f7307cb7cceb19a8414fd6ef07e748b763afb1b5cc0402",
       "target_path": "fr/index.html",
-      "target_sha256": "d1f37e08d5c6ccc2cb6363f4497d61d753c6393afb9baa9b0695d41ea5dd1ea4",
+      "target_sha256": "3f5926c42a762cc177c1e42ff6e9b43f73b205413302632738e5285c994bcc6c",
       "disposition": "retained-ai-reviewed",
       "locale": "fr"
     },
     {
       "route": "/about/",
-      "source_sha256": "6838f4379ddf9ec92a03f002ba7b8aaccc0e267785065383e2c2396bf091a0ee",
+      "source_sha256": "09200e08cb42a00eb65ee18ecbf17d494c8df951249fcbc2bbb15656ae2498fe",
       "target_path": "fr/about/index.html",
-      "target_sha256": "505943f187bbbb29201ecc32efbbde5665af2661d7e145f80b63b5273740819e",
+      "target_sha256": "6a2c15ccc7f18035c2ad1116d3497d286a93c3b650a54f5eb5668975f2e6f82c",
       "disposition": "retained-ai-reviewed",
       "locale": "fr"
     },
     {
       "route": "/projects/",
-      "source_sha256": "f1928fc99e3008d0d36696f9e4bd6ced0cba874f63df6c1d11208f2286fc7fdb",
+      "source_sha256": "5b4e3ac54b08a8f5193ab1be5d11d6d9467839ebf6a7186a8dc736e99884302c",
       "target_path": "fr/projects/index.html",
-      "target_sha256": "1e466170edc906d2faa4bf0cf0ba0765d984cfec0565e4edb939d4996934260a",
+      "target_sha256": "9afa728dcb5a1bb64b73c150690f4f79aaa1fae2838a5baae225df718845381c",
       "disposition": "retained-ai-reviewed",
       "locale": "fr"
     },
     {
       "route": "/contact/",
-      "source_sha256": "92e5ca3e93e124fde271379cbb26e81a9d3253a395ebb98216dcf38a31c7ad7e",
+      "source_sha256": "406e664b9b1fa8ce670ba0b50b3bae33b8c938d77643306410bfb87447f59b7e",
       "target_path": "fr/contact/index.html",
-      "target_sha256": "489cb44967c195ac6f1e50ad99c0b7822715f6944fc47b5903d0297922e911aa",
+      "target_sha256": "ce790ba3934b3a9587a7b6d22237fc3a44f2ba8228ba2adc995cc6ba822811e2",
       "disposition": "no-semantic-delta-ai-reviewed",
       "locale": "fr"
     }
@@ -46,5 +46,8 @@
     "register": "vous",
     "english_only_destinations": "labeled in the French copy"
   },
-  "sync_state_adoption": "rebound-four-routes-against-aa055461; shared icon/head delta only; deployment not claimed"
+  "semantic_corrections": [
+    "Homepage hero image corrected from a raven on a vintage computer to the depicted stylized mechanical owl with glowing amber eyes."
+  ],
+  "sync_state_adoption": "rebound-four-routes-against-46bdcb74; regional selector and reviewed semantic delta retained through generated release metadata; deployment not claimed"
 }

@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 from html.parser import HTMLParser
@@ -32,6 +33,7 @@ class HeadMetadata(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.lang = ""
         self.canonical = ""
+        self.og_url = ""
         self.alternates: dict[str, set[str]] = {}
         self.is_noindex = False
         self._in_html = False
@@ -51,6 +53,8 @@ class HeadMetadata(HTMLParser):
                 self.alternates.setdefault(attrs["hreflang"].strip().lower(), set()).add(href)
         elif tag == "meta" and attrs.get("name", "").lower() == "robots":
             self.is_noindex = "noindex" in attrs.get("content", "").lower()
+        elif tag == "meta" and attrs.get("property", "").lower() == "og:url":
+            self.og_url = attrs.get("content", "").strip()
 
 
 def route_file(root: Path, route: str) -> Path:
@@ -146,6 +150,9 @@ def run_index_freshness_check(index_path: Path, locale: str, findings: list[str]
         cwd=ROOT,
         capture_output=True,
         text=True,
+        encoding="utf-8",
+        errors="replace",
+        env={**os.environ, "PYTHONUTF8": "1"},
     )
     if result.returncode:
         detail = (result.stderr or result.stdout).strip().splitlines()
@@ -225,8 +232,12 @@ def validate_locale(
         expected_target = route_url(target_route)
         if source_meta.canonical != expected_source:
             fail(findings, f"{source_path} canonical is {source_meta.canonical!r}, expected {expected_source!r}")
+        if source_meta.og_url != expected_source:
+            fail(findings, f"{source_path} og:url is {source_meta.og_url!r}, expected {expected_source!r}")
         if target_meta.canonical != expected_target:
             fail(findings, f"{target_path} canonical is {target_meta.canonical!r}, expected {expected_target!r}")
+        if target_meta.og_url != expected_target:
+            fail(findings, f"{target_path} og:url is {target_meta.og_url!r}, expected {expected_target!r}")
         expected_source_links = {
             "en": expected_source,
             "x-default": expected_source,

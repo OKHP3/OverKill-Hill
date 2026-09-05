@@ -37,7 +37,9 @@ from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src"}
+# Locale drafts use their pair-specific editorial profile. Keep them out of
+# the English voice baseline until a release workflow explicitly promotes one.
+SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src", "en-gb", "es-mx"}
 
 
 @dataclass(frozen=True)
