@@ -86,6 +86,8 @@ class SEOFixtureTests(unittest.TestCase):
         self.assertFalse(any("tests" in path.relative_to(ROOT).parts for path in pages))
         for name in ("audit-site", "build-search-index", "check-links"):
             spec = importlib.util.spec_from_file_location(name, ROOT / "scripts" / f"{name}.py")
+            if spec is None or spec.loader is None:
+                self.fail(f"could not load scripts/{name}.py")
             module = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(module)
             if name == "audit-site":
