@@ -69,10 +69,11 @@
 <!-- ========================================
        FAVICONS: Multi-Format Icon Support
        ======================================== -->
-<link href="/assets/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/assets/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/assets/img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/>
-<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/assets/img/favicons/murderbird-v2-icon-browser-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicons/murderbird-v2-icon-browser-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/assets/img/favicons/murderbird-v2-icon-browser-48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="/assets/img/favicons/murderbird-v2-icon-opaque-180.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/>
+<link href="/assets/img/favicons/murderbird-v2-icon.ico" rel="icon" sizes="any"/>
 <link href="/site.webmanifest" rel="manifest"/>
 <!-- ========================================
        STYLESHEETS & FONTS
@@ -126,6 +127,7 @@
 }
 </script>
 </head>
+
 <body>
   <a class="okh-skip-link" href="#main">Skip to main content</a>
 <header class="site-header" id="top">
@@ -231,7 +233,10 @@
 </div>
 <div class="hero-side">
 <div class="hero-visual">
-<img alt="Stylized mechanical owl with glowing amber eyes, OverKill Hill P³ illustration" class="hero-illustration" fetchpriority="high" height="1024" loading="lazy" src="/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png" width="1024"/>
+<picture>
+<source sizes="(max-width: 900px) 86vw, 42vw" srcset="/assets/img/webp/murderbird-frontal-attack-2026-09-05-512.webp 512w, /assets/img/webp/murderbird-frontal-attack-2026-09-05-1024.webp 1024w" type="image/webp"/>
+<img alt="Frontal mechanical MurderBird lunging with its beak and talons visible" class="hero-illustration" fetchpriority="high" height="1254" loading="eager" sizes="(max-width: 900px) 86vw, 42vw" src="/assets/img/murderbird-frontal-attack-2026-09-05.png" width="1254"/>
+</picture>
 </div>
 <aside class="hero-forge-card">
 <h3>What happens at the Hill?</h3>

@@ -96,6 +96,14 @@ jobs:
       - name: Check shared asset fingerprints
         run: python3 scripts/cache-bust.py --check
 
+      - name: Check templates for unresolved merge markers
+        run: python3 tests/test-template-conflict-markers.py
+
+      - name: Check representative first-party asset budgets
+        run: |
+          python3 scripts/check-performance-budget.py
+          python3 -m unittest tests/test-performance-budget.py
+
       - name: Run comprehensive static audit
         run: python3 scripts/audit-site.py --quiet
 
