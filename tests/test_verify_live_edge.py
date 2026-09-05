@@ -4,9 +4,7 @@
 from __future__ import annotations
 
 import importlib.util
-import os
 import subprocess
-import tempfile
 import unittest
 from pathlib import Path
 
@@ -92,23 +90,20 @@ class VerifyLiveEdgeTests(unittest.TestCase):
 
 class PostMergeTests(unittest.TestCase):
     def test_post_merge_stops_after_failed_subprocess(self) -> None:
-        with tempfile.TemporaryDirectory(prefix="post-merge-") as temp:
-            shim = Path(temp) / "python3"
-            shim.write_text("#!/bin/bash\nexit 1\n", encoding="utf-8")
-            environment = os.environ.copy()
-            environment["PATH"] = f"{temp}{os.pathsep}{environment['PATH']}"
+        result = subprocess.run(
+            [
+                "bash",
+                "-c",
+                "python3() { return 1; }; source scripts/post-merge.sh",
+            ],
+            cwd=ROOT,
+            capture_output=True,
+        )
 
-            result = subprocess.run(
-                ["bash", str(ROOT / "scripts" / "post-merge.sh")],
-                cwd=ROOT,
-                env=environment,
-                capture_output=True,
-            )
-
-            self.assertNotEqual(result.returncode, 0)
-            output = (result.stderr + result.stdout).decode("utf-8", errors="replace")
-            self.assertIn("ERROR: MTB version check failed", output)
-            self.assertNotIn("Post-merge: all checks passed.", output)
+        self.assertNotEqual(result.returncode, 0)
+        output = (result.stderr + result.stdout).decode("utf-8", errors="replace")
+        self.assertIn("ERROR: MTB version check failed", output)
+        self.assertNotIn("Post-merge: all checks passed.", output)
 
 
 if __name__ == "__main__":
