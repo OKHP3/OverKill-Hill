@@ -14,8 +14,23 @@ MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader is not None
 SPEC.loader.exec_module(MODULE)
 
+DETECTOR = ROOT / ".agents" / "skills" / "okhp3-i18n-page-sync" / "scripts" / "i18n-page-sync.py"
+DETECTOR_SPEC = importlib.util.spec_from_file_location("i18n_page_sync", DETECTOR)
+DETECTOR_MODULE = importlib.util.module_from_spec(DETECTOR_SPEC)
+assert DETECTOR_SPEC.loader is not None
+DETECTOR_SPEC.loader.exec_module(DETECTOR_MODULE)
+
 
 class I18nReleaseTests(unittest.TestCase):
+    def test_detector_hash_is_stable_across_checkout_line_endings(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            lf = root / "lf.html"
+            crlf = root / "crlf.html"
+            lf.write_bytes(b"<p>stable</p>\n")
+            crlf.write_bytes(b"<p>stable</p>\r\n")
+            self.assertEqual(DETECTOR_MODULE.sha256_file(lf), DETECTOR_MODULE.sha256_file(crlf))
+
     def test_full_report_preserves_all_pairs_and_blocks_only_french(self):
         report = {
             "missing": [{"route": f"/missing-{index}/", "locale": "fr"} for index in range(4)]
