@@ -49,6 +49,28 @@ def git_dir(repo: Path) -> Path | None:
     return Path(result.stdout.strip()) if result.returncode == 0 else None
 
 
+def git_metadata_dirs(repo: Path) -> list[tuple[str, Path]]:
+    """Return the worktree and common Git dirs, without assuming .git is a directory."""
+    worktree_dir = git_dir(repo)
+    common = run(repo, ["git", "rev-parse", "--path-format=absolute", "--git-common-dir"])
+    if worktree_dir is None or common.returncode:
+        return []
+    common_dir = Path(common.stdout.strip())
+    directories = [("worktree Git directory", worktree_dir.resolve())]
+    if common_dir.resolve() != worktree_dir.resolve():
+        directories.append(("common Git directory", common_dir.resolve()))
+    return directories
+
+
+def git_locks(repo: Path) -> list[tuple[str, Path]]:
+    """Find every lock in resolved Git metadata, including linked-worktree common state."""
+    locks: dict[Path, str] = {}
+    for label, directory in git_metadata_dirs(repo):
+        for lock in directory.rglob("*.lock"):
+            locks.setdefault(lock.resolve(), label)
+    return [(label, lock) for lock, label in sorted(locks.items(), key=lambda item: str(item[0]))]
+
+
 def validate_repos(repos: dict[str, Path]) -> list[str]:
     return [f"{name}: not a usable git checkout at {repo}" for name, repo in repos.items() if not repo.is_dir() or git_dir(repo) is None]
 
@@ -57,10 +79,10 @@ def safety_problems(repos: dict[str, Path]) -> list[str]:
     """Inspect every mutable-state hazard without changing any checkout."""
     problems = []
     for name, repo in repos.items():
-        git = git_dir(repo)
-        if git is None:
+        metadata_dirs = git_metadata_dirs(repo)
+        if not metadata_dirs:
             continue
-        locks = sorted(str(lock.relative_to(git)) for lock in git.rglob("*.lock"))
+        locks = [f"{label}: {lock}" for label, lock in git_locks(repo)]
         if locks:
             problems.append(f"{name}: Git lock present ({', '.join(locks)})")
         status = run(repo, ["git", "status", "--porcelain=v1", "--untracked-files=all"])
@@ -142,8 +164,7 @@ def apply(files: list[str], repos: dict[str, Path], source_name: str, revision: 
 def commit(repo: Path, paths: list[str], message: str) -> tuple[bool, str]:
     if not paths:
         return True, "no changes"
-    git = git_dir(repo)
-    locks = list(git.rglob("*.lock")) if git else []
+    locks = git_locks(repo)
     if locks:
         return False, "Git lock present; refusing to stage or commit"
     added = run(repo, ["git", "add", "--", *paths])

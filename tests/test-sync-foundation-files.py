@@ -3,7 +3,9 @@ from __future__ import annotations
 
 import importlib.util
 import io
+import os
 import shutil
+import stat
 import subprocess
 import sys
 import tempfile
@@ -27,6 +29,11 @@ def load_module():
     assert spec and spec.loader
     spec.loader.exec_module(module)
     return module
+
+
+def remove_readonly(func, path, _exc_info):
+    os.chmod(path, stat.S_IWRITE)
+    func(path)
 
 
 class SyncFoundationSafetyTests(unittest.TestCase):
@@ -75,6 +82,24 @@ class SyncFoundationSafetyTests(unittest.TestCase):
         self.assertTrue(lock.exists())
         self.assertEqual(lock.read_text(encoding="utf-8"), "do not move\n")
         self.assertEqual(target.read_text(encoding="utf-8"), "different\n")
+
+    def test_common_git_lock_in_linked_worktree_blocks_writes(self):
+        linked = self.repos["glee-fullytools"]
+        shutil.rmtree(linked, onexc=remove_readonly)
+        git(self.repos["overkill-hill"], "worktree", "add", "--detach", str(linked))
+        linked_theme = linked / FILES[0]
+        linked_theme.write_text("linked version\n", encoding="utf-8")
+        git(linked, "add", FILES[0])
+        git(linked, "commit", "-m", "linked variant")
+        common = Path(git(linked, "rev-parse", "--path-format=absolute", "--git-common-dir"))
+        lock = common / "packed-refs.lock"
+        lock.write_text("do not move\n", encoding="utf-8")
+        result = self.invoke("--apply", "--file", "theme.css", "--source-repo", "overkill-hill", "--source-revision", self.source_revision())
+        self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
+        self.assertTrue(lock.exists())
+        self.assertEqual(lock.read_text(encoding="utf-8"), "do not move\n")
+        self.assertEqual(linked_theme.read_text(encoding="utf-8"), "linked version\n")
+        self.assertIn("common Git directory", result.stdout)
 
     def test_dirty_target_bytes_are_untouched(self):
         target = self.repos["askjamie"] / FILES[0]
