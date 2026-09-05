@@ -855,9 +855,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       list.innerHTML = currentResults.map((r) => (
-        '<a class="okh-search-result" href="' + escapeHtml(r.entry.url) + '">' +
-          renderResultHtml(r, lastTokens) +
-        "</a>"
+        '<div role="listitem"><a class="okh-search-result" href="' +
+          escapeHtml(r.entry.url) + '">' + renderResultHtml(r, lastTokens) +
+        "</a></div>"
       )).join("");
       status.textContent = currentResults.length +
         (currentResults.length === 1 ? " result" : " results") +

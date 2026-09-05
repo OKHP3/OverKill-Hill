@@ -112,6 +112,8 @@ test("preserves an overlay query entered while the index is loading", async () =
     await page.locator('.okh-search-result[href="/resume-builder/"]').waitFor();
     await assert.match(await page.locator(".okh-search-status").innerText(), /1 result found/i);
     await assert.equal(await page.locator(".okh-search-input").inputValue(), "resume");
+    await assert.equal(await page.locator('.okh-search-results > [role="listitem"]').count(), 1);
+    await assert.equal(await page.getByRole("link", { name: /Resume Builder/ }).getAttribute("href"), "/resume-builder/");
   } finally {
     await browser.close();
   }
