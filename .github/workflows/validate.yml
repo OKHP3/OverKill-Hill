@@ -60,6 +60,9 @@ jobs:
       - name: Run committed SEO regression fixtures
         run: python3 scripts/test-seo-fixtures.py
 
+      - name: Run audit portability regressions
+        run: python3 tests/test-audit-site-portability.py
+
       - name: Test the Pages release boundary
         run: python3 tests/test-release-package.py
 
