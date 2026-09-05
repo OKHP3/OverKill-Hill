@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "scope": "First-party static release asset budget. Counts the HTML document and local URLs in stylesheet, icon, manifest, preload, modulepreload, script, image, source, audio, and video tags, plus local CSS url() dependencies. Excludes external resources, iframe contents, dynamic requests, compression, cache behavior, and timing.",
+  "routes": [
+    {"route": "/", "document": "index.html", "max_bytes": 5767168},
+    {"route": "/writings/first-diagram-is-a-liar/", "document": "writings/first-diagram-is-a-liar/index.html", "max_bytes": 4194304},
+    {"route": "/projects/mermaid-theme-builder/", "document": "projects/mermaid-theme-builder/index.html", "max_bytes": 655360}
+  ]
+}

@@ -24,7 +24,21 @@ node scripts/measure-baseline.mjs --base=http://127.0.0.1:5051 --output=assets/a
 
 `networkIdleNavigationMs` includes Playwright's `networkidle` wait and is not a Core Web Vital. Transfer and encoded-byte values are Resource Timing subtotals: they exclude navigation payloads and may omit opaque cross-origin or iframe bytes, so they are not total page payload. Failed request reports strip query strings. Field data is unavailable; no INP or LCP distributions are claimed. This is an initial lab baseline only.
 
-Proposed future repeatability budgets, not enforced: homepage network-idle navigation <= 5,000 ms, DOMContentLoaded <= 4,000 ms, observed resource-timing subtotal <= 6 MiB. Re-measure on a declared device and network profile before any release rule.
+## R34 deterministic asset-budget guard
+
+The CI guard at `scripts/check-performance-budget.py` enforces first-party static release asset budgets for the same three representative routes. It counts each HTML document, selected local assets discovered from it, and local CSS `url()` dependencies. It deliberately excludes external resources, embedded iframe contents, dynamic requests, compression, cache behavior, and timing. It is an asset-weight guard, not a Core Web Vitals or full page-payload claim.
+
+Measured source weights at commit `276e0164c4a8e24cfaf42bd8eeeaf4589bb4d325`, before setting budgets:
+
+| Route | Measured local release bytes | Enforced budget | Headroom |
+|---|---:|---:|---:|
+| `/` | 4,859,909 | 5,767,168 (5.5 MiB) | 907,259 bytes (18.7%) |
+| `/writings/first-diagram-is-a-liar/` | 3,536,399 | 4,194,304 (4 MiB) | 657,905 bytes (18.6%) |
+| `/projects/mermaid-theme-builder/` | 526,278 | 655,360 (640 KiB) | 129,082 bytes (24.5%) |
+
+The configured budgets are rounded binary units and retain at least 15% room above the measured first-party source footprint. Run `py -3 scripts/check-performance-budget.py --json` to reproduce the report. The regression test proves that a CSS-only dependency is counted, a missing selected asset fails, and an undersized budget fails.
+
+The previous proposed local network-idle and DOMContentLoaded values remain non-enforced. They require a declared device and network profile before they can support a repeatable lab rule.
 
 ## R35 history disposition
 
