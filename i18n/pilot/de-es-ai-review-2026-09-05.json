@@ -1,0 +1,88 @@
+{
+  "review_scope": "Draft-only semantic and editorial review of four configured routes",
+  "source_revision": "git:a39fcda69ebe7ec0aa215c40b24156f2d714be54",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "publication_status": "draft only; no ledger adoption or deployment claim",
+  "voice_policy": {
+    "audience": "adult, workplace-conscious",
+    "approach": "Preserve directness without adding purposeless profanity or mechanically stronger regional language.",
+    "route_decision": "No reviewed route required a profanity treatment decision."
+  },
+  "open_source_defects": [
+    "The canonical English homepage image alt is pending an authoritative asset-purpose correction. Locale drafts use a neutral Sentinel label and must be reconciled after that source decision."
+  ],
+  "language_pairs": [
+    {
+      "pair": "en-US -> de-DE",
+      "address_form": "Sie",
+      "routes": [
+        {
+          "route": "/",
+          "findings": [
+            "Replaced literal construction metaphors with natural active software-development wording.",
+            "Replaced the locale-specific image misidentification with a neutral Sentinel label; final source parity remains pending.",
+            "Replaced literal published-writing and evidence wording with natural German equivalents."
+          ]
+        },
+        {
+          "route": "/about/",
+          "findings": [
+            "Retained first-person work framing and localized logo and navigation labels."
+          ]
+        },
+        {
+          "route": "/projects/",
+          "findings": [
+            "Refined the status/proof section for natural software-development terminology and clarified the project CTA.",
+            "Localized logo and navigation labels."
+          ]
+        },
+        {
+          "route": "/contact/",
+          "findings": [
+            "Corrected Open Graph and avatar image descriptions and localized logo and navigation labels.",
+            "No new source-content section required."
+          ]
+        }
+      ]
+    },
+    {
+      "pair": "en-US -> es-ES",
+      "address_form": "usted",
+      "routes": [
+        {
+          "route": "/",
+          "findings": [
+            "Replaced the locale-specific image misidentification with a neutral Sentinel label; final source parity remains pending.",
+            "Replaced informal calls to action with consistent formal address.",
+            "Replaced the literal published-writing label with Artículo publicado."
+          ]
+        },
+        {
+          "route": "/about/",
+          "findings": [
+            "Changed first-person work framing and body copy to consistent usted address.",
+            "Localized logo and navigation labels."
+          ]
+        },
+        {
+          "route": "/projects/",
+          "findings": [
+            "Changed project CTAs to formal address and localized logo and navigation labels.",
+            "Retained protected project names and English-only destination labels."
+          ]
+        },
+        {
+          "route": "/contact/",
+          "findings": [
+            "Changed reader-facing copy to consistent usted address.",
+            "Corrected the Open Graph image description and localized logo and navigation labels.",
+            "No new source-content section required."
+          ]
+        }
+      ]
+    }
+  ],
+  "review_gate": "AI editorial review completed; no native or human approval claimed; retain noindex and do not adopt the sync ledger."
+}
