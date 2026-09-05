@@ -160,7 +160,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Theme toggle – only for core OverKill Hill pages (brand-locked sites force light)
+  // Brand sites keep data-theme="light" for shared rules while their
+  // auto/light/dark preference is expressed through data-color-scheme.
   const brandLocked =
     body.classList.contains("glee-main") ||
     body.classList.contains("askjamie-main");
