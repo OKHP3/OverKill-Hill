@@ -171,9 +171,13 @@ def write_manifest(output: Path, commit: str) -> None:
         if not path.is_file():
             fail(f"generated artifact is missing from release package: {public_path}")
         artifacts[f"/{public_path}"] = {"sha256": sha256(path)}
-    files = sorted(path.relative_to(output).as_posix() for path in output.rglob("*") if path.is_file())
+    manifest_relative = "assets/audit/release-manifest.json"
+    files = sorted(
+        [path.relative_to(output).as_posix() for path in output.rglob("*") if path.is_file()]
+        + [manifest_relative]
+    )
     manifest = {"schema": 2, "commit": commit, "artifacts": artifacts, "files": files}
-    target = output / "assets/audit/release-manifest.json"
+    target = output / manifest_relative
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
@@ -197,13 +201,48 @@ def build(source: Path, output: Path, commit: str) -> None:
     print(f"Built allowlisted release: {len(pages)} HTML pages, {sum(1 for path in output.rglob('*') if path.is_file())} files")
 
 
+def verify(source: Path, output: Path, commit: str) -> None:
+    """Verify an already-built release without copying or regenerating it."""
+    if not output.is_dir():
+        fail(f"release output does not exist: {output}")
+    pages = load_public_pages(source)
+    verify_package(output, pages)
+    manifest_path = output / "assets/audit/release-manifest.json"
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        fail(f"cannot read release manifest: {exc}")
+    if not isinstance(manifest, dict) or manifest.get("schema") != 2:
+        fail("release manifest has an unsupported schema")
+    if manifest.get("commit") != commit:
+        fail(f"release manifest commit does not match expected SHA: {manifest.get('commit')!r}")
+    artifacts = manifest.get("artifacts")
+    if not isinstance(artifacts, dict):
+        fail("release manifest artifacts map is missing")
+    for public_path in ("sitemap.xml", "assets/data/search-index.json"):
+        entry = artifacts.get(f"/{public_path}")
+        expected_hash = entry.get("sha256") if isinstance(entry, dict) else None
+        actual_hash = sha256(output / public_path)
+        if expected_hash != actual_hash:
+            fail(f"release manifest hash mismatch for {public_path}")
+    actual_files = sorted(path.relative_to(output).as_posix() for path in output.rglob("*") if path.is_file())
+    if manifest.get("files") != actual_files:
+        fail("release manifest file inventory does not match packaged bytes")
+    print(f"Verified SHA-bound release: {len(pages)} HTML pages, {len(actual_files)} files")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", required=True, type=Path, help="new release directory")
+    parser.add_argument("--output", required=True, type=Path, help="release directory")
     parser.add_argument("--commit", required=True, help="full validated Git SHA")
     parser.add_argument("--source", type=Path, default=ROOT, help=argparse.SUPPRESS)
+    parser.add_argument("--verify", action="store_true", help="verify an existing release without rebuilding it")
     args = parser.parse_args()
-    build(args.source.resolve(), args.output.resolve(), args.commit)
+    source, output = args.source.resolve(), args.output.resolve()
+    if args.verify:
+        verify(source, output, args.commit)
+    else:
+        build(source, output, args.commit)
     return 0
 
 

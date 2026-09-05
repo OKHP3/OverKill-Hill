@@ -36,9 +36,16 @@ jobs:
         with:
           ref: ${{ github.sha }}
 
-      - name: Build the explicit public release artifact
+      - name: Download the exact validated release artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: validated-site-${{ github.sha }}
+          path: site-release
+
+      - name: Verify downloaded release provenance and bytes
         run: |
           python3 scripts/build-release.py \
+            --verify \
             --output site-release \
             --commit "${{ github.sha }}"
 

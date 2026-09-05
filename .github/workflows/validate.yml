@@ -180,6 +180,22 @@ jobs:
         if: always() && steps.contrast.outcome == 'failure'
         run: exit 1
 
+      - name: Build the SHA-bound Pages release artifact
+        if: github.event_name != 'pull_request'
+        run: |
+          python3 scripts/build-release.py \
+            --output site-release \
+            --commit "${{ github.sha }}"
+
+      - name: Upload the validated Pages release artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: validated-site-${{ github.sha }}
+          path: site-release
+          if-no-files-found: error
+          retention-days: 1
+
   monitor-third-party-runtime:
     name: Monitor third-party runtime dependencies
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
