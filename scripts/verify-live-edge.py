@@ -52,7 +52,7 @@ SECURITY_HEADERS = {
 }
 GITHUB_PAGES_ACCEPTED_LIMITATIONS = {
     "cache-control": "GitHub Pages controls HTML caching at the edge, so this verifier records the observed header but does not treat the published value as enforceable here",
-    "content-security-policy": "GitHub Pages cannot apply repository _headers, so this verifier records the observed response but does not treat header absence as enforcement failure",
+    "content-security-policy": "GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check",
 }
 HTML_CACHE_RE = re.compile(r"max-age=300\b", re.I)
 REVALIDATE_RE = re.compile(r"\bmust-revalidate\b", re.I)
@@ -165,8 +165,9 @@ def check_headers(
                 report.append(
                     result(
                         f"{label} observed header {name}",
-                        "PASS",
-                        GITHUB_PAGES_ACCEPTED_LIMITATIONS.get(
+                        "WARN",
+                        "absent; "
+                        + GITHUB_PAGES_ACCEPTED_LIMITATIONS.get(
                             name,
                             "GitHub Pages may omit repository headers at the edge",
                         ),
@@ -185,12 +186,41 @@ def check_headers(
         else:
             check_name = f"{label} observed header {name}" if hosting == "github-pages" else f"{label} security header {name}"
             report.append(result(check_name, "PASS", value))
-    if hosting == "github-pages":
-        csp_value = headers.get("content-security-policy") or headers.get("content-security-policy-report-only")
-        if csp_value:
-            report.append(result(f"{label} accepted Pages limitation content-security-policy", "PASS", "observed response header present"))
-        else:
-            report.append(result(f"{label} accepted Pages limitation content-security-policy", "PASS", GITHUB_PAGES_ACCEPTED_LIMITATIONS["content-security-policy"]))
+
+    enforcing_csp = headers.get("content-security-policy")
+    report_only_csp = headers.get("content-security-policy-report-only")
+    if enforcing_csp:
+        report.append(
+            result(
+                f"{label} observed enforcing content-security-policy",
+                "PASS",
+                "header present; policy contents were not validated by this live-edge check",
+                value=enforcing_csp,
+            )
+        )
+    else:
+        csp_status = "WARN" if hosting == "github-pages" else "FAIL"
+        csp_evidence = (
+            "absent; " + GITHUB_PAGES_ACCEPTED_LIMITATIONS["content-security-policy"]
+            if hosting == "github-pages"
+            else "enforcing header absent"
+        )
+        report.append(
+            result(
+                f"{label} enforcing content-security-policy",
+                csp_status,
+                csp_evidence,
+            )
+        )
+    if report_only_csp:
+        report.append(
+            result(
+                f"{label} observed report-only content-security-policy",
+                "WARN",
+                "report-only header present; it does not enforce the policy",
+                value=report_only_csp,
+            )
+        )
 
 
 def check_page(

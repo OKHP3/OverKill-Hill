@@ -4,6 +4,9 @@
 from __future__ import annotations
 
 import importlib.util
+import os
+import subprocess
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -19,31 +22,64 @@ spec.loader.exec_module(verify_live_edge)
 
 
 class VerifyLiveEdgeTests(unittest.TestCase):
-    def test_github_pages_headers_are_recorded_as_observed_limitations(self) -> None:
+    def test_github_pages_missing_headers_are_explicit_warnings(self) -> None:
         report: list[dict[str, object]] = []
         response = {
             "ok": True,
-            "headers": {
-                "x-content-type-options": "nosniff",
-                "x-frame-options": "SAMEORIGIN",
-                "referrer-policy": "strict-origin-when-cross-origin",
-                "permissions-policy": "accelerometer=()",
-                "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
-                "cross-origin-opener-policy": "same-origin",
-                "cross-origin-resource-policy": "same-origin",
-                "origin-agent-cluster": "?1",
-            },
+            "headers": {},
         }
 
         verify_live_edge.check_headers(report, "route /", response, "github-pages")
 
         observed = {item["check"]: item for item in report}
-        self.assertIn("route / observed header x-content-type-options", observed)
-        self.assertIn(
-            "route / accepted Pages limitation content-security-policy",
-            observed,
+        self.assertEqual(observed["route / observed header x-content-type-options"]["status"], "WARN")
+        self.assertIn("absent", observed["route / observed header x-content-type-options"]["evidence"])
+        self.assertEqual(observed["route / enforcing content-security-policy"]["status"], "WARN")
+
+    def test_matching_enforcing_csp_is_observed_without_policy_claim(self) -> None:
+        policy = "default-src 'self'"
+        report: list[dict[str, object]] = []
+
+        verify_live_edge.check_headers(
+            report,
+            "route /",
+            {"ok": True, "headers": {"content-security-policy": policy}},
+            "github-pages",
         )
-        self.assertNotIn("route / security header x-content-type-options", observed)
+
+        csp = next(item for item in report if "enforcing content-security-policy" in item["check"])
+        self.assertEqual(csp["status"], "PASS")
+        self.assertEqual(csp["value"], policy)
+        self.assertIn("not validated", csp["evidence"])
+
+    def test_wrong_security_header_value_remains_a_failure(self) -> None:
+        report: list[dict[str, object]] = []
+
+        verify_live_edge.check_headers(
+            report,
+            "route /",
+            {"ok": True, "headers": {"x-frame-options": "ALLOWALL"}},
+            "github-pages",
+        )
+
+        frame_check = next(item for item in report if "x-frame-options" in item["check"])
+        self.assertEqual(frame_check["status"], "FAIL")
+
+    def test_report_only_csp_is_not_enforcing(self) -> None:
+        report: list[dict[str, object]] = []
+
+        verify_live_edge.check_headers(
+            report,
+            "route /",
+            {"ok": True, "headers": {"content-security-policy-report-only": "default-src 'self'"}},
+            "github-pages",
+        )
+
+        enforcing = next(item for item in report if item["check"].endswith("enforcing content-security-policy"))
+        report_only = next(item for item in report if "observed report-only" in item["check"])
+        self.assertEqual(enforcing["status"], "WARN")
+        self.assertEqual(report_only["status"], "WARN")
+        self.assertIn("does not enforce", report_only["evidence"])
 
     def test_strict_hosting_still_treats_missing_headers_as_failures(self) -> None:
         report: list[dict[str, object]] = []
@@ -52,6 +88,27 @@ class VerifyLiveEdgeTests(unittest.TestCase):
 
         failures = [item for item in report if item["status"] == "FAIL"]
         self.assertGreaterEqual(len(failures), len(verify_live_edge.SECURITY_HEADERS))
+
+
+class PostMergeTests(unittest.TestCase):
+    def test_post_merge_stops_after_failed_subprocess(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="post-merge-") as temp:
+            shim = Path(temp) / "python3"
+            shim.write_text("#!/bin/bash\nexit 1\n", encoding="utf-8")
+            environment = os.environ.copy()
+            environment["PATH"] = f"{temp}{os.pathsep}{environment['PATH']}"
+
+            result = subprocess.run(
+                ["bash", str(ROOT / "scripts" / "post-merge.sh")],
+                cwd=ROOT,
+                env=environment,
+                capture_output=True,
+            )
+
+            self.assertNotEqual(result.returncode, 0)
+            output = (result.stderr + result.stdout).decode("utf-8", errors="replace")
+            self.assertIn("ERROR: MTB version check failed", output)
+            self.assertNotIn("Post-merge: all checks passed.", output)
 
 
 if __name__ == "__main__":
