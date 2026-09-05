@@ -7,33 +7,33 @@
   "routes": [
     {
       "route": "/",
-      "source_sha256": "099a52e35aa705f3d759faa367fb69f27fc04139ccd06925b1896900dd89cbaa",
+      "source_sha256": "d61f768ffa5a5dee857e356a2f684061d050a3213b9e6c22f8cda2ac02dba800",
       "target_path": "es/index.html",
-      "target_sha256": "2390efa8474621c3d162e557f062bacead5e475288f6a835d29271be68737560",
+      "target_sha256": "7f6e3c32977aa721be98ea0fdc760f3b49adb2a89b289ab1fad220912bfda686",
       "disposition": "retained-ai-reviewed",
       "locale": "es"
     },
     {
       "route": "/about/",
-      "source_sha256": "f896e5b6c9f1a444ee297447261598a9aebaab7b2df0af1de2b74fa3e34ece33",
+      "source_sha256": "2cdf18dcc7e8a4478eea72f4e7d4b3bcb9e1004e8ffd76282e4279544bfd461d",
       "target_path": "es/about/index.html",
-      "target_sha256": "3a73f6f9b6c7584b82dbddefe0afad7501e9d2be86c82d12e74bfbcb13327019",
+      "target_sha256": "eab9d091f9b129d9219344db71664959cd44d9b53e5187124812267940084312",
       "disposition": "retained-ai-reviewed",
       "locale": "es"
     },
     {
       "route": "/projects/",
-      "source_sha256": "287b1b6d76161eab44592f15634cb8dd6eec08eb161df815cef7c007dd19cff8",
+      "source_sha256": "fd89ba971ad78638db08cad4ef3c34c73163a372de363f5423f52e8786cf8a90",
       "target_path": "es/projects/index.html",
-      "target_sha256": "f929508385f6d8ca5cc6155aca8ade89cab91105844e3538e2d3166625ddcb0f",
+      "target_sha256": "d6d2c648cf0c862c25871913ae7f84ea861ea2c2d87e882c96147ed5f6280bb4",
       "disposition": "retained-ai-reviewed",
       "locale": "es"
     },
     {
       "route": "/contact/",
-      "source_sha256": "80e27f0a95920b87d4d8e98d21e9d79950a1bc6abe6a640f243b8cf6be4fc582",
+      "source_sha256": "7af98b2010275f8070f8eadfaa62c5e66dde0bd25706fd72613654ffb6e601df",
       "target_path": "es/contact/index.html",
-      "target_sha256": "131cbb584282e0b3af664f22bb3ef755ff5136a9a2c92bcdab509662ea4ab218",
+      "target_sha256": "abfbe200aa82bcda975a277bc984bd5848871d113285f1ea6f5a117aa1c720cd",
       "disposition": "retained-ai-reviewed",
       "locale": "es"
     }

@@ -9,33 +9,33 @@
   "routes": [
     {
       "route": "/",
-      "source_sha256": "f8736ec113b330f734f7307cb7cceb19a8414fd6ef07e748b763afb1b5cc0402",
+      "source_sha256": "d61f768ffa5a5dee857e356a2f684061d050a3213b9e6c22f8cda2ac02dba800",
       "target_path": "fr/index.html",
-      "target_sha256": "3f5926c42a762cc177c1e42ff6e9b43f73b205413302632738e5285c994bcc6c",
+      "target_sha256": "8da57fca5a63467285940185707a239e259f141885c0c2d876ea0c7693bfc92e",
       "disposition": "retained-ai-reviewed",
       "locale": "fr"
     },
     {
       "route": "/about/",
-      "source_sha256": "09200e08cb42a00eb65ee18ecbf17d494c8df951249fcbc2bbb15656ae2498fe",
+      "source_sha256": "2cdf18dcc7e8a4478eea72f4e7d4b3bcb9e1004e8ffd76282e4279544bfd461d",
       "target_path": "fr/about/index.html",
-      "target_sha256": "6a2c15ccc7f18035c2ad1116d3497d286a93c3b650a54f5eb5668975f2e6f82c",
+      "target_sha256": "7c643df3186268377038a1309967f065c5a0e77e665ac2615da703eed21c74a5",
       "disposition": "retained-ai-reviewed",
       "locale": "fr"
     },
     {
       "route": "/projects/",
-      "source_sha256": "5b4e3ac54b08a8f5193ab1be5d11d6d9467839ebf6a7186a8dc736e99884302c",
+      "source_sha256": "fd89ba971ad78638db08cad4ef3c34c73163a372de363f5423f52e8786cf8a90",
       "target_path": "fr/projects/index.html",
-      "target_sha256": "9afa728dcb5a1bb64b73c150690f4f79aaa1fae2838a5baae225df718845381c",
+      "target_sha256": "af15e771c200325650810e050f4c7d71320563429124036cc8d95659af6e8d8a",
       "disposition": "retained-ai-reviewed",
       "locale": "fr"
     },
     {
       "route": "/contact/",
-      "source_sha256": "406e664b9b1fa8ce670ba0b50b3bae33b8c938d77643306410bfb87447f59b7e",
+      "source_sha256": "7af98b2010275f8070f8eadfaa62c5e66dde0bd25706fd72613654ffb6e601df",
       "target_path": "fr/contact/index.html",
-      "target_sha256": "ce790ba3934b3a9587a7b6d22237fc3a44f2ba8228ba2adc995cc6ba822811e2",
+      "target_sha256": "fc344bf70da22a4c2a9e78a736aae227d6370a1104381b55c8e3a00fbbd36da5",
       "disposition": "no-semantic-delta-ai-reviewed",
       "locale": "fr"
     }
