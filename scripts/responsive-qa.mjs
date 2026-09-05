@@ -3,7 +3,7 @@
  * OverKill Hill responsive QA script.
  *
  * MODE A — Playwright (when available):
- *   Visits each public page at 8 viewport widths and checks:
+ *   Visits each public page at 10 viewport widths and checks:
  *   - No horizontal overflow (scrollWidth > innerWidth)
  *   - No JS console errors
  *   - All images loaded (no broken img src)
@@ -42,7 +42,9 @@ const BASE_URL   = process.argv.find(a => a.startsWith('--base='))?.split('=')[1
 const FORCE_STATIC = process.argv.includes('--static');
 
 const VIEWPORTS = [
+  { name: 'mobile-320',   width: 320,  height: 720  },
   { name: 'mobile-360',   width: 360,  height: 780  },
+  { name: 'mobile-375',   width: 375,  height: 812  },
   { name: 'mobile-390',   width: 390,  height: 844  },
   { name: 'mobile-430',   width: 430,  height: 932  },
   { name: 'tablet-768',   width: 768,  height: 1024 },
@@ -168,6 +170,27 @@ async function runWithPlaywright() {
         document.documentElement.scrollWidth > window.innerWidth
       );
 
+      // A closed disclosure does not contribute to document overflow, so
+      // explicitly open the locale menu and inspect every visible option.
+      // This guards the compact 320/375/390 widths where the header controls
+      // can squeeze the switcher's containing flex item.
+      const localeMenuErrors = await page.evaluate(() => {
+        const toggle = document.querySelector('.lang-switch-toggle');
+        const menu = document.querySelector('.lang-switch-menu');
+        if (!toggle || !menu) return [];
+        toggle.click();
+        const viewportWidth = document.documentElement.clientWidth;
+        const elements = [menu, ...menu.querySelectorAll('.lang-switch-option')];
+        const failures = elements.flatMap((element, index) => {
+          const rect = element.getBoundingClientRect();
+          return rect.left < 0 || rect.right > viewportWidth
+            ? [`LANG MENU ${index === 0 ? 'container' : `option ${index}`} outside viewport: ${rect.left.toFixed(2)}..${rect.right.toFixed(2)} of ${viewportWidth}`]
+            : [];
+        });
+        toggle.click();
+        return failures;
+      });
+
       // Wait for eager images to finish loading (avoids domcontentloaded timing race).
       // Lazy images are intentionally deferred until scroll — skip them.
       await page.waitForFunction(
@@ -203,6 +226,7 @@ async function runWithPlaywright() {
 
       const errors = [
         ...(overflow ? [`OVERFLOW: scrollWidth > ${vp.width}px`] : []),
+        ...localeMenuErrors,
         ...pageConsoleErrors.slice(0, 5).map(e => 'CONSOLE: ' + e),
         ...unexpectedBrokenImages.slice(0, 5).map(s => 'BROKEN IMG: ' + s),
         ...failed404s.slice(0, 5).map(u => '404: ' + u),
@@ -259,7 +283,7 @@ async function runWithPlaywright() {
 
 // ── MODE B: Static lint ───────────────────────────────────────────────────────
 //
-// Runs 10 structural checks per page and emits one row per (page × viewport).
+// Runs structural checks per page and emits one row per (page × viewport).
 // Checks are viewport-agnostic (HTML structure doesn't change by width), so
 // identical pass/fail data is recorded for each viewport row. The `mode` field
 // is always "static-lint" so results are never confused with browser execution.

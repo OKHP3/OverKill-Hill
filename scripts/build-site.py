@@ -75,7 +75,13 @@ SPAIN_FLAG_SVG = (
 )
 
 LANG_FLAG_SVG = {"en": USA_FLAG_SVG, "fr": FRANCE_FLAG_SVG, "de": GERMANY_FLAG_SVG, "es": SPAIN_FLAG_SVG}
-LANG_LABEL = {"en": "English (US)", "fr": "Fran\u00e7ais", "de": "Deutsch", "es": "Espa\u00f1ol"}
+LANG_LABEL = {
+    "en": "English (US)",
+    "fr": "Fran\u00e7ais (France)",
+    "de": "Deutsch (Deutschland)",
+    "es": "Espa\u00f1ol (Espa\u00f1a)",
+}
+LANG_TAG = {"en": "en-US", "fr": "fr-FR", "de": "de-DE", "es": "es-ES"}
 
 # Locale metadata is kept explicit so regional tags cannot collapse into the
 # existing primary-language fallbacks. Draft locales are consumed by the
@@ -455,7 +461,7 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
         #      viewport, matching the theme toggle's behavior.
         options = [
             f'<li><a aria-current="true" aria-label="{LANG_LABEL["en"]}" class="lang-switch-option is-current" '
-            f'href="{html.escape(page["route"], quote=True)}" hreflang="en" lang="en">{LANG_FLAG_SVG["en"]}'
+            f'href="{html.escape(page["route"], quote=True)}" hreflang="{LANG_TAG["en"]}" lang="{LANG_TAG["en"]}">{LANG_FLAG_SVG["en"]}'
             f'<span class="lang-switch-option-label">{LANG_LABEL["en"]}</span></a></li>'
         ]
         for lang in PILOT_LANGUAGES:
@@ -464,7 +470,7 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
                 continue
             options.append(
                 f'<li><a aria-label="{LANG_LABEL[lang]}" class="lang-switch-option" '
-                f'href="{html.escape(target, quote=True)}" hreflang="{lang}" lang="{lang}">{LANG_FLAG_SVG[lang]}'
+                f'href="{html.escape(target, quote=True)}" hreflang="{LANG_TAG[lang]}" lang="{LANG_TAG[lang]}">{LANG_FLAG_SVG[lang]}'
                 f'<span class="lang-switch-option-label">{LANG_LABEL[lang]}</span></a></li>'
             )
         toggle = (

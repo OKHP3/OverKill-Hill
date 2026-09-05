@@ -3353,6 +3353,17 @@ html[data-theme="light"] .pf-boundary-label--private    { color: #475569; }
     margin-right: 0.5rem;
     padding-right: 0.5rem;
   }
+
+  /* Anchor the disclosure to the viewport on compact headers. The language
+     control sits between several fixed-width header controls, so positioning
+     a 15rem menu against that narrow flex item can push the menu off-screen. */
+  .site-header .lang-switch-menu {
+    position: fixed;
+    top: calc(3.75rem + 0.5rem);
+    right: 0.5rem;
+    left: 0.5rem;
+    width: auto;
+  }
 }
 
 @media (max-width: 480px) {

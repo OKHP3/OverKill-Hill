@@ -48,11 +48,11 @@ FRANCE = '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 
 GERMANY = '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21"><rect fill="#000000" height="6.67" width="30"/><rect fill="#DD0000" height="6.67" width="30" y="6.67"/><rect fill="#FFCE00" height="6.66" width="30" y="13.34"/></svg>'
 SPAIN = '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21"><rect fill="#AA151B" height="5" width="30"/><rect fill="#F1BF00" height="10" width="30" y="5"/><rect fill="#AA151B" height="5" width="30" y="15"/></svg>'
 LOCALE_MENU = (
-    ('en', 'en', 'English (US)', USA),
+    ('en', 'en-US', 'English (US)', USA),
     ('en-gb', 'en-GB', 'English (UK) · Draft', ST_GEORGE),
-    ('fr', 'fr', 'Français', FRANCE),
-    ('de', 'de', 'Deutsch', GERMANY),
-    ('es', 'es', 'Español', SPAIN),
+    ('fr', 'fr-FR', 'Français (France)', FRANCE),
+    ('de', 'de-DE', 'Deutsch (Deutschland)', GERMANY),
+    ('es', 'es-ES', 'Español (España)', SPAIN),
     ('es-mx', 'es-MX', 'Español (México) · Borrador', MEXICO),
 )
 
