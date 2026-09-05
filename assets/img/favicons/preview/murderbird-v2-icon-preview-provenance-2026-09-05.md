@@ -12,7 +12,7 @@ Status: reviewable production-shaped candidate. This branch changes the shared i
 
 ## Deterministic packaging
 
-The preview derivatives were produced with Pillow using only resize, alpha compositing, opaque background compositing, ICO encoding, and contact-sheet drawing. The source master was copied unchanged. The safe-margin canvas is 1024 x 1024 with the source artwork resized to 720 x 720 and centered. Opaque platform previews use background `#2a2320`.
+The preview derivatives were produced with Pillow using only alpha-bounds cropping, resize, alpha compositing, opaque background compositing, ICO encoding, and contact-sheet drawing. The source master was copied unchanged. The safe-margin canvas is 1024 x 1024 with the source artwork resized to 720 x 720 and centered. Opaque platform previews use background `#2a2320`. Browser PNGs use the same master artwork cropped to its alpha bounds and fitted to a one-pixel transparent edge at each target size; this is separate from the wider PWA safe-margin treatment.
 
 Generated files:
 
@@ -38,6 +38,7 @@ Generated files:
 - ICO inspection reports 16, 32, and 48 pixel layers.
 - Contact sheets show the master, safe-margin, light-surface, dark-surface, tiny browser, and mask-boundary evidence views.
 - The browser contact view shows 16, 32, and 48 pixel icons at native size on light and dark surfaces.
+- Browser derivatives were tightened after native-size review so the 16 pixel visible silhouette is not reduced by PWA padding; the ICO and root fallback were regenerated from those final browser derivatives.
 - The root `/favicon.ico` now uses the MurderBird ICO package; the previous root file is preserved at `assets/img/favicons/archive/favicon-legacy-2026-09-05.ico`.
 - Manifest entries use distinct `any` and `maskable` files with matching MIME types and declared sizes.
 
