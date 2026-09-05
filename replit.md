@@ -280,7 +280,7 @@ The script **auto-detects** which sections to index on any `/projects/*/` page. 
 
 The attribute value is ignored; its presence is the signal. The script discovers all such elements across all project pages on every run. See `discover_sentinel_sections()` in the script for implementation details.
 
-- Sitelinks Searchbox JSON-LD (`SearchAction`) on every page points at `/search/?q={search_term_string}`.
+- Each page retains `SearchAction` JSON-LD for the site's own search route, `/search/?q={search_term_string}`. Google retired the sitelinks search box feature in November 2024; this markup no longer implies a Google searchbox.
 
 ### Cross-site search prompt
 
