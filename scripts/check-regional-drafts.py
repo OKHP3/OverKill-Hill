@@ -5,7 +5,6 @@ from __future__ import annotations
 import json
 import hashlib
 import re
-import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,7 +14,10 @@ CSP_META_RE = re.compile(
     rb'<meta\b(?=[^>]*\bhttp-equiv=["\']Content-Security-Policy["\'])[^>]*>',
     re.I,
 )
-CACHE_BUST_RE = re.compile(rb'[?&]v=[0-9a-f]{8,64}(?=["\'\s>])', re.I)
+ASSET_FINGERPRINT_RE = re.compile(
+    rb'(\b(?:href|src)=["\'][^"\']*/assets/[^"\']*?)\?v=[0-9a-f]{8,64}(?=["\'])',
+    re.I,
+)
 
 
 def fail(message: str) -> None:
@@ -26,7 +28,7 @@ def normalized_translation_source(content: bytes) -> bytes:
     """Remove generated release metadata before checking editorial freshness."""
     normalized = content.replace(b"\r\n", b"\n")
     normalized = CSP_META_RE.sub(b"", normalized)
-    return CACHE_BUST_RE.sub(b"", normalized)
+    return ASSET_FINGERPRINT_RE.sub(rb"\1", normalized)
 
 
 def main() -> int:
@@ -36,7 +38,6 @@ def main() -> int:
     if "source_path = ROOT / rel" not in builder:
         fail("builder must open canonical en-US paths for both pairs")
     source_hashes = json.loads((ROOT / "i18n/pilot/source-hashes-release-0ee.json").read_text(encoding="utf-8"))
-    revision = source_hashes["source_revision"].removeprefix("git:")
     for name in ("index.html", "about-index.html", "projects-index.html", "contact-index.html"):
         if not (ROOT / "i18n/pilot/es-mx/reviewed" / name).exists():
             fail(f"missing reviewed es-MX source artifact: {name}")
@@ -48,15 +49,10 @@ def main() -> int:
         for route in ROUTES:
             source_rel = "index.html" if route == "/" else route.strip("/") + "/index.html"
             source_path = ROOT / source_rel
-            release_content = subprocess.run(
-                ["git", "show", f"{revision}:{source_rel}"],
-                check=True,
-                capture_output=True,
-            ).stdout
-            recorded_raw_hash = hashlib.sha256(release_content.replace(b"\r\n", b"\n")).hexdigest()
-            if recorded_raw_hash != source_hashes["routes"].get(route):
-                fail(f"{route}: recorded release source does not match its hash")
-            if hashlib.sha256(normalized_translation_source(source_path.read_bytes())).hexdigest() != hashlib.sha256(normalized_translation_source(release_content)).hexdigest():
+            release_hash = source_hashes.get("normalized_routes", {}).get(route)
+            if not release_hash:
+                fail(f"{route}: missing durable normalized release hash")
+            elif hashlib.sha256(normalized_translation_source(source_path.read_bytes())).hexdigest() != release_hash:
                 fail(f"{route}: canonical source is stale relative to the recorded release revision")
             path = ROOT / locale / ("index.html" if route == "/" else route.strip("/") + "/index.html")
             if not path.exists():
@@ -65,7 +61,6 @@ def main() -> int:
             text = path.read_text(encoding="utf-8")
             if f'<html lang="{expected_lang}">' not in text:
                 fail(f"{path.relative_to(ROOT)}: wrong html lang")
-            robots = re.search(r'<meta[^>]+>', text, re.I)
             robot_tags = re.findall(r'<meta[^>]+>', text, re.I)
             if not any(re.search(r'name=["\']robots["\']', tag, re.I) and re.search(r'content=["\']noindex, follow', tag, re.I) for tag in robot_tags):
                 fail(f"{path.relative_to(ROOT)}: missing noindex")

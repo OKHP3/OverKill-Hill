@@ -180,11 +180,17 @@ async function runWithPlaywright() {
         if (!toggle || !menu) return [];
         toggle.click();
         const viewportWidth = document.documentElement.clientWidth;
-        const elements = [menu, ...menu.querySelectorAll('.lang-switch-option')];
-        const failures = elements.flatMap((element, index) => {
+        const elements = [
+          { element: menu, label: 'container' },
+          ...Array.from(menu.querySelectorAll('.lang-switch-option'), (element, index) => ({
+            element,
+            label: `option ${index + 1}`,
+          })),
+        ];
+        const failures = elements.flatMap(({ element, label }) => {
           const rect = element.getBoundingClientRect();
           return rect.left < 0 || rect.right > viewportWidth
-            ? [`LANG MENU ${index === 0 ? 'container' : `option ${index}`} outside viewport: ${rect.left.toFixed(2)}..${rect.right.toFixed(2)} of ${viewportWidth}`]
+            ? [`LANG MENU ${label} outside viewport: ${rect.left.toFixed(2)}..${rect.right.toFixed(2)} of ${viewportWidth}`]
             : [];
         });
         toggle.click();

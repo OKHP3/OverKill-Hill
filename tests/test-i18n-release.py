@@ -51,9 +51,13 @@ class I18nReleaseTests(unittest.TestCase):
             original = root / "original.html"
             regenerated = root / "regenerated.html"
             changed = root / "changed.html"
-            original.write_text('<meta http-equiv="Content-Security-Policy" content="one"><link href="/theme.css?v=11111111"><p>stable</p>\n', encoding="utf-8")
-            regenerated.write_text('<meta content="two" http-equiv="Content-Security-Policy"><link href="/theme.css?v=22222222"><p>stable</p>\r\n', encoding="utf-8", newline="")
-            changed.write_text('<meta http-equiv="Content-Security-Policy" content="two"><link href="/theme.css?v=22222222"><p>changed</p>\n', encoding="utf-8")
+            changed_asset = root / "changed-asset.html"
+            original.write_text('<meta http-equiv="Content-Security-Policy" content="one"><link href="/assets/css/theme.css?v=11111111"><p>stable ?v=11111111</p>\n', encoding="utf-8")
+            regenerated.write_text('<meta content="two" http-equiv="Content-Security-Policy"><link href="/assets/css/theme.css?v=22222222"><p>stable ?v=11111111</p>\r\n', encoding="utf-8", newline="")
+            changed.write_text('<meta http-equiv="Content-Security-Policy" content="two"><link href="/assets/css/theme.css?v=22222222"><p>changed ?v=11111111</p>\n', encoding="utf-8")
+            changed_asset.write_text('<meta http-equiv="Content-Security-Policy" content="two"><link href="/assets/css/other.css?v=22222222"><p>stable ?v=11111111</p>\n', encoding="utf-8")
+            changed_visible_version = root / "changed-visible-version.html"
+            changed_visible_version.write_text('<meta http-equiv="Content-Security-Policy" content="two"><link href="/assets/css/theme.css?v=22222222"><p>stable ?v=cafebabe</p>\n', encoding="utf-8")
             self.assertEqual(
                 REGIONAL_BUILDER_MODULE.canonical_text_hash(original),
                 REGIONAL_BUILDER_MODULE.canonical_text_hash(regenerated),
@@ -61,6 +65,14 @@ class I18nReleaseTests(unittest.TestCase):
             self.assertNotEqual(
                 REGIONAL_BUILDER_MODULE.canonical_text_hash(original),
                 REGIONAL_BUILDER_MODULE.canonical_text_hash(changed),
+            )
+            self.assertNotEqual(
+                REGIONAL_BUILDER_MODULE.canonical_text_hash(original),
+                REGIONAL_BUILDER_MODULE.canonical_text_hash(changed_asset),
+            )
+            self.assertNotEqual(
+                REGIONAL_BUILDER_MODULE.canonical_text_hash(original),
+                REGIONAL_BUILDER_MODULE.canonical_text_hash(changed_visible_version),
             )
 
     def test_full_report_preserves_all_pairs_and_blocks_only_french(self):

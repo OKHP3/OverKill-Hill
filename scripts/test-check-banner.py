@@ -35,6 +35,11 @@ def main() -> int:
         "ok",
     )
     check_case(
+        "localized marker accepts valid quoting, spacing, and casing",
+        f'<a class="site-specials-link" DATA-BANNER-LOCALIZED = \'TRUE\' data-banner-release="v0.5" href="{featured}">La versión 0.5 ya está en línea</a>',
+        "ok",
+    )
+    check_case(
         "localized marker without release fails",
         f'<a class="site-specials-link" data-banner-localized="true" href="{featured}">La versión 0.5 ya está en línea</a>',
         "mismatch",

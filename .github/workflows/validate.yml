@@ -75,6 +75,12 @@ jobs:
       - name: Run published-locale release-gate regressions
         run: python3 -m unittest tests/test-i18n-release.py
 
+      - name: Check regional draft publication boundaries
+        run: python3 scripts/check-regional-drafts.py
+
+      - name: Run construction-banner regressions
+        run: python3 scripts/test-check-banner.py
+
       - name: Check public project-status records
         run: python3 scripts/check-project-status.py
 
@@ -96,7 +102,7 @@ jobs:
       - name: Check shared asset fingerprints
         run: python3 scripts/cache-bust.py --check
 
-      - name: Check templates for unresolved merge markers
+      - name: Check tracked site sources for unresolved merge markers
         run: python3 tests/test-template-conflict-markers.py
 
       - name: Check representative first-party asset budgets
