@@ -1,78 +1,25 @@
-# Baseline and history disposition — 2026-09-04
+# Baseline and history disposition, 2026-09-04
 
-## Performance baseline (R34)
+## R34 initial lab baseline
 
-Measured from the isolated `codex/p3-baseline-history` worktree at commit
-`e225176305a0d5cd8283cc0ad90d64f0d49d506f` on 2026-09-05 UTC (2026-09-04
-America/Chicago). The local `server.py` served `http://127.0.0.1:5000` with
-no-cache headers. The reusable command was:
+Measured at commit `e225176305a0d5cd8283cc0ad90d64f0d49d506f` using Chromium 153.0.8010.12, headless, viewport 1280x720, three fresh contexts per route, empty cache, local no-cache server, no throttling, and host-default CPU. `networkIdleNavigationMs` includes the network-idle wait. Transfer and encoded bytes are observed top-document resource-timing subtotals only. They exclude navigation payloads and opaque cross-origin or iframe bytes, so they are not total page payload.
 
-```text
-npm install --no-save --ignore-scripts playwright
-npx playwright install chromium
-node scripts/measure-baseline.mjs --base=http://127.0.0.1:5000
-```
+| Route | Network-idle navigation median (range) | DOMContentLoaded median | Transfer subtotal median |
+|---|---:|---:|---:|
+| `/` | 971 ms (903–1076) | 255 ms | 5,517,877 bytes |
+| `/writings/first-diagram-is-a-liar/` | 1382 ms (1215–1631) | 482 ms | 1,239,847 bytes |
+| `/projects/mermaid-theme-builder/` | 1372 ms (1210–1890) | 242 ms | 359,313 bytes |
 
-The temporary install was not added to the repository. The script uses one
-fresh headless Chromium context per route, empty browser cache, local HTTP,
-no network throttling, host-default CPU, and `networkidle`. It records browser
-version, navigation duration, DOMContentLoaded, resource count, transfer bytes,
-encoded bytes, resource duration, and failed requests. It does not claim field
-data or INP/LCP distributions; those are unavailable.
+Evidence: [`baseline-measurement-2026-09-04.json`](../audit/baseline-measurement-2026-09-04.json). Failed request reports strip query strings. The Google Analytics request was aborted with unknown cause. Field data is unavailable; no INP or LCP distributions are claimed. This is an initial lab baseline only.
 
-| Representative route | Navigation ms | DOMContentLoaded ms | Transfer bytes | Resources |
-|---|---:|---:|---:|---:|
-| `/` | 4018 | 3547 | 5,517,877 | 27 |
-| `/writings/first-diagram-is-a-liar/` | 1466 | 787 | 1,239,847 | 34 |
-| `/projects/mermaid-theme-builder/` | 1798 | 375 | 359,313 | 7 |
+Proposed future repeatability budgets, not enforced: homepage network-idle navigation <= 5,000 ms, DOMContentLoaded <= 4,000 ms, observed resource timing subtotal <= 6 MiB. Re-measure on a declared device and network profile before any release rule.
 
-The machine-readable evidence is [`baseline-measurement-2026-09-04.json`](../audit/baseline-measurement-2026-09-04.json).
-Each route recorded one aborted Google Analytics collection request; this is
-external availability behavior and is not treated as a page asset failure.
+## R35 history disposition
 
-### Proposed budgets (proposal, not enforced)
+All six stashes are preserved by immutable commit ID: `d1d85689d1fe8499f94b3dbdad6040f4ef77920d` (abc9 parity draft), `ea250c89e7f6024ad7d9ebeea397a121be253798` (89eb edits), `f8829e694c86b773e576dbe5a674e28d6d66cfbc` (live-edge report after parser verification), `b157e48b970d6d6c9953ef92cb9a2251c5d99a8c` (live-edge verification), `6ec5f6eaccb62bd3597b90331ed594dc631f145f` (responsive QA), and `1399026e4dffe91cf36231b2c1a37b3a6c99c70f` (validation outputs).
 
-For this unthrottled local reference run, use a future repeatability target of
-navigation ≤5,000 ms, DOMContentLoaded ≤4,000 ms, and transfer ≤6 MiB for the
-homepage. These are measurement guardrails derived from the observed values,
-not CI gates and not claims about user field experience. Re-measure with a
-declared device/network profile before turning any budget into a release rule.
+Complete archive inventory was captured with `git for-each-ref refs/archive`, including every ref name, SHA, and subject. All dated pre-repair, pre-merge, merged-PR, and mirror-junitor refs remain preserved. `main` and `origin/main` point to `e225176305a0d5cd8283cc0ad90d64f0d49d506f`.
 
-## Historical-work disposition (R35)
+Detached worktrees `0822`, `6068`, `7433`, `8492`, and `d079` are historical evidence snapshots. Other-owned active worktrees include `45cd` (`codex/r05-r06-r07`), `6d60` (`codex/release-artifact-boundary`), `p3-copy-seo`, and `p3-dependencies`; none were modified. The retired `_replit` Mermaid Theme Builder preview remains a standalone prototype boundary and is excluded from production routes.
 
-Read-only inventory from the isolated worktree. No stash was applied or deleted,
-and no branch or archive ref was pruned.
-
-### Stashes
-
-| Ref | Disposition |
-|---|---|
-| `stash@{0}` `archive detached worktree abc9 parity draft 2026-08-30` | preserved historical draft |
-| `stash@{1}` `archive detached worktree 89eb edits 2026-08-30` | preserved historical edits |
-| `stash@{2}` `codex live-edge report after parser verification 2026-08-23` | preserved report evidence |
-| `stash@{3}` `codex live-edge verification report 2026-08-23` | preserved report evidence |
-| `stash@{4}` `codex responsive QA results 2026-08-23` | preserved QA evidence |
-| `stash@{5}` `codex validation outputs 2026-08-23` | preserved validation evidence |
-
-### Archive refs and active worktrees
-
-The archive namespace contains dated pre-repair, pre-merge, merged-PR, and
-mirror-junitor refs. Examples verified by exact SHA include
-`refs/archive/2026-08-22/pre-repair-344e046d` → `344e046d7ba1e95be2f8d01907d18129240024d`,
-`refs/archive/2026-08-28/overkill-hill-recover-local-01ba2a0b` →
-`01ba2a0b10240a7aa51dbf0c697feb9e9750de99`, and
-`refs/archive/2026-08-31/pre-merge-932ffc2` →
-`932ffc2032095e7633e424cd8d76bed3a7641ca0`. They remain preserved historical
-anchors. `main` and `origin/main` both point to `e225176305a0d5cd8283cc0ad90d64f0d49d506f`.
-
-Existing worktrees include the checked-out `main`, detached evidence worktrees
-at `0822`, `45cd`, `6068`, `8492`, and `d079`, active branches
-`codex/release-artifact-boundary` at `292d8f9`, `codex/p3-copy-seo`,
-`codex/p3-dependencies`, and this worktree. These are owned or active surfaces;
-they were not modified.
-
-### Boundary
-
-This change records evidence and disposition only. It does not pop or delete
-stashes, rewrite history, prune refs, redesign runtime behavior, enforce budgets,
-or address the separate Mermaid P1.
+No stash was popped or deleted, and no branch or archive ref was pruned.
