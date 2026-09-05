@@ -214,6 +214,7 @@ jobs:
         with:
           name: validated-site-${{ github.sha }}
           path: site-release
+          include-hidden-files: true
           if-no-files-found: error
           retention-days: 1
 
