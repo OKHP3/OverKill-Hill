@@ -84,7 +84,7 @@ def all_pages() -> list[Path]:
                 "assets/templates/",
                 "assets/partials/",
                 "site-src/",
-                "tests/fixtures/csp/",
+                "tests/fixtures/",
             )
         )
     )
