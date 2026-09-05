@@ -3,11 +3,39 @@
   "review_status": "ai-reviewed",
   "native_or_human_approval": false,
   "publication_status": "noindex draft; sync adoption is freshness evidence, not publication",
-  "source_revision": "git:46bdcb74b91b43684d7fa72d5e401710d37a177f",
+  "source_revision": "git:00173f1b5dd233b74a302da164baa851468cc901",
   "routes": [
-    {"route": "/", "source_sha256": "099a52e35aa705f3d759faa367fb69f27fc04139ccd06925b1896900dd89cbaa", "target_path": "es/index.html", "target_sha256": "2390efa8474621c3d162e557f062bacead5e475288f6a835d29271be68737560", "disposition": "retained-ai-reviewed", "locale": "es"},
-    {"route": "/about/", "source_sha256": "f896e5b6c9f1a444ee297447261598a9aebaab7b2df0af1de2b74fa3e34ece33", "target_path": "es/about/index.html", "target_sha256": "3a73f6f9b6c7584b82dbddefe0afad7501e9d2be86c82d12e74bfbcb13327019", "disposition": "retained-ai-reviewed", "locale": "es"},
-    {"route": "/projects/", "source_sha256": "287b1b6d76161eab44592f15634cb8dd6eec08eb161df815cef7c007dd19cff8", "target_path": "es/projects/index.html", "target_sha256": "f929508385f6d8ca5cc6155aca8ade89cab91105844e3538e2d3166625ddcb0f", "disposition": "retained-ai-reviewed", "locale": "es"},
-    {"route": "/contact/", "source_sha256": "80e27f0a95920b87d4d8e98d21e9d79950a1bc6abe6a640f243b8cf6be4fc582", "target_path": "es/contact/index.html", "target_sha256": "131cbb584282e0b3af664f22bb3ef755ff5136a9a2c92bcdab509662ea4ab218", "disposition": "retained-ai-reviewed", "locale": "es"}
+    {
+      "route": "/",
+      "source_sha256": "254ff869f86f2bf85e0319dcd3c5f1d27b38755c8a8304006be2bf3b570e306e",
+      "target_path": "es/index.html",
+      "target_sha256": "cd638e1bc521cf6e961e027aaa23c073e5a21b816fdde20e4a4f8547304627bf",
+      "disposition": "retained-ai-reviewed",
+      "locale": "es"
+    },
+    {
+      "route": "/about/",
+      "source_sha256": "7110912543d29e362f0603cbae10735e11da1427297fb865060b26710ff1f24a",
+      "target_path": "es/about/index.html",
+      "target_sha256": "0dab49057fc9713cf8f294fb9a6ccf32a7d83aabccd099a1df57fa64d0769e6d",
+      "disposition": "retained-ai-reviewed",
+      "locale": "es"
+    },
+    {
+      "route": "/projects/",
+      "source_sha256": "5a89d53200eb5662b6248f5f70fc9e813a3c650ac286c48e9cd19c455f0456e8",
+      "target_path": "es/projects/index.html",
+      "target_sha256": "fff6df1713ed96deda2ed01d02361b08b86e090c9ea8606d9ac3ed42a2c78dcc",
+      "disposition": "retained-ai-reviewed",
+      "locale": "es"
+    },
+    {
+      "route": "/contact/",
+      "source_sha256": "87445732b7d20c405ee6d39c9b52cacb297c64dfe01b3398fd546248af20ba66",
+      "target_path": "es/contact/index.html",
+      "target_sha256": "5c30de8436b92c788cb263863d62682edda912832dba85093a9519a3fdd2c854",
+      "disposition": "retained-ai-reviewed",
+      "locale": "es"
+    }
   ]
 }

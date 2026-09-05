@@ -93,9 +93,9 @@ ORGANIZATION_JSONLD = {
     "url": "https://overkillhill.com/",
     "logo": {
         "@type": "ImageObject",
-        "url": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png",
-        "width": 256,
-        "height": 256,
+        "url": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-1024.png",
+        "width": 1024,
+        "height": 1024,
     },
     "sameAs": [
         "https://www.linkedin.com/company/overkillhillp3",

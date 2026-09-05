@@ -66,6 +66,16 @@ def main() -> int:
                 fail(f"{path.relative_to(ROOT)}: missing noindex")
             if label not in text:
                 fail(f"{path.relative_to(ROOT)}: missing visible draft label")
+            expected_home = f'/{locale}/'
+            nav_match = re.search(r'<div class="logo">.*?</div>', text, re.S)
+            if nav_match is None or not re.search(rf'<a\b[^>]*\bhref="{re.escape(expected_home)}"', nav_match.group(0)):
+                fail(f"{path.relative_to(ROOT)}: navigation logo does not return to its locale home")
+            if nav_match is None or 'class="sr-only"' not in nav_match.group(0):
+                fail(f"{path.relative_to(ROOT)}: navigation logo has no accessible home label")
+            if '/assets/img/favicons/murderbird-v2-icon-nav-96.png' not in text:
+                fail(f"{path.relative_to(ROOT)}: navigation logo does not use the current organization identity")
+            if nav_match and 'loading="eager"' not in nav_match.group(0):
+                fail(f"{path.relative_to(ROOT)}: navigation logo must declare eager loading")
             if '<link' in text and 'rel="alternate"' in text[: text.find("</head>")]:
                 fail(f"{path.relative_to(ROOT)}: draft head exposes public alternate links")
             if locale == "en-gb" and 'stroke="#CE1124"' not in text:
