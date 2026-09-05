@@ -509,7 +509,7 @@
 <div aria-hidden="true" class="feature-icon">◻</div>
 <div>
 <h3>Agent Skill Family (SKILL.md)</h3>
-<p>Governance logic ships as an 10-skill SKILL.md family: theme building, architecture, BPMN, data, publishing, repair, and update skills, plus a core foundation skill, for Claude Code, Cursor, GitHub Copilot, and VS Code. Not in v0.3.</p>
+<p>Governance logic ships as an 10-skill SKILL.md family: theme building, architecture, BPMN, data, publishing, repair, and update skills, plus a core foundation skill, for Claude Code, Cursor, and GitHub Copilot. Not in v0.3.</p>
 </div>
 </div>
 <div class="feature-item">
@@ -855,25 +855,19 @@
 </ul>
 <p>Intended for: AI coding assistants, local agent workflows, CI/CD diagram validation pipelines, and headless diagram-governance scripts that need to apply consistent brand and renderer rules without human review at each step.</p>
 <h3 style="margin-top:1rem;">Install in your AI coding assistant</h3>
-<p>The skill family is published and installable today. Drop the relevant skill file(s) into your agent's skill directory; start with <code>okhp3-mermaid-theme-builder</code>, or pull the full 10-skill family from <code>skills/FAMILY.md</code> for architecture, BPMN, data, publishing, repair, and update workflows too.</p>
+<p>The skill family is published and installable today. Copy the full <code>okhp3-mermaid-theme-builder/</code> package directory, with its <code>SKILL.md</code> and supporting files, into the host's skill folder. Do not copy <code>SKILL.md</code> by itself if the package includes resources, scripts, references, or assets that the skill expects to load.</p>
 <p><strong>Claude Code</strong></p>
-<pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .claude/skills/mermaid-theme-builder.md
-# Point Claude Code at the published SKILL.md raw URL or local copy
-curl -o .claude/skills/mermaid-theme-builder.md \
-  https://raw.githubusercontent.com/OKHP3/mermaid-theme-builder/main/skills/okhp3-mermaid-theme-builder/SKILL.md</pre>
+<pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .claude/skills/okhp3-mermaid-theme-builder/
+# Copy the full package directory here so Claude Code gets SKILL.md plus its resources
+cp -R okhp3-mermaid-theme-builder/ .claude/skills/okhp3-mermaid-theme-builder/</pre>
 <p><strong>Cursor</strong></p>
-<pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .cursor/rules/mermaid-theme-builder.mdc
-# Copy skills/okhp3-mermaid-theme-builder/SKILL.md from the cloned repo
-# or reference via @mermaid-theme-builder in Cursor chat</pre>
+<pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .cursor/skills/okhp3-mermaid-theme-builder/
+# Copy the full package directory here so Cursor can load SKILL.md and its resources
+cp -R okhp3-mermaid-theme-builder/ .cursor/skills/okhp3-mermaid-theme-builder/</pre>
 <p><strong>GitHub Copilot</strong></p>
-<pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .github/copilot-instructions.md
-# Append contents of skills/okhp3-mermaid-theme-builder/SKILL.md under a "Mermaid Diagram Governance" heading
-# Copilot picks up repo-level instructions automatically in VS Code</pre>
-<p><strong>VS Code (any agent via workspace context)</strong></p>
-<pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .vscode/mermaid-theme-builder.md  (add to workspace context)
-# Copy skills/okhp3-mermaid-theme-builder/SKILL.md from the cloned repo
-# Reference in any chat-mode prompt: "Apply the Mermaid Theme Builder
-# governance rules for [renderer] before generating diagram code."</pre>
+<pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># .github/skills/okhp3-mermaid-theme-builder/
+# Copy the full package directory here so GitHub Copilot gets SKILL.md plus its resources
+cp -R okhp3-mermaid-theme-builder/ .github/skills/okhp3-mermaid-theme-builder/</pre>
 <div class="skill-note">Status: Shipped. The v0.5.x SKILL.md Hardening sprint delivered an 10-skill family covering theme building, architecture, BPMN, data, publishing, repair, and update workflows, plus a core foundation skill. Family manifest: <a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/FAMILY.md" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">skills/FAMILY.md ↗</a> · Theme builder skill: <a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/okhp3-mermaid-theme-builder/SKILL.md" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">okhp3-mermaid-theme-builder/SKILL.md ↗</a></div>
 </div>
 </div>
@@ -971,7 +965,7 @@ curl -o .claude/skills/mermaid-theme-builder.md \
                       v0.5.x: SKILL.md Hardening
                       <span class="phase-pill phase-pill--shipped">Shipped</span>
 </div>
-<p class="progress-phase-desc">Extract governance logic into a portable SKILL.md agent skill for Claude Code, Cursor, GitHub Copilot, and VS Code. Vitest 4 test suite hardening. Renderer profile verification fixtures.</p>
+<p class="progress-phase-desc">Extract governance logic into a portable SKILL.md agent skill for Claude Code, Cursor, and GitHub Copilot. Vitest 4 test suite hardening. Renderer profile verification fixtures.</p>
 </div>
 </li>
 <li class="progress-phase">
@@ -1172,7 +1166,7 @@ curl -o .claude/skills/mermaid-theme-builder.md \
 </div>
 <div class="faq-item">
 <p class="faq-q">What is SKILL.md and can I use it without the visual app?</p>
-<p class="faq-a">SKILL.md is a machine-readable agent skill: a file you drop into Claude Code, Cursor, GitHub Copilot, or VS Code that exposes the builder's governance logic without opening the visual app. The agent can apply brand palettes, select renderer profiles, and generate prompt scaffolds in headless workflows. It shipped as part of an 10-skill family (skills/FAMILY.md) in the v0.5.x SKILL.md Hardening sprint: theme building, architecture, BPMN, data, publishing, repair, update, plus a core foundation skill.</p>
+<p class="faq-a">SKILL.md is a machine-readable agent skill inside a full package directory. Claude Code, Cursor, and GitHub Copilot each load the skill from their own project skill folder when the package directory includes SKILL.md plus any supporting files. The agent can apply brand palettes, select renderer profiles, and generate prompt scaffolds in headless workflows. It shipped as part of an 10-skill family in the v0.5.x SKILL.md Hardening sprint: theme building, architecture, BPMN, data, publishing, repair, update, plus a core foundation skill.</p>
 </div>
 <div class="faq-item">
 <p class="faq-q">What is the relationship between Mermaid Theme Builder and BPMN for Mermaid?</p>
@@ -1296,17 +1290,6 @@ curl -o .claude/skills/mermaid-theme-builder.md \
 </div><!-- /project-layout -->
 </div><!-- /container -->
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   </main>
 <footer class="site-footer">
 <div class="container footer-grid">
