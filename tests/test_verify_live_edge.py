@@ -134,6 +134,22 @@ class PostMergeTests(unittest.TestCase):
         self.assertIn("ERROR: full site validation failed.", output)
         self.assertNotIn("Post-merge: all checks passed.", output)
 
+    def test_post_merge_stops_after_link_check_failure(self) -> None:
+        result = self.run_post_merge_with_python_failure("check-links.py")
+
+        self.assertNotEqual(result.returncode, 0)
+        output = (result.stderr + result.stdout).decode("utf-8", errors="replace")
+        self.assertIn("ERROR: internal link check failed.", output)
+        self.assertNotIn("Post-merge: all checks passed.", output)
+
+    def test_post_merge_stops_after_canonical_audit_failure(self) -> None:
+        result = self.run_post_merge_with_python_failure("audit-site.py")
+
+        self.assertNotEqual(result.returncode, 0)
+        output = (result.stderr + result.stdout).decode("utf-8", errors="replace")
+        self.assertIn("ERROR: canonical site audit failed.", output)
+        self.assertNotIn("Post-merge: all checks passed.", output)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

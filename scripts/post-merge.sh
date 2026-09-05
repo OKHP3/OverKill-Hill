@@ -45,4 +45,16 @@ run_step "CSP policy check" "CSP policies are out of sync with published pages."
 
 run_step "full site validator" "full site validation failed." python3 scripts/validate-site.py
 
+echo "Post-merge: running internal link check..."
+run_step "internal link check" "internal link check failed." python3 scripts/check-links.py
+
+audit_report="$(mktemp "${TMPDIR:-/tmp}/overkillhill-audit.XXXXXX.md")" || {
+  echo "ERROR: could not create temporary audit report." >&2
+  exit 1
+}
+trap 'rm -f "$audit_report"' EXIT
+echo "Post-merge: running canonical site audit..."
+run_step "canonical site audit" "canonical site audit failed." \
+  python3 scripts/audit-site.py --quiet --report "$audit_report"
+
 echo "Post-merge: all checks passed."
