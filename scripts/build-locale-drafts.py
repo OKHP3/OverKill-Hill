@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ROUTES = {"/": "index.html", "/about/": "about/index.html", "/projects/": "projects/index.html", "/contact/": "contact/index.html"}
 REVIEWED_ES_MX = {"index.html": "index.html", "about/index.html": "about-index.html", "projects/index.html": "projects-index.html", "contact/index.html": "contact-index.html"}
 BASE = "https://overkillhill.com"
-SOURCE_HASHES = ROOT / 'i18n' / 'pilot' / 'source-hashes-a39.json'
+SOURCE_HASHES = ROOT / 'i18n' / 'pilot' / 'source-hashes-release-0ee.json'
 PAIR_CONTRACTS = {
     'en-gb': ('dictionary.en-us-en-uk.json', 'voice-profile.en-us.json'),
     'es-mx': ('dictionary.en-us-es-mx.json', 'voice-profile.en-us.json'),
@@ -36,6 +36,26 @@ MEXICO = (
     '</svg>'
 )
 
+USA = (
+    '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21">'
+    '<rect fill="#B22234" height="20" width="30"/><rect fill="#FFFFFF" height="1.54" width="30" y="1.54"/>'
+    '<rect fill="#FFFFFF" height="1.54" width="30" y="4.62"/><rect fill="#FFFFFF" height="1.54" width="30" y="7.69"/>'
+    '<rect fill="#FFFFFF" height="1.54" width="30" y="10.77"/><rect fill="#FFFFFF" height="1.54" width="30" y="13.85"/>'
+    '<rect fill="#FFFFFF" height="1.54" width="30" y="16.92"/><rect fill="#3C3B6E" height="10.77" width="12"/>'
+    '</svg>'
+)
+FRANCE = '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21"><rect fill="#0055A4" height="20" width="10"/><rect fill="#FFFFFF" height="20" width="10" x="10"/><rect fill="#EF4135" height="20" width="10" x="20"/></svg>'
+GERMANY = '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21"><rect fill="#000000" height="6.67" width="30"/><rect fill="#DD0000" height="6.67" width="30" y="6.67"/><rect fill="#FFCE00" height="6.66" width="30" y="13.34"/></svg>'
+SPAIN = '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21"><rect fill="#AA151B" height="5" width="30"/><rect fill="#F1BF00" height="10" width="30" y="5"/><rect fill="#AA151B" height="5" width="30" y="15"/></svg>'
+LOCALE_MENU = (
+    ('en', 'en', 'English (US)', USA),
+    ('en-gb', 'en-GB', 'English (UK) · Draft', ST_GEORGE),
+    ('fr', 'fr', 'Français', FRANCE),
+    ('de', 'de', 'Deutsch', GERMANY),
+    ('es', 'es', 'Español', SPAIN),
+    ('es-mx', 'es-MX', 'Español (México) · Borrador', MEXICO),
+)
+
 
 def noindex(page: str) -> str:
     page = re.sub(r'(<meta[^>]+name=["\']robots["\'][^>]+content=["\'])[^"\']*', r'\1noindex, follow', page, flags=re.I)
@@ -48,6 +68,41 @@ def noindex(page: str) -> str:
 def route_links(page: str, source_locale: str, target_locale: str) -> str:
     page = page.replace(f"/{source_locale}/", f"/{target_locale}/")
     return page
+
+
+def locale_href(locale: str, route: str) -> str:
+    return route if locale == 'en' else f'/{locale}{route}'
+
+
+def render_locale_switch(active_locale: str, route: str) -> str:
+    """Render the complete draft selector without changing published locale pages."""
+    active = next(item for item in LOCALE_MENU if item[0] == active_locale)
+    options = []
+    for locale, tag, label, flag in LOCALE_MENU:
+        current = ' aria-current="true" class="lang-switch-option is-current"' if locale == active_locale else ' class="lang-switch-option"'
+        options.append(
+            f'<li><a{current} aria-label="{label}" href="{locale_href(locale, route)}" hreflang="{tag}" lang="{tag}">{flag}'
+            f'<span class="lang-switch-option-label">{label}</span></a></li>'
+        )
+    return (
+        '<div class="lang-switch"><button aria-expanded="false" aria-haspopup="true" '
+        f'aria-label="Language: {active[2]}" class="lang-switch-toggle" type="button">'
+        f'<span class="lang-flag-current">{active[3]}</span></button>'
+        f'<ul class="lang-switch-menu" hidden>{"".join(options)}</ul></div>'
+    )
+
+
+def replace_locale_switch(page: str, active_locale: str, route: str) -> str:
+    updated, count = re.subn(
+        r'<div class="lang-switch">.*?</ul></div>',
+        render_locale_switch(active_locale, route),
+        page,
+        count=1,
+        flags=re.S,
+    )
+    if count != 1:
+        raise SystemExit(f'Missing language switcher for {active_locale} {route}')
+    return updated
 
 
 def load_pair_contract(locale: str) -> tuple[dict, dict]:
@@ -94,8 +149,7 @@ def build_en_gb(source: str, route: str, dictionary: dict) -> str:
     page = page.replace(f'href="{route}" hreflang="en-GB"', f'href="/en-gb{route}" hreflang="en-GB"')
     page = page.replace('class="lang-flag"', 'class="lang-flag"', 1)
     page = re.sub(r'<svg aria-hidden="true" class="lang-flag".*?</svg>', ST_GEORGE, page, count=1, flags=re.S)
-    page = re.sub(r'(<a[^>]*class="lang-switch-option is-current"[^>]*>)<svg.*?</svg>(<span class="lang-switch-option-label">).*?</span>(</a>)', r'\1' + ST_GEORGE + r'\2English (UK) · Draft</span>\3', page, count=1, flags=re.S)
-    return page
+    return replace_locale_switch(page, 'en-gb', route)
 
 
 def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> str:
@@ -118,7 +172,6 @@ def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> st
     page = page.replace('aria-label="Español"', 'aria-label="Español (México) · Borrador"')
     page = re.sub(r'<link[^>]+rel="alternate"[^>]*>', '', page, flags=re.I)
     page = re.sub(r'<svg aria-hidden="true" class="lang-flag".*?</svg>', MEXICO, page, count=1, flags=re.S)
-    page = re.sub(r'(<a[^>]*class="lang-switch-option is-current"[^>]*>)<svg.*?</svg>(<span class="lang-switch-option-label">).*?</span>(</a>)', r'\1' + MEXICO + r'\2ES-MX · Borrador</span>\3', page, count=1, flags=re.S)
     # Project-level Mexican usage overrides. Preserve intentional technology
     # terms such as workflow and promptcraft rather than forcing calques.
     page = page.replace('ordenador', 'computadora').replace('móvil', 'celular')
@@ -139,7 +192,7 @@ def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> st
             '</a></section>'
         )
         page = page.replace('</header>', notice + '</header>', 1)
-    return page
+    return replace_locale_switch(page, 'es-mx', route)
 
 
 def main() -> int:
