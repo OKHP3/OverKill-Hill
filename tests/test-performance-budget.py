@@ -13,6 +13,34 @@ SPEC.loader.exec_module(MODULE)
 
 
 class PerformanceBudgetTests(unittest.TestCase):
+    @staticmethod
+    def write_fixture(root: Path, newline: bytes) -> None:
+        (root / "assets").mkdir()
+        (root / "index.html").write_bytes(newline.join([
+            b'<link rel="stylesheet" href="/assets/site.css">',
+            b'<img src="/assets/pixel.png">',
+        ]))
+        (root / "assets/site.css").write_bytes(newline.join([
+            b'/* url("/assets/commented-missing.svg") */',
+            b'body { background: url("/assets/bg.svg") }',
+        ]))
+        (root / "assets/bg.svg").write_bytes(newline.join([b"<svg>", b"</svg>"]))
+        (root / "assets/pixel.png").write_bytes(b"\x89PNG\r\n\x1a\n")
+
+    def test_lf_and_crlf_text_sources_have_identical_count_and_commented_url_is_ignored(self) -> None:
+        with tempfile.TemporaryDirectory() as lf_temporary, tempfile.TemporaryDirectory() as crlf_temporary:
+            lf_root = Path(lf_temporary)
+            crlf_root = Path(crlf_temporary)
+            self.write_fixture(lf_root, b"\n")
+            self.write_fixture(crlf_root, b"\r\n")
+            config = {"schema_version": 1, "routes": [{"route": "/", "document": "index.html", "max_bytes": 100000}]}
+            lf_results, lf_passed = MODULE.check(lf_root, config)
+            crlf_results, crlf_passed = MODULE.check(crlf_root, config)
+            self.assertTrue(lf_passed)
+            self.assertTrue(crlf_passed)
+            self.assertEqual(lf_results[0]["bytes"], crlf_results[0]["bytes"])
+            self.assertEqual(lf_results[0]["missing"], [])
+
     def test_empty_route_config_is_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             config_path = Path(temporary) / "budget.json"

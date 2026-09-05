@@ -29,6 +29,8 @@ ROOT_ASSET_TAGS = {
 }
 LINK_RELS = {"stylesheet", "icon", "apple-touch-icon", "manifest", "preload", "modulepreload"}
 CSS_URL = re.compile(r"url\(\s*(['\"]?)(.*?)\1\s*\)", re.IGNORECASE)
+CSS_COMMENTS = re.compile(r"/\*.*?\*/", re.DOTALL)
+TEXT_SUFFIXES = {".css", ".html", ".js", ".json", ".mjs", ".svg", ".txt", ".webmanifest"}
 
 
 class AssetParser(HTMLParser):
@@ -91,7 +93,7 @@ def collect_route(root: Path, document: str) -> tuple[list[Path], list[str]]:
         seen.add(current)
         text = current.read_text(encoding="utf-8")
         if current.suffix.lower() == ".css":
-            urls = [match.group(2) for match in CSS_URL.finditer(text)]
+            urls = [match.group(2) for match in CSS_URL.finditer(CSS_COMMENTS.sub("", text))]
         else:
             parser = AssetParser()
             parser.feed(text)
@@ -127,7 +129,7 @@ def check(root: Path, config: dict) -> tuple[list[dict], bool]:
         if not isinstance(item, dict) or not isinstance(item.get("route"), str) or not isinstance(item.get("document"), str) or not isinstance(item.get("max_bytes"), int):
             raise ValueError("each budget route needs route, document, and integer max_bytes")
         files, missing = collect_route(root, item["document"])
-        total = sum(file.stat().st_size for file in files)
+        total = sum(source_size(file) for file in files)
         route_pass = not missing and total <= item["max_bytes"]
         passed &= route_pass
         results.append({
@@ -139,6 +141,14 @@ def check(root: Path, config: dict) -> tuple[list[dict], bool]:
     return results, passed
 
 
+def source_size(path: Path) -> int:
+    """Return a deterministic source-byte count, normalizing known text to LF."""
+    content = path.read_bytes()
+    if path.suffix.lower() in TEXT_SUFFIXES:
+        content = content.replace(b"\r\n", b"\n")
+    return len(content)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Check deterministic first-party asset budgets.")
     parser.add_argument("--root", type=Path, default=Path.cwd())
@@ -148,11 +158,12 @@ def main() -> int:
     root = args.root.resolve()
     config_path = args.config if args.config.is_absolute() else root / args.config
     try:
-        results, passed = check(root, load_config(config_path))
+        config = load_config(config_path)
+        results, passed = check(root, config)
     except ValueError as error:
         print(f"ERROR: {error}", file=sys.stderr)
         return 2
-    report = {"schema": "performance-budget-report/v1", "scope": load_config(config_path).get("scope", ""), "results": results, "pass": passed}
+    report = {"schema": "performance-budget-report/v1", "scope": config.get("scope", ""), "results": results, "pass": passed}
     if args.json:
         print(json.dumps(report, indent=2))
     else:
