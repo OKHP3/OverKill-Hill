@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import importlib.util
+import shlex
 import subprocess
 import tempfile
 import unittest
@@ -101,10 +102,16 @@ class PostMergeTests(unittest.TestCase):
             )
             shim.chmod(0o755)
             temp_path = Path(temp).resolve()
-            drive = temp_path.drive.rstrip(":").lower()
-            windows_path = str(temp_path).replace("\\", "/")
-            posix_temp = f"/mnt/{drive}{windows_path[2:]}"
-            command = f"export PATH={posix_temp}:/usr/bin:/bin; source scripts/post-merge.sh"
+            if temp_path.drive:
+                drive = temp_path.drive.rstrip(":").lower()
+                windows_path = str(temp_path).replace("\\", "/")
+                posix_temp = f"/mnt/{drive}{windows_path[2:]}"
+            else:
+                posix_temp = str(temp_path)
+            command = (
+                f"export PATH={shlex.quote(posix_temp)}:/usr/bin:/bin; "
+                "source scripts/post-merge.sh"
+            )
             return subprocess.run(
                 ["bash", "-c", command],
                 cwd=ROOT,
