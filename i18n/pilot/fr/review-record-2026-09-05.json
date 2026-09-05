@@ -11,7 +11,7 @@
       "route": "/",
       "source_sha256": "254ff869f86f2bf85e0319dcd3c5f1d27b38755c8a8304006be2bf3b570e306e",
       "target_path": "fr/index.html",
-      "target_sha256": "2f0d4cba615dc13b9974ba59bfe2bf5ec872b7c23111fc5d38dc42273e4b1d7b",
+      "target_sha256": "3eb568a9d26d9ae39b48eeac55a9622f39aeb6b1dc24131adf0615636cb03667",
       "disposition": "retained-ai-reviewed",
       "locale": "fr"
     },
@@ -47,7 +47,8 @@
     "english_only_destinations": "labeled in the French copy"
   },
   "semantic_corrections": [
-    "Homepage hero image corrected from a raven on a vintage computer to the depicted stylized mechanical owl with glowing amber eyes."
+    "Homepage hero image corrected from a raven on a vintage computer to the depicted stylized mechanical owl with glowing amber eyes.",
+    "Homepage hero updated to the reviewed frontal MurderBird asset; the French alt accurately identifies the forward-facing mechanical bird, visible beak, and claws."
   ],
   "sync_state_adoption": "rebound-four-routes-against-46bdcb74; regional selector and reviewed semantic delta retained through generated release metadata; deployment not claimed"
 }

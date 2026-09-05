@@ -9,7 +9,7 @@
       "route": "/",
       "source_sha256": "254ff869f86f2bf85e0319dcd3c5f1d27b38755c8a8304006be2bf3b570e306e",
       "target_path": "es/index.html",
-      "target_sha256": "cd638e1bc521cf6e961e027aaa23c073e5a21b816fdde20e4a4f8547304627bf",
+      "target_sha256": "a8a7568f9d20e06e4463fb864b9d2dd681ca3aac97a6e3f0d694360bad231508",
       "disposition": "retained-ai-reviewed",
       "locale": "es"
     },
@@ -37,5 +37,6 @@
       "disposition": "retained-ai-reviewed",
       "locale": "es"
     }
-  ]
+  ],
+  "homepage_hero_review": "Reviewed frontal MurderBird asset and localized homepage alt; only the homepage target changed."
 }
