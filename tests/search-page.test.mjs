@@ -84,3 +84,35 @@ test("contains overlay index failures without an unhandled rejection", async () 
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" }); await page.getByRole("button", { name: "Search" }).click(); await page.locator(".okh-search-overlay .okh-search-noresults--error").waitFor(); await page.locator(".okh-search-overlay .okh-search-retry").click(); await page.waitForLoadState("networkidle"); assert.equal(requests >= 2, true); assert.deepEqual(errors, []);
   } finally { await browser.close(); }
 });
+
+test("preserves an overlay query entered while the index is loading", async () => {
+  const browser = await chromium.launch({ headless: true });
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  try {
+    await page.route("**/assets/data/search-index.json", async (route) => {
+      await new Promise((resolveDelay) => setTimeout(resolveDelay, 500));
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          entries: [{
+            url: "/resume-builder/",
+            title: "Resume Builder",
+            category: "Tool",
+            description: "Build a clear resume",
+            headings: [],
+            body: "resume guidance",
+          }],
+        }),
+      });
+    });
+    await page.goto(`${baseUrl}/`, { waitUntil: "domcontentloaded" });
+    await page.getByRole("button", { name: "Search" }).click();
+    await page.locator(".okh-search-input").fill("resume");
+    await page.locator('.okh-search-result[href="/resume-builder/"]').waitFor();
+    await assert.match(await page.locator(".okh-search-status").innerText(), /1 result found/i);
+    await assert.equal(await page.locator(".okh-search-input").inputValue(), "resume");
+  } finally {
+    await browser.close();
+  }
+});

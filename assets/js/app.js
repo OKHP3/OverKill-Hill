@@ -784,7 +784,11 @@ document.addEventListener("DOMContentLoaded", () => {
       console.warn("[okh-search] overlay index load failed:", error);
       list.querySelector(".okh-search-retry").addEventListener("click", () => {
         list.innerHTML = '<p class="okh-search-loading">Loading search index…</p>';
-        loadIndex(true).then((d) => { entries = d; renderEmpty(); }).catch(setLoadError);
+        loadIndex(true).then((d) => {
+          entries = d;
+          if (input.value.trim()) render();
+          else renderEmpty();
+        }).catch(setLoadError);
       });
     }
 
@@ -799,7 +803,11 @@ document.addEventListener("DOMContentLoaded", () => {
       lastFocus = document.activeElement;
       overlay.dataset.open = "true";
       document.documentElement.style.overflow = "hidden";
-      loadIndex().then((d) => { entries = d; renderEmpty(); }).catch(setLoadError);
+      loadIndex().then((d) => {
+        entries = d;
+        if (input.value.trim()) render();
+        else renderEmpty();
+      }).catch(setLoadError);
       setTimeout(() => input.focus(), 30);
     }
     function close() {
