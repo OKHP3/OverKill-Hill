@@ -47,4 +47,3 @@ Genuinely transparent background with real PNG alpha, no scenery, shadows outsid
 ```text
 Background extraction only: remove the painted checkerboard from this exact MurderBird head icon and return genuine RGBA PNG transparency. Preserve the artwork, position, square dimensions and margins unchanged. Make outside the silhouette and the opening beneath the beak fully alpha zero. No replacement scene, no checkerboard pattern, no white matte. Do not redesign the bird.
 ```
-
