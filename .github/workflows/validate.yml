@@ -69,6 +69,9 @@ jobs:
       - name: Run shared-foundation sync safety regressions
         run: python3 -m unittest tests/test-sync-foundation-files.py
 
+      - name: Run published-locale release-gate regressions
+        run: python3 -m unittest tests/test-i18n-release.py
+
       - name: Check public project-status records
         run: python3 scripts/check-project-status.py
 
