@@ -66,6 +66,9 @@ jobs:
       - name: Run live-edge and post-merge regression tests
         run: python3 -m unittest tests/test_verify_live_edge.py
 
+      - name: Run shared-foundation sync safety regressions
+        run: python3 -m unittest tests/test-sync-foundation-files.py
+
       - name: Check public project-status records
         run: python3 scripts/check-project-status.py
 

@@ -1,0 +1,46 @@
+{
+  "language_pair": "en-US -> fr-FR",
+  "skill": "okhp3-translation-en-us-fr-fr@1.1.0",
+  "review_status": "ai-reviewed",
+  "reviewed_on": "2026-09-05",
+  "review_authority": "owner-authorized AI semantic and terminology review",
+  "native_or_human_approval": false,
+  "source_revision": "git:346572dc94b7bcc91fd0c0aa7c26024d09cc8972",
+  "routes": [
+    {
+      "route": "/",
+      "source_sha256": "55bd2e5a405ddc51aaa01ece361fb8e255c5030d3cd237696845586248179c09",
+      "target_path": "fr/index.html",
+      "target_sha256": "042609f163c35e03c3c50259298991709600c4558bfbd3c04d0806283037051b",
+      "disposition": "retained-ai-reviewed"
+    },
+    {
+      "route": "/about/",
+      "source_sha256": "dc4d3113cea8a486f54f1f1a6130eb0787c1fc667b5dc66437ffd282b2fad117",
+      "target_path": "fr/about/index.html",
+      "target_sha256": "7a07744ce1c9e02e158bc21aa38ef0311ae830ab4203f8e7a96ae64432481cd8",
+      "disposition": "retained-ai-reviewed"
+    },
+    {
+      "route": "/projects/",
+      "source_sha256": "73a5a773cec9b41e3abf0c0c4adfb22b5bf0a12520eef2027d49f0da15c3a9b8",
+      "target_path": "fr/projects/index.html",
+      "target_sha256": "da0636c6063db1fa6a87c80e14927dfbbfb3251f94a248e043c10859ca8bc4b3",
+      "disposition": "retained-ai-reviewed"
+    },
+    {
+      "route": "/contact/",
+      "source_sha256": "762feb1859246bfd1a5606c18bc8f437b4f3682fe820d64c0782ee70385974b6",
+      "target_path": "fr/contact/index.html",
+      "target_sha256": "3c359fa52e0452a4161ccdad5f986a85eb9ed895c91135d48c283da87c339a46",
+      "disposition": "no-semantic-delta"
+    }
+  ],
+  "terminology": {
+    "proof": "éléments probants",
+    "active build": "construction active",
+    "register": "vous",
+    "english_only_destinations": "labeled in the French copy"
+  },
+  "sync_state_adoption": "pending-final-integrated-English-and-locale-hashes"
+}

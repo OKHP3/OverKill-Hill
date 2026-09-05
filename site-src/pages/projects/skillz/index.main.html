@@ -21,9 +21,9 @@
             Skillz turns recurring AI methods into portable, inspectable, versioned <code>SKILL.md</code> contracts that agents can load, compose, and improve. Discover, inspect, install, and contribute, entirely through the browser and GitHub.
           </p>
 <div class="hero-ctas">
-<a class="btn btn-primary" href="https://okhp3.github.io/skillz/" onclick="gtag('event','skillz_live_app_open',{event_category:'cta',event_label:'hero'});" rel="noopener noreferrer" target="_blank">⤢ Enter Skillz Forge</a>
-<a class="btn btn-quiet" href="https://github.com/OKHP3/skillz" onclick="gtag('event','skillz_github_open',{event_category:'cta',event_label:'hero'});" rel="noopener noreferrer" target="_blank">View Source on GitHub</a>
-<a class="btn btn-quiet" href="/prompt-forge/" onclick="gtag('event','skillz_prompt_forge_open',{event_category:'cta',event_label:'hero'});">Return to Prompt Forge</a>
+<a class="btn btn-primary" href="https://okhp3.github.io/skillz/" data-gtag-category="cta" data-gtag-event="skillz_live_app_open" data-gtag-label="hero" rel="noopener noreferrer" target="_blank">⤢ Enter Skillz Forge</a>
+<a class="btn btn-quiet" href="https://github.com/OKHP3/skillz" data-gtag-category="cta" data-gtag-event="skillz_github_open" data-gtag-label="hero" rel="noopener noreferrer" target="_blank">View Source on GitHub</a>
+<a class="btn btn-quiet" href="/prompt-forge/" data-gtag-category="cta" data-gtag-event="skillz_prompt_forge_open" data-gtag-label="hero">Return to Prompt Forge</a>
 </div>
 </section>
 <!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
@@ -160,13 +160,13 @@
 <button aria-label="Reload tool" class="embed-btn" id="reload-btn" title="Reload tool">
                     ↺ Reload
                   </button>
-<a class="embed-btn embed-btn--primary" href="https://okhp3.github.io/skillz/" onclick="gtag('event','skillz_live_app_open',{event_category:'embed',event_label:'fullscreen'});" rel="noopener noreferrer" target="_blank">
+<a class="embed-btn embed-btn--primary" href="https://okhp3.github.io/skillz/" data-gtag-category="embed" data-gtag-event="skillz_live_app_open" data-gtag-label="fullscreen" rel="noopener noreferrer" target="_blank">
                     ⤢ Full Screen
                   </a>
 </div>
 </div>
 <div class="embed-fallback-cta">
-<a href="https://okhp3.github.io/skillz/" onclick="gtag('event','skillz_live_app_open',{event_category:'embed',event_label:'fallback'});" rel="noopener noreferrer" target="_blank">
+<a href="https://okhp3.github.io/skillz/" data-gtag-category="embed" data-gtag-event="skillz_live_app_open" data-gtag-label="fallback" rel="noopener noreferrer" target="_blank">
                   ⤢ Open Skillz Forge Full Screen
                 </a>
 </div>
@@ -213,13 +213,13 @@
 <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Stage 03: You are here</div>
 <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">Skillz Forge</div>
 <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Helps visitors discover, understand, install, compose, share, and improve those capabilities.</div>
-<div style="margin-top:0.75rem;"><a href="https://okhp3.github.io/skillz/" onclick="gtag('event','skillz_live_app_open',{event_category:'forge-path',event_label:'map'});" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--okh-orange);" target="_blank">Enter Skillz Forge ↗</a></div>
+<div style="margin-top:0.75rem;"><a href="https://okhp3.github.io/skillz/" data-gtag-category="forge-path" data-gtag-event="skillz_live_app_open" data-gtag-label="map" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--okh-orange);" target="_blank">Enter Skillz Forge ↗</a></div>
 </div>
 <div style="padding:1.25rem;background:rgba(0,0,0,0.1);">
 <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-muted);margin-bottom:0.5rem;">Stage 04</div>
 <div style="font-size:1rem;font-weight:600;color:var(--color-fg);margin-bottom:0.4rem;">GitHub</div>
 <div style="font-size:0.8rem;color:var(--color-muted);line-height:1.6;">Stores the source, history, issues, pull requests, discussions, and review record.</div>
-<div style="margin-top:0.75rem;"><a href="https://github.com/OKHP3/skillz" onclick="gtag('event','skillz_github_open',{event_category:'forge-path',event_label:'map'});" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--okh-orange);" target="_blank">OKHP3/skillz ↗</a></div>
+<div style="margin-top:0.75rem;"><a href="https://github.com/OKHP3/skillz" data-gtag-category="forge-path" data-gtag-event="skillz_github_open" data-gtag-label="map" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--okh-orange);" target="_blank">OKHP3/skillz ↗</a></div>
 </div>
 </div>
 <p style="font-size:0.78rem;color:var(--color-muted);margin-top:0.75rem;line-height:1.6;">The same capability asset (one <code>SKILL.md</code> file) is designed in Prompt Forge, packaged in Found‑Rᵧ, discovered via Skillz Forge, and maintained in GitHub. No duplication of surfaces. Each stage does one job.</p>
@@ -258,7 +258,7 @@
 </div>
 </div>
 <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;">Forge currently lists <strong data-fallback="119" id="skillz-live-draftable-count" style="color:var(--color-fg);">119</strong> draftable, <strong data-fallback="24" id="skillz-live-skeleton-count" style="color:var(--color-fg);">24</strong> skeleton, and <strong data-fallback="5" id="skillz-live-usable-count" style="color:var(--color-fg);">5</strong> usable contracts; no contract carries validated or published maturity. Maturity describes the contract's completeness; it is tracked separately from <strong style="color:var(--color-fg);">evidence status</strong>, which describes what proof exists for the current version (live, analytical, local-checks, historical, not-run, or none). See <a href="#maturity" style="color:var(--okh-orange);">how maturity and evidence work</a> below.</p>
-<p style="font-size:0.825rem;color:var(--color-muted);line-height:1.6;">This page does not maintain a live family directory. The SPA is the authoritative exploration surface: family breakdowns, maturity filters, and per-skill detail are all available there. <a href="https://okhp3.github.io/skillz/" onclick="gtag('event','skillz_live_app_open',{event_category:'inventory',event_label:'explore'});" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">Explore the full catalog in Skillz Forge ↗</a> · <a href="https://github.com/OKHP3/skillz/tree/main/docs" onclick="gtag('event','github_handoff',{event_category:'inventory',event_label:'audit_docs'});" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">Read the July 29, 2026 maturity audit ↗</a></p>
+<p style="font-size:0.825rem;color:var(--color-muted);line-height:1.6;">This page does not maintain a live family directory. The SPA is the authoritative exploration surface: family breakdowns, maturity filters, and per-skill detail are all available there. <a href="https://okhp3.github.io/skillz/" data-gtag-category="inventory" data-gtag-event="skillz_live_app_open" data-gtag-label="explore" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">Explore the full catalog in Skillz Forge ↗</a> · <a href="https://github.com/OKHP3/skillz/tree/main/docs" data-gtag-category="inventory" data-gtag-event="github_handoff" data-gtag-label="audit_docs" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">Read the July 29, 2026 maturity audit ↗</a></p>
 </div>
 <!-- WHAT VISITORS CAN DO ─────────────────────────────── -->
 <div class="content-block" data-search-index="" id="features">
@@ -357,7 +357,7 @@
 <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The problem:</strong> AI-generated Mermaid diagrams drift in style, break in target renderers, and require repeated follow-up prompts to fix. The governance rules are re-stated from scratch every session.</p>
 <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> <strong style="color:var(--color-fg);">Mermaid</strong>: palette definitions, renderer profiles, prompt scaffold generation, and diagram-family capability rules.</p>
 <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The artifact:</strong> A <code>SKILL.md</code> that an agent loads once. Every subsequent diagram generation inherits the brand palette, renderer target, and constraint rules, without re-prompting.</p>
-<a href="https://okhp3.github.io/skillz/" onclick="gtag('event','skillz_live_app_open',{event_category:'pathway',event_label:'mermaid'});" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);" target="_blank">Browse Mermaid family in Skillz Forge ↗</a>
+<a href="https://okhp3.github.io/skillz/" data-gtag-category="pathway" data-gtag-event="skillz_live_app_open" data-gtag-label="mermaid" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);" target="_blank">Browse Mermaid family in Skillz Forge ↗</a>
 </div>
 <div style="border:1px solid var(--color-border-subtle);border-left:3px solid var(--okh-orange);border-radius:var(--radius-md);padding:1.25rem;background:var(--color-surface);">
 <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Pathway 02</div>
@@ -365,7 +365,7 @@
 <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The problem:</strong> Documenting a business process requires consistent vocabulary, BPMN-aligned structure, and reproducible output across team members and AI tools, none of which a one-off prompt delivers.</p>
 <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> <strong style="color:var(--color-fg);">Process Capture</strong>: BPMN for Mermaid structural patterns, swim-lane conventions, gateway semantics, and output format rules.</p>
 <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The artifact:</strong> A composable <code>SKILL.md</code> that maintains structural consistency across every diagram in the pipeline, from first draft to version-controlled deliverable.</p>
-<a href="https://okhp3.github.io/skillz/" onclick="gtag('event','skillz_live_app_open',{event_category:'pathway',event_label:'process-capture'});" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);" target="_blank">Browse Process Capture family in Skillz Forge ↗</a>
+<a href="https://okhp3.github.io/skillz/" data-gtag-category="pathway" data-gtag-event="skillz_live_app_open" data-gtag-label="process-capture" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);" target="_blank">Browse Process Capture family in Skillz Forge ↗</a>
 </div>
 <div style="border:1px solid var(--color-border-subtle);border-left:3px solid var(--okh-orange);border-radius:var(--radius-md);padding:1.25rem;background:var(--color-surface);">
 <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Pathway 03</div>
@@ -373,7 +373,7 @@
 <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The problem:</strong> Writing a well-formed <code>SKILL.md</code> from scratch requires remembering the full contract schema (triggers, inputs, method, boundaries, failure handling, outputs, and validation) every time.</p>
 <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> <strong style="color:var(--color-fg);">Agent Foundry</strong>: schema validation, field completeness checking, trigger description quality, and companion skill mapping.</p>
 <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The artifact:</strong> A <code>SKILL.md</code> for creating <code>SKILL.md</code> files. The agent follows the authoring contract and produces a well-formed, schema-valid skill file on the first pass.</p>
-<a href="https://okhp3.github.io/skillz/" onclick="gtag('event','skillz_live_app_open',{event_category:'pathway',event_label:'agent-foundry'});" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);" target="_blank">Browse Agent Foundry family in Skillz Forge ↗</a>
+<a href="https://okhp3.github.io/skillz/" data-gtag-category="pathway" data-gtag-event="skillz_live_app_open" data-gtag-label="agent-foundry" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);" target="_blank">Browse Agent Foundry family in Skillz Forge ↗</a>
 </div>
 <div style="border:1px solid var(--color-border-subtle);border-left:3px solid var(--okh-orange);border-radius:var(--radius-md);padding:1.25rem;background:var(--color-surface);">
 <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--okh-orange);margin-bottom:0.5rem;">Pathway 04</div>
@@ -381,7 +381,7 @@
 <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The problem:</strong> Valuable insight from an AI conversation (a working method, a reusable protocol, a verified approach) lives in a chat window and disappears. Reconciling it against existing repository artifacts is manual and error-prone.</p>
 <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The skill family:</strong> <strong style="color:var(--color-fg);">Context Extraction</strong>: thread routing, deduplication against existing skills, classification as new, complementary, or duplicate, and repository integration paths.</p>
 <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.6;"><strong style="color:var(--color-fg);">The artifact:</strong> A governed capture workflow that converts a chat export into a reconciled repository contribution, preserving the method, not just the conversation.</p>
-<a href="https://okhp3.github.io/skillz/" onclick="gtag('event','skillz_live_app_open',{event_category:'pathway',event_label:'context-extraction'});" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);" target="_blank">Browse Context Extraction family in Skillz Forge ↗</a>
+<a href="https://okhp3.github.io/skillz/" data-gtag-category="pathway" data-gtag-event="skillz_live_app_open" data-gtag-label="context-extraction" rel="noopener noreferrer" style="font-size:0.8rem;color:var(--okh-orange);" target="_blank">Browse Context Extraction family in Skillz Forge ↗</a>
 </div>
 </div>
 </div>
@@ -616,8 +616,8 @@
 <p>Custom SKILL.md development, governed prompt protocols, skill family architecture, and agent capability layers built for real operational requirements, not demos.</p>
 </div>
 <div class="cta-actions">
-<a class="btn btn-primary" href="https://pro.fiverr.com/s/VYKPpoB" onclick="gtag('event','skillz_project_cta_click',{event_category:'cta',event_label:'fiverr'});" rel="noopener noreferrer" target="_blank">Hire me on Fiverr</a>
-<a class="btn btn-quiet" href="/contact/" onclick="gtag('event','skillz_project_cta_click',{event_category:'cta',event_label:'contact'});">Get in touch</a>
+<a class="btn btn-primary" href="https://pro.fiverr.com/s/VYKPpoB" data-gtag-category="cta" data-gtag-event="skillz_project_cta_click" data-gtag-label="fiverr" rel="noopener noreferrer" target="_blank">Hire me on Fiverr</a>
+<a class="btn btn-quiet" href="/contact/" data-gtag-category="cta" data-gtag-event="skillz_project_cta_click" data-gtag-label="contact">Get in touch</a>
 </div>
 </aside>
 <!-- COLLAPSIBLE SECTIONS ─────────────────────────────── -->
@@ -743,10 +743,10 @@ curl -o .agents/skills/my-skill.md \
 <h2 style="margin-bottom:0.5rem;">Ready to start?</h2>
 <p style="color:var(--color-muted);margin-bottom:1.5rem;">Browse the catalog, find a skill, install it in your agent.</p>
 <div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;">
-<a class="btn btn-primary" href="https://okhp3.github.io/skillz/" onclick="gtag('event','skillz_live_app_open',{event_category:'cta',event_label:'footer'});" rel="noopener noreferrer" target="_blank">⤢ Enter Skillz Forge</a>
-<a class="btn btn-quiet" href="https://github.com/OKHP3/skillz" onclick="gtag('event','skillz_github_open',{event_category:'cta',event_label:'footer'});" rel="noopener noreferrer" target="_blank">View OKHP3/skillz</a>
-<a class="btn btn-quiet" href="/prompt-forge/" onclick="gtag('event','skillz_prompt_forge_open',{event_category:'cta',event_label:'footer'});">Return to Prompt Forge</a>
-<a class="btn btn-quiet" href="/contact/" onclick="gtag('event','skillz_contribute_open',{event_category:'cta',event_label:'contact'});">Contact OverKill Hill</a>
+<a class="btn btn-primary" href="https://okhp3.github.io/skillz/" data-gtag-category="cta" data-gtag-event="skillz_live_app_open" data-gtag-label="footer" rel="noopener noreferrer" target="_blank">⤢ Enter Skillz Forge</a>
+<a class="btn btn-quiet" href="https://github.com/OKHP3/skillz" data-gtag-category="cta" data-gtag-event="skillz_github_open" data-gtag-label="footer" rel="noopener noreferrer" target="_blank">View OKHP3/skillz</a>
+<a class="btn btn-quiet" href="/prompt-forge/" data-gtag-category="cta" data-gtag-event="skillz_prompt_forge_open" data-gtag-label="footer">Return to Prompt Forge</a>
+<a class="btn btn-quiet" href="/contact/" data-gtag-category="cta" data-gtag-event="skillz_contribute_open" data-gtag-label="contact">Contact OverKill Hill</a>
 </div>
 </div>
 </div><!-- /main column -->
@@ -756,7 +756,7 @@ curl -o .agents/skills/my-skill.md \
 <div class="sidebar-meta" style="background:rgba(196,106,44,0.1);border-color:rgba(196,106,44,0.35);">
 <div class="section-label" style="color:var(--okh-orange);">Start Now</div>
 <p style="font-size:0.825rem;color:var(--color-muted);margin-bottom:0.75rem;line-height:1.5;">The full catalog is live and browsable. No account. No install. Enter and explore.</p>
-<a class="btn btn-primary" href="https://okhp3.github.io/skillz/" onclick="gtag('event','skillz_live_app_open',{event_category:'sidebar',event_label:'cta'});" rel="noopener noreferrer" style="width:100%;text-align:center;display:block;" target="_blank">⤢ Enter Skillz Forge</a>
+<a class="btn btn-primary" href="https://okhp3.github.io/skillz/" data-gtag-category="sidebar" data-gtag-event="skillz_live_app_open" data-gtag-label="cta" rel="noopener noreferrer" style="width:100%;text-align:center;display:block;" target="_blank">⤢ Enter Skillz Forge</a>
 </div>
 <!-- Meta -->
 <div class="sidebar-meta">
@@ -796,13 +796,13 @@ curl -o .agents/skills/my-skill.md \
 </div>
 </div>
 <div class="sidebar-links">
-<a class="sidebar-link" href="https://github.com/OKHP3/skillz" onclick="gtag('event','skillz_github_open',{event_category:'sidebar',event_label:'view'});" rel="noopener noreferrer" target="_blank">
+<a class="sidebar-link" href="https://github.com/OKHP3/skillz" data-gtag-category="sidebar" data-gtag-event="skillz_github_open" data-gtag-label="view" rel="noopener noreferrer" target="_blank">
                   ◻ View on GitHub
                 </a>
-<a class="sidebar-link" href="https://github.com/OKHP3/skillz/issues" onclick="gtag('event','skillz_contribute_open',{event_category:'sidebar',event_label:'issues'});" rel="noopener noreferrer" target="_blank">
+<a class="sidebar-link" href="https://github.com/OKHP3/skillz/issues" data-gtag-category="sidebar" data-gtag-event="skillz_contribute_open" data-gtag-label="issues" rel="noopener noreferrer" target="_blank">
                   ⊘ Report an Issue
                 </a>
-<a class="sidebar-link" href="https://github.com/OKHP3/skillz/pulls" onclick="gtag('event','skillz_contribute_open',{event_category:'sidebar',event_label:'contribute'});" rel="noopener noreferrer" target="_blank">
+<a class="sidebar-link" href="https://github.com/OKHP3/skillz/pulls" data-gtag-category="sidebar" data-gtag-event="skillz_contribute_open" data-gtag-label="contribute" rel="noopener noreferrer" target="_blank">
                   ⊕ Contribute a Skill
                 </a>
 </div>
