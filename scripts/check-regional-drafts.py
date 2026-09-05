@@ -5,7 +5,6 @@ from __future__ import annotations
 import json
 import hashlib
 import re
-import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,7 +38,6 @@ def main() -> int:
     if "source_path = ROOT / rel" not in builder:
         fail("builder must open canonical en-US paths for both pairs")
     source_hashes = json.loads((ROOT / "i18n/pilot/source-hashes-release-0ee.json").read_text(encoding="utf-8"))
-    revision = source_hashes["source_revision"].removeprefix("git:")
     for name in ("index.html", "about-index.html", "projects-index.html", "contact-index.html"):
         if not (ROOT / "i18n/pilot/es-mx/reviewed" / name).exists():
             fail(f"missing reviewed es-MX source artifact: {name}")
@@ -51,15 +49,10 @@ def main() -> int:
         for route in ROUTES:
             source_rel = "index.html" if route == "/" else route.strip("/") + "/index.html"
             source_path = ROOT / source_rel
-            release_content = subprocess.run(
-                ["git", "show", f"{revision}:{source_rel}"],
-                check=True,
-                capture_output=True,
-            ).stdout
-            recorded_raw_hash = hashlib.sha256(release_content.replace(b"\r\n", b"\n")).hexdigest()
-            if recorded_raw_hash != source_hashes["routes"].get(route):
-                fail(f"{route}: recorded release source does not match its hash")
-            if hashlib.sha256(normalized_translation_source(source_path.read_bytes())).hexdigest() != hashlib.sha256(normalized_translation_source(release_content)).hexdigest():
+            release_hash = source_hashes.get("normalized_routes", {}).get(route)
+            if not release_hash:
+                fail(f"{route}: missing durable normalized release hash")
+            elif hashlib.sha256(normalized_translation_source(source_path.read_bytes())).hexdigest() != release_hash:
                 fail(f"{route}: canonical source is stale relative to the recorded release revision")
             path = ROOT / locale / ("index.html" if route == "/" else route.strip("/") + "/index.html")
             if not path.exists():

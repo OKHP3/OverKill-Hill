@@ -12,7 +12,6 @@ import argparse
 import hashlib
 import json
 import re
-import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -143,20 +142,13 @@ def canonical_text_hash(path: Path) -> str:
 
 def verify_sources() -> dict:
     expected = json.loads(SOURCE_HASHES.read_text(encoding='utf-8'))
-    revision = expected["source_revision"].removeprefix("git:")
     actual = {}
     for route, rel in ROUTES.items():
         source_path = ROOT / rel
         actual[route] = canonical_text_hash(source_path)
-        release_content = subprocess.run(
-            ["git", "show", f"{revision}:{rel}"],
-            check=True,
-            capture_output=True,
-        ).stdout
-        recorded_raw_hash = hashlib.sha256(release_content.replace(b"\r\n", b"\n")).hexdigest()
-        if recorded_raw_hash != expected["routes"].get(route):
-            raise SystemExit(f"Recorded release source does not match its hash for {route}")
-        release_hash = hashlib.sha256(normalized_translation_source(release_content)).hexdigest()
+        release_hash = expected.get("normalized_routes", {}).get(route)
+        if not release_hash:
+            raise SystemExit(f'Missing durable normalized release hash for {route}')
         if actual[route] != release_hash:
             raise SystemExit(f'Source changed for {route}; refresh the reviewed pair from the recorded source revision')
     return expected
