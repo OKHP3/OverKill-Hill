@@ -66,6 +66,9 @@ jobs:
       - name: Run live-edge and post-merge regression tests
         run: python3 -m unittest tests/test_verify_live_edge.py
 
+      - name: Check public project-status records
+        run: python3 scripts/check-project-status.py
+
       - name: Check generated HTML is current
         run: python3 scripts/build-site.py --check
 
@@ -135,6 +138,9 @@ jobs:
 
       - name: Run CSP fixture regressions
         run: npm run test:csp:regressions
+
+      - name: Run embedded-app workflow regressions
+        run: node --test tests/embed-workflow.test.mjs
 
       - name: Run WCAG contrast audit
         id: contrast

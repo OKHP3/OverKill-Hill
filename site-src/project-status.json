@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "reviewed": "2026-09-05",
+  "projects": [
+    {
+      "id": "abrahamic-reference-engine",
+      "title": "Abrahamic Reference Engine",
+      "purpose": "Citation-first scripture reference across Judaism, Christianity, and Islam.",
+      "status": "Active",
+      "version": "v1.1",
+      "surface_status": "Active",
+      "reviewed": "2026-09-05",
+      "route": "/projects/abrahamic-reference-engine/",
+      "source": "https://github.com/OKHP3/abrahamic-reference-engine"
+    },
+    {
+      "id": "skillz",
+      "title": "Skillz Forge",
+      "purpose": "Discoverable, inspectable, and installable Agent Skill contracts.",
+      "status": "Active",
+      "surface_status": "Live: Active Build",
+      "reviewed": "2026-09-05",
+      "route": "/projects/skillz/",
+      "live": "https://okhp3.github.io/skillz/",
+      "source": "https://github.com/OKHP3/skillz",
+      "featured": true
+    }
+  ]
+}
