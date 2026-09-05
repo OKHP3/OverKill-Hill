@@ -1,6 +1,6 @@
 # MurderBird v2 Icon Preview Provenance
 
-Status: candidate packaging preview only. This branch does not change live page sources, `assets/partials/head.html`, `site.webmanifest`, production favicon files, generated pages, or deployment configuration.
+Status: reviewable production-shaped candidate. This branch changes the shared icon references, manifest, generated HTML pages, root fallback ICO, and new unique runtime assets. It does not deploy or merge them.
 
 ## Source
 
@@ -28,6 +28,7 @@ Generated files:
 - `murderbird-v2-icon-maskable-512.png`
 - `murderbird-v2-icon-contact-sheet-preview.png`
 - `murderbird-v2-icon-mask-evidence-preview.png`
+- `murderbird-v2-icon-native-size-contact-preview.png`
 
 ## Verification
 
@@ -36,7 +37,18 @@ Generated files:
 - Opaque and maskable PNGs are exactly 180, 192, and 512 pixels as named and have opaque corners.
 - ICO inspection reports 16, 32, and 48 pixel layers.
 - Contact sheets show the master, safe-margin, light-surface, dark-surface, tiny browser, and mask-boundary evidence views.
+- The browser contact view shows 16, 32, and 48 pixel icons at native size on light and dark surfaces.
+- The root `/favicon.ico` now uses the MurderBird ICO package; the previous root file is preserved at `assets/img/favicons/archive/favicon-legacy-2026-09-05.ico`.
+- Manifest entries use distinct `any` and `maskable` files with matching MIME types and declared sizes.
 
-## Not applied
+## Applied review scope
 
-This package does not authorize a manifest or HTML change. A later production change would need an explicit decision on `any` versus `maskable` declarations, canonical head links, browser-size policy, and live validation. The mask evidence is a review aid, not proof of final platform acceptance.
+- `assets/partials/head.html` references the 16, 32, 48 browser PNGs, opaque 180 Apple touch icon, and MurderBird root ICO.
+- `site.webmanifest` references separate opaque `any` entries and centered `maskable` entries at 192 and 512 pixels.
+- Generated HTML pages were rebuilt so canonical and locale pages share the same icon head references.
+- `index.html` and `site-src/pages/index.main.html` use the frontal homepage candidate and its WebP sources.
+- The manifesto narrative artwork and metadata were not changed.
+
+## Remaining gate
+
+This remains a reviewable candidate, not a production release. PM/architect packaging and render acceptance, followed by CI and explicit merge authority, are still required. The mask evidence is a review aid, not proof of final platform acceptance.
