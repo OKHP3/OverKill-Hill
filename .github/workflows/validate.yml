@@ -44,7 +44,7 @@ jobs:
         run: python3 -m pip install --disable-pip-version-check --no-input -r requirements-qa.txt
 
       - name: Set up Node
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
           node-version: '20'
           cache: 'npm'
@@ -188,7 +188,7 @@ jobs:
 
       - name: Upload contrast audit report for fork pull requests
         if: always() && github.event_name == 'pull_request' && steps.contrast.outcome != 'skipped'
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: contrast-audit-${{ github.run_id }}
           path: |
@@ -210,7 +210,7 @@ jobs:
 
       - name: Upload the validated Pages release artifact
         if: github.event_name != 'pull_request'
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: validated-site-${{ github.sha }}
           path: site-release
@@ -233,7 +233,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
 
       - name: Set up Node
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
           node-version: '20'
           cache: 'npm'
@@ -253,7 +253,7 @@ jobs:
 
       - name: Upload third-party runtime inventory
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: third-party-runtime-${{ github.run_id }}
           path: third-party-runtime-report.json
@@ -322,7 +322,7 @@ jobs:
 
       - name: Upload live-edge monitoring report
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: live-edge-monitor-${{ github.run_id }}
           path: assets/audit/live-edge-report.json
