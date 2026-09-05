@@ -4,9 +4,7 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
-import re
 import subprocess
 import sys
 import tempfile
@@ -15,15 +13,6 @@ from typing import Any, Dict, List, Optional
 
 ROOT = Path(__file__).resolve().parents[1]
 DETECTOR_PATH = ROOT / ".agents" / "skills" / "okhp3-i18n-page-sync" / "scripts" / "i18n-page-sync.py"
-SOURCE_HASHES_PATH = ROOT / "i18n" / "pilot" / "source-hashes-release-0ee.json"
-CSP_META_RE = re.compile(
-    rb'<meta\b(?=[^>]*\bhttp-equiv=["\']Content-Security-Policy["\'])[^>]*>',
-    re.I,
-)
-ASSET_FINGERPRINT_RE = re.compile(
-    rb'(\b(?:href|src)=["\'][^"\']*/assets/[^"\']*?)\?v=[0-9a-f]{8,64}(?=["\'])',
-    re.I,
-)
 
 
 def load_site_config() -> Dict[str, Any]:
@@ -64,39 +53,12 @@ def run_detector(config_path: Path, mode: str = "report") -> Dict[str, Any]:
     return result
 
 
-def normalized_translation_hash(path: Path) -> str:
-    """Hash editorial source while excluding generated release metadata."""
-    content = path.read_bytes().replace(b"\r\n", b"\n")
-    content = CSP_META_RE.sub(b"", content)
-    content = ASSET_FINGERPRINT_RE.sub(rb"\1", content)
-    return hashlib.sha256(content).hexdigest()
-
-
-def generated_metadata_only(route: str) -> bool:
-    """Return true when detector drift is only CSP or asset fingerprints."""
-    if not SOURCE_HASHES_PATH.is_file():
-        return False
-    expected = json.loads(SOURCE_HASHES_PATH.read_text(encoding="utf-8"))
-    release_hash = expected.get("normalized_routes", {}).get(route)
-    source_rel = "index.html" if route == "/" else f"{route.strip('/')}/index.html"
-    source_path = ROOT / source_rel
-    return bool(release_hash and source_path.is_file() and normalized_translation_hash(source_path) == release_hash)
-
-
 def load_results(config: Dict[str, Any]) -> Dict[str, Any]:
     config_path = ROOT / "i18n" / "sync.config.json"
     results = run_detector(config_path)
     blocking = set(config["blocking_locales"])
     blocking_items: List[Dict[str, Any]] = []
     advisory_items: List[Dict[str, Any]] = []
-    metadata_only: List[Dict[str, Any]] = []
-    retained_stale: List[Dict[str, Any]] = []
-    for item in results["stale"]:
-        if generated_metadata_only(item["route"]):
-            metadata_only.append(item)
-        else:
-            retained_stale.append(item)
-    results["stale"] = retained_stale
     for status in ("missing", "stale", "needs_baseline"):
         for item in results[status]:
             (blocking_items if item["locale"] in blocking else advisory_items).append(
@@ -104,7 +66,6 @@ def load_results(config: Dict[str, Any]) -> Dict[str, Any]:
             )
     return {
         **results,
-        "generated_metadata_only": metadata_only,
         "policy": {
             "blocking_locales": sorted(blocking),
             "blocking_items": blocking_items,

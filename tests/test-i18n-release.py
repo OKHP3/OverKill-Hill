@@ -28,21 +28,6 @@ REGIONAL_BUILDER_SPEC.loader.exec_module(REGIONAL_BUILDER_MODULE)
 
 
 class I18nReleaseTests(unittest.TestCase):
-    def test_release_gate_normalization_ignores_only_generated_metadata(self):
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            original = root / "original.html"
-            regenerated = root / "regenerated.html"
-            changed = root / "changed.html"
-            changed_asset = root / "changed-asset.html"
-            original.write_text('<meta http-equiv="Content-Security-Policy" content="one"><link href="/assets/css/theme.css?v=11111111"><p>stable</p>\n', encoding="utf-8")
-            regenerated.write_text('<meta content="two" http-equiv="Content-Security-Policy"><link href="/assets/css/theme.css?v=22222222"><p>stable</p>\r\n', encoding="utf-8", newline="")
-            changed.write_text('<meta http-equiv="Content-Security-Policy" content="two"><link href="/assets/css/theme.css?v=22222222"><p>changed</p>\n', encoding="utf-8")
-            changed_asset.write_text('<meta http-equiv="Content-Security-Policy" content="two"><link href="/assets/css/other.css?v=22222222"><p>stable</p>\n', encoding="utf-8")
-            self.assertEqual(MODULE.normalized_translation_hash(original), MODULE.normalized_translation_hash(regenerated))
-            self.assertNotEqual(MODULE.normalized_translation_hash(original), MODULE.normalized_translation_hash(changed))
-            self.assertNotEqual(MODULE.normalized_translation_hash(original), MODULE.normalized_translation_hash(changed_asset))
-
     def test_detector_hash_is_stable_across_checkout_line_endings(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -100,10 +85,7 @@ class I18nReleaseTests(unittest.TestCase):
             "orphan": [],
         }
         config = MODULE.load_site_config()
-        with (
-            patch.object(MODULE, "run_detector", return_value=report),
-            patch.object(MODULE, "generated_metadata_only", return_value=False),
-        ):
+        with patch.object(MODULE, "run_detector", return_value=report):
             result = MODULE.load_results(config)
         self.assertEqual(12, sum(len(result[key]) for key in ("missing", "stale", "needs_baseline")))
         self.assertEqual({"fr"}, {item["locale"] for item in result["policy"]["blocking_items"]})
@@ -120,32 +102,10 @@ class I18nReleaseTests(unittest.TestCase):
             "orphan": [],
         }
         config = MODULE.load_site_config()
-        with (
-            patch.object(MODULE, "run_detector", return_value=report),
-            patch.object(MODULE, "generated_metadata_only", return_value=False),
-        ):
+        with patch.object(MODULE, "run_detector", return_value=report):
             result = MODULE.load_results(config)
         self.assertEqual([], result["policy"]["blocking_items"])
         self.assertEqual(2, len(result["policy"]["advisory_items"]))
-
-    def test_generated_metadata_only_drift_preserves_prior_review(self):
-        metadata_item = {"route": "/", "locale": "fr"}
-        report = {
-            "missing": [],
-            "stale": [metadata_item],
-            "needs_baseline": [],
-            "in_sync": [],
-            "orphan": [],
-        }
-        config = MODULE.load_site_config()
-        with (
-            patch.object(MODULE, "run_detector", return_value=report),
-            patch.object(MODULE, "generated_metadata_only", return_value=True),
-        ):
-            result = MODULE.load_results(config)
-        self.assertEqual([], result["stale"])
-        self.assertEqual([metadata_item], result["generated_metadata_only"])
-        self.assertEqual([], result["policy"]["blocking_items"])
 
     def test_invalid_blocking_locale_fails_closed(self):
         with tempfile.TemporaryDirectory() as directory:
