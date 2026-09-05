@@ -1,6 +1,7 @@
 name: Site Validation
 
 on:
+  workflow_call:
   push:
     branches: [main]
   pull_request:
@@ -21,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     name: Validate site HTML, links, and structure
-    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    if: github.event_name != 'schedule'
 
     steps:
       - name: Checkout repository
