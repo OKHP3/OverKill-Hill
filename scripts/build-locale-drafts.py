@@ -222,6 +222,36 @@ def rewrite_in_scope_links(page: str, locale: str) -> str:
     return page
 
 
+def replace_navigation_identity(page: str, locale: str) -> str:
+    """Keep every regional draft on the current organization mark and home route."""
+    home = locale_href(locale, "/")
+    match = re.search(r'<div class="logo">.*?</div>', page, re.S)
+    if match is None:
+        raise SystemExit(f'Missing navigation logo for {locale}')
+    logo = match.group(0)
+    logo, home_count = re.subn(r'(<a\b[^>]*\bhref=")[^"]*(")', rf'\g<1>{home}\2', logo, count=1)
+    if not re.search(
+        r'\bsrc="/assets/img/(?:favicons/murderbird-v2-icon-nav-96|over-kill-hill-p3-sentinel-warning-square-256)\.png"',
+        logo,
+    ):
+        raise SystemExit(f'Unexpected navigation logo asset for {locale}')
+    logo, _lazy_count = re.subn(
+        r'\s+loading="lazy"(?=[^>]*\bsrc="/assets/img/(?:favicons/murderbird-v2-icon-nav-96|over-kill-hill-p3-sentinel-warning-square-256)\.png")',
+        '',
+        logo,
+        count=1,
+    )
+    logo = logo.replace(
+        '/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png',
+        '/assets/img/favicons/murderbird-v2-icon-nav-96.png',
+        1,
+    )
+    updated = page[:match.start()] + logo + page[match.end():]
+    if home_count != 1:
+        raise SystemExit(f'Unexpected navigation logo shape for {locale}')
+    return updated
+
+
 def adapt_visible_text(page: str, dictionary: dict) -> str:
     """Apply approved en-GB wording only to text nodes, never attributes or code."""
     replacements = [
@@ -270,7 +300,7 @@ def build_en_gb(source: str, route: str, dictionary: dict) -> str:
     page = page.replace(f'href="{route}" hreflang="en-GB"', f'href="/en-gb{route}" hreflang="en-GB"')
     page = page.replace('class="lang-flag"', 'class="lang-flag"', 1)
     page = re.sub(r'<svg aria-hidden="true" class="lang-flag".*?</svg>', ST_GEORGE, page, count=1, flags=re.S)
-    return replace_locale_switch(page, 'en-gb', route)
+    return replace_navigation_identity(replace_locale_switch(page, 'en-gb', route), 'en-gb')
 
 
 def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> str:
@@ -313,7 +343,7 @@ def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> st
             '</a></section>'
         )
         page = page.replace('</header>', notice + '</header>', 1)
-    return replace_locale_switch(page, 'es-mx', route)
+    return replace_navigation_identity(replace_locale_switch(page, 'es-mx', route), 'es-mx')
 
 
 def main() -> int:

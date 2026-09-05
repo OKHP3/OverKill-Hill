@@ -1,0 +1,17 @@
+{
+  "artifact": "murderbird-v2-icon-nav-96.png",
+  "purpose": "40px navigation logo at 2x display density",
+  "source": {
+    "path": "assets/img/favicons/murderbird-v2-icon-1024.png",
+    "sha256": "6259a891307dfe09a7799e62ef1d7390d73c7aebf2bf89ad195df79cabdbfbeb",
+    "dimensions": [1024, 1024],
+    "mode": "RGBA"
+  },
+  "derivative": {
+    "sha256": "e508687bfc391ecb920dfb32ddb56252866355eeca697a7a290c08dcd1d94a0e",
+    "dimensions": [96, 96],
+    "mode": "RGBA",
+    "resampling": "Lanczos"
+  },
+  "scope": "Deterministic size derivative of the approved identity artwork; it does not change the master artwork, article images, or social-card imagery."
+}
