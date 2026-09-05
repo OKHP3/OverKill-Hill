@@ -63,6 +63,9 @@ jobs:
       - name: Test the Pages release boundary
         run: python3 tests/test-release-package.py
 
+      - name: Run live-edge and post-merge regression tests
+        run: python3 -m unittest tests/test_verify_live_edge.py
+
       - name: Check generated HTML is current
         run: python3 scripts/build-site.py --check
 
@@ -129,6 +132,9 @@ jobs:
           done
           curl --silent --fail http://127.0.0.1:5000/ >/dev/null
           npm run test:csp -- --base-url=http://127.0.0.1:5000
+
+      - name: Run CSP fixture regressions
+        run: npm run test:csp:regressions
 
       - name: Run WCAG contrast audit
         id: contrast
