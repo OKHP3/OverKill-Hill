@@ -1,6 +1,7 @@
 name: Site Validation
 
 on:
+  workflow_call:
   push:
     branches: [main]
   pull_request:
@@ -21,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     name: Validate site HTML, links, and structure
-    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    if: github.event_name != 'schedule'
 
     steps:
       - name: Checkout repository
@@ -40,7 +41,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install Python validation dependencies
-        run: python3 -m pip install --disable-pip-version-check --no-input beautifulsoup4
+        run: python3 -m pip install --disable-pip-version-check --no-input -r requirements-qa.txt
 
       - name: Set up Node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
@@ -59,11 +60,29 @@ jobs:
       - name: Run committed SEO regression fixtures
         run: python3 scripts/test-seo-fixtures.py
 
+      - name: Test the Pages release boundary
+        run: python3 tests/test-release-package.py
+
+      - name: Run live-edge and post-merge regression tests
+        run: python3 -m unittest tests/test_verify_live_edge.py
+
+      - name: Run shared-foundation sync safety regressions
+        run: python3 -m unittest tests/test-sync-foundation-files.py
+
+      - name: Run published-locale release-gate regressions
+        run: python3 -m unittest tests/test-i18n-release.py
+
+      - name: Check public project-status records
+        run: python3 scripts/check-project-status.py
+
       - name: Check generated HTML is current
         run: python3 scripts/build-site.py --check
 
-      - name: Check canonical CSP policies
-        run: python3 scripts/check-csp.py
+      - name: Check canonical CSP policies and public-page discovery
+        run: |
+          python3 tests/test_csp_page_discovery.py
+          python3 scripts/generate-csp.py --check
+          python3 scripts/check-csp.py
 
       - name: Check search index is current
         run: python3 scripts/build-search-index.py --check
@@ -126,6 +145,12 @@ jobs:
           curl --silent --fail http://127.0.0.1:5000/ >/dev/null
           npm run test:csp -- --base-url=http://127.0.0.1:5000
 
+      - name: Run CSP fixture regressions
+        run: npm run test:csp:regressions
+
+      - name: Run search and embedded-app regressions
+        run: node --test tests/search-page.test.mjs tests/search-index.test.mjs tests/search-index-locale.test.mjs tests/embed-workflow.test.mjs
+
       - name: Run WCAG contrast audit
         id: contrast
         env:
@@ -175,6 +200,22 @@ jobs:
       - name: Fail if contrast audit failed
         if: always() && steps.contrast.outcome == 'failure'
         run: exit 1
+
+      - name: Build the SHA-bound Pages release artifact
+        if: github.event_name != 'pull_request'
+        run: |
+          python3 scripts/build-release.py \
+            --output site-release \
+            --commit "${{ github.sha }}"
+
+      - name: Upload the validated Pages release artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: validated-site-${{ github.sha }}
+          path: site-release
+          if-no-files-found: error
+          retention-days: 1
 
   monitor-third-party-runtime:
     name: Monitor third-party runtime dependencies

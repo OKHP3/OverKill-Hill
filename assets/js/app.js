@@ -63,6 +63,17 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   const body = document.body;
 
+  document.addEventListener("click", (event) => {
+    const trigger = event.target instanceof Element ? event.target.closest("[data-gtag-event]") : null;
+    if (!trigger) return;
+    const eventName = trigger.dataset.gtagEvent;
+    if (!eventName || typeof window.gtag !== "function") return;
+    const payload = {};
+    if (trigger.dataset.gtagCategory) payload.event_category = trigger.dataset.gtagCategory;
+    if (trigger.dataset.gtagLabel) payload.event_label = trigger.dataset.gtagLabel;
+    window.gtag("event", eventName, payload);
+  });
+
   // Mobile nav
   if (navToggle && header) {
     const mobileNavQuery = window.matchMedia("(max-width: 768px)");
@@ -149,7 +160,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Theme toggle – only for core OverKill Hill pages (brand-locked sites force light)
+  // Brand sites keep data-theme="light" for shared rules while their
+  // auto/light/dark preference is expressed through data-color-scheme.
   const brandLocked =
     body.classList.contains("glee-main") ||
     body.classList.contains("askjamie-main");
@@ -571,12 +583,19 @@ document.addEventListener("DOMContentLoaded", () => {
 (function () {
   "use strict";
 
-  const INDEX_URL = "/assets/data/search-index.json";
+  // French is the only reviewed, indexable locale. German and Spanish remain
+  // noindex drafts with intentionally empty indexes, so they search the
+  // English catalog until their publication gate explicitly promotes them.
+  const SEARCH_INDEXES = { fr: "/assets/data/search-index.fr.json" };
+  const pageLocale = (document.documentElement.lang || "en").toLowerCase().split("-", 1)[0];
+  const INDEX_URL = SEARCH_INDEXES[pageLocale] || "/assets/data/search-index.json";
+  const usesEnglishFallback = pageLocale === "de" || pageLocale === "es";
+  const scopeNotice = usesEnglishFallback ? " Search English content." : "";
 
   // ----- index loader (cached promise) -----
   let _indexPromise = null;
-  function loadIndex() {
-    if (!_indexPromise) {
+  function loadIndex(forceRetry) {
+    if (!_indexPromise || forceRetry) {
       _indexPromise = fetch(INDEX_URL, { credentials: "same-origin" })
         .then((r) => {
           if (!r.ok) throw new Error("Index fetch failed: " + r.status);
@@ -589,7 +608,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch((err) => {
           console.warn("[okh-search] index load failed:", err);
-          return [];
+          throw err;
         });
     }
     return _indexPromise;
@@ -630,16 +649,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (entry.category === "Article Section") score -= 0.5;
     return allHit ? score : score * 0.4;
   }
-  function search(entries, q, limit) {
+  function search(entries, q, options) {
     const tokens = tokenize(q);
     if (!tokens.length) return [];
+    const normalized = typeof options === "number" ? { limit: options } : (options || {});
+    const category = normalized.category || "all";
     const scored = [];
     for (const e of entries) {
+      if (category !== "all" && (e.category || "Page") !== category) continue;
       const s = scoreEntry(e, tokens);
       if (s > 0) scored.push([s, e]);
     }
     scored.sort((a, b) => b[0] - a[0]);
-    return scored.slice(0, limit || 30).map(([s, e]) => ({ score: s, entry: e }));
+    return scored.slice(0, normalized.limit || 30).map(([s, e]) => ({ score: s, entry: e }));
   }
 
   // ----- snippet + highlight -----
@@ -752,6 +774,24 @@ document.addEventListener("DOMContentLoaded", () => {
     let lastTokens     = [];
     let lastFocus      = null;
 
+    function setLoadError(error) {
+      list.innerHTML =
+        '<div class="okh-search-noresults okh-search-noresults--error">' +
+          "<p>Search could not load the index.</p>" +
+          '<button type="button" class="okh-search-retry">Retry search index</button>' +
+        "</div>";
+      status.textContent = "Search index failed to load.";
+      console.warn("[okh-search] overlay index load failed:", error);
+      list.querySelector(".okh-search-retry").addEventListener("click", () => {
+        list.innerHTML = '<p class="okh-search-loading">Loading search index…</p>';
+        loadIndex(true).then((d) => {
+          entries = d;
+          if (input.value.trim()) render();
+          else renderEmpty();
+        }).catch(setLoadError);
+      });
+    }
+
     function focusableInPanel() {
       return Array.from(overlay.querySelectorAll(
         'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), [tabindex]:not([tabindex="-1"])'
@@ -763,7 +803,11 @@ document.addEventListener("DOMContentLoaded", () => {
       lastFocus = document.activeElement;
       overlay.dataset.open = "true";
       document.documentElement.style.overflow = "hidden";
-      loadIndex().then((d) => { entries = d; renderEmpty(); });
+      loadIndex().then((d) => {
+        entries = d;
+        if (input.value.trim()) render();
+        else renderEmpty();
+      }).catch(setLoadError);
       setTimeout(() => input.focus(), 30);
     }
     function close() {
@@ -811,9 +855,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       list.innerHTML = currentResults.map((r) => (
-        '<a class="okh-search-result" href="' + escapeHtml(r.entry.url) + '">' +
-          renderResultHtml(r, lastTokens) +
-        "</a>"
+        '<div role="listitem"><a class="okh-search-result" href="' +
+          escapeHtml(r.entry.url) + '">' + renderResultHtml(r, lastTokens) +
+        "</a></div>"
       )).join("");
       status.textContent = currentResults.length +
         (currentResults.length === 1 ? " result" : " results") +
@@ -906,33 +950,75 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let entries        = [];
     let activeCategory = "all";
+    let indexLoadError = null;
+
+    function setIndexLoadError(error) {
+      indexLoadError = error || null;
+      if (error) {
+        list.innerHTML =
+          '<div class="okh-search-noresults okh-search-noresults--error">' +
+            "<p>Search could not load the index.</p>" +
+            "<p>Check your connection, then try again.</p>" +
+            '<a class="okh-search-retry" href="' +
+              escapeHtml(window.location.pathname + window.location.search) +
+            '">Retry search index</a>' +
+          "</div>";
+        if (stats) stats.textContent = "Search index failed to load.";
+        return true;
+      }
+      return false;
+    }
 
     function readQueryFromURL() {
-      return new URL(window.location.href).searchParams.get("q") || "";
+      const params = new URL(window.location.href).searchParams;
+      return {
+        q: params.get("q") || "",
+        category: params.get("cat") || "all",
+      };
     }
-    function writeQueryToURL(q) {
+    function writeQueryToURL(q, category, replace) {
       const url = new URL(window.location.href);
       if (q) url.searchParams.set("q", q); else url.searchParams.delete("q");
-      window.history.replaceState({}, "", url.toString());
+      if (category && category !== "all") url.searchParams.set("cat", category);
+      else url.searchParams.delete("cat");
+      const method = replace ? "replaceState" : "pushState";
+      window.history[method]({}, "", url.toString());
     }
 
-    function render() {
+    function normalizeCategory(category) {
+      if (!cats || category === "all") return "all";
+      return Array.from(cats.querySelectorAll("button")).some((button) =>
+        button.getAttribute("data-cat") === category
+      ) ? category : "all";
+    }
+
+    function syncCategoryButtons() {
+      if (!cats) return;
+      cats.querySelectorAll("button").forEach((button) =>
+        button.setAttribute(
+          "aria-pressed",
+          (button.getAttribute("data-cat") || "all") === activeCategory ? "true" : "false"
+        )
+      );
+    }
+
+    function render(options) {
+      const historyMode = options && options.historyMode === "push" ? "push" : "replace";
       const q = input.value.trim();
-      writeQueryToURL(q);
+      writeQueryToURL(q, activeCategory, historyMode === "replace");
       if (!q) {
         list.innerHTML = "";
         if (stats) stats.textContent = entries.length
-          ? "Type to search " + entries.length + " indexed entries."
-          : "Loading index…";
+          ? "Type to search " + entries.length + " indexed entries." + scopeNotice
+          : "Loading index…" + scopeNotice;
+        return;
+      }
+      if (indexLoadError) {
+        setIndexLoadError(indexLoadError);
         return;
       }
       const tokens = tokenize(q);
-      let results  = search(entries, q, 60);
-      if (activeCategory !== "all") {
-        results = results.filter((r) =>
-          (r.entry.category || "").toLowerCase() === activeCategory.toLowerCase()
-        );
-      }
+      const results  = search(entries, q, { limit: 60, category: activeCategory });
       if (!results.length) {
         list.innerHTML =
           '<div class="search-empty-state"><p>No matches for <strong>' +
@@ -944,7 +1030,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       if (stats) stats.textContent =
         results.length + " result" + (results.length === 1 ? "" : "s") +
-        " for \u201c" + q + "\u201d";
+        " for \u201c" + q + "\u201d" + scopeNotice;
       list.innerHTML = results.map((r) => (
         '<a class="okh-search-result" href="' + escapeHtml(r.entry.url) + '">' +
           renderResultHtml(r, tokens) +
@@ -972,26 +1058,59 @@ document.addEventListener("DOMContentLoaded", () => {
           cats.querySelectorAll("button").forEach((x) =>
             x.setAttribute("aria-pressed", x === b ? "true" : "false")
           );
-          render();
+          render({ historyMode: "push" });
         });
       });
     }
 
+    function syncFromURL(skipFocus) {
+      const urlState = readQueryFromURL();
+      input.value = urlState.q;
+      activeCategory = normalizeCategory(urlState.category || "all");
+      syncCategoryButtons();
+      if (!skipFocus) input.focus();
+      render({ historyMode: "replace" });
+    }
+
+    window.addEventListener("popstate", () => {
+      syncFromURL(true);
+    });
+
     loadIndex().then((d) => {
       entries = d;
+      const initial = readQueryFromURL();
+      input.value = initial.q;
+      activeCategory = initial.category || "all";
       buildCategoryChips();
-      const initialQ = readQueryFromURL();
-      if (initialQ) input.value = initialQ;
+      activeCategory = normalizeCategory(activeCategory);
+      syncCategoryButtons();
       input.focus();
       render();
+    }).catch((err) => {
+      setIndexLoadError(err);
     });
 
     input.addEventListener("input", render);
   }
 
   // ── Bootstrap ────────────────────────────────────────────────────────────
+  function loadBrandModule() {
+    const body = document.body;
+    const moduleUrl = body.classList.contains("glee-main")
+      ? "/assets/js/glee-site-enhancements.js"
+      : body.classList.contains("askjamie-main")
+        ? "/assets/js/askjamie-analytics.js"
+        : null;
+    if (moduleUrl) {
+      import(moduleUrl).catch((error) => {
+        console.warn("[shared-runtime] optional brand module failed to load:", error);
+      });
+    }
+  }
+
   function start() {
-    if (document.body.classList.contains("search-page")) {
+    loadBrandModule();
+    if (document.getElementById("search-page-input") && document.getElementById("search-results")) {
       initSearchPage();
       initOverlay(); // search button still works on the search page itself
     } else {

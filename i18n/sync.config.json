@@ -3,6 +3,7 @@
   "search_index": "assets/data/search-index.json",
   "state_file": "i18n/sync-state.json",
   "in_scope_routes": ["/", "/about/", "/contact/", "/projects/"],
+  "blocking_locales": ["fr"],
   "target_locales": {
     "fr": {"locale": "fr-FR", "root": "fr", "skill": "okhp3-translation-en-us-fr-fr"},
     "de": {"locale": "de-DE", "root": "de", "skill": "okhp3-translation-en-us-de-de"},

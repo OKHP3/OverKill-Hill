@@ -28,7 +28,7 @@ follows the same convention as `askjamie/scripts/README.md`.
 | `post-merge.sh` | active | Post-merge rebuild and validation hook |
 | `responsive-qa.mjs` | active | Responsive QA entry point |
 | `screen-reader-tree-audit.mjs` | active | Screen-reader accessibility tree audit (`npm run test:*`) |
-| `sync-foundation-files.py` | active | 3-way sync of theme.css/app.js/mermaid-init.js across the three sibling repos |
+| `sync-foundation-files.py` | active | Audit-first, explicit-revision sync of theme.css/app.js/mermaid-init.js across the three sibling repos |
 | `validate-site.py` | active | Structural site validation |
 | `verify-live-edge.py` | active | Live-edge deployment verification |
 
@@ -77,3 +77,19 @@ this same body of shared migration tooling first; this file reclassifies
 overkill-hill's copies against that precedent plus a live repo-wide
 reference check (CI workflows, `post-merge.sh`, `package.json`, and
 cross-script `Path(__file__)`/`subprocess` calls).
+
+## Foundation synchronization safety contract
+
+`sync-foundation-files.py` is read-only unless `--apply` or `--commit` is
+supplied. It does not infer a canonical copy from timestamps. A write requires
+both `--source-repo` and an owner-reviewed, full 40-character
+`--source-revision` commit SHA; content is read from that commit, never from a
+working tree. It refuses all writes when any sibling repository has a Git lock,
+staged/unstaged change, or untracked file. It never moves or removes a lock.
+
+Use a dry run to inspect divergence, then only after R04 has produced the
+reviewed compatible superset, use `--apply` or `--commit` with that exact
+revision. Configured post-write generators run by default. Their changed paths
+are reported as generated changes and included in a `--commit`; a generator
+failure prevents every commit and leaves the written paths reported for manual,
+reviewed recovery. `--no-hooks` is an explicit exceptional mode, not a default.

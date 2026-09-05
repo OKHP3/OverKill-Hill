@@ -84,7 +84,7 @@ def all_pages() -> list[Path]:
                 "assets/templates/",
                 "assets/partials/",
                 "site-src/",
-                "tests/fixtures/csp/",
+                "tests/fixtures/",
             )
         )
     )
@@ -102,7 +102,7 @@ def build_policies() -> dict[str, str]:
 
     common = (
         "default-src 'self'; "
-        "script-src 'self' https://www.googletagmanager.com https://cdn.jsdelivr.net "
+        "script-src 'self' https://www.googletagmanager.com "
         + " ".join(sorted(hashes["standard"]))
         + "; script-src-attr 'none'; "
         "style-src 'self' https://fonts.googleapis.com "
@@ -111,7 +111,7 @@ def build_policies() -> dict[str, str]:
         + " ".join(sorted(style_hashes["standard"]))
         + "; font-src 'self' data: https://fonts.gstatic.com; "
         "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com; "
-        "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net https://okhp3.github.io; "
+        "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://okhp3.github.io; "
         "object-src 'none'; base-uri 'self'; form-action 'self'; "
         "manifest-src 'self'; upgrade-insecure-requests"
     )
@@ -151,13 +151,13 @@ def build_policies() -> dict[str, str]:
             )
         policy = (
             "default-src 'self'; "
-            "script-src 'self' https://www.googletagmanager.com https://cdn.jsdelivr.net "
+            "script-src 'self' https://www.googletagmanager.com "
             + " ".join(sorted(hashes[kind]))
             + "; script-src-attr 'none'; "
             + style_directives
             + "font-src 'self' data: https://fonts.gstatic.com; "
             "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com; "
-            "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net https://okhp3.github.io; "
+            "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://okhp3.github.io; "
             + (f"frame-src 'self' {frame}; " if frame else "")
             + "object-src 'none'; base-uri 'self'; form-action 'self'; "
             "manifest-src 'self'; upgrade-insecure-requests"
@@ -189,13 +189,13 @@ def build_edge_policy() -> str:
     # module docstring above).
     return (
         "default-src 'self'; script-src 'self' https://www.googletagmanager.com "
-        "https://cdn.jsdelivr.net " + " ".join(sorted(scripts))
+        + " ".join(sorted(scripts))
         + "; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; "
         "style-src-attr 'unsafe-inline'; "
         "font-src 'self' data: https://fonts.gstatic.com; "
         "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com; "
         "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com "
-        "https://www.googletagmanager.com https://cdn.jsdelivr.net https://okhp3.github.io; "
+        "https://www.googletagmanager.com https://okhp3.github.io; "
         "frame-src 'self' https://okhp3.github.io; frame-ancestors 'self'; "
         "object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; "
         "upgrade-insecure-requests; report-uri /__csp-report"

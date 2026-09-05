@@ -59,12 +59,33 @@ python3 scripts/verify-live-edge.py \
 
 The command is read-only with respect to the site and uses no credentials. It
 has a per-request timeout and writes partial results before exiting. A missing
-manifest, commit mismatch, artifact hash mismatch, route, security header,
-generated-artifact match, cache policy, or fingerprint is a nonzero failure;
-external unavailability is reported with `PARTIAL` status rather than treated
-as a policy pass. Use
-`--expected-commit` for release verification. Do not omit `--base` or
-substitute a guessed deployment URL.
+manifest, commit mismatch, artifact hash mismatch, route, generated artifact,
+cache policy, or fingerprint is a nonzero failure in the applicable hosting
+mode. In strict mode, missing security headers also fail. In
+`--hosting github-pages` mode, a missing response header is an explicit `WARN`
+accepted as a direct-Pages hosting limitation; it is not delivered protection.
+External unavailability remains `BLOCKED`, and any blocked or warning checks
+produce `PARTIAL` status rather than a policy pass. Use `--expected-commit` for
+release verification. Do not omit `--base` or substitute a guessed deployment
+URL.
+
+### Policy layers and evidence
+
+The repository's desired edge policy is [`_headers`](../_headers), generated
+from the canonical policy data in
+[`config/csp-policies.json`](../config/csp-policies.json). The page-level
+`Content-Security-Policy` meta tags are generated from the same policy source
+and are checked locally by `scripts/check-csp.py`; browser CSP QA then observes
+runtime violations and page errors. These checks establish the intended policy
+and page behavior, not response-header delivery by GitHub Pages.
+
+The live-edge verifier requests the public response headers separately. A
+present enforcing `Content-Security-Policy` is recorded as observed, while its
+contents are explicitly not validated against the local policy artifact by
+that verifier. A report-only CSP is recorded separately as `WARN` because it
+does not enforce protection. When direct GitHub Pages omits a desired header,
+the verifier records the absence as `WARN`; this documents the accepted
+hosting limitation without describing the missing control as active.
 
 ### Latest canonical-domain result
 
@@ -99,8 +120,9 @@ generated-artifact integrity, release-manifest binding, and content-fingerprint
 integrity. It does not waive the security or cache requirements in `_headers`.
 
 The verifier's `--hosting github-pages` mode proves that the request path is
-still direct GitHub Pages, marks controls that GitHub Pages cannot apply as
-`BLOCKED`, and returns `PARTIAL` when no deterministic checks fail. It returns
+still direct GitHub Pages, records omitted security headers as `WARN` and
+hosting-controlled cache checks as `BLOCKED`, and returns `PARTIAL` when no
+deterministic checks fail. It returns
 `FAILED` for a real route, artifact, manifest, fingerprint, or hosting-path
 failure. Scheduled monitoring uses this mode with `--accept-blocked`, so a
 known hosting limitation is visible as `PARTIAL` while real drift still fails

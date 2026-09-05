@@ -49,7 +49,10 @@ SECURITY_HEADERS = {
     "cross-origin-opener-policy": "same-origin",
     "cross-origin-resource-policy": "same-origin",
     "origin-agent-cluster": "?1",
-    "content-security-policy-report-only": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests",
+}
+GITHUB_PAGES_ACCEPTED_LIMITATIONS = {
+    "cache-control": "GitHub Pages controls HTML caching at the edge, so this verifier records the observed header but does not treat the published value as enforceable here",
+    "content-security-policy": "GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check",
 }
 HTML_CACHE_RE = re.compile(r"max-age=300\b", re.I)
 REVALIDATE_RE = re.compile(r"\bmust-revalidate\b", re.I)
@@ -157,11 +160,21 @@ def check_headers(
     headers = response["headers"]
     for name, expected in SECURITY_HEADERS.items():
         value = headers.get(name)
-        if hosting == "github-pages":
-            report.append(result(f"{label} security header {name}", "BLOCKED", GITHUB_PAGES_POLICY_NOTE))
-            continue
         if not value:
-            report.append(result(f"{label} security header {name}", "FAIL", "header absent"))
+            if hosting == "github-pages":
+                report.append(
+                    result(
+                        f"{label} observed header {name}",
+                        "WARN",
+                        "absent; "
+                        + GITHUB_PAGES_ACCEPTED_LIMITATIONS.get(
+                            name,
+                            "GitHub Pages may omit repository headers at the edge",
+                        ),
+                    )
+                )
+            else:
+                report.append(result(f"{label} security header {name}", "FAIL", "header absent"))
         elif expected and value.lower() != expected.lower():
             report.append(
                 result(
@@ -171,7 +184,43 @@ def check_headers(
                 )
             )
         else:
-            report.append(result(f"{label} security header {name}", "PASS", value))
+            check_name = f"{label} observed header {name}" if hosting == "github-pages" else f"{label} security header {name}"
+            report.append(result(check_name, "PASS", value))
+
+    enforcing_csp = headers.get("content-security-policy")
+    report_only_csp = headers.get("content-security-policy-report-only")
+    if enforcing_csp:
+        report.append(
+            result(
+                f"{label} observed enforcing content-security-policy",
+                "PASS",
+                "header present; policy contents were not validated by this live-edge check",
+                value=enforcing_csp,
+            )
+        )
+    else:
+        csp_status = "WARN" if hosting == "github-pages" else "FAIL"
+        csp_evidence = (
+            "absent; " + GITHUB_PAGES_ACCEPTED_LIMITATIONS["content-security-policy"]
+            if hosting == "github-pages"
+            else "enforcing header absent"
+        )
+        report.append(
+            result(
+                f"{label} enforcing content-security-policy",
+                csp_status,
+                csp_evidence,
+            )
+        )
+    if report_only_csp:
+        report.append(
+            result(
+                f"{label} observed report-only content-security-policy",
+                "WARN",
+                "report-only header present; it does not enforce the policy",
+                value=report_only_csp,
+            )
+        )
 
 
 def check_page(
@@ -579,6 +628,7 @@ def main() -> int:
 
     failures = sum(item["status"] == "FAIL" for item in report)
     blocked = sum(item["status"] == "BLOCKED" for item in report)
+    warnings = sum(item["status"] == "WARN" for item in report)
     payload = {
         "verifier": "verify-live-edge.py",
         "run_at": now(),
@@ -586,8 +636,8 @@ def main() -> int:
         "timeout_seconds": args.timeout,
         "expected_commit": args.expected_commit,
         "hosting": args.hosting,
-        "status": "FAILED" if failures else ("PARTIAL" if blocked else "PASS"),
-        "summary": {"checks": len(report), "failures": failures, "blocked": blocked},
+        "status": "FAILED" if failures else ("PARTIAL" if blocked or warnings else "PASS"),
+        "summary": {"checks": len(report), "failures": failures, "blocked": blocked, "warnings": warnings},
         "checks": report,
     }
     encoded = json.dumps(payload, indent=2, sort_keys=False) + "\n"

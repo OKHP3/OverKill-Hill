@@ -1,0 +1,50 @@
+{
+  "language_pair": "en-US -> fr-FR",
+  "skill": "okhp3-translation-en-us-fr-fr@1.1.0",
+  "review_status": "ai-reviewed",
+  "reviewed_on": "2026-09-05",
+  "review_authority": "owner-authorized AI semantic and terminology review",
+  "native_or_human_approval": false,
+  "source_revision": "git:4c1635447b17daf623b21cc98e3dfdcdc13cc0bd",
+  "routes": [
+    {
+      "route": "/",
+      "source_sha256": "01d921f601be1e82a3ac7cd07e2cbf9f28b39a1abbc3b612f881a5338f43bbcd",
+      "target_path": "fr/index.html",
+      "target_sha256": "d1f37e08d5c6ccc2cb6363f4497d61d753c6393afb9baa9b0695d41ea5dd1ea4",
+      "disposition": "retained-ai-reviewed",
+      "locale": "fr"
+    },
+    {
+      "route": "/about/",
+      "source_sha256": "c74660e6360362cffb70f5d55db16287806505ae2fb1a423be793cf129891400",
+      "target_path": "fr/about/index.html",
+      "target_sha256": "505943f187bbbb29201ecc32efbbde5665af2661d7e145f80b63b5273740819e",
+      "disposition": "retained-ai-reviewed",
+      "locale": "fr"
+    },
+    {
+      "route": "/projects/",
+      "source_sha256": "9b9556cc8747510c2fde62bdf09df12dc798e30b1e7d7b1041e43a173822a59e",
+      "target_path": "fr/projects/index.html",
+      "target_sha256": "1e466170edc906d2faa4bf0cf0ba0765d984cfec0565e4edb939d4996934260a",
+      "disposition": "retained-ai-reviewed",
+      "locale": "fr"
+    },
+    {
+      "route": "/contact/",
+      "source_sha256": "a2f4f47332977fc93f141f9971390b63ec5eccfab26e83edfcede29e411cc999",
+      "target_path": "fr/contact/index.html",
+      "target_sha256": "489cb44967c195ac6f1e50ad99c0b7822715f6944fc47b5903d0297922e911aa",
+      "disposition": "no-semantic-delta-ai-reviewed",
+      "locale": "fr"
+    }
+  ],
+  "terminology": {
+    "proof": "éléments probants",
+    "active build": "construction active",
+    "register": "vous",
+    "english_only_destinations": "labeled in the French copy"
+  },
+  "sync_state_adoption": "rebound-four-routes-against-4c163544; deployment not claimed"
+}

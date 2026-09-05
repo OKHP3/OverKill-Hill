@@ -38,15 +38,18 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run i18n page sync check
-        run: python3 .agents/skills/okhp3-i18n-page-sync/scripts/i18n-page-sync.py --root . --mode check
+      - name: Run published-locale release gate
+        run: python3 scripts/check-i18n-release.py --mode check --format json
 
       - name: What to do next
         if: failure()
         run: |
-          echo "One or more in-scope pages are missing a translation or have"
-          echo "drifted from a changed English source. For each flagged"
-          echo "route, run the named okhp3-translation-en-us-<pair> skill to"
-          echo "produce or update the draft, then confirm it with:"
-          echo "  python3 .agents/skills/okhp3-i18n-page-sync/scripts/i18n-page-sync.py --mode adopt --routes \"<route>\""
+          echo "A published-locale route is missing or stale. The JSON report"
+          echo "also retains advisory drift for draft locales. For French:"
+          echo "1. Run the named exact-pair skill and complete the authorized"
+          echo "   semantic/terminology review."
+          echo "2. Record reviewed provenance for the exact locale and routes."
+          echo "3. Use the site wrapper with explicit French locales, routes,"
+          echo "   and provenance before adopting the baseline."
+          echo "   python3 scripts/check-i18n-release.py --mode adopt --locales fr --routes \"<route>\" --provenance \"<record>\""
           exit 1

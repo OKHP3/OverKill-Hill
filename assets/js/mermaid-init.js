@@ -6,7 +6,6 @@
 // Performance: on pages with many diagrams (e.g. the v0.3 article) we use
 // IntersectionObserver to defer rendering until each diagram approaches the
 // viewport. Falls back to immediate render where the API is unavailable.
-import mermaid from "/assets/vendor/mermaid/mermaid.esm.min.mjs";
 
 // Most diagrams are informational and do not need Mermaid's click handling.
 // The two v2 heat pages opt in with data-mermaid-security="loose" because
@@ -219,18 +218,24 @@ function resolveThemeColors(source) {
   });
 }
 
-mermaid.initialize({
-  startOnLoad: false,
-  securityLevel: usesClickableLinks ? "loose" : "strict",
-  flowchart: {
-    curve: "basis",
-    nodeSpacing: 55,
-    rankSpacing: 65,
-    htmlLabels: true,
-  },
-});
-
 const diagrams = Array.from(document.querySelectorAll(".mermaid"));
+let mermaidPromise = null;
+
+function loadMermaid() {
+  if (!mermaidPromise) {
+    mermaidPromise = import("/assets/vendor/mermaid/mermaid.esm.min.mjs").then(
+      ({ default: mermaid }) => {
+        mermaid.initialize({
+          startOnLoad: false,
+          securityLevel: usesClickableLinks ? "loose" : "strict",
+          flowchart: { curve: "basis", nodeSpacing: 55, rankSpacing: 65, htmlLabels: true },
+        });
+        return mermaid;
+      }
+    );
+  }
+  return mermaidPromise;
+}
 
 function addAccessibleAlternative(node, index) {
   // Mermaid replaces the source element with an SVG. Preserve a concise,
@@ -254,6 +259,20 @@ function addAccessibleAlternative(node, index) {
   node.setAttribute("aria-label", label);
 }
 
+function enhanceMermaidLinks(node) {
+  node.querySelectorAll("svg a").forEach((link) => {
+    const href = link.getAttribute("href") || link.getAttribute("xlink:href") ||
+      link.getAttributeNS("http://www.w3.org/1999/xlink", "href");
+    if (href) link.setAttribute("href", href);
+    if (link.getAttribute("target") === "_blank") link.setAttribute("rel", "noopener noreferrer");
+    const label = link.getAttribute("aria-label") || link.querySelector("[title]")?.getAttribute("title") ||
+      link.querySelector("title")?.textContent?.trim();
+    if (label) link.setAttribute("aria-label", label);
+    if (href) link.setAttribute("role", "link");
+    link.setAttribute("tabindex", "-1");
+  });
+}
+
 function renderOne(node) {
   if (node.dataset.mermaidRendered === "1") return;
   node.dataset.mermaidRendered = "1";
@@ -262,25 +281,35 @@ function renderOne(node) {
     node.textContent = sanitizeClickableLinks(node.textContent);
   }
   node.textContent = resolveThemeColors(node.textContent);
-  mermaid.run({ nodes: [node] }).catch((err) => {
-    console.warn("[mermaid-init] render error:", err);
-  });
+  loadMermaid()
+    .then((mermaid) => mermaid.run({ nodes: [node] }))
+    .then(() => enhanceMermaidLinks(node))
+    .catch((err) => console.warn("[mermaid-init] render error:", err));
+}
+
+function scheduleRender(node) {
+  if (typeof requestIdleCallback === "function") {
+    requestIdleCallback(() => renderOne(node), { timeout: 2500 });
+  } else {
+    setTimeout(() => renderOne(node), 1500);
+  }
 }
 
 // If only a few diagrams, or no IntersectionObserver, render immediately.
 if (diagrams.length <= 2 || typeof IntersectionObserver === "undefined") {
-  diagrams.forEach(renderOne);
+  diagrams.forEach(scheduleRender);
 } else {
+  const isSmallScreen = typeof matchMedia === "function" && matchMedia("(max-width: 768px)").matches;
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          renderOne(entry.target);
+          scheduleRender(entry.target);
           io.unobserve(entry.target);
         }
       });
     },
-    { rootMargin: "400px 0px", threshold: 0.01 }
+    { rootMargin: isSmallScreen ? "0px" : "400px 0px", threshold: 0.01 }
   );
   diagrams.forEach((node) => io.observe(node));
 }

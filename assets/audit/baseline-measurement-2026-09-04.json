@@ -1,0 +1,219 @@
+{
+  "schema": "baseline-measurement/v1",
+  "measuredAt": "2026-09-05T04:58:29.862Z",
+  "commit": "c1cf3d18761add58a062fb284997e04df322d6ea",
+  "browser": {
+    "engine": "chromium",
+    "version": "153.0.8010.12",
+    "headless": true,
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "cache": "fresh context per sample; browser cache empty",
+  "network": "local HTTP server; no throttling",
+  "cpu": "host default; no emulation",
+  "fieldData": "unavailable; no INP/LCP distributions claimed",
+  "base": "http://127.0.0.1:5000",
+  "results": [
+    {
+      "route": "/",
+      "samples": [
+        {
+          "networkIdleNavigationMs": 903,
+          "resourceCount": 27,
+          "transferBytes": 5517877,
+          "encodedBodyBytes": 5510377,
+          "resourceDurationMs": 796,
+          "domContentLoadedMs": 235,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "networkIdleNavigationMs": 971,
+          "resourceCount": 27,
+          "transferBytes": 5517877,
+          "encodedBodyBytes": 5510377,
+          "resourceDurationMs": 970,
+          "domContentLoadedMs": 255,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "networkIdleNavigationMs": 1076,
+          "resourceCount": 27,
+          "transferBytes": 5517877,
+          "encodedBodyBytes": 5510377,
+          "resourceDurationMs": 842,
+          "domContentLoadedMs": 316,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        }
+      ],
+      "median": {
+        "networkIdleNavigationMs": 971,
+        "domContentLoadedMs": 255,
+        "transferBytes": 5517877
+      },
+      "ranges": {
+        "networkIdleNavigationMs": [
+          903,
+          1076
+        ],
+        "domContentLoadedMs": [
+          235,
+          316
+        ],
+        "transferBytes": [
+          5517877,
+          5517877
+        ]
+      }
+    },
+    {
+      "route": "/writings/first-diagram-is-a-liar/",
+      "samples": [
+        {
+          "networkIdleNavigationMs": 1382,
+          "resourceCount": 34,
+          "transferBytes": 1239847,
+          "encodedBodyBytes": 1230247,
+          "resourceDurationMs": 1131,
+          "domContentLoadedMs": 482,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "networkIdleNavigationMs": 1631,
+          "resourceCount": 34,
+          "transferBytes": 1239847,
+          "encodedBodyBytes": 1230247,
+          "resourceDurationMs": 1058,
+          "domContentLoadedMs": 415,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "networkIdleNavigationMs": 1215,
+          "resourceCount": 34,
+          "transferBytes": 1239847,
+          "encodedBodyBytes": 1230247,
+          "resourceDurationMs": 938,
+          "domContentLoadedMs": 561,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        }
+      ],
+      "median": {
+        "networkIdleNavigationMs": 1382,
+        "domContentLoadedMs": 482,
+        "transferBytes": 1239847
+      },
+      "ranges": {
+        "networkIdleNavigationMs": [
+          1215,
+          1631
+        ],
+        "domContentLoadedMs": [
+          415,
+          561
+        ],
+        "transferBytes": [
+          1239847,
+          1239847
+        ]
+      }
+    },
+    {
+      "route": "/projects/mermaid-theme-builder/",
+      "samples": [
+        {
+          "networkIdleNavigationMs": 1890,
+          "resourceCount": 7,
+          "transferBytes": 359313,
+          "encodedBodyBytes": 358113,
+          "resourceDurationMs": 1031,
+          "domContentLoadedMs": 271,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "networkIdleNavigationMs": 1372,
+          "resourceCount": 7,
+          "transferBytes": 359313,
+          "encodedBodyBytes": 358113,
+          "resourceDurationMs": 842,
+          "domContentLoadedMs": 242,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "networkIdleNavigationMs": 1210,
+          "resourceCount": 7,
+          "transferBytes": 359313,
+          "encodedBodyBytes": 358113,
+          "resourceDurationMs": 617,
+          "domContentLoadedMs": 241,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        }
+      ],
+      "median": {
+        "networkIdleNavigationMs": 1372,
+        "domContentLoadedMs": 242,
+        "transferBytes": 359313
+      },
+      "ranges": {
+        "networkIdleNavigationMs": [
+          1210,
+          1890
+        ],
+        "domContentLoadedMs": [
+          241,
+          271
+        ],
+        "transferBytes": [
+          359313,
+          359313
+        ]
+      }
+    }
+  ]
+}

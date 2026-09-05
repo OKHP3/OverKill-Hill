@@ -69,7 +69,7 @@ class TextExtractor(HTMLParser):
 
     SKIP_TAGS = {"script", "style", "noscript", "svg", "template", "iframe"}
     DROP_BY_CLASS = {"site-header", "site-footer", "primary-nav", "sub-nav",
-                     "skip-link", "sr-only", "okh-search-overlay",
+                     "skip-link", "okh-skip-link", "sr-only", "okh-search-overlay",
                      "footer-bottom", "site-banner"}
 
     # Self-closing / void HTML elements — never push to drop stack
@@ -112,7 +112,10 @@ class TextExtractor(HTMLParser):
         if cls_set & self.DROP_BY_CLASS:
             self._drop_stack.append(tag)
             return
-        if self._drop_depth or self._skip_depth:
+        if self._drop_depth:
+            self._drop_stack.append(tag)
+            return
+        if self._skip_depth:
             return
 
         if tag == "title":
@@ -130,10 +133,13 @@ class TextExtractor(HTMLParser):
         if self._skip_stack and self._skip_stack[-1] == tag:
             self._skip_stack.pop()
             return
-        # Pop matching drop frame — only when the closing tag matches the
-        # tag that opened the dropped region. Anything in between is collateral.
-        if self._drop_stack and self._drop_stack[-1] == tag:
-            self._drop_stack.pop()
+        # Keep nested markup inside dropped regions balanced so an inner div
+        # cannot expose the remainder of the header or navigation.
+        if self._drop_stack:
+            if tag in self._drop_stack:
+                while self._drop_stack:
+                    if self._drop_stack.pop() == tag:
+                        break
             return
         if self._drop_depth or self._skip_depth:
             return
@@ -561,10 +567,6 @@ def main(argv: list[str] | None = None) -> int:
         f"search-index.{locale}.json" if locale else "search-index.json"
     )
     scan_root = ROOT / locale if locale else ROOT
-    if locale and not scan_root.exists():
-        # Keep the unpublished pilot scaffold runnable without creating a
-        # deployable /fr/ tree. A real locale takes precedence when present.
-        scan_root = ROOT / "i18n" / "pilot" / locale
     if locale and not scan_root.exists():
         print(
             f"Locale source directory is missing: {scan_root.relative_to(ROOT)}. "
