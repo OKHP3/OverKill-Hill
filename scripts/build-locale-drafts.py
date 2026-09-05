@@ -12,6 +12,7 @@ import argparse
 import hashlib
 import json
 import re
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,6 +24,10 @@ PAIR_CONTRACTS = {
     'en-gb': ('dictionary.en-us-en-uk.json', 'voice-profile.en-us.json'),
     'es-mx': ('dictionary.en-us-es-mx.json', 'voice-profile.en-us.json'),
 }
+CSP_META_RE = re.compile(
+    rb'<meta\b(?=[^>]*\bhttp-equiv=["\']Content-Security-Policy["\'])[^>]*>',
+    re.I,
+)
 
 ST_GEORGE = (
     '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21">'
@@ -120,30 +125,148 @@ def load_pair_contract(locale: str) -> tuple[dict, dict]:
     return dictionary, profile
 
 
+def normalized_translation_source(content: bytes) -> bytes:
+    """Remove generated-only metadata before checking editorial source freshness."""
+    return CSP_META_RE.sub(b"", content.replace(b"\r\n", b"\n"))
+
+
+def canonical_text_hash(path: Path) -> str:
+    """Hash translatable source independent of checkout and generated CSP metadata."""
+    return hashlib.sha256(normalized_translation_source(path.read_bytes())).hexdigest()
+
+
 def verify_sources() -> dict:
     expected = json.loads(SOURCE_HASHES.read_text(encoding='utf-8'))
+    revision = expected["source_revision"].removeprefix("git:")
     actual = {}
     for route, rel in ROUTES.items():
         source_path = ROOT / rel
-        actual[route] = hashlib.sha256(source_path.read_bytes()).hexdigest()
-        if actual[route] != expected['routes'].get(route):
+        actual[route] = canonical_text_hash(source_path)
+        release_content = subprocess.run(
+            ["git", "show", f"{revision}:{rel}"],
+            check=True,
+            capture_output=True,
+        ).stdout
+        recorded_raw_hash = hashlib.sha256(release_content.replace(b"\r\n", b"\n")).hexdigest()
+        if recorded_raw_hash != expected["routes"].get(route):
+            raise SystemExit(f"Recorded release source does not match its hash for {route}")
+        release_hash = hashlib.sha256(normalized_translation_source(release_content)).hexdigest()
+        if actual[route] != release_hash:
             raise SystemExit(f'Source changed for {route}; refresh the reviewed pair from the recorded source revision')
     return expected
 
 
+def set_meta_content(page: str, property_name: str, content: str) -> str:
+    """Set one Open Graph meta value without changing unrelated metadata."""
+    matches = 0
+
+    def replace_tag(match: re.Match[str]) -> str:
+        nonlocal matches
+        tag = match.group(0)
+        property_match = re.search(r'\bproperty=["\']([^"\']+)["\']', tag, re.I)
+        if not property_match or property_match.group(1).lower() != property_name.lower():
+            return tag
+        updated, replacements = re.subn(
+            r'(\bcontent=["\'])[^"\']*(["\'])',
+            lambda content_match: content_match.group(1) + content + content_match.group(2),
+            tag,
+            count=1,
+            flags=re.I,
+        )
+        if replacements != 1:
+            raise SystemExit(f'Missing content attribute on {property_name} meta tag')
+        matches += 1
+        return updated
+
+    result = re.sub(r'<meta\b[^>]*>', replace_tag, page, flags=re.I)
+    if matches != 1:
+        raise SystemExit(f'Expected one {property_name} meta tag, found {matches}')
+    return result
+
+
+def set_canonical_href(page: str, url: str) -> str:
+    """Set the sole canonical link without touching media or structured-data URLs."""
+    matches = 0
+
+    def replace_tag(match: re.Match[str]) -> str:
+        nonlocal matches
+        tag = match.group(0)
+        rel_match = re.search(r'\brel=["\']([^"\']+)["\']', tag, re.I)
+        if not rel_match or 'canonical' not in rel_match.group(1).lower().split():
+            return tag
+        updated, replacements = re.subn(
+            r'(\bhref=["\'])[^"\']*(["\'])',
+            lambda href_match: href_match.group(1) + url + href_match.group(2),
+            tag,
+            count=1,
+            flags=re.I,
+        )
+        if replacements != 1:
+            raise SystemExit('Missing href attribute on canonical link')
+        matches += 1
+        return updated
+
+    result = re.sub(r'<link\b[^>]*>', replace_tag, page, flags=re.I)
+    if matches != 1:
+        raise SystemExit(f'Expected one canonical link, found {matches}')
+    return result
+
+
+def rewrite_in_scope_links(page: str, locale: str) -> str:
+    """Keep navigation inside the four-page locale set when a target exists."""
+    for route in sorted(ROUTES, key=len, reverse=True):
+        target = locale_href(locale, route)
+        page = re.sub(
+            rf'(\bhref=["\']){re.escape(route)}(["\'])',
+            lambda match: match.group(1) + target + match.group(2),
+            page,
+        )
+    return page
+
+
+def adapt_visible_text(page: str, dictionary: dict) -> str:
+    """Apply approved en-GB wording only to text nodes, never attributes or code."""
+    replacements = [
+        (entry['source'], entry['target'])
+        for entry in dictionary.get('entries', [])
+        if entry.get('handling') == 'adapt' and entry.get('source') and entry.get('target')
+    ]
+    protected_tags = {'code', 'pre', 'script', 'style', 'template'}
+    protected_depth = 0
+    chunks = re.split(r'(<[^>]+>)', page)
+    for index, chunk in enumerate(chunks):
+        if chunk.startswith('<'):
+            tag_match = re.match(r'</?\s*([\w:-]+)', chunk)
+            if tag_match:
+                tag_name = tag_match.group(1).lower()
+                if tag_name in protected_tags:
+                    if chunk.startswith('</'):
+                        protected_depth = max(0, protected_depth - 1)
+                    elif not chunk.rstrip().endswith('/>'):
+                        protected_depth += 1
+            continue
+        if protected_depth:
+            continue
+        for source, target in replacements:
+            chunk = re.sub(rf'\b{re.escape(source)}\b', target, chunk)
+        chunks[index] = chunk
+    return ''.join(chunks)
+
+
 def build_en_gb(source: str, route: str, dictionary: dict) -> str:
     page = source
+    target_url = BASE + '/en-gb' + route
     page = page.replace('<html lang="en">', '<html lang="en-GB">', 1)
-    page = page.replace('https://overkillhill.com' + route, BASE + "/en-gb" + route, 1)
+    page = set_canonical_href(page, target_url)
+    page = set_meta_content(page, 'og:url', target_url)
+    page = set_meta_content(page, 'og:locale', 'en_GB')
     page = page.replace('content="index, follow', 'content="noindex, follow')
     page = noindex(page)
     page = page.replace('English (US)', 'English (UK) · Draft')
     page = page.replace('Language: English (US)', 'Language: English (UK) · Draft')
     page = page.replace('hreflang="en"', 'hreflang="en-GB"').replace('lang="en"', 'lang="en-GB"')
-    page = page.replace('https://overkillhill.com' + route, BASE + '/en-gb' + route)
-    for entry in dictionary.get('entries', []):
-        if entry.get('handling') == 'adapt':
-            page = re.sub(rf'\b{re.escape(entry["source"])}\b', entry['target'], page)
+    page = rewrite_in_scope_links(page, 'en-gb')
+    page = adapt_visible_text(page, dictionary)
     page = page.replace('colors', 'colours').replace('Color Scheme', 'Colour Scheme')
     page = re.sub(r'<link[^>]+rel="alternate"[^>]*>', '', page, flags=re.I)
     page = page.replace(f'href="{route}" hreflang="en-GB"', f'href="/en-gb{route}" hreflang="en-GB"')

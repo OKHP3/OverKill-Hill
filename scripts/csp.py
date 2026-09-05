@@ -110,7 +110,7 @@ def build_policies() -> dict[str, str]:
         + "; style-src-attr 'unsafe-hashes' "
         + " ".join(sorted(style_hashes["standard"]))
         + "; font-src 'self' data: https://fonts.gstatic.com; "
-        "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com; "
+        "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com https://www.googletagmanager.com; "
         "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://okhp3.github.io; "
         "object-src 'none'; base-uri 'self'; form-action 'self'; "
         "manifest-src 'self'; upgrade-insecure-requests"
@@ -156,7 +156,7 @@ def build_policies() -> dict[str, str]:
             + "; script-src-attr 'none'; "
             + style_directives
             + "font-src 'self' data: https://fonts.gstatic.com; "
-            "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com; "
+            "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com https://www.googletagmanager.com; "
             "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://okhp3.github.io; "
             + (f"frame-src 'self' {frame}; " if frame else "")
             + "object-src 'none'; base-uri 'self'; form-action 'self'; "
@@ -193,7 +193,7 @@ def build_edge_policy() -> str:
         + "; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; "
         "style-src-attr 'unsafe-inline'; "
         "font-src 'self' data: https://fonts.gstatic.com; "
-        "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com; "
+        "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com https://www.googletagmanager.com; "
         "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com "
         "https://www.googletagmanager.com https://okhp3.github.io; "
         "frame-src 'self' https://okhp3.github.io; frame-ancestors 'self'; "

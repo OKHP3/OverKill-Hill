@@ -3360,6 +3360,14 @@ html[data-theme="light"] .pf-boundary-label--private    { color: #475569; }
     margin-right: 0.35rem;
     padding-right: 0.35rem;
   }
+
+  /* The switch sits left of the utility controls on phones. Anchoring its
+     15rem menu to that control's right edge can push the list beyond the
+     left viewport edge; anchor from the switch's left edge instead. */
+  .site-header .lang-switch-menu {
+    right: auto;
+    left: 0;
+  }
 }
 
 @media (max-width: 599px) {

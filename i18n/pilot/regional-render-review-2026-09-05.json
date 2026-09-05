@@ -6,7 +6,7 @@
     "method": "Playwright rendered DOM and screenshot review",
     "native_or_human_certification": false
   },
-  "source_revision": "git:a39fcda69ebe7ec0aa215c40b24156f2d714be54+alt-correction",
+  "source_revision": "git:a03a4c26ee1e107bd565921e14d002003338e311",
   "preview": {
     "base_url": "http://127.0.0.1:5317",
     "viewport_mobile": "390x844",
@@ -49,6 +49,6 @@
     "locale_navigation": "The rendered switchers expose the draft locale labels and the expected sibling links; the settled es-MX mobile review shows the emblem-bearing Mexican flag and the fully visible ES-MX · Borrador label.",
     "canonical_shell": "The settled es-MX mobile review confirms the current forge notice and loaded Alfa Slab One heading font (document.fonts check true).",
     "draft_boundary": "All reviewed routes remain noindex and absent from public search indexes.",
-    "limitations": "This is an AI editorial and browser review, not native or human language certification. At 390px, the shared right-anchored language menu still reaches the left viewport edge and crops part of sibling flag columns; this shared layout defect is not resolved in the draft-only branch."
+    "limitations": "This is an AI editorial and browser review, not native or human language certification. The 390px follow-up confirmed that the shared language menu is fully within the viewport after the CSS correction."
   }
 }
