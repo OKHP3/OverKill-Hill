@@ -75,6 +75,9 @@ jobs:
       - name: Run published-locale release-gate regressions
         run: python3 -m unittest tests/test-i18n-release.py
 
+      - name: Keep localized homepage heroes aligned
+        run: python3 tests/test-homepage-hero-parity.py
+
       - name: Check regional draft publication boundaries
         run: python3 scripts/check-regional-drafts.py
 

@@ -253,6 +253,38 @@ def replace_navigation_identity(page: str, locale: str) -> str:
     return updated
 
 
+HOMEPAGE_HERO_ALTS = {
+    'es-mx': 'MurderBird mecánico de frente, abalanzándose con el pico y las garras visibles',
+}
+
+
+def replace_homepage_hero(page: str, locale: str) -> str:
+    """Apply the current responsive MurderBird hero to a generated home draft."""
+    alt = HOMEPAGE_HERO_ALTS[locale]
+    hero = (
+        '<div class="hero-visual">\n'
+        '<picture>\n'
+        '<source sizes="(max-width: 900px) 86vw, 42vw" '
+        'srcset="/assets/img/webp/murderbird-frontal-attack-2026-09-05-512.webp 512w, '
+        '/assets/img/webp/murderbird-frontal-attack-2026-09-05-1024.webp 1024w" type="image/webp"/>\n'
+        f'<img alt="{alt}" class="hero-illustration" fetchpriority="high" height="1254" '
+        'loading="eager" sizes="(max-width: 900px) 86vw, 42vw" '
+        'src="/assets/img/murderbird-frontal-attack-2026-09-05.png" width="1254"/>\n'
+        '</picture>\n'
+        '</div>'
+    )
+    updated, count = re.subn(
+        r'<div class="hero-visual">.*?</div>',
+        hero,
+        page,
+        count=1,
+        flags=re.S,
+    )
+    if count != 1:
+        raise SystemExit(f'Missing homepage hero for {locale}')
+    return updated
+
+
 def adapt_visible_text(page: str, dictionary: dict) -> str:
     """Apply approved en-GB wording only to text nodes, never attributes or code."""
     replacements = [
@@ -344,7 +376,8 @@ def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> st
             '</a></section>'
         )
         page = page.replace('</header>', notice + '</header>', 1)
-    return replace_navigation_identity(replace_locale_switch(page, 'es-mx', route), 'es-mx')
+    page = replace_navigation_identity(replace_locale_switch(page, 'es-mx', route), 'es-mx')
+    return replace_homepage_hero(page, 'es-mx') if route == '/' else page
 
 
 def main() -> int:
