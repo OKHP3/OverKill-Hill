@@ -85,7 +85,9 @@ class SyncFoundationSafetyTests(unittest.TestCase):
 
     def test_common_git_lock_in_linked_worktree_blocks_writes(self):
         linked = self.repos["glee-fullytools"]
-        shutil.rmtree(linked, onexc=remove_readonly)
+        # ``onerror`` is retained for the Python 3.11 CI runtime; ``onexc``
+        # was introduced later and has the same callback shape here.
+        shutil.rmtree(linked, onerror=remove_readonly)
         git(self.repos["overkill-hill"], "worktree", "add", "--detach", str(linked))
         linked_theme = linked / FILES[0]
         linked_theme.write_text("linked version\n", encoding="utf-8")
