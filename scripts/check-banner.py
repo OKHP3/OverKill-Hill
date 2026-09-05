@@ -63,6 +63,9 @@ _LINK_RE = re.compile(
     re.MULTILINE,
 )
 _HREF_RE = re.compile(r'\bhref="([^"]+)"', re.IGNORECASE)
+_LOCALIZED_BANNER_RE = re.compile(
+    r"\bdata-banner-localized\s*=\s*(['\"])true\1", re.IGNORECASE
+)
 _BANNER_RELEASE_ATTR_RE = re.compile(r'\bdata-banner-release="(v\d+(?:\.\d+)+)"', re.IGNORECASE)
 _ARTICLE_RELEASE_RE = re.compile(
     r"<span\b[^>]*>\s*Article\s+(v\d+(?:\.\d+)+)\s*:",
@@ -160,8 +163,8 @@ def check_file(
         is_featured_banner = bool(
             href_match and href_match.group(1).startswith(FEATURED_ARTICLE_ROUTE)
         )
-        is_localized_featured_banner = (
-            is_featured_banner and 'data-banner-localized="true"' in m.group(1)
+        is_localized_featured_banner = bool(
+            is_featured_banner and _LOCALIZED_BANNER_RE.search(m.group(1))
         )
 
         if expected_release is not None:

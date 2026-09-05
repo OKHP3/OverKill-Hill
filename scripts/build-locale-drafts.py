@@ -28,7 +28,10 @@ CSP_META_RE = re.compile(
     rb'<meta\b(?=[^>]*\bhttp-equiv=["\']Content-Security-Policy["\'])[^>]*>',
     re.I,
 )
-CACHE_BUST_RE = re.compile(rb'[?&]v=[0-9a-f]{8,64}(?=["\'\s>])', re.I)
+ASSET_FINGERPRINT_RE = re.compile(
+    rb'(\b(?:href|src)=["\'][^"\']*/assets/[^"\']*?)\?v=[0-9a-f]{8,64}(?=["\'])',
+    re.I,
+)
 
 ST_GEORGE = (
     '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21">'
@@ -130,7 +133,7 @@ def normalized_translation_source(content: bytes) -> bytes:
     """Remove generated release metadata before checking editorial source freshness."""
     normalized = content.replace(b"\r\n", b"\n")
     normalized = CSP_META_RE.sub(b"", normalized)
-    return CACHE_BUST_RE.sub(b"", normalized)
+    return ASSET_FINGERPRINT_RE.sub(rb"\1", normalized)
 
 
 def canonical_text_hash(path: Path) -> str:

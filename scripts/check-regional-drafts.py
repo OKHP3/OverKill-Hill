@@ -15,7 +15,10 @@ CSP_META_RE = re.compile(
     rb'<meta\b(?=[^>]*\bhttp-equiv=["\']Content-Security-Policy["\'])[^>]*>',
     re.I,
 )
-CACHE_BUST_RE = re.compile(rb'[?&]v=[0-9a-f]{8,64}(?=["\'\s>])', re.I)
+ASSET_FINGERPRINT_RE = re.compile(
+    rb'(\b(?:href|src)=["\'][^"\']*/assets/[^"\']*?)\?v=[0-9a-f]{8,64}(?=["\'])',
+    re.I,
+)
 
 
 def fail(message: str) -> None:
@@ -26,7 +29,7 @@ def normalized_translation_source(content: bytes) -> bytes:
     """Remove generated release metadata before checking editorial freshness."""
     normalized = content.replace(b"\r\n", b"\n")
     normalized = CSP_META_RE.sub(b"", normalized)
-    return CACHE_BUST_RE.sub(b"", normalized)
+    return ASSET_FINGERPRINT_RE.sub(rb"\1", normalized)
 
 
 def main() -> int:
@@ -65,7 +68,6 @@ def main() -> int:
             text = path.read_text(encoding="utf-8")
             if f'<html lang="{expected_lang}">' not in text:
                 fail(f"{path.relative_to(ROOT)}: wrong html lang")
-            robots = re.search(r'<meta[^>]+>', text, re.I)
             robot_tags = re.findall(r'<meta[^>]+>', text, re.I)
             if not any(re.search(r'name=["\']robots["\']', tag, re.I) and re.search(r'content=["\']noindex, follow', tag, re.I) for tag in robot_tags):
                 fail(f"{path.relative_to(ROOT)}: missing noindex")
