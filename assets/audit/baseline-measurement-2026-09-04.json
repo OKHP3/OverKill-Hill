@@ -1,0 +1,62 @@
+{
+  "schema": "baseline-measurement/v1",
+  "measuredAt": "2026-09-05T04:56:02.051Z",
+  "commit": "e225176305a0d5cd8283cc0ad90d64f0d49d506f",
+  "browser": {
+    "engine": "chromium",
+    "version": "153.0.8010.12",
+    "headless": true
+  },
+  "cache": "fresh context per route; browser cache empty",
+  "network": "local HTTP server; no throttling",
+  "cpu": "host default; no emulation",
+  "fieldData": "unavailable; no INP/LCP distributions claimed",
+  "base": "http://127.0.0.1:5000",
+  "results": [
+    {
+      "route": "/",
+      "navigationMs": 4018,
+      "resourceCount": 27,
+      "transferBytes": 5517877,
+      "encodedBodyBytes": 5510377,
+      "resourceDurationMs": 4913,
+      "domContentLoadedMs": 3547,
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-VJ1BKXS27H&gtm=45je6921v9236972918za200zd9236972918&_p=1788584157248&gcd=13l3l3l3l1l1&npa=0&dma=0&cid=369608195.1788584158&frm=0&ngs=1&pscdl=noapi&rcb=19&sr=1280x720&uaa=x86&uab=64&uafvl=HeadlessChrome%3B153.0.8010.12%7CNot_A%2520Brand%3B8.0.0.0%7CChromium%3B153.0.8010.12&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938469~118897920~118897930~120213116~120385422~120469145~120469153&sid=1788584157&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2F&dt=OverKill%20Hill%20P%C2%B3%E2%84%A2%3A%20Precision%20%C2%B7%20Protocol%20%C2%B7%20Promptcraft&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=3196",
+          "error": "net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/writings/first-diagram-is-a-liar/",
+      "navigationMs": 1466,
+      "resourceCount": 34,
+      "transferBytes": 1239847,
+      "encodedBodyBytes": 1230247,
+      "resourceDurationMs": 1060,
+      "domContentLoadedMs": 787,
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-VJ1BKXS27H&gtm=45je6921v9236972918za200zd9236972918&_p=1788584158841&gcd=13l3l3l3l1l1&npa=0&dma=0&cid=159427939.1788584159&frm=0&ngs=1&pscdl=noapi&rcb=11&sr=1280x720&uaa=x86&uab=64&uafvl=HeadlessChrome%3B153.0.8010.12%7CNot_A%2520Brand%3B8.0.0.0%7CChromium%3B153.0.8010.12&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938468~118897920~118897930~120213116~120385423~120469145~120469153&sid=1788584159&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fwritings%2Ffirst-diagram-is-a-liar%2F&dt=The%20First%20Diagram%20Is%20Usually%20a%20Liar%3A%20v0.5%20%7C%20OverKill%20Hill%20P%C2%B3%E2%84%A2&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=569",
+          "error": "net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/projects/mermaid-theme-builder/",
+      "navigationMs": 1798,
+      "resourceCount": 7,
+      "transferBytes": 359313,
+      "encodedBodyBytes": 358113,
+      "resourceDurationMs": 826,
+      "domContentLoadedMs": 375,
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-VJ1BKXS27H&gtm=45je6921v9236972918za200zd9236972918&_p=1788584160395&gcd=13l3l3l3l1l1&npa=0&dma=0&cid=1700325496.1788584161&frm=0&ngs=1&pscdl=noapi&rcb=16&sr=1280x720&uaa=x86&uab=64&uafvl=HeadlessChrome%3B153.0.8010.12%7CNot_A%2520Brand%3B8.0.0.0%7CChromium%3B153.0.8010.12&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938469~118897920~118897930~120213116~120385422~120469145~120469153&sid=1788584160&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fprojects%2Fmermaid-theme-builder%2F&dt=Mermaid%20Theme%20Builder%20%7C%20OverKill%20Hill%20P%C2%B3%E2%84%A2&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=454",
+          "error": "net::ERR_ABORTED"
+        }
+      ]
+    }
+  ]
+}
