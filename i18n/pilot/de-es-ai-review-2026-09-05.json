@@ -9,8 +9,8 @@
     "approach": "Preserve directness without adding purposeless profanity or mechanically stronger regional language.",
     "route_decision": "No reviewed route required a profanity treatment decision."
   },
-  "open_source_defects": [
-    "The canonical English homepage image alt is pending an authoritative asset-purpose correction. Locale drafts use a neutral Sentinel label and must be reconciled after that source decision."
+  "resolved_source_decisions": [
+    "The authoritative English source now identifies the depicted asset as an owl. The neutral Sentinel labels in these German and Spanish noindex drafts were deliberately retained and reviewed as non-misidentifying draft treatments."
   ],
   "language_pairs": [
     {
@@ -21,7 +21,7 @@
           "route": "/",
           "findings": [
             "Replaced literal construction metaphors with natural active software-development wording.",
-            "Replaced the locale-specific image misidentification with a neutral Sentinel label; final source parity remains pending.",
+            "Retained the reviewed neutral Sentinel label after the authoritative source identified the depicted owl; the draft does not misidentify the animal.",
             "Replaced literal published-writing and evidence wording with natural German equivalents."
           ]
         },
@@ -54,7 +54,7 @@
         {
           "route": "/",
           "findings": [
-            "Replaced the locale-specific image misidentification with a neutral Sentinel label; final source parity remains pending.",
+            "Retained the reviewed neutral Sentinel label after the authoritative source identified the depicted owl; the draft does not misidentify the animal.",
             "Replaced informal calls to action with consistent formal address.",
             "Replaced the literal published-writing label with Artículo publicado."
           ]
@@ -84,5 +84,5 @@
       ]
     }
   ],
-  "review_gate": "AI editorial review completed; no native or human approval claimed; retain noindex and do not adopt the sync ledger."
+  "review_gate": "AI editorial review completed; no native or human approval claimed. Freshness may be adopted in the sync ledger while all routes remain noindex drafts; adoption does not claim publication."
 }
