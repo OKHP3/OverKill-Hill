@@ -43,7 +43,7 @@ SKIP_DIRS = {
     ".pr-head",
     "_replit",
     "dist",
-    "site-src",
+    "site-src", "tests",
 }
 SITE = "https://overkillhill.com"
 REPORT_DATE = date.today().isoformat()

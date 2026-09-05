@@ -42,7 +42,7 @@ from urllib.parse import urlparse, unquote
 from csp import build_policies, page_class, sha256_source
 
 ROOT = Path(__file__).resolve().parent.parent
-SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src"}
+SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src", "tests"}
 SITEMAP = ROOT / "sitemap.xml"
 SITE_ORIGIN = "https://overkillhill.com"
 MANIFEST = ROOT / "site-src/pages.json"

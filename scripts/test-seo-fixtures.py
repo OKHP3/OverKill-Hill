@@ -80,6 +80,24 @@ def mutate_navigation(raw: str, key: str, value: str) -> str:
 
 
 class SEOFixtureTests(unittest.TestCase):
+    def test_public_inventory_excludes_test_fixtures(self) -> None:
+        pages = validator.find_html_files()
+        self.assertIn(ROOT / "index.html", pages)
+        self.assertFalse(any("tests" in path.relative_to(ROOT).parts for path in pages))
+        for name in ("audit-site", "build-search-index", "check-links"):
+            spec = importlib.util.spec_from_file_location(name, ROOT / "scripts" / f"{name}.py")
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            if name == "audit-site":
+                self.assertFalse(any("tests" in path.relative_to(ROOT).parts
+                                     for path in module.iter_html_files()))
+            elif name == "build-search-index":
+                for fixture in (ROOT / "tests" / "fixtures" / "csp").glob("*.html"):
+                    self.assertEqual(module.process_file(fixture), [])
+            else:
+                self.assertIn("tests", module.SKIP_DIRS)
+
+
     @classmethod
     def setUpClass(cls) -> None:
         cls.fixture_data = json.loads(FIXTURES.read_text(encoding="utf-8"))
