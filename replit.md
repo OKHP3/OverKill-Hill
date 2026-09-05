@@ -9,7 +9,7 @@
 
 ## Project Overview
 
-Static portfolio/documentation site for OverKill Hill P³™ (overkillhill.com). Built with HTML, CSS, and vanilla JS. Coordinated with GitHub repo `OKHP3/OverKill-Hill` (website source) and `OKHP3/first-diagram-is-a-liar` (methodology archive).
+Static portfolio/documentation site for OverKill Hill P³™ (overkillhill.com). English authoring sources live under `site-src/` and are rendered into the English published HTML tree by `scripts/build-site.py`. Locale HTML is updated using exact-pair translation Agent Skills; page-sync detects freshness and `scripts/check-locale-links.py` validates structure. The runtime is HTML, CSS, and vanilla JS. Coordinated with GitHub repo `OKHP3/OverKill-Hill` (website source) and `OKHP3/first-diagram-is-a-liar` (methodology archive).
 
 ## Server
 
@@ -26,8 +26,7 @@ Python simple HTTP server via `server.py` — serves the static site from root.
 - `/writings/` — article pages
 - `/projects/` — project pages (`mermaid-theme-builder/`, `bpmn-for-mermaid/`)
 - `/universe/`, `/manifesto/`, `/about/`, `/contact/`, `/legal/` — brand pages
-- `/_replit/` — non-served dev tooling. **Not** part of the static site; the deployment `publicDir = "."` setting still serves it as files but it has no inbound links.
-  - `_replit/mermaid-theme-builder-preview/` — **dev preview app only** (React + Vite + Tailwind v4). Used for local prototyping of the MTB project page layout; migrated 2026-05-03 from the retired `Project-Page-Mermaid-Theme-Tool` Repl. Standalone — not in a pnpm workspace. Run with `cd _replit/mermaid-theme-builder-preview && npm install && PORT=5173 BASE_PATH=/ npm run dev`. Build verified working (vite 6). **The React app's build output is never deployed** — the live project page is the static HTML at `projects/mermaid-theme-builder/index.html`.
+- No `_replit/mermaid-theme-builder-preview/` directory exists in this checkout. The live Mermaid Theme Builder page is the generated static HTML at `projects/mermaid-theme-builder/index.html`.
 
 ## Key CSS Design Tokens (theme.css)
 
@@ -50,16 +49,18 @@ Python simple HTTP server via `server.py` — serves the static site from root.
 3. **GLEE-FULLY** — `.glee-main`-scoped overrides + `--glee` BEM modifiers
 4. **ASKJAMIE** — `.askjamie-main`-scoped overrides + `--jamie` BEM modifiers
 
-**Maintenance:** edit rules wherever you want, then run
+**Maintenance:** edit the canonical `assets/css/theme.css` within its GLOBAL,
+OVERKILL HILL, GLEE-FULLY, or ASKJAMIE scope. Do not add a parallel stylesheet.
+Run the active workflow checks after changes; generated HTML and search data
+are verified with the commands below.
 
 ```
-python3 scripts/reorg-theme-css.py             # in-place reorg
-python3 scripts/reorg-theme-css.py --dry-run   # report classifier output + flag GLOBAL blocks containing brand tokens
+python3 scripts/build-site.py --check          # verify generated HTML is current
+python3 scripts/build-search-index.py --check  # verify generated search data is current
 ```
 
-The reorg script tokenizes every top-level rule, classifies it by selector, and re-emits in canonical order. Within-brand source order is **always preserved** so cascade winners for same-selector duplicates stay intact. Brace balance is verified after every run.
-
-After running the reorg, run `scripts/sync-foundation-files.py --commit` to propagate `assets/css/theme.css` to the siblings (see "Cross-Site Foundation Files" below).
+Foundation synchronization remains a separate, owner-reviewed workflow. See
+`scripts/README.md` before using `scripts/sync-foundation-files.py`.
 
 ## Current Feature: Article — The First Diagram Is Usually a Liar
 
@@ -101,7 +102,7 @@ Path: `/writings/first-diagram-is-a-liar/`
 - `/writings/first-diagram-is-a-liar/v03/v2-heat-a/` — ChatGPT, Copilot, Gemini, Notion (V2)
 - `/writings/first-diagram-is-a-liar/v03/v2-heat-b/` — ChatGPT Pro, Claude, Replit, Perplexity (V2)
 
-All 15 confirmed Mermaid.ai diagram links are real (no placeholders). Poll URLs are TODO placeholders (not yet published on LinkedIn). v0.4 added ~700 words of new prose across 5 sections; v0.5 adds #council-scoring and #model-interviews. The committed search index currently contains 132 entries; refresh it after searchable content changes and verify with `build-search-index.py --check`.
+All 15 confirmed Mermaid.ai diagram links are real (no placeholders). Poll URLs are TODO placeholders (not yet published on LinkedIn). v0.4 added ~700 words of new prose across 5 sections; v0.5 adds #council-scoring and #model-interviews. Refresh the generated search index after searchable content changes and verify it with `build-search-index.py --check`.
 
 ### Sidebar Widgets
 
@@ -124,17 +125,15 @@ python3 scripts/check-banner.py            # verify (exits 1 on any mismatch)
 
 ## Validation
 
-Named validation steps registered in the Replit workflow panel. Run any of these before shipping a CSS change:
+The active validation contract is defined by `.github/workflows/validate.yml`.
+It runs the structural validator, generated HTML and search-index checks, SEO
+fixtures, project-status records, CSP and embedded-app checks, locale and link
+checks, cache-bust checks, static audit, browser responsive/overflow and
+accessibility QA, and contrast QA. Use `scripts/README.md` for the current
+script classification; archived commands are not current workflow steps.
 
-| Name       | Command                                      | What it checks |
-|------------|----------------------------------------------|----------------|
-| `contrast` | `python3 assets/scripts/check-contrast.py`   | WCAG AA contrast ratios for all color tokens in `assets/css/theme.css` — normal text (≥ 4.5:1) and large/UI elements (≥ 3.0:1), in both dark and light themes. Exits non-zero on any failure. |
-
-Run a check from the shell:
-
-```
-python3 assets/scripts/check-contrast.py
-```
+The Pages workflow in `.github/workflows/pages.yml` validates and deploys the
+exact SHA-bound release artifact, then runs the read-only live-edge verifier.
 
 ## GitHub publication contract
 
@@ -199,34 +198,22 @@ Path: `/projects/mermaid-theme-builder/`
 2. **Project Info** — meta card: Status, Build Phase, License, Type, Cost, Maintained by, Mermaid.js compat (v11.16.0); GitHub links (View, Issues, Contribute)
 3. **Related Resources** — live app (Compose tab), GitHub repo, BPMN for Mermaid, Mermaid.js theming docs, themeVariables reference, FDIAL article, all projects
 
-### Dev preview vs. live page
+### Live page
 
-The static HTML at `projects/mermaid-theme-builder/index.html` **is** the live page. The React app at `_replit/mermaid-theme-builder-preview/` is a dev-only prototyping tool — its build output is never deployed. See Architecture section above for run instructions.
+The static HTML at `projects/mermaid-theme-builder/index.html` is the live page. No nested React/Vite preview is present in this checkout.
 
 ### MTB release update procedure
 
-On every MTB version bump, run the one-command release helper. It patches `VERSION_CONFIG`, auto-fixes all 11 structured version strings, promotes roadmap pills, and verifies the result in a single invocation. The update is sequential; the checker stores timestamped backups of changed target files rather than claiming transaction-like atomicity.
-
-**One-command release (preferred):**
+The historical `release-mtb.py` helper is archived and is not a current
+command. Use the active checker for a read-only version check:
 
 ```
-python3 scripts/release-mtb.py \
-    --version v0.6.2 \
-    --date "August 2026" \
-    --sprint v0.6.x \
-    --sprint-name "Export & Workflow Polish"
+python3 scripts/check-mtb-version.py
 ```
 
-| Flag | Purpose |
-|---|---|
-| `--version` | Released version tag, e.g. `"v0.6.0"` |
-| `--date` | Month + year shipped, e.g. `"August 2026"` |
-| `--sprint` | New active sprint series, e.g. `"v0.6.x"` |
-| `--sprint-name` | Sprint short name, e.g. `"Ko-fi Artifacts"` |
-| `--prev-sprint` | Sprint being closed out — triggers roadmap pill promotion (omit if no sprint change) |
-| `--dry-run` | Preview all changes without writing any files |
-
-The script: (1) renders the proposed `VERSION_CONFIG`, then (2) delegates to `check-mtb-version.py --update` to patch target files and verify all 11 checks. With `--dry-run`, it prints the proposed configuration diff and runs the checker against a temporary copy carrying that configuration, so the preview reflects the requested release without writing repository files. Run the dry run first; a real update is sequential and backed up, not atomic. It exits 0 only when its checker invocation succeeds.
+Inspect the archived helper's header before using it for a deliberately scoped
+migration; do not treat its old release workflow as current repository
+architecture.
 
 **Lower-level tool (check only / manual fix):**
 
@@ -237,7 +224,8 @@ python3 scripts/check-mtb-version.py --update --prev-sprint v0.5.x
 python3 scripts/check-mtb-version.py --dry-run    # preview fixes, no writes
 ```
 
-The `--update` flag auto-promotes the roadmap pills when `--prev-sprint` is supplied. `--prev-sprint` can also be set permanently in `VERSION_CONFIG["prev_sprint"]`.
+The update and dry-run options above are historical guidance for the archived
+helper and are not part of the current active command contract.
 
 **Manual checklist — locations auto-patched by the release script:**
 
@@ -260,7 +248,7 @@ Static, client-side search across the entire site. Consolidated 2026-05-03.
 - `/search/` — dedicated results page (URL-shareable: `/search/?q=foo`). Body class `search-page` activates the JS page initializer.
 - **All search logic lives in `assets/js/app.js` Section 5** (consolidated from the retired `assets/js/search.js`). Ctrl/Cmd+K or `/` opens overlay; Esc closes; ↑↓ navigate; ↵ follows.
 - **All search CSS lives in `assets/css/theme.css`** under the `SECTION · OKH SEARCH` banner (consolidated from the retired `assets/css/search.css`).
-- `assets/data/search-index.json` — generated index (132 entries as of 2026-08-20). `INDEX_URL` in `app.js` points to `/assets/data/search-index.json`.
+- `assets/data/search-index.json` — generated index. `INDEX_URL` in `app.js` points to `/assets/data/search-index.json`.
 - `scripts/build-search-index.py` — Python re-builder. Walks all `*.html`, skips `noindex`, extracts title + description + headings + body excerpt, plus per-section deep links for the FDIAL article. Re-run any time content changes:
   ```
   python3 scripts/build-search-index.py

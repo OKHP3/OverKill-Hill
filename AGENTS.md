@@ -9,7 +9,7 @@ and current audit state.
 
 ## Current Project Context
 
-This section records the repository facts verified during the 2026-07-24
+This section records the repository facts verified during the 2026-09-05
 context-alignment pass. Update it when the project shape, entry points, or
 validation workflow changes.
 
@@ -17,16 +17,18 @@ validation workflow changes.
 
 - Confirmed: this is one Git repository for the OverKill Hill P³™ public static
   site and its public writings, project pages, and supporting artifacts.
-- Confirmed: the production-facing site is hand-authored HTML, one shared CSS
-  file, and browser JavaScript. A root `package.json` exists, but only to
-  declare 4 QA scripts (`test:accessibility`, `test:screen-reader`,
-  `test:phone-overflow`, `test:responsive`) and a `playwright` dependency —
-  there is no root application build system.
-- Confirmed: `_replit/mermaid-theme-builder-preview/` is a separate,
-  standalone React/Vite prototype used for local page prototyping. It is not
-  the live project page and its build output is not deployed.
-- Scope boundary: do not treat the nested preview as a monorepo workspace or
-  as the production application.
+- Confirmed: the production-facing site is generated static HTML, one shared
+  CSS file, and browser JavaScript. English authoring sources live under
+  `site-src/`; `scripts/build-site.py` renders the English published root and
+  content pages. Locale HTML is updated using exact-pair translation Agent
+  Skills; page-sync detects freshness and `scripts/check-locale-links.py`
+  validates structure. The root
+  `package.json` provides browser QA scripts and a Playwright dependency; there
+  is no root application build system.
+- Confirmed: no `_replit/mermaid-theme-builder-preview/` directory exists in
+  this checkout. The live Mermaid Theme Builder project page is the static
+  HTML under `projects/mermaid-theme-builder/`; do not treat this repository
+  as a monorepo.
 
 ### Purpose and users
 
@@ -49,37 +51,35 @@ validation workflow changes.
   navigation, theme switching, scroll behavior, and site search.
   `mermaid-init.js` is used on pages that render Mermaid diagrams.
 - `assets/data/search-index.json` is generated from indexable HTML by
-  `scripts/build-search-index.py` and currently contains 119 entries.
-- `scripts/` contains Python and shell maintenance, audit, and release tools.
+  `scripts/build-search-index.py`; use its `--check` mode for freshness rather
+  than relying on a hardcoded entry count.
+- `scripts/` contains the active Python, shell, and Node QA tools listed in
+  `scripts/README.md`; archived tools are not current pipeline commands.
 - Deployment metadata points at a static directory. The public domain and
   hosting arrangement are documented in `README.md`, `CNAME`, and
   `.replit`.
 
 ### Validation status
 
-- Confirmed: `python3 scripts/validate-site.py` passes and validates 31
-  production HTML pages. The validator also runs the Mermaid Theme Builder
-  version checks, which currently pass for v0.5.0 and the v0.5.x SKILL.md
-  Hardening sprint.
-- Confirmed: the repository has 43 HTML files when authoring templates and the
-  nested preview are counted. Templates and preview files are excluded from
-  the production validator.
-- Confirmed: there is no root unit-test or application test runner.
-- Limitation: `python3 scripts/extract-templates.py --check` requires the
-  `beautifulsoup4` package, which is not installed in the current local
-  runtime. The current workflow does not run this check.
-- Confirmed: `scripts/build-search-index.py --check` compares the expected
-  search index in memory without writing it and exits non-zero when the
-  committed JSON is stale. The current committed index contains 132 entries.
+- Confirmed: `scripts/validate-site.py` is the structural site gate; its
+  production inventory is derived from the current HTML and sitemap boundaries,
+  not a fixed count. It also runs the MTB version and banner checks.
+- Confirmed: generated HTML is checked with `scripts/build-site.py --check`,
+  and generated search data with `scripts/build-search-index.py --check`.
+- Confirmed: the active workflow is `.github/workflows/validate.yml`; it also
+  runs the project-status, SEO fixture, CSP, locale-link, cache-bust, audit,
+  internal-link, browser, accessibility, embedded-app, and contrast gates.
+  `.github/workflows/pages.yml` deploys only the validated SHA-bound release
+  artifact.
 - Confirmed: `scripts/check-links.py` distinguishes indexable sitemap pages
-  from the six intentional noindex exclusions: the Found-Ry redirect and five
-  WIP pages behind the under-construction gate.
+  from intentional noindex exclusions across localized draft pages, draft
+  project routes, and utility or redirect boundaries. Use its current report
+  rather than a hardcoded exclusion count.
 - Open risk: `.github/workflows/sedMiHLjD` is tracked without a YAML extension
   and contains stale underscored script paths. GitHub Actions does not treat it
   as an active workflow. Do not delete or repair it without owner direction.
-- Open risk: `scripts/post-merge.sh` uses CRLF line endings, so direct
-  execution through `sh` fails before its checks run. Normalize line endings in
-  a separate script-maintenance change if Replit post-merge execution is used.
+- Confirmed: `scripts/post-merge.sh` is an active rebuild and validation hook;
+  its line-ending contract is recorded in `.gitattributes`.
 
 ### Guidance scope note
 
@@ -640,7 +640,7 @@ baseline -- update it here when the inventory changes materially.
 |---|---|---|
 | `assets/audit/` | `.gitkeep` plus `screenshots/canvas/` with two retained visual-QA captures | Populate by running `scripts/validate-site.py`, `check-links.py`, `viewport-qa.py`; retained screenshots are visual-QA evidence |
 | `assets/css/` | `theme.css` (136 KB) | Single canonical stylesheet |
-| `assets/data/` | `search-index.json` (119 entries) | Rebuild after content changes |
+| `assets/data/` | Generated search and runtime data | Rebuild with the owning script and verify with its `--check` mode |
 | `assets/downloads/` | `okh-prompt-protocol-template.md` | User-facing prompt protocol download |
 | `assets/docs/` | `.gitkeep` only | Add audit and evaluation reports here |
 | `assets/img/` | 14 direct image files plus subdirectories | Includes Sentinel, BirdPatrol, and cross-site reference assets |
@@ -652,24 +652,17 @@ baseline -- update it here when the inventory changes materially.
 | `dist/` | Not present in this checkout | Reserved, ignored cross-site sync staging area when the sync workflow is run |
 | `docs/` | 4 cross-site planning docs | `cross-site-sync-plan.md`, `cross-site-search-dispatch.md`, `cross-site-search-prompt.md`, `project-page-mermaid-theme-builder-salvage.md` |
 | `docs/archive/` | 6 archived sprint and audit docs | Sprint plans from 2026 |
-| `scripts/` | 19 active scripts + 50 in `scripts/archive/` | See `scripts/README.md` for the active/reference-only/retired classification (updated 2026-08-30) |
+| `scripts/` | Active tools plus archived historical tools | See `scripts/README.md` for the current classification |
 
 **OKH-specific sub-folders under `assets/img/`:**
 - `assets/img/library/` -- fully populated; 49 PNG + 49 WebP project/article images
 - `assets/img/AskJamie/` -- cross-site asset folder (AskJamie brand images stored here
   for cross-site reference); evaluate moving to `assets/img/library/` for clarity
 
-**OKH-specific scripts not present on siblings:**
-Active: `build-site.py`, `cache-bust.py`, `check-banner.py`,
-`check-locale-links.py`, `check-mtb-version.py`, `lint-voice.py`,
-`verify-live-edge.py`, `accessibility-qa.mjs`, `phone-overflow-qa.mjs`,
-`screen-reader-tree-audit.mjs` -- tied to the Mermaid Theme Builder
-toolchain, OverKill Hill-specific page structure, or the `npm run test:*`
-QA suite. `cross-site-sync.py`, `modernize-pages.py`,
-`move-orphans-to-library.py`, `release-mtb.py`, `reorg-theme-css.py`, and
-`site-audit.py` were also OKH-specific but are reference-only or retired
-as of 2026-08-30 -- see `scripts/README.md`, they now live in
-`scripts/archive/` and are no longer part of the active toolchain.
+**OKH-specific scripts not present on siblings:** See `scripts/README.md` for
+the active list and the separate reference-only/retired archive. Do not copy
+an archived command into current instructions without verifying its target
+paths and classification.
 
 **Using `scripts/`:** `scripts/README.md` classifies every script as active,
 reference-only, or retired -- only active scripts remain at the top level of
