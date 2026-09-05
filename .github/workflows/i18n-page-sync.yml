@@ -45,8 +45,12 @@ jobs:
         if: failure()
         run: |
           echo "One or more in-scope pages are missing a translation or have"
-          echo "drifted from a changed English source. For each flagged"
-          echo "route, run the named okhp3-translation-en-us-<pair> skill to"
-          echo "produce or update the draft, then confirm it with:"
-          echo "  python3 .agents/skills/okhp3-i18n-page-sync/scripts/i18n-page-sync.py --mode adopt --routes \"<route>\""
+          echo "drifted from a changed English source. For each flagged route:"
+          echo "1. Run the named okhp3-translation-en-us-<pair> skill to"
+          echo "   produce or update a draft."
+          echo "2. Compare the draft with the current English source and"
+          echo "   record terminology, register, and review disposition."
+          echo "3. Run locale checks and adopt the source baseline only after"
+          echo "   that review is complete:"
+          echo "   python3 .agents/skills/okhp3-i18n-page-sync/scripts/i18n-page-sync.py --mode adopt --routes \"<route>\""
           exit 1
