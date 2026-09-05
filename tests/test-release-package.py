@@ -51,7 +51,10 @@ class ReleasePackageTests(unittest.TestCase):
                 for route in ("index.html", "about/index.html", "projects/index.html", "contact/index.html"):
                     page = output / locale / route
                     self.assertTrue(page.is_file(), page)
-                    self.assertIn('name="robots" content="noindex, follow"', page.read_text(encoding="utf-8"))
+                    self.assertRegex(
+                        page.read_text(encoding="utf-8"),
+                        r'<meta(?=[^>]*\\bname="robots")(?=[^>]*\\bcontent="noindex, follow")[^>]*>',
+                    )
             sitemap = (output / "sitemap.xml").read_text(encoding="utf-8")
             search_index = (output / "assets/data/search-index.json").read_text(encoding="utf-8")
             self.assertNotIn("/en-gb/", sitemap)
