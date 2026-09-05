@@ -593,8 +593,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ----- index loader (cached promise) -----
   let _indexPromise = null;
-  function loadIndex() {
-    if (!_indexPromise) {
+  function loadIndex(forceRetry) {
+    if (!_indexPromise || forceRetry) {
       _indexPromise = fetch(INDEX_URL, { credentials: "same-origin" })
         .then((r) => {
           if (!r.ok) throw new Error("Index fetch failed: " + r.status);
@@ -607,7 +607,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch((err) => {
           console.warn("[okh-search] index load failed:", err);
-          return [];
+          throw err;
         });
     }
     return _indexPromise;
@@ -648,16 +648,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (entry.category === "Article Section") score -= 0.5;
     return allHit ? score : score * 0.4;
   }
-  function search(entries, q, limit) {
+  function search(entries, q, options) {
     const tokens = tokenize(q);
     if (!tokens.length) return [];
+    const normalized = typeof options === "number" ? { limit: options } : (options || {});
+    const category = normalized.category || "all";
     const scored = [];
     for (const e of entries) {
+      if (category !== "all" && (e.category || "Page") !== category) continue;
       const s = scoreEntry(e, tokens);
       if (s > 0) scored.push([s, e]);
     }
     scored.sort((a, b) => b[0] - a[0]);
-    return scored.slice(0, limit || 30).map(([s, e]) => ({ score: s, entry: e }));
+    return scored.slice(0, normalized.limit || 30).map(([s, e]) => ({ score: s, entry: e }));
   }
 
   // ----- snippet + highlight -----
@@ -1098,7 +1101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function start() {
     loadBrandModule();
-    if (document.body.classList.contains("search-page")) {
+    if (document.getElementById("search-page-input") && document.getElementById("search-results")) {
       initSearchPage();
       initOverlay(); // search button still works on the search page itself
     } else {
