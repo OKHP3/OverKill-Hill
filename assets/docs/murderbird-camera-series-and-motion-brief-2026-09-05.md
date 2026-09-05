@@ -26,10 +26,10 @@ SHA-256 checksums:
 
 Rejected lateral retry prompt: Remove the white background from this image. Return a transparent PNG cutout with real alpha transparency. Keep the mechanical bird unchanged. Transparent everywhere outside the bird and in gaps between its limbs. No white background, no checkerboard, no scenery.
 
-- [CRT sentinel](assets/murderbird-camera-series-2026-09-05/murderbird-crt-isolated-2026-09-05.png)
-- [Frontal attack without computer](assets/murderbird-camera-series-2026-09-05/murderbird-frontal-attack-2026-09-05.png)
-- [Camera attack from CRT](assets/murderbird-camera-series-2026-09-05/murderbird-crt-launch-2026-09-05.png)
-- [Lateral stride without computer](assets/murderbird-camera-series-2026-09-05/murderbird-side-strike-2026-09-05.png)
+- [CRT sentinel](../../context/threads/assets/murderbird-camera-series-2026-09-05/murderbird-crt-isolated-2026-09-05.png)
+- [Frontal attack without computer](../../context/threads/assets/murderbird-camera-series-2026-09-05/murderbird-frontal-attack-2026-09-05.png)
+- [Camera attack from CRT](../../context/threads/assets/murderbird-camera-series-2026-09-05/murderbird-crt-launch-2026-09-05.png)
+- [Lateral stride without computer](../../context/threads/assets/murderbird-camera-series-2026-09-05/murderbird-side-strike-2026-09-05.png)
 
 These are different camera/pose candidates, not sequential animation frames. Do not crossfade them and label the result articulated lifelike motion. The side pose reads as a stride, not a completed strike. The frontal attack is the strongest camera-directed threat. Fine fasteners and body proportions vary between generations; this is not a production-rig identity lock.
 

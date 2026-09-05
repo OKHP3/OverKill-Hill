@@ -7,7 +7,7 @@ In this historical record, P2 means the website-remediation project-management t
 
 ## Artifact
 
-Master: [murderbird-v2-icon-head-master-draft-01.png](assets/murderbird-camera-series-2026-09-05/murderbird-v2-icon-head-master-draft-01.png)
+Master: [murderbird-v2-icon-head-master-draft-01.png](../../context/threads/assets/murderbird-camera-series-2026-09-05/murderbird-v2-icon-head-master-draft-01.png)
 1254 x 1254 RGBA PNG. Corner and sampled opening beneath beak have alpha zero.
 SHA-256: 4808B3A99DAEBAB399B80BA781723352D72AF1FE507AAA1FD782784D6D70ED8C
 
@@ -17,7 +17,7 @@ Brand skill profile v1.1.0 guided bronze, deep verdigris and concentrated orange
 ## Reference and provenance
 
 Owner-preferred July Image 2, inspected before generation:
-[Owner-preferred July reference](assets/murderbird-camera-series-2026-09-05/murderbird-owner-preferred-july-reference.png). Original generator identifier: `exec-7764b692-1ea2-4c96-b00a-7a21fb09eafc.png`.
+[Owner-preferred July reference](../../context/threads/assets/murderbird-camera-series-2026-09-05/murderbird-owner-preferred-july-reference.png). Original generator identifier: `exec-7764b692-1ea2-4c96-b00a-7a21fb09eafc.png`.
 
 Initial output: exec-0576e72d-143c-4b78-bc1c-1308d4091c3e.png. Rejected for painted checkerboard.
 Corrected output: exec-75458b85-7131-4875-be79-eb9bcb4d552d.png in the same generated-images directory. Copied unchanged to the project master above.

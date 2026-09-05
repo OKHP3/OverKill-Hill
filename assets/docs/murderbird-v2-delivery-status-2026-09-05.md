@@ -30,12 +30,12 @@ Verified baseline: `b639430ea218efd216c886fa2afb78945115f72c` on main and origin
 
 ## Portable reading order
 
-The originally preferred July head reference is now preserved in the repository as [owner-preferred reference](assets/murderbird-camera-series-2026-09-05/murderbird-owner-preferred-july-reference.png). Earlier absolute generated-image paths remain historical provenance, not required dependencies.
+The originally preferred July head reference is now preserved in the repository as [owner-preferred reference](../../context/threads/assets/murderbird-camera-series-2026-09-05/murderbird-owner-preferred-july-reference.png). Earlier absolute generated-image paths remain historical provenance, not required dependencies.
 
 The GitHub Pages-aware live probe returned zero failures, 37 blocked hosting-policy checks and 306 warnings. It is a partial hosting-policy result, not an unconditional security pass.
 
-1. [Reconciled visual brief](murderbird-visual-canon-generation-brief.md).
-2. [Character and material synthesis](murderbird-reimagining-canon-image-generation-context.md).
+1. [Reconciled visual brief](../../context/threads/murderbird-visual-canon-generation-brief.md).
+2. [Character and material synthesis](../../context/threads/murderbird-reimagining-canon-image-generation-context.md).
 3. [September pose prompts and motion direction](murderbird-camera-series-and-motion-brief-2026-09-05.md), including the owner's preferred-head override.
 4. [Icon draft provenance](murderbird-v2-icon-master-draft-01-provenance.md).
 
