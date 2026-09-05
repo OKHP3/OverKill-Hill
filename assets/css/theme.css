@@ -1648,7 +1648,8 @@ body.construction-dismissed .construction-overlay,
   border-top: 1px solid var(--color-border-subtle, #2a2f37);
   transition: background 0.12s ease;
 }
-.okh-search-result:first-child { border-top: none; }
+.okh-search-results > .okh-search-result:first-child,
+.okh-search-results > [role="listitem"]:first-child .okh-search-result { border-top: none; }
 .okh-search-result:hover,
 .okh-search-result[data-active="true"] {
   background: rgba(196, 106, 44, 0.08);
