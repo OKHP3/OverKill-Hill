@@ -72,6 +72,7 @@ class ReleasePackageTests(unittest.TestCase):
         self.assertIn("path: site-release", pages_workflow)
         self.assertIn("workflow_call:", validation_workflow)
         self.assertRegex(validation_workflow, r"if: github\.event_name != 'schedule'")
+        self.assertIn("run: python3 tests/test-release-package.py", validation_workflow)
 
 
 if __name__ == "__main__":
