@@ -905,7 +905,14 @@ button {
 }
 
 html[data-theme="dark"] body:not(.glee-main):not(.askjamie-main) .hero-subline {
-  color: #17110d;
+  display: inline-flex;
+  align-items: center;
+  max-width: fit-content;
+  padding: 0.22rem 0.7rem 0.26rem;
+  border-radius: 999px;
+  color: #f9fafb;
+  background: rgba(23, 17, 13, 0.94);
+  border: 1px solid rgba(249, 250, 251, 0.28);
   font-weight: 600;
 }
 
