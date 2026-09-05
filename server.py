@@ -5,7 +5,8 @@ import os
 import socketserver
 from pathlib import Path
 
-PORT = 5000
+PORT = int(os.environ.get("PORT", "5000"))
+HOST = os.environ.get("HOST", "0.0.0.0")
 
 class NoCacheHandler(http.server.SimpleHTTPRequestHandler):
     def do_POST(self):
@@ -42,6 +43,6 @@ class ThreadingServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     # test server reports site behavior rather than transient refusals.
     request_queue_size = 128
 
-with ThreadingServer(("0.0.0.0", PORT), NoCacheHandler) as httpd:
-    print(f"Serving on port {PORT} with no-cache headers")
+with ThreadingServer((HOST, PORT), NoCacheHandler) as httpd:
+    print(f"Serving {Path.cwd()} on http://{HOST}:{PORT} with no-cache headers")
     httpd.serve_forever()

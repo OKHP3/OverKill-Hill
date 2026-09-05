@@ -1,0 +1,261 @@
+{
+  "schema": "baseline-measurement/v2",
+  "measuredAt": "2026-09-05T05:03:35.065Z",
+  "sourceState": {
+    "commit": "5bc775a475b9d9950de0fa5c6ebdc2ddb4e648d2",
+    "workingTreeStatus": "M scripts/measure-baseline.mjs\n M server.py",
+    "measurementScript": {
+      "path": "scripts/measure-baseline.mjs",
+      "workingTreeSha256": "3975099152dbab0085414941f1c740229b94fdb8faff05b99ef61fe91fcf64d6"
+    }
+  },
+  "sourceFiles": {
+    "/": {
+      "file": "index.html",
+      "gitBlobSha": "905eccad107950f6fb10a0971dc40ffc284f9e46",
+      "workingTreeSha256": "7c063017c219c80a3b800faad4d76aced8f6229bd51cb67f91dbcab9307adc7c"
+    },
+    "/writings/first-diagram-is-a-liar/": {
+      "file": "./writings/first-diagram-is-a-liar/index.html",
+      "gitBlobSha": "4e0b271e17557a0bcdbaebceb13ac067a970b17e",
+      "workingTreeSha256": "66bedd10d66a4e522d88fd7fdda36d402afeb3360a514a5fc685e9a5eadb1cd6"
+    },
+    "/projects/mermaid-theme-builder/": {
+      "file": "./projects/mermaid-theme-builder/index.html",
+      "gitBlobSha": "f89d7f717d75082c8a249307139e2fa25b5e6742",
+      "workingTreeSha256": "59c3732adef3c96d0a6b61acf5da9e8e23f82bc54721792f9d66f7aae6c88d30"
+    }
+  },
+  "browser": {
+    "engine": "chromium",
+    "version": "153.0.8010.12",
+    "headless": true,
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "cache": "fresh context per sample; browser cache empty",
+  "network": "local HTTP server; no throttling",
+  "cpu": "host default; no emulation",
+  "fieldData": "unavailable; no INP/LCP distributions claimed",
+  "base": "http://127.0.0.1:5051",
+  "results": [
+    {
+      "route": "/",
+      "samples": [
+        {
+          "networkIdleNavigationMs": 1482,
+          "resourceCount": 27,
+          "transferBytes": 5517877,
+          "encodedBodyBytes": 5510377,
+          "resourceDurationMs": 1614,
+          "domContentLoadedMs": 495,
+          "servedDocumentSha256": "7c063017c219c80a3b800faad4d76aced8f6229bd51cb67f91dbcab9307adc7c",
+          "sourceMatch": true,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "networkIdleNavigationMs": 1495,
+          "resourceCount": 27,
+          "transferBytes": 5517877,
+          "encodedBodyBytes": 5510377,
+          "resourceDurationMs": 1420,
+          "domContentLoadedMs": 436,
+          "servedDocumentSha256": "7c063017c219c80a3b800faad4d76aced8f6229bd51cb67f91dbcab9307adc7c",
+          "sourceMatch": true,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "networkIdleNavigationMs": 1120,
+          "resourceCount": 27,
+          "transferBytes": 5517877,
+          "encodedBodyBytes": 5510377,
+          "resourceDurationMs": 1211,
+          "domContentLoadedMs": 523,
+          "servedDocumentSha256": "7c063017c219c80a3b800faad4d76aced8f6229bd51cb67f91dbcab9307adc7c",
+          "sourceMatch": true,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        }
+      ],
+      "median": {
+        "networkIdleNavigationMs": 1482,
+        "domContentLoadedMs": 495,
+        "transferBytes": 5517877
+      },
+      "ranges": {
+        "networkIdleNavigationMs": [
+          1120,
+          1495
+        ],
+        "domContentLoadedMs": [
+          436,
+          523
+        ],
+        "transferBytes": [
+          5517877,
+          5517877
+        ]
+      }
+    },
+    {
+      "route": "/writings/first-diagram-is-a-liar/",
+      "samples": [
+        {
+          "networkIdleNavigationMs": 1360,
+          "resourceCount": 34,
+          "transferBytes": 1239847,
+          "encodedBodyBytes": 1230247,
+          "resourceDurationMs": 966,
+          "domContentLoadedMs": 732,
+          "servedDocumentSha256": "66bedd10d66a4e522d88fd7fdda36d402afeb3360a514a5fc685e9a5eadb1cd6",
+          "sourceMatch": true,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "networkIdleNavigationMs": 1980,
+          "resourceCount": 34,
+          "transferBytes": 1239847,
+          "encodedBodyBytes": 1230247,
+          "resourceDurationMs": 1410,
+          "domContentLoadedMs": 495,
+          "servedDocumentSha256": "66bedd10d66a4e522d88fd7fdda36d402afeb3360a514a5fc685e9a5eadb1cd6",
+          "sourceMatch": true,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "networkIdleNavigationMs": 1477,
+          "resourceCount": 34,
+          "transferBytes": 1239847,
+          "encodedBodyBytes": 1230247,
+          "resourceDurationMs": 1365,
+          "domContentLoadedMs": 638,
+          "servedDocumentSha256": "66bedd10d66a4e522d88fd7fdda36d402afeb3360a514a5fc685e9a5eadb1cd6",
+          "sourceMatch": true,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        }
+      ],
+      "median": {
+        "networkIdleNavigationMs": 1477,
+        "domContentLoadedMs": 638,
+        "transferBytes": 1239847
+      },
+      "ranges": {
+        "networkIdleNavigationMs": [
+          1360,
+          1980
+        ],
+        "domContentLoadedMs": [
+          495,
+          732
+        ],
+        "transferBytes": [
+          1239847,
+          1239847
+        ]
+      }
+    },
+    {
+      "route": "/projects/mermaid-theme-builder/",
+      "samples": [
+        {
+          "networkIdleNavigationMs": 1866,
+          "resourceCount": 7,
+          "transferBytes": 359313,
+          "encodedBodyBytes": 358113,
+          "resourceDurationMs": 1225,
+          "domContentLoadedMs": 448,
+          "servedDocumentSha256": "59c3732adef3c96d0a6b61acf5da9e8e23f82bc54721792f9d66f7aae6c88d30",
+          "sourceMatch": true,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "networkIdleNavigationMs": 1663,
+          "resourceCount": 7,
+          "transferBytes": 359313,
+          "encodedBodyBytes": 358113,
+          "resourceDurationMs": 960,
+          "domContentLoadedMs": 410,
+          "servedDocumentSha256": "59c3732adef3c96d0a6b61acf5da9e8e23f82bc54721792f9d66f7aae6c88d30",
+          "sourceMatch": true,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "networkIdleNavigationMs": 1810,
+          "resourceCount": 7,
+          "transferBytes": 359313,
+          "encodedBodyBytes": 358113,
+          "resourceDurationMs": 1131,
+          "domContentLoadedMs": 473,
+          "servedDocumentSha256": "59c3732adef3c96d0a6b61acf5da9e8e23f82bc54721792f9d66f7aae6c88d30",
+          "sourceMatch": true,
+          "failedRequests": [
+            {
+              "url": "https://www.google-analytics.com/g/collect",
+              "error": "net::ERR_ABORTED"
+            }
+          ]
+        }
+      ],
+      "median": {
+        "networkIdleNavigationMs": 1810,
+        "domContentLoadedMs": 448,
+        "transferBytes": 359313
+      },
+      "ranges": {
+        "networkIdleNavigationMs": [
+          1663,
+          1866
+        ],
+        "domContentLoadedMs": [
+          410,
+          473
+        ],
+        "transferBytes": [
+          359313,
+          359313
+        ]
+      }
+    }
+  ]
+}
