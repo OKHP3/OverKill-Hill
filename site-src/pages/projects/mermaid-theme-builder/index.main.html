@@ -671,6 +671,7 @@
 <p>Intended for: AI coding assistants, local agent workflows, CI/CD diagram validation pipelines, and headless diagram-governance scripts that need to apply consistent brand and renderer rules without human review at each step.</p>
 <h3 style="margin-top:1rem;">Install in your AI coding assistant</h3>
 <p>The skill family is published and installable today. The examples below use the reviewed <code>v0.6.1</code> tag and verify commit <code>968df040b4bd5d8708551e7a54b3713fc864ee80</code>. Each example starts from a project root, stages the package in a temporary directory, refuses to overwrite an existing destination, and copies the complete <code>okhp3-mermaid-theme-builder/</code> directory with its <code>SKILL.md</code>, <code>assets/</code>, <code>references/</code>, <code>scripts/</code>, and <code>tests/</code>.</p>
+<p><strong>Shell:</strong> Bash/POSIX shell. On Windows, run these examples in Git Bash or WSL, not PowerShell.</p>
 <p><strong>Claude Code</strong></p>
 <pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># Run from a fresh project root. Re-running refuses to overwrite the destination.
 set -eu
