@@ -22,7 +22,7 @@ def main() -> int:
         fail("builder must not use the Spain Spanish tree as an input")
     if "source_path = ROOT / rel" not in builder:
         fail("builder must open canonical en-US paths for both pairs")
-    source_hashes = json.loads((ROOT / "i18n/pilot/source-hashes-a39.json").read_text(encoding="utf-8"))
+    source_hashes = json.loads((ROOT / "i18n/pilot/source-hashes-release-0ee.json").read_text(encoding="utf-8"))
     for name in ("index.html", "about-index.html", "projects-index.html", "contact-index.html"):
         if not (ROOT / "i18n/pilot/es-mx/reviewed" / name).exists():
             fail(f"missing reviewed es-MX source artifact: {name}")
@@ -35,7 +35,7 @@ def main() -> int:
             source_rel = "index.html" if route == "/" else route.strip("/") + "/index.html"
             source_path = ROOT / source_rel
             if hashlib.sha256(source_path.read_bytes()).hexdigest() != source_hashes["routes"].get(route):
-                fail(f"{route}: canonical source is stale relative to the recorded a39 revision")
+                fail(f"{route}: canonical source is stale relative to the recorded release revision")
             path = ROOT / locale / ("index.html" if route == "/" else route.strip("/") + "/index.html")
             if not path.exists():
                 fail(f"{locale}: missing {path.relative_to(ROOT)}")
@@ -59,8 +59,8 @@ def main() -> int:
                 fail(f"{path.relative_to(ROOT)}: missing Mexico flag")
             if locale == "es-mx" and 'Mexico coat of arms' not in text:
                 fail(f"{path.relative_to(ROOT)}: Mexico flag lacks its coat of arms")
-            if locale == "es-mx" and 'ES-MX · Borrador</span>' not in text:
-                fail(f"{path.relative_to(ROOT)}: missing compact visible Mexico draft label")
+            if locale == "es-mx" and 'Español (México) · Borrador</span>' not in text:
+                fail(f"{path.relative_to(ROOT)}: missing visible Mexico draft label")
             if locale == "es-mx" and 'href="https://fonts.googleapis.com' not in text:
                 fail(f"{path.relative_to(ROOT)}: missing canonical heading-font resource")
             if locale == "es-mx" and 'class="site-specials site-specials--okh"' not in text:
