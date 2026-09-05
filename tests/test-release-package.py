@@ -53,7 +53,7 @@ class ReleasePackageTests(unittest.TestCase):
                     self.assertTrue(page.is_file(), page)
                     self.assertRegex(
                         page.read_text(encoding="utf-8"),
-                        r'<meta(?=[^>]*\\bname="robots")(?=[^>]*\\bcontent="noindex, follow")[^>]*>',
+                        r'<meta(?=[^>]*\bname="robots")(?=[^>]*\bcontent="noindex, follow")[^>]*>',
                     )
             sitemap = (output / "sitemap.xml").read_text(encoding="utf-8")
             search_index = (output / "assets/data/search-index.json").read_text(encoding="utf-8")
