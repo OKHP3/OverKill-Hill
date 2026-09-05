@@ -85,6 +85,11 @@ DESC_MAX = 165
 EXPECTED_THEME_COLOR = "#2a2320"
 EXPECTED_BG_COLOR = "#e8e0d6"
 
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
+except (AttributeError, OSError, ValueError):
+    pass
+
 
 def iter_html_files() -> List[Path]:
     out: List[Path] = []
@@ -450,7 +455,7 @@ def reconcile_search_index(html_files: List[Path]) -> List[str]:
     if not idx.exists():
         return ["search-index.json missing"]
     try:
-        data = json.loads(idx.read_text())
+        data = json.loads(idx.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         return [f"search-index.json is unreadable: {exc}"]
     try:
@@ -536,6 +541,15 @@ def render_report(per_page: Dict[str, List[str]],
     return "\n".join(lines) + "\n"
 
 
+def report_display_path(path: Path) -> str:
+    """Format report paths without assuming they are inside the repository."""
+    resolved = path.resolve()
+    try:
+        return resolved.relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(resolved)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--report", default="assets/docs/audit-report.md",
@@ -564,10 +578,11 @@ def main() -> int:
         per_page["(repo cruft)"] = cruft_issues
 
     report = render_report(per_page, sitemap_missing_disk, disk_missing_sitemap, search_issues)
-    out = ROOT / args.report
+    report_arg = Path(args.report)
+    out = report_arg if report_arg.is_absolute() else ROOT / report_arg
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(report, encoding="utf-8")
-    print(f"\nReport written to {out.relative_to(ROOT)}")
+    print(f"\nReport written to {report_display_path(out)}")
 
     total = sum(len(v) for v in per_page.values()) + len(sitemap_missing_disk) + \
             len(disk_missing_sitemap) + len(search_issues)
