@@ -47,6 +47,20 @@ class ReleasePackageTests(unittest.TestCase):
             self.assertTrue((output / "found-ry/index.html").is_file())
             self.assertTrue((output / "de/index.html").is_file())
             self.assertTrue((output / "es/projects/index.html").is_file())
+            for locale in ("en-gb", "es-mx"):
+                for route in ("index.html", "about/index.html", "projects/index.html", "contact/index.html"):
+                    page = output / locale / route
+                    self.assertTrue(page.is_file(), page)
+                    self.assertRegex(
+                        page.read_text(encoding="utf-8"),
+                        r'<meta(?=[^>]*\bname="robots")(?=[^>]*\bcontent="noindex, follow")[^>]*>',
+                    )
+            sitemap = (output / "sitemap.xml").read_text(encoding="utf-8")
+            search_index = (output / "assets/data/search-index.json").read_text(encoding="utf-8")
+            self.assertNotIn("/en-gb/", sitemap)
+            self.assertNotIn("/es-mx/", sitemap)
+            self.assertNotIn("/en-gb/", search_index)
+            self.assertNotIn("/es-mx/", search_index)
             self.assertTrue((output / "assets/downloads/okh-prompt-protocol-template.md").is_file())
             for forbidden in (
                 "AGENTS.md", "package-lock.json", "scripts/build-site.py",
