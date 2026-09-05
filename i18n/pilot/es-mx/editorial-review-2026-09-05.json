@@ -1,0 +1,13 @@
+{
+  "language_pair": "en-US -> es-MX",
+  "method": "AI editorial review against canonical en-US source",
+  "native_or_human_certification": false,
+  "routes": {
+    "/": {"checked": ["hero meaning", "forge metaphor", "CTA intent", "technology terms", "alt text"], "corrections": ["Keep promptcraft, workflow, and protocol as intentional technology-register terms."]},
+    "/about/": {"checked": ["first-person point of view", "enterprise facts", "CTA intent", "tú register"], "corrections": ["Preserve Jamie's first-person voice and US experience claims."]},
+    "/projects/": {"checked": ["project names", "links", "technical claims", "CTA intent"], "corrections": ["Keep product names and code tokens unchanged; use natural Mexican project language."]},
+    "/contact/": {"checked": ["contact details", "US Central Time fact", "support copy", "alt text"], "corrections": ["Corrected 'un computadora' to 'una computadora'. Keep the US location fact unchanged."]}
+  },
+  "open_issues": ["No qualified native Mexican Spanish review has occurred.", "Public release acceptance remains separate and false."],
+  "mechanical_checks": ["No vosotros/vosotras forms", "protected email and URLs preserved", "four routes noindex", "zero public search entries"]
+}

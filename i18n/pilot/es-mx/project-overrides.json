@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "language_pair": {"source_locale": "en-US", "target_locale": "es-MX"},
+  "status": "project-draft",
+  "entries": [
+    {"source": "workflow", "target": "workflow", "handling": "preserve", "context": "US Southwest technology register", "review_state": "project-draft"},
+    {"source": "promptcraft", "target": "promptcraft", "handling": "preserve", "context": "brand term", "review_state": "project-draft"},
+    {"source": "demo", "target": "demo", "handling": "preserve", "context": "technology register", "review_state": "project-draft"},
+    {"source": "tú", "target": "tú", "handling": "adapt", "context": "singular reader address", "review_state": "project-draft"},
+    {"source": "ustedes", "target": "ustedes", "handling": "adapt", "context": "plural reader address", "review_state": "project-draft"}
+  ]
+}

@@ -554,14 +554,14 @@ def main(argv: list[str] | None = None) -> int:
     ]
     if unknown_args:
         print(
-            "Usage: python3 scripts/build-search-index.py [--check] [--locale=fr]",
+        "Usage: python3 scripts/build-search-index.py [--check] [--locale=fr|en-gb|es-mx]",
             file=sys.stderr,
         )
         return 2
 
     locale = locale_args[0].split("=", 1)[1].strip() if locale_args else ""
-    if len(locale_args) > 1 or (locale and not re.fullmatch(r"[a-z]{2}", locale)):
-        print("Locale must be a single lowercase two-letter code, such as fr.", file=sys.stderr)
+    if len(locale_args) > 1 or (locale and not re.fullmatch(r"[a-z]{2}(?:-[a-z]{2})?", locale)):
+        print("Locale must be a lowercase language tag, such as fr, en-gb, or es-mx.", file=sys.stderr)
         return 2
     output = ROOT / "assets" / "data" / (
         f"search-index.{locale}.json" if locale else "search-index.json"

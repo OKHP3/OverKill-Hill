@@ -77,6 +77,25 @@ SPAIN_FLAG_SVG = (
 LANG_FLAG_SVG = {"en": USA_FLAG_SVG, "fr": FRANCE_FLAG_SVG, "de": GERMANY_FLAG_SVG, "es": SPAIN_FLAG_SVG}
 LANG_LABEL = {"en": "English (US)", "fr": "Fran\u00e7ais", "de": "Deutsch", "es": "Espa\u00f1ol"}
 
+# Locale metadata is kept explicit so regional tags cannot collapse into the
+# existing primary-language fallbacks. Draft locales are consumed by the
+# locale draft builder and are intentionally not added to the public sitemap.
+LOCALE_CONFIG = {
+    "en": {"tag": "en", "label": "English (US)", "og_locale": "en_US", "flag": USA_FLAG_SVG},
+    "en-gb": {"tag": "en-GB", "label": "English (UK)", "og_locale": "en_GB", "flag": (
+        '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21">'
+        '<rect fill="#FFFFFF" height="20" width="30"/><path d="M0 0L30 20M30 0L0 20" stroke="#CE1124" stroke-width="3"/>'
+        '<path d="M15 0V20M0 10H30" stroke="#FFFFFF" stroke-width="6"/><path d="M15 0V20M0 10H30" stroke="#CE1124" stroke-width="3"/>'
+        '</svg>'
+    )},
+    "es": {"tag": "es-ES", "label": "Español (España)", "og_locale": "es_ES", "flag": SPAIN_FLAG_SVG},
+    "es-mx": {"tag": "es-MX", "label": "Español (México)", "og_locale": "es_MX", "flag": (
+        '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21">'
+        '<rect fill="#006847" height="20" width="10"/><rect fill="#FFFFFF" height="20" width="10" x="10"/><rect fill="#CE1126" height="20" width="10" x="20"/>'
+        '</svg>'
+    )},
+}
+
 # Keep one identity node for the whole site. Page-specific JSON-LD should
 # reference this node with @id instead of defining divergent organizations.
 ORGANIZATION_JSONLD = {

@@ -1,0 +1,16 @@
+{
+  "language_pair": {"source_locale": "en-US", "target_locale": "es-MX", "direction": "one-way"},
+  "source_revision": "git:d328e176376429ced47032e72902e0b57c53f590",
+  "source_register": "plainspoken",
+  "source_paths": ["index.html", "about/index.html", "projects/index.html", "contact/index.html"],
+  "target_paths": ["es-mx/index.html", "es-mx/about/index.html", "es-mx/projects/index.html", "es-mx/contact/index.html"],
+  "voice_profile": "i18n/pilot/es-mx/voice-profile.en-us.json@1.0.0",
+  "dictionary": "i18n/pilot/es-mx/dictionary.en-us-es-mx.json@0.1.0",
+  "project_overrides": "i18n/pilot/es-mx/project-overrides.json",
+  "status": "machine-drafted",
+  "native_review_required": false,
+  "review": {"method": "AI editorial review", "complete": true, "native_or_human": false, "release_accepted": false},
+  "mechanical_checks": {"passed": true, "warnings": ["Draft routes are noindex and excluded from sitemap and public search index."]},
+  "assumptions": ["Use tú for singular readers and ustedes for plural readers.", "Retain intentional technology borrowing such as workflow and promptcraft.", "US Central Time, dollars, contact details, brands, code, and URLs remain unchanged."],
+  "unresolved_terms": []
+}
