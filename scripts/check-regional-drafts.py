@@ -74,8 +74,8 @@ def main() -> int:
                 fail(f"{path.relative_to(ROOT)}: navigation logo has no accessible home label")
             if '/assets/img/favicons/murderbird-v2-icon-nav-96.png' not in text:
                 fail(f"{path.relative_to(ROOT)}: navigation logo does not use the current organization identity")
-            if nav_match and 'loading="lazy"' in nav_match.group(0):
-                fail(f"{path.relative_to(ROOT)}: navigation logo must not lazy-load")
+            if nav_match and 'loading="eager"' not in nav_match.group(0):
+                fail(f"{path.relative_to(ROOT)}: navigation logo must declare eager loading")
             if '<link' in text and 'rel="alternate"' in text[: text.find("</head>")]:
                 fail(f"{path.relative_to(ROOT)}: draft head exposes public alternate links")
             if locale == "en-gb" and 'stroke="#CE1124"' not in text:

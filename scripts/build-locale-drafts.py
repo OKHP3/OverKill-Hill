@@ -235,8 +235,8 @@ def replace_navigation_identity(page: str, locale: str) -> str:
         logo,
     ):
         raise SystemExit(f'Unexpected navigation logo asset for {locale}')
-    logo, _lazy_count = re.subn(
-        r'\s+loading="lazy"(?=[^>]*\bsrc="/assets/img/(?:favicons/murderbird-v2-icon-nav-96|over-kill-hill-p3-sentinel-warning-square-256)\.png")',
+    logo, _loading_count = re.subn(
+        r'\s+loading="(?:lazy|eager)"(?=[^>]*\bsrc="/assets/img/(?:favicons/murderbird-v2-icon-nav-96|over-kill-hill-p3-sentinel-warning-square-256)\.png")',
         '',
         logo,
         count=1,
@@ -246,6 +246,7 @@ def replace_navigation_identity(page: str, locale: str) -> str:
         '/assets/img/favicons/murderbird-v2-icon-nav-96.png',
         1,
     )
+    logo = logo.replace('height="40"', 'height="40" loading="eager"', 1)
     updated = page[:match.start()] + logo + page[match.end():]
     if home_count != 1:
         raise SystemExit(f'Unexpected navigation logo shape for {locale}')
