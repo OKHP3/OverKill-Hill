@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import importlib.util
 import subprocess
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -89,20 +90,41 @@ class VerifyLiveEdgeTests(unittest.TestCase):
 
 
 class PostMergeTests(unittest.TestCase):
-    def test_post_merge_stops_after_failed_subprocess(self) -> None:
-        result = subprocess.run(
-            [
-                "bash",
-                "-c",
-                "python3() { return 1; }; source scripts/post-merge.sh",
-            ],
-            cwd=ROOT,
-            capture_output=True,
-        )
+    def run_post_merge_with_python_failure(self, failure_target: str) -> subprocess.CompletedProcess[bytes]:
+        with tempfile.TemporaryDirectory(prefix="post-merge-") as temp:
+            shim = Path(temp) / "python3"
+            shim.write_bytes(
+                (
+                    "#!/bin/bash\n"
+                    f"case \"$*\" in *{failure_target}*) exit 1;; *) exit 0;; esac\n"
+                ).encode("utf-8")
+            )
+            shim.chmod(0o755)
+            temp_path = Path(temp).resolve()
+            drive = temp_path.drive.rstrip(":").lower()
+            windows_path = str(temp_path).replace("\\", "/")
+            posix_temp = f"/mnt/{drive}{windows_path[2:]}"
+            command = f"export PATH={posix_temp}:/usr/bin:/bin; source scripts/post-merge.sh"
+            return subprocess.run(
+                ["bash", "-c", command],
+                cwd=ROOT,
+                capture_output=True,
+            )
+
+    def test_post_merge_stops_after_early_failed_subprocess(self) -> None:
+        result = self.run_post_merge_with_python_failure("check-mtb-version.py")
 
         self.assertNotEqual(result.returncode, 0)
         output = (result.stderr + result.stdout).decode("utf-8", errors="replace")
         self.assertIn("ERROR: MTB version check failed", output)
+        self.assertNotIn("Post-merge: all checks passed.", output)
+
+    def test_post_merge_stops_after_final_validator_failure(self) -> None:
+        result = self.run_post_merge_with_python_failure("validate-site.py")
+
+        self.assertNotEqual(result.returncode, 0)
+        output = (result.stderr + result.stdout).decode("utf-8", errors="replace")
+        self.assertIn("ERROR: full site validation failed.", output)
         self.assertNotIn("Post-merge: all checks passed.", output)
 
 

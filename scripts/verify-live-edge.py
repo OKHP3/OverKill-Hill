@@ -628,6 +628,7 @@ def main() -> int:
 
     failures = sum(item["status"] == "FAIL" for item in report)
     blocked = sum(item["status"] == "BLOCKED" for item in report)
+    warnings = sum(item["status"] == "WARN" for item in report)
     payload = {
         "verifier": "verify-live-edge.py",
         "run_at": now(),
@@ -635,8 +636,8 @@ def main() -> int:
         "timeout_seconds": args.timeout,
         "expected_commit": args.expected_commit,
         "hosting": args.hosting,
-        "status": "FAILED" if failures else ("PARTIAL" if blocked else "PASS"),
-        "summary": {"checks": len(report), "failures": failures, "blocked": blocked},
+        "status": "FAILED" if failures else ("PARTIAL" if blocked or warnings else "PASS"),
+        "summary": {"checks": len(report), "failures": failures, "blocked": blocked, "warnings": warnings},
         "checks": report,
     }
     encoded = json.dumps(payload, indent=2, sort_keys=False) + "\n"

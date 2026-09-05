@@ -43,12 +43,6 @@ run_step "site rebuild after CSP regeneration" "site rebuild after CSP regenerat
 run_step "generated HTML check" "generated HTML is out of sync with site sources." python3 scripts/build-site.py --check
 run_step "CSP policy check" "CSP policies are out of sync with published pages." python3 scripts/check-csp.py
 
-# The full validator includes advisory editorial findings and known sitemap
-# backlog items that are handled by separate page-audit tasks. Keep reporting
-# those findings after a merge without blocking setup of an otherwise coherent
-# static build.
-if ! python3 scripts/validate-site.py; then
-  echo "Post-merge: validator reported tracked audit backlog; setup integrity checks passed." >&2
-fi
+run_step "full site validator" "full site validation failed." python3 scripts/validate-site.py
 
 echo "Post-merge: all checks passed."
