@@ -1,4 +1,6 @@
 # SxS Infrastructure Audit: OverKill-Hill / AskJamie / Glee-fullyTools
+> Historical audit and execution journal. See the [September 5 implementation status](../assets/docs/sxs-implementation-status-2026-09-05.md) for current verification and remaining work.
+
 **Date:** 2026-08-29
 **Scope:** functionality, scripting, CI/automation, validation, metadata/SEO, favicon, and behavior. Not a content or page-count comparison.
 
