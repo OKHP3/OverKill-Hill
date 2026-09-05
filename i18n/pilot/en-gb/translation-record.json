@@ -1,6 +1,6 @@
 {
   "language_pair": {"source_locale": "en-US", "target_locale": "en-GB", "direction": "one-way"},
-  "source_revision": "git:d328e176376429ced47032e72902e0b57c53f590",
+  "source_revision": "git:a39fcda69ebe7ec0aa215c40b24156f2d714be54+alt-correction",
   "source_register": "plainspoken",
   "source_paths": ["index.html", "about/index.html", "projects/index.html", "contact/index.html"],
   "target_paths": ["en-gb/index.html", "en-gb/about/index.html", "en-gb/projects/index.html", "en-gb/contact/index.html"],

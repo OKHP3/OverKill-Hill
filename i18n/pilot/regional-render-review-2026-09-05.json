@@ -1,0 +1,54 @@
+{
+  "reviewer": {
+    "agent": "Codex",
+    "model": "GPT-5.6-terra",
+    "reasoning_effort": "medium",
+    "method": "Playwright rendered DOM and screenshot review",
+    "native_or_human_certification": false
+  },
+  "source_revision": "git:a39fcda69ebe7ec0aa215c40b24156f2d714be54+alt-correction",
+  "preview": {
+    "base_url": "http://127.0.0.1:5317",
+    "viewport_mobile": "390x844",
+    "viewport_desktop": "browser default desktop viewport",
+    "screenshots": [
+      "output/playwright/en-gb-desktop-dark.png",
+      "output/playwright/en-gb-mobile-light.png",
+      "output/playwright/es-mx-mobile-light.png",
+      "output/playwright/es-mx-language-menu-mobile.png",
+      "output/playwright/es-mx-navigation-mobile.png",
+      "output/playwright/en-gb-about-mobile-light.png",
+      "output/playwright/en-gb-projects-mobile-light.png",
+      "output/playwright/en-gb-contact-mobile-light.png",
+      "output/playwright/es-mx-about-mobile-light.png",
+      "output/playwright/es-mx-projects-mobile-light.png",
+      "output/playwright/es-mx-contact-mobile-light.png",
+      "output/playwright/es-mx-mobile-corrected-final.png"
+    ],
+    "console_errors": 0
+  },
+  "route_coverage": {
+    "/": {
+      "en_gb": ["hero and active-forge notice", "corrected owl alt", "Start with the work", "Selected work", "How OverKill Hill thinks", "Fresh from the Forge detail, image, and article link", "Writing on the horizon", "Projects from the forge", "contact CTA"],
+      "es_mx": ["hero and active-forge notice", "corrected owl alt", "Empieza con el trabajo", "Trabajo seleccionado", "Cómo piensa OverKill Hill", "Recién salido de la Fragua detail, image, and article link", "Escritos en el horizonte", "Proyectos de la fragua", "contact CTA"]
+    },
+    "/about/": {
+      "en_gb": ["hero", "who works at the Hill", "credentials and factual figures", "why the Hill exists", "how to work together and contact CTA"],
+      "es_mx": ["hero", "Quién trabaja en la colina", "Experiencia detrás del trabajo and factual figures", "Por qué existe la colina", "Cómo trabajamos juntos and contact CTA"]
+    },
+    "/projects/": {
+      "en_gb": ["hero", "Built at the Hill project cards", "External Tools and Platforms", "Status and proof", "work-with-me CTA"],
+      "es_mx": ["hero", "Forjados en la colina project cards", "Herramientas y plataformas externas", "Estado y evidencia", "work-with-me CTA"]
+    },
+    "/contact/": {
+      "en_gb": ["hero", "contact channels", "Ko-fi support unit", "footer and legal links"],
+      "es_mx": ["hero", "contact channels", "Apoya la fragua con Ko-fi", "localized footer and legal links"]
+    }
+  },
+  "results": {
+    "locale_navigation": "The rendered switchers expose the draft locale labels and the expected sibling links; the settled es-MX mobile review shows the emblem-bearing Mexican flag and the fully visible ES-MX · Borrador label.",
+    "canonical_shell": "The settled es-MX mobile review confirms the current forge notice and loaded Alfa Slab One heading font (document.fonts check true).",
+    "draft_boundary": "All reviewed routes remain noindex and absent from public search indexes.",
+    "limitations": "This is an AI editorial and browser review, not native or human language certification. At 390px, the shared right-anchored language menu still reaches the left viewport edge and crops part of sibling flag columns; this shared layout defect is not resolved in the draft-only branch."
+  }
+}

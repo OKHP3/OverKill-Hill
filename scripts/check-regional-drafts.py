@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import re
 from pathlib import Path
 
@@ -21,6 +22,7 @@ def main() -> int:
         fail("builder must not use the Spain Spanish tree as an input")
     if "source_path = ROOT / rel" not in builder:
         fail("builder must open canonical en-US paths for both pairs")
+    source_hashes = json.loads((ROOT / "i18n/pilot/source-hashes-a39.json").read_text(encoding="utf-8"))
     for name in ("index.html", "about-index.html", "projects-index.html", "contact-index.html"):
         if not (ROOT / "i18n/pilot/es-mx/reviewed" / name).exists():
             fail(f"missing reviewed es-MX source artifact: {name}")
@@ -30,6 +32,10 @@ def main() -> int:
         if entry["status"] != "ai-reviewed-draft":
             fail(f"{locale}: status is not AI-reviewed draft")
         for route in ROUTES:
+            source_rel = "index.html" if route == "/" else route.strip("/") + "/index.html"
+            source_path = ROOT / source_rel
+            if hashlib.sha256(source_path.read_bytes()).hexdigest() != source_hashes["routes"].get(route):
+                fail(f"{route}: canonical source is stale relative to the recorded a39 revision")
             path = ROOT / locale / ("index.html" if route == "/" else route.strip("/") + "/index.html")
             if not path.exists():
                 fail(f"{locale}: missing {path.relative_to(ROOT)}")
@@ -47,8 +53,26 @@ def main() -> int:
                 fail(f"{path.relative_to(ROOT)}: draft head exposes public alternate links")
             if locale == "en-gb" and 'stroke="#CE1124"' not in text:
                 fail(f"{path.relative_to(ROOT)}: missing St George flag")
+            if locale == "en-gb" and 'stroke="#CE1124"' in text and 'stroke="#CE1124" stroke-width="4"' not in text:
+                fail(f"{path.relative_to(ROOT)}: St George flag is not the upright cross contract")
             if locale == "es-mx" and 'fill="#006847"' not in text:
                 fail(f"{path.relative_to(ROOT)}: missing Mexico flag")
+            if locale == "es-mx" and 'Mexico coat of arms' not in text:
+                fail(f"{path.relative_to(ROOT)}: Mexico flag lacks its coat of arms")
+            if locale == "es-mx" and 'ES-MX · Borrador</span>' not in text:
+                fail(f"{path.relative_to(ROOT)}: missing compact visible Mexico draft label")
+            if locale == "es-mx" and 'href="https://fonts.googleapis.com' not in text:
+                fail(f"{path.relative_to(ROOT)}: missing canonical heading-font resource")
+            if locale == "es-mx" and 'class="site-specials site-specials--okh"' not in text:
+                fail(f"{path.relative_to(ROOT)}: missing localized current forge notice")
+            if locale == "es-mx" and 'data-banner-release="v0.5"' not in text:
+                fail(f"{path.relative_to(ROOT)}: localized forge notice lacks its release marker")
+            if locale == "es-mx" and 'property="og:locale" content="es_MX"' not in text:
+                fail(f"{path.relative_to(ROOT)}: incorrect regional Open Graph locale")
+            source_text = source_path.read_text(encoding="utf-8")
+            for element in ("h1", "h2", "h3", "article", "figure", "img"):
+                if len(re.findall(rf"<{element}\b", source_text, re.I)) != len(re.findall(rf"<{element}\b", text, re.I)):
+                    fail(f"{path.relative_to(ROOT)}: {element} coverage differs from canonical source")
     for index in ("search-index.en-gb.json", "search-index.es-mx.json"):
         payload = json.loads((ROOT / "assets/data" / index).read_text(encoding="utf-8"))
         if payload.get("count") != 0 or payload.get("entries") != []:

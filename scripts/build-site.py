@@ -84,14 +84,14 @@ LOCALE_CONFIG = {
     "en": {"tag": "en", "label": "English (US)", "og_locale": "en_US", "flag": USA_FLAG_SVG},
     "en-gb": {"tag": "en-GB", "label": "English (UK)", "og_locale": "en_GB", "flag": (
         '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21">'
-        '<rect fill="#FFFFFF" height="20" width="30"/><path d="M0 0L30 20M30 0L0 20" stroke="#CE1124" stroke-width="3"/>'
-        '<path d="M15 0V20M0 10H30" stroke="#FFFFFF" stroke-width="6"/><path d="M15 0V20M0 10H30" stroke="#CE1124" stroke-width="3"/>'
+        '<rect fill="#FFFFFF" height="20" width="30"/><path d="M15 0V20M0 10H30" stroke="#CE1124" stroke-width="4"/>'
         '</svg>'
     )},
     "es": {"tag": "es-ES", "label": "Español (España)", "og_locale": "es_ES", "flag": SPAIN_FLAG_SVG},
     "es-mx": {"tag": "es-MX", "label": "Español (México)", "og_locale": "es_MX", "flag": (
         '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21">'
         '<rect fill="#006847" height="20" width="10"/><rect fill="#FFFFFF" height="20" width="10" x="10"/><rect fill="#CE1126" height="20" width="10" x="20"/>'
+        '<g aria-label="Mexico coat of arms" transform="translate(15 10)"><path d="M-1.7-2.8C.6-3.8 2.8-2 2.1.1C1.5 1.9-.5 3-2.1 2.1C-3.3 1.4-3.1-.7-1.7-2.8Z" fill="#6B4F2F"/><path d="M-2.4 2.6c.7-2.1 1.2-3 2.2-3.8M-3.1 1.1l1.2.5M-2.8-.4l1.1.5" fill="none" stroke="#006847" stroke-linecap="round" stroke-width=".65"/><path d="M1.1-1.7l1.5-.8" stroke="#CE1126" stroke-linecap="round" stroke-width=".65"/></g>'
         '</svg>'
     )},
 }
