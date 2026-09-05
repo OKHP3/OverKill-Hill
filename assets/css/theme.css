@@ -671,6 +671,7 @@ button {
   box-sizing: border-box;
   width: min(15rem, calc(100vw - 1rem));
   min-width: 0;
+  max-height: min(28rem, calc(100vh - 5rem));
   max-height: min(28rem, calc(100dvh - 5rem));
   overflow-y: auto;
   margin: 0;
