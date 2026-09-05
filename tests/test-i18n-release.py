@@ -28,11 +28,16 @@ class I18nReleaseTests(unittest.TestCase):
             lf = root / "lf.html"
             crlf = root / "crlf.html"
             changed = root / "changed.html"
+            spaced = root / "spaced.html"
+            unspaced = root / "unspaced.html"
             lf.write_bytes(b"<p>stable</p>\n")
             crlf.write_bytes(b"<p>stable</p>\r\n")
             changed.write_bytes(b"<p>changed</p>\r\n")
+            spaced.write_bytes(b"<p>a b</p>\n")
+            unspaced.write_bytes(b"<p>ab</p>\n")
             self.assertEqual(DETECTOR_MODULE.sha256_file(lf), DETECTOR_MODULE.sha256_file(crlf))
             self.assertNotEqual(DETECTOR_MODULE.sha256_file(lf), DETECTOR_MODULE.sha256_file(changed))
+            self.assertNotEqual(DETECTOR_MODULE.sha256_file(spaced), DETECTOR_MODULE.sha256_file(unspaced))
 
     def test_full_report_preserves_all_pairs_and_blocks_only_french(self):
         report = {
