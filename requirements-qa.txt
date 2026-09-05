@@ -1,0 +1,7 @@
+# Pinned Python dependencies for the static-site QA and build helpers.
+# Keep this file limited to the existing Beautiful Soup toolchain; the site has
+# no Python runtime dependency. Versions reflect the compatible local runtime
+# inventory on 2026-09-04 (Python 3.14) and support the CI Python 3.11 job.
+beautifulsoup4==4.15.0
+soupsieve==2.9.2
+typing-extensions==4.16.0

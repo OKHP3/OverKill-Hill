@@ -1,0 +1,36 @@
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: "/"
+    open-pull-requests-limit: 3
+    schedule:
+      interval: monthly
+    versioning-strategy: increase-if-necessary
+    groups:
+      python-qa-dependencies:
+        dependency-type: development
+        patterns:
+          - "beautifulsoup4"
+          - "soupsieve"
+          - "typing-extensions"
+
+  - package-ecosystem: npm
+    directory: "/"
+    open-pull-requests-limit: 3
+    schedule:
+      interval: monthly
+    groups:
+      browser-qa-dependencies:
+        dependency-type: development
+        patterns:
+          - "playwright"
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    open-pull-requests-limit: 3
+    schedule:
+      interval: monthly
+    groups:
+      github-actions:
+        patterns:
+          - "*"
