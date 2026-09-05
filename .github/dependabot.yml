@@ -8,7 +8,6 @@ updates:
     versioning-strategy: increase-if-necessary
     groups:
       python-qa-dependencies:
-        dependency-type: development
         patterns:
           - "beautifulsoup4"
           - "soupsieve"
@@ -21,7 +20,6 @@ updates:
       interval: monthly
     groups:
       browser-qa-dependencies:
-        dependency-type: development
         patterns:
           - "playwright"
 
