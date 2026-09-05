@@ -27,9 +27,12 @@ class I18nReleaseTests(unittest.TestCase):
             root = Path(directory)
             lf = root / "lf.html"
             crlf = root / "crlf.html"
+            changed = root / "changed.html"
             lf.write_bytes(b"<p>stable</p>\n")
             crlf.write_bytes(b"<p>stable</p>\r\n")
+            changed.write_bytes(b"<p>changed</p>\r\n")
             self.assertEqual(DETECTOR_MODULE.sha256_file(lf), DETECTOR_MODULE.sha256_file(crlf))
+            self.assertNotEqual(DETECTOR_MODULE.sha256_file(lf), DETECTOR_MODULE.sha256_file(changed))
 
     def test_full_report_preserves_all_pairs_and_blocks_only_french(self):
         report = {
