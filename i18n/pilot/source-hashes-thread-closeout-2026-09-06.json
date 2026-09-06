@@ -1,11 +1,11 @@
 {
-  "source_revision": "git:0c7ccb545022564b6730ff5d90565e431d96a1dc plus reviewed navigation asset relocation and Organization logo update",
-  "review_scope": "Exact comparison of all four English and twenty localized routes confirms only shared asset version queries, byte-identical navigation image URL relocation, and Organization logo URL/dimensions changed. All prose, alt text and publication boundaries retained. No new translation or human approval. Generated CSP hash allowlists were refreshed for the revised Organization JSON-LD; the strict policy structure is unchanged.",
+  "source_revision": "git:0c7ccb545022564b6730ff5d90565e431d96a1dc plus reviewed navigation asset relocation, Organization logo update, and publication of the existing en-GB and es-MX locale pairs",
+  "review_scope": "Exact comparison of all four English and twenty localized routes confirms only shared asset version queries, byte-identical navigation image URL relocation, Organization logo URL/dimensions, and the reviewed six-option language menu changed. All prose, alt text and publication boundaries retained. No new translation or human approval; the existing en-GB and es-MX pair contracts and reviewed artifacts remain the translation sources. Generated CSP hash allowlists were refreshed for the revised Organization JSON-LD; the strict policy structure is unchanged.",
   "routes": {
-    "/": "6707b7953e9f4a66ab17eaffcbd810e783aac40acb5b9cf918c0f0341b6131b9",
-    "/about/": "2426c72da0f2d98154d82655db0da4d5612b5b1fc8f242bc067e6db0b1f726c4",
-    "/projects/": "8ea523c58c212ed1e971bc16e57046959d2881b192ec28fa5b655a047e1dae64",
-    "/contact/": "b7617d20f143568b0ea9f5d27c83a711122ac7ac060f2f853217f6138c803515"
+    "/": "09a39df788eb722873df93e40c1cf1393dc2a28d29a23792565c806270d6e879",
+    "/about/": "045ad34ff88651c9295a17522de515a90b4d95e00f3f140a0ad6a853622479a6",
+    "/projects/": "a182582cb4a113f1572a0dfa8a77a6e6b1e249a5dc8f2061976fd9ec00d649fb",
+    "/contact/": "5f76aa2a621f351541b6743d89e9d639facce5ab4f3810a1f8224de34dfa0e9d"
   },
   "normalized_routes": {
     "/": "4bcc1c652d877971aaf6d3d7353f32ea412bf66bb383316d4523a60e282defd0",
