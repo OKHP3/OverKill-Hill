@@ -1,0 +1,43 @@
+{
+  "language_pair": "en-US -> fr-FR",
+  "skill": "okhp3-translation-en-us-fr-fr@1.1.0",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "source_revision": "git:e502948473093c4074a3b06e43cf8fe69f07ceb0",
+  "reviewed_on": "2026-09-05",
+  "review_scope": "CSP-only generated metadata change; all eight source and target documents are byte-identical to 897df5d3 after removing their CSP meta tag and normalizing CRLF. No semantic units, terminology, voice, links, or image alternatives changed. Retain the existing French review, without claiming native approval.",
+  "routes": [
+    {
+      "route": "/",
+      "locale": "fr",
+      "source_sha256": "eff48809ae0ee8fb8fb32dbe448324dabdb3b65563754fca1f36a8fbb03be0e6",
+      "target_path": "fr/index.html",
+      "target_sha256": "f58642d592d5aa5063f49d14e8138f02d131288da24b3407fa1bcb3b99282e55",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/about/",
+      "locale": "fr",
+      "source_sha256": "40b1421663bf8c830080ce874ba7072274980dce07f5a96fbc1d25402c87c4d0",
+      "target_path": "fr/about/index.html",
+      "target_sha256": "7067dcd6b438473b17104df3ab98db78e0b14840d05a9b8e9823e79ade843390",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/contact/",
+      "locale": "fr",
+      "source_sha256": "df39d78838c1a707fa52accd3527667316a02cf60c3797c17996235972211b74",
+      "target_path": "fr/contact/index.html",
+      "target_sha256": "ac0fee8e8d69c868e19bc0f9243d966a30ab57cf9d0ca761a325888ca6a0c57c",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/projects/",
+      "locale": "fr",
+      "source_sha256": "c90c3e1a8b9a36e256646fcc03a01943b63645a15da0479002c0809b5a2d35fd",
+      "target_path": "fr/projects/index.html",
+      "target_sha256": "a14866e305c30c25d9dbfc190e4b7249810a0676f8858e63f148a579bd5c106e",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    }
+  ]
+}
