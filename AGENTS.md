@@ -50,6 +50,9 @@ validation workflow changes.
 - `assets/js/app.js` provides shared browser interactions, including
   navigation, theme switching, scroll behavior, and site search.
   `mermaid-init.js` is used on pages that render Mermaid diagrams.
+- `scripts/sync-universe-map.py` generates universe navigation from the search
+  index using `.agents/skills/okhp3-universe-map/`. Default index writes refresh
+  the universe source and published HTML; CI verifies rendering and freshness.
 - `assets/data/search-index.json` is generated from indexable HTML by
   `scripts/build-search-index.py`; use its `--check` mode for freshness rather
   than relying on a hardcoded entry count.

@@ -23,6 +23,7 @@ import json
 import os
 import re
 import sys
+import subprocess
 from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
@@ -70,7 +71,7 @@ class TextExtractor(HTMLParser):
     SKIP_TAGS = {"script", "style", "noscript", "svg", "template", "iframe"}
     DROP_BY_CLASS = {"site-header", "site-footer", "primary-nav", "sub-nav",
                      "skip-link", "okh-skip-link", "sr-only", "okh-search-overlay",
-                     "footer-bottom", "site-banner"}
+                     "footer-bottom", "site-banner", "universe-generated"}
 
     # Self-closing / void HTML elements — never push to drop stack
     VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input",
@@ -601,6 +602,9 @@ def main(argv: list[str] | None = None) -> int:
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(rendered, encoding="utf-8")
     print_summary(payload, "Wrote", output)
+    if not locale:
+        subprocess.run([sys.executable, str(ROOT / "scripts/sync-universe-map.py")], check=True)
+        subprocess.run([sys.executable, str(ROOT / "scripts/build-site.py")], check=True)
     return 0
 
 
