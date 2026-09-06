@@ -1,6 +1,6 @@
 # Universe map skill
 
-Canonical package: `OKHP3/skillz/mermaid/okhp3-universe-map`, version 0.1.3.
+Canonical package: `OKHP3/skillz/mermaid/okhp3-universe-map`, version 0.1.4.
 Installed copy: `.agents/skills/okhp3-universe-map/SKILL.md`.
 Site configuration: `universe-map.config.json`.
 
@@ -45,4 +45,6 @@ JavaScript.
 
 ### Portable skill 0.1.4
 
-Includes the final PR76 hierarchy fix for slashless URLs, explicit-parent handling for ambiguous slash aliases, and validated trusted local index paths. All 18 generator regression tests pass. Existing indexed page links and rendering are preserved.
+Includes the final PR76 hierarchy fix for slashless URLs, explicit-parent handling for ambiguous slash aliases, and validated trusted local index paths. All 19 generator regression tests pass. Existing indexed page links and rendering are preserved.
+
+Canonical source revision: `9d3677ad89f51d68ec946174f9ddff1c1f3f5b53` (Skillz PR 79). All 12 installed files match this immutable package, including completed network-input and repeated-slash review fixes.
