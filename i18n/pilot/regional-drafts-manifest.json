@@ -1,5 +1,5 @@
 {
-  "status": "published",
+  "status": "ai-reviewed-draft",
   "target_locales": ["en-gb", "es-mx"],
   "translation_policy": "AI-reviewed-accurate-draft-no-native-certification",
   "source_of_truth": "site-src/pages.json and canonical en-US HTML",
@@ -7,7 +7,7 @@
   "locales": {
     "en-gb": {
       "label": "English (UK)",
-      "status": "published",
+      "status": "ai-reviewed-draft",
       "record": "i18n/pilot/en-gb/translation-record.json",
       "pages": [
         {"source_route": "/", "target_route": "/en-gb/", "source_path": "index.html", "target_path": "en-gb/index.html"},
@@ -19,7 +19,7 @@
     },
     "es-mx": {
       "label": "Español (México)",
-      "status": "published",
+      "status": "ai-reviewed-draft",
       "record": "i18n/pilot/es-mx/translation-record.json",
       "pages": [
         {"source_route": "/", "target_route": "/es-mx/", "source_path": "index.html", "target_path": "es-mx/index.html"},
@@ -30,5 +30,5 @@
       "search_index": "assets/data/search-index.es-mx.json"
     }
   },
-  "publication_gate": {"sitemap": true, "indexable_search": true, "public_hreflang": true}
+  "publication_gate": {"sitemap": false, "indexable_search": false, "public_hreflang": false}
 }
