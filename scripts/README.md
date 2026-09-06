@@ -25,6 +25,7 @@ follows the same convention as `askjamie/scripts/README.md`.
 | `generate-csp.py` | active | Apply CSP policies to every page |
 | `lint-voice.py` | active | Voice/style lint (invoked by `validate-site.py`) |
 | `phone-overflow-qa.mjs` | active | Phone-viewport overflow QA (`npm run test:*`) |
+| `toc-follow-qa.mjs` | active | All published sidebar menus: centered easing, footer clearance, keyboard reachability, breakpoint changes and reduced motion (`npm run test:toc`) |
 | `check-performance-budget.py` | active | Deterministic first-party asset-weight regression guard for three representative routes |
 | `post-merge.sh` | active | Post-merge rebuild and validation hook |
 | `responsive-qa.mjs` | active | Responsive QA entry point |

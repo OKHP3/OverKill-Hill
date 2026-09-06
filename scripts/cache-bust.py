@@ -30,7 +30,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-EXCLUDE_DIRS = {"_replit", ".local", "attached_assets", "node_modules", ".git"}
+EXCLUDE_DIRS = {"_replit", ".local", "attached_assets", "node_modules", ".git", "i18n"}
 SHARED_ASSET_PATHS = (
     "/assets/css/theme.css",
     "/assets/js/app.js",

@@ -94,6 +94,7 @@ def all_pages() -> list[Path]:
                 "assets/partials/",
                 "site-src/",
                 "tests/fixtures/",
+                "i18n/",
             )
         )
     )
