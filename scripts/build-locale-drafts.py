@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the four regional locale drafts without changing public release files.
+"""Build the regional locale pages and keep their shared shell synchronized.
 
 The canonical English HTML is the source for both regional pairs. Existing
 target files are preserved as draft working artifacts during regeneration, so
@@ -121,6 +121,15 @@ def replace_locale_switch(page: str, active_locale: str, route: str) -> str:
     if count != 1:
         raise SystemExit(f'Missing language switcher for {active_locale} {route}')
     return updated
+
+
+def refresh_published_switchers() -> None:
+    """Apply the reviewed language menu to the existing published locales."""
+    for locale in ('fr', 'de', 'es'):
+        for route, rel in ROUTES.items():
+            output = ROOT / locale / rel
+            page = output.read_text(encoding='utf-8')
+            output.write_text(replace_locale_switch(page, locale, route), encoding='utf-8')
 
 
 def load_pair_contract(locale: str) -> tuple[dict, dict]:
@@ -389,8 +398,14 @@ def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> st
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument('--locale', choices=('en-gb', 'es-mx'), required=True)
+    parser.add_argument('--locale', choices=('en-gb', 'es-mx'))
+    parser.add_argument('--refresh-published', action='store_true')
     args = parser.parse_args()
+    if args.refresh_published:
+        refresh_published_switchers()
+        return 0
+    if not args.locale:
+        parser.error('--locale is required unless --refresh-published is used')
     dictionary, _profile = load_pair_contract(args.locale)
     verify_sources()
     for route, rel in ROUTES.items():
