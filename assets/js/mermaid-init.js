@@ -268,8 +268,13 @@ function enhanceMermaidLinks(node) {
     const label = link.getAttribute("aria-label") || link.querySelector("[title]")?.getAttribute("title") ||
       link.querySelector("title")?.textContent?.trim();
     if (label) link.setAttribute("aria-label", label);
-    if (href) link.setAttribute("role", "link");
-    link.setAttribute("tabindex", "-1");
+    if (href) {
+      // Interactive SVG links must remain reachable in the keyboard order.
+      node.setAttribute("role", "group");
+      node.querySelector("svg")?.setAttribute("role", "group");
+      link.setAttribute("role", "link");
+      link.setAttribute("tabindex", "0");
+    } else link.setAttribute("tabindex", "-1");
   });
 }
 

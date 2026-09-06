@@ -37,7 +37,7 @@ def main() -> int:
         fail("builder must not use the Spain Spanish tree as an input")
     if "source_path = ROOT / rel" not in builder:
         fail("builder must open canonical en-US paths for both pairs")
-    source_hashes = json.loads((ROOT / "i18n/pilot/source-hashes-release-0ee.json").read_text(encoding="utf-8"))
+    source_hashes = json.loads((ROOT / "i18n/pilot/source-hashes-thread-closeout-2026-09-06.json").read_text(encoding="utf-8"))
     for name in ("index.html", "about-index.html", "projects-index.html", "contact-index.html"):
         if not (ROOT / "i18n/pilot/es-mx/reviewed" / name).exists():
             fail(f"missing reviewed es-MX source artifact: {name}")
@@ -72,7 +72,7 @@ def main() -> int:
                 fail(f"{path.relative_to(ROOT)}: navigation logo does not return to its locale home")
             if nav_match is None or 'class="sr-only"' not in nav_match.group(0):
                 fail(f"{path.relative_to(ROOT)}: navigation logo has no accessible home label")
-            if '/assets/img/favicons/murderbird-v2-icon-nav-96.png' not in text:
+            if '/assets/img/murderbird-v2-icon-nav-96.png' not in text:
                 fail(f"{path.relative_to(ROOT)}: navigation logo does not use the current organization identity")
             if nav_match and 'loading="eager"' not in nav_match.group(0):
                 fail(f"{path.relative_to(ROOT)}: navigation logo must declare eager loading")

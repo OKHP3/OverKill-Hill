@@ -16,6 +16,8 @@ finished product.
 | MurderBird identity | Homepage, navigation, localized heroes, and icon package were delivered in earlier releases; historical manifesto imagery is preserved. See murderbird-v2-delivery-status-2026-09-05.md. |
 | Uniform aside navigation | All 56 released HTML routes were inventoried; all 14 matching menus use the centered delayed follow. PR32 and PR33 delivered the implementation and compatibility guards, with live verification and regression coverage. |
 | Review follow-up | PR33's empty-query snippet and normalized highlight findings are addressed by this closeout. Actual computed Glee hero contrast already passes in light, explicit dark, and automatic dark modes; the reported missing override is disproved by a browser regression. |
+| Historical review completion | Refresh scaffold branding and organization metadata, correct the MurderBird active navigation state, derive locale hero structure from the canonical source, guard locale input and escaped alt text, retain keyboard access to linked diagrams, and correct the MTB article grammar. |
+| Search review safeguards | Find only the first source offset for snippets, avoid literal null or undefined text, and replace AskJamie's empty-result planning suggestion with the indexed resume topic. Restore the original Python import path after CSP fixture loading. |
 | Shared foundation | Preserve both sites' subsequent brand-scoped universe CSS additions in the common superset. Site-specific generators and consumers remain local to each repository. |
 | Git cleanup | Completed task branches/worktrees are removed only after merge/tree proof and archival. Historical stashes and unique unpublished content are retained. |
 

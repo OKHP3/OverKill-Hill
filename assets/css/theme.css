@@ -7650,9 +7650,8 @@ html[data-color-scheme="dark"] .askjamie-main .mermaid .edgePath path {
   transform: none;
 }
 
-/* Mermaid's generated SVG is about twice as tall as this column is wide.
-   Reserve that space before the async module renders so replacing the source
-   text does not push the hero and everything below it down the page. */
+/* Reserve a minimum diagram height while Mermaid loads. The rendered SVG
+   determines the final height without imposing a fixed aspect ratio. */
 .askjamie-hero--universe .mermaid-scroll-wrap {
   min-height: 14rem;
 }

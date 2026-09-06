@@ -1,0 +1,42 @@
+{
+  "language_pair": "en-US -> fr-FR",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "source_revision": "git:0c7ccb545022564b6730ff5d90565e431d96a1dc plus reviewed navigation asset relocation and Organization logo update",
+  "reviewed_on": "2026-09-06",
+  "review_scope": "Exact comparison of all four English and twenty localized routes confirms only shared asset version queries, byte-identical navigation image URL relocation, and Organization logo URL/dimensions changed. All prose, alt text and publication boundaries retained. No new translation or human approval. Generated CSP hash allowlists were refreshed for the revised Organization JSON-LD; the strict policy structure is unchanged.",
+  "routes": [
+    {
+      "route": "/",
+      "locale": "fr",
+      "source_sha256": "6707b7953e9f4a66ab17eaffcbd810e783aac40acb5b9cf918c0f0341b6131b9",
+      "target_path": "fr/index.html",
+      "target_sha256": "aa6e47da9de24d784a0a82c3c4b11679a3a10fd579b1240097dc16074123573e",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/about/",
+      "locale": "fr",
+      "source_sha256": "2426c72da0f2d98154d82655db0da4d5612b5b1fc8f242bc067e6db0b1f726c4",
+      "target_path": "fr/about/index.html",
+      "target_sha256": "d8fbee3d53f5905823dc2e1ed01930b069f5a965f43b7291fd320d25c8a347fe",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/projects/",
+      "locale": "fr",
+      "source_sha256": "8ea523c58c212ed1e971bc16e57046959d2881b192ec28fa5b655a047e1dae64",
+      "target_path": "fr/projects/index.html",
+      "target_sha256": "4d50fca0914aa8755a09a7d7dd9fdb05b6c0f647426f78f1476107556ab1d965",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/contact/",
+      "locale": "fr",
+      "source_sha256": "b7617d20f143568b0ea9f5d27c83a711122ac7ac060f2f853217f6138c803515",
+      "target_path": "fr/contact/index.html",
+      "target_sha256": "a2f88fe32ed224b80fc266431c0118eed587eabd9d74431bb8a1b326efd33d12",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    }
+  ]
+}

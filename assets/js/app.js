@@ -633,7 +633,7 @@ document.addEventListener("DOMContentLoaded", () => {
     label: "Search AskJamie",
     placeholder: "Search tools, guides, and questions…",
     introduction: "Find tools, guides, and pages across AskJamie.",
-    suggestions: ["writing", "planning", "decisions", "clarity"],
+    suggestions: ["writing", "resume", "decisions", "clarity"],
   } : {
     label: "Search OverKill Hill",
     placeholder: "Search the Forge: articles, projects, ideas…",
@@ -723,14 +723,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ----- snippet + highlight -----
   function escapeHtml(s) {
-    return String(s).replace(/[&<>"']/g, (c) => ({
+    return String(s ?? "").replace(/[&<>"']/g, (c) => ({
       "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
     }[c]));
   }
   function snippetFor(entry, tokens, length) {
     const body = entry.body || entry.description || "";
     if (!body || !tokens.length) return "";
-    const bestIdx = normalizedMatchRanges(body, tokens)[0]?.[0] ?? -1;
+    const bestIdx = normalizedMatchRanges(body, tokens, true)[0]?.[0] ?? -1;
     let start = 0;
     if (bestIdx > 80) start = Math.max(0, bestIdx - 60);
     let snip = body.slice(start, start + (length || 220));
@@ -738,10 +738,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (start + (length || 220) < body.length) snip += "…";
     return snip;
   }
-  function normalizedMatchRanges(text, tokens) {
+  function normalizedMatchRanges(text, tokens, firstOnly = false) {
     if (!tokens.length) return [];
-    const original = String(text);
+    const original = String(text ?? "");
     const normalized = normalizeSearchText(original);
+    if (firstOnly) {
+      let first = -1;
+      for (const token of tokens) {
+        const at = token ? normalized.indexOf(token) : -1;
+        if (at !== -1 && (first === -1 || at < first)) first = at;
+      }
+      if (first === -1) return [];
+      let offset = 0;
+      // Snippets need one source offset, not every occurrence in a long article.
+      for (const match of original.matchAll(/\P{M}\p{M}*|\p{M}+/gu)) {
+        offset += normalizeSearchText(match[0]).length;
+        if (offset > first) return [[match.index, match.index + match[0].length]];
+      }
+      return [];
+    }
     const starts = [];
     const ends = [];
     // Preserve original offsets through accents and compatibility expansions
@@ -770,7 +785,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return merged;
   }
   function highlight(text, tokens) {
-    const original = String(text);
+    const original = String(text ?? "");
     let html = "";
     let offset = 0;
     for (const [start, end] of normalizedMatchRanges(original, tokens)) {
