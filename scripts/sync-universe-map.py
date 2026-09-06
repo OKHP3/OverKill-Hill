@@ -26,7 +26,7 @@ def render():
     # Strict rendering deliberately ignores Mermaid click directives. The browser
     # adds validated links from the ordinary outline after rendering.
     fragment = re.sub(r"^\s*click [^\n]*\n", "", fragment, flags=re.M)
-    fragment = fragment.replace('class="mermaid"', 'class="universe-diagram"')
+    fragment = fragment.replace('class="mermaid"', 'class="universe-diagram" hidden')
     fragment = fragment.replace('<details>', '<details class="content-block">')
     fragment = fragment.replace('<section aria-label="Universe map">', '<section class="universe-generated" aria-label="Published page map">')
     fragment = fragment.replace('href="https://overkillhill.com/', 'href="/')

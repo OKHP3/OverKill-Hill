@@ -576,6 +576,8 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 1
 
+    if not check and not locale:
+        subprocess.run([sys.executable, str(ROOT / "scripts/build-site.py")], check=True)
     payload = build_payload(scan_root=scan_root, locale=locale)
     rendered = json.dumps(payload, ensure_ascii=False, indent=2)
 
