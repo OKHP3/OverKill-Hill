@@ -566,8 +566,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", schedule, { passive: true });
   window.addEventListener("resize", schedule);
-  wide.addEventListener("change", schedule);
-  reduced.addEventListener("change", schedule);
+  [wide, reduced].forEach((query) => {
+    if (typeof query.addEventListener === "function") query.addEventListener("change", schedule);
+    else if (typeof query.addListener === "function") query.addListener(schedule);
+  });
   // Fonts, images and diagrams can change the sidebar's natural position.
   if (typeof ResizeObserver !== "undefined") {
     const observer = new ResizeObserver(schedule);

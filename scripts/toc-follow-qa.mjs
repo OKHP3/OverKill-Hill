@@ -132,5 +132,27 @@ try {
       console.error(`FAIL ${route}: ${error.message}`);
     } finally { await page.close(); }
   }
+  const legacy = await browser.newPage({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' });
+  const legacyErrors = [];
+  legacy.on('pageerror', error => legacyErrors.push(error.message));
+  try {
+    // Older MediaQueryList implementations expose addListener only. Keep the
+    // real matching/change behavior while removing the newer subscription API.
+    await legacy.addInitScript(() => Object.defineProperty(MediaQueryList.prototype, 'addEventListener', { value: undefined, configurable: true }));
+    await legacy.goto(base + '/projects/mac-studio-local-ai-workbench/', { waitUntil: 'load' });
+    await legacy.setViewportSize({ width: 1440, height: 900 });
+    await legacy.evaluate(() => {
+      document.documentElement.style.scrollBehavior = 'auto';
+      window.scrollTo(0, document.documentElement.scrollHeight * 0.55);
+    });
+    await legacy.evaluate(waitForStableLayoutFrames);
+    assert.deepEqual(legacyErrors, [], 'Legacy media-query subscriptions must not throw or abort shared script startup');
+    const box = await legacy.evaluate(geometry);
+    assert(box.error < 2, `Legacy media-query API must activate centered follow: ${JSON.stringify(box)}`);
+    console.log('PASS legacy MediaQueryList mobile-to-desktop follow');
+  } catch (error) {
+    failures++;
+    console.error(`FAIL legacy MediaQueryList: ${error.message}`);
+  } finally { await legacy.close(); }
 } finally { await browser.close(); }
 if (failures) process.exitCode = 1;
