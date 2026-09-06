@@ -37,7 +37,6 @@ ASSET_FINGERPRINT_RE = re.compile(
     re.I,
 )
 
-
 def sync_asset_fingerprints(page: str, canonical: str) -> str:
     """Use the canonical release fingerprints in every locale output."""
     for asset in ("/assets/css/theme.css", "/assets/js/app.js"):
@@ -79,11 +78,11 @@ GERMANY = '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30
 SPAIN = '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21"><rect fill="#AA151B" height="5" width="30"/><rect fill="#F1BF00" height="10" width="30" y="5"/><rect fill="#AA151B" height="5" width="30" y="15"/></svg>'
 LOCALE_MENU = (
     ('en', 'en-US', 'English (US)', USA),
-    ('en-gb', 'en-GB', 'English (UK)', ST_GEORGE),
+    ('en-gb', 'en-GB', 'English (UK) · Draft', ST_GEORGE),
     ('fr', 'fr-FR', 'Français (France)', FRANCE),
     ('de', 'de-DE', 'Deutsch (Deutschland)', GERMANY),
     ('es', 'es-ES', 'Español (España)', SPAIN),
-    ('es-mx', 'es-MX', 'Español (México)', MEXICO),
+    ('es-mx', 'es-MX', 'Español (México) · Borrador', MEXICO),
 )
 
 
@@ -350,9 +349,10 @@ def build_en_gb(source: str, route: str, dictionary: dict) -> str:
     page = set_canonical_href(page, target_url)
     page = set_meta_content(page, 'og:url', target_url)
     page = set_meta_content(page, 'og:locale', 'en_GB')
-    page = page.replace('content="noindex, follow', 'content="index, follow')
-    page = page.replace('English (US)', 'English (UK)')
-    page = page.replace('Language: English (US)', 'Language: English (UK)')
+    page = page.replace('content="index, follow', 'content="noindex, follow')
+    page = noindex(page)
+    page = page.replace('English (US)', 'English (UK) · Draft')
+    page = page.replace('Language: English (US)', 'Language: English (UK) · Draft')
     page = page.replace('hreflang="en"', 'hreflang="en-GB"').replace('lang="en"', 'lang="en-GB"')
     page = rewrite_in_scope_links(page, 'en-gb')
     page = adapt_visible_text(page, dictionary)
@@ -375,15 +375,15 @@ def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> st
     page = sync_csp(page, canonical)
     page = page.replace('<html lang="es">', '<html lang="es-MX">', 1)
     page = page.replace('https://overkillhill.com/es' + route, BASE + '/es-mx' + route)
-    page = page.replace('content="noindex, follow', 'content="index, follow')
+    page = noindex(page)
     page = page.replace('hreflang="es"', 'hreflang="es-MX"').replace('lang="es"', 'lang="es-MX"')
     page = re.sub(r'(<meta[^>]+property=["\']og:locale["\'][^>]+content=["\'])es_ES', r'\1es_MX', page, flags=re.I)
     # The shared mobile menu is right-anchored to the flag button. Keep the
     # visible current-locale label compact enough to remain wholly on-screen;
     # the expanded accessible name retains the full regional wording.
-    page = page.replace('Español</span>', 'ES-MX</span>')
-    page = page.replace('aria-label="Language: Español"', 'aria-label="Language: Español (México)"')
-    page = page.replace('aria-label="Español"', 'aria-label="Español (México)"')
+    page = page.replace('Español</span>', 'ES-MX · Borrador</span>')
+    page = page.replace('aria-label="Language: Español"', 'aria-label="Language: Español (México) · Borrador"')
+    page = page.replace('aria-label="Español"', 'aria-label="Español (México) · Borrador"')
     page = re.sub(r'<link[^>]+rel="alternate"[^>]*>', '', page, flags=re.I)
     page = re.sub(r'<svg aria-hidden="true" class="lang-flag".*?</svg>', MEXICO, page, count=1, flags=re.S)
     # Project-level Mexican usage overrides. Preserve intentional technology

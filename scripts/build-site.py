@@ -28,12 +28,12 @@ APP_RE = re.compile(r"/assets/js/app\.js(?:\?[^\"']*)?")
 # grow a language switcher on any other English page.
 # Pilot languages beyond English, in display order, for the four evergreen
 # routes below. Each entry is route -> {lang_code: target_route}.
-PILOT_LANGUAGES = ["en-gb", "fr", "de", "es", "es-mx"]
+PILOT_LANGUAGES = ["fr", "de", "es"]
 PILOT_LANG_SWITCH = {
-    "/": {"en-gb": "/en-gb/", "fr": "/fr/", "de": "/de/", "es": "/es/", "es-mx": "/es-mx/"},
-    "/about/": {"en-gb": "/en-gb/about/", "fr": "/fr/about/", "de": "/de/about/", "es": "/es/about/", "es-mx": "/es-mx/about/"},
-    "/projects/": {"en-gb": "/en-gb/projects/", "fr": "/fr/projects/", "de": "/de/projects/", "es": "/es/projects/", "es-mx": "/es-mx/projects/"},
-    "/contact/": {"en-gb": "/en-gb/contact/", "fr": "/fr/contact/", "de": "/de/contact/", "es": "/es/contact/", "es-mx": "/es-mx/contact/"},
+    "/": {"fr": "/fr/", "de": "/de/", "es": "/es/"},
+    "/about/": {"fr": "/fr/about/", "de": "/de/about/", "es": "/es/about/"},
+    "/projects/": {"fr": "/fr/projects/", "de": "/de/projects/", "es": "/es/projects/"},
+    "/contact/": {"fr": "/fr/contact/", "de": "/de/contact/", "es": "/es/contact/"},
 }
 
 # Small inline flag icons for the language switcher (USA, not UK -- this is
@@ -73,19 +73,15 @@ SPAIN_FLAG_SVG = (
     '<rect fill="#AA151B" height="5" width="30" y="15"/>'
     "</svg>"
 )
-UK_FLAG_SVG = '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21"><rect fill="#FFFFFF" height="20" width="30"/><path d="M15 0V20M0 10H30" stroke="#CE1124" stroke-width="4"/></svg>'
-MEXICO_FLAG_SVG = '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21"><rect fill="#006847" height="20" width="10"/><rect fill="#FFFFFF" height="20" width="10" x="10"/><rect fill="#CE1126" height="20" width="10" x="20"/></svg>'
 
-LANG_FLAG_SVG = {"en": USA_FLAG_SVG, "en-gb": UK_FLAG_SVG, "fr": FRANCE_FLAG_SVG, "de": GERMANY_FLAG_SVG, "es": SPAIN_FLAG_SVG, "es-mx": MEXICO_FLAG_SVG}
+LANG_FLAG_SVG = {"en": USA_FLAG_SVG, "fr": FRANCE_FLAG_SVG, "de": GERMANY_FLAG_SVG, "es": SPAIN_FLAG_SVG}
 LANG_LABEL = {
     "en": "English (US)",
-    "en-gb": "English (UK)",
     "fr": "Fran\u00e7ais (France)",
     "de": "Deutsch (Deutschland)",
     "es": "Espa\u00f1ol (Espa\u00f1a)",
-    "es-mx": "Español (México)",
 }
-LANG_TAG = {"en": "en-US", "en-gb": "en-GB", "fr": "fr-FR", "de": "de-DE", "es": "es-ES", "es-mx": "es-MX"}
+LANG_TAG = {"en": "en-US", "fr": "fr-FR", "de": "de-DE", "es": "es-ES"}
 
 # Keep one identity node for the whole site. Page-specific JSON-LD should
 # reference this node with @id instead of defining divergent organizations.
