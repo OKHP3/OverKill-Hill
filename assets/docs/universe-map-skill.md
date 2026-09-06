@@ -41,3 +41,8 @@ refresh on content commits. Local write mode builds authored HTML before scannin
 it, so a single index refresh includes the latest source edits. Raw diagram
 syntax remains hidden until rendering succeeds; the linked outline works without
 JavaScript.
+
+
+### Portable skill 0.1.4
+
+Includes the final PR76 hierarchy fix for slashless URLs, explicit-parent handling for ambiguous slash aliases, and validated trusted local index paths. All 18 generator regression tests pass. Existing indexed page links and rendering are preserved.
