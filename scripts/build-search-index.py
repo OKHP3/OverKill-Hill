@@ -22,8 +22,8 @@ from __future__ import annotations
 import json
 import os
 import re
-import sys
 import subprocess
+import sys
 from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
