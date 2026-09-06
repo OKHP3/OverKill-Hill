@@ -87,6 +87,9 @@ jobs:
       - name: Keep localized homepage heroes aligned
         run: python3 tests/test-homepage-hero-parity.py
 
+      - name: Keep reviewed page scaffolds and navigation current
+        run: python3 tests/test-review-closeout.py
+
       - name: Check regional draft publication boundaries
         run: python3 scripts/check-regional-drafts.py
 
@@ -181,7 +184,7 @@ jobs:
         run: npm run test:csp:regressions
 
       - name: Run search and embedded-app regressions
-        run: node --test tests/search-page.test.mjs tests/search-index.test.mjs tests/search-index-locale.test.mjs tests/embed-workflow.test.mjs
+        run: node --test tests/search-page.test.mjs tests/search-index.test.mjs tests/search-index-locale.test.mjs tests/embed-workflow.test.mjs tests/mermaid-links.test.mjs
 
       - name: Run WCAG contrast audit
         id: contrast

@@ -160,3 +160,61 @@ test("preserves an overlay query entered while the index is loading", async () =
     await browser.close();
   }
 });
+
+test("highlights normalized matches in original text and locates snippets after Unicode expansions", async () => {
+  const browser = await chromium.launch({ headless: true });
+  const page = await browser.newPage();
+  const title = "P³ résumé cafe\u0301 & <notes>";
+  try {
+    await openSearchPage(page, route => route.fulfill({ contentType: "application/json", body: JSON.stringify({ entries: [{
+      url: "/normalized-example/", title, category: "Project", headings: [],
+      body: "ﬃ ".repeat(100) + "anchor résumé marker", description: "Unicode examples",
+    }] }) }), "/search/?q=resume");
+    const result = page.locator('.okh-search-result[href="/normalized-example/"]');
+    assert.equal(await result.locator("h3 mark").innerText(), "résumé");
+    assert.match(await result.locator(".okh-search-result-snippet").innerText(), /anchor résumé marker/);
+    assert.equal(await result.locator("h3").innerText(), title);
+    assert.equal(await result.locator("h3 notes").count(), 0, "Original markup-like content stays text");
+    await page.locator("#search-page-input").fill("p3");
+    assert.equal(await result.locator("h3 mark").innerText(), "P³");
+    await page.locator("#search-page-input").fill("cafe");
+    assert.equal(await result.locator("h3 mark").textContent(), "cafe\u0301");
+    await page.locator("#search-page-input").fill("resume sum");
+    assert.equal(await result.locator("h3 mark").count(), 1, "Overlapping matches merge without nested markup");
+    assert.equal(await result.locator("h3 mark").innerText(), "résumé");
+  } finally { await browser.close(); }
+});
+
+test("Glee's unfiltered catalog omits snippets while searched results retain them", async () => {
+  const browser = await chromium.launch({ headless: true });
+  const page = await browser.newPage();
+  try {
+    const html = await readFile(resolve(repositoryRoot, "search/index.html"), "utf8");
+    await page.route(`${baseUrl}/search/`, route => route.fulfill({ contentType: "text/html", body: html.replace(/<body\b[^>]*>/i, '<body class="glee-main">') }));
+    await page.route(/\/assets\/js\/glee-site-enhancements\.js(?:\?.*)?$/, route => route.fulfill({ contentType: "text/javascript", body: "export {};" }));
+    await openSearchPage(page, route => route.fulfill({ contentType: "application/json", body: JSON.stringify({ entries: makeSearchEntries() }) }), "/search/");
+    assert.equal(await page.locator("#search-results .okh-search-result").count(), 60);
+    assert.equal(await page.locator("#search-results .okh-search-result-snippet").count(), 0);
+    await page.locator("#search-page-input").fill("omega");
+    assert.equal(await page.locator("#search-results .okh-search-result-snippet").count(), 60);
+  } finally { await browser.close(); }
+});
+
+test("Glee hero heading contrasts with its actual paper panel in light, dark and automatic modes", async () => {
+  const browser = await chromium.launch({ headless: true });
+  const css = await readFile(resolve(repositoryRoot, "assets/css/theme.css"), "utf8");
+  const luminance = rgb => rgb.match(/\d+/g).slice(0, 3).map(Number).map(v => v / 255).map(v => v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4).reduce((n, v, i) => n + v * [0.2126, 0.7152, 0.0722][i], 0);
+  try {
+    for (const [mode, system] of [["light", "light"], ["dark", "light"], ["auto", "dark"]]) {
+      const page = await browser.newPage({ colorScheme: system });
+      try {
+        await page.setContent(`<html data-theme="light"${mode === "auto" ? "" : ` data-color-scheme="${mode}"`}><body class="glee-main"><div class="glee-hero-card"><h1>Glee-fully Tools</h1></div></body></html>`);
+        await page.addStyleTag({ content: css });
+        const colors = await page.locator(".glee-hero-card").evaluate(card => ({ ink: getComputedStyle(card.querySelector("h1")).color, paper: getComputedStyle(card, "::before").backgroundColor }));
+        const values = [luminance(colors.ink), luminance(colors.paper)].sort((a, b) => b - a);
+        const ratio = (values[0] + 0.05) / (values[1] + 0.05);
+        assert(ratio >= 4.5, `${mode}: ${JSON.stringify(colors)}, contrast ${ratio.toFixed(2)}:1`);
+      } finally { await page.close(); }
+    }
+  } finally { await browser.close(); }
+});

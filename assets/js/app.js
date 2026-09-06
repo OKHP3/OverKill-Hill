@@ -633,7 +633,7 @@ document.addEventListener("DOMContentLoaded", () => {
     label: "Search AskJamie",
     placeholder: "Search tools, guides, and questions…",
     introduction: "Find tools, guides, and pages across AskJamie.",
-    suggestions: ["writing", "planning", "decisions", "clarity"],
+    suggestions: ["writing", "resume", "decisions", "clarity"],
   } : {
     label: "Search OverKill Hill",
     placeholder: "Search the Forge: articles, projects, ideas…",
@@ -723,19 +723,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ----- snippet + highlight -----
   function escapeHtml(s) {
-    return String(s).replace(/[&<>"']/g, (c) => ({
+    return String(s ?? "").replace(/[&<>"']/g, (c) => ({
       "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
     }[c]));
   }
   function snippetFor(entry, tokens, length) {
     const body = entry.body || entry.description || "";
-    if (!body) return "";
-    const lower = normalizeSearchText(body);
-    let bestIdx = -1;
-    for (const t of tokens) {
-      const i = lower.indexOf(t);
-      if (i !== -1 && (bestIdx === -1 || i < bestIdx)) bestIdx = i;
-    }
+    if (!body || !tokens.length) return "";
+    const bestIdx = normalizedMatchRanges(body, tokens, true)[0]?.[0] ?? -1;
     let start = 0;
     if (bestIdx > 80) start = Math.max(0, bestIdx - 60);
     let snip = body.slice(start, start + (length || 220));
@@ -743,14 +738,61 @@ document.addEventListener("DOMContentLoaded", () => {
     if (start + (length || 220) < body.length) snip += "…";
     return snip;
   }
-  function highlight(text, tokens) {
-    let html = escapeHtml(text);
-    for (const t of tokens) {
-      if (!t) continue;
-      const re = new RegExp("(" + t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig");
-      html = html.replace(re, "<mark>$1</mark>");
+  function normalizedMatchRanges(text, tokens, firstOnly = false) {
+    if (!tokens.length) return [];
+    const original = String(text ?? "");
+    const normalized = normalizeSearchText(original);
+    if (firstOnly) {
+      let first = -1;
+      for (const token of tokens) {
+        const at = token ? normalized.indexOf(token) : -1;
+        if (at !== -1 && (first === -1 || at < first)) first = at;
+      }
+      if (first === -1) return [];
+      let offset = 0;
+      // Snippets need one source offset, not every occurrence in a long article.
+      for (const match of original.matchAll(/\P{M}\p{M}*|\p{M}+/gu)) {
+        offset += normalizeSearchText(match[0]).length;
+        if (offset > first) return [[match.index, match.index + match[0].length]];
+      }
+      return [];
     }
-    return html;
+    const starts = [];
+    const ends = [];
+    // Preserve original offsets through accents and compatibility expansions
+    // (P³, decomposed accents, ligatures). Include combining marks in the span.
+    for (const match of original.matchAll(/\P{M}\p{M}*|\p{M}+/gu)) {
+      const folded = normalizeSearchText(match[0]);
+      for (let i = 0; i < folded.length; i++) {
+        starts.push(match.index);
+        ends.push(match.index + match[0].length);
+      }
+    }
+    const ranges = [];
+    for (const token of tokens) {
+      if (!token) continue;
+      for (let at = normalized.indexOf(token); at !== -1; at = normalized.indexOf(token, at + 1)) {
+        ranges.push([starts[at], ends[at + token.length - 1]]);
+      }
+    }
+    ranges.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+    const merged = [];
+    for (const range of ranges) {
+      const previous = merged[merged.length - 1];
+      if (previous && range[0] <= previous[1]) previous[1] = Math.max(previous[1], range[1]);
+      else merged.push(range);
+    }
+    return merged;
+  }
+  function highlight(text, tokens) {
+    const original = String(text ?? "");
+    let html = "";
+    let offset = 0;
+    for (const [start, end] of normalizedMatchRanges(original, tokens)) {
+      html += escapeHtml(original.slice(offset, start)) + "<mark>" + escapeHtml(original.slice(start, end)) + "</mark>";
+      offset = end;
+    }
+    return html + escapeHtml(original.slice(offset));
   }
 
   // ----- result rendering -----
