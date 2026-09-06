@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "max_children": 18,
+  "include_sections": false,
+  "sites": [
+    {
+      "origin": "https://overkillhill.com",
+      "title": "OverKill Hill P³",
+      "index": "assets/data/search-index.json"
+    }
+  ],
+  "overlay": {
+    "pages": {},
+    "concepts": []
+  }
+}
