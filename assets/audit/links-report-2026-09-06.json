@@ -1,12 +1,12 @@
 {
   "generated": "2026-09-06",
   "pages_scanned": 60,
-  "internal_links": 2395,
+  "internal_links": 2363,
   "external_links": 1354,
   "broken_links": [],
   "style_issues": [],
   "sitemap": {
-    "total_urls": 39,
+    "total_urls": 31,
     "missing_from_sitemap": [],
     "extra_in_sitemap": [],
     "intentionally_excluded": [
@@ -31,6 +31,26 @@
         "reason": "robots meta declares noindex"
       },
       {
+        "page": "en-gb/about/index.html",
+        "url": "https://overkillhill.com/en-gb/about/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "en-gb/contact/index.html",
+        "url": "https://overkillhill.com/en-gb/contact/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "en-gb/index.html",
+        "url": "https://overkillhill.com/en-gb/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "en-gb/projects/index.html",
+        "url": "https://overkillhill.com/en-gb/projects/",
+        "reason": "robots meta declares noindex"
+      },
+      {
         "page": "es/about/index.html",
         "url": "https://overkillhill.com/es/about/",
         "reason": "robots meta declares noindex"
@@ -48,6 +68,26 @@
       {
         "page": "es/projects/index.html",
         "url": "https://overkillhill.com/es/projects/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "es-mx/about/index.html",
+        "url": "https://overkillhill.com/es-mx/about/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "es-mx/contact/index.html",
+        "url": "https://overkillhill.com/es-mx/contact/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "es-mx/index.html",
+        "url": "https://overkillhill.com/es-mx/",
+        "reason": "robots meta declares noindex"
+      },
+      {
+        "page": "es-mx/projects/index.html",
+        "url": "https://overkillhill.com/es-mx/projects/",
         "reason": "robots meta declares noindex"
       },
       {
@@ -100,32 +140,32 @@
     },
     {
       "path": "about/index.html",
-      "internal_links": 48,
+      "internal_links": 46,
       "external_links": 20
     },
     {
       "path": "contact/index.html",
-      "internal_links": 47,
+      "internal_links": 45,
       "external_links": 21
     },
     {
       "path": "de/about/index.html",
-      "internal_links": 19,
+      "internal_links": 17,
       "external_links": 11
     },
     {
       "path": "de/contact/index.html",
-      "internal_links": 20,
+      "internal_links": 18,
       "external_links": 12
     },
     {
       "path": "de/index.html",
-      "internal_links": 29,
+      "internal_links": 27,
       "external_links": 15
     },
     {
       "path": "de/projects/index.html",
-      "internal_links": 27,
+      "internal_links": 25,
       "external_links": 16
     },
     {
@@ -150,22 +190,22 @@
     },
     {
       "path": "es/about/index.html",
-      "internal_links": 19,
+      "internal_links": 17,
       "external_links": 11
     },
     {
       "path": "es/contact/index.html",
-      "internal_links": 20,
+      "internal_links": 18,
       "external_links": 12
     },
     {
       "path": "es/index.html",
-      "internal_links": 29,
+      "internal_links": 27,
       "external_links": 15
     },
     {
       "path": "es/projects/index.html",
-      "internal_links": 27,
+      "internal_links": 25,
       "external_links": 16
     },
     {
@@ -195,22 +235,22 @@
     },
     {
       "path": "fr/about/index.html",
-      "internal_links": 20,
+      "internal_links": 18,
       "external_links": 8
     },
     {
       "path": "fr/contact/index.html",
-      "internal_links": 21,
+      "internal_links": 19,
       "external_links": 12
     },
     {
       "path": "fr/index.html",
-      "internal_links": 29,
+      "internal_links": 27,
       "external_links": 13
     },
     {
       "path": "fr/projects/index.html",
-      "internal_links": 28,
+      "internal_links": 26,
       "external_links": 13
     },
     {
@@ -235,7 +275,7 @@
     },
     {
       "path": "index.html",
-      "internal_links": 62,
+      "internal_links": 60,
       "external_links": 25
     },
     {
@@ -285,7 +325,7 @@
     },
     {
       "path": "projects/index.html",
-      "internal_links": 59,
+      "internal_links": 57,
       "external_links": 25
     },
     {
