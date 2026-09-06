@@ -1,6 +1,6 @@
 # MurderBird story page: local validation
 
-## Current expansion release candidate: September 6, 2026
+## September 6, 2026 update to the September 5 validation log
 
 This section supersedes the historical local-draft receipt below. The release
 candidate is on `codex/murderbird-era-expansions`, based on
@@ -32,6 +32,8 @@ Local browser checks against the repository preview on port 5027 passed:
 public routes at 320px, and accessibility checks across four representative
 pages plus 31 public routes. External resources are blocked by these local
 suites, so they do not prove analytics receipt or third-party availability.
+The following-sidebar suite also passed for all 14 sidebar menus, including
+MurderBird and the legacy mobile-to-desktop media-query transition.
 Structural, generated-page/index, cache, internal-link, static-audit, and
 contrast checks passed during the expansion review. Existing locale warnings
 remain outside this story change. There are 31 sitemap routes and 24
