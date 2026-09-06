@@ -1,12 +1,12 @@
 {
   "generated": "2026-09-05",
-  "pages_scanned": 59,
-  "internal_links": 2234,
-  "external_links": 1332,
+  "pages_scanned": 60,
+  "internal_links": 2282,
+  "external_links": 1355,
   "broken_links": [],
   "style_issues": [],
   "sitemap": {
-    "total_urls": 30,
+    "total_urls": 31,
     "missing_from_sitemap": [],
     "extra_in_sitemap": [],
     "intentionally_excluded": [
@@ -160,8 +160,8 @@
     },
     {
       "path": "de/index.html",
-      "internal_links": 26,
-      "external_links": 16
+      "internal_links": 27,
+      "external_links": 15
     },
     {
       "path": "de/projects/index.html",
@@ -200,8 +200,8 @@
     },
     {
       "path": "es/index.html",
-      "internal_links": 26,
-      "external_links": 16
+      "internal_links": 27,
+      "external_links": 15
     },
     {
       "path": "es/projects/index.html",
@@ -220,8 +220,8 @@
     },
     {
       "path": "es-mx/index.html",
-      "internal_links": 34,
-      "external_links": 14
+      "internal_links": 35,
+      "external_links": 13
     },
     {
       "path": "es-mx/projects/index.html",
@@ -235,8 +235,8 @@
     },
     {
       "path": "fr/about/index.html",
-      "internal_links": 16,
-      "external_links": 9
+      "internal_links": 17,
+      "external_links": 8
     },
     {
       "path": "fr/contact/index.html",
@@ -245,8 +245,8 @@
     },
     {
       "path": "fr/index.html",
-      "internal_links": 25,
-      "external_links": 14
+      "internal_links": 26,
+      "external_links": 13
     },
     {
       "path": "fr/projects/index.html",
@@ -285,7 +285,7 @@
     },
     {
       "path": "manifesto/index.html",
-      "internal_links": 50,
+      "internal_links": 51,
       "external_links": 41
     },
     {
@@ -420,13 +420,18 @@
     },
     {
       "path": "writings/index.html",
-      "internal_links": 41,
+      "internal_links": 42,
       "external_links": 15
     },
     {
       "path": "writings/magnus-saga/index.html",
       "internal_links": 38,
       "external_links": 15
+    },
+    {
+      "path": "writings/murderbird/index.html",
+      "internal_links": 41,
+      "external_links": 28
     }
   ]
 }
