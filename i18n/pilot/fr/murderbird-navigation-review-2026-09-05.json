@@ -1,0 +1,42 @@
+{
+  "language_pair": "en-US -> fr-FR",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "source_revision": "git:40e18ee7916f4a54196cc407d60999ba1d786d11 plus reviewed navigation diff",
+  "reviewed_on": "2026-09-05",
+  "review_scope": "Link-only integration, not a new prose translation. English source changes are exactly the MurderBird link and navigation comment. French pages retain all existing prose and add the protected proper title The MurderBird under Ecrits, using lang=en and hreflang=en. The full translation workflow is not claimed: its project profile/dictionary/manifest inputs are absent. Existing reviewed French content is preserved; no human or native approval is claimed.",
+  "routes": [
+    {
+      "route": "/",
+      "locale": "fr",
+      "source_sha256": "845ab26ae7631d6b0949bb916aae86647bc61aaa0e24eca6ed2428076519a441",
+      "target_path": "fr/index.html",
+      "target_sha256": "1e6154bf78bba2ab424503835fb99a760244c826f8c137184c0875422dc1adaf",
+      "disposition": "retained-ai-reviewed"
+    },
+    {
+      "route": "/about/",
+      "locale": "fr",
+      "source_sha256": "78cfa4522592087a195d4b98d61218b2a6aa1c27883fbee7c8e6ac0b45ebbede",
+      "target_path": "fr/about/index.html",
+      "target_sha256": "cb03cce8288017fc7a6ec46bbaa47c49adfbca9034bfce9d0459b5b273019148",
+      "disposition": "retained-ai-reviewed"
+    },
+    {
+      "route": "/contact/",
+      "locale": "fr",
+      "source_sha256": "77a33f3deb43667d8ff133a3ca2cc9e26fdf814f6f51eb1897bce7d498352af6",
+      "target_path": "fr/contact/index.html",
+      "target_sha256": "ae5a0ae1945a4532da31361ff7afb7470eec142a4d0057a4d7aa500d41e6fd2c",
+      "disposition": "retained-ai-reviewed"
+    },
+    {
+      "route": "/projects/",
+      "locale": "fr",
+      "source_sha256": "fb7d32d75529db625199005195e8c675c433ea0d3261862923ef09f4443a697c",
+      "target_path": "fr/projects/index.html",
+      "target_sha256": "9e9b2c28d4c69e1e1f11ef621d9d981d92541130f1ace2f98ed761f3d5b8a239",
+      "disposition": "retained-ai-reviewed"
+    }
+  ]
+}
