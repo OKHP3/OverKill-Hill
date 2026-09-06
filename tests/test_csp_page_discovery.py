@@ -48,13 +48,19 @@ class CspPageDiscoveryTests(unittest.TestCase):
     def test_translation_evidence_is_not_a_live_asset_consumer(self) -> None:
         # Saved reviews retain their original hashes; actual locale routes must
         # still participate in every live-page and asset-fingerprint check.
-        sys.path.insert(0, str(ROOT / "scripts"))
         modules = []
-        for filename in ("validate-site.py", "cache-bust.py"):
-            module_spec = importlib.util.spec_from_file_location(filename[:-3], ROOT / "scripts" / filename)
-            module = importlib.util.module_from_spec(module_spec)
-            module_spec.loader.exec_module(module)
-            modules.append(module)
+        original_path = sys.path[:]
+        try:
+            sys.path.insert(0, str(ROOT / "scripts"))
+            for filename in ("validate-site.py", "cache-bust.py"):
+                module_spec = importlib.util.spec_from_file_location(filename[:-3], ROOT / "scripts" / filename)
+                if module_spec is None or module_spec.loader is None:
+                    raise RuntimeError(f"could not load scripts/{filename}")
+                module = importlib.util.module_from_spec(module_spec)
+                module_spec.loader.exec_module(module)
+                modules.append(module)
+        finally:
+            sys.path[:] = original_path
         validator, cache = modules
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory).resolve()
