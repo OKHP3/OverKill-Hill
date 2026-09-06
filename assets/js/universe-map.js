@@ -38,7 +38,11 @@ async function renderVisible() {
       element.innerHTML = svg;
       const view = element.querySelector("svg");
       view.setAttribute("aria-label", element.closest("details").querySelector("summary").textContent);
-      view.style.maxWidth = "100%";
+      // Preserve readable labels on phones; the diagram scrolls inside its panel.
+      element.style.overflowX = "auto";
+      element.style.maxWidth = "100%";
+      view.style.width = Math.max(720, view.viewBox.baseVal.width) + "px";
+      view.style.maxWidth = "none";
       view.style.height = "auto";
       for (const link of element.closest("details").querySelectorAll("li a[href]")) {
         const target = new URL(link.getAttribute("href"), "https://overkillhill.com/");

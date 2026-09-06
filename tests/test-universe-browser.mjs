@@ -30,6 +30,9 @@ try {
   for (const width of [390, 1440]) {
     await page.setViewportSize({width, height: 900});
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false, `overflow at ${width}`);
+    if (width === 390) {
+      assert.ok(await page.locator('.universe-diagram').first().evaluate((element) => element.scrollWidth > element.clientWidth));
+    }
   }
   await page.evaluate(() => document.documentElement.setAttribute('data-color-scheme', 'light'));
   await page.waitForFunction((count) => document.querySelectorAll('.universe-diagram[data-rendered="true"]').length === count, total);
