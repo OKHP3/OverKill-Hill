@@ -52,12 +52,12 @@ def configure_utf8_console() -> None:
 configure_utf8_console()
 
 ROOT = Path(__file__).resolve().parent.parent
-SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src", "tests"}
+SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src", "tests", "i18n"}
 SITEMAP = ROOT / "sitemap.xml"
 SITE_ORIGIN = "https://overkillhill.com"
 MANIFEST = ROOT / "site-src/pages.json"
 HEAD_PARTIAL = ROOT / "assets/partials/head.html"
-MANIFEST_EXTERNAL_PREFIXES = ("de/", "es/", "fr/", "en-gb/", "es-mx/", "i18n/pilot/")
+MANIFEST_EXTERNAL_PREFIXES = ("de/", "es/", "fr/", "en-gb/", "es-mx/")
 THEME_STYLESHEET_PATH = "/assets/css/theme.css"
 THEME_STYLESHEET = ROOT / THEME_STYLESHEET_PATH.lstrip("/")
 APP_SCRIPT_PATH = "/assets/js/app.js"

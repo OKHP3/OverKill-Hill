@@ -497,56 +497,73 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// ── 4. Sticky TOC: smooth-lerp scroll-follow for #toc-widget ───────────────
-// Only activates on wide viewports (≥1024px) when the widget and footer exist.
+// 4. Centered TOC scroll-follow. Shared by every #toc-widget sidebar.
 (function () {
-  if (window.innerWidth < 1024) return;
-
   const toc = document.getElementById("toc-widget");
   const footer = document.querySelector(".site-footer");
   if (!toc || !footer) return;
 
-  let lerpedY = 0;
-  let targetY = 0;
-  const SPEED = 0.08;
-  const NAV_H = 112;
-  const PAD = 32;
+  const wide = window.matchMedia("(min-width: 1024px)");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const rail = toc.closest(".sidebar-rail, .manifesto-sidebar");
+  const header = document.querySelector(".site-header");
+  let position = 0;
+  let frame = 0;
+  let previousTime = 0;
 
-  function lerp(a, b, t) {
-    return a + (b - a) * t;
+  function schedule() {
+    if (!frame) frame = requestAnimationFrame(tick);
   }
-  function getNaturalTop(element) {
-    let top = 0;
-    while (element) {
-      top += element.offsetTop;
-      element = element.offsetParent;
+
+  function tick(time) {
+    frame = 0;
+    if (!wide.matches || !toc.getClientRects().length) {
+      position = 0;
+      previousTime = 0;
+      toc.style.removeProperty("transform");
+      toc.style.removeProperty("max-height");
+      toc.classList.remove("toc-follow-active");
+      if (rail) rail.classList.remove("toc-follow-rail");
+      return;
     }
-    return top;
+
+    // A sticky ancestor and a translated child otherwise fight over position.
+    if (rail) rail.classList.add("toc-follow-rail");
+    toc.classList.add("toc-follow-active");
+    const topGap = Math.max(112, (header ? header.getBoundingClientRect().height : 0) + 16);
+    toc.style.maxHeight = `${Math.max(80, window.innerHeight - topGap - 32)}px`;
+    const box = toc.getBoundingClientRect();
+    const naturalTop = box.top + window.scrollY - position;
+    const centered = Math.max(topGap, (window.innerHeight - box.height) / 2);
+    const footerTop = footer.getBoundingClientRect().top + window.scrollY;
+    const maximum = Math.max(0, footerTop - 32 - naturalTop - box.height);
+    const target = Math.min(Math.max(0, window.scrollY + centered - naturalTop), maximum);
+    // Preserve the Mac Studio 8%-per-frame feel at 60 Hz on faster displays too.
+    const elapsed = previousTime ? Math.min(64, time - previousTime) : 1000 / 60;
+    const blend = reduced.matches ? 1 : 1 - Math.pow(0.92, elapsed / (1000 / 60));
+    position += (target - position) * blend;
+    // Clamp immediately at the footer even during a fast fling toward the bottom.
+    position = Math.min(position, maximum);
+    if (Math.abs(target - position) < 0.1) position = target;
+    toc.style.transform = `translateY(${position}px)`;
+    previousTime = time;
+    if (position !== target) schedule();
+    else previousTime = 0;
   }
 
-  let tocNaturalTop = getNaturalTop(toc);
-  let tocHeight = toc.offsetHeight;
-
-  function tick() {
-    const scrollY = window.scrollY;
-    const footerTop = footer.offsetTop;
-    const centeredOffset = Math.max(NAV_H, (window.innerHeight - tocHeight) / 2);
-    const raw = Math.max(0, scrollY + centeredOffset - tocNaturalTop);
-    const max = Math.max(0, footerTop - PAD - tocNaturalTop - tocHeight);
-    targetY = Math.min(raw, max);
-    lerpedY = lerp(lerpedY, targetY, SPEED);
-    toc.style.transform = `translateY(${lerpedY.toFixed(2)}px)`;
-    requestAnimationFrame(tick);
+  window.addEventListener("scroll", schedule, { passive: true });
+  window.addEventListener("resize", schedule);
+  wide.addEventListener("change", schedule);
+  reduced.addEventListener("change", schedule);
+  // Fonts, images and diagrams can change the sidebar's natural position.
+  if (typeof ResizeObserver !== "undefined") {
+    const observer = new ResizeObserver(schedule);
+    observer.observe(document.body);
+    observer.observe(toc);
   }
-
-  requestAnimationFrame(tick);
-  window.addEventListener("resize", () => {
-    toc.style.transform = "";
-    if (window.innerWidth >= 1024) {
-      tocNaturalTop = getNaturalTop(toc);
-      tocHeight = toc.offsetHeight;
-    }
-  });
+  if (document.fonts) document.fonts.ready.then(schedule);
+  window.addEventListener("load", schedule);
+  schedule();
 }());
 
 // ── 4b. TOC scrollspy — active-link tracking for #toc-widget ───────────

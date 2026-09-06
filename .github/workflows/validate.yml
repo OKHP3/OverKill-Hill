@@ -136,6 +136,7 @@ jobs:
           curl --silent --fail http://127.0.0.1:5000/ >/dev/null
           npm run test:phone-overflow
           npm run test:responsive
+          npm run test:toc
 
       - name: Run accessibility QA gate
         run: |

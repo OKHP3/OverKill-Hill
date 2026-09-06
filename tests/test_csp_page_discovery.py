@@ -7,6 +7,7 @@ import importlib.util
 import unittest
 import json
 import tempfile
+import sys
 from types import SimpleNamespace
 from unittest.mock import patch
 from pathlib import Path
@@ -43,6 +44,33 @@ class CspPageDiscoveryTests(unittest.TestCase):
 
         self.assertIn("index.html", pages)
         self.assertFalse(any(page.startswith("tests/fixtures/") for page in pages))
+
+    def test_translation_evidence_is_not_a_live_asset_consumer(self) -> None:
+        # Saved reviews retain their original hashes; actual locale routes must
+        # still participate in every live-page and asset-fingerprint check.
+        sys.path.insert(0, str(ROOT / "scripts"))
+        modules = []
+        for filename in ("validate-site.py", "cache-bust.py"):
+            module_spec = importlib.util.spec_from_file_location(filename[:-3], ROOT / "scripts" / filename)
+            module = importlib.util.module_from_spec(module_spec)
+            module_spec.loader.exec_module(module)
+            modules.append(module)
+        validator, cache = modules
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory).resolve()
+            names = {"index.html", "es-mx/index.html", "fr/about/index.html",
+                     "i18n/pilot/es-mx/reviewed/index.html"}
+            for name in names:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("<main>Example</main>", encoding="utf-8")
+            expected = names - {"i18n/pilot/es-mx/reviewed/index.html"}
+            with patch.object(csp, "ROOT", root), patch.object(
+                csp.subprocess, "run", return_value=SimpleNamespace(stdout="\n".join(names))
+            ), patch.object(validator, "ROOT", root):
+                self.assertEqual({p.relative_to(root).as_posix() for p in csp.all_pages()}, expected)
+                self.assertEqual({p.relative_to(root).as_posix() for p in validator.find_html_files()}, expected)
+                self.assertEqual({p.relative_to(root).as_posix() for p in cache.iter_html_files(root)}, expected)
 
 
 if __name__ == "__main__":

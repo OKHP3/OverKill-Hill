@@ -3546,7 +3546,7 @@ html[data-theme="light"] .pf-boundary-label--private    { color: #475569; }
   .okh-search-trigger .okh-search-label { display: none; }
 }
 @media (max-width: 768px) { .murderbird-grid { grid-template-columns: 1fr; } }
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .manifesto-layout { grid-template-columns: 1fr; }
   .manifesto-sidebar { display: none; }
 }
@@ -3589,10 +3589,16 @@ html[data-theme="light"] .pf-boundary-label--private    { color: #475569; }
 @media (max-width: 600px) { .decision-item { grid-template-columns: 1fr; gap: 0.25rem; } .decision-item > code { display: block; } }
 @media (max-width: 1023px) { .pf-body-with-sidebar { grid-template-columns: 1fr; } .pf-toc-sidebar { display: none; } }
 
-/* ── TOC widget: GPU-layer hint for smooth animation */
+/* A single moving menu per sidebar; metadata remains in document flow. */
 @media (min-width: 1024px) {
-  #toc-widget {
-    will-change: transform;
+  .sidebar-rail.toc-follow-rail,
+  .manifesto-sidebar.toc-follow-rail {
+    position: static;
+  }
+  #toc-widget.toc-follow-active {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
   }
 }
 @media (prefers-color-scheme: dark) {
