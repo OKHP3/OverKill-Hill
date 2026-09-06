@@ -31,6 +31,33 @@ const geometry = (requireConvergence = false) => {
   return requireConvergence ? error < 2 : { top: r.top, bottom: r.bottom, height: r.height, expected, error, footer: footer.top, natural, scroll: scrollY, maxScroll: document.documentElement.scrollHeight - innerHeight };
 };
 
+// A diagram's temporary render container can disappear after a breakpoint
+// change (FoundRy moved document scroll anchoring by 117px). Measure reduced
+// motion against stable layout inputs, without waiting for the TOC transform.
+const waitForStableLayoutFrames = async () => {
+  let previous;
+  let stable = 0;
+  let timeout;
+  try {
+    await Promise.race([
+      new Promise((_, reject) => { timeout = setTimeout(() => reject(new Error('Layout did not stabilize within 5 seconds')), 5000); }),
+      (async () => {
+        for (let frame = 0; frame < 180; frame++) {
+          await new Promise(requestAnimationFrame);
+          const toc = document.getElementById('toc-widget');
+          const box = toc.getBoundingClientRect();
+          const translation = new DOMMatrixReadOnly(getComputedStyle(toc).transform).m42;
+          const inputs = [document.body.offsetHeight, scrollY, innerWidth, innerHeight, box.height, box.top + scrollY - translation];
+          stable = previous && inputs.every((value, index) => Math.abs(value - previous[index]) < 0.25) ? stable + 1 : 0;
+          previous = inputs;
+          if (stable === 3) return;
+        }
+        throw new Error('Layout did not stabilize within 180 animation frames');
+      })(),
+    ]);
+  } finally { clearTimeout(timeout); }
+};
+
 try {
   for (const file of menus) {
     const route = '/' + file.replace(/index\.html$/, '');
@@ -88,19 +115,15 @@ try {
       await page.reload({ waitUntil: 'load' });
       await page.setViewportSize({ width: 1440, height: 900 });
       await page.emulateMedia({ reducedMotion: 'reduce' });
-      await page.evaluate(async () => {
+      await page.evaluate(() => {
         document.documentElement.style.scrollBehavior = 'auto';
         window.scrollTo(0, document.documentElement.scrollHeight * 0.55);
-        // Reduced motion must settle within delivered frames, regardless of
-        // how long a busy host takes to deliver those frames.
-        for (let i = 0; i < 3; i++) await new Promise(requestAnimationFrame);
       });
+      await page.evaluate(waitForStableLayoutFrames);
       const reduced = await page.evaluate(geometry);
       assert(reduced.error < 2, `Mobile to desktop/reduced motion must follow immediately: ${JSON.stringify(reduced)}`);
-      await page.evaluate(async () => {
-        window.scrollTo(0, document.documentElement.scrollHeight);
-        for (let i = 0; i < 3; i++) await new Promise(requestAnimationFrame);
-      });
+      await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+      await page.evaluate(waitForStableLayoutFrames);
       const bottom = await page.evaluate(geometry);
       assert(bottom.bottom <= bottom.footer - 30, `Sidebar must clear footer: ${JSON.stringify(bottom)}`);
       console.log(`PASS ${route}`);
