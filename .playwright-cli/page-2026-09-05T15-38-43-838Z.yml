@@ -1,0 +1,1186 @@
+- generic [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "OverKill Hill P³ logo OverKill Hill P³™ Home" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "OverKill Hill P³ logo" [ref=e7]
+        - generic [ref=e8]: OverKill Hill P³™ Home
+      - navigation "Primary" [ref=e9]:
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "The Forge" [ref=e12] [cursor=pointer]:
+              - /url: /#forge
+          - listitem [ref=e13]:
+            - link "Our Projects ▾" [ref=e14] [cursor=pointer]:
+              - /url: /projects/
+          - listitem [ref=e15]:
+            - link "Writings ▾" [ref=e16] [cursor=pointer]:
+              - /url: /writings/
+          - listitem [ref=e17]:
+            - link "About ▾" [ref=e18] [cursor=pointer]:
+              - /url: /about/
+      - generic [ref=e19]:
+        - button "Open search (Ctrl+K)" [ref=e20] [cursor=pointer]:
+          - generic [ref=e24]: Search
+          - generic [ref=e25]: Ctrl+K
+        - button "Switch to light mode" [ref=e26] [cursor=pointer]
+    - region "Forge update" [ref=e30]:
+      - generic [ref=e31]: 🔥Hot off the FORGE⚒️
+      - 'link "v0.5 is live: the Council of AIs scored each other, every model was harder on itself than the architect was. Read it →" [ref=e32] [cursor=pointer]':
+        - /url: /writings/first-diagram-is-a-liar/#council-scoring
+  - main [ref=e33]:
+    - generic [ref=e34]:
+      - region "Project overview" [ref=e35]:
+        - navigation "Breadcrumb" [ref=e36]:
+          - link "overkillhill.com" [ref=e37] [cursor=pointer]:
+            - /url: /
+          - text: /
+          - link "projects" [ref=e38] [cursor=pointer]:
+            - /url: /projects/
+          - text: / mermaid-theme-builder
+        - generic [ref=e39]:
+          - generic [ref=e40]: Community Tool
+          - generic [ref=e41]: Open Source
+          - generic [ref=e42]: v0.6.1 Shipped
+          - generic [ref=e43]: Agent Skill Family Shipped
+        - heading "Mermaid Theme Builder" [level=1] [ref=e44]
+        - paragraph [ref=e45]: Visual governance for AI-generated Mermaid diagrams.
+        - paragraph [ref=e46]: Paste Mermaid, detect the family, apply a reusable theme, preview live, and export renderer-aware code or prompt scaffolds. Browser-only. No login. No backend. Your diagram code, palette data, and exports stay in your browser. UI fonts load from Google Fonts.
+        - generic [ref=e47]:
+          - link "⤢ Launch Theme Builder" [ref=e48] [cursor=pointer]:
+            - /url: https://okhp3.github.io/mermaid-theme-builder/#compose
+          - link "Read Research Report" [ref=e49] [cursor=pointer]:
+            - /url: /writings/first-diagram-is-a-liar/
+          - link "View Source on GitHub" [ref=e50] [cursor=pointer]:
+            - /url: https://github.com/OKHP3/mermaid-theme-builder
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - generic [ref=e54]: The Problem
+            - heading "The Missing Layer" [level=2] [ref=e55]
+            - generic [ref=e56]:
+              - generic [ref=e57]:
+                - generic [aria-hidden] [ref=e58]: 🎲
+                - generic [ref=e59]:
+                  - heading "Every prompt is a fresh roll of the dice" [level=3] [ref=e60]
+                  - paragraph [ref=e61]: When ChatGPT, Claude, Copilot, or Gemini generate Mermaid diagrams, each prompt produces different colors, inconsistent styling, and no memory of what worked before.
+              - generic [ref=e62]:
+                - generic [aria-hidden] [ref=e63]: ◫
+                - generic [ref=e64]:
+                  - heading "Default styling = brand disconnection" [level=3] [ref=e65]
+                  - paragraph [ref=e66]: "Mermaid's default theme makes every AI-generated diagram look generic: no relationship to your brand system, your document style, or each other."
+              - generic [ref=e67]:
+                - generic [aria-hidden] [ref=e68]: ⚐
+                - generic [ref=e69]:
+                  - heading "Not all diagram types style the same way" [level=3] [ref=e70]
+                  - paragraph [ref=e71]: Flowcharts, sequence diagrams, and class diagrams each expose different styling surfaces. What works for one may break another, and AI tools don't know the difference.
+              - generic [ref=e72]:
+                - generic [aria-hidden] [ref=e73]: ↺
+                - generic [ref=e74]:
+                  - heading "3–5 follow-up prompts just to fix styling" [level=3] [ref=e75]
+                  - paragraph [ref=e76]: Users routinely spend more time correcting colors, fixing syntax errors from hallucinated theme variables, and chasing consistency than on actual diagram content.
+          - generic [ref=e77]:
+            - generic [ref=e78]:
+              - generic [ref=e79]: Live Tool · okhp3.github.io
+              - generic [ref=e81]:
+                - button "Reload tool" [ref=e82] [cursor=pointer]: ↺ Reload
+                - link "⤢ Full Screen" [ref=e83] [cursor=pointer]:
+                  - /url: https://okhp3.github.io/mermaid-theme-builder/
+            - link "⤢ Open Mermaid Theme Builder Full Screen" [ref=e85] [cursor=pointer]:
+              - /url: https://okhp3.github.io/mermaid-theme-builder/
+            - note [ref=e86]:
+              - strong [ref=e87]: "External app:"
+              - text: This live tool is served from
+              - link "okhp3.github.io" [ref=e88] [cursor=pointer]:
+                - /url: https://okhp3.github.io/mermaid-theme-builder/
+              - text: ", outside this site’s trust boundary."
+            - note [ref=e89]:
+              - text: Embedded browsers may limit clipboard or download actions depending on browser permissions. If an export does not complete here, use
+              - link "Apply in a new tab" [ref=e90] [cursor=pointer]:
+                - /url: https://okhp3.github.io/mermaid-theme-builder/#apply
+              - text: .
+            - generic [ref=e91]:
+              - generic [aria-hidden]:
+                - generic: Loading Mermaid Theme Builder…
+              - iframe [active] [ref=e92]:
+                - generic [ref=f1e3]:
+                  - link "Skip to main content" [ref=f1e4] [cursor=pointer]:
+                    - /url: "#main-content"
+                  - banner [ref=f1e5]:
+                    - generic [ref=f1e13]:
+                      - heading "Mermaid Theme Builder" [level=1] [ref=f1e15]
+                      - paragraph [ref=f1e16]: visual governance for AI-generated Mermaid diagrams
+                    - generic [ref=f1e17]:
+                      - button "Light theme (click to switch to dark)" [ref=f1e18]
+                      - button "Settings" [ref=f1e22]
+                  - main [ref=f1e25]:
+                    - tabpanel "Apply" [ref=f1e64]:
+                      - generic [ref=f1e66]:
+                        - complementary "Apply workspace sections" [ref=f1e67]:
+                          - button "Theme workspace" [ref=f1e68]: ✦
+                          - button "Preview workspace" [ref=f1e69]: ◉
+                          - button "Palette inspector" [ref=f1e70]: ≡
+                          - button "Switch to Compose" [ref=f1e71]: "?"
+                        - generic [ref=f1e72]:
+                          - generic [ref=f1e73]:
+                            - generic [ref=f1e74]:
+                              - text: Apply / theme 01
+                              - strong [ref=f1e75]: My Theme 1
+                            - radiogroup "Palette selector" [ref=f1e78]:
+                              - generic [ref=f1e79]:
+                                - radio "My Theme 1 Mine" [checked] [ref=f1e80]:
+                                  - generic [ref=f1e86]: My Theme 1
+                                  - generic [ref=f1e87]: Mine
+                                - button "Delete My Theme 1" [ref=f1e88]
+                                - generic:
+                                  - button "Move My Theme 1 up" [disabled]
+                                  - button "Move My Theme 1 down" [disabled]
+                                  - button "Duplicate My Theme 1"
+                                  - button "Rename My Theme 1"
+                                  - button "Profile details for My Theme 1"
+                              - button "Add My Theme workspace" [ref=f1e91]:
+                                - generic [ref=f1e94]: New
+                              - button "Import JSON as new slot" [ref=f1e95]:
+                                - generic [ref=f1e98]: Import
+                              - radio "OKHP3" [ref=f1e100]
+                              - radio "Glee-fully" [ref=f1e107]
+                              - radio "AskJamie" [ref=f1e114]
+                              - radio "Ocean Depth" [ref=f1e121]
+                              - radio "Forest Sage" [ref=f1e128]
+                              - radio "Slate Ember" [ref=f1e135]
+                              - radio "Violet Mist" [ref=f1e142]
+                          - generic [ref=f1e149]:
+                            - generic [ref=f1e150]:
+                              - text: Theme preview
+                              - generic [ref=f1e151]: / Flowchart
+                            - generic [ref=f1e152]:
+                              - button "◉ Preview" [ref=f1e153]
+                              - button "≡ Edit colors" [ref=f1e154]
+                          - generic [ref=f1e155]:
+                            - complementary [ref=f1e156]:
+                              - generic [ref=f1e157]: Theme controls04
+                              - generic [ref=f1e158]:
+                                - text: Diagram code
+                                - button "Flowchart⌄" [ref=f1e159]
+                              - generic [ref=f1e160]:
+                                - text: Rendering mode
+                                - generic [ref=f1e161]:
+                                  - button "SVG" [ref=f1e162]
+                                  - button "Canvas" [ref=f1e163]
+                              - generic [ref=f1e164]:
+                                - text: Look
+                                - generic [ref=f1e165]:
+                                  - button "classic" [ref=f1e166]
+                                  - button "neo" [ref=f1e167]
+                                  - button "Hand" [ref=f1e168]
+                              - generic [ref=f1e169]:
+                                - text: Font family
+                                - generic [ref=f1e170]: DM Sans, system-ui, sans-serif⌄
+                            - region "Diagram preview" [ref=f1e171]:
+                              - generic [ref=f1e172]:
+                                - generic [ref=f1e173]:
+                                  - generic [ref=f1e174]: Type
+                                  - button "Flowchart" [ref=f1e176]
+                                - generic [ref=f1e181]:
+                                  - generic [ref=f1e182]: Target
+                                  - combobox "Select target renderer" [ref=f1e183] [cursor=pointer]:
+                                    - option "Generic (most compatible)" [selected]
+                                    - option "Mermaid Live Editor"
+                                    - option "GitHub"
+                                    - option "GitLab"
+                                    - option "Notion"
+                                    - option "Obsidian"
+                                    - option "Confluence + Plugin"
+                                    - option "Mermaid CLI (mmdc)"
+                                    - option "Microsoft 365 / Loop / Copilot"
+                                - generic [ref=f1e185]:
+                                  - generic [ref=f1e186]: Look
+                                  - generic [ref=f1e187]:
+                                    - button "Classic" [ref=f1e188]
+                                    - button "Neo" [ref=f1e189]
+                                    - button "Hand Drawn" [ref=f1e190]
+                              - note "Syntax tips for flowchart" [ref=f1e191]:
+                                - generic [ref=f1e192]:
+                                  - generic [ref=f1e195]:
+                                    - generic [ref=f1e196]:
+                                      - paragraph [ref=f1e197]: flowchart syntax
+                                      - generic [ref=f1e198]: "flowchart LR A([Start]) --> B{Decision} B -- Yes --> C[Action] B -- No --> D[/Input/] C --> E((End)) classDef accent fill:#c46a2c,color:#fff class C accent"
+                                    - generic [ref=f1e199]:
+                                      - generic [ref=f1e200]:
+                                        - generic [ref=f1e201]: classDef
+                                        - generic [ref=f1e202]: "Yes"
+                                      - paragraph [ref=f1e203]: Node fill/border use primaryColor and primaryBorderColor; edge labels use edgeLabelBackground. classDef lets you color individual nodes — append :::styleName after a node id.
+                                  - button "Dismiss flowchart syntax tip" [ref=f1e204]
+                              - generic [ref=f1e207]:
+                                - generic [ref=f1e208]:
+                                  - text: Diagram Code
+                                  - button "Expand code editor" [ref=f1e209]: Expand
+                                - textbox "Mermaid diagram code input" [ref=f1e210]:
+                                  - /placeholder: Paste your Mermaid diagram here…
+                                  - text: "flowchart TD A00([\"From Apply tab\"]) A01[\"Paste Mermaid source code\"] A02[\"Detect diagram family\"] A03[\"Review detection results\"] A04[\"Choose active theme\"] A05[\"Generate themed output\"] A06[\"Preview themed diagram\"] A07[\"Compare original and themed views\"] A08{\"Compatibility advisories?\"} A09[\"Repair source, theme, or target\"] A10{\"Choose export path\"} A11[\"Copy styled Mermaid code\"] A12[\"Export Markdown bootstrap\"] A13[\"Export AI prompt scaffold\"] A14[\"Open in Mermaid Live Editor\"] A15([\"Use in target documentation\"]) A00 --> A01 --> A02 --> A03 --> A04 --> A05 --> A06 --> A07 --> A08 A08 -- \"Warnings found\" --> A09 A09 --> A01 A08 -- \"Looks safe\" --> A10 A10 --> A11 --> A15 A10 --> A12 --> A15 A10 --> A13 --> A15 A10 --> A14 --> A15"
+                              - generic [ref=f1e212]:
+                                - tablist "Preview mode" [ref=f1e214]:
+                                  - tab "original" [ref=f1e215]
+                                  - tab "themed" [selected] [ref=f1e216]
+                                  - tab "diff" [ref=f1e217]
+                                  - tab "code" [ref=f1e218]
+                                - note "How to use the Themed tab" [ref=f1e219]:
+                                  - generic [ref=f1e220]:
+                                    - generic [ref=f1e223]:
+                                      - paragraph [ref=f1e224]: How to use the Themed tab
+                                      - list [ref=f1e225]:
+                                        - listitem [ref=f1e226]:
+                                          - generic [ref=f1e227]: "1"
+                                          - text: Paste a diagram and pick a palette from the bar above
+                                        - listitem [ref=f1e228]:
+                                          - generic [ref=f1e229]: "2"
+                                          - text: This panel renders the diagram with the active theme applied
+                                        - listitem [ref=f1e230]:
+                                          - generic [ref=f1e231]: "3"
+                                          - text: Switch palettes to instantly re-theme without re-pasting
+                                    - button "Dismiss How to use the Themed tab hint" [ref=f1e232]
+                                - generic [ref=f1e236]:
+                                  - generic [ref=f1e237]: Diagram rendered
+                                  - generic "Drag to pan · Scroll to zoom · Double-click to reset" [ref=f1e238]:
+                                    - document [ref=f1e240]:
+                                      - generic [ref=f1e242]:
+                                        - generic [ref=f1e257]:
+                                          - paragraph [ref=f1e263]: Warnings found
+                                          - paragraph [ref=f1e269]: Looks safe
+                                        - generic [ref=f1e270]:
+                                          - paragraph [ref=f1e279]: From Apply tab
+                                          - paragraph [ref=f1e286]: Paste Mermaid source code
+                                          - paragraph [ref=f1e293]: Detect diagram family
+                                          - paragraph [ref=f1e300]: Review detection results
+                                          - paragraph [ref=f1e307]: Choose active theme
+                                          - paragraph [ref=f1e314]: Generate themed output
+                                          - paragraph [ref=f1e321]: Preview themed diagram
+                                          - paragraph [ref=f1e328]: Compare original and themed views
+                                          - paragraph [ref=f1e335]: Compatibility advisories?
+                                          - paragraph [ref=f1e342]: Repair source, theme, or target
+                                          - paragraph [ref=f1e349]: Choose export path
+                                          - paragraph [ref=f1e356]: Copy styled Mermaid code
+                                          - paragraph [ref=f1e363]: Export Markdown bootstrap
+                                          - paragraph [ref=f1e370]: Export AI prompt scaffold
+                                          - paragraph [ref=f1e377]: Open in Mermaid Live Editor
+                                          - paragraph [ref=f1e386]: Use in target documentation
+                                  - generic [ref=f1e387]:
+                                    - button "Zoom out" [ref=f1e388]
+                                    - generic "Current zoom level" [ref=f1e392]: 90%
+                                    - button "Zoom in" [ref=f1e393]
+                                    - button "Fit to window" [ref=f1e398]
+                                    - button "Reset view" [ref=f1e409]
+                            - complementary [ref=f1e413]:
+                              - generic [ref=f1e414]:
+                                - button "Colors" [ref=f1e415]
+                                - button "Type" [ref=f1e416]
+                              - generic [ref=f1e417]:
+                                - paragraph [ref=f1e418]: The active palette governs every diagram family. Changes stay compatible with the renderer.
+                                - button [ref=f1e419]:
+                                  - generic [ref=f1e420]:
+                                    - strong [ref=f1e421]: Primary (nodes)
+                                    - text: "#111827"
+                                - button [ref=f1e422]:
+                                  - generic [ref=f1e423]:
+                                    - strong [ref=f1e424]: Primary text
+                                    - text: "#e5e7eb"
+                                - button [ref=f1e425]:
+                                  - generic [ref=f1e426]:
+                                    - strong [ref=f1e427]: Primary border
+                                    - text: "#c46a2c"
+                                - button [ref=f1e428]:
+                                  - generic [ref=f1e429]:
+                                    - strong [ref=f1e430]: Lines & arrows
+                                    - text: "#c46a2c"
+                          - generic [ref=f1e431]:
+                            - generic [ref=f1e432]:
+                              - text: ✦
+                              - generic [ref=f1e433]:
+                                - strong [ref=f1e434]: Ready for the renderer
+                                - generic [ref=f1e435]: 18 colors · 5 type tiers · 0 warnings
+                            - generic [ref=f1e437]:
+                              - button "Preview" [ref=f1e438]
+                              - group "Theme directive format" [ref=f1e441]:
+                                - 'button "%%{init}%%" [pressed] [ref=f1e442]'
+                                - button "YAML" [ref=f1e443]
+                              - button "Edit Colors" [ref=f1e444]
+                              - button "Live Editor" [ref=f1e447]
+                              - button "Styled Code" [ref=f1e490]
+                              - button "Markdown" [ref=f1e455]
+                              - button "Prompt Scaffold" [ref=f1e459]
+                              - generic [ref=f1e463]:
+                                - button "Download" [active] [ref=f1e464]
+                                - generic [ref=f1e493]:
+                                  - button ".mermaid raw text" [ref=f1e494]:
+                                    - generic [ref=f1e495]: .mermaid
+                                    - generic [ref=f1e496]: raw text
+                                  - button ".md bootstrap" [ref=f1e497]:
+                                    - generic [ref=f1e498]: .md
+                                    - generic [ref=f1e499]: bootstrap
+                                  - button ".txt prompt" [ref=f1e500]:
+                                    - generic [ref=f1e501]: .txt
+                                    - generic [ref=f1e502]: prompt
+                                  - button ".svg vector" [ref=f1e503]:
+                                    - generic [ref=f1e504]: .svg
+                                    - generic [ref=f1e505]: vector
+                                  - button ".png raster 2x" [ref=f1e506]:
+                                    - generic [ref=f1e507]: .png
+                                    - generic [ref=f1e508]: raster 2x
+                                  - button ".theme.json palette" [ref=f1e509]:
+                                    - generic [ref=f1e510]: .theme.json
+                                    - generic [ref=f1e511]: palette
+                                  - button ".css variables" [ref=f1e512]:
+                                    - generic [ref=f1e513]: .css
+                                    - generic [ref=f1e514]: variables
+                                  - button ".bundle.json all palettes" [ref=f1e515]:
+                                    - generic [ref=f1e516]: .bundle.json
+                                    - generic [ref=f1e517]: all palettes
+                  - paragraph [ref=f1e471]: Not affiliated with Mermaid, Mermaid Chart, or Mermaid.ai
+                  - tablist "Mermaid Theme Builder sections (mobile)" [ref=f1e472]:
+                    - tab "Compose" [ref=f1e473]
+                    - tab "Apply" [selected] [ref=f1e476]
+                    - tab "Examples" [ref=f1e479]
+                    - tab "Reference" [ref=f1e482]
+                    - tab "Extract" [ref=f1e485]
+            - paragraph [ref=e93]:
+              - text: Embedded from
+              - link "okhp3.github.io/mermaid-theme-builder" [ref=e94] [cursor=pointer]:
+                - /url: https://okhp3.github.io/mermaid-theme-builder/
+              - text: (Open in a new tab for the best experience.)
+            - generic [ref=e95]:
+              - generic [ref=e96]: "Open tab:"
+              - 'link "Compose: design the visual contract" [ref=e97] [cursor=pointer]':
+                - /url: https://okhp3.github.io/mermaid-theme-builder/#compose
+              - 'link "Apply: paste Mermaid & apply a theme" [ref=e98] [cursor=pointer]':
+                - /url: https://okhp3.github.io/mermaid-theme-builder/#apply
+              - 'link "Examples: start from sample diagrams" [ref=e99] [cursor=pointer]':
+                - /url: https://okhp3.github.io/mermaid-theme-builder/#examples
+              - 'link "Reference: inspect diagram families & warnings" [ref=e100] [cursor=pointer]':
+                - /url: https://okhp3.github.io/mermaid-theme-builder/#reference
+          - generic [ref=e101]:
+            - generic [ref=e102]: Current Release
+            - 'heading "v0.6.1: Shipped Aug 2026" [level=2] [ref=e103]'
+            - generic [ref=e104]:
+              - generic [ref=e105]:
+                - generic [ref=e106]: Version
+                - generic [ref=e107]: "v0.6.1: shipped Aug 2026"
+              - generic [ref=e109]:
+                - generic [ref=e110]: Active Sprint
+                - text: v0.6.x Export & Workflow Polish
+              - generic [ref=e111]:
+                - generic [ref=e112]: License
+                - text: "MIT: free always"
+              - generic [ref=e113]:
+                - generic [ref=e114]: Runtime
+                - text: Browser-only · no server · no account
+              - generic [ref=e115]:
+                - generic [ref=e116]: Live Tool
+                - link "okhp3.github.io/mermaid-theme-builder ↗" [ref=e118] [cursor=pointer]:
+                  - /url: https://okhp3.github.io/mermaid-theme-builder/
+              - generic [ref=e119]:
+                - generic [ref=e120]: Source
+                - link "github.com/OKHP3/mermaid-theme-builder ↗" [ref=e122] [cursor=pointer]:
+                  - /url: https://github.com/OKHP3/mermaid-theme-builder
+              - generic [ref=e123]:
+                - generic [ref=e124]: Mermaid.js
+                - text: v11.16.0; rendering portability varies by host renderer (v10/v11)
+          - generic [ref=e125]:
+            - generic [ref=e126]: What This Is
+            - heading "A governance workbench, not a diagram editor" [level=2] [ref=e127]
+            - generic [ref=e128]:
+              - generic [ref=e129]:
+                - generic [ref=e130]: What It Is
+                - list [ref=e131]:
+                  - listitem [ref=e132]:
+                    - generic [ref=e133]: ◆
+                    - text: A visual workbench for defining and enforcing Mermaid diagram themes
+                  - listitem [ref=e134]:
+                    - generic [ref=e135]: ◆
+                    - text: "A renderer-aware export tool: flags what breaks in GitHub, GitLab, Obsidian, Notion, Confluence"
+                  - listitem [ref=e136]:
+                    - generic [ref=e137]: ◆
+                    - text: "A brand palette enforcer: presets for OverKill Hill P³, Glee-fully, and AskJamie, plus four utility palettes (Ocean Depth, Forest Sage, Slate Ember, Violet Mist)"
+                  - listitem [ref=e138]:
+                    - generic [ref=e139]: ◆
+                    - text: "A prompt scaffold generator: AI tools stay on-brand from the first generation"
+                  - listitem [ref=e140]:
+                    - generic [ref=e141]: ◆
+                    - text: A SKILL.md-packaged agent skill for headless diagram-governance workflows
+                  - listitem [ref=e142]:
+                    - generic [ref=e143]: ◆
+                    - text: An open-source community contribution to the Mermaid.js ecosystem. MIT licensed. Free always.
+              - generic [ref=e144]:
+                - generic [ref=e145]: What It Is Not
+                - list [ref=e146]:
+                  - listitem [ref=e147]:
+                    - generic [ref=e148]: •
+                    - text: "Not Mermaid: it does not generate, parse, or render Mermaid syntax itself"
+                  - listitem [ref=e149]:
+                    - generic [ref=e150]: •
+                    - text: "Not a diagram editor: it governs style, not structure"
+                  - listitem [ref=e151]:
+                    - generic [ref=e152]: •
+                    - text: Not a Mermaid syntax generator; you bring the code
+                  - listitem [ref=e153]:
+                    - generic [ref=e154]: •
+                    - text: "Not a BPMN engine: it applies visual themes, not structural process semantics"
+                  - listitem [ref=e155]:
+                    - generic [ref=e156]: •
+                    - text: Not affiliated with Mermaid.ai, Mermaid Chart, or any commercial Mermaid product
+                  - listitem [ref=e157]:
+                    - generic [ref=e158]: •
+                    - text: Not a replacement for Mermaid.js; a governance layer on top of it
+                  - listitem [ref=e159]:
+                    - generic [ref=e160]: •
+                    - text: Not a SaaS, not a subscription, not a freemium gate
+                  - listitem [ref=e161]:
+                    - generic [ref=e162]: •
+                    - text: "No diagram or palette data leaves your browser: 100% client-side, no server, no analytics. UI fonts load from Google Fonts (fonts.googleapis.com)."
+          - generic [ref=e163]:
+            - generic [ref=e164]: Why This Exists
+            - heading "What you get here that you don't get from prompting an LLM" [level=2] [ref=e165]
+            - generic [ref=e166]:
+              - generic [ref=e167]:
+                - generic [ref=e168]:
+                  - generic [ref=e169]: ✗
+                  - heading "Prompting an LLM" [level=3] [ref=e170]
+                - paragraph [ref=e171]: Generates CSS variable blobs you paste and re-prompt until something looks right. No live preview, no iteration feedback, result varies by model. No renderer awareness; you find out what breaks when you paste it.
+              - generic [ref=e172]:
+                - generic [ref=e173]:
+                  - generic [ref=e174]: ✓
+                  - heading "Mermaid Theme Builder" [level=3] [ref=e175]
+                - paragraph [ref=e176]:
+                  - text: Pick a color, see every diagram type update instantly. Export as a
+                  - code [ref=e177]: themeVariables
+                  - text: block, a Markdown style bootstrap, or a renderer-aware prompt scaffold. AI tools stay on-brand from the first generation, not the sixth.
+            - generic [ref=e178]:
+              - text: This is a
+              - strong [ref=e179]: visual governance layer
+              - text: for the Mermaid.js ecosystem, not a commercial product, not a SaaS, not a competitor to Mermaid.ai. It runs entirely in your browser. No account. No data collected.
+          - generic [ref=e180]:
+            - generic [ref=e181]: Built For
+            - heading "Who uses Mermaid Theme Builder" [level=2] [ref=e182]
+            - generic [ref=e183]:
+              - generic [ref=e184]:
+                - generic [aria-hidden] [ref=e185]: ◈
+                - generic [ref=e186]:
+                  - heading "Enterprise Architects" [level=3] [ref=e187]
+                  - paragraph [ref=e188]: "Need repeatable visual standards across hundreds of diagrams. One governed theme applies consistently: no manual re-styling after every AI generation."
+              - generic [ref=e189]:
+                - generic [aria-hidden] [ref=e190]: ⚡
+                - generic [ref=e191]:
+                  - heading "AI Power Users" [level=3] [ref=e192]
+                  - paragraph [ref=e193]: "Generate 10+ diagrams per week through LLMs. Prompt scaffolds keep every output on-brand from generation one: no follow-up style cycles."
+              - generic [ref=e194]:
+                - generic [aria-hidden] [ref=e195]: ▤
+                - generic [ref=e196]:
+                  - heading "Documentation Teams" [level=3] [ref=e197]
+                  - paragraph [ref=e198]: "Maintain visual consistency across technical docs at scale. Export a shared theme once, apply it everywhere: GitHub, Confluence, Notion, Obsidian."
+              - generic [ref=e199]:
+                - generic [aria-hidden] [ref=e200]: ◎
+                - generic [ref=e201]:
+                  - heading "Product Managers" [level=3] [ref=e202]
+                  - paragraph [ref=e203]: Create stakeholder-ready architecture diagrams that look intentional, not auto-generated. Clean presentation styling without manual CSS work.
+              - generic [ref=e204]:
+                - generic [aria-hidden] [ref=e205]: </>
+                - generic [ref=e206]:
+                  - heading "Developers" [level=3] [ref=e207]
+                  - paragraph [ref=e208]:
+                    - text: Document systems with consistent styling baked in. Drop a
+                    - code [ref=e209]: themeVariables
+                    - text: block into your
+                    - code [ref=e210]: mermaid.initialize()
+                    - text: call and every diagram inherits the contract.
+          - generic [ref=e211]:
+            - generic [ref=e212]: Where This Helps Today
+            - heading "Six community pain points MTB addresses" [level=2] [ref=e213]
+            - paragraph [ref=e214]: These aren't invented problems; they come from GitHub issues, Stack Overflow threads, community forums, and AI tool feedback. MTB doesn't fix Mermaid core behavior. It helps users avoid, detect, or route around known styling and renderer pitfalls.
+            - generic [ref=e215]:
+              - generic [ref=e216]:
+                - generic [aria-hidden] [ref=e217]: 🎨
+                - generic [ref=e218]:
+                  - heading "Custom colors and styles" [level=3] [ref=e219]
+                  - paragraph [ref=e220]: Users ask how to customize Mermaid node, link, and diagram colors, without re-prompting an AI or editing raw CSS. Theme Builder provides a visual workflow and exportable theme contract.
+              - generic [ref=e221]:
+                - generic [aria-hidden] [ref=e222]: ◈
+                - generic [ref=e223]:
+                  - heading "Branded consistency" [level=3] [ref=e224]
+                  - paragraph [ref=e225]: Users want Mermaid diagrams to match a consistent visual language across documents, posts, repos, and deliverables. A reusable palette applied once stays consistent across every diagram it touches.
+              - generic [ref=e226]:
+                - generic [aria-hidden] [ref=e227]: ⚐
+                - generic [ref=e228]:
+                  - heading "Renderer parity" [level=3] [ref=e229]
+                  - paragraph [ref=e230]: Mermaid behaves differently across GitHub, GitLab, Obsidian, Notion, Confluence, Mermaid Live, and other renderers. Theme Builder surfaces renderer-specific warnings before you paste, not after.
+              - generic [ref=e231]:
+                - generic [aria-hidden] [ref=e232]: </>
+                - generic [ref=e233]:
+                  - heading "Export fidelity" [level=3] [ref=e234]
+                  - paragraph [ref=e235]: Some workflows preview one appearance and export another. Theme Builder preserves the theme contract in source-level Mermaid and Markdown, not just in image export behavior.
+              - generic [ref=e236]:
+                - generic [aria-hidden] [ref=e237]: ◫
+                - generic [ref=e238]:
+                  - heading "Diagram-family limits" [level=3] [ref=e239]
+                  - paragraph [ref=e240]:
+                    - text: Not every Mermaid family supports the same styling mechanisms. Theme Builder warns when
+                    - code [ref=e241]: classDef
+                    - text: ","
+                    - code [ref=e242]: linkStyle
+                    - text: ","
+                    - code [ref=e243]: themeVariables
+                    - text: ", or typography controls are limited for a given family."
+              - generic [ref=e244]:
+                - generic [aria-hidden] [ref=e245]: ◉
+                - generic [ref=e246]:
+                  - heading "AI-generated Mermaid drift" [level=3] [ref=e247]
+                  - paragraph [ref=e248]: AI tools may generate diagrams that render in one place but fail or look different somewhere else. Prompt scaffolds instruct the AI before generation, preventing renderer-fragile output rather than patching it.
+          - generic [ref=e249]:
+            - generic [ref=e250]: Since Architecture Hardening (V0.3)
+            - heading "What shipped in v0.4 and v0.5" [level=2] [ref=e251]
+            - generic [ref=e252]:
+              - generic [ref=e253]:
+                - generic [aria-hidden] [ref=e254]: ⚐
+                - generic [ref=e255]:
+                  - heading "Renderer Intelligence" [level=3] [ref=e256]
+                  - paragraph [ref=e257]: Moved from capability notes to active renderer profiles. The workbench now selects export rules based on your target renderer, not just flags what might fail.
+              - generic [ref=e258]:
+                - generic [aria-hidden] [ref=e259]: ◑
+                - generic [ref=e260]:
+                  - heading "Look API Support" [level=3] [ref=e261]
+                  - paragraph [ref=e262]: "Mermaid v11.16.0 look API: Classic, Neo, and Hand-Drawn modes, with per-renderer warnings where support is inconsistent. Shipped in v0.4; hardened in v0.5."
+              - generic [ref=e263]:
+                - generic [aria-hidden] [ref=e264]: ◫
+                - generic [ref=e265]:
+                  - heading "Reference Capability Registry" [level=3] [ref=e266]
+                  - paragraph [ref=e267]: 31 diagram-family capability matrix covering renderer × family × version combinations. Was implicit in v0.3; now a dedicated Reference tab.
+              - generic [ref=e268]:
+                - generic [aria-hidden] [ref=e269]: ◻
+                - generic [ref=e270]:
+                  - heading "Agent Skill Family (SKILL.md)" [level=3] [ref=e271]
+                  - paragraph [ref=e272]: "Governance logic ships as an 10-skill SKILL.md family: theme building, architecture, BPMN, data, publishing, repair, and update skills, plus a core foundation skill, for Claude Code, Cursor, and GitHub Copilot. Not in v0.3."
+              - generic [ref=e273]:
+                - generic [aria-hidden] [ref=e274]: ⊞
+                - generic [ref=e275]:
+                  - heading "Multi-Diagram Splitting" [level=3] [ref=e276]
+                  - paragraph [ref=e277]: Paste compound Mermaid blocks and the tool splits, themes, and exports each diagram independently. Not available in v0.3.
+              - generic [ref=e278]:
+                - generic [aria-hidden] [ref=e279]: ⌁
+                - generic [ref=e280]:
+                  - heading "Shareable URL State" [level=3] [ref=e281]
+                  - paragraph [ref=e282]: Your full theme configuration is encoded in the URL. Bookmark it, share it, or return to it later. v0.3 had no persistent state between sessions.
+              - generic [ref=e283]:
+                - generic [aria-hidden] [ref=e284]: ◱
+                - generic [ref=e285]:
+                  - heading "Vitest 4 Test Suite" [level=3] [ref=e286]
+                  - paragraph [ref=e287]: Export integrity, themeVariable completeness, and renderer profile accuracy verified by Vitest 4. Every export claim is now testable. v0.3 had no test suite.
+          - generic [ref=e288]:
+            - generic [ref=e289]: Research Validation
+            - heading "Hypothesis Validated" [level=2] [ref=e290]
+            - paragraph [ref=e291]: Built against a validated research hypothesis, not shipped on a hunch.
+            - generic [ref=e292]:
+              - generic [ref=e293]:
+                - generic [aria-hidden] [ref=e294]: ◉
+                - generic [ref=e295]:
+                  - heading "98 sources analyzed" [level=3] [ref=e296]
+                  - paragraph [ref=e297]: GitHub issues, Stack Overflow threads, enterprise documentation, and community forums, all pointing to the same gap in the Mermaid ecosystem.
+              - generic [ref=e298]:
+                - generic [aria-hidden] [ref=e299]: ◆
+                - generic [ref=e300]:
+                  - heading "Pain is real and documented" [level=3] [ref=e301]
+                  - paragraph [ref=e302]: "Users across every major LLM tool report the same struggle: Mermaid theming is inconsistent, renderer-dependent, and invisible to AI generation workflows."
+              - generic [ref=e303]:
+                - generic [aria-hidden] [ref=e304]: ⊕
+                - generic [ref=e305]:
+                  - heading "No existing tool fills the gap" [level=3] [ref=e306]
+                  - paragraph [ref=e307]: No tool combines theme governance + LLM scaffolding + renderer-awareness in a single, free, browser-based workbench. This is the gap MTB fills.
+              - generic [ref=e308]:
+                - generic [aria-hidden] [ref=e309]: ◱
+                - generic [ref=e310]:
+                  - heading "Genuine ecosystem gap confirmed" [level=3] [ref=e311]
+                  - paragraph [ref=e312]: The product fills a documented gap at the intersection of diagram-as-code and AI generation, not an incremental improvement on an existing tool category.
+            - generic [ref=e313]:
+              - text: The full research and validation methodology is documented in the
+              - link "First Diagram Is a Liar" [ref=e314] [cursor=pointer]:
+                - /url: /writings/first-diagram-is-a-liar/
+              - text: article series, including 9 rounds of comparative AI testing across ChatGPT, Claude, Copilot, Gemini, Notion, Replit, and Perplexity.
+          - generic [ref=e315]:
+            - generic [ref=e316]: Technical Stack
+            - heading "What it's built on" [level=2] [ref=e317]
+            - generic [ref=e318]:
+              - generic [ref=e319]:
+                - generic [aria-hidden] [ref=e320]: ⚛
+                - generic [ref=e321]:
+                  - heading "React 19 + Vite 8" [level=3] [ref=e322]
+                  - paragraph [ref=e323]: Modern component architecture with fast dev iteration. No framework lock-in; the governance logic is extractable independent of the React layer.
+              - generic [ref=e324]:
+                - generic [aria-hidden] [ref=e325]: ◑
+                - generic [ref=e326]:
+                  - heading "Tailwind CSS v4" [level=3] [ref=e327]
+                  - paragraph [ref=e328]: Utility-first styling with OKH Forge UI System v0.1.0 design tokens. Consistent visual language across the workbench's controls, previews, and export panels.
+              - generic [ref=e329]:
+                - generic [aria-hidden] [ref=e330]: ◫
+                - generic [ref=e331]:
+                  - heading "Mermaid.js 11.16.0" [level=3] [ref=e332]
+                  - paragraph [ref=e333]: Pinned to a specific version for reproducible rendering. The Look API, 31 diagram families, and full themeVariables coverage, all at a known, tested baseline.
+              - generic [ref=e334]:
+                - generic [aria-hidden] [ref=e335]: ◻
+                - generic [ref=e336]:
+                  - heading "TypeScript 7.0 (strict)" [level=3] [ref=e337]
+                  - paragraph [ref=e338]: Strict mode throughout. Renderer profile types, diagram family unions, and export format contracts are all type-safe, not inferred at runtime.
+              - generic [ref=e339]:
+                - generic [aria-hidden] [ref=e340]: ◱
+                - generic [ref=e341]:
+                  - heading "Playwright e2e Tests" [level=3] [ref=e342]
+                  - paragraph [ref=e343]: End-to-end test coverage for export integrity, renderer profiles, and diagram family classification. Every claimed behavior is a passing test, not a documented assumption.
+              - generic [ref=e344]:
+                - generic [aria-hidden] [ref=e345]: 🔒
+                - generic [ref=e346]:
+                  - heading "PWA-Ready" [level=3] [ref=e347]
+                  - paragraph [ref=e348]: Service worker and web app manifest are present in the source repo. The app shell is cached for offline access; UI fonts load from Google Fonts and require a network connection on first visit. Installable to home screen or desktop.
+          - generic [ref=e349]:
+            - generic [ref=e350]: Features
+            - heading "What the builder does" [level=2] [ref=e351]
+            - generic [ref=e352]:
+              - generic [ref=e353]:
+                - generic [aria-hidden] [ref=e354]: ⚡
+                - generic [ref=e355]:
+                  - heading "Live Diagram Preview" [level=3] [ref=e356]
+                  - paragraph [ref=e357]: "Every color change reflects instantly across multiple diagram types: flowchart, sequence, class, Gantt, and more. What you see is what you get."
+              - generic [ref=e358]:
+                - generic [aria-hidden] [ref=e359]: ⟳
+                - generic [ref=e360]:
+                  - heading "Diagram Family Detection" [level=3] [ref=e361]
+                  - paragraph [ref=e362]: Automatically identifies your diagram type and applies family-appropriate transformations. Not all Mermaid families behave the same; the tool knows the difference.
+              - generic [ref=e363]:
+                - generic [aria-hidden] [ref=e364]: </>
+                - generic [ref=e365]:
+                  - heading "Multi-Format Export" [level=3] [ref=e366]
+                  - paragraph [ref=e367]:
+                    - text: Export as a complete
+                    - code [ref=e368]: themeVariables
+                    - text: block, a Markdown style bootstrap you paste before any diagram, or a model-specific LLM prompt scaffold.
+              - generic [ref=e369]:
+                - generic [aria-hidden] [ref=e370]: ◎
+                - generic [ref=e371]:
+                  - heading "Prompt Scaffold Generator" [level=3] [ref=e372]
+                  - paragraph [ref=e373]: "Generates LLM-ready prompt prefixes with your theme embedded. AI tools produce on-brand Mermaid on the first try: no follow-up styling cycles needed."
+              - generic [ref=e374]:
+                - generic [aria-hidden] [ref=e375]: ⚐
+                - generic [ref=e376]:
+                  - heading "Renderer Capability Notes" [level=3] [ref=e377]
+                  - paragraph [ref=e378]: Flags which styling choices work in GitHub, GitLab, Notion, Obsidian, and other renderers, so you know what breaks before you paste and find out.
+              - generic [ref=e379]:
+                - generic [aria-hidden] [ref=e380]: ▤
+                - generic [ref=e381]:
+                  - heading "Brand Palette Presets" [level=3] [ref=e382]
+                  - paragraph [ref=e383]: "Ships with seven built-in palettes: four utility (Ocean Depth, Forest Sage, Slate Ember, Violet Mist) and three brand (OverKill Hill P³, Glee-fully, AskJamie). Start from a working preset or build your own."
+              - generic [ref=e384]:
+                - generic [aria-hidden] [ref=e385]: 🎨
+                - generic [ref=e386]:
+                  - heading "Precise Color Controls" [level=3] [ref=e387]
+                  - paragraph [ref=e388]: Full HSL/RGB pickers with live swatch previews. Dial in exact values with visual confirmation at every step, not just a hex input box.
+              - generic [ref=e389]:
+                - generic [aria-hidden] [ref=e390]: 🔒
+                - generic [ref=e391]:
+                  - 'heading "Browser-Only: No Server" [level=3] [ref=e392]'
+                  - paragraph [ref=e393]: Runs 100% client-side. No login, no account. Your diagram code, palette data, and exports stay in your browser. UI fonts load from Google Fonts (fonts.googleapis.com) on first visit.
+              - generic [ref=e394]:
+                - generic [aria-hidden] [ref=e395]: ⊕
+                - generic [ref=e396]:
+                  - heading "Pan / Zoom Canvas" [level=3] [ref=e397]
+                  - paragraph [ref=e398]: Navigate complex diagrams without losing context. Pan and zoom the preview canvas, useful for dense flowcharts and class diagrams that don't fit the initial viewport.
+              - generic [ref=e399]:
+                - generic [aria-hidden] [ref=e400]: ◻
+                - generic [ref=e401]:
+                  - heading "SKILL.md Package" [level=3] [ref=e402]
+                  - paragraph [ref=e403]: The governance logic ships as an 10-skill agent family (skills/FAMILY.md). AI tools and coding assistants can apply brand palettes and renderer profiles without opening the visual app.
+              - generic [ref=e404]:
+                - generic [aria-hidden] [ref=e405]: ◈
+                - generic [ref=e406]:
+                  - heading "Open Source, MIT License" [level=3] [ref=e407]
+                  - paragraph [ref=e408]: Fork it, remix it, embed it. Full source on GitHub. Contributions welcome.
+              - generic [ref=e409]:
+                - generic [aria-hidden] [ref=e410]: ◑
+                - generic [ref=e411]:
+                  - 'heading "Look API: Classic, Neo, Hand-Drawn" [level=3] [ref=e412]'
+                  - paragraph [ref=e413]: Supports Mermaid v11.16.0 look API. Switch between Classic, Neo, and Hand-Drawn rendering modes, with renderer warnings where support is inconsistent across platforms.
+              - generic [ref=e414]:
+                - generic [aria-hidden] [ref=e415]: ◫
+                - generic [ref=e416]:
+                  - 'heading "Reference Tab: 31 Family Registry" [level=3] [ref=e417]'
+                  - paragraph [ref=e418]: A built-in capability registry covering 31 diagram families. Documents which features are supported per renderer, per family, per Mermaid version; the reference stays open alongside your workspace.
+              - generic [ref=e419]:
+                - generic [aria-hidden] [ref=e420]: ⊞
+                - generic [ref=e421]:
+                  - heading "Multi-Diagram Splitting" [level=3] [ref=e422]
+                  - paragraph [ref=e423]: Paste compound or multi-block Mermaid code and the tool splits it into individual diagrams, applies your theme to each, and exports them independently. No manual untangling.
+              - generic [ref=e424]:
+                - generic [aria-hidden] [ref=e425]: ◱
+                - generic [ref=e426]:
+                  - heading "Vitest 4 Test Suite" [level=3] [ref=e427]
+                  - paragraph [ref=e428]: Export integrity, theme-variable completeness, and renderer-profile accuracy are verified by a Vitest 4 test suite. Every export claim is testable against its target renderer, not just described.
+          - generic [ref=e429]:
+            - generic [ref=e430]: Relationships
+            - heading "How it fits the ecosystem" [level=2] [ref=e431]
+            - generic [ref=e432]:
+              - generic [ref=e433]:
+                - generic [ref=e434]: Foundation
+                - heading "Mermaid.js" [level=3] [ref=e435]
+                - paragraph [ref=e436]:
+                  - text: The open-source diagram rendering engine. Mermaid Theme Builder is a governance layer that wraps and extends the Mermaid.js
+                  - code [ref=e437]: themeVariables
+                  - text: system. No affiliation; an independent ecosystem contribution built on top of the same open library.
+              - generic [ref=e438]:
+                - generic [ref=e439]: "Distinct Product: No Affiliation"
+                - heading "Mermaid.ai" [level=3] [ref=e440]
+                - paragraph [ref=e441]: "A commercial AI-first diagram generation platform. Completely separate: no affiliation, no integration, no dependency. MTB works with the open Mermaid.js library directly. The distinction matters: Mermaid.js is the open standard; Mermaid.ai is a commercial product built on it."
+              - generic [ref=e442]:
+                - generic [ref=e443]: "Sibling Project: OKH P³"
+                - heading "BPMN for Mermaid" [level=3] [ref=e444]
+                - paragraph [ref=e445]:
+                  - text: "The structural sibling. BPMN for Mermaid extends Mermaid syntax toward BPMN-aligned diagram patterns. MTB is the styling and governance layer; BPMN for Mermaid is the structural extension layer. They are complementary: style what BPMN for Mermaid produces."
+                  - link "See the project →" [ref=e446] [cursor=pointer]:
+                    - /url: /projects/bpmn-for-mermaid/
+              - generic [ref=e447]:
+                - generic [ref=e448]: "Agent Layer: Shipped"
+                - heading "SKILL.md / Agent Workflows" [level=3] [ref=e449]
+                - paragraph [ref=e450]: MTB ships as part of an 10-skill agent family (skills/FAMILY.md in the repo). The SKILL.md format exposes its governance logic (palette definitions, renderer profiles, prompt scaffold patterns) as a machine-readable workflow that AI agents and coding assistants can consume without the visual UI.
+          - generic [ref=e451]:
+            - generic [ref=e452]: Diagram Families
+            - 'heading "Support taxonomy: not all families are equal" [level=2] [ref=e453]'
+            - paragraph [ref=e454]: "Mermaid.js does not treat all diagram types with equal stability or renderer support. MTB reflects this: it does not imply uniform support across all families."
+            - generic [ref=e455]:
+              - generic [ref=e456]:
+                - generic [ref=e457]: "Stable: well-supported across renderers"
+                - generic [ref=e458]:
+                  - generic [ref=e459]: flowchart
+                  - generic [ref=e460]: sequenceDiagram
+                  - generic [ref=e461]: classDiagram
+                  - generic [ref=e462]: stateDiagram-v2
+                  - generic [ref=e463]: erDiagram
+                  - generic [ref=e464]: gantt
+                  - generic [ref=e465]: pie
+                - paragraph [ref=e466]: These families have the most consistent support across Mermaid.js versions and hosted renderers (GitHub, GitLab, Obsidian, Confluence). Safe for production use in most contexts.
+              - generic [ref=e467]:
+                - generic [ref=e468]: "Beta / Experimental: support varies by Mermaid.js version"
+                - generic [ref=e469]:
+                  - generic [ref=e470]: sankey
+                  - generic [ref=e471]: block
+                  - generic [ref=e472]: kanban
+                  - generic [ref=e473]: timeline
+                  - generic [ref=e474]: xychart-beta
+                  - generic [ref=e475]: mindmap
+                - paragraph [ref=e476]: These families exist in recent Mermaid.js releases but are marked beta or have inconsistent renderer support. Hosted renderers (GitHub, Confluence, Notion) may not support them yet. Verify before deploying.
+              - generic [ref=e477]:
+                - generic [ref=e478]: "Renderer-dependent: behavior varies significantly by platform"
+                - generic [ref=e479]:
+                  - generic [ref=e480]: themeVariables
+                  - generic [ref=e481]: "%%{init:…}%%"
+                  - generic [ref=e482]: custom CSS
+                - paragraph [ref=e483]:
+                  - text: The Mermaid
+                  - code [ref=e484]: "%%{init:…}%%"
+                  - text: directive and CSS-level overrides work in browser Mermaid.js but are stripped or ignored by many hosted renderers. MTB flags known breakpoints; the export profiles are built around this constraint.
+              - generic [ref=e485]:
+                - generic [ref=e486]: "OKH P³ semantic templates: brand conventions, not syntax extensions"
+                - generic [ref=e487]:
+                  - generic [ref=e488]: OKH brand palette
+                  - generic [ref=e489]: Glee-fully palette
+                  - generic [ref=e490]: AskJamie palette
+                - paragraph [ref=e491]: Brand-specific scaffolding patterns that apply OKH conventions to standard diagram families. Not extensions of Mermaid syntax, but conventions applied on top of valid Mermaid.
+              - generic [ref=e492]:
+                - generic [ref=e493]: "BPMN for Mermaid: sibling proposal work"
+                - generic [ref=e494]:
+                  - generic [ref=e495]: bpmn-task
+                  - generic [ref=e496]: bpmn-gateway
+                  - generic [ref=e497]: bpmn-event
+                  - generic [ref=e498]: bpmn-pool
+                - paragraph [ref=e499]:
+                  - text: "Structural diagram patterns from the sibling BPMN for Mermaid project. These extend Mermaid toward BPMN-aligned semantics. MTB can style BPMN-for-Mermaid outputs: they share the same theming contract."
+                  - link "See BPMN for Mermaid →" [ref=e500] [cursor=pointer]:
+                    - /url: /projects/bpmn-for-mermaid/
+          - generic [ref=e501]:
+            - generic [ref=e502]: Renderer Awareness
+            - heading "Why renderer-aware output matters" [level=2] [ref=e503]
+            - paragraph [ref=e504]:
+              - text: Mermaid.js can render a diagram that GitHub Markdown, Notion, or Obsidian cannot. The same
+              - code [ref=e505]: themeVariables
+              - text: object that works perfectly in a browser may fail silently, or break layout, in a hosted renderer.
+            - list [ref=e506]:
+              - listitem [ref=e507]:
+                - text: The
+                - code [ref=e508]: "%%{init:…}%%"
+                - text: directive is stripped by most hosted renderers; it only works in browser Mermaid.js.
+              - listitem [ref=e509]: Custom CSS overrides work in the browser but are ignored by GitHub, GitLab, and Confluence.
+              - listitem [ref=e510]: The Look API (Classic/Neo/Hand-Drawn) is Mermaid.js 11.x; hosted renderers pin older versions and may not support it.
+              - listitem [ref=e511]: Beta diagram families (sankey, kanban, block) exist in the library but are not supported by most hosted renderers yet.
+              - listitem [ref=e512]: Mermaid.js version pinning varies by host, so the same code behaves differently in GitHub vs. Obsidian vs. Confluence.
+            - paragraph [ref=e513]: MTB tracks known renderer compatibility and flags styling choices that break in common deployment targets. The export profiles are built around these constraints. You find out before you paste, not after.
+            - paragraph [ref=e514]: For AI-generated diagrams this matters even more. An AI tool generating Mermaid has no renderer context; it produces valid Mermaid.js that may be useless in the target environment. A renderer-aware prompt scaffold closes that gap before generation begins.
+          - generic [ref=e515]:
+            - generic [ref=e516]: Agent Layer
+            - 'heading "SKILL.md: headless diagram governance" [level=2] [ref=e517]'
+            - generic [ref=e518]:
+              - heading "What the SKILL.md package does" [level=3] [ref=e519]
+              - paragraph [ref=e520]:
+                - text: Mermaid Theme Builder ships as part of an 10-skill agent family (a machine-readable
+                - code [ref=e521]: SKILL.md
+                - text: set indexed at
+                - code [ref=e522]: skills/FAMILY.md
+                - text: ) that exposes the tool's governance logic in a format AI agents and coding assistants can consume directly, without opening the visual app.
+              - paragraph [ref=e523]: "The skill covers:"
+              - list [ref=e524]:
+                - listitem [ref=e525]: Palette definition and brand token mapping
+                - listitem [ref=e526]: "Renderer profile selection: GitHub, GitLab, Obsidian, Notion, Confluence"
+                - listitem [ref=e527]:
+                  - text: Mermaid
+                  - code [ref=e528]: themeVariables
+                  - text: assembly for a target renderer
+                - listitem [ref=e529]: Prompt scaffold generation with embedded palette and renderer constraints
+                - listitem [ref=e530]: Diagram family classification and renderer-safe export rules
+              - paragraph [ref=e531]: "Intended for: AI coding assistants, local agent workflows, CI/CD diagram validation pipelines, and headless diagram-governance scripts that need to apply consistent brand and renderer rules without human review at each step."
+              - heading "Install in your AI coding assistant" [level=3] [ref=e532]
+              - paragraph [ref=e533]:
+                - text: The skill family is published and installable today. The examples below use the reviewed
+                - code [ref=e534]: v0.6.1
+                - text: tag and verify commit
+                - code [ref=e535]: 968df040b4bd5d8708551e7a54b3713fc864ee80
+                - text: . Each example starts from a project root, stages the package in a temporary directory, refuses to overwrite an existing destination, and copies the complete
+                - code [ref=e536]: okhp3-mermaid-theme-builder/
+                - text: directory with its
+                - code [ref=e537]: SKILL.md
+                - text: ","
+                - code [ref=e538]: assets/
+                - text: ","
+                - code [ref=e539]: references/
+                - text: ","
+                - code [ref=e540]: scripts/
+                - text: ", and"
+                - code [ref=e541]: tests/
+                - text: .
+              - paragraph [ref=e542]:
+                - strong [ref=e543]: "Shell:"
+                - text: Bash/POSIX shell. On Windows, run these examples in Git Bash or WSL, not PowerShell.
+              - paragraph [ref=e544]:
+                - strong [ref=e545]: Claude Code
+              - generic [ref=e546]: "# Run from a fresh project root. Re-running refuses to overwrite the destination. set -eu stage=\"$(mktemp -d)\" trap 'rm -rf \"$stage\"' EXIT git clone --depth 1 --branch v0.6.1 https://github.com/OKHP3/mermaid-theme-builder.git \"$stage/mermaid-theme-builder\" test \"$(git -C \"$stage/mermaid-theme-builder\" rev-parse HEAD)\" = \"968df040b4bd5d8708551e7a54b3713fc864ee80\" package=\"$stage/mermaid-theme-builder/skills/okhp3-mermaid-theme-builder\" test -f \"$package/SKILL.md\" mkdir -p .claude/skills test ! -e .claude/skills/okhp3-mermaid-theme-builder || { echo \"Destination already exists; refusing to overwrite.\" >&2; exit 1; } cp -R \"$package\" .claude/skills/okhp3-mermaid-theme-builder"
+              - paragraph [ref=e547]:
+                - strong [ref=e548]: Cursor
+              - generic [ref=e549]: "# Run from a fresh project root. Re-running refuses to overwrite the destination. set -eu stage=\"$(mktemp -d)\" trap 'rm -rf \"$stage\"' EXIT git clone --depth 1 --branch v0.6.1 https://github.com/OKHP3/mermaid-theme-builder.git \"$stage/mermaid-theme-builder\" test \"$(git -C \"$stage/mermaid-theme-builder\" rev-parse HEAD)\" = \"968df040b4bd5d8708551e7a54b3713fc864ee80\" package=\"$stage/mermaid-theme-builder/skills/okhp3-mermaid-theme-builder\" test -f \"$package/SKILL.md\" mkdir -p .cursor/skills test ! -e .cursor/skills/okhp3-mermaid-theme-builder || { echo \"Destination already exists; refusing to overwrite.\" >&2; exit 1; } cp -R \"$package\" .cursor/skills/okhp3-mermaid-theme-builder"
+              - paragraph [ref=e550]:
+                - strong [ref=e551]: GitHub Copilot
+              - generic [ref=e552]: "# Run from a fresh project root. Re-running refuses to overwrite the destination. set -eu stage=\"$(mktemp -d)\" trap 'rm -rf \"$stage\"' EXIT git clone --depth 1 --branch v0.6.1 https://github.com/OKHP3/mermaid-theme-builder.git \"$stage/mermaid-theme-builder\" test \"$(git -C \"$stage/mermaid-theme-builder\" rev-parse HEAD)\" = \"968df040b4bd5d8708551e7a54b3713fc864ee80\" package=\"$stage/mermaid-theme-builder/skills/okhp3-mermaid-theme-builder\" test -f \"$package/SKILL.md\" mkdir -p .github/skills test ! -e .github/skills/okhp3-mermaid-theme-builder || { echo \"Destination already exists; refusing to overwrite.\" >&2; exit 1; } cp -R \"$package\" .github/skills/okhp3-mermaid-theme-builder"
+              - generic [ref=e553]:
+                - text: "Status: Shipped. The v0.5.x SKILL.md Hardening sprint delivered an 10-skill family covering theme building, architecture, BPMN, data, publishing, repair, and update workflows, plus a core foundation skill. Family manifest:"
+                - link "skills/FAMILY.md ↗" [ref=e554] [cursor=pointer]:
+                  - /url: https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/FAMILY.md
+                - text: "· Theme builder skill:"
+                - link "okhp3-mermaid-theme-builder/SKILL.md ↗" [ref=e555] [cursor=pointer]:
+                  - /url: https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/okhp3-mermaid-theme-builder/SKILL.md
+          - generic [ref=e556]:
+            - generic [ref=e557]: Mobile Experience
+            - heading "Desktop-first. Mobile companion mode." [level=2] [ref=e558]
+            - paragraph [ref=e559]: "This is an honest description, not an apology. The workbench is a power tool: the full experience is designed for a desktop viewport with room for controls, preview, and output side by side."
+            - generic [ref=e560]:
+              - generic [ref=e561]:
+                - generic [ref=e562]: Desktop
+                - heading "Full power-user experience" [level=3] [ref=e563]
+                - list [ref=e564]:
+                  - listitem [ref=e565]: "Full color picker suite: HSL, RGB, hex"
+                  - listitem [ref=e566]: Live multi-diagram preview across families
+                  - listitem [ref=e567]: Pan / zoom canvas for complex diagrams
+                  - listitem [ref=e568]: "All export formats: themeVariables, Markdown, prompt scaffold"
+                  - listitem [ref=e569]: Renderer profile selection and compatibility flags
+                  - listitem [ref=e570]: Dense diagram inspection at full fidelity
+              - generic [ref=e571]:
+                - generic [ref=e572]: "Mobile: Companion Mode"
+                - heading "Useful subset, honestly scoped" [level=3] [ref=e573]
+                - list [ref=e574]:
+                  - listitem [ref=e575]: Browse palette presets and examples
+                  - listitem [ref=e576]: Copy prompt scaffolds for pasting into AI tools
+                  - listitem [ref=e577]: Check renderer-safe export output
+                  - listitem [ref=e578]: Light diagram preview at smaller scale
+                  - listitem [ref=e579]: Review renderer compatibility notes
+                - paragraph [ref=e580]: Heavy code editing and dense diagram inspection remain desktop-first. Mobile hardening is on the v0.6.x validation sprint roadmap.
+          - generic [ref=e581]:
+            - generic [ref=e582]: Roadmap
+            - heading "Where the build is going" [level=2] [ref=e583]
+            - list [ref=e584]:
+              - listitem [ref=e585]:
+                - generic [ref=e586]: ✓
+                - generic [ref=e587]:
+                  - generic [ref=e588]:
+                    - text: "V0.1: Foundation"
+                    - generic [ref=e589]: Shipped
+                  - paragraph [ref=e590]: Paste, detect, palette, preview, export. Four utility palettes. Prompt scaffold modal. GitHub Pages deploy.
+              - listitem [ref=e591]:
+                - generic [ref=e592]: ✓
+                - generic [ref=e593]:
+                  - generic [ref=e594]:
+                    - text: "V0.2: Brand System"
+                    - generic [ref=e595]: Shipped
+                  - paragraph [ref=e596]: OverKill Hill P³, Glee-fully, and AskJamie brand palettes. Family-specific theming overlays. Extract mode.
+              - listitem [ref=e597]:
+                - generic [ref=e598]: ✓
+                - generic [ref=e599]:
+                  - generic [ref=e600]:
+                    - text: "V0.3: Architecture Hardening"
+                    - generic [ref=e601]: Shipped
+                  - paragraph [ref=e602]: React 19 + Vite + TypeScript monorepo. Compose tab. 5-tier typography hierarchy.
+              - listitem [ref=e603]:
+                - generic [ref=e604]: ✓
+                - generic [ref=e605]:
+                  - generic [ref=e606]:
+                    - text: "V0.4: Renderer Intelligence"
+                    - generic [ref=e607]: Shipped
+                  - paragraph [ref=e608]: 7 renderer profiles with parity matrix. Look API (Classic, Neo, Hand-Drawn). Dark/light/system preview. 26+ example files. Diff view.
+              - listitem [ref=e609]:
+                - generic [ref=e610]: ✓
+                - generic [ref=e611]:
+                  - generic [ref=e612]:
+                    - text: "v0.6.1: Export & Workflow Polish"
+                    - generic [ref=e613]: Shipped
+                  - paragraph [ref=e614]: The 10-skill family, Extract workflow, export preview pane, renderer-profiled exports, and the 31-family Reference registry.
+              - listitem [ref=e615]:
+                - generic [ref=e616]: ✓
+                - generic [ref=e617]:
+                  - generic [ref=e618]:
+                    - text: "v0.5.x: SKILL.md Hardening"
+                    - generic [ref=e619]: Shipped
+                  - paragraph [ref=e620]: Extract governance logic into a portable SKILL.md agent skill for Claude Code, Cursor, and GitHub Copilot. Vitest 4 test suite hardening. Renderer profile verification fixtures.
+              - listitem [ref=e621]:
+                - generic [ref=e622]: ▶
+                - generic [ref=e623]:
+                  - generic [ref=e624]:
+                    - text: "v0.6.x: Export & Workflow Polish"
+                    - generic [ref=e625]: Active
+                  - paragraph [ref=e626]: Continue polishing the export preview pane, directive-length advisory, reference-tab guided distribution, and documentation-truth CI gates.
+              - listitem [ref=e627]:
+                - generic [ref=e628]: ○
+                - generic [ref=e629]:
+                  - generic [ref=e630]:
+                    - text: "v0.7.x: Session Persistence + Multi-Diagram Canvas"
+                    - generic [ref=e631]: Planned
+                  - paragraph [ref=e632]: "Local storage persistence for sessions across browser restarts. Multi-diagram canvas: manage, compare, and export multiple themed diagrams in one workspace."
+              - listitem [ref=e633]:
+                - generic [ref=e634]: ○
+                - generic [ref=e635]:
+                  - generic [ref=e636]:
+                    - text: "v0.8.x: Collaboration + Governance Hardening"
+                    - generic [ref=e637]: Planned
+                  - paragraph [ref=e638]: "Shareable governance profiles. Team-level palette enforcement. Governance audit log: tracks which themes were applied to which diagrams, when, and by which export format."
+              - listitem [ref=e639]:
+                - generic [ref=e640]: ○
+                - generic [ref=e641]:
+                  - generic [ref=e642]:
+                    - text: "v1.0: Production Release"
+                    - generic [ref=e643]: Planned
+                  - paragraph [ref=e644]: Stable API surface, production-grade test coverage, full documentation, and formal governance contract for downstream consumers (BPMN for Mermaid, SKILL.md, Ko-fi artifacts).
+          - complementary [ref=e645]:
+            - generic [ref=e646]:
+              - heading "Need a Mermaid governance layer for your stack?" [level=3] [ref=e647]
+              - paragraph [ref=e648]: Custom theme systems, SKILL.md agent packaging, prompt scaffolds that keep AI-generated diagrams on-brand. I build the whole layer, not just the diagram.
+            - generic [ref=e649]:
+              - link "Hire me on Fiverr" [ref=e650] [cursor=pointer]:
+                - /url: https://pro.fiverr.com/s/VYKPpoB
+              - link "Get in touch" [ref=e651] [cursor=pointer]:
+                - /url: /contact/
+          - generic [ref=e652]:
+            - group [ref=e653]:
+              - generic "User Guide" [ref=e654] [cursor=pointer]:
+                - text: User Guide
+                - generic [aria-hidden] [ref=e655]: ▾
+            - group [ref=e656]:
+              - generic "Palette Reference" [ref=e657] [cursor=pointer]:
+                - text: Palette Reference
+                - generic [aria-hidden] [ref=e658]: ▾
+            - group [ref=e659]:
+              - generic "FAQ" [ref=e660] [cursor=pointer]:
+                - text: FAQ
+                - generic [aria-hidden] [ref=e661]: ▾
+          - generic [ref=e662]:
+            - generic [ref=e663]: Builder's Note
+            - blockquote [ref=e664]:
+              - paragraph [ref=e665]: "This tool started as a personal itch. I kept running into the same friction: needing a custom Mermaid theme, describing what I wanted in a prompt, getting CSS, pasting it, noticing something was off, re-prompting. The feedback loop was slow and imprecise."
+              - paragraph [ref=e666]: So I built the direct-manipulation version. Pick a color. See the change. Move on.
+              - paragraph [ref=e667]: It's useful to me and probably useful to someone else in the Mermaid.js community. That's why it's here.
+              - paragraph [ref=e668]:
+                - emphasis [ref=e669]: Not a startup. Not a SaaS pivot in progress. A tool I built, made free, and put on GitHub.
+            - paragraph [ref=e670]: OverKill Hill P³
+          - generic [ref=e671]:
+            - generic [ref=e672]: "Development Update: Aug 2026"
+            - blockquote [ref=e673]:
+              - paragraph [ref=e674]: v0.6.1 is the current live state. The 10-skill SKILL.md family shipped, the Extract tab is live for pulling themes from existing Mermaid diagrams, and the export preview pane shows exact output before copy or download. The Reference tab carries 31 diagram family entries. Every export format is renderer-profiled.
+              - paragraph [ref=e675]: "The v0.5.x SKILL.md Hardening sprint is complete. The active sprint is v0.6.x Export & Workflow Polish: export preview pane, directive-length advisory, reference-tab guided distribution, and doc-truth CI gates."
+            - paragraph [ref=e676]: May 2026 · OverKill Hill P³
+        - complementary "Project information" [ref=e677]:
+          - generic [ref=e678]:
+            - generic [ref=e679]: Project Info
+            - generic [ref=e680]:
+              - generic [ref=e681]:
+                - generic [ref=e682]: Status
+                - generic [ref=e683]: v0.6.1 Shipped
+              - generic [ref=e685]:
+                - generic [ref=e686]: Build Phase
+                - text: v0.6.x Export & Workflow Polish
+              - generic [ref=e687]:
+                - generic [ref=e688]: License
+                - text: MIT
+              - generic [ref=e689]:
+                - generic [ref=e690]: Type
+                - text: Community Contribution
+              - generic [ref=e691]:
+                - generic [ref=e692]: Cost
+                - text: Free / Open Source
+              - generic [ref=e693]:
+                - generic [ref=e694]: Maintained by
+                - link "OverKill Hill P³" [ref=e696] [cursor=pointer]:
+                  - /url: https://overkillhill.com
+              - generic [ref=e697]:
+                - generic [ref=e698]: Mermaid.js
+                - text: "Target: v11.16.0"
+              - generic [ref=e699]:
+                - generic [ref=e700]: Compatibility
+                - text: v11.16.0-aligned capability model
+            - generic [ref=e701]:
+              - link "◻ View on GitHub" [ref=e702] [cursor=pointer]:
+                - /url: https://github.com/OKHP3/mermaid-theme-builder
+              - link "⊘ Report an Issue" [ref=e703] [cursor=pointer]:
+                - /url: https://github.com/OKHP3/mermaid-theme-builder/issues
+              - link "⊕ Contribute" [ref=e704] [cursor=pointer]:
+                - /url: https://github.com/OKHP3/mermaid-theme-builder/blob/main/CONTRIBUTING.md
+          - generic [ref=e705]:
+            - generic [ref=e706]: Related Resources
+            - list [ref=e707]:
+              - listitem [ref=e708]:
+                - 'link "Live App: Compose Tab ↗" [ref=e709] [cursor=pointer]':
+                  - /url: https://okhp3.github.io/mermaid-theme-builder/#compose
+              - listitem [ref=e710]:
+                - 'link "Live App: Apply Tab ↗" [ref=e711] [cursor=pointer]':
+                  - /url: https://okhp3.github.io/mermaid-theme-builder/#apply
+              - listitem [ref=e712]:
+                - 'link "Live App: Extract Tab ↗" [ref=e713] [cursor=pointer]':
+                  - /url: https://okhp3.github.io/mermaid-theme-builder/#extract
+              - listitem [ref=e714]:
+                - link "GitHub Repository ↗" [ref=e715] [cursor=pointer]:
+                  - /url: https://github.com/OKHP3/mermaid-theme-builder
+              - listitem [ref=e716]:
+                - link "Skill Family Manifest (FAMILY.md) ↗" [ref=e717] [cursor=pointer]:
+                  - /url: https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/FAMILY.md
+              - listitem [ref=e718]:
+                - link "SKILL.md Source ↗" [ref=e719] [cursor=pointer]:
+                  - /url: https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/okhp3-mermaid-theme-builder/SKILL.md
+              - listitem [ref=e720]:
+                - link "BPMN for Mermaid (sibling)" [ref=e721] [cursor=pointer]:
+                  - /url: /projects/bpmn-for-mermaid/
+              - listitem [ref=e722]:
+                - link "Mermaid.js Theming Docs ↗" [ref=e723] [cursor=pointer]:
+                  - /url: https://mermaid.js.org/config/theming.html
+              - listitem [ref=e724]:
+                - link "themeVariables Reference ↗" [ref=e725] [cursor=pointer]:
+                  - /url: https://mermaid.js.org/config/theming.html#theme-variables
+              - listitem [ref=e726]:
+                - link "Mermaid.js Syntax Reference ↗" [ref=e727] [cursor=pointer]:
+                  - /url: https://mermaid.js.org/intro/syntax-reference.html
+              - listitem [ref=e728]:
+                - link "The First Diagram is a Liar" [ref=e729] [cursor=pointer]:
+                  - /url: /writings/first-diagram-is-a-liar/
+              - listitem [ref=e730]:
+                - link "All OverKill Hill Projects" [ref=e731] [cursor=pointer]:
+                  - /url: /projects/
+          - generic [ref=e732]:
+            - generic [ref=e733]: On This Page
+            - list [ref=e734]:
+              - listitem [ref=e735]:
+                - link "The Problem" [ref=e736] [cursor=pointer]:
+                  - /url: "#problem"
+              - listitem [ref=e737]:
+                - link "Current Release" [ref=e738] [cursor=pointer]:
+                  - /url: "#release"
+              - listitem [ref=e739]:
+                - link "What It Is" [ref=e740] [cursor=pointer]:
+                  - /url: "#what-it-is"
+              - listitem [ref=e741]:
+                - link "Why This Exists" [ref=e742] [cursor=pointer]:
+                  - /url: "#why-this-exists"
+              - listitem [ref=e743]:
+                - link "Built For" [ref=e744] [cursor=pointer]:
+                  - /url: "#personas"
+              - listitem [ref=e745]:
+                - link "Where It Helps" [ref=e746] [cursor=pointer]:
+                  - /url: "#where-this-helps"
+              - listitem [ref=e747]:
+                - link "Research Validation" [ref=e748] [cursor=pointer]:
+                  - /url: "#research"
+              - listitem [ref=e749]:
+                - link "Features" [ref=e750] [cursor=pointer]:
+                  - /url: "#features"
+              - listitem [ref=e751]:
+                - link "Tech Stack" [ref=e752] [cursor=pointer]:
+                  - /url: "#stack"
+              - listitem [ref=e753]:
+                - link "Roadmap" [ref=e754] [cursor=pointer]:
+                  - /url: "#roadmap"
+  - contentinfo [ref=e755]:
+    - generic [ref=e756]:
+      - generic [ref=e757]:
+        - heading "OverKill Hill P³™" [level=3] [ref=e758]
+        - paragraph [ref=e759]: "Protocol-first AI systems design: local inference, multi-model coordination, and the governance layer the platforms forgot to build."
+      - generic [ref=e760]:
+        - heading "Navigation" [level=4] [ref=e761]
+        - list [ref=e762]:
+          - listitem [ref=e763]:
+            - link "The Forge" [ref=e764] [cursor=pointer]:
+              - /url: /#forge
+          - listitem [ref=e765]:
+            - link "P³ Universe" [ref=e766] [cursor=pointer]:
+              - /url: /universe/
+          - listitem [ref=e767]:
+            - link "The Manifesto" [ref=e768] [cursor=pointer]:
+              - /url: /manifesto/
+          - listitem [ref=e769]:
+            - link "Our Projects" [ref=e770] [cursor=pointer]:
+              - /url: /projects/
+          - listitem [ref=e771]:
+            - link "Writings" [ref=e772] [cursor=pointer]:
+              - /url: /writings/
+          - listitem [ref=e773]:
+            - link "About OKH P³" [ref=e774] [cursor=pointer]:
+              - /url: /about/
+          - listitem [ref=e775]:
+            - link "Contact OKH P³" [ref=e776] [cursor=pointer]:
+              - /url: /contact/
+          - listitem [ref=e777]:
+            - link "Legal" [ref=e778] [cursor=pointer]:
+              - /url: /legal/
+      - generic [ref=e779]:
+        - heading "Connect" [level=4] [ref=e780]
+        - list [ref=e781]:
+          - listitem [ref=e782]:
+            - link "contact@overkillhill.com" [ref=e783] [cursor=pointer]:
+              - /url: mailto:contact@overkillhill.com
+          - listitem [ref=e784]:
+            - link "Ko-fi" [ref=e785] [cursor=pointer]:
+              - /url: https://ko-fi.com/overkillhillp3
+          - listitem [ref=e786]:
+            - link "Fiverr" [ref=e787] [cursor=pointer]:
+              - /url: https://pro.fiverr.com/s/VYKPpoB
+          - listitem [ref=e788]:
+            - link "LinkedIn" [ref=e789] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/overkillhillp3
+          - listitem [ref=e790]:
+            - link "Facebook" [ref=e791] [cursor=pointer]:
+              - /url: https://facebook.com/OverKillHillP3/
+          - listitem [ref=e792]:
+            - link "X (Twitter)" [ref=e793] [cursor=pointer]:
+              - /url: https://x.com/OverKillHillP3
+          - listitem [ref=e794]:
+            - link "YouTube" [ref=e795] [cursor=pointer]:
+              - /url: https://www.youtube.com/@OverKillHillP3
+    - generic [ref=e796]:
+      - generic [ref=e797]:
+        - text: Built with
+        - link "Replit" [ref=e798] [cursor=pointer]:
+          - /url: https://replit.com/refer/overkillhillp3/
+      - paragraph [ref=e799]: © 2026 OverKill Hill P³™. All rights reserved.
