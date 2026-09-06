@@ -21,8 +21,11 @@ and Pages workflow; this document does not predeclare their success.
 - Historical background: [British Museum transport account](https://www.britishmuseum.org/blog/introducing-assyrians)
   and [Metropolitan Museum excavation history](https://www.metmuseum.org/essays/the-rediscovery-of-assyria).
   Fossil anatomy reference: [Pachystruthio study](https://doi.org/10.1080/02724634.2019.1605521).
-- Source, generated HTML, article metadata, reading estimate, and generated
-  search index are updated together. No new imagery, styles, or dependencies.
+- Source, generated HTML, reading estimate, and generated search index are
+  updated together. Existing article/social metadata remains intact. Optional
+  word-count and modification-date JSON-LD additions were withdrawn because
+  their global CSP hash churn unnecessarily invalidated locale baselines.
+  No new imagery, styles, dependencies, or security policy changes.
 
 Local browser checks against the repository preview on port 5027 passed:
 310 responsive cases across 31 routes and ten widths (320-1920px), all 31
