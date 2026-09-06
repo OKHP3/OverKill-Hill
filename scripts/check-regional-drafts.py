@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check unreleased regional draft routes and their publication boundary."""
+"""Check published UK and Mexico locale routes and their release contract."""
 from __future__ import annotations
 
 import json
@@ -42,10 +42,10 @@ def main() -> int:
         if not (ROOT / "i18n/pilot/es-mx/reviewed" / name).exists():
             fail(f"missing reviewed es-MX source artifact: {name}")
     manifest = json.loads((ROOT / "i18n/pilot/regional-drafts-manifest.json").read_text(encoding="utf-8"))
-    for locale, expected_lang, label in (("en-gb", "en-GB", "English (UK) · Draft"), ("es-mx", "es-MX", "Español (México) · Borrador")):
+    for locale, expected_lang, label in (("en-gb", "en-GB", "English (UK)"), ("es-mx", "es-MX", "Español (México)")):
         entry = manifest["locales"][locale]
-        if entry["status"] != "ai-reviewed-draft":
-            fail(f"{locale}: status is not AI-reviewed draft")
+        if entry["status"] not in {"ai-reviewed-draft", "published"}:
+            fail(f"{locale}: invalid publication status")
         for route in ROUTES:
             source_rel = "index.html" if route == "/" else route.strip("/") + "/index.html"
             source_path = ROOT / source_rel
@@ -62,10 +62,10 @@ def main() -> int:
             if f'<html lang="{expected_lang}">' not in text:
                 fail(f"{path.relative_to(ROOT)}: wrong html lang")
             robot_tags = re.findall(r'<meta[^>]+>', text, re.I)
-            if not any(re.search(r'name=["\']robots["\']', tag, re.I) and re.search(r'content=["\']noindex, follow', tag, re.I) for tag in robot_tags):
-                fail(f"{path.relative_to(ROOT)}: missing noindex")
+            if any(re.search(r'name=["\']robots["\']', tag, re.I) and re.search(r'noindex', tag, re.I) for tag in robot_tags):
+                fail(f"{path.relative_to(ROOT)}: published route must not be noindex")
             if label not in text:
-                fail(f"{path.relative_to(ROOT)}: missing visible draft label")
+                fail(f"{path.relative_to(ROOT)}: missing visible locale label")
             expected_home = f'/{locale}/'
             nav_match = re.search(r'<div class="logo">.*?</div>', text, re.S)
             if nav_match is None or not re.search(rf'<a\b[^>]*\bhref="{re.escape(expected_home)}"', nav_match.group(0)):
@@ -76,8 +76,6 @@ def main() -> int:
                 fail(f"{path.relative_to(ROOT)}: navigation logo does not use the current organization identity")
             if nav_match and 'loading="eager"' not in nav_match.group(0):
                 fail(f"{path.relative_to(ROOT)}: navigation logo must declare eager loading")
-            if '<link' in text and 'rel="alternate"' in text[: text.find("</head>")]:
-                fail(f"{path.relative_to(ROOT)}: draft head exposes public alternate links")
             if locale == "en-gb" and 'stroke="#CE1124"' not in text:
                 fail(f"{path.relative_to(ROOT)}: missing St George flag")
             if locale == "en-gb" and 'stroke="#CE1124"' in text and 'stroke="#CE1124" stroke-width="4"' not in text:
@@ -86,8 +84,8 @@ def main() -> int:
                 fail(f"{path.relative_to(ROOT)}: missing Mexico flag")
             if locale == "es-mx" and 'Mexico coat of arms' not in text:
                 fail(f"{path.relative_to(ROOT)}: Mexico flag lacks its coat of arms")
-            if locale == "es-mx" and 'Español (México) · Borrador</span>' not in text:
-                fail(f"{path.relative_to(ROOT)}: missing visible Mexico draft label")
+            if locale == "es-mx" and 'Español (México)</span>' not in text:
+                fail(f"{path.relative_to(ROOT)}: missing visible Mexico label")
             if locale == "es-mx" and 'href="https://fonts.googleapis.com' not in text:
                 fail(f"{path.relative_to(ROOT)}: missing canonical heading-font resource")
             if locale == "es-mx" and 'class="site-specials site-specials--okh"' not in text:
@@ -102,13 +100,13 @@ def main() -> int:
                     fail(f"{path.relative_to(ROOT)}: {element} coverage differs from canonical source")
     for index in ("search-index.en-gb.json", "search-index.es-mx.json"):
         payload = json.loads((ROOT / "assets/data" / index).read_text(encoding="utf-8"))
-        if payload.get("count") != 0 or payload.get("entries") != []:
-            fail(f"{index}: draft routes must have zero public search entries")
+        if payload.get("count", 0) != 4:
+            fail(f"{index}: published locale index must contain four entries")
     if FAILURES:
         print("Regional draft check failed:")
         print("\n".join(f"  - {item}" for item in FAILURES))
         return 1
-    print("Regional draft check passed: en-gb and es-mx, four routes each, noindex, no public alternates, zero search entries")
+    print("Published locale check passed: en-gb and es-mx, four routes each, indexable and searchable")
     return 0
 
 
