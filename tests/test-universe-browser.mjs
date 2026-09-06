@@ -41,6 +41,7 @@ try {
   const plain = await offline.newPage();
   await plain.goto(`http://127.0.0.1:${server.address().port}/universe/`);
   assert.ok(await plain.locator('.universe-generated li a[href]').count() >= 31);
+  assert.equal(await plain.locator(".universe-diagram:visible").count(), 0);
   await offline.close();
   console.log(`PASS: ${total} diagrams, SVG links, 31-page outline, two widths, theme switch, and no-JavaScript fallback`);
 } finally {

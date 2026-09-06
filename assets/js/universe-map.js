@@ -58,17 +58,23 @@ async function renderVisible() {
         node.append(anchor);
       }
       element.dataset.rendered = "true";
+      element.hidden = false;
     } catch (error) {
       element.textContent = "The diagram is unavailable. Use the page links below.";
+      element.hidden = false;
       console.error("Universe diagram rendering failed", error);
     }
   }
 }
 
-function enqueue() { pending = pending.then(renderVisible); }
+function enqueue() {
+  pending = pending.then(renderVisible).catch((error) => {
+    console.error("Universe diagram queue failed", error);
+  });
+}
 document.querySelectorAll(".universe-generated details").forEach((details) => details.addEventListener("toggle", enqueue));
 new MutationObserver(() => {
-  diagrams.forEach((element) => { delete element.dataset.rendered; });
+  diagrams.forEach((element) => { element.removeAttribute("data-rendered"); });
   enqueue();
 }).observe(document.documentElement, {attributes: true, attributeFilter: ["data-theme", "data-color-scheme"]});
 enqueue();
