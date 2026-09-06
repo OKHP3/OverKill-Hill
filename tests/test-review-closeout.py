@@ -2,6 +2,7 @@
 import runpy
 import unittest
 from pathlib import Path
+from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -35,6 +36,11 @@ class ReviewCloseoutTests(unittest.TestCase):
         for name in ('scripts/build-site.py', 'assets/partials/head.html', 'scripts/validate-site.py'):
             with self.subTest(name=name):
                 self.assertIn(logo, (ROOT / name).read_text(encoding='utf-8'))
+
+    def test_rendered_murderbird_navigation_marks_the_article_current(self):
+        page = BeautifulSoup((ROOT / 'writings/murderbird/index.html').read_text(encoding='utf-8'), 'html.parser')
+        current = page.select('.site-header nav a[aria-current="page"]')
+        self.assertEqual(['/writings/murderbird/'], [link.get('href') for link in current])
 
     def test_mtb_source_uses_correct_indefinite_article(self):
         text = (ROOT / 'site-src/pages/projects/mermaid-theme-builder/index.main.html').read_text(encoding='utf-8')
