@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the regional locale pages and keep their shared shell synchronized.
+"""Build the four regional locale drafts without changing public release files.
 
 The canonical English HTML is the source for both regional pairs. Existing
 target files are preserved as draft working artifacts during regeneration, so
@@ -28,14 +28,11 @@ CSP_META_RE = re.compile(
     rb'<meta\b(?=[^>]*\bhttp-equiv=["\']Content-Security-Policy["\'])[^>]*>',
     re.I,
 )
-CSP_META_TEXT_RE = re.compile(
-    r'<meta\b(?=[^>]*\bhttp-equiv=["\']Content-Security-Policy["\'])[^>]*>',
-    re.I,
-)
 ASSET_FINGERPRINT_RE = re.compile(
     rb'(\b(?:href|src)=["\'][^"\']*/assets/[^"\']*?)\?v=[0-9a-f]{8,64}(?=["\'])',
     re.I,
 )
+
 
 def sync_asset_fingerprints(page: str, canonical: str) -> str:
     """Use the canonical release fingerprints in every locale output."""
@@ -44,14 +41,6 @@ def sync_asset_fingerprints(page: str, canonical: str) -> str:
         if match:
             page = re.sub(rf'{re.escape(asset)}\?v=[0-9a-f]+', f'{asset}?v={match.group(1)}', page, flags=re.I)
     return page
-
-
-def sync_csp(page: str, canonical: str) -> str:
-    """Keep generated locale pages on the canonical release CSP policy."""
-    match = re.search(r'<meta\b(?=[^>]*\bhttp-equiv=["\']Content-Security-Policy["\'])[^>]*>', canonical, re.I)
-    if not match:
-        raise SystemExit('Canonical source is missing the release CSP policy')
-    return CSP_META_TEXT_RE.sub(match.group(0), page, count=1)
 
 ST_GEORGE = (
     '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21">'
@@ -78,11 +67,11 @@ GERMANY = '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30
 SPAIN = '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21"><rect fill="#AA151B" height="5" width="30"/><rect fill="#F1BF00" height="10" width="30" y="5"/><rect fill="#AA151B" height="5" width="30" y="15"/></svg>'
 LOCALE_MENU = (
     ('en', 'en-US', 'English (US)', USA),
-    ('en-gb', 'en-GB', 'English (UK) · Draft', ST_GEORGE),
+    ('en-gb', 'en-GB', 'English (UK)', ST_GEORGE),
     ('fr', 'fr-FR', 'Français (France)', FRANCE),
     ('de', 'de-DE', 'Deutsch (Deutschland)', GERMANY),
     ('es', 'es-ES', 'Español (España)', SPAIN),
-    ('es-mx', 'es-MX', 'Español (México) · Borrador', MEXICO),
+    ('es-mx', 'es-MX', 'Español (México)', MEXICO),
 )
 
 
@@ -132,15 +121,6 @@ def replace_locale_switch(page: str, active_locale: str, route: str) -> str:
     if count != 1:
         raise SystemExit(f'Missing language switcher for {active_locale} {route}')
     return updated
-
-
-def refresh_published_switchers() -> None:
-    """Apply the reviewed language menu to the existing published locales."""
-    for locale in ('fr', 'de', 'es'):
-        for route, rel in ROUTES.items():
-            output = ROOT / locale / rel
-            page = output.read_text(encoding='utf-8')
-            output.write_text(replace_locale_switch(page, locale, route), encoding='utf-8')
 
 
 def load_pair_contract(locale: str) -> tuple[dict, dict]:
@@ -343,16 +323,14 @@ def adapt_visible_text(page: str, dictionary: dict) -> str:
 def build_en_gb(source: str, route: str, dictionary: dict) -> str:
     page = source
     page = sync_asset_fingerprints(page, source)
-    page = sync_csp(page, source)
     target_url = BASE + '/en-gb' + route
     page = page.replace('<html lang="en">', '<html lang="en-GB">', 1)
     page = set_canonical_href(page, target_url)
     page = set_meta_content(page, 'og:url', target_url)
     page = set_meta_content(page, 'og:locale', 'en_GB')
-    page = page.replace('content="index, follow', 'content="noindex, follow')
-    page = noindex(page)
-    page = page.replace('English (US)', 'English (UK) · Draft')
-    page = page.replace('Language: English (US)', 'Language: English (UK) · Draft')
+    page = page.replace('content="noindex, follow', 'content="index, follow')
+    page = page.replace('English (US)', 'English (UK)')
+    page = page.replace('Language: English (US)', 'Language: English (UK)')
     page = page.replace('hreflang="en"', 'hreflang="en-GB"').replace('lang="en"', 'lang="en-GB"')
     page = rewrite_in_scope_links(page, 'en-gb')
     page = adapt_visible_text(page, dictionary)
@@ -372,18 +350,17 @@ def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> st
         raise SystemExit('es-MX dictionary has no reviewed vocabulary entries')
     page = route_links(source, "es", "es-mx")
     page = sync_asset_fingerprints(page, canonical)
-    page = sync_csp(page, canonical)
     page = page.replace('<html lang="es">', '<html lang="es-MX">', 1)
     page = page.replace('https://overkillhill.com/es' + route, BASE + '/es-mx' + route)
-    page = noindex(page)
+    page = page.replace('content="noindex, follow', 'content="index, follow')
     page = page.replace('hreflang="es"', 'hreflang="es-MX"').replace('lang="es"', 'lang="es-MX"')
     page = re.sub(r'(<meta[^>]+property=["\']og:locale["\'][^>]+content=["\'])es_ES', r'\1es_MX', page, flags=re.I)
     # The shared mobile menu is right-anchored to the flag button. Keep the
     # visible current-locale label compact enough to remain wholly on-screen;
     # the expanded accessible name retains the full regional wording.
-    page = page.replace('Español</span>', 'ES-MX · Borrador</span>')
-    page = page.replace('aria-label="Language: Español"', 'aria-label="Language: Español (México) · Borrador"')
-    page = page.replace('aria-label="Español"', 'aria-label="Español (México) · Borrador"')
+    page = page.replace('Español</span>', 'ES-MX</span>')
+    page = page.replace('aria-label="Language: Español"', 'aria-label="Language: Español (México)"')
+    page = page.replace('aria-label="Español"', 'aria-label="Español (México)"')
     page = re.sub(r'<link[^>]+rel="alternate"[^>]*>', '', page, flags=re.I)
     page = re.sub(r'<svg aria-hidden="true" class="lang-flag".*?</svg>', MEXICO, page, count=1, flags=re.S)
     # Project-level Mexican usage overrides. Preserve intentional technology
@@ -412,14 +389,8 @@ def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> st
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument('--locale', choices=('en-gb', 'es-mx'))
-    parser.add_argument('--refresh-published', action='store_true')
+    parser.add_argument('--locale', choices=('en-gb', 'es-mx'), required=True)
     args = parser.parse_args()
-    if args.refresh_published:
-        refresh_published_switchers()
-        return 0
-    if not args.locale:
-        parser.error('--locale is required unless --refresh-published is used')
     dictionary, _profile = load_pair_contract(args.locale)
     verify_sources()
     for route, rel in ROUTES.items():
