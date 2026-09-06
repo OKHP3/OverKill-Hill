@@ -1,6 +1,50 @@
 # MurderBird story page: local validation
 
-## Delivered page
+## September 6, 2026 update to the September 5 validation log
+
+This section supersedes the historical local-draft receipt below. The release
+candidate is on `codex/murderbird-era-expansions`, based on
+`b9bfcacd74ab80d76e1bfce88325bcee7c4fd98d`. Commit-specific CI, squash-merge,
+and deployment receipts are recorded by the associated GitHub pull request
+and Pages workflow; this document does not predeclare their success.
+
+- Story: 5,266 whitespace-delimited words in 73 narrative paragraphs.
+- Era One: 1,728 words. Era Two: 1,745 words. The later awakening and ending
+  remain unchanged. Paragraphs remain 63-77 words; supporting roles remain
+  unnamed and genderless. Reading estimate: 21-27 minutes.
+- Era One adds uncertain fossil reconstruction, failed flight experiments,
+  and conflict with the court. No real Babylonian terror-bird find is claimed.
+- Era Two now begins with a fictional illicit excavation in 1853, private
+  transport and collecting, then English mechanical restoration in 1873.
+  Its buyer, broker, transactions, and discovery are fictional, not allegations
+  against named historical people or institutions.
+- Historical background: [British Museum transport account](https://www.britishmuseum.org/blog/introducing-assyrians)
+  and [Metropolitan Museum excavation history](https://www.metmuseum.org/essays/the-rediscovery-of-assyria).
+  Fossil anatomy reference: [Pachystruthio study](https://doi.org/10.1080/02724634.2019.1605521).
+- Source, generated HTML, reading estimate, and generated search index are
+  updated together. Existing article/social metadata remains intact. Optional
+  word-count and modification-date JSON-LD additions were withdrawn because
+  their global CSP hash churn unnecessarily invalidated locale baselines.
+  No new imagery, styles, dependencies, or security policy changes.
+
+Local browser checks against the repository preview on port 5027 passed:
+310 responsive cases across 31 routes and ten widths (320-1920px), all 31
+public routes at 320px, and accessibility checks across four representative
+pages plus 31 public routes. External resources are blocked by these local
+suites, so they do not prove analytics receipt or third-party availability.
+The following-sidebar suite also passed for all 14 sidebar menus, including
+MurderBird and the legacy mobile-to-desktop media-query transition.
+Structural, generated-page/index, cache, internal-link, static-audit, and
+contrast checks passed during the expansion review. Existing locale warnings
+remain outside this story change. There are 31 sitemap routes and 24
+intentional noindex exclusions, with no broken internal links.
+
+Prior archive refs, stashes, and unrelated recovery history are preservation
+holds, not cleanup targets. Only the verified merged feature branch should
+be removed after release. Unavailable historical image binaries and further
+image/video work remain separate from this prose release.
+
+## Historical delivered-page receipt (before the era expansions)
 
 - Title: The MurderBird: What the Water Kept.
 - Route: `/writings/murderbird/`.
