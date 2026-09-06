@@ -76,9 +76,18 @@ def all_pages() -> list[Path]:
         capture_output=True,
         text=True,
     )
+    # Newly built routes must participate before git add, so local validation
+    # and a fresh CI checkout compute the same policy inventory.
+    names = set(tracked.stdout.splitlines())
+    manifest = ROOT / "site-src" / "pages.json"
+    if manifest.exists():
+        for page in json.loads(manifest.read_text(encoding="utf-8"))["pages"]:
+            candidate = (ROOT / page["path"]).resolve()
+            if candidate.is_relative_to(ROOT) and candidate.is_file():
+                names.add(candidate.relative_to(ROOT).as_posix())
     return sorted(
         ROOT / name
-        for name in tracked.stdout.splitlines()
+        for name in names
         if not name.startswith(
             (
                 "assets/templates/",
