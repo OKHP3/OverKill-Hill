@@ -1,0 +1,20 @@
+{
+  "source_commit": "897df5d33202bd65924f9f3a35c84e0068cbee02",
+  "probe": "Disposable fixture changes French target only; original source and ledger unchanged",
+  "before_counts": {
+    "missing": 0,
+    "stale": 0,
+    "needs_baseline": 0,
+    "in_sync": 12,
+    "orphan": 0
+  },
+  "after_counts": {
+    "missing": 0,
+    "stale": 0,
+    "needs_baseline": 0,
+    "in_sync": 12,
+    "orphan": 0
+  },
+  "target_bytes_differ": true,
+  "mutated_route_classification": "in_sync"
+}

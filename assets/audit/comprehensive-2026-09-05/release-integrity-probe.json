@@ -1,0 +1,5 @@
+{
+  "procedure": "Built isolated temporary package from local HEAD; appended harmless comment to copied app.js; ran verify unchanged manifest. Removed temporary directory.",
+  "verification_rejected_changed_js": false,
+  "output": "Built allowlisted release: 56 HTML pages, 343 files\nVerified SHA-bound release: 56 HTML pages, 343 files\n"
+}

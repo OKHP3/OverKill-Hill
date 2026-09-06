@@ -1,0 +1,2996 @@
+{
+  "verifier": "verify-live-edge.py",
+  "run_at": "2026-09-06T03:03:20.863227+00:00",
+  "base": "https://overkillhill.com",
+  "timeout_seconds": 10.0,
+  "expected_commit": "40e18ee7916f4a54196cc407d60999ba1d786d11",
+  "hosting": "github-pages",
+  "status": "PARTIAL",
+  "summary": {
+    "checks": 427,
+    "failures": 0,
+    "blocked": 38,
+    "warnings": 315
+  },
+  "checks": [
+    {
+      "check": "release manifest",
+      "status": "PASS",
+      "evidence": "validated commit 40e18ee7916f4a54196cc407d60999ba1d786d11"
+    },
+    {
+      "check": "release manifest /sitemap.xml",
+      "status": "PASS",
+      "evidence": "SHA-256 354ec4a8e17c matches validated files"
+    },
+    {
+      "check": "release manifest /assets/data/search-index.json",
+      "status": "PASS",
+      "evidence": "SHA-256 3272a9cd03c3 matches validated files"
+    },
+    {
+      "check": "local sitemap inventory",
+      "status": "PASS",
+      "evidence": "31 unique routes"
+    },
+    {
+      "check": "route /",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "190",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "30733",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:17 GMT",
+        "etag": "\"6a9cd654-780d\"",
+        "expires": "Sun, 06 Sep 2026 03:10:07 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "839c338dfe5866f5a530da68cede68b6d37c1927",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "2750:BF5B0:1D7201:21A517:6A9CD737",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200128-BUR",
+        "x-timer": "S1788663797.078424,VS0,VE1"
+      }
+    },
+    {
+      "check": "route / robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route / cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route / observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route / observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route / observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route / observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route / observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route / observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route / observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route / observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route / enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /fr/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "17598",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:17 GMT",
+        "etag": "\"6a9cd654-44be\"",
+        "expires": "Sun, 06 Sep 2026 03:13:17 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "8d05510e56b094dfd14cdd37b5284088bf25c0c0",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "FABE:14BBAD:1D009C:2134CE:6A9CD7F5",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200041-BUR",
+        "x-timer": "S1788663797.110575,VS0,VE71"
+      }
+    },
+    {
+      "check": "route /fr/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /fr/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /writings/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "19921",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:17 GMT",
+        "etag": "\"6a9cd654-4dd1\"",
+        "expires": "Sun, 06 Sep 2026 03:13:17 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "217bc154ac399f556b1267e62438acd6a012c747",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "2C58:BC782:1D5F1A:21938A:6A9CD7F4",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200168-BUR",
+        "x-timer": "S1788663797.210704,VS0,VE71"
+      }
+    },
+    {
+      "check": "route /writings/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /writings/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "189",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "174109",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:17 GMT",
+        "etag": "\"6a9cd654-2a81d\"",
+        "expires": "Sun, 06 Sep 2026 03:10:07 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "7ddbd55038124bd2f9748e1fd10b961cd0224d99",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "B0D0:148B:C8D2AF:10E9A51:6A9CD735",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-phx1710022-PHX",
+        "x-timer": "S1788663797.297143,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /manifesto/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "72857",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:17 GMT",
+        "etag": "\"6a9cd654-11c99\"",
+        "expires": "Sun, 06 Sep 2026 03:13:17 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "4018ce679c6c977c6731219bc0e40cfaf61698f9",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "AB96:BF5B0:1D81B7:21B6BA:6A9CD7F2",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200050-BUR",
+        "x-timer": "S1788663797.327262,VS0,VE93"
+      }
+    },
+    {
+      "check": "route /manifesto/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /manifesto/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /manifesto/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /manifesto/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /manifesto/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /manifesto/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /manifesto/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /manifesto/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /manifesto/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /manifesto/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /manifesto/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /writings/murderbird/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "41584",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:17 GMT",
+        "etag": "\"6a9cd654-a270\"",
+        "expires": "Sun, 06 Sep 2026 03:13:17 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "b64cef2e95f016785ea926e852b71a993b5eb197",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "D3CE:344951:1853A6B:1B13C4E:6A9CD7EE",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-phx1710046-PHX",
+        "x-timer": "S1788663797.444702,VS0,VE202"
+      }
+    },
+    {
+      "check": "route /writings/murderbird/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large"
+    },
+    {
+      "check": "route /writings/murderbird/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/murderbird/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/murderbird/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/murderbird/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/murderbird/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/murderbird/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/murderbird/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/murderbird/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/murderbird/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/murderbird/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /projects/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "189",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "30044",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:17 GMT",
+        "etag": "\"6a9cd654-755c\"",
+        "expires": "Sun, 06 Sep 2026 03:10:08 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "e3f4b57cc231449238e4194137c09d34ce4ac004",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "9966:3A5A38:BC177E:101E399:6A9CD738",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-phx1710066-PHX",
+        "x-timer": "S1788663798.660602,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /projects/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /fr/projects/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "17144",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:17 GMT",
+        "etag": "\"6a9cd654-42f8\"",
+        "expires": "Sun, 06 Sep 2026 03:13:17 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "1a7e3dd76391ff73f5e3d822ce687b4f4821cea1",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "2832:BE942:1CE66B:211AA5:6A9CD7F5",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200058-BUR",
+        "x-timer": "S1788663798.687899,VS0,VE67"
+      }
+    },
+    {
+      "check": "route /fr/projects/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow"
+    },
+    {
+      "check": "route /fr/projects/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/projects/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/projects/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/projects/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/projects/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/projects/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/projects/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/projects/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/projects/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/projects/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /projects/skillz/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "92970",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:17 GMT",
+        "etag": "\"6a9cd654-16b2a\"",
+        "expires": "Sun, 06 Sep 2026 03:13:17 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "e6c6a884adddfb0e80537a6d019f45f2a3196326",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "0AF8:16E03D:1799E73:1A5AF37:6A9CD7F4",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-phx1710060-PHX",
+        "x-timer": "S1788663798.814197,VS0,VE185"
+      }
+    },
+    {
+      "check": "route /projects/skillz/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/skillz/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/skillz/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/skillz/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/skillz/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/skillz/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/skillz/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/skillz/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/skillz/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/skillz/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/skillz/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /projects/found-ry/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "189",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "62713",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:18 GMT",
+        "etag": "\"6a9cd654-f4f9\"",
+        "expires": "Sun, 06 Sep 2026 03:10:09 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "3efc9f910ccfc402936a262e4f7d74f7117c1309",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "2AA2:BF873:1CDC04:210EEB:6A9CD739",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200119-BUR",
+        "x-timer": "S1788663798.031450,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /projects/found-ry/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/found-ry/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/found-ry/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/found-ry/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/found-ry/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/found-ry/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/found-ry/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/found-ry/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/found-ry/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/found-ry/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/found-ry/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "93445",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:18 GMT",
+        "etag": "\"6a9cd654-16d05\"",
+        "expires": "Sun, 06 Sep 2026 03:13:18 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "b2a30f93597c0ffa27d87b0f6e112f7fd987ef90",
+        "x-github-edge-region": "uksouth",
+        "x-github-request-id": "BDA6:10E79B:2CB557:30F5CE:6A9CD7F5",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-hhr-khhr2060057-HHR",
+        "x-timer": "S1788663798.073743,VS0,VE220"
+      }
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mermaid-theme-builder/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "76717",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:18 GMT",
+        "etag": "\"6a9cd654-12bad\"",
+        "expires": "Sun, 06 Sep 2026 03:13:18 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "f1c670b2e49bbf4f51109f39c36a0bb6f873d0d3",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "FC4E:20DB5F:1D24F0:215995:6A9CD7F6",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200114-BUR",
+        "x-timer": "S1788663798.335683,VS0,VE72"
+      }
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bpmn-for-mermaid/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "72169",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:18 GMT",
+        "etag": "\"6a9cd654-119e9\"",
+        "expires": "Sun, 06 Sep 2026 03:13:18 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "54d78abdacd24403f0f050fcda909b71d8198a35",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "4EC2:22E6D1:1DEFC2:2224B3:6A9CD7EF",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200109-BUR",
+        "x-timer": "S1788663798.448194,VS0,VE72"
+      }
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/mac-studio-local-ai-workbench/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "31779",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:18 GMT",
+        "etag": "\"6a9cd654-7c23\"",
+        "expires": "Sun, 06 Sep 2026 03:13:18 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "222b629408ad7cd6513ef20e9855beac7403b335",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "08A0:230CD7:1D1580:2149E7:6A9CD7F6",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-hhr-khhr2060054-HHR",
+        "x-timer": "S1788663799.559085,VS0,VE109"
+      }
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/first-diagram-is-a-liar/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /universe/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "189",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "31901",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:18 GMT",
+        "etag": "\"6a9cd654-7c9d\"",
+        "expires": "Sun, 06 Sep 2026 03:10:10 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "bf72543d8fd6f3288892a65ff8775a3020bef3d5",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "F8CA:148B:C8D450:10E9C52:6A9CD737",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-phx1710046-PHX",
+        "x-timer": "S1788663799.683253,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /universe/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /universe/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /universe/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /universe/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /universe/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /universe/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /universe/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /universe/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /universe/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /universe/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /universe/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /about/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "188",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "27884",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:18 GMT",
+        "etag": "\"6a9cd654-6cec\"",
+        "expires": "Sun, 06 Sep 2026 03:10:10 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "2f5860a13c0f9a9a92b1ea854a630f7aa0888955",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "D672:1880DF:BCBBB9:1028B8D:6A9CD737",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-phx1710123-PHX",
+        "x-timer": "S1788663799.697644,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /about/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /about/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /about/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /about/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /about/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /about/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /about/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /about/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /about/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /about/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /about/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /fr/about/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "188",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "16006",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:18 GMT",
+        "etag": "\"6a9cd654-3e86\"",
+        "expires": "Sun, 06 Sep 2026 03:10:10 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "fe03b5ac743f743fa8ef9661afc7da4d2edcdcec",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "2750:BF5B0:1D7262:21A57B:6A9CD73A",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200043-BUR",
+        "x-timer": "S1788663799.728604,VS0,VE5"
+      }
+    },
+    {
+      "check": "route /fr/about/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow"
+    },
+    {
+      "check": "route /fr/about/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/about/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/about/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/about/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/about/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/about/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/about/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/about/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/about/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/about/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /fr/contact/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "15057",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:18 GMT",
+        "etag": "\"6a9cd654-3ad1\"",
+        "expires": "Sun, 06 Sep 2026 03:13:18 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "a1510bc2f4d7ea27741a4c1a4ed39e14f2f66aca",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "37C0:19EAFC:187E1F8:1B3EC25:6A9CD7F2",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-phx1710020-PHX",
+        "x-timer": "S1788663799.750205,VS0,VE75"
+      }
+    },
+    {
+      "check": "route /fr/contact/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow"
+    },
+    {
+      "check": "route /fr/contact/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /fr/contact/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/contact/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/contact/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/contact/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/contact/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/contact/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/contact/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/contact/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /fr/contact/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /contact/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "188",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "24779",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:18 GMT",
+        "etag": "\"6a9cd654-60cb\"",
+        "expires": "Sun, 06 Sep 2026 03:10:10 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "a34e62b4c8af7a7bb663170c4ac58cfea1e1fefe",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "36BC:22C5CA:1D4F5B:21825A:6A9CD73A",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200099-BUR",
+        "x-timer": "S1788663799.852870,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /contact/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /contact/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /contact/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /contact/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /contact/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /contact/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /contact/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /contact/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /contact/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /contact/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /contact/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /legal/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "188",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "22766",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:18 GMT",
+        "etag": "\"6a9cd654-58ee\"",
+        "expires": "Sun, 06 Sep 2026 03:10:10 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "83316ff7b7fb6f66670a319aabb92144daf8282e",
+        "x-github-edge-region": "westus2",
+        "x-github-request-id": "44F0:110625:84725:C6B82:6A9CD738",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-hhr-khhr2060042-HHR",
+        "x-timer": "S1788663799.886135,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /legal/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /legal/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /legal/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /legal/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /legal/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /legal/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /legal/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /legal/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /legal/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /legal/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /legal/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "32018",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:19 GMT",
+        "etag": "\"6a9cd654-7d12\"",
+        "expires": "Sun, 06 Sep 2026 03:13:18 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "8119f6f6ae3db8c16206c37d2facebcd82786e0b",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "51A8:22F30C:1D9B8F:21D037:6A9CD7F6",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-hhr-khhr2060030-HHR",
+        "x-timer": "S1788663799.918548,VS0,VE82"
+      }
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-a/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "188",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "26804",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:19 GMT",
+        "etag": "\"6a9cd654-68b4\"",
+        "expires": "Sun, 06 Sep 2026 03:10:11 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "209bfcb8a4ecda9bd00e245189dacff2f4e892ab",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "CC48:DCF57:B37976:F945BC:6A9CD73A",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-phx1710050-PHX",
+        "x-timer": "S1788663799.017270,VS0,VE2"
+      }
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v1-heat-b/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "188",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "36856",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:19 GMT",
+        "etag": "\"6a9cd654-8ff8\"",
+        "expires": "Sun, 06 Sep 2026 03:10:11 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "HIT",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "b745e4710b345190bb41c3d921cacf53bc929b8b",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "3A62:1AECC8:1D310E:2163C9:6A9CD73A",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200035-BUR",
+        "x-timer": "S1788663799.045039,VS0,VE1"
+      }
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-a/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "36887",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:19 GMT",
+        "etag": "\"6a9cd654-9017\"",
+        "expires": "Sun, 06 Sep 2026 03:13:19 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "0fbc8ec818e856307608463b681ebde3c6a9bbe9",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "A79C:22F77A:1D0A6B:213F2E:6A9CD7F7",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200023-BUR",
+        "x-timer": "S1788663799.079071,VS0,VE66"
+      }
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /writings/first-diagram-is-a-liar/v03/v2-heat-b/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /prompt-forge/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "48894",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:19 GMT",
+        "etag": "\"6a9cd654-befe\"",
+        "expires": "Sun, 06 Sep 2026 03:13:19 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "5d7b550c77321709dc9d433eb56e671581c9e454",
+        "x-github-edge-region": "iad",
+        "x-github-request-id": "BE34:2C80B:181429A:1AD43F0:6A9CD7F1",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-phx1710147-PHX",
+        "x-timer": "S1788663799.162463,VS0,VE205"
+      }
+    },
+    {
+      "check": "route /prompt-forge/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /prompt-forge/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /prompt-forge/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /prompt-forge/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /prompt-forge/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /prompt-forge/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /prompt-forge/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /prompt-forge/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /prompt-forge/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /prompt-forge/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /prompt-forge/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /vault/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "18905",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:19 GMT",
+        "etag": "\"6a9cd654-49d9\"",
+        "expires": "Sun, 06 Sep 2026 03:13:19 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "85e61c75a0ba3b0d3c2a3b140443bb8e6129df50",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "08A0:230CD7:1D159E:214A08:6A9CD7F7",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-hhr-khhr2060044-HHR",
+        "x-timer": "S1788663799.396260,VS0,VE67"
+      }
+    },
+    {
+      "check": "route /vault/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /vault/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /vault/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /vault/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /vault/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /vault/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /vault/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /vault/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /vault/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /vault/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /vault/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "36846",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:19 GMT",
+        "etag": "\"6a9cd7f6-8fee\"",
+        "expires": "Sun, 06 Sep 2026 03:13:19 GMT",
+        "last-modified": "Sun, 06 Sep 2026 03:03:18 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "d9448d464dba5ad1209d5ff44e54d5e38fac4e7c",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "A1CC:20DB5F:1D2509:2159B8:6A9CD7F7",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200055-BUR",
+        "x-timer": "S1788663799.492599,VS0,VE67"
+      }
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/bfs-framing-intelligent-futures/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "47881",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:19 GMT",
+        "etag": "\"6a9cd7f5-bb09\"",
+        "expires": "Sun, 06 Sep 2026 03:13:19 GMT",
+        "last-modified": "Sun, 06 Sep 2026 03:03:17 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "ab7d27d6f6848f3197f7177ed1d02af069c2b1db",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "6712:C13DE:1D4BF1:218067:6A9CD7F7",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200165-BUR",
+        "x-timer": "S1788663800.595177,VS0,VE71"
+      }
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/abrahamic-reference-engine/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "47944",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:19 GMT",
+        "etag": "\"6a9cd7f5-bb48\"",
+        "expires": "Sun, 06 Sep 2026 03:13:19 GMT",
+        "last-modified": "Sun, 06 Sep 2026 03:03:17 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "efca2e007f9ff9ea0159c8fa228ee75d1f2ff62e",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "08A0:230CD7:1D15A5:214A10:6A9CD7F7",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-hhr-khhr2060055-HHR",
+        "x-timer": "S1788663800.705103,VS0,VE81"
+      }
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/glee-fully-chai-chasers/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "36770",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:19 GMT",
+        "etag": "\"6a9cd7f5-8fa2\"",
+        "expires": "Sun, 06 Sep 2026 03:13:19 GMT",
+        "last-modified": "Sun, 06 Sep 2026 03:03:17 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "b26cabf9b3c3662872e190dc7501c516ca3e2fa8",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "C05A:23268C:1D2A4B:215ECE:6A9CD7F7",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200029-BUR",
+        "x-timer": "S1788663800.825246,VS0,VE67"
+      }
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/kierans-lifetrkr/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /projects/telling-forward/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "37804",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:19 GMT",
+        "etag": "\"6a9cd654-93ac\"",
+        "expires": "Sun, 06 Sep 2026 03:13:19 GMT",
+        "last-modified": "Sun, 06 Sep 2026 02:56:20 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "acda8b2969e1141dc5a3d13b164f9c79d2672279",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "96BC:1539C6:1D4031:2174F2:6A9CD7F7",
+        "x-origin-cache": "HIT",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-hhr-khhr2060028-HHR",
+        "x-timer": "S1788663800.924695,VS0,VE75"
+      }
+    },
+    {
+      "check": "route /projects/telling-forward/ robots boundary",
+      "status": "PASS",
+      "evidence": "indexable; index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "check": "route /projects/telling-forward/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /projects/telling-forward/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/telling-forward/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/telling-forward/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/telling-forward/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/telling-forward/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/telling-forward/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/telling-forward/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/telling-forward/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /projects/telling-forward/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /404.html",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "14818",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:20 GMT",
+        "etag": "\"6a9cd7f5-39e2\"",
+        "expires": "Sun, 06 Sep 2026 03:13:20 GMT",
+        "last-modified": "Sun, 06 Sep 2026 03:03:17 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "abcc4c56d73a14add58d3e7a359b72fdb2484a40",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "53EC:22F7D4:1D2F75:21646E:6A9CD7F8",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200108-BUR",
+        "x-timer": "S1788663800.031219,VS0,VE67"
+      }
+    },
+    {
+      "check": "route /404.html robots boundary",
+      "status": "PASS",
+      "evidence": "noindex; noindex, nofollow"
+    },
+    {
+      "check": "route /404.html cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /404.html observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /404.html observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /404.html observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /404.html observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /404.html observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /404.html observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /404.html observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /404.html observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /404.html enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "route /found-ry/",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8",
+      "http_status": 200,
+      "response_headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "connection": "close",
+        "content-length": "17129",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 06 Sep 2026 03:03:20 GMT",
+        "etag": "\"6a9cd7f5-42e9\"",
+        "expires": "Sun, 06 Sep 2026 03:13:20 GMT",
+        "last-modified": "Sun, 06 Sep 2026 03:03:17 GMT",
+        "server": "GitHub.com",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "72807800c99089ef4871f6f3d743e862cb1ba1bf",
+        "x-github-edge-region": "westus3",
+        "x-github-request-id": "8F58:BFA37:1CD3A4:210827:6A9CD7F7",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-bur-kbur8200062-BUR",
+        "x-timer": "S1788663800.131748,VS0,VE124"
+      }
+    },
+    {
+      "check": "route /found-ry/ robots boundary",
+      "status": "PASS",
+      "evidence": "noindex; noindex, follow"
+    },
+    {
+      "check": "route /found-ry/ cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route /found-ry/ observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /found-ry/ observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /found-ry/ observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /found-ry/ observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /found-ry/ observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /found-ry/ observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /found-ry/ observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /found-ry/ observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "route /found-ry/ enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "hosting path",
+      "status": "PASS",
+      "evidence": "/ is served directly by GitHub Pages (GitHub.com)"
+    },
+    {
+      "check": "generated sitemap",
+      "status": "PASS",
+      "evidence": "HTTP 200; SHA-256 354ec4a8e17c matches validated files",
+      "remote_sha256": "354ec4a8e17c68ffd81458e3ed4cfea6e6ffcde150c7ad0d48b2cefe994b784d",
+      "local_sha256": "354ec4a8e17c68ffd81458e3ed4cfea6e6ffcde150c7ad0d48b2cefe994b784d"
+    },
+    {
+      "check": "sitemap cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated sitemap observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated sitemap observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated sitemap observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated sitemap observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated sitemap observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated sitemap observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated sitemap observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated sitemap observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated sitemap enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "generated search index",
+      "status": "PASS",
+      "evidence": "HTTP 200; SHA-256 3272a9cd03c3 matches validated files",
+      "remote_sha256": "3272a9cd03c30b77fd0b12bae8099e3a22cb48afa1292300a8d098a8cb275bd7",
+      "local_sha256": "3272a9cd03c30b77fd0b12bae8099e3a22cb48afa1292300a8d098a8cb275bd7"
+    },
+    {
+      "check": "search index shape",
+      "status": "PASS",
+      "evidence": "160 indexed pages"
+    },
+    {
+      "check": "search index cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "generated search index observed header x-content-type-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated search index observed header x-frame-options",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated search index observed header referrer-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated search index observed header permissions-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated search index observed header strict-transport-security",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated search index observed header cross-origin-opener-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated search index observed header cross-origin-resource-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated search index observed header origin-agent-cluster",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages may omit repository headers at the edge"
+    },
+    {
+      "check": "generated search index enforcing content-security-policy",
+      "status": "WARN",
+      "evidence": "absent; GitHub Pages cannot apply repository _headers; absence is recorded as a hosting limitation, and the CSP policy contents are not validated by this live-edge check"
+    },
+    {
+      "check": "asset /assets/css/theme.css",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "asset /assets/js/app.js",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "asset /assets/js/mermaid-init.js",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    }
+  ]
+}

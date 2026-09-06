@@ -1,0 +1,200 @@
+{
+  "role": "EVIDENCE",
+  "reviewed_at_utc": "2026-09-06T03:33:33.138605+00:00",
+  "review_input_version": "draft-1",
+  "hashes": [
+    {
+      "path": "assets/docs/audit-comprehensive-website-2026-09-05.md",
+      "sha256": "e9ee3dc11e16ca33b6e582eff2d600cbe987896621befebf1ea9be51f7fe99e1",
+      "actual_sha256": "112b8827d00503be413aa4e679d0bca6e04ecd5e0c63e2c5e47e62e9d3e187a4",
+      "initial_read_matches_frozen": true,
+      "final_read_matches_frozen": false,
+      "subsequent_change": "Parent-announced revision-2; see review-revision-2.json"
+    },
+    {
+      "path": "assets/docs/website-advancement-plan-2026-09-05.md",
+      "sha256": "a68cfb644154d97699a75f30348aee2bbae7e46d4d2e5aff3a286a6c4b81cfba",
+      "actual_sha256": "f3db7e118df769565f07c0f8f60584ed4b77a6250caefce0252a43d4660e2229",
+      "initial_read_matches_frozen": true,
+      "final_read_matches_frozen": false,
+      "subsequent_change": "Parent-announced revision-2; see review-revision-2.json"
+    }
+  ],
+  "decision": "approve-with-limits",
+  "summary": "The recommendation and its measured counts are supportable. Apply the two scope clarifications below before presenting the integrated packet as final. No full suite or new site probe is needed to resolve them.",
+  "independence": {
+    "independent_role_review": true,
+    "independent_model_or_team": false,
+    "prior_contribution": "Reviewer authored the UI workstream report and generated UI evidence; this pass judges the parent integrated assessment and plan, not that workstream report.",
+    "shared_context": "Shared model family, inherited conversation and common workspace can produce correlated blind spots. This is analytical role separation, not external independent certification.",
+    "judged_files_edited": false
+  },
+  "claim_mapping": [
+    {
+      "claim": "56 released HTML files return HTTP 200 and LF-normalized bodies match frozen source",
+      "status": "supported",
+      "evidence": [
+        "checks/live-route-parity.json",
+        "release-route-inventory.json"
+      ],
+      "verification": "56 rows, 56 matches, commit40e18ee7; named404 limitation is expressly retained. This establishes sampled HTML body parity, not all released asset-byte parity."
+    },
+    {
+      "claim": "31 sitemap routes,25 noindex HTML,36 English source bodies,14 project details",
+      "status": "supported",
+      "evidence": [
+        "release-route-inventory.json",
+        "content-body-inventory.json"
+      ],
+      "verification": "Independently counted36 body records and14 project detail records; release inventory sums31+25=56."
+    },
+    {
+      "claim": "36 workstream findings consolidated into20 packages, plus2 parent findings",
+      "status": "supported-as-organization",
+      "evidence": [
+        "assets/docs/audit-content-estate-2026-09-05.md",
+        "assets/docs/audit-security-delivery-2026-09-05.md",
+        "assets/docs/website-advancement-plan-2026-09-05.md"
+      ],
+      "verification": "12 findings in each of three workstreams; W01-W20. Counts do not imply36 independent causal defects and packet correctly says overlaps should be repaired together."
+    },
+    {
+      "claim": "310 responsive combinations passed",
+      "status": "supported-with-scope-qualification",
+      "evidence": [
+        "checks/responsive-results.json"
+      ],
+      "verification": "modeplaywright,31pages,10widths,310passes,0failures.270 records carry blocked-third-party warnings including Google Fonts; do not imply full production-font matrix coverage."
+    },
+    {
+      "claim": "31 CSP routes and22 Mermaid diagrams passed",
+      "status": "supported-with-scope-qualification",
+      "evidence": [
+        "checks/csp-browser-corrected.log",
+        "checks/csp-browser.log",
+        "checks/browser-checks.json"
+      ],
+      "verification": "Initial harness error is retained; corrected supported command reports31routes,22diagrams,0routefailures with cross-origin deliberately blocked. This is not complete embedded-app success or external uptime."
+    },
+    {
+      "claim": "Broad accessibility assessment does not certify WCAG or screen-reader usability",
+      "status": "appropriately-limited",
+      "evidence": [
+        "assets/docs/audit-comprehensive-website-2026-09-05.md",
+        "checks/accessibility.log",
+        "checks/screen-reader-tree.log"
+      ],
+      "verification": "Four focused pages,31route checks and6CDP-tree pages correctly separated from not-run VoiceOver/NVDA. Main packet does not convert reduced-motion finding into an AA violation or no-JS failure into a universal WCAG rule."
+    },
+    {
+      "claim": "Eight diagnostic network samples and quoted byte/LCP observations",
+      "status": "supported",
+      "evidence": [
+        "checks/network-samples.json"
+      ],
+      "verification": "8samples; homepage mobile388018-388062bytes; desktop3019812 with2495707bytePNG; article694774;MTB882229;contact538059;MurderBird424062; LCP704/220/984ms. Unthrottled short-window diagnostic and not-field limitations are explicit."
+    },
+    {
+      "claim": "Source weight differs from actual network transfer; proposed1MB desktop target",
+      "status": "appropriately-limited",
+      "evidence": [
+        "checks/performance-budget.log",
+        "checks/network-samples.json",
+        "assets/docs/website-advancement-plan-2026-09-05.md"
+      ],
+      "verification": "Budget distinction correct.1MB is clearly a proposal rather than achieved improvement or standard requirement. Removing dominant PNG cost makes it plausible, subject to fixed-condition retest."
+    },
+    {
+      "claim": "Two Mac portability groups fail ordinarily but pass with canonicalTMPDIR",
+      "status": "supported",
+      "evidence": [
+        "checks/static-checks.json",
+        "checks/audit-portability.log",
+        "checks/performance-regressions.log",
+        "checks/audit-portability-canonical-temp.log",
+        "checks/performance-regressions-canonical-temp.log"
+      ],
+      "verification": "27initialgroups,25pass,2fail;3and5test canonical-temp reruns pass. Main labels original failures remaining defects rather than retroactive passes."
+    },
+    {
+      "claim": "Verifier accepts modified released JavaScript",
+      "status": "supported-with-revision-bridge",
+      "evidence": [
+        "release-integrity-probe.json",
+        "security-source-comparison.json"
+      ],
+      "verification": "Probe used ownerHEAD; source comparison confirms release-builder/workflows identical at frozen remote, so transfer to current recommendation is reasonable. This demonstrates missing integrity coverage, not active exploitation or an authenticated supply-chain guarantee."
+    },
+    {
+      "claim": "CI live edge427checks,0failures,38blocked,315warnings",
+      "status": "supported",
+      "evidence": [
+        "ci-live-edge/live-edge-report.json"
+      ],
+      "verification": "Matches summary exactly;PARTIAL preserved."
+    },
+    {
+      "claim": "Cloudflare2000character line limit and additive overlapping headers; current CWV thresholds",
+      "status": "supported-by-current-primary-sources",
+      "evidence": [
+        "https://developers.cloudflare.com/pages/configuration/headers/",
+        "https://web.dev/articles/vitals"
+      ],
+      "verification": "Independently reopened both references. Cloudflare states entire-line2000characters and duplicate header values comma-joined; Google targets are presented as field75th-percentile targets, not measured compliance."
+    },
+    {
+      "claim": "Recommendation approval is separate from implementation/publication",
+      "status": "supported",
+      "evidence": [
+        "assets/docs/website-advancement-plan-2026-09-05.md"
+      ],
+      "verification": "All packages proposals, prompts unsent, source preparation versus hosted mutation boundaries explicit."
+    }
+  ],
+  "material_objections": [
+    {
+      "id": "E01",
+      "severity": "medium",
+      "target": "audit-comprehensive-website-2026-09-05.md:43,58 and validation-record responsive row",
+      "objection": "310 real-Playwright passes can be read as production-font responsive coverage, but270 combinations explicitly blocked third-party resources including Google Fonts. The CSP isolation note alone does not clearly qualify the responsive matrix.",
+      "minimum_change": "Name the responsive matrix as deterministic with external fonts/resources blocked; distinguish focused live captures from the full matrix.",
+      "smallest_decisive_test": "Read responsive-results.json warnings and the runner isolation policy; no rerun required to qualify existing evidence. A future full-font matrix is optional new coverage, not a prerequisite to this recommendation."
+    },
+    {
+      "id": "E02",
+      "severity": "low-but-material-boundary",
+      "target": "audit-comprehensive-website-2026-09-05.md:41",
+      "objection": "Only the approved French set is published/indexable conflates publication with indexing, while all20localeHTMLroutes returned200. Nearby caveats make intended meaning inferable but the phrase is internally ambiguous.",
+      "minimum_change": "State only French is indexable; the other16localized pages are publicly addressable noindex drafts.",
+      "smallest_decisive_test": "Join release-route-inventory.json noindex_paths with checks/live-route-parity.json. No external read needed."
+    }
+  ],
+  "nonblocking_notes": [
+    {
+      "id": "E03",
+      "note": "The validation record was absent at initial read but created during review. It now resolves, explicitly distinguishes initial failures/corrective reruns, and all local links in both judged artifacts resolve. It is supporting evidence outside the two frozen artifact hashes."
+    },
+    {
+      "id": "E04",
+      "note": "network-samples.json labels browser asChromium1.62.1, apparently the Playwright package version. The validation record correctly names Playwright1.62.1/Chromiumcache1234. For exact reproduction, record browser.version(), OS and measurement harness/version separately; this does not invalidate retained byte observations."
+    },
+    {
+      "id": "E05",
+      "note": "Per-file digests detect drift relative to a trusted manifest; a digest list alone does not establish authenticity against an attacker who changes both artifact and manifest. Main packet does not currently make that stronger claim; preserve the boundary in W03 implementation."
+    }
+  ],
+  "smallest_decisive_tests": [
+    "Both draft-1 hashes matched at initial read. Later announced revision-2 hashes differ; adjudicate narrow revisions against review-revision-2.json.",
+    "Reconcile deterministic responsive warnings and name blocked-font mode.",
+    "Replace ambiguous localepublication/indexing wording using existing56routeinventory.",
+    "Record final adjudication and hashes, checking that E01/E02 qualifiers persist; no full suite needed for documentary revision."
+  ],
+  "limits": [
+    "Did not independently repeat full browser/static/security suites.",
+    "Did not reproduce external account settings or complete application workflows.",
+    "Did not judge own UI workstream for independent approval.",
+    "Source-to-live HTML parity is not all-asset integrity or a guarantee of future unchanged deployment.",
+    "No quantitative usability/conversion claim, formal WCAG certification, legal conclusion, translation-quality certification or model-capability claim follows from this review."
+  ],
+  "review_scope_note": "Verdict judges draft-1: both artifact hashes matched at initial review read. Parent applied announced revision-2 after that read and before this review was written. Final actual_sha256 fields record the later state, not an unexplained drift or re-review of the revised artifacts."
+}

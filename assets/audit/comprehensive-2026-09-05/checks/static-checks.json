@@ -1,0 +1,302 @@
+{
+  "commit": "40e18ee7916f4a54196cc407d60999ba1d786d11",
+  "checked_at": "2026-09-06T03:16:47.160286+00:00",
+  "checks": [
+    {
+      "id": "structural",
+      "command": [
+        "python3",
+        "scripts/validate-site.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.86,
+      "log": "structural.log"
+    },
+    {
+      "id": "route-inventory",
+      "command": [
+        "python3",
+        ".agents/skills/okhp3-site-release-validation/scripts/inventory-routes.py",
+        "--root",
+        ".",
+        "--sitemap",
+        "sitemap.xml",
+        "--origin",
+        "https://overkillhill.com"
+      ],
+      "exit_code": 0,
+      "seconds": 0.04,
+      "log": "route-inventory.log"
+    },
+    {
+      "id": "generated-html",
+      "command": [
+        "python3",
+        "scripts/build-site.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.36,
+      "log": "generated-html.log"
+    },
+    {
+      "id": "search-index",
+      "command": [
+        "python3",
+        "scripts/build-search-index.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.15,
+      "log": "search-index.log"
+    },
+    {
+      "id": "cache",
+      "command": [
+        "python3",
+        "scripts/cache-bust.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.1,
+      "log": "cache.log"
+    },
+    {
+      "id": "static-audit",
+      "command": [
+        "python3",
+        "scripts/audit-site.py",
+        "--quiet",
+        "--report",
+        "/tmp/okh-assessment-20260905-oiP7ek/results/static-audit.md"
+      ],
+      "exit_code": 0,
+      "seconds": 0.41,
+      "log": "static-audit.log"
+    },
+    {
+      "id": "internal-links",
+      "command": [
+        "python3",
+        "scripts/check-links.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.18,
+      "log": "internal-links.log"
+    },
+    {
+      "id": "locale-links",
+      "command": [
+        "python3",
+        "scripts/check-locale-links.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.16,
+      "log": "locale-links.log"
+    },
+    {
+      "id": "contrast",
+      "command": [
+        "python3",
+        "assets/scripts/check-contrast.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.02,
+      "log": "contrast.log"
+    },
+    {
+      "id": "csp-generation",
+      "command": [
+        "python3",
+        "scripts/generate-csp.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.13,
+      "log": "csp-generation.log"
+    },
+    {
+      "id": "csp-static",
+      "command": [
+        "python3",
+        "scripts/check-csp.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.13,
+      "log": "csp-static.log"
+    },
+    {
+      "id": "project-status",
+      "command": [
+        "python3",
+        "scripts/check-project-status.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.07,
+      "log": "project-status.log"
+    },
+    {
+      "id": "regional-drafts",
+      "command": [
+        "python3",
+        "scripts/check-regional-drafts.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.04,
+      "log": "regional-drafts.log"
+    },
+    {
+      "id": "performance-budget",
+      "command": [
+        "python3",
+        "scripts/check-performance-budget.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.06,
+      "log": "performance-budget.log"
+    },
+    {
+      "id": "seo-fixtures",
+      "command": [
+        "python3",
+        "scripts/test-seo-fixtures.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.21,
+      "log": "seo-fixtures.log"
+    },
+    {
+      "id": "audit-portability",
+      "command": [
+        "python3",
+        "tests/test-audit-site-portability.py"
+      ],
+      "exit_code": 1,
+      "seconds": 0.58,
+      "log": "audit-portability.log"
+    },
+    {
+      "id": "release-package",
+      "command": [
+        "python3",
+        "tests/test-release-package.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.97,
+      "log": "release-package.log"
+    },
+    {
+      "id": "live-edge-regressions",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "tests/test_verify_live_edge.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.66,
+      "log": "live-edge-regressions.log"
+    },
+    {
+      "id": "foundation-sync-regressions",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "tests/test-sync-foundation-files.py"
+      ],
+      "exit_code": 0,
+      "seconds": 2.04,
+      "log": "foundation-sync-regressions.log"
+    },
+    {
+      "id": "i18n-release-regressions",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "tests/test-i18n-release.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.25,
+      "log": "i18n-release-regressions.log"
+    },
+    {
+      "id": "hero-parity",
+      "command": [
+        "python3",
+        "tests/test-homepage-hero-parity.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.05,
+      "log": "hero-parity.log"
+    },
+    {
+      "id": "banner-regressions",
+      "command": [
+        "python3",
+        "scripts/test-check-banner.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.03,
+      "log": "banner-regressions.log"
+    },
+    {
+      "id": "csp-discovery",
+      "command": [
+        "python3",
+        "tests/test_csp_page_discovery.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.09,
+      "log": "csp-discovery.log"
+    },
+    {
+      "id": "merge-markers",
+      "command": [
+        "python3",
+        "tests/test-template-conflict-markers.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.12,
+      "log": "merge-markers.log"
+    },
+    {
+      "id": "performance-regressions",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "tests/test-performance-budget.py"
+      ],
+      "exit_code": 1,
+      "seconds": 0.08,
+      "log": "performance-regressions.log"
+    },
+    {
+      "id": "csp-browser-fixtures",
+      "command": [
+        "node",
+        "--test",
+        "tests/csp-qa.test.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 6.44,
+      "log": "csp-browser-fixtures.log"
+    },
+    {
+      "id": "search-embed-fixtures",
+      "command": [
+        "node",
+        "--test",
+        "tests/search-page.test.mjs",
+        "tests/search-index.test.mjs",
+        "tests/search-index-locale.test.mjs",
+        "tests/embed-workflow.test.mjs"
+      ],
+      "exit_code": 0,
+      "seconds": 7.88,
+      "log": "search-embed-fixtures.log"
+    }
+  ]
+}

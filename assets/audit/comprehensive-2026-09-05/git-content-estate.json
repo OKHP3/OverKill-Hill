@@ -1,0 +1,76 @@
+{
+  "retrieved_utc": "2026-09-06T03:16:37.588726+00:00",
+  "local_head": "897df5d33202bd65924f9f3a35c84e0068cbee02",
+  "remote_heads": "40e18ee7916f4a54196cc407d60999ba1d786d11\trefs/heads/main",
+  "refs": [
+    {
+      "ref": "refs/heads/backup/main-before-reconcile-2026-08-31",
+      "sha": "674376b235547ec4befafc8586534cb91b35bfbb",
+      "divergence_from_local_head": "122\t0"
+    },
+    {
+      "ref": "refs/heads/codex/repair-site-validation-i18n",
+      "sha": "50629090fa43c03b1a0b3b3b142de4c1226b17bb",
+      "divergence_from_local_head": "81\t2"
+    },
+    {
+      "ref": "refs/heads/main",
+      "sha": "897df5d33202bd65924f9f3a35c84e0068cbee02",
+      "divergence_from_local_head": "0\t0"
+    },
+    {
+      "ref": "refs/remotes/origin/HEAD",
+      "sha": "897df5d33202bd65924f9f3a35c84e0068cbee02",
+      "divergence_from_local_head": "0\t0"
+    },
+    {
+      "ref": "refs/remotes/origin/codex/fix-pages-artifact-hidden-file",
+      "sha": "4a238f3c6e4913277a940b4acbdf1973880f42a3",
+      "divergence_from_local_head": "16\t0"
+    },
+    {
+      "ref": "refs/remotes/origin/codex/murderbird-release-closeout",
+      "sha": "e502948473093c4074a3b06e43cf8fe69f07ceb0",
+      "divergence_from_local_head": "0\t1"
+    },
+    {
+      "ref": "refs/remotes/origin/codex/p1-template-conflict-repair",
+      "sha": "9be8af568c7ce81b6ac6d8de4e8b9bbede6ce0ed",
+      "divergence_from_local_head": "12\t1"
+    },
+    {
+      "ref": "refs/remotes/origin/codex/p3-performance-closeout",
+      "sha": "c5f0bc8564fc661ea07157e4ab381dd4b69e95bc",
+      "divergence_from_local_head": "12\t1"
+    },
+    {
+      "ref": "refs/remotes/origin/codex/regional-locales-mobile-menu",
+      "sha": "a03a4c26ee1e107bd565921e14d002003338e311",
+      "divergence_from_local_head": "13\t3"
+    },
+    {
+      "ref": "refs/remotes/origin/codex/release-artifact-boundary",
+      "sha": "630bb40b3e4a1d45e079051f5a5448b4add9a6db",
+      "divergence_from_local_head": "18\t0"
+    },
+    {
+      "ref": "refs/remotes/origin/codex/repair-site-validation-i18n",
+      "sha": "50629090fa43c03b1a0b3b3b142de4c1226b17bb",
+      "divergence_from_local_head": "81\t2"
+    },
+    {
+      "ref": "refs/remotes/origin/dependabot/github_actions/github-actions-bf28b02936",
+      "sha": "bf6bf1ec718baec3a40048f320e4aecaab1ac5eb",
+      "divergence_from_local_head": "15\t1"
+    },
+    {
+      "ref": "refs/remotes/origin/main",
+      "sha": "897df5d33202bd65924f9f3a35c84e0068cbee02",
+      "divergence_from_local_head": "0\t0"
+    }
+  ],
+  "worktree_count": 2,
+  "stashes": "",
+  "open_prs": [],
+  "linked_repair_worktree_clean": true
+}

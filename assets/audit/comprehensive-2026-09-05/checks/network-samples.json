@@ -1,0 +1,1392 @@
+{
+  "date": "2026-09-06T03:21:48.010Z",
+  "browser": "Chromium 1.62.1",
+  "limitations": "Headless Mac desktop engine emulating viewport. Cold cache, real network, no CPU/network throttle. Load plus 1.8 seconds, no scrolling. Diagnostics only; not field Core Web Vitals or complete page transfer. Desktop host resource load can affect timings.",
+  "samples": [
+    {
+      "name": "home-mobile-1",
+      "route": "/",
+      "viewport": 390,
+      "elapsedMs": 2622,
+      "navError": null,
+      "title": "OverKill Hill P³™: Precision · Protocol · Promptcraft",
+      "lang": "en",
+      "scrollWidth": 390,
+      "navigation": [
+        {
+          "responseStart": 530.5999999046326,
+          "domContentLoaded": 705.5999999046326,
+          "load": 814.1999998092651
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "startTime": 704
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 704
+        }
+      ],
+      "observed": {
+        "lcp": [
+          {
+            "startTime": 704,
+            "duration": 0,
+            "url": "",
+            "element": "<p class=\"hero-tagline\">\n                This is where AI systems are designed, tested, and hardened\n                for real-world performance, with the same care you’d give to a\n                structural beam or a bridge schematic.\n              </p>"
+          }
+        ],
+        "long": [],
+        "cls": [
+          {
+            "startTime": 710,
+            "duration": 0,
+            "value": 0.0010265244048616644,
+            "hadRecentInput": false
+          },
+          {
+            "startTime": 744.5,
+            "duration": 0,
+            "value": 0.03964451993160531,
+            "hadRecentInput": false
+          },
+          {
+            "startTime": 770.8999998569489,
+            "duration": 0,
+            "value": 0.02065876829894881,
+            "hadRecentInput": false
+          }
+        ]
+      },
+      "images": [
+        {
+          "src": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "loading": "eager",
+          "fetchPriority": "auto",
+          "naturalWidth": 96,
+          "displayWidth": 40,
+          "top": 10
+        }
+      ],
+      "fonts": "loaded",
+      "errors": [],
+      "encodedBytes": 388020,
+      "network": [
+        {
+          "url": "https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H",
+          "type": "Script",
+          "encodedBytes": 174145
+        },
+        {
+          "url": "https://overkillhill.com/assets/img/webp/murderbird-frontal-attack-2026-09-05-512.webp",
+          "type": "Image",
+          "encodedBytes": 65341
+        },
+        {
+          "url": "https://overkillhill.com/assets/css/theme.css?v=82915b53",
+          "type": "Stylesheet",
+          "encodedBytes": 48284
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2",
+          "type": "Font",
+          "encodedBytes": 37116
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6z9mXgjU0.woff2",
+          "type": "Font",
+          "encodedBytes": 18319
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhe_escmA.woff2",
+          "type": "Font",
+          "encodedBytes": 12113
+        },
+        {
+          "url": "https://overkillhill.com/assets/js/app.js?v=33c354b0",
+          "type": "Script",
+          "encodedBytes": 12011
+        },
+        {
+          "url": "https://overkillhill.com/",
+          "type": "Document",
+          "encodedBytes": 10233
+        },
+        {
+          "url": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "type": "Image",
+          "encodedBytes": 9119
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap",
+          "type": "Stylesheet",
+          "encodedBytes": 1339
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-VJ1BKXS27H&gtm=45je6921v9236972918za200zd9236972918&_p=1788664887161&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=157224883.1788664887&frm=0&ngs=1&pscdl=noapi&rcb=1&sr=390x844&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=26.6.2&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153&sid=1788664887&sct=1&seg=0&dl=https%3A%2F%2Foverkillhill.com%2F&dt=OverKill%20Hill%20P%C2%B3%E2%84%A2%3A%20Precision%20%C2%B7%20Protocol%20%C2%B7%20Promptcraft&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=814",
+          "type": "Fetch"
+        }
+      ]
+    },
+    {
+      "name": "home-mobile-2",
+      "route": "/",
+      "viewport": 390,
+      "elapsedMs": 2131,
+      "navError": null,
+      "title": "OverKill Hill P³™: Precision · Protocol · Promptcraft",
+      "lang": "en",
+      "scrollWidth": 390,
+      "navigation": [
+        {
+          "responseStart": 60.299999952316284,
+          "domContentLoaded": 210,
+          "load": 325
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "startTime": 220
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 220
+        }
+      ],
+      "observed": {
+        "lcp": [
+          {
+            "startTime": 220,
+            "duration": 0,
+            "url": "",
+            "element": "<p class=\"hero-tagline\">\n                This is where AI systems are designed, tested, and hardened\n                for real-world performance, with the same care you’d give to a\n                structural beam or a bridge schematic.\n              </p>"
+          }
+        ],
+        "long": [],
+        "cls": [
+          {
+            "startTime": 218.60000014305115,
+            "duration": 0,
+            "value": 0.0010265244048616644,
+            "hadRecentInput": false
+          },
+          {
+            "startTime": 258.7999999523163,
+            "duration": 0,
+            "value": 0.03964451993160531,
+            "hadRecentInput": false
+          },
+          {
+            "startTime": 275.5,
+            "duration": 0,
+            "value": 0.02065876829894881,
+            "hadRecentInput": false
+          }
+        ]
+      },
+      "images": [
+        {
+          "src": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "loading": "eager",
+          "fetchPriority": "auto",
+          "naturalWidth": 96,
+          "displayWidth": 40,
+          "top": 10
+        }
+      ],
+      "fonts": "loaded",
+      "errors": [],
+      "encodedBytes": 388018,
+      "network": [
+        {
+          "url": "https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H",
+          "type": "Script",
+          "encodedBytes": 174145
+        },
+        {
+          "url": "https://overkillhill.com/assets/img/webp/murderbird-frontal-attack-2026-09-05-512.webp",
+          "type": "Image",
+          "encodedBytes": 65334
+        },
+        {
+          "url": "https://overkillhill.com/assets/css/theme.css?v=82915b53",
+          "type": "Stylesheet",
+          "encodedBytes": 48286
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2",
+          "type": "Font",
+          "encodedBytes": 37116
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6z9mXgjU0.woff2",
+          "type": "Font",
+          "encodedBytes": 18320
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhe_escmA.woff2",
+          "type": "Font",
+          "encodedBytes": 12113
+        },
+        {
+          "url": "https://overkillhill.com/assets/js/app.js?v=33c354b0",
+          "type": "Script",
+          "encodedBytes": 12012
+        },
+        {
+          "url": "https://overkillhill.com/",
+          "type": "Document",
+          "encodedBytes": 10233
+        },
+        {
+          "url": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "type": "Image",
+          "encodedBytes": 9120
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap",
+          "type": "Stylesheet",
+          "encodedBytes": 1339
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-VJ1BKXS27H&gtm=45je6921v9236972918za200zd9236972918&_p=1788664889338&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=1072567695.1788664889&frm=0&ngs=1&pscdl=noapi&rcb=1&sr=390x844&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=26.6.2&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153&sid=1788664889&sct=1&seg=0&dl=https%3A%2F%2Foverkillhill.com%2F&dt=OverKill%20Hill%20P%C2%B3%E2%84%A2%3A%20Precision%20%C2%B7%20Protocol%20%C2%B7%20Promptcraft&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=324",
+          "type": "Fetch"
+        }
+      ]
+    },
+    {
+      "name": "home-mobile-3",
+      "route": "/",
+      "viewport": 390,
+      "elapsedMs": 2908,
+      "navError": null,
+      "title": "OverKill Hill P³™: Precision · Protocol · Promptcraft",
+      "lang": "en",
+      "scrollWidth": 390,
+      "navigation": [
+        {
+          "responseStart": 130.29999995231628,
+          "domContentLoaded": 988.1999998092651,
+          "load": 1103
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "startTime": 984
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 984
+        }
+      ],
+      "observed": {
+        "lcp": [
+          {
+            "startTime": 984,
+            "duration": 0,
+            "url": "",
+            "element": "<p class=\"hero-tagline\">\n                This is where AI systems are designed, tested, and hardened\n                for real-world performance, with the same care you’d give to a\n                structural beam or a bridge schematic.\n              </p>"
+          }
+        ],
+        "long": [],
+        "cls": [
+          {
+            "startTime": 992.1999998092651,
+            "duration": 0,
+            "value": 0.0010265244048616644,
+            "hadRecentInput": false
+          },
+          {
+            "startTime": 1034.5999999046326,
+            "duration": 0,
+            "value": 0.03964451993160531,
+            "hadRecentInput": false
+          },
+          {
+            "startTime": 1062.5,
+            "duration": 0,
+            "value": 0.02065876829894881,
+            "hadRecentInput": false
+          }
+        ]
+      },
+      "images": [
+        {
+          "src": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "loading": "eager",
+          "fetchPriority": "auto",
+          "naturalWidth": 96,
+          "displayWidth": 40,
+          "top": 10
+        }
+      ],
+      "fonts": "loaded",
+      "errors": [],
+      "encodedBytes": 388062,
+      "network": [
+        {
+          "url": "https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H",
+          "type": "Script",
+          "encodedBytes": 174145
+        },
+        {
+          "url": "https://overkillhill.com/assets/img/webp/murderbird-frontal-attack-2026-09-05-512.webp",
+          "type": "Image",
+          "encodedBytes": 65177
+        },
+        {
+          "url": "https://overkillhill.com/assets/css/theme.css?v=82915b53",
+          "type": "Stylesheet",
+          "encodedBytes": 48307
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2",
+          "type": "Font",
+          "encodedBytes": 37116
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6z9mXgjU0.woff2",
+          "type": "Font",
+          "encodedBytes": 18320
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhe_escmA.woff2",
+          "type": "Font",
+          "encodedBytes": 12113
+        },
+        {
+          "url": "https://overkillhill.com/assets/js/app.js?v=33c354b0",
+          "type": "Script",
+          "encodedBytes": 12031
+        },
+        {
+          "url": "https://overkillhill.com/",
+          "type": "Document",
+          "encodedBytes": 10234
+        },
+        {
+          "url": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "type": "Image",
+          "encodedBytes": 9280
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap",
+          "type": "Stylesheet",
+          "encodedBytes": 1339
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-VJ1BKXS27H&gtm=45je6921v9236972918za200zd9236972918&_p=1788664892262&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=140195804.1788664892&frm=0&ngs=1&pscdl=noapi&rcb=9&sr=390x844&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=26.6.2&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938469~118897920~118897930~120213116~120385422~120469145~120469153~120914213&sid=1788664892&sct=1&seg=0&dl=https%3A%2F%2Foverkillhill.com%2F&dt=OverKill%20Hill%20P%C2%B3%E2%84%A2%3A%20Precision%20%C2%B7%20Protocol%20%C2%B7%20Promptcraft&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=1102",
+          "type": "Fetch"
+        }
+      ]
+    },
+    {
+      "name": "home-desktop",
+      "route": "/",
+      "viewport": 1440,
+      "elapsedMs": 3552,
+      "navError": null,
+      "title": "OverKill Hill P³™: Precision · Protocol · Promptcraft",
+      "lang": "en",
+      "scrollWidth": 1440,
+      "navigation": [
+        {
+          "responseStart": 624.9000000953674,
+          "domContentLoaded": 1073.1000001430511,
+          "load": 1746.9000000953674
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "startTime": 912
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 912
+        }
+      ],
+      "observed": {
+        "lcp": [
+          {
+            "startTime": 912,
+            "duration": 0,
+            "url": "",
+            "element": "<a class=\"site-specials-link\" href=\"/writings/first-diagram-is-a-liar/#council-scoring\">\n          v0.5 is live: the Council of AIs scored each other, every model was harder on itself than the architect was. Read it →\n        </a>"
+          },
+          {
+            "startTime": 1672,
+            "duration": 0,
+            "url": "https://overkillhill.com/assets/img/webp/murderbird-frontal-attack-2026-09-05-1024.webp",
+            "element": "<img alt=\"Frontal mechanical MurderBird lunging with its beak and talons visible\" class=\"hero-illustration\" fetchpriority=\"high\" height=\"1254\" loading=\"eager\" sizes=\"(max-width: 900px) 86vw, 42vw\" src=\"/assets/img/murderbird-frontal-attack-2026-09-05.png\" width=\"1254\">"
+          }
+        ],
+        "long": [],
+        "cls": [
+          {
+            "startTime": 1086.9000000953674,
+            "duration": 0,
+            "value": 0.0029584567097479426,
+            "hadRecentInput": false
+          },
+          {
+            "startTime": 1654.9000000953674,
+            "duration": 0,
+            "value": 0.0515919103551794,
+            "hadRecentInput": false
+          }
+        ]
+      },
+      "images": [
+        {
+          "src": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "loading": "eager",
+          "fetchPriority": "auto",
+          "naturalWidth": 96,
+          "displayWidth": 40,
+          "top": 10
+        },
+        {
+          "src": "https://overkillhill.com/assets/img/webp/murderbird-frontal-attack-2026-09-05-1024.webp",
+          "loading": "eager",
+          "fetchPriority": "high",
+          "naturalWidth": 604,
+          "displayWidth": 320,
+          "top": 188.046875
+        }
+      ],
+      "fonts": "loaded",
+      "errors": [],
+      "encodedBytes": 3019812,
+      "network": [
+        {
+          "url": "https://overkillhill.com/assets/img/etch-ai-sketch-using-a-council-to-design-at-velocity.png",
+          "type": "Image",
+          "encodedBytes": 2495707
+        },
+        {
+          "url": "https://overkillhill.com/assets/img/webp/murderbird-frontal-attack-2026-09-05-1024.webp",
+          "type": "Image",
+          "encodedBytes": 201252
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H",
+          "type": "Script",
+          "encodedBytes": 174145
+        },
+        {
+          "url": "https://overkillhill.com/assets/css/theme.css?v=82915b53",
+          "type": "Stylesheet",
+          "encodedBytes": 48308
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2",
+          "type": "Font",
+          "encodedBytes": 37115
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6z9mXgjU0.woff2",
+          "type": "Font",
+          "encodedBytes": 18320
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhe_escmA.woff2",
+          "type": "Font",
+          "encodedBytes": 12113
+        },
+        {
+          "url": "https://overkillhill.com/assets/js/app.js?v=33c354b0",
+          "type": "Script",
+          "encodedBytes": 12032
+        },
+        {
+          "url": "https://overkillhill.com/",
+          "type": "Document",
+          "encodedBytes": 10233
+        },
+        {
+          "url": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "type": "Image",
+          "encodedBytes": 9248
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap",
+          "type": "Stylesheet",
+          "encodedBytes": 1339
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-VJ1BKXS27H&gtm=45je6921v9236972918za200zd9236972918&_p=1788664895125&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=1717937045.1788664896&frm=0&ngs=1&pscdl=noapi&rcb=9&sr=1440x900&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=26.6.2&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120213116~120385422~120469145~120469153&sid=1788664895&sct=1&seg=0&dl=https%3A%2F%2Foverkillhill.com%2F&dt=OverKill%20Hill%20P%C2%B3%E2%84%A2%3A%20Precision%20%C2%B7%20Protocol%20%C2%B7%20Promptcraft&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=1688",
+          "type": "Fetch"
+        }
+      ]
+    },
+    {
+      "name": "article-mobile",
+      "route": "/writings/first-diagram-is-a-liar/",
+      "viewport": 390,
+      "elapsedMs": 2239,
+      "navError": null,
+      "title": "The First Diagram Is Usually a Liar: v0.5 | OverKill Hill P³™",
+      "lang": "en",
+      "scrollWidth": 390,
+      "navigation": [
+        {
+          "responseStart": 173.89999985694885,
+          "domContentLoaded": 358.39999985694885,
+          "load": 435
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "startTime": 344
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 344
+        }
+      ],
+      "observed": {
+        "lcp": [
+          {
+            "startTime": 344,
+            "duration": 0,
+            "url": "",
+            "element": "<p class=\"article-subtitle\">\n            A picture is not automatically worth 1,000 words. The real metric is <strong>ROY (Return on Your Words)</strong>: the clarity, compression, and shared understanding extracted per word invested. Now at v0.5: what happened when the Council of AIs scored each ot"
+          }
+        ],
+        "long": [
+          {
+            "startTime": 1340.7999999523163,
+            "duration": 66
+          },
+          {
+            "startTime": 1409.2999999523163,
+            "duration": 66
+          }
+        ],
+        "cls": [
+          {
+            "startTime": 395,
+            "duration": 0,
+            "value": 0.030407553502913347,
+            "hadRecentInput": false
+          },
+          {
+            "startTime": 406.09999990463257,
+            "duration": 0,
+            "value": 0.0003028389368543453,
+            "hadRecentInput": false
+          }
+        ]
+      },
+      "images": [
+        {
+          "src": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "loading": "eager",
+          "fetchPriority": "auto",
+          "naturalWidth": 96,
+          "displayWidth": 40,
+          "top": 10
+        },
+        {
+          "src": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png",
+          "loading": "eager",
+          "fetchPriority": "high",
+          "naturalWidth": 256,
+          "displayWidth": 24,
+          "top": 808.359375
+        }
+      ],
+      "fonts": "loaded",
+      "errors": [],
+      "encodedBytes": 694774,
+      "network": [
+        {
+          "url": "https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H",
+          "type": "Script",
+          "encodedBytes": 174145
+        },
+        {
+          "url": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png",
+          "type": "Image",
+          "encodedBytes": 82774
+        },
+        {
+          "url": "https://overkillhill.com/writings/first-diagram-is-a-liar/",
+          "type": "Document",
+          "encodedBytes": 51951
+        },
+        {
+          "url": "https://overkillhill.com/assets/css/theme.css?v=82915b53",
+          "type": "Stylesheet",
+          "encodedBytes": 48286
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-H7VHZCWX.mjs",
+          "type": "Script",
+          "encodedBytes": 39345
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-QJSWEUOL.mjs",
+          "type": "Script",
+          "encodedBytes": 38364
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2",
+          "type": "Font",
+          "encodedBytes": 37531
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-Z6V44ARX.mjs",
+          "type": "Script",
+          "encodedBytes": 26797
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-CLS4B6BI.mjs",
+          "type": "Script",
+          "encodedBytes": 19820
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6z9mXgjU0.woff2",
+          "type": "Font",
+          "encodedBytes": 18319
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-DZP67EKU.mjs",
+          "type": "Script",
+          "encodedBytes": 16319
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-NUDPKBEF.mjs",
+          "type": "Script",
+          "encodedBytes": 16237
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-4CAJECRU.mjs",
+          "type": "Script",
+          "encodedBytes": 15886
+        },
+        {
+          "url": "https://overkillhill.com/assets/js/app.js?v=33c354b0",
+          "type": "Script",
+          "encodedBytes": 12011
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhe_escmA.woff2",
+          "type": "Font",
+          "encodedBytes": 11698
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/mermaid.esm.min.mjs",
+          "type": "Script",
+          "encodedBytes": 11368
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-R7JDMUKV.mjs",
+          "type": "Script",
+          "encodedBytes": 10463
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-5IMINLNL.mjs",
+          "type": "Script",
+          "encodedBytes": 9750
+        },
+        {
+          "url": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "type": "Image",
+          "encodedBytes": 9123
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-4OADUZ5Q.mjs",
+          "type": "Script",
+          "encodedBytes": 8503
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-VY2OSTJR.mjs",
+          "type": "Script",
+          "encodedBytes": 7126
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/dagre-MPVFI544.mjs",
+          "type": "Script",
+          "encodedBytes": 4441
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-WUBWJARI.mjs",
+          "type": "Script",
+          "encodedBytes": 4174
+        },
+        {
+          "url": "https://overkillhill.com/assets/js/mermaid-init.js?v=d0b66577",
+          "type": "Script",
+          "encodedBytes": 4140
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-2NMSUPJH.mjs",
+          "type": "Script",
+          "encodedBytes": 3065
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-ZQN7UHIL.mjs",
+          "type": "Script",
+          "encodedBytes": 2827
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap",
+          "type": "Stylesheet",
+          "encodedBytes": 1339
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-YDMLL4PJ.mjs",
+          "type": "Script",
+          "encodedBytes": 1247
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-ZNLK7HRR.mjs",
+          "type": "Script",
+          "encodedBytes": 1132
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-VRZKL3EH.mjs",
+          "type": "Script",
+          "encodedBytes": 1120
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-EICP7K5X.mjs",
+          "type": "Script",
+          "encodedBytes": 1101
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-STOV2HOB.mjs",
+          "type": "Script",
+          "encodedBytes": 1078
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-AQ6EADP3.mjs",
+          "type": "Script",
+          "encodedBytes": 710
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-VTHDQ7BV.mjs",
+          "type": "Script",
+          "encodedBytes": 686
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-IJBDOHL6.mjs",
+          "type": "Script",
+          "encodedBytes": 557
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/flowDiagram-YHGXBVSY.mjs",
+          "type": "Script",
+          "encodedBytes": 486
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-AZZRMDJM.mjs",
+          "type": "Script",
+          "encodedBytes": 465
+        },
+        {
+          "url": "https://overkillhill.com/assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-RCXAM2GK.mjs",
+          "type": "Script",
+          "encodedBytes": 390
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-VJ1BKXS27H&gtm=45je6921v9236972918za200zd9236972918&_p=1788664898122&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=625442311.1788664898&frm=0&ngs=1&pscdl=noapi&rcb=3&sr=390x844&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=26.6.2&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153~120914213&sid=1788664898&sct=1&seg=0&dl=https%3A%2F%2Foverkillhill.com%2Fwritings%2Ffirst-diagram-is-a-liar%2F&dt=The%20First%20Diagram%20Is%20Usually%20a%20Liar%3A%20v0.5%20%7C%20OverKill%20Hill%20P%C2%B3%E2%84%A2&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=434",
+          "type": "Fetch"
+        }
+      ]
+    },
+    {
+      "name": "mtb-mobile",
+      "route": "/projects/mermaid-theme-builder/",
+      "viewport": 390,
+      "elapsedMs": 2960,
+      "navError": null,
+      "title": "Mermaid Theme Builder | OverKill Hill P³™",
+      "lang": "en",
+      "scrollWidth": 390,
+      "navigation": [
+        {
+          "responseStart": 121.59999990463257,
+          "domContentLoaded": 278.5,
+          "load": 1152.7999999523163
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "startTime": 280
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 280
+        }
+      ],
+      "observed": {
+        "lcp": [
+          {
+            "startTime": 280,
+            "duration": 0,
+            "url": "",
+            "element": "<p>\n            Paste Mermaid, detect the family, apply a reusable theme, preview live, and export renderer-aware code or prompt scaffolds. Browser-only. No login. No backend. Your diagram code, palette data, and exports stay in your browser. UI fonts load from Google Fonts.\n          </p>"
+          }
+        ],
+        "long": [],
+        "cls": [
+          {
+            "startTime": 349.2999999523163,
+            "duration": 0,
+            "value": 0.00021570349580059888,
+            "hadRecentInput": false
+          },
+          {
+            "startTime": 381.2999999523163,
+            "duration": 0,
+            "value": 0.0003028389368543453,
+            "hadRecentInput": false
+          }
+        ]
+      },
+      "images": [
+        {
+          "src": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "loading": "eager",
+          "fetchPriority": "auto",
+          "naturalWidth": 96,
+          "displayWidth": 40,
+          "top": 10
+        }
+      ],
+      "fonts": "loaded",
+      "errors": [],
+      "encodedBytes": 882229,
+      "network": [
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/index-DLQ8w6us.js",
+          "type": "Script",
+          "encodedBytes": 201894
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H",
+          "type": "Script",
+          "encodedBytes": 174145
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Hp2ywxg089UriCZOIHTWEBlw.woff2",
+          "type": "Font",
+          "encodedBytes": 62701
+        },
+        {
+          "url": "https://overkillhill.com/assets/css/theme.css?v=82915b53",
+          "type": "Stylesheet",
+          "encodedBytes": 48321
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-LIEV3EAG-pyKGssV3.js",
+          "type": "Script",
+          "encodedBytes": 38424
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2",
+          "type": "Font",
+          "encodedBytes": 37531
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-KEUXMURM-BJ6OJmed.js",
+          "type": "Script",
+          "encodedBytes": 34837
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "type": "Font",
+          "encodedBytes": 31467
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "type": "Font",
+          "encodedBytes": 31416
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/index-CQ7TM-t4.css",
+          "type": "Stylesheet",
+          "encodedBytes": 27091
+        },
+        {
+          "url": "https://overkillhill.com/projects/mermaid-theme-builder/",
+          "type": "Document",
+          "encodedBytes": 25913
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-KTKOSTGQ-DEaDHA1h.js",
+          "type": "Script",
+          "encodedBytes": 25184
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6z9mXgjU0.woff2",
+          "type": "Font",
+          "encodedBytes": 18320
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-SZQNAPRP-DRivZPH4.js",
+          "type": "Script",
+          "encodedBytes": 14884
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-7FYTHRHK-CsmYIswB.js",
+          "type": "Script",
+          "encodedBytes": 14413
+        },
+        {
+          "url": "https://overkillhill.com/assets/js/app.js?v=33c354b0",
+          "type": "Script",
+          "encodedBytes": 12142
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/mermaid.esm.min-gbTpMaEp.js",
+          "type": "Script",
+          "encodedBytes": 11703
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhe_escmA.woff2",
+          "type": "Font",
+          "encodedBytes": 11698
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhe_escmA.woff2",
+          "type": "Font",
+          "encodedBytes": 11647
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-5IMINLNL-DOdTeQri.js",
+          "type": "Script",
+          "encodedBytes": 9400
+        },
+        {
+          "url": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "type": "Image",
+          "encodedBytes": 9124
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-6C3L5S6U-eamuKyHq.js",
+          "type": "Script",
+          "encodedBytes": 7787
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-ENMKPL7Y-BFUDQdgL.js",
+          "type": "Script",
+          "encodedBytes": 6926
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-MXWVPPQS-DrzvGjR0.js",
+          "type": "Script",
+          "encodedBytes": 3115
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-QU2NO3GS-DSnsUiTz.js",
+          "type": "Script",
+          "encodedBytes": 1678
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/?embed=1",
+          "type": "Document",
+          "encodedBytes": 1653
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap",
+          "type": "Stylesheet",
+          "encodedBytes": 1339
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-STOV2HOB-GnExfzIX.js",
+          "type": "Script",
+          "encodedBytes": 1226
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-SXFNDEX5-CLF3g8zS.js",
+          "type": "Script",
+          "encodedBytes": 1047
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap",
+          "type": "Stylesheet",
+          "encodedBytes": 1024
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-5VCL7Z4A-CQ-2dYWj.js",
+          "type": "Script",
+          "encodedBytes": 1007
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-STADKHD7-L5l85Xdx.js",
+          "type": "Script",
+          "encodedBytes": 871
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/plausible-privacy.js",
+          "type": "Script",
+          "encodedBytes": 708
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-AQ6EADP3-CZhslHi-.js",
+          "type": "Script",
+          "encodedBytes": 606
+        },
+        {
+          "url": "https://plausible.io/api/event",
+          "type": "Fetch",
+          "encodedBytes": 520
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-Y3FQM624-bv3NMtWW.js",
+          "type": "Script",
+          "encodedBytes": 467
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-VJ1BKXS27H&gtm=45je6921v9236972918za200zd9236972918&_p=1788664900342&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=1227020014.1788664901&frm=0&ngs=1&pscdl=noapi&rcb=12&sr=390x844&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=26.6.2&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938465~115938468~118897920~118897930~120213116~120385423~120469145~120469153&sid=1788664900&sct=1&seg=0&dl=https%3A%2F%2Foverkillhill.com%2Fprojects%2Fmermaid-theme-builder%2F&dt=Mermaid%20Theme%20Builder%20%7C%20OverKill%20Hill%20P%C2%B3%E2%84%A2&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=393",
+          "type": "Fetch"
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/mermaid-zenuml.esm.min-DG-lvAjA.js",
+          "type": "Script",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-VDOFMJQL-CI1ENdm4.js",
+          "type": "Script",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/flowDiagram-ZACVJCCL-Bh6p8vku.js",
+          "type": "Script",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-AZZRMDJM-y-xJBuMz.js",
+          "type": "Script",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-HCQLZPVX-3eDHxVBt.js",
+          "type": "Script",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-VE5CLXGZ-C1vB7wpY.js",
+          "type": "Script",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-4S3VB3X6-mWxJ2NVi.js",
+          "type": "Script",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-LUNKGL7L-vcbkbgKl.js",
+          "type": "Script",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/dagre-QGBC2H2C-bymhAM42.js",
+          "type": "Script",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-W44A43WB-BN8EQc_u.js",
+          "type": "Script",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-KRXBNO2N-C-UNuKKf.js",
+          "type": "Script",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://okhp3.github.io/mermaid-theme-builder/assets/chunk-VY5UBI4V-yxPQAWxw.js",
+          "type": "Script",
+          "encodedBytes": 0
+        }
+      ]
+    },
+    {
+      "name": "contact-mobile",
+      "route": "/contact/",
+      "viewport": 390,
+      "elapsedMs": 2253,
+      "navError": null,
+      "title": "Contact | OverKill Hill P³™",
+      "lang": "en",
+      "scrollWidth": 390,
+      "navigation": [
+        {
+          "responseStart": 185.70000004768372,
+          "domContentLoaded": 340,
+          "load": 446.5
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "startTime": 356
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 356
+        }
+      ],
+      "observed": {
+        "lcp": [
+          {
+            "startTime": 356,
+            "duration": 0,
+            "url": "",
+            "element": "<p class=\"hero-tagline\">\n                Our mascot, The OKHP³™ MurderBird, isn't a passenger pigeon, so don't\n                expect it to deliver your message. But don't be shy, despite the menacing\n                metallic appearance, we really do want to hear from you!\n              </p>"
+          },
+          {
+            "startTime": 512,
+            "duration": 0,
+            "url": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp",
+            "element": "<img alt=\"OverKill Hill P³ avatar illustration\" class=\"overkillhill-avatar\" fetchpriority=\"high\" height=\"260\" loading=\"lazy\" src=\"/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.png\" width=\"260\">"
+          }
+        ],
+        "long": [],
+        "cls": [
+          {
+            "startTime": 345.90000009536743,
+            "duration": 0,
+            "value": 0.0010265244048616644,
+            "hadRecentInput": false
+          },
+          {
+            "startTime": 407.2999999523163,
+            "duration": 0,
+            "value": 0.0005503021046247839,
+            "hadRecentInput": false
+          }
+        ]
+      },
+      "images": [
+        {
+          "src": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "loading": "eager",
+          "fetchPriority": "auto",
+          "naturalWidth": 96,
+          "displayWidth": 40,
+          "top": 10
+        },
+        {
+          "src": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp",
+          "loading": "lazy",
+          "fetchPriority": "high",
+          "naturalWidth": 1024,
+          "displayWidth": 260,
+          "top": 547.46875
+        }
+      ],
+      "fonts": "loaded",
+      "errors": [],
+      "encodedBytes": 538059,
+      "network": [
+        {
+          "url": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp",
+          "type": "Image",
+          "encodedBytes": 216948
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H",
+          "type": "Script",
+          "encodedBytes": 174145
+        },
+        {
+          "url": "https://overkillhill.com/assets/css/theme.css?v=82915b53",
+          "type": "Stylesheet",
+          "encodedBytes": 48321
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2",
+          "type": "Font",
+          "encodedBytes": 37116
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6z9mXgjU0.woff2",
+          "type": "Font",
+          "encodedBytes": 18320
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhe_escmA.woff2",
+          "type": "Font",
+          "encodedBytes": 12113
+        },
+        {
+          "url": "https://overkillhill.com/assets/js/app.js?v=33c354b0",
+          "type": "Script",
+          "encodedBytes": 12008
+        },
+        {
+          "url": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "type": "Image",
+          "encodedBytes": 9220
+        },
+        {
+          "url": "https://overkillhill.com/contact/",
+          "type": "Document",
+          "encodedBytes": 8529
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap",
+          "type": "Stylesheet",
+          "encodedBytes": 1339
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-VJ1BKXS27H&gtm=45je6921v9236972918za200zd9236972918&_p=1788664903426&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=1289568260.1788664904&frm=0&ngs=1&pscdl=noapi&rcb=4&sr=390x844&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=26.6.2&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153&sid=1788664903&sct=1&seg=0&dl=https%3A%2F%2Foverkillhill.com%2Fcontact%2F&dt=Contact%20%7C%20OverKill%20Hill%20P%C2%B3%E2%84%A2&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=462",
+          "type": "Fetch"
+        }
+      ]
+    },
+    {
+      "name": "murderbird-mobile",
+      "route": "/writings/murderbird/",
+      "viewport": 390,
+      "elapsedMs": 2597,
+      "navError": null,
+      "title": "The MurderBird: What the Water Kept | OverKill Hill P³™",
+      "lang": "en",
+      "scrollWidth": 390,
+      "navigation": [
+        {
+          "responseStart": 530.8999998569489,
+          "domContentLoaded": 693.5999999046326,
+          "load": 791.5999999046326
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "startTime": 708
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 708
+        }
+      ],
+      "observed": {
+        "lcp": [
+          {
+            "startTime": 708,
+            "duration": 0,
+            "url": "",
+            "element": "<p>The fictional origin of the OverKill Hill P³™ sentinel, told through three eras and the scars that survived them.</p>"
+          },
+          {
+            "startTime": 712,
+            "duration": 0,
+            "url": "https://overkillhill.com/assets/img/webp/murderbird-frontal-attack-2026-09-05-512.webp",
+            "element": "<img src=\"/assets/img/webp/murderbird-frontal-attack-2026-09-05-1024.webp\" srcset=\"/assets/img/webp/murderbird-frontal-attack-2026-09-05-512.webp 512w, /assets/img/webp/murderbird-frontal-attack-2026-09-05-1024.webp 1024w\" sizes=\"(max-width: 768px) 90vw, 40vw\" width=\"1024\" height=\"1024\" loading=\"eag"
+          }
+        ],
+        "long": [],
+        "cls": [
+          {
+            "startTime": 765.7000000476837,
+            "duration": 0,
+            "value": 0.02052432945969318,
+            "hadRecentInput": false
+          },
+          {
+            "startTime": 806.0999999046326,
+            "duration": 0,
+            "value": 0.0003200736730980886,
+            "hadRecentInput": false
+          }
+        ]
+      },
+      "images": [
+        {
+          "src": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "loading": "eager",
+          "fetchPriority": "auto",
+          "naturalWidth": 96,
+          "displayWidth": 40,
+          "top": 10
+        },
+        {
+          "src": "https://overkillhill.com/assets/img/webp/murderbird-frontal-attack-2026-09-05-512.webp",
+          "loading": "eager",
+          "fetchPriority": "high",
+          "naturalWidth": 351,
+          "displayWidth": 260,
+          "top": 643.9375
+        }
+      ],
+      "fonts": "loaded",
+      "errors": [],
+      "encodedBytes": 424062,
+      "network": [
+        {
+          "url": "https://www.googletagmanager.com/gtag/js?id=G-VJ1BKXS27H",
+          "type": "Script",
+          "encodedBytes": 174145
+        },
+        {
+          "url": "https://overkillhill.com/assets/img/webp/murderbird-frontal-attack-2026-09-05-512.webp",
+          "type": "Image",
+          "encodedBytes": 65231
+        },
+        {
+          "url": "https://overkillhill.com/assets/css/theme.css?v=82915b53",
+          "type": "Stylesheet",
+          "encodedBytes": 48320
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2",
+          "type": "Font",
+          "encodedBytes": 37530
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2",
+          "type": "Font",
+          "encodedBytes": 31467
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6z9mXgjU0.woff2",
+          "type": "Font",
+          "encodedBytes": 18319
+        },
+        {
+          "url": "https://overkillhill.com/writings/murderbird/",
+          "type": "Document",
+          "encodedBytes": 14771
+        },
+        {
+          "url": "https://overkillhill.com/assets/js/app.js?v=33c354b0",
+          "type": "Script",
+          "encodedBytes": 12119
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhe_escmA.woff2",
+          "type": "Font",
+          "encodedBytes": 11698
+        },
+        {
+          "url": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-nav-96.png",
+          "type": "Image",
+          "encodedBytes": 9123
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap",
+          "type": "Stylesheet",
+          "encodedBytes": 1339
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-VJ1BKXS27H&gtm=45je6921v9236972918za200zd9236972918&_p=1788664906058&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=456858555.1788664906&frm=0&ngs=1&pscdl=noapi&rcb=7&sr=390x844&uaa=arm&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=macOS&uapv=26.6.2&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938469~118897920~118897930~120213116~120385423~120469145~120469153&sid=1788664906&sct=1&seg=0&dl=https%3A%2F%2Foverkillhill.com%2Fwritings%2Fmurderbird%2F&dt=The%20MurderBird%3A%20What%20the%20Water%20Kept%20%7C%20OverKill%20Hill%20P%C2%B3%E2%84%A2&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=805",
+          "type": "Fetch"
+        }
+      ]
+    }
+  ]
+}
