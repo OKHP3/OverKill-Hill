@@ -1,0 +1,42 @@
+{
+  "language_pair": "en-US -> es-ES",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "source_revision": "git:3fad54ac0897684e261c5827d91c1ec03bae6648 plus combined shared foundation asset fingerprints",
+  "reviewed_on": "2026-09-06",
+  "review_scope": "Exact comparison against the recorded Git revision confirms that each selected English source and translated target differs only in shared theme.css and app.js version query values. Existing translated prose and HTML structure are unchanged. SHA256 uses LF-normalized bytes. Cache-only review; no new translation or human/native approval.",
+  "routes": [
+    {
+      "route": "/",
+      "locale": "es",
+      "source_sha256": "a811a94a3d373eb9957a94b7606a550f7160deb3d47e100f72f41fdcceecaca5",
+      "target_path": "es/index.html",
+      "target_sha256": "c9e91353e3b29f55bd67b816895e82ff2c6551243f89cf6cc3aba22bb51626e6",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/about/",
+      "locale": "es",
+      "source_sha256": "29c39dd0cf20b048a393d87794e3397993a51f680294225a971bc425baee25c8",
+      "target_path": "es/about/index.html",
+      "target_sha256": "3ba9edde5e20ac06e940b4dca9998205244897723d68247e5516f9b0cf4a4e72",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/projects/",
+      "locale": "es",
+      "source_sha256": "af13f66bd62e78470266e8004add965702cd015e95931ae30bf5a90aaf7d2749",
+      "target_path": "es/projects/index.html",
+      "target_sha256": "0506cdfa0029b959e02eb4fe58c30bc5a8a2e933efa7e6c0fec219053f69af81",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/contact/",
+      "locale": "es",
+      "source_sha256": "e7ac5038b88cc1ed80ba9c75f66c95861d0cf8dddd74648192204582c80ecec5",
+      "target_path": "es/contact/index.html",
+      "target_sha256": "c706b9cf6c15fc22d0e772635ec10d6939362726b659faede69c12cc37a1afe9",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    }
+  ]
+}

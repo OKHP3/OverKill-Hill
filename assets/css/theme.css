@@ -5971,12 +5971,18 @@ html:has(
 }
 
 /* ===== Glee-fully general styles =================================== */
+/* The hero sits on paper in this brand, including when the shared theme
+   attribute selects light mode. Use the local effective text token. */
+html .glee-main .hero-eyebrow {
+  color: var(--color-muted);
+}
+
 /* Headers */
 .glee-main h1,
 .glee-main h2,
 .glee-main h3 {
   font-family: "Fredoka", "Poppins", sans-serif;
-  color: var(--color-accent-2);
+  color: var(--color-heading, var(--color-accent-2));
 }
 
 /* Buttons */
@@ -6157,6 +6163,22 @@ html:has(
   min-height: 1px;
 }
 
+/* Reserve the loading space so fetched filters and results do not move the page. */
+body.glee-main .glee-search-page__categories {
+  min-height: 4rem;
+}
+body.glee-main .glee-search-page__results-wrap {
+  min-height: 22rem;
+}
+html body.glee-main:has(> main.glee-search-page) {
+  background: var(--color-bg);
+}
+@media (max-width: 600px) {
+  body.glee-main .glee-search-page__categories {
+    min-height: 8rem;
+  }
+}
+
 /* ── Glee breadcrumb nav ─────────────────────────────────────────────────
    Rendered by scripts/inject-breadcrumb.py as:
      <nav class="glee-breadcrumb">
@@ -6270,6 +6292,7 @@ html[data-color-scheme="dark"] .glee-main {
   --color-fg:           #f2ede8;   /* warm near-white ink */
   --color-muted:        #b5a9a1;   /* muted warm grey */
   --color-inline-link:  #f07585;   /* AA normal text on dark surfaces */
+  --color-heading:      var(--color-fg);
 }
 
 /* ── Glee dark mode: component-level overrides ──────────────────────────────
@@ -6434,20 +6457,20 @@ html[data-color-scheme="dark"]:has(
    near-white text (for the OKH dark footer) and wins on specificity (0,0,2,1)
    over .glee-main .site-footer (0,0,2,0). These Glee-scoped overrides have
    specificity (0,0,3,1) so they always win and keep the cream footer readable. */
-html[data-theme="light"] .glee-main .site-footer {
+html[data-theme="light"]:where(:not([data-color-scheme="dark"])) .glee-main .site-footer {
   color: #2e2b29;
 }
-html[data-theme="light"] .glee-main .footer-column h3,
-html[data-theme="light"] .glee-main .footer-column h4 {
+html[data-theme="light"]:where(:not([data-color-scheme="dark"])) .glee-main .footer-column h3,
+html[data-theme="light"]:where(:not([data-color-scheme="dark"])) .glee-main .footer-column h4 {
   color: #2e2b29;
 }
-html[data-theme="light"] .glee-main .footer-column a {
+html[data-theme="light"]:where(:not([data-color-scheme="dark"])) .glee-main .footer-column a {
   color: #5a4a44;
 }
-html[data-theme="light"] .glee-main .footer-column a:hover {
+html[data-theme="light"]:where(:not([data-color-scheme="dark"])) .glee-main .footer-column a:hover {
   color: #b8354a; /* WCAG AA: 5.21:1 on footer cream #fff7f1 */
 }
-html[data-theme="light"] .glee-main .footer-bottom {
+html[data-theme="light"]:where(:not([data-color-scheme="dark"])) .glee-main .footer-bottom {
   color: #6b5e57;
 }
 
@@ -6793,6 +6816,7 @@ html[data-color-scheme="dark"] .arcade-eyebrow {
     --color-fg:           #f2ede8;
     --color-muted:        #b5a9a1;
     --color-inline-link:  #f07585;
+    --color-heading:      var(--color-fg);
   }
 }
 @media (prefers-color-scheme: dark) {
