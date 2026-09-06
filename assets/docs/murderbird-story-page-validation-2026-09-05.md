@@ -7,8 +7,9 @@
 - Authoring source: `site-src/pages/writings/murderbird/index.main.html`.
 - Page metadata: `site-src/pages.json`; structured data: adjacent `index.extras.html`.
 - Generated output: `writings/murderbird/index.html`.
-- Confirmed story prose: **2,444 words**, within the requested 2,400-3,200 range.
-- Count method: BeautifulSoup selects the article's `p:not(.manifesto-og-label)` and `pre` elements; regex counts word tokens with internal apostrophes and hyphens retained. Headings, era labels, hero, navigation, captions, and footer are excluded.
+- Revised story prose: **2,967 whitespace-delimited words**, within the requested 2,400-3,200 range. The original release contained 2,444 words under its earlier token-count method.
+- Current count method: BeautifulSoup selects the article's `p:not(.manifesto-og-label)` elements and splits their text on whitespace. Headings, era labels, hero, navigation, captions, and footer are excluded.
+- Editorial continuity revision: 42 narrative paragraphs, 63-77 words each, with four or five sentences per paragraph. Related actions and observations now develop together; chapter anchors, typography, artwork, and the following sidebar remain unchanged. Desktop 1440px and mobile 390px layouts passed local overflow checks.
 - Three eras remain explicit: Bronze Age Mesopotamia, 1873, and 2025. The third supplies independent onboard power and processing, while retaining ancient bronze and industrial machinery.
 - Supporting characters remain unnamed and genderless, identified by role. A case-insensitive whole-word check found no he/she/him/his/her/hers/man/woman/boy/girl in story prose.
 
