@@ -17,7 +17,7 @@ assert(menus.length > 0, 'Release inventory must contain sidebar menus');
 console.log(`Inventory: ${files.length} public pages, ${menus.length} sidebar menus, ${files.length - menus.length} without sidebar menus.`);
 const browser = await chromium.launch({ headless: true });
 let failures = 0;
-const geometry = () => {
+const geometry = (requireConvergence = false) => {
   const toc = document.getElementById('toc-widget');
   const r = toc.getBoundingClientRect();
   const matrix = new DOMMatrixReadOnly(getComputedStyle(toc).transform);
@@ -27,7 +27,35 @@ const geometry = () => {
   const desiredTop = Math.max(gap, (innerHeight - r.height) / 2);
   const maximum = Math.max(0, footer.top + scrollY - 32 - natural - r.height);
   const expected = natural - scrollY + Math.min(Math.max(0, scrollY + desiredTop - natural), maximum);
-  return { top: r.top, bottom: r.bottom, height: r.height, expected, error: Math.abs(r.top - expected), footer: footer.top, natural, scroll: scrollY, maxScroll: document.documentElement.scrollHeight - innerHeight };
+  const error = Math.abs(r.top - expected);
+  return requireConvergence ? error < 2 : { top: r.top, bottom: r.bottom, height: r.height, expected, error, footer: footer.top, natural, scroll: scrollY, maxScroll: document.documentElement.scrollHeight - innerHeight };
+};
+
+// A diagram's temporary render container can disappear after a breakpoint
+// change (FoundRy moved document scroll anchoring by 117px). Measure reduced
+// motion against stable layout inputs, without waiting for the TOC transform.
+const waitForStableLayoutFrames = async () => {
+  let previous;
+  let stable = 0;
+  let timeout;
+  try {
+    await Promise.race([
+      new Promise((_, reject) => { timeout = setTimeout(() => reject(new Error('Layout did not stabilize within 5 seconds')), 5000); }),
+      (async () => {
+        for (let frame = 0; frame < 180; frame++) {
+          await new Promise(requestAnimationFrame);
+          const toc = document.getElementById('toc-widget');
+          const box = toc.getBoundingClientRect();
+          const translation = new DOMMatrixReadOnly(getComputedStyle(toc).transform).m42;
+          const inputs = [document.body.offsetHeight, scrollY, innerWidth, innerHeight, box.height, box.top + scrollY - translation];
+          stable = previous && inputs.every((value, index) => Math.abs(value - previous[index]) < 0.25) ? stable + 1 : 0;
+          previous = inputs;
+          if (stable === 3) return;
+        }
+        throw new Error('Layout did not stabilize within 180 animation frames');
+      })(),
+    ]);
+  } finally { clearTimeout(timeout); }
 };
 
 try {
@@ -50,17 +78,15 @@ try {
       assert.deepEqual(structure.sticky, [], 'Ancestor sticky positioning fights centered follow');
       assert.deepEqual(structure.missing, [], 'Every local menu target exists');
       const start = await page.evaluate(geometry);
-      await page.evaluate(y => window.scrollTo(0, y), Math.min(start.maxScroll * 0.65, start.natural + 1000));
-      await page.waitForTimeout(65);
+      await page.evaluate(async y => {
+        window.scrollTo(0, y);
+        for (let i = 0; i < 3; i++) await new Promise(requestAnimationFrame);
+      }, Math.min(start.maxScroll * 0.65, start.natural + 1000));
       const early = await page.evaluate(geometry);
       assert(early.error > 2, 'Normal motion should visibly ease rather than jump into place');
-      await page.waitForFunction(() => {
-        const t = document.getElementById('toc-widget');
-        const y = new DOMMatrixReadOnly(getComputedStyle(t).transform).m42;
-        const previous = window.__tocQaPrevious;
-        window.__tocQaPrevious = y;
-        return previous !== undefined && Math.abs(previous - y) < 0.01;
-      }, null, { polling: 100, timeout: 6000 });
+      // A stationary sample can mean a delayed frame under CI load, not that
+      // the menu reached its destination. Check the actual visible geometry.
+      await page.waitForFunction(geometry, true, { polling: 'raf', timeout: 10000 });
       const settled = await page.evaluate(geometry);
       assert(settled.error < 2, `Sidebar must settle into centered/bounded position: ${JSON.stringify(settled)}`);
       await page.evaluate(() => {
@@ -89,12 +115,15 @@ try {
       await page.reload({ waitUntil: 'load' });
       await page.setViewportSize({ width: 1440, height: 900 });
       await page.emulateMedia({ reducedMotion: 'reduce' });
-      await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; window.scrollTo(0, document.documentElement.scrollHeight * 0.55); });
-      await page.waitForTimeout(100);
+      await page.evaluate(() => {
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, document.documentElement.scrollHeight * 0.55);
+      });
+      await page.evaluate(waitForStableLayoutFrames);
       const reduced = await page.evaluate(geometry);
       assert(reduced.error < 2, `Mobile to desktop/reduced motion must follow immediately: ${JSON.stringify(reduced)}`);
       await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
-      await page.waitForTimeout(100);
+      await page.evaluate(waitForStableLayoutFrames);
       const bottom = await page.evaluate(geometry);
       assert(bottom.bottom <= bottom.footer - 30, `Sidebar must clear footer: ${JSON.stringify(bottom)}`);
       console.log(`PASS ${route}`);
@@ -103,5 +132,27 @@ try {
       console.error(`FAIL ${route}: ${error.message}`);
     } finally { await page.close(); }
   }
+  const legacy = await browser.newPage({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' });
+  const legacyErrors = [];
+  legacy.on('pageerror', error => legacyErrors.push(error.message));
+  try {
+    // Older MediaQueryList implementations expose addListener only. Keep the
+    // real matching/change behavior while removing the newer subscription API.
+    await legacy.addInitScript(() => Object.defineProperty(MediaQueryList.prototype, 'addEventListener', { value: undefined, configurable: true }));
+    await legacy.goto(base + '/projects/mac-studio-local-ai-workbench/', { waitUntil: 'load' });
+    await legacy.setViewportSize({ width: 1440, height: 900 });
+    await legacy.evaluate(() => {
+      document.documentElement.style.scrollBehavior = 'auto';
+      window.scrollTo(0, document.documentElement.scrollHeight * 0.55);
+    });
+    await legacy.evaluate(waitForStableLayoutFrames);
+    assert.deepEqual(legacyErrors, [], 'Legacy media-query subscriptions must not throw or abort shared script startup');
+    const box = await legacy.evaluate(geometry);
+    assert(box.error < 2, `Legacy media-query API must activate centered follow: ${JSON.stringify(box)}`);
+    console.log('PASS legacy MediaQueryList mobile-to-desktop follow');
+  } catch (error) {
+    failures++;
+    console.error(`FAIL legacy MediaQueryList: ${error.message}`);
+  } finally { await legacy.close(); }
 } finally { await browser.close(); }
 if (failures) process.exitCode = 1;
