@@ -81,7 +81,18 @@ test("contains overlay index failures without an unhandled rejection", async () 
   const browser = await chromium.launch({ headless: true }); const page = await browser.newPage({ viewport: { width: 1280, height: 900 } }); const errors = []; let requests = 0; page.on("pageerror", (error) => errors.push(error.message));
   try {
     await page.route("**/assets/data/search-index.json", async (route) => { requests += 1; await route.fulfill(requests === 1 ? { status: 503, contentType: "application/json", body: "{}" } : { status: 200, contentType: "application/json", body: JSON.stringify({ entries: makeSearchEntries() }) }); });
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" }); await page.getByRole("button", { name: "Search" }).click(); await page.locator(".okh-search-overlay .okh-search-noresults--error").waitFor(); await page.locator(".okh-search-overlay .okh-search-retry").click(); await page.waitForLoadState("networkidle"); assert.equal(requests >= 2, true); assert.deepEqual(errors, []);
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.getByRole("button", { name: "Search" }).click();
+    await page.locator(".okh-search-overlay .okh-search-noresults--error").waitFor();
+    // Arm the retry response before clicking. The previous document's
+    // networkidle state can already be satisfied before this fetch starts.
+    const retryResponse = page.waitForResponse((response) =>
+      response.url().endsWith("/assets/data/search-index.json") && response.status() === 200);
+    await page.locator(".okh-search-overlay .okh-search-retry").click();
+    await retryResponse;
+    await page.locator(".okh-search-overlay .okh-search-noresults--error").waitFor({ state: "hidden" });
+    assert.equal(requests >= 2, true);
+    assert.deepEqual(errors, []);
   } finally { await browser.close(); }
 });
 

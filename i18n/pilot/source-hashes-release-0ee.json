@@ -1,15 +1,16 @@
 {
-  "source_revision": "git:00173f1b5dd233b74a302da164baa851468cc901",
+  "source_revision": "git:6041a88fbf6e7299a575b55fd97334efcdcb8ee1",
   "routes": {
-    "/": "254ff869f86f2bf85e0319dcd3c5f1d27b38755c8a8304006be2bf3b570e306e",
-    "/about/": "7110912543d29e362f0603cbae10735e11da1427297fb865060b26710ff1f24a",
-    "/contact/": "87445732b7d20c405ee6d39c9b52cacb297c64dfe01b3398fd546248af20ba66",
-    "/projects/": "5a89d53200eb5662b6248f5f70fc9e813a3c650ac286c48e9cd19c455f0456e8"
+    "/": "845ab26ae7631d6b0949bb916aae86647bc61aaa0e24eca6ed2428076519a441",
+    "/about/": "78cfa4522592087a195d4b98d61218b2a6aa1c27883fbee7c8e6ac0b45ebbede",
+    "/contact/": "77a33f3deb43667d8ff133a3ca2cc9e26fdf814f6f51eb1897bce7d498352af6",
+    "/projects/": "fb7d32d75529db625199005195e8c675c433ea0d3261862923ef09f4443a697c"
   },
   "normalized_routes": {
-    "/": "758e070b8f6c4eea402a0f3c01cd1b8980a938946672632c02460d48d50bdf31",
-    "/about/": "d7d9d416bab095541351fe82c3d7d58c436a43ba3787b3b97dc7311570ba22d8",
-    "/projects/": "fd1b146aa900ac65adf7f82604c4f93b3888de23a27eee1cce32ea286e1bd611",
-    "/contact/": "2250844a341447cf4563915c9f56a6cb99bf72917c1bb0034b013f2d2b3392ea"
-  }
+    "/": "45618578634c3cd752e326664c17ed4affd3d686619537865d5c00a5b78c4ecc",
+    "/about/": "3cd8cd080422a3a3610d88f577d2c961bcecef72ff5e20355e60dcb6e8af7063",
+    "/projects/": "050ea5cc8d5144d347fe3a8109cd28aa2ea7060669a222ec781bd88839218ac4",
+    "/contact/": "b91496348eb6b1b85f18e7da424ccea56f7cd086881e99f393840d665f4e668c"
+  },
+  "review_scope": "Protected-title navigation link only. Existing en-GB and es-MX prose retained; title and destination copied unchanged. No new translation or publication approval. Draft noindex boundaries retained."
 }
