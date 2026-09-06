@@ -678,7 +678,7 @@
 <p><strong>Claude Code</strong></p>
 <pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># Run from a fresh project root. Re-running refuses to overwrite the destination.
 set -eu
-stage="$(mktemp -d)"
+stage="$(mktemp -d "./.okh-mtb.XXXXXX")"
 trap 'rm -rf "$stage"' EXIT
 git clone --depth 1 --branch v0.6.1 https://github.com/OKHP3/mermaid-theme-builder.git "$stage/mermaid-theme-builder"
 test "$(git -C "$stage/mermaid-theme-builder" rev-parse HEAD)" = "968df040b4bd5d8708551e7a54b3713fc864ee80"
@@ -690,7 +690,7 @@ cp -R "$package" .claude/skills/okhp3-mermaid-theme-builder</pre>
 <p><strong>Cursor</strong></p>
 <pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># Run from a fresh project root. Re-running refuses to overwrite the destination.
 set -eu
-stage="$(mktemp -d)"
+stage="$(mktemp -d "./.okh-mtb.XXXXXX")"
 trap 'rm -rf "$stage"' EXIT
 git clone --depth 1 --branch v0.6.1 https://github.com/OKHP3/mermaid-theme-builder.git "$stage/mermaid-theme-builder"
 test "$(git -C "$stage/mermaid-theme-builder" rev-parse HEAD)" = "968df040b4bd5d8708551e7a54b3713fc864ee80"
@@ -702,7 +702,7 @@ cp -R "$package" .cursor/skills/okhp3-mermaid-theme-builder</pre>
 <p><strong>GitHub Copilot</strong></p>
 <pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># Run from a fresh project root. Re-running refuses to overwrite the destination.
 set -eu
-stage="$(mktemp -d)"
+stage="$(mktemp -d "./.okh-mtb.XXXXXX")"
 trap 'rm -rf "$stage"' EXIT
 git clone --depth 1 --branch v0.6.1 https://github.com/OKHP3/mermaid-theme-builder.git "$stage/mermaid-theme-builder"
 test "$(git -C "$stage/mermaid-theme-builder" rev-parse HEAD)" = "968df040b4bd5d8708551e7a54b3713fc864ee80"

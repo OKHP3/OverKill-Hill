@@ -44,5 +44,6 @@ class ThreadingServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     request_queue_size = 128
 
 with ThreadingServer((HOST, PORT), NoCacheHandler) as httpd:
-    print(f"Serving {Path.cwd()} on http://{HOST}:{PORT} with no-cache headers")
+    display_host = "127.0.0.1" if HOST in ("0.0.0.0", "") else HOST
+    print(f"Serving {Path.cwd()} on http://{display_host}:{PORT} with no-cache headers")
     httpd.serve_forever()
