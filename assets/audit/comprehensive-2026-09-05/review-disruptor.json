@@ -1,0 +1,123 @@
+{
+  "role": "disruptor",
+  "reviewed_at_utc": "2026-09-06T03:36:46.380037+00:00",
+  "review_input_version": "revision-2",
+  "artifact_hashes": [
+    {
+      "path": "assets/docs/audit-comprehensive-website-2026-09-05.md",
+      "expected_sha256": "112b8827d00503be413aa4e679d0bca6e04ecd5e0c63e2c5e47e62e9d3e187a4",
+      "observed_sha256": "112b8827d00503be413aa4e679d0bca6e04ecd5e0c63e2c5e47e62e9d3e187a4",
+      "matches_revision_2": true
+    },
+    {
+      "path": "assets/docs/website-advancement-plan-2026-09-05.md",
+      "expected_sha256": "f3db7e118df769565f07c0f8f60584ed4b77a6250caefce0252a43d4660e2229",
+      "observed_sha256": "f3db7e118df769565f07c0f8f60584ed4b77a6250caefce0252a43d4660e2229",
+      "matches_revision_2": true
+    }
+  ],
+  "decision": "approve-with-limits",
+  "decision_reason": "Three bounded checks did not overturn the packet. A new control/treatment browser probe strengthens the essential-content finding under JavaScript-enabled script-load failure; retained network data falsifies cross-device transfer generalization; source/response separation rejects an unsupported critical-vulnerability escalation. No judged files were edited.",
+  "hypotheses": [
+    {
+      "id": "D1",
+      "counterargument": "The all-green regression suites invalidate UI defects; the homepage failure is only an artificial choice to disable JavaScript.",
+      "falsifying_test": "Use the frozen homepage at 1440x900 with JavaScript enabled in both contexts. Block external resources identically. In treatment only, abort /assets/js/app.js; in control allow it. Scroll each reveal container into view, wait 700 ms, and measure computed opacity. Verify ordinary page JavaScript evaluation still executes.",
+      "evidence": "assets/audit/comprehensive-2026-09-05/disruptor-blocked-app-js.json",
+      "observed": {
+        "control_app_aborted": false,
+        "control_visible_containers": 8,
+        "treatment_aborted_requests": [
+          "/assets/js/app.js?v=33c354b0"
+        ],
+        "treatment_transparent_containers": 8,
+        "total_reveal_containers": 8,
+        "script_execution_probe_both": [
+          2,
+          2
+        ]
+      },
+      "outcome": "counterargument-falsified",
+      "interpretation": "All 8 sections are visible after scrolling in control and remain transparent in treatment. JavaScript is enabled and executes in both; one unavailable first-party script is enough. Passing suites demonstrate covered assertions, not resilience to this untested failure state. The packet is justified in prioritizing visible-by-default HTML."
+    },
+    {
+      "id": "D2",
+      "counterargument": "The desktop initial 3 MB load proves phones pay the same transfer burden.",
+      "falsifying_test": "Compare retained cold-cache homepage network records by viewport and inspect whether the expensive desktop feature PNG was requested on each phone sample. Do not compare source-weight budget to network transfer as if they were the same metric.",
+      "evidence": "assets/audit/comprehensive-2026-09-05/checks/network-samples.json",
+      "observed": {
+        "mobile_encoded_bytes": [
+          388020,
+          388018,
+          388062
+        ],
+        "desktop_encoded_bytes": 3019812,
+        "desktop_feature_png_bytes": 2495707,
+        "mobile_feature_png_requests": 0,
+        "sample_scope": "initial load plus 1.8 seconds, no scrolling, Mac Chromium viewport emulation, unthrottled"
+      },
+      "outcome": "counterargument-falsified",
+      "interpretation": "Phone samples are about 388 KB, desktop about 3.02 MB, and the 2.50 MB feature PNG appears only in desktop initial loading. The packet already preserves this distinction and correctly targets the desktop asset without calling it a universal mobile 3 MB burden. Later scroll cost and field performance remain unknown."
+    },
+    {
+      "id": "D3",
+      "counterargument": "Missing response hardening headers justify calling the current site a critical vulnerability.",
+      "falsifying_test": "Inspect the retained live root response and the matching frozen HTML for response CSP versus meta CSP. Check whether the packet claims an exploit or instead identifies an accepted hosting-policy gap and a proposed adapter.",
+      "evidence": [
+        "assets/audit/comprehensive-2026-09-05/live-security-headers.json",
+        "frozen 40e18ee7/index.html",
+        "assets/docs/audit-comprehensive-website-2026-09-05.md:Priorities that change the experience and Delivery"
+      ],
+      "observed": {
+        "live_root_status": 200,
+        "response_csp_present": false,
+        "html_meta_csp_present": true,
+        "critical_remote_exploit_demonstrated": false
+      },
+      "outcome": "counterargument-not-supported",
+      "interpretation": "Absence of response CSP is confirmed; absence of all browser CSP is false because the HTML supplies meta CSP. Meta policy is not equivalent to full response-header protection, but no attack path and critical impact were established. Retain a concrete hardening gap and deployment-limit decision; neither escalate to critical nor claim complete security."
+    }
+  ],
+  "surviving_objections": [
+    {
+      "id": "D-L1",
+      "type": "evidence-limit",
+      "text": "The new abort test establishes a possible failure mode, not its production incidence or duration. No traffic or real-user script-error rate was measured."
+    },
+    {
+      "id": "D-L2",
+      "type": "coverage-limit",
+      "text": "The network countertest uses retained initial-load samples. It does not establish complete scroll transfer, mobile hardware timings or field Core Web Vitals."
+    },
+    {
+      "id": "D-L3",
+      "type": "security-limit",
+      "text": "Meta CSP does not implement every missing response-header control and does not prove exploit absence. The limited probe supports proportional wording, not a security certification."
+    }
+  ],
+  "other_candidate_hypotheses": [
+    {
+      "counterargument": "Prototype/noindex pages should be removed",
+      "disposition": "not-selected-for-new-decisive-test",
+      "reason": "Lifecycle removal requires an owner disposition and route/history analysis. The prior content inventory already establishes useful concept context; no additional deletion authorization or user outcome emerged. This pass does not pretend to prove all prototypes should be retained forever."
+    }
+  ],
+  "scope": {
+    "new_browser_work": "One homepage, two JavaScript-enabled desktop contexts, eight reveal elements each; no interaction mutations or publication.",
+    "retained_evidence_checks": "Network sample comparison and response/source CSP inspection only.",
+    "not_run": [
+      "No full regression suite",
+      "No new dependencies",
+      "No exploit test",
+      "No complete external-app audit",
+      "No branch or source edit",
+      "No native assistive-technology test"
+    ],
+    "independence_limits": [
+      "Shared model and history with parent reviewers",
+      "Earlier content workstream contribution",
+      "Fresh control/treatment browser evidence is new but remains same-machine Chromium laboratory evidence"
+    ],
+    "authorization_boundary": "Approval concerns the recommendation packet; it does not authorize implementation, hosting changes, publication or deletion."
+  }
+}

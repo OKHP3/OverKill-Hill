@@ -1,0 +1,127 @@
+{
+  "claims": [
+    {
+      "claim_id": "CLM-01",
+      "claim": "All 56 released HTML routes returned 200 and matched frozen source after newline normalization.",
+      "tier": "confirmed",
+      "evidence": "checks/live-route-parity.json",
+      "consequence_if_false": "Audit could target a stale or mixed deployment.",
+      "next_check": "Recheck live manifest and selected byte parity at implementation start."
+    },
+    {
+      "claim_id": "CLM-02",
+      "claim": "310 responsive combinations passed with external resources intentionally blocked.",
+      "tier": "confirmed",
+      "evidence": "checks/responsive-results.json",
+      "consequence_if_false": "Could misrepresent typography or external runtime coverage.",
+      "next_check": "Run separate production-font and real-browser state checks."
+    },
+    {
+      "claim_id": "CLM-03",
+      "claim": "Desktop homepage has eight transparent sections with JS disabled and also with JS enabled when app.js is blocked.",
+      "tier": "confirmed",
+      "evidence": [
+        "ui-focused-browser.json",
+        "disruptor-blocked-app-js.json"
+      ],
+      "consequence_if_false": "Essential content unavailable when enhancement fails.",
+      "next_check": "Implement visible-first content and rerun disabled/blocked-script regression."
+    },
+    {
+      "claim_id": "CLM-04",
+      "claim": "Skip activation does not move keyboard continuation into main.",
+      "tier": "confirmed",
+      "evidence": "ui-focused-browser.json",
+      "consequence_if_false": "Keyboard users still traverse repeated navigation.",
+      "next_check": "Activate skip, then Tab; verify focus in main after repair."
+    },
+    {
+      "claim_id": "CLM-05",
+      "claim": "Short mobile menu has unreachable lower content and exact768 breakpoint overlap.",
+      "tier": "confirmed",
+      "evidence": "ui-focused-browser-followup.json",
+      "consequence_if_false": "Visitors cannot reach every menu destination.",
+      "next_check": "Short-height/landscape and767/768/769 interaction matrix."
+    },
+    {
+      "claim_id": "CLM-06",
+      "claim": "The custom release verifier accepts a changed copied JS file.",
+      "tier": "confirmed",
+      "evidence": "release-integrity-probe.json",
+      "consequence_if_false": "Its byte-integrity claim exceeds covered hashes.",
+      "next_check": "All-file digest fixtures and untouched positive case."
+    },
+    {
+      "claim_id": "CLM-07",
+      "claim": "No critical remote exploit was demonstrated by this bounded assessment.",
+      "tier": "confirmed",
+      "evidence": "security-checks.json",
+      "consequence_if_false": "Overstating certainty could imply security certification.",
+      "next_check": "Specialist scope if stronger security assurance required."
+    },
+    {
+      "claim_id": "CLM-08",
+      "claim": "Full desired response-header policy is not delivered; sampled page CSP remains.",
+      "tier": "confirmed",
+      "evidence": "live-security-headers.json",
+      "consequence_if_false": "Green deployment could be mistaken for full policy enforcement.",
+      "next_check": "Selected host adapter and strict live verifier."
+    },
+    {
+      "claim_id": "CLM-09",
+      "claim": "Desktop initial-load sample was ~3MB, phone ~388KB; source budget differs.",
+      "tier": "confirmed",
+      "evidence": "checks/network-samples.json",
+      "consequence_if_false": "Wrong optimization target or invented phone burden.",
+      "next_check": "Controlled before/after transfer and field metrics separately."
+    },
+    {
+      "claim_id": "CLM-10",
+      "claim": "Keep the static architecture and make targeted repairs.",
+      "tier": "proposal",
+      "evidence": "../../docs/audit-comprehensive-website-2026-09-05.md",
+      "consequence_if_false": "A hidden backend/editorial need could alter architecture decision.",
+      "next_check": "Revisit if requirements introduce authenticated services or editorial workflow needs."
+    },
+    {
+      "claim_id": "CLM-11",
+      "claim": "Project claim/status maintenance is inconsistent across source surfaces.",
+      "tier": "confirmed",
+      "evidence": "content-body-inventory.json",
+      "consequence_if_false": "Visitors may infer production maturity without proof.",
+      "next_check": "Owner-approved registry plus source-specific test evidence."
+    },
+    {
+      "claim_id": "CLM-12",
+      "claim": "One live remote branch, no open PRs, two local worktrees, no local stashes were observed.",
+      "tier": "confirmed",
+      "evidence": "git-content-estate.json",
+      "consequence_if_false": "Stale refs could be mistaken for active product work.",
+      "next_check": "Refresh current machine/remote inventory before cleanup."
+    },
+    {
+      "claim_id": "CLM-13",
+      "claim": "Hash freshness alone does not establish translation quality.",
+      "tier": "confirmed",
+      "evidence": "i18n-current-check.json",
+      "consequence_if_false": "Draft material could be promoted without language review.",
+      "next_check": "Exact-pair qualified review and independent publication decision."
+    },
+    {
+      "claim_id": "CLM-14",
+      "claim": "Two Mac fixture groups fail with unresolved temporary roots but pass canonical-root diagnostics.",
+      "tier": "confirmed",
+      "evidence": "checks/static-checks.json",
+      "consequence_if_false": "Portability success could be overstated.",
+      "next_check": "Normalize helper roots and regression-test symlink temp paths."
+    },
+    {
+      "claim_id": "CLM-15",
+      "claim": "Proposed hierarchy changes may improve task comprehension.",
+      "tier": "inferred",
+      "evidence": "../../docs/audit-ui-ux-2026-09-05.md",
+      "consequence_if_false": "Cosmetic revision might not improve actual visitor tasks.",
+      "next_check": "Five qualitative task sessions; no claimed conversion uplift without data."
+    }
+  ]
+}

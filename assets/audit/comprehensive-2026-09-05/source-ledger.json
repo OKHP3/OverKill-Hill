@@ -1,0 +1,176 @@
+{
+  "scope": "External standards and recommendation sources. Source/runtime observations have separate evidence JSON and source locators in the workstream reports.",
+  "sources": [
+    {
+      "id": "R01",
+      "title": "Web Content Accessibility Guidelines 2.2 quick reference",
+      "publisher": "W3C/WAI",
+      "url": "https://www.w3.org/WAI/WCAG22/quickref/",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "Accessibility criteria and evaluation scope; automated fixtures are partial evidence."
+    },
+    {
+      "id": "R02",
+      "title": "Understanding Bypass Blocks",
+      "publisher": "W3C/WAI",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "A bypass mechanism should allow direct access past repeated content; the observed skip interaction needs actual continuation testing."
+    },
+    {
+      "id": "R03",
+      "title": "Combobox pattern",
+      "publisher": "W3C/WAI",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/combobox/",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "Accessible input/popup selection requires coherent roles, focus and active-option state."
+    },
+    {
+      "id": "R04",
+      "title": "Disclosure navigation example",
+      "publisher": "W3C/WAI",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "Ordinary website navigation can use disclosures without an application menu role."
+    },
+    {
+      "id": "R05",
+      "title": "Understanding Animation from Interactions",
+      "publisher": "W3C/WAI",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "The cited interaction-animation criterion is AAA, not automatic AA nonconformance."
+    },
+    {
+      "id": "R06",
+      "title": "Understanding Target Size Minimum",
+      "publisher": "W3C/WAI",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "AA target-size assessment has spacing/inline exceptions; 44px here is a proposed comfort target."
+    },
+    {
+      "id": "R07",
+      "title": "Web Interface Guidelines",
+      "publisher": "Vercel Labs",
+      "url": "https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "Heuristic review of semantic controls, focus, motion, typography and asset handling; not a compliance standard."
+    },
+    {
+      "id": "R08",
+      "title": "Web Vitals",
+      "publisher": "Google web.dev",
+      "url": "https://web.dev/articles/vitals",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "Field targets: LCP 2.5s, INP 200ms, CLS 0.1 at p75; lab samples do not establish field performance."
+    },
+    {
+      "id": "R09",
+      "title": "Optimize Largest Contentful Paint",
+      "publisher": "Google web.dev",
+      "url": "https://web.dev/articles/optimize-lcp",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "Identify the LCP resource and loading delays; targeted image delivery improvements should be measured."
+    },
+    {
+      "id": "R10",
+      "title": "CSP frame-ancestors",
+      "publisher": "MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Primary project or standards documentation; MDN is an established implementation reference.",
+      "supports": "Framing policy cannot be supplied through a meta CSP element."
+    },
+    {
+      "id": "R11",
+      "title": "Headers",
+      "publisher": "Cloudflare",
+      "url": "https://developers.cloudflare.com/pages/configuration/headers/",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "Pages _headers per-line limit and combination of matching repeated headers require a host-specific adapter."
+    },
+    {
+      "id": "R12",
+      "title": "Upload Pages artifact",
+      "publisher": "GitHub Actions",
+      "url": "https://github.com/actions/upload-pages-artifact",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "Uploader supports named artifacts for deterministic retry selection."
+    },
+    {
+      "id": "R13",
+      "title": "Deploy Pages",
+      "publisher": "GitHub Actions",
+      "url": "https://github.com/actions/deploy-pages",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "Deployer artifact_name must match the chosen upload artifact."
+    },
+    {
+      "id": "R14",
+      "title": "Previous releases",
+      "publisher": "Node.js project",
+      "url": "https://nodejs.org/en/about/previous-releases",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "Node20 EOL and Node24 LTS support the QA runtime refresh proposal."
+    },
+    {
+      "id": "R15",
+      "title": "http.server documentation",
+      "publisher": "Python project",
+      "url": "https://docs.python.org/3/library/http.server.html",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "SimpleHTTPRequestHandler is limited preview tooling and follows symbolic links."
+    },
+    {
+      "id": "R16",
+      "title": "Consent implementation guide",
+      "publisher": "Google",
+      "url": "https://developers.google.com/tag-platform/security/guides/consent",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "Consent defaults precede configuration; advanced mode can emit denied-state pings."
+    },
+    {
+      "id": "R17",
+      "title": "Agent Skills specification",
+      "publisher": "Agent Skills",
+      "url": "https://agentskills.io/specification",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "A skill is a directory with SKILL.md and optional resources, not inherently one flat Markdown file."
+    },
+    {
+      "id": "R18",
+      "title": "Apache License 2.0",
+      "publisher": "Apache Software Foundation",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "Redistribution may require license and notice retention; optional promotional credit is distinct."
+    },
+    {
+      "id": "R19",
+      "title": "Localized versions of pages",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/specialty/international/localized-versions",
+      "retrieval_date": "2026-09-06 UTC / 2026-09-05 America/Chicago",
+      "authority_rationale": "Official publisher/project or standards source.",
+      "supports": "Alternate language pages require reciprocal, accurate links; draft publication remains a separate editorial policy."
+    }
+  ]
+}

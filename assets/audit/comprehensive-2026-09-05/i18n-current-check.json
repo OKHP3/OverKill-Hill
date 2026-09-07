@@ -1,0 +1,104 @@
+{
+  "missing": [],
+  "stale": [],
+  "needs_baseline": [],
+  "in_sync": [
+    {
+      "route": "/",
+      "locale": "fr",
+      "target_locale": "fr-FR",
+      "source_path": "index.html",
+      "target_path": "fr/index.html",
+      "skill": "okhp3-translation-en-us-fr-fr"
+    },
+    {
+      "route": "/",
+      "locale": "de",
+      "target_locale": "de-DE",
+      "source_path": "index.html",
+      "target_path": "de/index.html",
+      "skill": "okhp3-translation-en-us-de-de"
+    },
+    {
+      "route": "/",
+      "locale": "es",
+      "target_locale": "es-ES",
+      "source_path": "index.html",
+      "target_path": "es/index.html",
+      "skill": "okhp3-translation-en-us-es-es"
+    },
+    {
+      "route": "/about/",
+      "locale": "fr",
+      "target_locale": "fr-FR",
+      "source_path": "about/index.html",
+      "target_path": "fr/about/index.html",
+      "skill": "okhp3-translation-en-us-fr-fr"
+    },
+    {
+      "route": "/about/",
+      "locale": "de",
+      "target_locale": "de-DE",
+      "source_path": "about/index.html",
+      "target_path": "de/about/index.html",
+      "skill": "okhp3-translation-en-us-de-de"
+    },
+    {
+      "route": "/about/",
+      "locale": "es",
+      "target_locale": "es-ES",
+      "source_path": "about/index.html",
+      "target_path": "es/about/index.html",
+      "skill": "okhp3-translation-en-us-es-es"
+    },
+    {
+      "route": "/contact/",
+      "locale": "fr",
+      "target_locale": "fr-FR",
+      "source_path": "contact/index.html",
+      "target_path": "fr/contact/index.html",
+      "skill": "okhp3-translation-en-us-fr-fr"
+    },
+    {
+      "route": "/contact/",
+      "locale": "de",
+      "target_locale": "de-DE",
+      "source_path": "contact/index.html",
+      "target_path": "de/contact/index.html",
+      "skill": "okhp3-translation-en-us-de-de"
+    },
+    {
+      "route": "/contact/",
+      "locale": "es",
+      "target_locale": "es-ES",
+      "source_path": "contact/index.html",
+      "target_path": "es/contact/index.html",
+      "skill": "okhp3-translation-en-us-es-es"
+    },
+    {
+      "route": "/projects/",
+      "locale": "fr",
+      "target_locale": "fr-FR",
+      "source_path": "projects/index.html",
+      "target_path": "fr/projects/index.html",
+      "skill": "okhp3-translation-en-us-fr-fr"
+    },
+    {
+      "route": "/projects/",
+      "locale": "de",
+      "target_locale": "de-DE",
+      "source_path": "projects/index.html",
+      "target_path": "de/projects/index.html",
+      "skill": "okhp3-translation-en-us-de-de"
+    },
+    {
+      "route": "/projects/",
+      "locale": "es",
+      "target_locale": "es-ES",
+      "source_path": "projects/index.html",
+      "target_path": "es/projects/index.html",
+      "skill": "okhp3-translation-en-us-es-es"
+    }
+  ],
+  "orphan": []
+}

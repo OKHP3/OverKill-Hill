@@ -1,0 +1,116 @@
+[
+  {
+    "test": "mobile-nav-settled",
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "state": {
+      "active": "<a aria-current=\"page\" href=\"/#forge\">The Forge</a>",
+      "nav": {
+        "x": 0,
+        "y": 60,
+        "width": 390,
+        "height": 718.4375,
+        "top": 60,
+        "right": 390,
+        "bottom": 778.4375,
+        "left": 0
+      },
+      "overflow": "visible",
+      "legal": {
+        "x": 44,
+        "y": 716.546875,
+        "width": 322,
+        "height": 29.890625,
+        "top": 716.546875,
+        "right": 366,
+        "bottom": 746.4375,
+        "left": 44
+      },
+      "scrollHeight": 8784
+    }
+  },
+  {
+    "test": "mobile-nav-settled",
+    "size": {
+      "width": 390,
+      "height": 640
+    },
+    "state": {
+      "active": "<a aria-current=\"page\" href=\"/#forge\">The Forge</a>",
+      "nav": {
+        "x": 0,
+        "y": 60,
+        "width": 390,
+        "height": 718.4375,
+        "top": 60,
+        "right": 390,
+        "bottom": 778.4375,
+        "left": 0
+      },
+      "overflow": "visible",
+      "legal": {
+        "x": 44,
+        "y": 716.546875,
+        "width": 322,
+        "height": 29.890625,
+        "top": 716.546875,
+        "right": 366,
+        "bottom": 746.4375,
+        "left": 44
+      },
+      "scrollHeight": 8784
+    }
+  },
+  {
+    "test": "mobile-nav-settled",
+    "size": {
+      "width": 768,
+      "height": 800
+    },
+    "state": {
+      "active": "<a aria-current=\"page\" href=\"/#forge\">The Forge</a>",
+      "nav": {
+        "x": 0,
+        "y": 60,
+        "width": 768,
+        "height": 192.1875,
+        "top": 60,
+        "right": 768,
+        "bottom": 252.1875,
+        "left": 0
+      },
+      "overflow": "visible",
+      "legal": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "scrollHeight": 7225
+    }
+  },
+  {
+    "test": "article-anchor",
+    "state": {
+      "hash": "",
+      "active": "<a href=\"#what-mermaid-actually-is\" class=\"toc-active\">What a Mermaid Diagram Is</a>",
+      "headingY": 136.390625,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 124.046875,
+        "top": 0,
+        "right": 1440,
+        "bottom": 124.046875,
+        "left": 0
+      }
+    }
+  }
+]
