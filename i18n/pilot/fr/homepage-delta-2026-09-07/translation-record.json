@@ -1,0 +1,86 @@
+{
+  "language_pair": {
+    "source_locale": "en-US",
+    "target_locale": "fr-FR",
+    "direction": "one-way"
+  },
+  "skill": "okhp3-translation-en-us-fr-fr@1.1.0",
+  "artifact_type": "text-resource",
+  "source": {
+    "path": "i18n/pilot/fr/homepage-delta-2026-09-07/en/copy.json",
+    "sha256": "d476ed818f6799dc3c6b39bbf53875daedfd90fa77b04fd4bf5e6a1dac8328b9",
+    "register_state": "plainspoken",
+    "register_mediation_record": null
+  },
+  "source_artifacts": [
+    {
+      "revision": "git:d763059a58a5b60aaefb1d47773a00939ce090a0",
+      "path": "site-src/pages/index.main.html",
+      "sha256": "0a60b2f83039ef3438621fcccf9ef192872e876aad5f7c43226475a19cf0fbf1"
+    },
+    {
+      "revision": "git:2074a969825e81e742d728b6816fb0adb364b445",
+      "path": "site-src/pages/index.main.html",
+      "sha256": "d17852d5da979cf20a12e3e21192b0ce8500de1d4214f1b3887613f1d3fca2c2"
+    }
+  ],
+  "target": {
+    "path": "i18n/pilot/fr/homepage-delta-2026-09-07/fr/copy.json",
+    "sha256": "a9a7949feba4313334cec590bbef0ec211cdd62580294904cbfff0a6df5b1687",
+    "applied_path": "fr/index.html",
+    "applied_page_sha256_before_integration": "ad191db097a9b04b598ebcb29284937660926f3ffdea0f635e63ffc050d54881"
+  },
+  "status": "machine-drafted",
+  "review_status": "ai-semantic-reviewed",
+  "needs_native_review": true,
+  "native_or_human_approval": false,
+  "release_accepted": false,
+  "voice_profile": "interactions/voice-profile.en-us.json@1.0.0",
+  "dictionary": "interactions/dictionary.en-us-fr-fr.json@0.1.0",
+  "review_notes": [
+    "A06 changes a universal testing claim into a goal. French now states the goal and retains the following failure/rework/user-responsibility sentences.",
+    "Only the changed sentence is translated. Existing art, links, remaining prose, and locale policy are preserved.",
+    "A12 corrections remove latest/most-recent claims from English. The condensed French page has no corresponding latest section; its existing Travaux sélectionnés already describes selection without chronological claims."
+  ],
+  "omitted_source_units": [
+    {
+      "revision": "d763059a58a5b60aaefb1d47773a00939ce090a0",
+      "source": "Some of the systems that live on the Hill, from concepts and prototypes to usable tools. Open a project for its evidence, current limits and next step.",
+      "disposition": "No corresponding lower project-shelf introduction exists in the condensed French pilot; no new section added."
+    },
+    {
+      "revision": "2074a969825e81e742d728b6816fb0adb364b445",
+      "source": "Featured from the Forge",
+      "disposition": "No corresponding latest/featured section exists in the condensed French pilot."
+    },
+    {
+      "revision": "2074a969825e81e742d728b6816fb0adb364b445",
+      "source": "A selected essay and experiment archive from the forge.",
+      "disposition": "No corresponding latest/featured introduction exists in the condensed French pilot."
+    },
+    {
+      "revision": "2074a969825e81e742d728b6816fb0adb364b445",
+      "source": "Featured writing",
+      "disposition": "No corresponding latest-card badge exists in the condensed French pilot. Existing selected-work card says Écrit en ligne and makes no chronological claim."
+    }
+  ],
+  "unresolved_terms": [
+    {
+      "source": "road-test systems",
+      "proposed_target": "mettre les systèmes à l’épreuve",
+      "status": "AI-reviewed phrase; no new approved dictionary entry."
+    }
+  ],
+  "mechanical_checks": {
+    "passed": true,
+    "checks": [
+      "Exact-pair validator passed.",
+      "Planner: 1 source artifact, 0 missing targets.",
+      "HTML tag/attribute inventory identical to c1e56d54; one exact sentence replacement only."
+    ],
+    "limits": [
+      "Index/cache freshness and combined release checks remain with A21."
+    ]
+  },
+  "freshness_scope": "Changed-unit semantic review only. No sync-state adoption or whole-page parity is claimed. A21 must reconcile later English deltas and regeneration before release."
+}
