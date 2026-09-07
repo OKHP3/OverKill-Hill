@@ -154,7 +154,7 @@ def active_route(route: str) -> str:
                 "/projects/glee-fully-chai-chasers/", "/projects/kierans-lifetrkr/",
                 "/projects/first-diagram-is-a-liar/",
                 "/projects/telling-forward/",
-                "/writings/",
+                "/writings/", "/writings/murderbird/",
                 "/writings/first-diagram-is-a-liar/", "/manifesto/",
                 "/prompt-forge/", "/universe/", "/about/", "/contact/", "/legal/",
             } else section

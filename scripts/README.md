@@ -25,6 +25,7 @@ follows the same convention as `askjamie/scripts/README.md`.
 | `generate-csp.py` | active | Apply CSP policies to every page |
 | `lint-voice.py` | active | Voice/style lint (invoked by `validate-site.py`) |
 | `phone-overflow-qa.mjs` | active | Phone-viewport overflow QA (`npm run test:*`) |
+| `toc-follow-qa.mjs` | active | All published sidebar menus: centered easing, footer clearance, keyboard reachability, breakpoint changes and reduced motion (`npm run test:toc`) |
 | `check-performance-budget.py` | active | Deterministic first-party asset-weight regression guard for three representative routes |
 | `post-merge.sh` | active | Post-merge rebuild and validation hook |
 | `responsive-qa.mjs` | active | Responsive QA entry point |
@@ -95,3 +96,11 @@ revision. Configured post-write generators run by default. Their changed paths
 are reported as generated changes and included in a `--commit`; a generator
 failure prevents every commit and leaves the written paths reported for manual,
 reviewed recovery. `--no-hooks` is an explicit exceptional mode, not a default.
+
+### Universe map integration
+
+`sync-universe-map.py` calls the installed `okhp3-universe-map` generator and
+updates only the owned universe source block. `--check` verifies freshness.
+The default search-index rebuild invokes it automatically, then rebuilds HTML.
+`tests/test-universe-integration.py` checks source stability and search exclusion;
+`tests/test-universe-browser.mjs` checks rendering and navigation.

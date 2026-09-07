@@ -3546,7 +3546,7 @@ html[data-theme="light"] .pf-boundary-label--private    { color: #475569; }
   .okh-search-trigger .okh-search-label { display: none; }
 }
 @media (max-width: 768px) { .murderbird-grid { grid-template-columns: 1fr; } }
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .manifesto-layout { grid-template-columns: 1fr; }
   .manifesto-sidebar { display: none; }
 }
@@ -3589,10 +3589,16 @@ html[data-theme="light"] .pf-boundary-label--private    { color: #475569; }
 @media (max-width: 600px) { .decision-item { grid-template-columns: 1fr; gap: 0.25rem; } .decision-item > code { display: block; } }
 @media (max-width: 1023px) { .pf-body-with-sidebar { grid-template-columns: 1fr; } .pf-toc-sidebar { display: none; } }
 
-/* ── TOC widget: GPU-layer hint for smooth animation */
+/* A single moving menu per sidebar; metadata remains in document flow. */
 @media (min-width: 1024px) {
-  #toc-widget {
-    will-change: transform;
+  .sidebar-rail.toc-follow-rail,
+  .manifesto-sidebar.toc-follow-rail {
+    position: static;
+  }
+  #toc-widget.toc-follow-active {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -5605,6 +5611,45 @@ html[data-theme="light"] .glee-main {
   width: 100%;
   height: auto;
 } 
+/* Generated maps retain legible node text and a keyboard-scrollable viewport. */
+.glee-main .universe-map details {
+  margin-block: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--color-muted);
+  border-radius: 1rem;
+  background: var(--color-surface);
+}
+.glee-main .universe-map summary {
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 44px;
+}
+.glee-main .universe-map .mermaid-scroll-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.glee-main .universe-map .mermaid {
+  min-width: 620px;
+}
+.glee-main .universe-map li {
+  margin-block: 0.75rem;
+}
+.glee-main #universe-generated-map .mermaid svg .node rect,
+.glee-main #universe-generated-map .mermaid svg .node polygon {
+  fill: var(--color-surface);
+  stroke: var(--color-accent);
+}
+.glee-main #universe-generated-map .mermaid svg .nodeLabel,
+.glee-main #universe-generated-map .mermaid svg .nodeLabel p {
+  color: var(--color-fg);
+}
+.glee-main #universe-generated-map .mermaid svg .flowchart-link {
+  stroke: var(--color-fg);
+}
+.glee-main #universe-generated-map .mermaid svg marker path {
+  fill: var(--color-fg);
+  stroke: var(--color-fg);
+}
 /* Nodes – rounded joyful shapes with coral borders */
 .glee-main .mermaid .node rect,
 .glee-main .mermaid .node circle {
@@ -5965,12 +6010,18 @@ html:has(
 }
 
 /* ===== Glee-fully general styles =================================== */
+/* The hero sits on paper in this brand, including when the shared theme
+   attribute selects light mode. Use the local effective text token. */
+html .glee-main .hero-eyebrow {
+  color: var(--color-muted);
+}
+
 /* Headers */
 .glee-main h1,
 .glee-main h2,
 .glee-main h3 {
   font-family: "Fredoka", "Poppins", sans-serif;
-  color: var(--color-accent-2);
+  color: var(--color-heading, var(--color-accent-2));
 }
 
 /* Buttons */
@@ -6151,6 +6202,22 @@ html:has(
   min-height: 1px;
 }
 
+/* Reserve the loading space so fetched filters and results do not move the page. */
+body.glee-main .glee-search-page__categories {
+  min-height: 4rem;
+}
+body.glee-main .glee-search-page__results-wrap {
+  min-height: 22rem;
+}
+html body.glee-main:has(> main.glee-search-page) {
+  background: var(--color-bg);
+}
+@media (max-width: 600px) {
+  body.glee-main .glee-search-page__categories {
+    min-height: 8rem;
+  }
+}
+
 /* ── Glee breadcrumb nav ─────────────────────────────────────────────────
    Rendered by scripts/inject-breadcrumb.py as:
      <nav class="glee-breadcrumb">
@@ -6264,6 +6331,7 @@ html[data-color-scheme="dark"] .glee-main {
   --color-fg:           #f2ede8;   /* warm near-white ink */
   --color-muted:        #b5a9a1;   /* muted warm grey */
   --color-inline-link:  #f07585;   /* AA normal text on dark surfaces */
+  --color-heading:      var(--color-fg);
 }
 
 /* ── Glee dark mode: component-level overrides ──────────────────────────────
@@ -6428,20 +6496,20 @@ html[data-color-scheme="dark"]:has(
    near-white text (for the OKH dark footer) and wins on specificity (0,0,2,1)
    over .glee-main .site-footer (0,0,2,0). These Glee-scoped overrides have
    specificity (0,0,3,1) so they always win and keep the cream footer readable. */
-html[data-theme="light"] .glee-main .site-footer {
+html[data-theme="light"]:where(:not([data-color-scheme="dark"])) .glee-main .site-footer {
   color: #2e2b29;
 }
-html[data-theme="light"] .glee-main .footer-column h3,
-html[data-theme="light"] .glee-main .footer-column h4 {
+html[data-theme="light"]:where(:not([data-color-scheme="dark"])) .glee-main .footer-column h3,
+html[data-theme="light"]:where(:not([data-color-scheme="dark"])) .glee-main .footer-column h4 {
   color: #2e2b29;
 }
-html[data-theme="light"] .glee-main .footer-column a {
+html[data-theme="light"]:where(:not([data-color-scheme="dark"])) .glee-main .footer-column a {
   color: #5a4a44;
 }
-html[data-theme="light"] .glee-main .footer-column a:hover {
+html[data-theme="light"]:where(:not([data-color-scheme="dark"])) .glee-main .footer-column a:hover {
   color: #b8354a; /* WCAG AA: 5.21:1 on footer cream #fff7f1 */
 }
-html[data-theme="light"] .glee-main .footer-bottom {
+html[data-theme="light"]:where(:not([data-color-scheme="dark"])) .glee-main .footer-bottom {
   color: #6b5e57;
 }
 
@@ -6787,6 +6855,7 @@ html[data-color-scheme="dark"] .arcade-eyebrow {
     --color-fg:           #f2ede8;
     --color-muted:        #b5a9a1;
     --color-inline-link:  #f07585;
+    --color-heading:      var(--color-fg);
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -7581,11 +7650,10 @@ html[data-color-scheme="dark"] .askjamie-main .mermaid .edgePath path {
   transform: none;
 }
 
-/* Mermaid's generated SVG is about twice as tall as this column is wide.
-   Reserve that space before the async module renders so replacing the source
-   text does not push the hero and everything below it down the page. */
+/* Reserve a minimum diagram height while Mermaid loads. The rendered SVG
+   determines the final height without imposing a fixed aspect ratio. */
 .askjamie-hero--universe .mermaid-scroll-wrap {
-  aspect-ratio: 1 / 2.1;
+  min-height: 14rem;
 }
 
 @media (min-width: 900px) {
@@ -7719,3 +7787,39 @@ html[data-color-scheme="dark"] .glee-search-page__form, html[data-color-scheme="
 .arcade-callout .feature-list { margin: 0; }
 .arcade-closing-cta { margin-top: 1.5rem; text-align: center; }
 .askjamie-brandguard-page > main > section.content-section, .askjamie-brandguard-page > main > section.stripe-bg { content-visibility: auto; contain-intrinsic-size: auto 680px; }
+
+/* Generated AskJamie navigation uses the existing paper and teal palette. */
+.askjamie-main .universe-map-group { margin-block: 1rem; }
+.askjamie-main .universe-map-group > summary { cursor: pointer; font-weight: 700; }
+.askjamie-main .universe-map-group .mermaid { min-height: 0; }
+.askjamie-main .universe-map-group li { margin-block: 0.65rem; overflow-wrap: anywhere; }
+.askjamie-main .universe-map-generated figure { margin-inline: 0; }
+
+.askjamie-main .universe-map-group .mermaid svg { min-width: 40rem; }
+.askjamie-main .universe-map-generated .mermaid .node rect,
+.askjamie-main .askjamie-hero--universe .mermaid .node rect {
+  fill: var(--color-surface) !important;
+  stroke: var(--color-accent) !important;
+}
+.askjamie-main .universe-map-generated .mermaid .nodeLabel *,
+.askjamie-main .askjamie-hero--universe .mermaid .nodeLabel *,
+.askjamie-main .universe-map-generated .mermaid .nodeLabel,
+.askjamie-main .askjamie-hero--universe .mermaid .nodeLabel {
+  color: var(--color-fg) !important;
+}
+.askjamie-main .universe-map-generated .mermaid .flowchart-link,
+.askjamie-main .askjamie-hero--universe .mermaid .flowchart-link {
+  stroke: var(--color-fg) !important;
+}
+.askjamie-main .universe-map-generated .mermaid marker path,
+.askjamie-main .askjamie-hero--universe .mermaid marker path {
+  fill: var(--color-fg) !important;
+  stroke: var(--color-fg) !important;
+}
+
+/* Keep source syntax out of the visitor view before rendering or without JS. */
+.askjamie-main .askjamie-mermaid-shell .mermaid:not([data-universe-ready="1"]) {
+  visibility: hidden;
+  font-size: 0;
+  min-height: 2rem;
+}

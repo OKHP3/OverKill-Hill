@@ -52,12 +52,12 @@ def configure_utf8_console() -> None:
 configure_utf8_console()
 
 ROOT = Path(__file__).resolve().parent.parent
-SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src", "tests"}
+SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src", "tests", "i18n"}
 SITEMAP = ROOT / "sitemap.xml"
 SITE_ORIGIN = "https://overkillhill.com"
 MANIFEST = ROOT / "site-src/pages.json"
 HEAD_PARTIAL = ROOT / "assets/partials/head.html"
-MANIFEST_EXTERNAL_PREFIXES = ("de/", "es/", "fr/", "en-gb/", "es-mx/", "i18n/pilot/")
+MANIFEST_EXTERNAL_PREFIXES = ("de/", "es/", "fr/", "en-gb/", "es-mx/")
 THEME_STYLESHEET_PATH = "/assets/css/theme.css"
 THEME_STYLESHEET = ROOT / THEME_STYLESHEET_PATH.lstrip("/")
 APP_SCRIPT_PATH = "/assets/js/app.js"
@@ -109,9 +109,9 @@ EXPECTED_ORGANIZATION = {
     "url": "https://overkillhill.com/",
     "logo": {
         "@type": "ImageObject",
-        "url": "https://overkillhill.com/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png",
-        "width": 256,
-        "height": 256,
+        "url": "https://overkillhill.com/assets/img/favicons/murderbird-v2-icon-1024.png",
+        "width": 1024,
+        "height": 1024,
     },
     "sameAs": [
         "https://www.linkedin.com/company/overkillhillp3",

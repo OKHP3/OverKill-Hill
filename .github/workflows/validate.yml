@@ -54,6 +54,15 @@ jobs:
           npm ci
           npx playwright install --with-deps chromium
 
+      - name: Regenerate indexed universe navigation
+        run: |
+          python3 scripts/build-site.py
+          python3 scripts/build-search-index.py
+          python3 scripts/sync-universe-map.py --check
+          python3 tests/test-universe-integration.py
+          node tests/test-universe-browser.mjs
+          python3 .agents/skills/okhp3-universe-map/tests/test-universe-map.py
+
       - name: Run site validator
         run: python3 scripts/validate-site.py
 
@@ -78,6 +87,9 @@ jobs:
       - name: Keep localized homepage heroes aligned
         run: python3 tests/test-homepage-hero-parity.py
 
+      - name: Keep reviewed page scaffolds and navigation current
+        run: python3 tests/test-review-closeout.py
+
       - name: Check regional draft publication boundaries
         run: python3 scripts/check-regional-drafts.py
 
@@ -96,8 +108,10 @@ jobs:
           python3 scripts/generate-csp.py --check
           python3 scripts/check-csp.py
 
-      - name: Check search index is current
-        run: python3 scripts/build-search-index.py --check
+      - name: Check search index and universe map are current
+        run: |
+          python3 scripts/build-search-index.py --check
+          python3 scripts/sync-universe-map.py --check
 
       - name: Check locale release links and coverage
         run: python3 scripts/check-locale-links.py
@@ -136,6 +150,7 @@ jobs:
           curl --silent --fail http://127.0.0.1:5000/ >/dev/null
           npm run test:phone-overflow
           npm run test:responsive
+          npm run test:toc
 
       - name: Run accessibility QA gate
         run: |
@@ -169,7 +184,7 @@ jobs:
         run: npm run test:csp:regressions
 
       - name: Run search and embedded-app regressions
-        run: node --test tests/search-page.test.mjs tests/search-index.test.mjs tests/search-index-locale.test.mjs tests/embed-workflow.test.mjs
+        run: node --test tests/search-page.test.mjs tests/search-index.test.mjs tests/search-index-locale.test.mjs tests/embed-workflow.test.mjs tests/mermaid-links.test.mjs
 
       - name: Run WCAG contrast audit
         id: contrast

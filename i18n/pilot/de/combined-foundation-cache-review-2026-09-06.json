@@ -1,0 +1,42 @@
+{
+  "language_pair": "en-US -> de-DE",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "source_revision": "git:6fe7093c8336fdeafe3be63fdfc6823ae8754c8e plus reviewed media-query listener fallback asset fingerprint",
+  "reviewed_on": "2026-09-06",
+  "review_scope": "Exact comparison against the recorded Git revision confirms that each selected English source and translated target differs only in shared theme.css and app.js version query values. Existing translated prose and HTML structure are unchanged. SHA256 uses LF-normalized bytes. Cache-only review; no new translation or human/native approval.",
+  "routes": [
+    {
+      "route": "/",
+      "locale": "de",
+      "source_sha256": "6401ca2c42c6184067fe1abc2324583869ef72092fb91d8ce743a59984ad7593",
+      "target_path": "de/index.html",
+      "target_sha256": "44530a3de51fb3af58e80657418dd5e9fb0820ffea4e7009fd9787dd7fb9cbef",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/about/",
+      "locale": "de",
+      "source_sha256": "57d83fe1fb5e7214f0044b173bc8439692c671e130621c75a3b4407c9f378a26",
+      "target_path": "de/about/index.html",
+      "target_sha256": "666b6546365b89ac32517d6501aef9303f7a1d85b806323dc0e33d623cea9cdd",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/projects/",
+      "locale": "de",
+      "source_sha256": "31b4fda5f3ca5e35f84570b5fa3b5a956b89fd84a1e51b752d621a5744060927",
+      "target_path": "de/projects/index.html",
+      "target_sha256": "3495b06d2ec85d1568d7ce2efebd340d80bb3545422190ef72b13ade655d3510",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/contact/",
+      "locale": "de",
+      "source_sha256": "d773d95f975922c2b0aee36376d5b6a2b1bb36ef7403eaf0fe6c43bfec662d04",
+      "target_path": "de/contact/index.html",
+      "target_sha256": "d7de25acc3380ad772c4bf43d8d609a750fef7bdb77657c065273a100efd15bc",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    }
+  ]
+}

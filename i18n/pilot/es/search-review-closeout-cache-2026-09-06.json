@@ -1,0 +1,42 @@
+{
+  "language_pair": "en-US -> es-ES",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "source_revision": "git:c7f8b17b655e15af8861c9dc21cd5de8a303b711 plus reviewed shared search and universe CSS fingerprints",
+  "reviewed_on": "2026-09-06",
+  "review_scope": "Exact comparison against source_revision confirms selected English sources and translated targets differ only in shared theme.css and app.js version queries. Existing prose and HTML structure are unchanged. SHA256 uses LF-normalized bytes. Cache-only review; no new translation or human/native approval.",
+  "routes": [
+    {
+      "route": "/",
+      "locale": "es",
+      "source_sha256": "5e0579608db37e1a52825bb0577d3309fbf5b2fba6459386270a4e1a1c639a42",
+      "target_path": "es/index.html",
+      "target_sha256": "cc904aea5952c68adb56da6e63d202963a75d651c60caf224701aac1636f1f3d",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/about/",
+      "locale": "es",
+      "source_sha256": "85270d7ac13995ff7c52ea87ae7122c117236bd6b711ed99dd37446f4a9a9821",
+      "target_path": "es/about/index.html",
+      "target_sha256": "f068fef05f41e341806e3616adc14e85c4cfb5f5ea8eb4512dde1616b908b07b",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/projects/",
+      "locale": "es",
+      "source_sha256": "5dac083884f3fe6f514cfd141c5577346e7d3447007e4771d51c62fedb897b57",
+      "target_path": "es/projects/index.html",
+      "target_sha256": "a3d836d0e39ac0949ced3b3204cea99ae7dd0e80ef8da8f7c61d8d50ff180599",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/contact/",
+      "locale": "es",
+      "source_sha256": "6e29f8d02a962f6d73c08dbf68c1d98bfc745db58d9b14390fe46019d2b470c8",
+      "target_path": "es/contact/index.html",
+      "target_sha256": "d6792693cf5f866c505dfdd00a7580b3fa10353fe214d58576e6ff36ca51a9b1",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    }
+  ]
+}

@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+from html import escape
 import json
 import re
 from pathlib import Path
@@ -18,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ROUTES = {"/": "index.html", "/about/": "about/index.html", "/projects/": "projects/index.html", "/contact/": "contact/index.html"}
 REVIEWED_ES_MX = {"index.html": "index.html", "about/index.html": "about-index.html", "projects/index.html": "projects-index.html", "contact/index.html": "contact-index.html"}
 BASE = "https://overkillhill.com"
-SOURCE_HASHES = ROOT / 'i18n' / 'pilot' / 'source-hashes-release-0ee.json'
+SOURCE_HASHES = ROOT / 'i18n' / 'pilot' / 'source-hashes-thread-closeout-2026-09-06.json'
 PAIR_CONTRACTS = {
     'en-gb': ('dictionary.en-us-en-uk.json', 'voice-profile.en-us.json'),
     'es-mx': ('dictionary.en-us-es-mx.json', 'voice-profile.en-us.json'),
@@ -31,6 +32,14 @@ ASSET_FINGERPRINT_RE = re.compile(
     rb'(\b(?:href|src)=["\'][^"\']*/assets/[^"\']*?)\?v=[0-9a-f]{8,64}(?=["\'])',
     re.I,
 )
+
+def sync_asset_fingerprints(page: str, canonical: str) -> str:
+    """Use the canonical release fingerprints in every locale output."""
+    for asset in ("/assets/css/theme.css", "/assets/js/app.js"):
+        match = re.search(rf'{re.escape(asset)}\?v=([0-9a-f]+)', canonical, re.I)
+        if match:
+            page = re.sub(rf'{re.escape(asset)}\?v=[0-9a-f]+', f'{asset}?v={match.group(1)}', page, flags=re.I)
+    return page
 
 ST_GEORGE = (
     '<svg aria-hidden="true" class="lang-flag" height="14" viewBox="0 0 30 20" width="21">'
@@ -231,21 +240,23 @@ def replace_navigation_identity(page: str, locale: str) -> str:
     logo = match.group(0)
     logo, home_count = re.subn(r'(<a\b[^>]*\bhref=")[^"]*(")', rf'\g<1>{home}\2', logo, count=1)
     if not re.search(
-        r'\bsrc="/assets/img/(?:favicons/murderbird-v2-icon-nav-96|over-kill-hill-p3-sentinel-warning-square-256)\.png"',
+        r'\bsrc="/assets/img/(?:(?:favicons/)?murderbird-v2-icon-nav-96|over-kill-hill-p3-sentinel-warning-square-256)\.png"',
         logo,
     ):
         raise SystemExit(f'Unexpected navigation logo asset for {locale}')
     logo, _loading_count = re.subn(
-        r'\s+loading="(?:lazy|eager)"(?=[^>]*\bsrc="/assets/img/(?:favicons/murderbird-v2-icon-nav-96|over-kill-hill-p3-sentinel-warning-square-256)\.png")',
+        r'\s+loading="(?:lazy|eager)"(?=[^>]*\bsrc="/assets/img/(?:(?:favicons/)?murderbird-v2-icon-nav-96|over-kill-hill-p3-sentinel-warning-square-256)\.png")',
         '',
         logo,
         count=1,
     )
     logo = logo.replace(
         '/assets/img/over-kill-hill-p3-sentinel-warning-square-256.png',
-        '/assets/img/favicons/murderbird-v2-icon-nav-96.png',
+        '/assets/img/murderbird-v2-icon-nav-96.png',
         1,
     )
+    logo = logo.replace('/assets/img/favicons/murderbird-v2-icon-nav-96.png',
+                        '/assets/img/murderbird-v2-icon-nav-96.png', 1)
     logo = logo.replace('height="40"', 'height="40" loading="eager"', 1)
     updated = page[:match.start()] + logo + page[match.end():]
     if home_count != 1:
@@ -258,28 +269,22 @@ HOMEPAGE_HERO_ALTS = {
 }
 
 
-def replace_homepage_hero(page: str, locale: str) -> str:
-    """Apply the current responsive MurderBird hero to a generated home draft."""
-    alt = HOMEPAGE_HERO_ALTS[locale]
-    hero = (
-        '<div class="hero-visual">\n'
-        '<picture>\n'
-        '<source sizes="(max-width: 900px) 86vw, 42vw" '
-        'srcset="/assets/img/webp/murderbird-frontal-attack-2026-09-05-512.webp 512w, '
-        '/assets/img/webp/murderbird-frontal-attack-2026-09-05-1024.webp 1024w" type="image/webp"/>\n'
-        f'<img alt="{alt}" class="hero-illustration" fetchpriority="high" height="1254" '
-        'loading="eager" sizes="(max-width: 900px) 86vw, 42vw" '
-        'src="/assets/img/murderbird-frontal-attack-2026-09-05.png" width="1254"/>\n'
-        '</picture>\n'
-        '</div>'
+def replace_homepage_hero(page: str, locale: str, canonical: str) -> str:
+    """Reuse the canonical hero structure while preserving reviewed locale alt."""
+    if locale not in HOMEPAGE_HERO_ALTS:
+        raise SystemExit(f'No reviewed homepage hero alt for {locale}')
+    pattern = r'<div class="hero-visual">.*?</div>'
+    match = re.search(pattern, canonical, re.S)
+    if match is None:
+        raise SystemExit('Missing canonical homepage hero')
+    hero, count = re.subn(
+        r'(<img\b[^>]*\balt=)(["\'])(.*?)\2',
+        lambda found: found.group(1) + '"' + escape(HOMEPAGE_HERO_ALTS[locale], quote=True) + '"',
+        match.group(0), count=1, flags=re.S,
     )
-    updated, count = re.subn(
-        r'<div class="hero-visual">.*?</div>',
-        hero,
-        page,
-        count=1,
-        flags=re.S,
-    )
+    if count != 1:
+        raise SystemExit('Canonical homepage hero must have an image alt')
+    updated, count = re.subn(pattern, lambda _: hero, page, count=1, flags=re.S)
     if count != 1:
         raise SystemExit(f'Missing homepage hero for {locale}')
     return updated
@@ -316,6 +321,7 @@ def adapt_visible_text(page: str, dictionary: dict) -> str:
 
 def build_en_gb(source: str, route: str, dictionary: dict) -> str:
     page = source
+    page = sync_asset_fingerprints(page, source)
     target_url = BASE + '/en-gb' + route
     page = page.replace('<html lang="en">', '<html lang="en-GB">', 1)
     page = set_canonical_href(page, target_url)
@@ -343,6 +349,7 @@ def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> st
     if not dictionary.get('entries'):
         raise SystemExit('es-MX dictionary has no reviewed vocabulary entries')
     page = route_links(source, "es", "es-mx")
+    page = sync_asset_fingerprints(page, canonical)
     page = page.replace('<html lang="es">', '<html lang="es-MX">', 1)
     page = page.replace('https://overkillhill.com/es' + route, BASE + '/es-mx' + route)
     page = noindex(page)
@@ -377,7 +384,7 @@ def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> st
         )
         page = page.replace('</header>', notice + '</header>', 1)
     page = replace_navigation_identity(replace_locale_switch(page, 'es-mx', route), 'es-mx')
-    return replace_homepage_hero(page, 'es-mx') if route == '/' else page
+    return replace_homepage_hero(page, 'es-mx', canonical) if route == '/' else page
 
 
 def main() -> int:

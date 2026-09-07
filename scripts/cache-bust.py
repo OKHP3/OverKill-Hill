@@ -30,18 +30,19 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-EXCLUDE_DIRS = {"_replit", ".local", "attached_assets", "node_modules", ".git"}
+EXCLUDE_DIRS = {"_replit", ".local", "attached_assets", "node_modules", ".git", "i18n"}
 SHARED_ASSET_PATHS = (
     "/assets/css/theme.css",
     "/assets/js/app.js",
     "/assets/js/mermaid-init.js",
+    "/assets/js/universe-map.js",
 )
 # Match an absolute or relative reference to a shared asset, with or without an
 # existing query string. The quote backreference preserves the source document's
 # attribute style.
 SHARED_ASSET_REF = re.compile(
     r"""(?P<prefix>\b(?:href|src)=(?P<quote>['"]))"""
-    r"""(?P<path>/?assets/(?:css/theme\.css|js/app\.js|js/mermaid-init\.js))"""
+    r"""(?P<path>/?assets/(?:css/theme\.css|js/app\.js|js/mermaid-init\.js|js/universe-map\.js))"""
     r"""(?:\?[^'"#]*)?(?P=quote)"""
 )
 

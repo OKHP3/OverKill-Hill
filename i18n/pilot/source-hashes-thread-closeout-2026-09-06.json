@@ -1,0 +1,16 @@
+{
+  "source_revision": "git:0c7ccb545022564b6730ff5d90565e431d96a1dc plus reviewed navigation asset relocation, Organization logo update, and publication of the existing en-GB and es-MX locale pairs",
+  "review_scope": "Exact comparison of all four English and twenty localized routes confirms only shared asset version queries, byte-identical navigation image URL relocation, Organization logo URL/dimensions, and the reviewed six-option language menu changed. All prose, alt text and publication boundaries retained. No new translation or human approval; the existing en-GB and es-MX pair contracts and reviewed artifacts remain the translation sources. Generated CSP hash allowlists were refreshed for the revised Organization JSON-LD; the strict policy structure is unchanged.",
+  "routes": {
+    "/": "09a39df788eb722873df93e40c1cf1393dc2a28d29a23792565c806270d6e879",
+    "/about/": "045ad34ff88651c9295a17522de515a90b4d95e00f3f140a0ad6a853622479a6",
+    "/projects/": "a182582cb4a113f1572a0dfa8a77a6e6b1e249a5dc8f2061976fd9ec00d649fb",
+    "/contact/": "5f76aa2a621f351541b6743d89e9d639facce5ab4f3810a1f8224de34dfa0e9d"
+  },
+  "normalized_routes": {
+    "/": "4bcc1c652d877971aaf6d3d7353f32ea412bf66bb383316d4523a60e282defd0",
+    "/about/": "5a42603e7a5704b3a4d2642f83b0dfaaa2f570790ae372f4589dc5e92106bdb0",
+    "/projects/": "e0ab3fd4732dfce81397f9462d1c09d08dc8a2ab762a5b600660e9bd0427f08c",
+    "/contact/": "1b137f2356e4a352cb3a4a4201e6bc90e9f5aae1dce0c1b48030b1883076934a"
+  }
+}
