@@ -35,7 +35,7 @@ outputType = "webview"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python3 server.py"
+args = "HOST=0.0.0.0 python3 server.py"
 waitForPort = 5000
 
 [[workflows.workflow]]
@@ -64,9 +64,9 @@ isValidation = true
 localPort = 5000
 externalPort = 80
 
-[deployment]
-deploymentTarget = "static"
-publicDir = "."
+# Repository-root static publication is retired.
+# Use the canonical validated Pages artifact flow in docs/publishing.md.
+# Replit publication requires a separately verified allowlisted artifact route.
 
 [postMerge]
 path = "scripts/post-merge.sh"

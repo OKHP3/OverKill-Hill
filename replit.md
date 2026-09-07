@@ -13,9 +13,35 @@ Static portfolio/documentation site for OverKill Hill P³™ (overkillhill.com).
 
 ## Server
 
-Python simple HTTP server via `server.py` — serves the static site from root.
+`python3 server.py` binds to `127.0.0.1:5000` by default and serves only
+paths selected by the release builder's route and runtime-asset allowlists.
+It reads current file contents; restart after adding a new public file.
+Source files, directory listings, dotfiles, and symlink components are denied.
+The standard `.well-known` directory is permitted, but hidden files inside it
+are not. This server requires POSIX no-follow directory operations (macOS/Linux).
 
-**Workflow:** `Start application` → `python3 server.py`
+**Replit preview:** `Start application` explicitly sets `HOST=0.0.0.0` for its
+port forwarding. On a workstation, set `HOST` only when network access is
+intended. `PORT` defaults to 5000. At most 32 requests run concurrently, with
+five-second socket inactivity timeouts.
+
+CSP report collection is off by default. `python3 server.py --collect-csp-reports`
+accepts JSON object reports up to 64 KiB each in a private temporary file capped
+at 1 MiB per process. Storage is discarded on shutdown, is never HTTP-served,
+and is not a durable report export. Full storage rejects further reports with
+507. Negative, duplicate, missing or oversized lengths, chunked framing,
+incomplete bodies, and unsupported content types are rejected. The old
+`CSP_REPORT_FILE` environment variable is no longer used; no shared append-only
+file is created.
+
+The repository-root Replit static deployment declaration has been removed.
+Do not publish this checkout directly through Replit. Any future Replit
+publication requires a separately verified allowlisted artifact configuration.
+Removing local metadata does not disable an existing platform deployment;
+Replit account configuration and network reachability have not been inspected.
+Canonical GitHub Pages hosting is unchanged.
+
+Regression check: `python3 tests/test-preview-server.py`.
 
 ## Architecture
 
