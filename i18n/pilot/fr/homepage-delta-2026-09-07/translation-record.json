@@ -8,7 +8,7 @@
   "artifact_type": "text-resource",
   "source": {
     "path": "i18n/pilot/fr/homepage-delta-2026-09-07/en/copy.json",
-    "sha256": "d476ed818f6799dc3c6b39bbf53875daedfd90fa77b04fd4bf5e6a1dac8328b9",
+    "sha256": "a23f5d056a0c10bf90a7741ed98626d1208349fe64845291a426003994572919",
     "register_state": "plainspoken",
     "register_mediation_record": null
   },
@@ -26,9 +26,9 @@
   ],
   "target": {
     "path": "i18n/pilot/fr/homepage-delta-2026-09-07/fr/copy.json",
-    "sha256": "a9a7949feba4313334cec590bbef0ec211cdd62580294904cbfff0a6df5b1687",
+    "sha256": "f0006ecf54875e07da408d0da7c7d7f0043416d8c1f593f2c99222d054991832",
     "applied_path": "fr/index.html",
-    "applied_page_sha256_before_integration": "ad191db097a9b04b598ebcb29284937660926f3ffdea0f635e63ffc050d54881"
+    "applied_page_sha256_before_integration": "0ddb00e295e80aaeb8dd515be5ab18ef0e512ccf6995c1149dd034fabdd107b7"
   },
   "status": "machine-drafted",
   "review_status": "ai-semantic-reviewed",
@@ -38,8 +38,8 @@
   "voice_profile": "interactions/voice-profile.en-us.json@1.0.0",
   "dictionary": "interactions/dictionary.en-us-fr-fr.json@0.1.0",
   "review_notes": [
-    "A06 changes a universal testing claim into a goal. French now states the goal and retains the following failure/rework/user-responsibility sentences.",
-    "Only the changed sentence is translated. Existing art, links, remaining prose, and locale policy are preserved.",
+    "A06 changes a universal testing claim into a goal. French now states the goal; the following failure sentence agrees with les systèmes using ils/les. The user-responsibility sentence is retained.",
+    "Only the goal and its dependent pronoun agreement are changed. Existing art, links, remaining prose, and locale policy are preserved.",
     "A12 corrections remove latest/most-recent claims from English. The condensed French page has no corresponding latest section; its existing Travaux sélectionnés already describes selection without chronological claims."
   ],
   "omitted_source_units": [
@@ -76,7 +76,7 @@
     "checks": [
       "Exact-pair validator passed.",
       "Planner: 1 source artifact, 0 missing targets.",
-      "HTML tag/attribute inventory identical to c1e56d54; one exact sentence replacement only."
+      "Original goal delta preserved markup; follow-up changes only S’il casse, nous le refor-geons to S’ils cassent, nous les reforgeons. No tag/attribute changes."
     ],
     "limits": [
       "Index/cache freshness and combined release checks remain with A21."
