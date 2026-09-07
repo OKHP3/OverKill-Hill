@@ -1,11 +1,13 @@
 """Clean-checkout dependencies and narrative placement for the accepted still release."""
 import runpy
+import tempfile
 import unittest
 from pathlib import Path
 from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 MODULE = runpy.run_path(str(ROOT / 'scripts/build-murderbird-release-register.py'))
+RELEASE = runpy.run_path(str(ROOT / 'scripts/build-release.py'))
 
 
 class MurderBirdStillTests(unittest.TestCase):
@@ -31,9 +33,14 @@ class MurderBirdStillTests(unittest.TestCase):
         self.assertFalse(page.select('video, audio'))
 
     def test_exploratory_package_not_required(self):
-        self.assertFalse((ROOT / 'assets/murderbird/v2').exists())
-        for name in MODULE['HELD_NAMES']:
-            self.assertFalse((ROOT / 'assets/img/library' / name).exists())
+        self.assertTrue((ROOT / 'assets/murderbird/v2').is_dir())
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary) / 'site-release'
+            RELEASE['build'](ROOT, output, 'a' * 40)
+            self.assertFalse((output / 'assets/murderbird/v2').exists())
+            for name in MODULE['HELD_NAMES']:
+                self.assertTrue((ROOT / 'assets/img/library' / name).is_file())
+                self.assertFalse((output / 'assets/img/library' / name).exists())
 
 
 if __name__ == '__main__':
