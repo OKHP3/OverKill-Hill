@@ -366,30 +366,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Scroll reveal
+  // Scroll reveal is optional. CSS keeps content visible without this controller.
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
   if (!prefersReducedMotion && "IntersectionObserver" in window) {
     const revealEls = document.querySelectorAll(".reveal-on-scroll");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    revealEls.forEach((el) => observer.observe(el));
-  } else {
-    document
-      .querySelectorAll(".reveal-on-scroll")
-      .forEach((el) => el.classList.add("is-visible"));
+    let observer;
+    const stopReveal = () => {
+      revealEls.forEach((el) => el.classList.remove("is-visible"));
+      try { observer?.disconnect(); } catch { /* Content already remains visible. */ }
+    };
+    try {
+      observer = new IntersectionObserver(
+        (entries) => {
+          try {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                observer.unobserve(entry.target);
+                entry.target.classList.add("is-visible");
+              }
+            });
+          } catch { stopReveal(); }
+        },
+        { threshold: 0.15 }
+      );
+      revealEls.forEach((el) => observer.observe(el));
+    } catch { stopReveal(); }
   }
 
   // Smooth scroll for internal anchors
