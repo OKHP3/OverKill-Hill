@@ -1,0 +1,698 @@
+[
+  {
+    "variant": "baseline",
+    "route": "",
+    "width": 390,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 0,
+      "y": 258.96875,
+      "width": 390,
+      "height": 124.40625
+    },
+    "choices": null,
+    "start": {
+      "x": 15.59375,
+      "y": 1562.671875,
+      "width": 358.8125,
+      "height": 38.390625
+    },
+    "selected": {
+      "x": 15.59375,
+      "y": 2332.21875,
+      "width": 358.8125,
+      "height": 38.390625
+    },
+    "images": [
+      {
+        "complete": true,
+        "width": 335,
+        "src": "http://127.0.0.1:5144/assets/img/webp/murderbird-unified-master-03-2026-09-06-480.webp"
+      }
+    ],
+    "proposal": null
+  },
+  {
+    "variant": "a",
+    "route": "",
+    "width": 390,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 295.359375,
+      "width": 358,
+      "height": 124.40625
+    },
+    "choices": {
+      "x": 16,
+      "y": 569.09375,
+      "width": 358,
+      "height": 96
+    },
+    "start": {
+      "x": 16,
+      "y": 1866.15625,
+      "width": 358,
+      "height": 38.390625
+    },
+    "selected": {
+      "x": 16,
+      "y": 1009.609375,
+      "width": 358,
+      "height": 38.390625
+    },
+    "images": [
+      {
+        "complete": true,
+        "width": 335,
+        "src": "http://127.0.0.1:5144/assets/img/webp/murderbird-unified-master-03-2026-09-06-480.webp"
+      }
+    ],
+    "proposal": "a"
+  },
+  {
+    "variant": "a",
+    "route": "projects/",
+    "width": 390,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 250.09375,
+      "width": 358,
+      "height": 82.9375
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [],
+    "proposal": "a"
+  },
+  {
+    "variant": "a",
+    "route": "projects/skillz/",
+    "width": 390,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 453.453125,
+      "width": 358,
+      "height": 35.1875
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [],
+    "proposal": "a"
+  },
+  {
+    "variant": "a",
+    "route": "contact/",
+    "width": 390,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 295.359375,
+      "width": 358,
+      "height": 82.9375
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [
+      {
+        "complete": true,
+        "width": 1024,
+        "src": "http://127.0.0.1:5144/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp"
+      }
+    ],
+    "proposal": "a"
+  },
+  {
+    "variant": "b",
+    "route": "",
+    "width": 390,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 295.359375,
+      "width": 358,
+      "height": 124.40625
+    },
+    "choices": {
+      "x": 16,
+      "y": 569.09375,
+      "width": 358,
+      "height": 96
+    },
+    "start": {
+      "x": 16,
+      "y": 3021.734375,
+      "width": 358,
+      "height": 38.390625
+    },
+    "selected": {
+      "x": 16,
+      "y": 1009.609375,
+      "width": 358,
+      "height": 38.390625
+    },
+    "images": [
+      {
+        "complete": true,
+        "width": 335,
+        "src": "http://127.0.0.1:5144/assets/img/webp/murderbird-unified-master-03-2026-09-06-480.webp"
+      }
+    ],
+    "proposal": "b"
+  },
+  {
+    "variant": "b",
+    "route": "projects/",
+    "width": 390,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 250.09375,
+      "width": 358,
+      "height": 82.9375
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [],
+    "proposal": "b"
+  },
+  {
+    "variant": "b",
+    "route": "projects/skillz/",
+    "width": 390,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 453.453125,
+      "width": 358,
+      "height": 35.1875
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [],
+    "proposal": "b"
+  },
+  {
+    "variant": "b",
+    "route": "contact/",
+    "width": 390,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 295.359375,
+      "width": 358,
+      "height": 82.9375
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [
+      {
+        "complete": true,
+        "width": 1024,
+        "src": "http://127.0.0.1:5144/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp"
+      }
+    ],
+    "proposal": "b"
+  },
+  {
+    "variant": "baseline",
+    "route": "",
+    "width": 1280,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 80,
+      "y": 269.171875,
+      "width": 629.984375,
+      "height": 99.5
+    },
+    "choices": null,
+    "start": {
+      "x": 120,
+      "y": 874.15625,
+      "width": 1040,
+      "height": 38.390625
+    },
+    "selected": {
+      "x": 120,
+      "y": 1299.859375,
+      "width": 1040,
+      "height": 38.390625
+    },
+    "images": [
+      {
+        "complete": true,
+        "width": 537,
+        "src": "http://127.0.0.1:5144/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp"
+      }
+    ],
+    "proposal": null
+  },
+  {
+    "variant": "a",
+    "route": "",
+    "width": 1280,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 96,
+      "y": 258.484375,
+      "width": 580.359375,
+      "height": 99.5
+    },
+    "choices": {
+      "x": 96,
+      "y": 481.71875,
+      "width": 580.359375,
+      "height": 44
+    },
+    "start": {
+      "x": 120,
+      "y": 1274.15625,
+      "width": 1040,
+      "height": 38.390625
+    },
+    "selected": {
+      "x": 120,
+      "y": 605.71875,
+      "width": 1040,
+      "height": 38.390625
+    },
+    "images": [
+      {
+        "complete": true,
+        "width": 537,
+        "src": "http://127.0.0.1:5144/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp"
+      }
+    ],
+    "proposal": "a"
+  },
+  {
+    "variant": "a",
+    "route": "projects/",
+    "width": 1280,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 104,
+      "y": 194.828125,
+      "width": 1072,
+      "height": 49.75
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [],
+    "proposal": "a"
+  },
+  {
+    "variant": "a",
+    "route": "projects/skillz/",
+    "width": 1280,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 104,
+      "y": 329.59375,
+      "width": 1072,
+      "height": 57.1875
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [],
+    "proposal": "a"
+  },
+  {
+    "variant": "a",
+    "route": "contact/",
+    "width": 1280,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 96,
+      "y": 295.71875,
+      "width": 580.359375,
+      "height": 99.5
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [
+      {
+        "complete": true,
+        "width": 1024,
+        "src": "http://127.0.0.1:5144/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp"
+      }
+    ],
+    "proposal": "a"
+  },
+  {
+    "variant": "b",
+    "route": "",
+    "width": 1280,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 102.390625,
+      "y": 258.484375,
+      "width": 573.390625,
+      "height": 99.5
+    },
+    "choices": {
+      "x": 102.390625,
+      "y": 481.71875,
+      "width": 573.390625,
+      "height": 44
+    },
+    "start": {
+      "x": 120,
+      "y": 1723.9375,
+      "width": 1040,
+      "height": 38.390625
+    },
+    "selected": {
+      "x": 120,
+      "y": 605.71875,
+      "width": 1040,
+      "height": 38.390625
+    },
+    "images": [
+      {
+        "complete": true,
+        "width": 537,
+        "src": "http://127.0.0.1:5144/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp"
+      }
+    ],
+    "proposal": "b"
+  },
+  {
+    "variant": "b",
+    "route": "projects/",
+    "width": 1280,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 104,
+      "y": 194.828125,
+      "width": 573.40625,
+      "height": 99.5
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [],
+    "proposal": "b"
+  },
+  {
+    "variant": "b",
+    "route": "projects/skillz/",
+    "width": 1280,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 104,
+      "y": 329.59375,
+      "width": 1072,
+      "height": 57.1875
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [],
+    "proposal": "b"
+  },
+  {
+    "variant": "b",
+    "route": "contact/",
+    "width": 1280,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 96,
+      "y": 295.71875,
+      "width": 573.40625,
+      "height": 99.5
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [
+      {
+        "complete": true,
+        "width": 1024,
+        "src": "http://127.0.0.1:5144/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp"
+      }
+    ],
+    "proposal": "b"
+  },
+  {
+    "variant": "baseline",
+    "route": "",
+    "width": 320,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 0,
+      "y": 277.34375,
+      "width": 320,
+      "height": 124.40625
+    },
+    "choices": null,
+    "start": {
+      "x": 12.796875,
+      "y": 1680.859375,
+      "width": 294.40625,
+      "height": 38.390625
+    },
+    "selected": {
+      "x": 12.796875,
+      "y": 2450.40625,
+      "width": 294.40625,
+      "height": 38.390625
+    },
+    "images": [
+      {
+        "complete": true,
+        "width": 275,
+        "src": "http://127.0.0.1:5144/assets/img/webp/murderbird-unified-master-03-2026-09-06-480.webp"
+      }
+    ],
+    "proposal": null
+  },
+  {
+    "variant": "a",
+    "route": "",
+    "width": 320,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 361.734375,
+      "width": 288,
+      "height": 124.40625
+    },
+    "choices": {
+      "x": 16,
+      "y": 635.46875,
+      "width": 288,
+      "height": 96
+    },
+    "start": {
+      "x": 16,
+      "y": 1986.265625,
+      "width": 288,
+      "height": 38.390625
+    },
+    "selected": {
+      "x": 16,
+      "y": 1075.984375,
+      "width": 288,
+      "height": 38.390625
+    },
+    "images": [
+      {
+        "complete": true,
+        "width": 275,
+        "src": "http://127.0.0.1:5144/assets/img/webp/murderbird-unified-master-03-2026-09-06-480.webp"
+      }
+    ],
+    "proposal": "a"
+  },
+  {
+    "variant": "a",
+    "route": "projects/",
+    "width": 320,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 316.46875,
+      "width": 288,
+      "height": 124.40625
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [],
+    "proposal": "a"
+  },
+  {
+    "variant": "a",
+    "route": "projects/skillz/",
+    "width": 320,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 554.125,
+      "width": 288,
+      "height": 35.1875
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [],
+    "proposal": "a"
+  },
+  {
+    "variant": "a",
+    "route": "contact/",
+    "width": 320,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 361.734375,
+      "width": 288,
+      "height": 124.40625
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [
+      {
+        "complete": true,
+        "width": 1024,
+        "src": "http://127.0.0.1:5144/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp"
+      }
+    ],
+    "proposal": "a"
+  },
+  {
+    "variant": "b",
+    "route": "",
+    "width": 320,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 361.734375,
+      "width": 288,
+      "height": 124.40625
+    },
+    "choices": {
+      "x": 16,
+      "y": 635.46875,
+      "width": 288,
+      "height": 96
+    },
+    "start": {
+      "x": 16,
+      "y": 3312.71875,
+      "width": 288,
+      "height": 38.390625
+    },
+    "selected": {
+      "x": 16,
+      "y": 1075.984375,
+      "width": 288,
+      "height": 38.390625
+    },
+    "images": [
+      {
+        "complete": true,
+        "width": 275,
+        "src": "http://127.0.0.1:5144/assets/img/webp/murderbird-unified-master-03-2026-09-06-480.webp"
+      }
+    ],
+    "proposal": "b"
+  },
+  {
+    "variant": "b",
+    "route": "projects/",
+    "width": 320,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 316.46875,
+      "width": 288,
+      "height": 124.40625
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [],
+    "proposal": "b"
+  },
+  {
+    "variant": "b",
+    "route": "projects/skillz/",
+    "width": 320,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 554.125,
+      "width": 288,
+      "height": 35.1875
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [],
+    "proposal": "b"
+  },
+  {
+    "variant": "b",
+    "route": "contact/",
+    "width": 320,
+    "errors": [],
+    "overflow": false,
+    "h1": {
+      "x": 16,
+      "y": 361.734375,
+      "width": 288,
+      "height": 124.40625
+    },
+    "choices": null,
+    "start": null,
+    "selected": null,
+    "images": [
+      {
+        "complete": true,
+        "width": 1024,
+        "src": "http://127.0.0.1:5144/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp"
+      }
+    ],
+    "proposal": "b"
+  }
+]
