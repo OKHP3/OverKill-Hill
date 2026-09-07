@@ -214,3 +214,36 @@ reviews will follow the final English content. Existing de/es stale units stay
 separate from newly changed units. A14 preliminary packet `7d4b8407` is not an
 owner selection. A20 baseline packet `fb0aadda` rejects the old reproduced
 failures and supplies no final combined or human acceptance.
+
+### Hosted gate correction and frozen payload
+
+Draft PR62 is the reviewed first-wave integration. Frozen payload revision
+`daa3ebd84f7401e2e179dffa5ceee8307f34730f` includes A10 at `daa3ebd8`.
+Independent A21 checks pass: phone 56, responsive 560, TOC 14 plus legacy
+MediaQueryList, accessibility 4 representative pages plus 56 routes, CSP 56
+routes with 21 diagrams, full package 56 HTML/371 files, accepted artwork
+register, and remaining workflow fixtures/static checks. Full CSP's initial
+invocation was NOT RUN because A21 supplied unsupported `--report`; the normal
+supported rerun passes without code or policy changes. Logs remain under
+`.local/a21-evidence/`.
+
+Hosted i18n run `34095490679` FAIL exposed a missing local check: the actual
+French release wrapper, unlike its unit tests and the regional normalized
+gate, flagged all four source hashes after shared fingerprints changed. A21
+did not waive that failure. A13 independently reviewed exact baseline and
+candidate Git bytes for all eight English/French files and found only the two
+asset fingerprints changed in each file. Reviewed record
+`ce2b7fb0e84e53e0ad334acd1312dff5041f6479` supplies exact detector hashes,
+no-semantic-delta dispositions and human approval false. A21 imported only
+that record and used `check-i18n-release.py --mode adopt --locales fr --routes
+/ /about/ /projects/ /contact/ --provenance
+i18n/pilot/fr/wave1-fingerprint-review-2026-09-07.json`. The wrapper validates
+the hashes before adoption. Actual local release check now passes; eight
+German/Spain Spanish advisory units remain explicit. No page/runtime bytes,
+French language quality claims, or regional publication policy changed.
+
+This provenance-only revision requires a new package SHA/manifest and hosted
+validation. A20 was notified; page/runtime review still concerns the identical
+frozen payload, with new manifest binding to be confirmed independently.
+No merge or deployment has occurred. Concurrent PR60 at `ce42b2bf` is preserved,
+read-only inventoried, and not imported without a verified ownership contract.
