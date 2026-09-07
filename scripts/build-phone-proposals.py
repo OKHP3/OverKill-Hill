@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / ".local/a14"
-A11 = '9bfe170badf3133fab8119643aafeb1f04d2d0c9'
+A11 = '73019eadafe25e1d763e6ef6dd223a5b67942202'
 ROUTES = ("index.html", "projects/index.html", "projects/skillz/index.html", "contact/index.html")
 CONTACT = '''<h3>What are you trying to untangle?</h3>
 <p>A few details can help start the conversation. Share whatever is useful:</p>
@@ -38,6 +38,12 @@ CSS = """
 .proposal .project-card h3 {font-size:1.2rem;}
 .proposal .project-card {border-top:2px solid var(--okh-orange);}
 .proposal [data-project-status] {font-size:.9rem;line-height:1.6;}
+.proposal-status {margin:.6rem 0 1rem;}
+.proposal-status-brief {font-size:.9rem;line-height:1.5;margin:0;}
+.proposal-status details {margin:.25rem 0 0;}
+.proposal-status summary {display:list-item;cursor:pointer;min-height:44px;padding:.65rem 0;font-size:.9rem;}
+.proposal-status summary:focus-visible {outline:2px solid currentColor;outline-offset:3px;}
+.proposal-a .proposal-status {grid-column:2;}
 .proposal .project-card .btn-primary {white-space:normal;max-width:100%;}
 .proposal-a .grid-3:has(>.project-card) {grid-template-columns:1fr;gap:0;}
 .proposal-a .project-card {border-radius:0;border-left:0;border-right:0;padding:1.2rem 0;background:transparent;box-shadow:none;}
@@ -75,11 +81,21 @@ def homepage(text, variant):
     return text.replace(main, compact + selected + rest + context, 1)
 
 
+def present_status(soup, records):
+    """Style A11's optional disclosure without rewriting its text or structure."""
+    by_id = {record['id']: record for record in records}
+    for wrapper in soup.select('[data-project-status-disclosure]'):
+        record = by_id[wrapper['data-project-status-disclosure']]
+        wrapper['class'] = ['proposal-status']
+        wrapper.select_one('[data-project-status-brief]')['class'] = ['proposal-status-brief']
+        wrapper.summary['aria-label'] = 'Status and source for ' + record['title']
+
+
 def build():
     OUT.mkdir(parents=True, exist_ok=True)
     # Read the verified contract into this checkout's ignored preview area only.
     contract_root = OUT / 'contract-source'
-    archive = subprocess.check_output(['git', 'archive', A11, 'site-src', 'scripts/project-status.py'], cwd=ROOT)
+    archive = subprocess.check_output(['git', 'archive', A11, 'site-src', 'scripts/project-status.py', 'tests/test-project-status-disclosure.py'], cwd=ROOT)
     with tarfile.open(fileobj=io.BytesIO(archive)) as bundle:
         for member in bundle.getmembers():
             if member.isdir():
@@ -93,7 +109,7 @@ def build():
     contract = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(contract)
     records = contract.load_registry(contract_root)
-    (OUT / 'contract-summaries.json').write_text(json.dumps({r['id']: {'text': contract.summary(r), 'url': r['evidence']['url']} for r in records}, indent=2), encoding='utf-8')
+    (OUT / 'contract-summaries.json').write_text(json.dumps({r['id']: {'text': contract.summary(r), 'url': r['evidence']['url'], 'brief': contract.visitor_summary(r)} for r in records}, indent=2), encoding='utf-8')
     (OUT / 'proposal.css').write_text(CSS, encoding='utf-8')
     source_hashes = {}
     for variant in ('a', 'b'):
@@ -103,7 +119,7 @@ def build():
             text = raw.decode('utf-8')
             source_path = contract_root / 'site-src/pages' / route.replace('.html', '.main.html')
             main = source_path.read_text(encoding='utf-8')
-            main = contract.render(main, '/' + route.removesuffix('index.html'), records)
+            main = contract.render(main, '/' + route.removesuffix('index.html'), records, disclosure=True)
             text = re.sub(r'(<main\b[^>]*>).*?(</main>)', lambda m: m[1] + main + m[2], text, count=1, flags=re.S)
             if route == 'index.html':
                 text = homepage(text, variant)
@@ -130,6 +146,7 @@ def build():
                                       'Read essay' if href.startswith('/writings/') else
                                       'Discuss access' if href.startswith('mailto:') else
                                       'Browse resources' if href == '/prompt-forge/' else 'Visit site')
+            present_status(soup, records)
             text = str(soup)
             text = re.sub(r'<body([^>]*)>', rf'<body\1 data-proposal="{variant}">', text, count=1)
             # Existing brand scope is unchanged; proposal styling is scoped via main.

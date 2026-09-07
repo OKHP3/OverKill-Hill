@@ -4,16 +4,36 @@ Status: RENDERED PROPOSALS READY FOR OWNER REVIEW. X04/X08 remain open until
 selection and implementation acceptance. Neither direction is approved for
 production. This revision supersedes the preliminary layout checkpoint.
 
+Architect refinement: concise visitor status with expandable provenance. This
+updates both existing alternatives; it neither chooses A/B nor issues another
+selection prompt. A11 reviewed the proposal-only contract in the task handoff.
+
 Baseline: `98922aebf71d90b2b18ecc34c8b00a041fff51c7`. A01/A02 are committed
 in this baseline. The old audit description of uncommitted work is historical.
 
-Verified A11 source contract: `9bfe170badf3133fab8119643aafeb1f04d2d0c9`,
+Verified A11 source contract: `73019eadafe25e1d763e6ef6dd223a5b67942202`,
+the optional disclosure followup to `9bfe170badf3133fab8119643aafeb1f04d2d0c9`,
 including its A06 source corrections. The builder reads that exact commit's
 source fragments, registry and renderer into its own ignored preview directory.
 It validates the 18-record registry and renders canonical summaries without
-copying handwritten facts. Every summary retains source description scope,
-review date, immutable evidence link and `Delivery: unknown`. One primary
+copying handwritten facts. It calls `render(..., disclosure=True)` and uses
+`visitor_summary(record)` for verification. A14 adds only scoped classes and a
+project-specific accessible summary name; it maintains no parallel wording
+function. Every full summary retains source description scope,
+review date, immutable evidence link and `Delivery: unknown` inside native
+`details`, opened with "Status and source". One primary
 action per project card is styled separately from supporting source links.
+
+The visible line preserves `record.maturity` verbatim and adds "Operation
+unverified" for software or "Delivery unverified" for other records. Unknown
+shelf entries also retain the external-link or access-inquiry context. The
+workbench retains its dated readiness and exact benchmark/RAG evidence summary
+outside the disclosure because that limitation is material; the shared helper
+does not add a redundant generic delivery phrase to that record. No independent
+status table, shortened prototype qualification or stronger delivery claim was
+introduced. On cards, the visitor description precedes the concise status.
+The canonical node, source URL and review date are unchanged, available without
+JavaScript, and excluded from the primary-action styling.
 
 ## Two directions
 
@@ -52,6 +72,7 @@ work has a separate scrolled capture. Chromium 151.0.7922.34, reduced motion,
 | --- | --- | --- | --- | --- |
 | Homepage | [View](../audit/screenshots/a14-phone-proposals/a-home-390.png) | [View](../audit/screenshots/a14-phone-proposals/a-home-1280.png) | [View](../audit/screenshots/a14-phone-proposals/b-home-390.png) | [View](../audit/screenshots/a14-phone-proposals/b-home-1280.png) |
 | Selected work | [View](../audit/screenshots/a14-phone-proposals/a-selected-390.png) | [View](../audit/screenshots/a14-phone-proposals/a-selected-1280.png) | [View](../audit/screenshots/a14-phone-proposals/b-selected-390.png) | [View](../audit/screenshots/a14-phone-proposals/b-selected-1280.png) |
+| Expanded source | [View](../audit/screenshots/a14-phone-proposals/a-status-open-390.png) | Phone detail | [View](../audit/screenshots/a14-phone-proposals/b-status-open-390.png) | Phone detail |
 | Project shelf | [View](../audit/screenshots/a14-phone-proposals/a-projects-390.png) | [View](../audit/screenshots/a14-phone-proposals/a-projects-1280.png) | [View](../audit/screenshots/a14-phone-proposals/b-projects-390.png) | [View](../audit/screenshots/a14-phone-proposals/b-projects-1280.png) |
 | Skillz detail | [View](../audit/screenshots/a14-phone-proposals/a-projects-skillz-390.png) | [View](../audit/screenshots/a14-phone-proposals/a-projects-skillz-1280.png) | [View](../audit/screenshots/a14-phone-proposals/b-projects-skillz-390.png) | [View](../audit/screenshots/a14-phone-proposals/b-projects-skillz-1280.png) |
 | Contact | [View](../audit/screenshots/a14-phone-proposals/a-contact-390.png) | [View](../audit/screenshots/a14-phone-proposals/a-contact-1280.png) | [View](../audit/screenshots/a14-phone-proposals/b-contact-390.png) | [View](../audit/screenshots/a14-phone-proposals/b-contact-1280.png) |
@@ -97,6 +118,16 @@ supports earlier access, not a claim about conversions or task success.
   action on every project card. An initial test expected 15 shelf records;
   that incorrect test assumption was corrected to derive the count from the
   registry, which declares 14. No product change was made to satisfy that count.
+- PASS: each concise status is visible with its disclosure closed; keyboard
+  Enter opens and closes every disclosure in the standard matrix, exposing the
+  canonical text and leaving focus on its summary. No primary action is inside
+  a disclosure. Supplemental checks also open/close the first disclosure on
+  applicable pages with JavaScript disabled. These are scoped control checks,
+  not a full keyboard journey or assistive-technology acceptance session.
+- PASS: the five focused tests shipped with A11's pinned disclosure contract,
+  executed in the ignored contract snapshot. They cover exact canonical content,
+  visible material limits, record-driven wording, opt-in/idempotent rendering,
+  and visitor description/action placement. Production default stays unchanged.
 - PASS: eight additional phone samples with dark mode and JavaScript enabled,
   plus eight with JavaScript disabled and a requested dark system preference;
   no overflow or hidden reveal content. Disabled-script samples retain the
@@ -146,6 +177,10 @@ preview tree for each run and does not delete prior trees or alter other servers
 1. A11 status/action dependency is now satisfied for these proposals. Its source
    contract is not external functional proof; delivery remains unknown. The
    selected writing card is editorial content, not a software registry record.
+   A11's current production browser fixture expects the full canonical block
+   visible. Any eventual disclosure adoption must coordinate that fixture change
+   with A11, asserting visible concise limits plus keyboard-accessible full
+   evidence. A14 does not waive that production assertion or modify its fixture.
 2. A21 must refresh the chosen proposal against its combined source and shell
    metadata before implementation. Preserve A16's future picture/source
    optimization when updating the pinned source; A14 does not add that asset.
