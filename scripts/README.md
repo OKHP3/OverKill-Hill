@@ -16,14 +16,17 @@ follows the same convention as `askjamie/scripts/README.md`.
 | `murderbird-integration-qa.mjs` | active | Six-homepage and five-scene local browser checks; translation fallback receipt |
 | `accessibility-qa.mjs` | active | Accessibility QA (`npm run test:*`) |
 | `audit-site.py` | active | Site audit |
-| `build-search-index.py` | active | Rebuild the generated search index |
+| `build-search-index.py` | active | Write English index (also refresh universe/HTML), or `--locale=fr` / `de` / `es` / `en-gb` / `es-mx` locale index; add `--check` for read-only freshness verification |
 | `build-site.py` | active | Regenerate HTML from `site-src/` sources |
 | `cache-bust.py` | active | Cache-busting query params |
 | `check-banner.py` | active | Construction-banner consistency check (invoked by `validate-site.py`) |
 | `check-csp.py` | active | CI guard against CSP drift |
 | `csp-qa.mjs` | active | Route-wide browser CSP and runtime QA (`npm run test:csp`) |
 | `check-links.py` | active | Internal/external link check |
-| `check-locale-links.py` | active | Locale link check |
+| `check-locale-links.py` | active | Read-only fr/de/es structure, alternate-link, noindex, sitemap and locale-index checks against `i18n/pilot/manifest.json` |
+| `check-i18n-release.py` | active | `--mode report` / `--mode check` read-only site freshness policy (French blocking, de/es advisory); `--mode adopt` writes selected baselines only with explicit locale, routes and matching reviewed provenance |
+| `build-locale-drafts.py` | active | Write operation: `--locale en-gb` or `--locale es-mx` regenerates four regional output pages from English/pair contracts and retained es-MX reviewed inputs; output-only edits can be overwritten |
+| `check-regional-drafts.py` | active | Read-only regional draft checks against `i18n/pilot/regional-drafts-manifest.json`; en-GB/es-MX remain outside the portable detector config |
 | `check-mtb-version.py` | active | MTB version consistency (invoked by `post-merge.sh` and `validate-site.py`) |
 | `csp.py` | active | Canonical CSP policy generation module |
 | `generate-csp.py` | active | Apply CSP policies to every page |
@@ -134,3 +137,16 @@ Its existing `--report PATH` option selects another destination. The Markdown
 report records static mode, commit, Python version, and platform.
 Run `node --test tests/qa-release-inventory.test.mjs` for inventory and browser
 failure regressions. CI should retain these two default report paths as artifacts.
+## Translation operating contract
+
+`tests/test-i18n-release.py` exercises wrapper regression fixtures; it does
+not replace checking the current checkout.
+
+See [the locale operating guide](../i18n/pilot/README.md) for exact commands,
+all five locale scopes, generator inputs versus outputs, and reviewed
+adoption. `assets/js/app.js` already selects the French index for French
+pages and the English index otherwise. Detection, draft generation, review,
+baseline writes, and publication are separate stages. The portable page-sync
+package uses `--mode report|check|adopt`; this site's wrapper adds its own
+severity and provenance policy. T02 owns pending target-only integrity and
+adoption changes; this inventory describes the current interface only.
