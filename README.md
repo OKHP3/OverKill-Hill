@@ -146,6 +146,25 @@ Checks every HTML page for: title, meta description, canonical, single H1, JSON-
 
 For the browser-level phone layout check used in CI:
 
+Use Node.js 24 LTS for local browser QA. `.nvmrc` selects the 24 release line
+for version managers and both CI Node jobs; install the latest available 24.x
+patch. `package.json` declares the same major-version contract and `.npmrc`
+rejects unsupported Node versions during installation. Use the npm bundled
+with Node and `npm ci` to preserve the dependency lockfile.
+
+The [official Node release table](https://nodejs.org/en/about/previous-releases)
+lists Node 24 as LTS and Node 20 as end-of-life (verified September 7, 2026).
+Review this selection before Node 24 reaches its
+[scheduled end of support](https://github.com/nodejs/Release/blob/main/schedule.json)
+on April 30, 2028. When changing the supported major, update `.nvmrc` and
+the package engine range together, refresh root lockfile metadata, and rerun
+clean installation and browser QA.
+
+Replit preview uses `python3 server.py`, not a Node server. Its separate
+`.replit` environment still declares `nodejs-20`; that environment is not
+accepted for Node QA. Verify available modules and Node 24 execution in the
+connected Replit workspace before changing that platform configuration.
+
 ```bash
 npm ci
 npx playwright install chromium

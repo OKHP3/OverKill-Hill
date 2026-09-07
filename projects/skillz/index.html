@@ -79,7 +79,7 @@
 <link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
-<link href="/assets/css/theme.css?v=18ec9e5b" rel="stylesheet"/>
+<link href="/assets/css/theme.css?v=f0de78d0" rel="stylesheet"/>
 <script type="speculationrules">
     {
       "prefetch": [
@@ -258,7 +258,7 @@
 <div class="content-block" data-search-index="" id="what-is-skill-md">
 <div class="section-label">The Contract</div>
 <h2>What is a SKILL.md?</h2>
-<p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1rem;line-height:1.7;">A <code>SKILL.md</code> is a plain-text delegation contract for an AI agent. Drop it into your agent's skill directory (Claude Code, Cursor, GitHub Copilot, VS Code, Replit Agent) and the agent gains the defined capability without requiring a re-prompt for every task.</p>
+<p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:1rem;line-height:1.7;">A <code>SKILL.md</code> is the entry point to a skill package: a directory that can also contain scripts, references, templates, and examples. Install the complete directory in the location your client supports, then check that the client discovers and uses it.</p>
 <div class="feature-grid" style="margin-top:0.75rem;">
 <div class="feature-item">
 <div aria-hidden="true" class="feature-icon">◈</div>
@@ -304,7 +304,7 @@
 </div>
 </div>
 <div class="skill-note" style="margin-top:1.25rem;">
-                Skills live in the <a href="https://github.com/OKHP3/skillz" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">OKHP3/skillz repository ↗</a> and are browsable in the <a href="https://okhp3.github.io/skillz/" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">live Skillz Forge application ↗</a>. Each skill file is a raw-installable GitHub asset: no build step, no registry, no account required.
+                Skills live in the <a href="https://github.com/OKHP3/skillz" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">OKHP3/skillz repository ↗</a> and are browsable in the <a href="https://okhp3.github.io/skillz/" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">live Skillz Forge application ↗</a>. Public source downloads need no account. A raw SKILL.md URL is useful for inspection, but does not include supporting resources. Each package declares its own runtime requirements.
               </div>
 </div>
 <!-- IS / IS NOT ──────────────────────────────────────── -->
@@ -485,8 +485,8 @@
 <div class="feature-item">
 <div aria-hidden="true" class="feature-icon">⊕</div>
 <div>
-<h3>Copy a raw installation URL</h3>
-<p>Each skill detail page surfaces the raw GitHub URL for its <code>SKILL.md</code> file, ready to paste into a <code>curl</code> command or reference in your agent's configuration.</p>
+<h3>Inspect the raw contract</h3>
+<p>The raw GitHub URL opens the <code>SKILL.md</code> entry point. Follow its resource references and download the complete package before installing. See the tested example in the installation guide below.</p>
 </div>
 </div>
 <div class="feature-item">
@@ -811,13 +811,13 @@
 <!-- COLLAPSIBLE SECTIONS ─────────────────────────────── -->
 <div class="content-block collapsibles">
 <!-- User Guide -->
-<details class="collapsible">
+<details class="collapsible" id="install-guide">
 <summary class="collapsible-toggle">
                   User Guide: Installing a Skill
                   <span aria-hidden="true" class="collapsible-chevron">▾</span>
 </summary>
 <div class="collapsible-body">
-<p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.75rem;">Get from browsing to an installed skill in under three minutes.</p>
+<p style="font-size:0.875rem;color:var(--color-muted);margin-bottom:0.75rem;">Start with one complete package in a new, empty project. This example uses Python 3.9 or later and separates file installation from agent activation.</p>
 <ol class="guide-steps">
 <li class="guide-step">
 <span class="step-num">01</span>
@@ -843,25 +843,43 @@
 <li class="guide-step">
 <span class="step-num">04</span>
 <div class="step-content">
-<strong>Copy the raw installation URL</strong>
-<p>The detail page surfaces the raw GitHub URL for the <code>SKILL.md</code> file. Copy it.</p>
+<strong>Download a pinned, complete example</strong>
+<p><a href="https://github.com/OKHP3/skillz/tree/1a8686ce386928cccef04b53ac6bb98e0ab40b61/mermaid/okhp3-universe-map" rel="noopener noreferrer" target="_blank">Inspect okhp3-universe-map v0.1.4 ↗</a>, a visual sitemap generator. Its maturity is <strong>draftable</strong>. This example pins commit <code>1a8686ce386928cccef04b53ac6bb98e0ab40b61</code>, so a later main-branch change cannot alter the example.</p>
+<p><a href="https://github.com/OKHP3/skillz/archive/1a8686ce386928cccef04b53ac6bb98e0ab40b61.zip">Download the pinned source ZIP</a> and extract it into your empty project. The project must contain <code>skillz-1a8686ce386928cccef04b53ac6bb98e0ab40b61/</code> directly, without another wrapper folder. Keep the complete <code>mermaid/okhp3-universe-map/</code> directory, including hidden <code>.gitattributes</code>, scripts, references, assets, tests, and evals.</p>
 </div>
 </li>
 <li class="guide-step">
 <span class="step-num">05</span>
 <div class="step-content">
-<strong>Install in your agent</strong>
-<p>Drop the raw URL into a <code>curl</code> command to save the file, or reference it directly in your agent's skill configuration. For example:</p>
-<pre style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># Example: replace with the actual raw URL from Skillz Forge
-curl -o .agents/skills/my-skill.md \
-  https://raw.githubusercontent.com/OKHP3/skillz/main/skills/family/SKILL.md</pre>
+<strong>Install for your client without overwriting</strong>
+<p>For <a href="https://code.claude.com/docs/en/skills#where-skills-live" rel="noopener noreferrer" target="_blank">Claude Code</a>, use <code>.claude/skills/okhp3-universe-map/</code>. For <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills" rel="noopener noreferrer" target="_blank">GitHub Copilot in VS Code agent mode</a>, use <code>.github/skills/okhp3-universe-map/</code>. Choose one destination below. Other clients need their own documented discovery setup.</p>
+<p>Save this as <code>install-skill.py</code> in the project root. Run <code>py -3 install-skill.py</code> on Windows or <code>python3 install-skill.py</code> on macOS/Linux from that same directory. No Python packages are needed.</p>
+<pre id="skillz-install-python" style="background:rgba(0,0,0,0.3);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;">from pathlib import Path
+import shutil
+
+revision = "1a8686ce386928cccef04b53ac6bb98e0ab40b61"
+source = Path("skillz-" + revision)
+package = source / "mermaid/okhp3-universe-map"
+destination = Path(".claude/skills/okhp3-universe-map")
+# For Copilot, use Path(".github/skills/okhp3-universe-map") above.
+if not (package / "SKILL.md").is_file() or not (source / "LICENSE").is_file():
+    raise SystemExit("Missing source. Check the extracted ZIP folder.")
+if destination.exists() or destination.is_symlink():
+    raise SystemExit("Destination already exists. Review it before updating.")
+shutil.copytree(package, destination)  # Refuses an existing destination.
+with (destination / "LICENSE").open("xb") as license_file:
+    license_file.write((source / "LICENSE").read_bytes())
+print("Installed complete package at", destination)</pre>
+<p>If installation stops, inspect the reported path. Do not merge folders or replace existing work blindly; choose a fresh project to retry. Keep the copied MIT license with the installed package.</p>
 </div>
 </li>
 <li class="guide-step">
 <span class="step-num">06</span>
 <div class="step-content">
-<strong>Verify activation</strong>
-<p>Test the skill by using one of its documented trigger phrases with your agent. If it does not activate or produces incorrect output, <a href="https://github.com/OKHP3/skillz/issues" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">file an issue ↗</a>.</p>
+<strong>Verify files, then test client activation</strong>
+<p>The installed directory should contain all 12 package files plus <code>LICENSE</code>. Confirm <code>references/configuration.md</code> and <code>assets/map-template.mmd</code> exist. Run <code>py -3 .claude/skills/okhp3-universe-map/tests/test-universe-map.py</code> (use <code>python3</code> on macOS/Linux, and <code>.github</code> for Copilot). These generator tests check supporting resources and behavior; they do not prove agent activation.</p>
+<p>Open the project in Claude Code and invoke <code>/okhp3-universe-map</code>. In Copilot's VS Code agent mode, ask it to use <code>okhp3-universe-map</code>. Ask: <q>Read this skill and identify the index and configuration inputs needed for a visual sitemap. Do not write files yet.</q> Confirm the client reads the installed SKILL.md and its configuration reference. In an empty project, missing site inputs are expected. Use the installed directory when following the package's example commands, which show an <code>.agents/skills/</code> path.</p>
+<p><strong>Verified September 7, 2026:</strong> complete-package copying, resource integrity, generator tests, and refusal to overwrite in clean test projects. Claude Code and Copilot activation were not tested. If discovery fails, check the client version, project root, skill settings, and conflicting same-name skills before <a href="https://github.com/OKHP3/skillz/issues" rel="noopener noreferrer" target="_blank">reporting an issue ↗</a>. Installation does not schedule a crawler or publish a site.</p>
 </div>
 </li>
 </ol>
@@ -885,7 +903,7 @@ curl -o .agents/skills/my-skill.md \
 </div>
 <div class="faq-item">
 <p class="faq-q">Which agents support SKILL.md files?</p>
-<p class="faq-a">Any agent that accepts file-based context: Claude Code, Cursor, GitHub Copilot, VS Code with agent extensions, Replit Agent, and similar tools. The skill file is plain text; the agent reads it as context before responding to a trigger.</p>
+<p class="faq-a">Support and discovery paths vary by client and version. The installation guide names project paths for Claude Code and GitHub Copilot in VS Code agent mode. Reading a Markdown file as context does not prove native skill discovery or activation; check your client's documentation and test the installed package.</p>
 </div>
 <div class="faq-item">
 <p class="faq-q">Are all skills production-ready?</p>
@@ -1081,7 +1099,7 @@ curl -o .agents/skills/my-skill.md \
 <span></span>
 </div>
 </footer>
-    <script src="/assets/js/app.js?v=a825dbf7"></script>
+    <script src="/assets/js/app.js?v=af787b95"></script>
 <script>
       (function () {
         var SOURCE_URL = 'https://okhp3.github.io/skillz/data/project-summary.json';

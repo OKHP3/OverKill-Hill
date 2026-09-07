@@ -17,6 +17,26 @@ Python simple HTTP server via `server.py` — serves the static site from root.
 
 **Workflow:** `Start application` → `python3 server.py`
 
+### Preview exposure boundary
+
+Workstation preview defaults to `127.0.0.1:5000`. `HOST` and `PORT` are explicit
+operator overrides. An external bind requires a separately reviewed exposure
+path. The preview serves the release allowlist from its own checkout, rejects
+source, hidden and linked paths, and disables directory listings. Restart after
+adding public files so its startup inventory includes them.
+
+CSP reports require a single positive Content-Length up to 64 KiB, reject transfer
+encoding, and use a private temporary file capped at 1 MiB per process. Full
+storage returns 507; restart clears it. Reports are deleted at shutdown and
+`CSP_REPORT_FILE` is no longer used. This is a local diagnostic receiver, not a
+persistent report service. Requests have a five-second socket inactivity timeout.
+
+The checked-in `.replit` still declares `publicDir = "."`. No connected Replit
+checkout or live exposure was verified for A18. External Replit publication
+requires an allowlisted release directory or retirement of that route; the local
+preview fix does not validate that separate publication path. These checks assume
+a trusted local checkout, not concurrent malicious filesystem replacement.
+
 ## Architecture
 
 - Root `/` — home page, site-wide assets

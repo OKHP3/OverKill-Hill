@@ -1159,14 +1159,21 @@ html[data-theme="light"] body:not(.glee-main):not(.askjamie-main) .hero-subline 
 /* ===== SCROLL REVEAL ===================================================== */
 
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.reveal-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Content never waits on JavaScript. Only a delivered intersection starts
+   this finite animation; a missing or failed controller leaves it readable. */
+@media (min-width: 1025px) and (prefers-reduced-motion: no-preference) {
+  .reveal-on-scroll.is-visible {
+    animation: scroll-reveal-in 0.5s ease;
+  }
+}
+
+@keyframes scroll-reveal-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Chat mock layout – shared structure, brand-specific colors layered on top */

@@ -36,10 +36,17 @@ jobs:
         with:
           ref: ${{ github.sha }}
 
+      # Consume the producer's output, not this job's run_attempt: a deploy-only
+      # retry must reuse the artifact from the earlier successful validation.
+      - name: Require a validated artifact identity
+        env:
+          RELEASE_ARTIFACT_NAME: ${{ needs.validate.outputs.release_artifact_name }}
+        run: test -n "$RELEASE_ARTIFACT_NAME"
+
       - name: Download the exact validated release artifact
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
-          name: validated-site-${{ github.sha }}
+          name: ${{ needs.validate.outputs.release_artifact_name }}
           path: site-release
 
       - name: Verify downloaded release provenance and bytes
@@ -55,11 +62,14 @@ jobs:
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9
         with:
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: site-release
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346
+        with:
+          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Verify live edge matches validated release
         env:
@@ -77,7 +87,11 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: live-edge-report-${{ github.run_id }}
+          name: live-edge-report-${{ github.run_id }}-${{ github.run_attempt }}
           path: assets/audit/live-edge-report.json
           if-no-files-found: error
           retention-days: 30
+
+      - name: Summarize content delivery and edge policy
+        if: always()
+        run: python3 scripts/write-actions-summary.py --kind edge --report assets/audit/live-edge-report.json

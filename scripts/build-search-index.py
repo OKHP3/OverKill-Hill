@@ -153,7 +153,6 @@ class TextExtractor(HTMLParser):
                     self._h2_parts.append((self._current_heading_id, text))
                 else:
                     self._h3_parts.append(text)
-                self._text_parts.append(text)
             self._current_heading = None
 
     def handle_data(self, data):
@@ -316,6 +315,38 @@ def extract_article_sections(html: str, base_url: str, base_title: str) -> list[
     return out
 
 
+class SectionFragments(HTMLParser):
+    """Locate complete elements using parser events, including nested blocks."""
+
+    def __init__(self, html: str, tag: str):
+        super().__init__(convert_charrefs=True)
+        self.html = html
+        self.tag = tag.lower()
+        self.offsets = [0]
+        for line in html.split("\n"):
+            self.offsets.append(self.offsets[-1] + len(line) + 1)
+        self.stack = []
+        self.fragments = {}
+        self.feed(html)
+
+    def source_offset(self):
+        line, column = self.getpos()
+        return self.offsets[line - 1] + column
+
+    def handle_starttag(self, tag, attrs):
+        if tag == self.tag:
+            self.stack.append((dict(attrs), self.source_offset() + len(self.get_starttag_text())))
+
+    def handle_startendtag(self, tag, attrs):
+        pass
+
+    def handle_endtag(self, tag):
+        if tag == self.tag and self.stack:
+            attrs, start = self.stack.pop()
+            if attrs.get("id"):
+                self.fragments.setdefault(attrs["id"], (attrs, self.html[start:self.source_offset()]))
+
+
 def extract_div_sections(html: str, base_url: str, base_title: str,
                           section_ids: list[str], tag: str = "div",
                           category: str = "Project") -> list[dict]:
@@ -330,35 +361,14 @@ def extract_div_sections(html: str, base_url: str, base_title: str,
     Only the IDs listed in `section_ids` are extracted.
     """
     out: list[dict] = []
-    open_tag = tag.lower()
-    close_tag = f"</{open_tag}"
-    open_sentinel = f"<{open_tag}"
+    fragments = SectionFragments(html, tag).fragments
 
     for sec_id in section_ids:
-        # Find the opening tag for this id
-        open_re = re.compile(
-            r'<' + re.escape(open_tag) + r'\b[^>]*\bid=["\']' + re.escape(sec_id) + r'["\'][^>]*>',
-            re.I,
-        )
-        m = open_re.search(html)
-        if not m:
+        if sec_id not in fragments:
             continue
-        # Walk forward to find the matching closing tag
-        start = m.end()
-        depth = 1
-        pos = start
-        while pos < len(html) and depth > 0:
-            next_open = html.find(open_sentinel, pos)
-            next_close = html.find(close_tag, pos)
-            if next_open != -1 and (next_close == -1 or next_open < next_close):
-                depth += 1
-                pos = next_open + len(open_sentinel)
-            elif next_close != -1:
-                depth -= 1
-                pos = next_close + len(close_tag)
-            else:
-                break
-        body = html[start:pos]
+        attrs, body = fragments[sec_id]
+        parser = TextExtractor()
+        parser.feed(body)
 
         # Pull the first h2 (or h3) as the section title
         title_match = re.search(r"<h[23][^>]*>(.*?)</h[23]>", body, re.S | re.I)
@@ -368,10 +378,8 @@ def extract_div_sections(html: str, base_url: str, base_title: str,
         else:
             # Fall back to aria-labelledby: find the referenced element in the
             # full HTML and use its text (strips <br>/<small> siblings cleanly).
-            opening_tag = m.group(0)
-            aria_match = re.search(r'aria-labelledby=["\']([^"\']+)["\']', opening_tag, re.I)
-            if aria_match:
-                label_id = aria_match.group(1).strip()
+            label_id = attrs.get("aria-labelledby", "").strip()
+            if label_id:
                 label_el = re.search(
                     r'id=["\']' + re.escape(label_id) + r'["\'][^>]*>(.*?)</',
                     html, re.S | re.I,
@@ -385,10 +393,7 @@ def extract_div_sections(html: str, base_url: str, base_title: str,
                 sec_title = sec_id.replace("-", " ").title()
 
         # Plaintext
-        plain = re.sub(r"<script.*?</script>", " ", body, flags=re.S | re.I)
-        plain = re.sub(r"<style.*?</style>", " ", plain, flags=re.S | re.I)
-        plain = re.sub(r"<[^>]+>", " ", plain)
-        plain = unescape(re.sub(r"\s+", " ", plain).strip())
+        plain = parser.collected_text()
         if len(plain) < 60:
             continue
 

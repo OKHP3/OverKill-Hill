@@ -133,6 +133,17 @@ def load_public_pages(source: Path) -> list[Path]:
 
 def copy_file(source: Path, output: Path, relative: Path) -> None:
     original = source / relative
+    current = source
+    for index, part in enumerate(relative.parts):
+        if part in (".", "..") or ":" in part or "\\" in part:
+            fail(f"unsafe release source path: {relative.as_posix()}")
+        if part.startswith(".") and not (index == 0 and part in (".well-known", ".nojekyll")):
+            fail(f"hidden file cannot enter release: {relative.as_posix()}")
+        current /= part
+        if current.is_symlink() or (hasattr(current, "is_junction") and current.is_junction()):
+            fail(f"linked file cannot enter release: {relative.as_posix()}")
+    if relative.is_absolute() or not original.resolve().is_relative_to(source.resolve()):
+        fail(f"release source escapes root: {relative.as_posix()}")
     if not original.is_file():
         fail(f"allowlisted file is missing: {relative.as_posix()}")
     target = output / relative
@@ -153,9 +164,7 @@ def copy_runtime_assets(source: Path, output: Path, archived: set[Path]) -> None
             relative = original.relative_to(source)
             if relative in archived:
                 continue
-            target = output / relative
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(original, target)
+            copy_file(source, output, relative)
 
 
 def route_file(path: str) -> Path:
