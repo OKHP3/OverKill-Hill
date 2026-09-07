@@ -428,6 +428,23 @@ def validate_image_contract(location: str, values: dict[str, str]) -> list[Findi
     return findings
 
 
+def validate_social_image_parity(location: str, values: dict[str, str]) -> list[Finding]:
+    """Keep Open Graph and Twitter cards pointed at the same social image."""
+    og_image = values.get("meta:og:image", "")
+    twitter_image = values.get("meta:twitter:image", "")
+    if not twitter_image:
+        return [Finding("ERROR", location, "indexable page is missing meta:twitter:image")]
+    if og_image and og_image != twitter_image:
+        return [
+            Finding(
+                "ERROR",
+                location,
+                "social card image mismatch: meta:og:image and meta:twitter:image must be identical",
+            )
+        ]
+    return []
+
+
 def _jsonld_objects(parser: TagCounter) -> tuple[list[dict], list[str]]:
     objects: list[dict] = []
     errors: list[str] = []
@@ -622,6 +639,7 @@ def validate_source_seo_contract(pages: list[dict]) -> list[Finding]:
             for key in ("meta:og:image", "meta:twitter:image"):
                 if RETIRED_SOCIAL_IMAGE in metadata.get(key, ""):
                     findings.append(Finding("ERROR", rel, f"indexable source page uses retired social image: {key}"))
+            findings.extend(validate_social_image_parity(rel, metadata))
             findings.extend(validate_image_contract(rel, metadata))
 
         if is_article_page(page):
@@ -665,6 +683,7 @@ def validate_generated_seo(
         for key in ("meta:og:image", "meta:twitter:image"):
             if RETIRED_SOCIAL_IMAGE in values.get(key, ""):
                 findings.append(Finding("ERROR", rel, f"indexable generated page uses retired social image: {key}"))
+        findings.extend(validate_social_image_parity(rel, values))
         findings.extend(validate_image_contract(rel, values))
     if is_article_page(manifest_page):
         if values.get("meta:og:type", "").lower() != "article":
