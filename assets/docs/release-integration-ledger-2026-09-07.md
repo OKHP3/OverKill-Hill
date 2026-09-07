@@ -15,8 +15,8 @@ are authorized here. Preserve source branches and worktrees for recovery.
 
 ## Dependency and ownership ledger
 
-Task IDs are confirmed by coordinator handoff below. Reviewed commit IDs are pending. Every row
-starts NOT RECEIVED, not accepted. Ownership below identifies package scope;
+Task IDs are confirmed by coordinator handoff below. The disposition log below
+supersedes initial NOT RECEIVED states. Ownership below identifies package scope;
 exact touched paths must accompany each package before integration.
 
 | Package | Source ownership | Required upstream contract | Acceptance boundary |
@@ -147,3 +147,34 @@ inaccessible from this host. No second-machine confirmation has been supplied.
 | A19 | `01a07ab1-8b16-7d63-b1d8-e01a488f12ad` |
 | A20 | `01a07ab1-ae00-7a01-bee3-e676f260e3cb` |
 | A21 | `01a07ab1-ae09-76d3-8384-f669b18f7f21` |
+
+## Integration disposition log
+
+A21 performed source review before the following cherry-picks. These are source
+integration decisions, not release approval. No combined candidate is frozen.
+
+| Package | Worker SHA | Integration SHA | Disposition and evidence |
+| --- | --- | --- | --- |
+| A03 | `6a0a6aaea1ae9adafc5fdc146b55ed785814d813` | `778608ae` | INTEGRATED: disjoint reveal block reviewed; independent `node tests/test-reveal-browser.mjs` passes all 10 scenarios. Added standalone test to combined CI. Combined cache regeneration pending A04. |
+| A07 | `7f4aa0b15c5c676c1a1babb113c30428c85158bf` | `3928a42d` | INTEGRATED: producer output, empty guard, matching Pages names and pre-mutation freshness reviewed. Independent combined regression rerun pending. Actual full/deploy-only CI retries NOT RUN. |
+| A08 | `f524d7fc31303d18fca826394746c031cba9418e` | `61060cd7` | INTEGRATED: only root engine metadata added to dependency graph; two workflow selectors use .nvmrc. Local Node 24.11.1. Ubuntu/latest patch CI and connected Replit NOT RUN. |
+| A09 | `c9fa89490c4e7477f5ef1b09a10dec3f942884af` | `42af4220` | INTEGRATED: fixture resolves its patched root just as archived builder resolves __file__; no archive edits. Independent three-case test PASS, including Windows junction. Native macOS and POSIX run remain NOT RUN. |
+| A19 | `547f31143a425632777edc73e0211bf61fe5c66b` | `904eceb7` | INTEGRATED as decision evidence only: source/observation scope reviewed. No host implementation, provider staging or owner selection accepted. |
+
+Native macOS pending command: `python3 tests/test-murderbird-review-boundary.py`
+at worker candidate `c9fa89490c4e7477f5ef1b09a10dec3f942884af`. Coordinator
+confirmed the second-machine task remains inaccessible. That unavailable check
+does not block unrelated fixes or become PASS. Final selected release scope
+must account for the unresolved A09 acceptance condition.
+
+Received preparation only, not implementation completion: A11 inventory
+`39bc5c2c2bede18f99d7a9121fbc024254d6c641`; A13 audit
+`d220902e8f8b4212ee2d69ee1a67955c6b4369fa`; A15 proposal
+`e9154af71eb8248cad2efcf2d44fa5d06bd0ad06`. These are not integrated at this
+checkpoint. A12 source subset `2074a969825e81e742d728b6816fb0adb364b445`
+is reviewed but awaits its A06/C08 completion disposition before intake.
+
+A04 received reviewed A03 contract. A10/A17 received reviewed A07/A08 contracts
+and instructions to resume dependent implementation. A06 was asked to deliver
+its immutable factual contract directly to A11/A12. A20 is preparing baseline
+evidence and awaits an exact frozen combined SHA for independent acceptance.
