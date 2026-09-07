@@ -168,7 +168,10 @@ jobs:
       - name: Check article external archive destinations
         run: python3 scripts/check-links.py --external-archives
 
-      - name: Check phone-size overflow on every public page
+      - name: Check QA inventory and missing-browser regressions
+        run: node --test tests/release-qa-inventory.test.mjs tests/responsive-mode.test.mjs
+
+      - name: Check phone-size overflow on every shipped page
         run: |
           python3 server.py > server.log 2>&1 &
           server_pid=$!
@@ -183,6 +186,16 @@ jobs:
           npm run test:phone-overflow
           npm run test:responsive
           npm run test:toc
+
+      - name: Upload local QA reports
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: local-qa-${{ github.sha }}-${{ github.run_attempt }}
+          path: |
+            test-results/responsive-qa/
+            test-results/audit-site/
+          if-no-files-found: warn
 
       - name: Run accessibility QA gate
         run: |

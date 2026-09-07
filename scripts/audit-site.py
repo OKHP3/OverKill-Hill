@@ -64,7 +64,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import platform
 import re
+import subprocess
 import sys
 import urllib.parse
 from html.parser import HTMLParser
@@ -503,9 +505,14 @@ def render_report(per_page: Dict[str, List[str]],
                   search_issues: List[str]) -> str:
     total_issues = sum(len(v) for v in per_page.values()) + \
                    len(sitemap_missing_disk) + len(disk_missing_sitemap) + len(search_issues)
+    revision = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT,
+                              capture_output=True, text=True, check=False)
     lines = [
         "# overkillhill.com — Automated Site Audit",
         "",
+        f"**Commit:** {revision.stdout.strip() or 'unknown (not a Git checkout)'}",
+        f"**Environment:** Python {platform.python_version()} / {platform.system()}",
+        "**Mode:** static audit; browser acceptance NOT RUN",
         f"**Pages scanned:** {len(per_page)}",
         f"**Total issues:** {total_issues}",
         "",
@@ -552,7 +559,7 @@ def report_display_path(path: Path) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--report", default="assets/docs/audit-report.md",
+    parser.add_argument("--report", default="test-results/audit-site/report.md",
                         help="Path to write the Markdown report.")
     parser.add_argument("--quiet", action="store_true",
                         help="Suppress per-page console output.")

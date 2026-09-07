@@ -79,6 +79,7 @@ assert module.reconcile_search_index([]) == []
                 audit_site.ROOT = root
                 try:
                     for argument, expected in (
+                        ("", "test-results/audit-site/report.md"),
                         ("assets/docs/in-repo-report.md", "assets/docs/in-repo-report.md"),
                         (str(external_report), str(external_report.resolve())),
                     ):
@@ -88,11 +89,11 @@ assert module.reconcile_search_index([]) == []
                                     patch.object(audit_site, "reconcile_sitemap", return_value=([], [], [])), \
                                     patch.object(audit_site, "reconcile_search_index", return_value=[]), \
                                     patch.object(audit_site, "scan_repo_cruft", return_value=[]), \
-                                    patch.object(sys, "argv", [str(AUDIT_PATH), "--quiet", "--report", argument]), \
+                                    patch.object(sys, "argv", [str(AUDIT_PATH), "--quiet"] + (["--report", argument] if argument else [])), \
                                     contextlib.redirect_stdout(output):
                                 status = audit_site.main()
                             self.assertEqual(status, 0)
-                            report = Path(argument) if Path(argument).is_absolute() else root / argument
+                            report = Path(argument) if Path(argument).is_absolute() else root / (argument or expected)
                             self.assertTrue(report.is_file())
                             self.assertIn(f"Report written to {expected}", output.getvalue())
                 finally:
