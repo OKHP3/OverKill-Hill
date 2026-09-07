@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-"""Build the four regional locale drafts without changing public release files.
+"""Regenerate four publicly served noindex draft routes for one regional locale.
 
-The canonical English HTML is the source for both regional pairs. Existing
-target files are preserved as draft working artifacts during regeneration, so
-an editorial pass can update changed units without treating another locale as
-translation authority.
+Regenerate four routes per locale from canonical English (en-GB) or retained
+reviewed en-US-to-es-MX inputs. Output-only edits are overwritten. Update and
+review the owning inputs first; this command does not create review provenance.
+Canonical English freshness is checked against SOURCE_HASHES for both pairs.
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
 from html import escape
+from html.parser import HTMLParser
 import json
 import re
 from pathlib import Path
@@ -79,11 +80,6 @@ def noindex(page: str) -> str:
     page = re.sub(r'(<meta[^>]+content=["\'])[^"\']*(?=["\'][^>]+name=["\']robots)', r'\1noindex, follow', page, flags=re.I)
     if "name=\"robots\"" not in page and "name='robots'" not in page:
         page = page.replace("</head>", '<meta name="robots" content="noindex, follow">\n</head>')
-    return page
-
-
-def route_links(page: str, source_locale: str, target_locale: str) -> str:
-    page = page.replace(f"/{source_locale}/", f"/{target_locale}/")
     return page
 
 
@@ -304,83 +300,137 @@ def replace_homepage_hero(page: str, locale: str, canonical: str) -> str:
     return updated
 
 
+# Known site identities are locked even if a vocabulary entry overlaps them.
+BRAND_TOKENS = ('OverKill Hill P³™', 'OverKill Hill', 'MurderBird',
+                'Glee-fully', 'AskJamie', 'Mermaid Theme Builder')
+PROTECTED_TAGS = {'code', 'pre', 'script', 'style', 'template', 'kbd', 'samp'}
+VOID_TAGS = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
+             'link', 'meta', 'param', 'source', 'track', 'wbr'}
+
+
 def adapt_visible_text(page: str, dictionary: dict) -> str:
-    """Apply approved en-GB wording only to text nodes, never attributes or code."""
-    replacements = [
-        (entry['source'], entry['target'])
+    """Apply draft vocabulary to text spans while preserving original HTML bytes.
+
+    This is a mechanical adapter, not contextual or native-language review.
+    Preserve entries and explicit translate=no/notranslate subtrees lock text.
+    """
+    replacements = {
+        entry['source']: entry['target']
         for entry in dictionary.get('entries', [])
         if entry.get('handling') == 'adapt' and entry.get('source') and entry.get('target')
-    ]
-    protected_tags = {'code', 'pre', 'script', 'style', 'template'}
-    protected_depth = 0
-    chunks = re.split(r'(<[^>]+>)', page)
-    for index, chunk in enumerate(chunks):
-        if chunk.startswith('<'):
-            tag_match = re.match(r'</?\s*([\w:-]+)', chunk)
-            if tag_match:
-                tag_name = tag_match.group(1).lower()
-                if tag_name in protected_tags:
-                    if chunk.startswith('</'):
-                        protected_depth = max(0, protected_depth - 1)
-                    elif not chunk.rstrip().endswith('/>'):
-                        protected_depth += 1
-            continue
-        if protected_depth:
-            continue
-        for source, target in replacements:
-            chunk = re.sub(rf'\b{re.escape(source)}\b', target, chunk)
-        chunks[index] = chunk
-    return ''.join(chunks)
+    }
+    if not replacements:
+        return page
+    locked = set(BRAND_TOKENS) | {
+        entry['source'] for entry in dictionary.get('entries', [])
+        if entry.get('handling') == 'preserve' and entry.get('source')
+    }
+    words = re.compile(r'(?<!\w)(?:' + '|'.join(
+        re.escape(word) for word in sorted(replacements, key=len, reverse=True)
+    ) + r')(?!\w)')
+    tokens = re.compile(
+        r'(?:[a-zA-Z][a-zA-Z0-9+.-]*://|mailto:|www\.|(?<!\w)/)[^\s<>]+'
+        r'|\{\{.*?\}\}|\$\{[^}]*\}|\[\[.*?\]\]'
+        r'|&(?:#\w+|\w+);'
+        r'|(?<!\w)(?:' + '|'.join(re.escape(word) for word in sorted(locked, key=len, reverse=True))
+        + r')(?!\w)',
+    )
+    line_offsets = [0] + [match.end() for match in re.finditer('\n', page)]
+    edits = []
+    spans = []
+
+    class TextSpans(HTMLParser):
+        def __init__(self):
+            super().__init__(convert_charrefs=False)
+            self.stack = []
+
+        def handle_starttag(self, tag, attrs):
+            if tag in VOID_TAGS:
+                return
+            attrs = dict(attrs)
+            locked = (tag in PROTECTED_TAGS or (attrs.get('translate') or '').lower() == 'no'
+                      or 'notranslate' in (attrs.get('class') or '').split())
+            self.stack.append((tag, locked or bool(self.stack and self.stack[-1][1])))
+
+        def handle_startendtag(self, tag, attrs):
+            pass
+
+        def handle_endtag(self, tag):
+            for index in range(len(self.stack) - 1, -1, -1):
+                if self.stack[index][0] == tag:
+                    del self.stack[index:]
+                    break
+
+        def handle_data(self, data):
+            if self.stack and self.stack[-1][1]:
+                return
+            line, column = self.getpos()
+            offset = line_offsets[line - 1] + column
+            if spans and spans[-1][1] == offset:
+                spans[-1] = (spans[-1][0], offset + len(data))
+            else:
+                spans.append((offset, offset + len(data)))
+
+        def handle_entityref(self, name):
+            line, column = self.getpos()
+            offset = line_offsets[line - 1] + column
+            size = len(name) + 1
+            if page[offset + size:offset + size + 1] == ';':
+                size += 1
+            self.handle_data(page[offset:offset + size])
+
+        def handle_charref(self, name):
+            self.handle_entityref('#' + name)
+
+    parser = TextSpans()
+    parser.feed(page)
+    parser.close()
+    # Merge adjacent entity/data callbacks before protecting URLs and phrases.
+    for offset, end in spans:
+        data = page[offset:end]
+        protected = [(match.start(), match.end()) for match in tokens.finditer(data)]
+        for match in words.finditer(data):
+            if not any(start < match.end() and match.start() < end for start, end in protected):
+                edits.append((offset + match.start(), offset + match.end(), replacements[match.group()]))
+    for start, end, replacement in reversed(edits):
+        page = page[:start] + replacement + page[end:]
+    return page
+
+
+def compose_draft_shell(page: str, canonical: str, locale: str, route: str) -> str:
+    """Apply current draft navigation and homepage art without adapting prose."""
+    page = noindex(page)
+    page = re.sub(r'<link[^>]+rel="alternate"[^>]*>', '', page, flags=re.I)
+    page = replace_navigation_identity(replace_locale_switch(page, locale, route), locale)
+    return replace_homepage_hero(page, locale, canonical) if route == '/' else page
 
 
 def build_en_gb(source: str, route: str, dictionary: dict) -> str:
     page = source
-    page = sync_asset_fingerprints(page, source)
     target_url = BASE + '/en-gb' + route
     page = page.replace('<html lang="en">', '<html lang="en-GB">', 1)
     page = set_canonical_href(page, target_url)
     page = set_meta_content(page, 'og:url', target_url)
     page = set_meta_content(page, 'og:locale', 'en_GB')
     page = page.replace('content="index, follow', 'content="noindex, follow')
-    page = noindex(page)
-    page = page.replace('English (US)', 'English (UK) · Draft')
-    page = page.replace('Language: English (US)', 'Language: English (UK) · Draft')
     page = page.replace('hreflang="en"', 'hreflang="en-GB"').replace('lang="en"', 'lang="en-GB"')
     page = rewrite_in_scope_links(page, 'en-gb')
-    page = adapt_visible_text(page, dictionary)
-    page = page.replace('colors', 'colours').replace('Color Scheme', 'Colour Scheme')
-    page = re.sub(r'<link[^>]+rel="alternate"[^>]*>', '', page, flags=re.I)
-    page = page.replace(f'href="{route}" hreflang="en-GB"', f'href="/en-gb{route}" hreflang="en-GB"')
-    page = page.replace('class="lang-flag"', 'class="lang-flag"', 1)
-    page = re.sub(r'<svg aria-hidden="true" class="lang-flag".*?</svg>', ST_GEORGE, page, count=1, flags=re.S)
-    page = replace_navigation_identity(replace_locale_switch(page, 'en-gb', route), 'en-gb')
-    return replace_homepage_hero(page, 'en-gb', source) if route == '/' else page
+    # Retain the existing plural spelling rule inside the protected text adapter.
+    vocabulary = {**dictionary, 'entries': [*dictionary.get('entries', []),
+                  {'source': 'colors', 'target': 'colours', 'handling': 'adapt'}]}
+    page = adapt_visible_text(page, vocabulary)
+    return compose_draft_shell(page, source, 'en-gb', route)
 
 
 def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> str:
-    # The reviewed artifact is the translation authority. Loading the pair
-    # dictionary here keeps the generator contract explicit without applying
-    # generic Spanish substitutions over reviewed prose.
+    # Retained exact-pair inputs supply the prose. Seed vocabulary is checked
+    # for availability, not applied over the reviewed text.
     if not dictionary.get('entries'):
-        raise SystemExit('es-MX dictionary has no reviewed vocabulary entries')
-    page = route_links(source, "es", "es-mx")
-    page = sync_asset_fingerprints(page, canonical)
-    page = page.replace('<html lang="es">', '<html lang="es-MX">', 1)
-    page = page.replace('https://overkillhill.com/es' + route, BASE + '/es-mx' + route)
-    page = noindex(page)
-    page = page.replace('hreflang="es"', 'hreflang="es-MX"').replace('lang="es"', 'lang="es-MX"')
-    page = re.sub(r'(<meta[^>]+property=["\']og:locale["\'][^>]+content=["\'])es_ES', r'\1es_MX', page, flags=re.I)
-    # The shared mobile menu is right-anchored to the flag button. Keep the
-    # visible current-locale label compact enough to remain wholly on-screen;
-    # the expanded accessible name retains the full regional wording.
-    page = page.replace('Español</span>', 'ES-MX · Borrador</span>')
-    page = page.replace('aria-label="Language: Español"', 'aria-label="Language: Español (México) · Borrador"')
-    page = page.replace('aria-label="Español"', 'aria-label="Español (México) · Borrador"')
-    page = re.sub(r'<link[^>]+rel="alternate"[^>]*>', '', page, flags=re.I)
-    page = re.sub(r'<svg aria-hidden="true" class="lang-flag".*?</svg>', MEXICO, page, count=1, flags=re.S)
-    # Project-level Mexican usage overrides. Preserve intentional technology
-    # terms such as workflow and promptcraft rather than forcing calques.
-    page = page.replace('ordenador', 'computadora').replace('móvil', 'celular')
+        raise SystemExit('es-MX dictionary has no vocabulary entries')
+    if '<html lang="es-MX">' not in source:
+        raise SystemExit('Expected reviewed es-MX input, not another locale')
+    page = sync_asset_fingerprints(source, canonical)
+    page = set_meta_content(page, 'og:locale', 'es_MX')
     # Draft artifacts retain their reviewed prose, but inherit the canonical
     # font resources and current forge notice so the locale shell renders with
     # the same brand typography and site-wide status context as English.
@@ -398,8 +448,7 @@ def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> st
             '</a></section>'
         )
         page = page.replace('</header>', notice + '</header>', 1)
-    page = replace_navigation_identity(replace_locale_switch(page, 'es-mx', route), 'es-mx')
-    return replace_homepage_hero(page, 'es-mx', canonical) if route == '/' else page
+    return compose_draft_shell(page, canonical, 'es-mx', route)
 
 
 def main() -> int:
