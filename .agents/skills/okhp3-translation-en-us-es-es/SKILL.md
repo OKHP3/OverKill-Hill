@@ -181,6 +181,15 @@ unsafe-publication cases. The current `1.0.0` architecture has analytical eviden
 tests prove deterministic behavior, not Spanish quality, native acceptance, or
 live automation behavior. A future pair must not inherit this evidence.
 
+## Regression tests
+
+From this package directory, run `python3 -m unittest discover -s tests -v`
+or `python3 tests/test_en_us_to_es_es.py -v`.
+The underscore test filename is a tool-required exception to kebab-case:
+Python unittest discovery requires an importable module name. Keep the active
+hyphenated planner and validator helper filenames unchanged. These tests check
+mechanical behavior, not linguistic quality or publication approval.
+
 ## About
 
 Built by [Jamie Hill](https://overkillhill.com) · [OverKill Hill P³](https://overkillhill.com)
