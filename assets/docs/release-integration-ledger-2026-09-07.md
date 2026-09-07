@@ -247,3 +247,29 @@ validation. A20 was notified; page/runtime review still concerns the identical
 frozen payload, with new manifest binding to be confirmed independently.
 No merge or deployment has occurred. Concurrent PR60 at `ce42b2bf` is preserved,
 read-only inventoried, and not imported without a verified ownership contract.
+
+### Mandatory locale dependency reconciliation
+
+Frozen candidate `6a122cad4126d52cbce3639e1fea70ff6488bd21` passed hosted
+Site Validation run `34095786419` and locale run `34095786323`. Independent
+A20 evidence commit `2d00450d7dcef2c6c6672e34048529784bf3ed66` accepts that
+selected wave with limits: 370 byte-identical browser-tested payloads, five
+visitor tasks passing in Chromium and Firefox, and explicit WebKit ordinary-link
+Tab, actual assistive technology, physical-phone and native macOS limitations.
+That evidence remains outside the candidate to preserve its reviewed identity.
+
+The architect subsequently reviewed PR60 and authorized its exact two-file
+correction for integration without inferring any unspecified T02/T03 ownership.
+A21 independently reviewed the complete diff and cherry-picked
+`ce42b2bff99841ae65bb80c557fe13a8060055ab` as `435d16f4`. The six-line
+workflow addition runs the actual locale check before packaging and its four-case
+regression. All four cases pass locally using the available Python 3.14.0rc1
+`python3` interpreter; French blocks and German/Spain Spanish remain advisory.
+The combined workflow retains A07 output identity, A08 runtime selection and
+A17 concurrency. No detector, adoption, content or served payload changed.
+
+This new candidate requires fresh hosted validation and independent manifest
+rebinding. Prior acceptance is not automatically transferred. PR60 remains
+open until its correction is merged and demonstrably superseded. No merge or
+deployment has occurred; all earlier human, platform and deferred-wave limits
+remain explicit.
