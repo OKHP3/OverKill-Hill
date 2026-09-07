@@ -41,25 +41,25 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 295.359375,
+      "y": 311.359375,
       "width": 358,
       "height": 124.40625
     },
     "choices": {
       "x": 16,
-      "y": 569.09375,
+      "y": 585.09375,
       "width": 358,
       "height": 96
     },
     "start": {
       "x": 16,
-      "y": 1866.15625,
+      "y": 2107.09375,
       "width": 358,
       "height": 38.390625
     },
     "selected": {
       "x": 16,
-      "y": 1009.609375,
+      "y": 1025.609375,
       "width": 358,
       "height": 38.390625
     },
@@ -70,7 +70,46 @@
         "src": "http://127.0.0.1:5144/assets/img/webp/murderbird-unified-master-03-2026-09-06-480.webp"
       }
     ],
-    "proposal": "a"
+    "proposal": "a",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "abrahamic-reference-engine",
+          "text": "Availability: Published project. Maturity: Reported active release v1.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/abrahamic-reference-engine/index.html"
+        },
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "glee-fully",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "prompt-forge",
+          "text": "Availability: Published resource hub. Maturity: Workshop resources; not a software release. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        }
+      ],
+      "primaryCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
   },
   {
     "variant": "a",
@@ -80,7 +119,7 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 250.09375,
+      "y": 266.09375,
       "width": 358,
       "height": 82.9375
     },
@@ -88,7 +127,97 @@
     "start": null,
     "selected": null,
     "images": [],
-    "proposal": "a"
+    "proposal": "a",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "found-ry",
+          "text": "Availability: Published project. Maturity: Browser workbench; maturity unverified. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/found-ry/index.html"
+        },
+        {
+          "id": "mermaid-theme-builder",
+          "text": "Availability: Published project. Maturity: Reported release v0.6.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/mermaid-theme-builder/index.html"
+        },
+        {
+          "id": "bpmn-for-mermaid",
+          "text": "Availability: Published project. Maturity: Prototype; not a production Mermaid plugin. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/bpmn-for-mermaid/index.html"
+        },
+        {
+          "id": "mac-studio-local-ai-workbench",
+          "text": "Availability: Published build journal. Maturity: Dated build record; current readiness unverified. Evidence: May 30 benchmark recorded; August 2 report leaves end-to-end RAG unverified. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/reports/openclaw-related-runtime-readiness-audit-2026-08-02.md"
+        },
+        {
+          "id": "prompt-forge",
+          "text": "Availability: Published resource hub. Maturity: Workshop resources; not a software release. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "glee-fully-chai-chasers",
+          "text": "Availability: Published project. Maturity: Browser game; maturity unverified. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/glee-fully-chai-chasers/index.html"
+        },
+        {
+          "id": "abrahamic-reference-engine",
+          "text": "Availability: Published project. Maturity: Reported active release v1.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/abrahamic-reference-engine/index.html"
+        },
+        {
+          "id": "first-diagram-is-a-liar",
+          "text": "Availability: Published writing companion. Maturity: Tutorial and evidence archive. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/first-diagram-is-a-liar/index.html"
+        },
+        {
+          "id": "kierans-lifetrkr",
+          "text": "Availability: Published project. Maturity: Pre-production v0.1.10. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/kierans-lifetrkr/index.html"
+        },
+        {
+          "id": "telling-forward",
+          "text": "Availability: Published project. Maturity: Static Author App prototype; service operations separate. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/telling-forward/index.html"
+        },
+        {
+          "id": "glee-fully",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "askjamie",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "protocol-libraries",
+          "text": "Availability: Access inquiry. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        }
+      ],
+      "primaryCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
   },
   {
     "variant": "a",
@@ -98,7 +227,7 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 453.453125,
+      "y": 435.15625,
       "width": 358,
       "height": 35.1875
     },
@@ -106,7 +235,17 @@
     "start": null,
     "selected": null,
     "images": [],
-    "proposal": "a"
+    "proposal": "a",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        }
+      ],
+      "primaryCounts": []
+    }
   },
   {
     "variant": "a",
@@ -116,7 +255,7 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 295.359375,
+      "y": 311.359375,
       "width": 358,
       "height": 82.9375
     },
@@ -130,7 +269,11 @@
         "src": "http://127.0.0.1:5144/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp"
       }
     ],
-    "proposal": "a"
+    "proposal": "a",
+    "contract": {
+      "statuses": [],
+      "primaryCounts": []
+    }
   },
   {
     "variant": "b",
@@ -140,25 +283,25 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 295.359375,
+      "y": 311.359375,
       "width": 358,
       "height": 124.40625
     },
     "choices": {
       "x": 16,
-      "y": 569.09375,
+      "y": 585.09375,
       "width": 358,
       "height": 96
     },
     "start": {
       "x": 16,
-      "y": 3021.734375,
+      "y": 3285.71875,
       "width": 358,
       "height": 38.390625
     },
     "selected": {
       "x": 16,
-      "y": 1009.609375,
+      "y": 1025.609375,
       "width": 358,
       "height": 38.390625
     },
@@ -169,7 +312,46 @@
         "src": "http://127.0.0.1:5144/assets/img/webp/murderbird-unified-master-03-2026-09-06-480.webp"
       }
     ],
-    "proposal": "b"
+    "proposal": "b",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "abrahamic-reference-engine",
+          "text": "Availability: Published project. Maturity: Reported active release v1.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/abrahamic-reference-engine/index.html"
+        },
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "glee-fully",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "prompt-forge",
+          "text": "Availability: Published resource hub. Maturity: Workshop resources; not a software release. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        }
+      ],
+      "primaryCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
   },
   {
     "variant": "b",
@@ -179,7 +361,7 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 250.09375,
+      "y": 266.09375,
       "width": 358,
       "height": 82.9375
     },
@@ -187,7 +369,97 @@
     "start": null,
     "selected": null,
     "images": [],
-    "proposal": "b"
+    "proposal": "b",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "found-ry",
+          "text": "Availability: Published project. Maturity: Browser workbench; maturity unverified. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/found-ry/index.html"
+        },
+        {
+          "id": "mermaid-theme-builder",
+          "text": "Availability: Published project. Maturity: Reported release v0.6.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/mermaid-theme-builder/index.html"
+        },
+        {
+          "id": "bpmn-for-mermaid",
+          "text": "Availability: Published project. Maturity: Prototype; not a production Mermaid plugin. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/bpmn-for-mermaid/index.html"
+        },
+        {
+          "id": "mac-studio-local-ai-workbench",
+          "text": "Availability: Published build journal. Maturity: Dated build record; current readiness unverified. Evidence: May 30 benchmark recorded; August 2 report leaves end-to-end RAG unverified. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/reports/openclaw-related-runtime-readiness-audit-2026-08-02.md"
+        },
+        {
+          "id": "prompt-forge",
+          "text": "Availability: Published resource hub. Maturity: Workshop resources; not a software release. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "glee-fully-chai-chasers",
+          "text": "Availability: Published project. Maturity: Browser game; maturity unverified. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/glee-fully-chai-chasers/index.html"
+        },
+        {
+          "id": "abrahamic-reference-engine",
+          "text": "Availability: Published project. Maturity: Reported active release v1.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/abrahamic-reference-engine/index.html"
+        },
+        {
+          "id": "first-diagram-is-a-liar",
+          "text": "Availability: Published writing companion. Maturity: Tutorial and evidence archive. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/first-diagram-is-a-liar/index.html"
+        },
+        {
+          "id": "kierans-lifetrkr",
+          "text": "Availability: Published project. Maturity: Pre-production v0.1.10. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/kierans-lifetrkr/index.html"
+        },
+        {
+          "id": "telling-forward",
+          "text": "Availability: Published project. Maturity: Static Author App prototype; service operations separate. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/telling-forward/index.html"
+        },
+        {
+          "id": "glee-fully",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "askjamie",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "protocol-libraries",
+          "text": "Availability: Access inquiry. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        }
+      ],
+      "primaryCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
   },
   {
     "variant": "b",
@@ -197,7 +469,7 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 453.453125,
+      "y": 435.15625,
       "width": 358,
       "height": 35.1875
     },
@@ -205,7 +477,17 @@
     "start": null,
     "selected": null,
     "images": [],
-    "proposal": "b"
+    "proposal": "b",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        }
+      ],
+      "primaryCounts": []
+    }
   },
   {
     "variant": "b",
@@ -215,7 +497,7 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 295.359375,
+      "y": 311.359375,
       "width": 358,
       "height": 82.9375
     },
@@ -229,7 +511,11 @@
         "src": "http://127.0.0.1:5144/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp"
       }
     ],
-    "proposal": "b"
+    "proposal": "b",
+    "contract": {
+      "statuses": [],
+      "primaryCounts": []
+    }
   },
   {
     "variant": "baseline",
@@ -285,7 +571,7 @@
     },
     "start": {
       "x": 120,
-      "y": 1274.15625,
+      "y": 1406.90625,
       "width": 1040,
       "height": 38.390625
     },
@@ -302,7 +588,46 @@
         "src": "http://127.0.0.1:5144/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp"
       }
     ],
-    "proposal": "a"
+    "proposal": "a",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "abrahamic-reference-engine",
+          "text": "Availability: Published project. Maturity: Reported active release v1.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/abrahamic-reference-engine/index.html"
+        },
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "glee-fully",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "prompt-forge",
+          "text": "Availability: Published resource hub. Maturity: Workshop resources; not a software release. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        }
+      ],
+      "primaryCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
   },
   {
     "variant": "a",
@@ -320,7 +645,97 @@
     "start": null,
     "selected": null,
     "images": [],
-    "proposal": "a"
+    "proposal": "a",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "found-ry",
+          "text": "Availability: Published project. Maturity: Browser workbench; maturity unverified. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/found-ry/index.html"
+        },
+        {
+          "id": "mermaid-theme-builder",
+          "text": "Availability: Published project. Maturity: Reported release v0.6.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/mermaid-theme-builder/index.html"
+        },
+        {
+          "id": "bpmn-for-mermaid",
+          "text": "Availability: Published project. Maturity: Prototype; not a production Mermaid plugin. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/bpmn-for-mermaid/index.html"
+        },
+        {
+          "id": "mac-studio-local-ai-workbench",
+          "text": "Availability: Published build journal. Maturity: Dated build record; current readiness unverified. Evidence: May 30 benchmark recorded; August 2 report leaves end-to-end RAG unverified. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/reports/openclaw-related-runtime-readiness-audit-2026-08-02.md"
+        },
+        {
+          "id": "prompt-forge",
+          "text": "Availability: Published resource hub. Maturity: Workshop resources; not a software release. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "glee-fully-chai-chasers",
+          "text": "Availability: Published project. Maturity: Browser game; maturity unverified. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/glee-fully-chai-chasers/index.html"
+        },
+        {
+          "id": "abrahamic-reference-engine",
+          "text": "Availability: Published project. Maturity: Reported active release v1.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/abrahamic-reference-engine/index.html"
+        },
+        {
+          "id": "first-diagram-is-a-liar",
+          "text": "Availability: Published writing companion. Maturity: Tutorial and evidence archive. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/first-diagram-is-a-liar/index.html"
+        },
+        {
+          "id": "kierans-lifetrkr",
+          "text": "Availability: Published project. Maturity: Pre-production v0.1.10. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/kierans-lifetrkr/index.html"
+        },
+        {
+          "id": "telling-forward",
+          "text": "Availability: Published project. Maturity: Static Author App prototype; service operations separate. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/telling-forward/index.html"
+        },
+        {
+          "id": "glee-fully",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "askjamie",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "protocol-libraries",
+          "text": "Availability: Access inquiry. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        }
+      ],
+      "primaryCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
   },
   {
     "variant": "a",
@@ -338,7 +753,17 @@
     "start": null,
     "selected": null,
     "images": [],
-    "proposal": "a"
+    "proposal": "a",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        }
+      ],
+      "primaryCounts": []
+    }
   },
   {
     "variant": "a",
@@ -362,7 +787,11 @@
         "src": "http://127.0.0.1:5144/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp"
       }
     ],
-    "proposal": "a"
+    "proposal": "a",
+    "contract": {
+      "statuses": [],
+      "primaryCounts": []
+    }
   },
   {
     "variant": "b",
@@ -384,7 +813,7 @@
     },
     "start": {
       "x": 120,
-      "y": 1723.9375,
+      "y": 1847.90625,
       "width": 1040,
       "height": 38.390625
     },
@@ -401,7 +830,46 @@
         "src": "http://127.0.0.1:5144/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp"
       }
     ],
-    "proposal": "b"
+    "proposal": "b",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "abrahamic-reference-engine",
+          "text": "Availability: Published project. Maturity: Reported active release v1.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/abrahamic-reference-engine/index.html"
+        },
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "glee-fully",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "prompt-forge",
+          "text": "Availability: Published resource hub. Maturity: Workshop resources; not a software release. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        }
+      ],
+      "primaryCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
   },
   {
     "variant": "b",
@@ -419,7 +887,97 @@
     "start": null,
     "selected": null,
     "images": [],
-    "proposal": "b"
+    "proposal": "b",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "found-ry",
+          "text": "Availability: Published project. Maturity: Browser workbench; maturity unverified. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/found-ry/index.html"
+        },
+        {
+          "id": "mermaid-theme-builder",
+          "text": "Availability: Published project. Maturity: Reported release v0.6.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/mermaid-theme-builder/index.html"
+        },
+        {
+          "id": "bpmn-for-mermaid",
+          "text": "Availability: Published project. Maturity: Prototype; not a production Mermaid plugin. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/bpmn-for-mermaid/index.html"
+        },
+        {
+          "id": "mac-studio-local-ai-workbench",
+          "text": "Availability: Published build journal. Maturity: Dated build record; current readiness unverified. Evidence: May 30 benchmark recorded; August 2 report leaves end-to-end RAG unverified. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/reports/openclaw-related-runtime-readiness-audit-2026-08-02.md"
+        },
+        {
+          "id": "prompt-forge",
+          "text": "Availability: Published resource hub. Maturity: Workshop resources; not a software release. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "glee-fully-chai-chasers",
+          "text": "Availability: Published project. Maturity: Browser game; maturity unverified. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/glee-fully-chai-chasers/index.html"
+        },
+        {
+          "id": "abrahamic-reference-engine",
+          "text": "Availability: Published project. Maturity: Reported active release v1.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/abrahamic-reference-engine/index.html"
+        },
+        {
+          "id": "first-diagram-is-a-liar",
+          "text": "Availability: Published writing companion. Maturity: Tutorial and evidence archive. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/first-diagram-is-a-liar/index.html"
+        },
+        {
+          "id": "kierans-lifetrkr",
+          "text": "Availability: Published project. Maturity: Pre-production v0.1.10. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/kierans-lifetrkr/index.html"
+        },
+        {
+          "id": "telling-forward",
+          "text": "Availability: Published project. Maturity: Static Author App prototype; service operations separate. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/telling-forward/index.html"
+        },
+        {
+          "id": "glee-fully",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "askjamie",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "protocol-libraries",
+          "text": "Availability: Access inquiry. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        }
+      ],
+      "primaryCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
   },
   {
     "variant": "b",
@@ -437,7 +995,17 @@
     "start": null,
     "selected": null,
     "images": [],
-    "proposal": "b"
+    "proposal": "b",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        }
+      ],
+      "primaryCounts": []
+    }
   },
   {
     "variant": "b",
@@ -461,7 +1029,11 @@
         "src": "http://127.0.0.1:5144/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp"
       }
     ],
-    "proposal": "b"
+    "proposal": "b",
+    "contract": {
+      "statuses": [],
+      "primaryCounts": []
+    }
   },
   {
     "variant": "baseline",
@@ -505,25 +1077,25 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 361.734375,
+      "y": 377.734375,
       "width": 288,
       "height": 124.40625
     },
     "choices": {
       "x": 16,
-      "y": 635.46875,
+      "y": 651.46875,
       "width": 288,
       "height": 96
     },
     "start": {
       "x": 16,
-      "y": 1986.265625,
+      "y": 2250.25,
       "width": 288,
       "height": 38.390625
     },
     "selected": {
       "x": 16,
-      "y": 1075.984375,
+      "y": 1091.984375,
       "width": 288,
       "height": 38.390625
     },
@@ -534,7 +1106,46 @@
         "src": "http://127.0.0.1:5144/assets/img/webp/murderbird-unified-master-03-2026-09-06-480.webp"
       }
     ],
-    "proposal": "a"
+    "proposal": "a",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "abrahamic-reference-engine",
+          "text": "Availability: Published project. Maturity: Reported active release v1.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/abrahamic-reference-engine/index.html"
+        },
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "glee-fully",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "prompt-forge",
+          "text": "Availability: Published resource hub. Maturity: Workshop resources; not a software release. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        }
+      ],
+      "primaryCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
   },
   {
     "variant": "a",
@@ -544,7 +1155,7 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 316.46875,
+      "y": 332.46875,
       "width": 288,
       "height": 124.40625
     },
@@ -552,7 +1163,97 @@
     "start": null,
     "selected": null,
     "images": [],
-    "proposal": "a"
+    "proposal": "a",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "found-ry",
+          "text": "Availability: Published project. Maturity: Browser workbench; maturity unverified. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/found-ry/index.html"
+        },
+        {
+          "id": "mermaid-theme-builder",
+          "text": "Availability: Published project. Maturity: Reported release v0.6.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/mermaid-theme-builder/index.html"
+        },
+        {
+          "id": "bpmn-for-mermaid",
+          "text": "Availability: Published project. Maturity: Prototype; not a production Mermaid plugin. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/bpmn-for-mermaid/index.html"
+        },
+        {
+          "id": "mac-studio-local-ai-workbench",
+          "text": "Availability: Published build journal. Maturity: Dated build record; current readiness unverified. Evidence: May 30 benchmark recorded; August 2 report leaves end-to-end RAG unverified. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/reports/openclaw-related-runtime-readiness-audit-2026-08-02.md"
+        },
+        {
+          "id": "prompt-forge",
+          "text": "Availability: Published resource hub. Maturity: Workshop resources; not a software release. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "glee-fully-chai-chasers",
+          "text": "Availability: Published project. Maturity: Browser game; maturity unverified. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/glee-fully-chai-chasers/index.html"
+        },
+        {
+          "id": "abrahamic-reference-engine",
+          "text": "Availability: Published project. Maturity: Reported active release v1.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/abrahamic-reference-engine/index.html"
+        },
+        {
+          "id": "first-diagram-is-a-liar",
+          "text": "Availability: Published writing companion. Maturity: Tutorial and evidence archive. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/first-diagram-is-a-liar/index.html"
+        },
+        {
+          "id": "kierans-lifetrkr",
+          "text": "Availability: Published project. Maturity: Pre-production v0.1.10. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/kierans-lifetrkr/index.html"
+        },
+        {
+          "id": "telling-forward",
+          "text": "Availability: Published project. Maturity: Static Author App prototype; service operations separate. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/telling-forward/index.html"
+        },
+        {
+          "id": "glee-fully",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "askjamie",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "protocol-libraries",
+          "text": "Availability: Access inquiry. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        }
+      ],
+      "primaryCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
   },
   {
     "variant": "a",
@@ -562,7 +1263,7 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 554.125,
+      "y": 535.828125,
       "width": 288,
       "height": 35.1875
     },
@@ -570,7 +1271,17 @@
     "start": null,
     "selected": null,
     "images": [],
-    "proposal": "a"
+    "proposal": "a",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        }
+      ],
+      "primaryCounts": []
+    }
   },
   {
     "variant": "a",
@@ -580,7 +1291,7 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 361.734375,
+      "y": 377.734375,
       "width": 288,
       "height": 124.40625
     },
@@ -594,7 +1305,11 @@
         "src": "http://127.0.0.1:5144/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp"
       }
     ],
-    "proposal": "a"
+    "proposal": "a",
+    "contract": {
+      "statuses": [],
+      "primaryCounts": []
+    }
   },
   {
     "variant": "b",
@@ -604,25 +1319,25 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 361.734375,
+      "y": 377.734375,
       "width": 288,
       "height": 124.40625
     },
     "choices": {
       "x": 16,
-      "y": 635.46875,
+      "y": 651.46875,
       "width": 288,
       "height": 96
     },
     "start": {
       "x": 16,
-      "y": 3312.71875,
+      "y": 3597.203125,
       "width": 288,
       "height": 38.390625
     },
     "selected": {
       "x": 16,
-      "y": 1075.984375,
+      "y": 1091.984375,
       "width": 288,
       "height": 38.390625
     },
@@ -633,7 +1348,46 @@
         "src": "http://127.0.0.1:5144/assets/img/webp/murderbird-unified-master-03-2026-09-06-480.webp"
       }
     ],
-    "proposal": "b"
+    "proposal": "b",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "abrahamic-reference-engine",
+          "text": "Availability: Published project. Maturity: Reported active release v1.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/abrahamic-reference-engine/index.html"
+        },
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "glee-fully",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "prompt-forge",
+          "text": "Availability: Published resource hub. Maturity: Workshop resources; not a software release. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        }
+      ],
+      "primaryCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
   },
   {
     "variant": "b",
@@ -643,7 +1397,7 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 316.46875,
+      "y": 332.46875,
       "width": 288,
       "height": 124.40625
     },
@@ -651,7 +1405,97 @@
     "start": null,
     "selected": null,
     "images": [],
-    "proposal": "b"
+    "proposal": "b",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        },
+        {
+          "id": "found-ry",
+          "text": "Availability: Published project. Maturity: Browser workbench; maturity unverified. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/found-ry/index.html"
+        },
+        {
+          "id": "mermaid-theme-builder",
+          "text": "Availability: Published project. Maturity: Reported release v0.6.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/mermaid-theme-builder/index.html"
+        },
+        {
+          "id": "bpmn-for-mermaid",
+          "text": "Availability: Published project. Maturity: Prototype; not a production Mermaid plugin. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/bpmn-for-mermaid/index.html"
+        },
+        {
+          "id": "mac-studio-local-ai-workbench",
+          "text": "Availability: Published build journal. Maturity: Dated build record; current readiness unverified. Evidence: May 30 benchmark recorded; August 2 report leaves end-to-end RAG unverified. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/reports/openclaw-related-runtime-readiness-audit-2026-08-02.md"
+        },
+        {
+          "id": "prompt-forge",
+          "text": "Availability: Published resource hub. Maturity: Workshop resources; not a software release. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "glee-fully-chai-chasers",
+          "text": "Availability: Published project. Maturity: Browser game; maturity unverified. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/glee-fully-chai-chasers/index.html"
+        },
+        {
+          "id": "abrahamic-reference-engine",
+          "text": "Availability: Published project. Maturity: Reported active release v1.1. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/abrahamic-reference-engine/index.html"
+        },
+        {
+          "id": "first-diagram-is-a-liar",
+          "text": "Availability: Published writing companion. Maturity: Tutorial and evidence archive. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/first-diagram-is-a-liar/index.html"
+        },
+        {
+          "id": "kierans-lifetrkr",
+          "text": "Availability: Published project. Maturity: Pre-production v0.1.10. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/kierans-lifetrkr/index.html"
+        },
+        {
+          "id": "telling-forward",
+          "text": "Availability: Published project. Maturity: Static Author App prototype; service operations separate. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/telling-forward/index.html"
+        },
+        {
+          "id": "glee-fully",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "askjamie",
+          "text": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        },
+        {
+          "id": "protocol-libraries",
+          "text": "Availability: Access inquiry. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+        }
+      ],
+      "primaryCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
   },
   {
     "variant": "b",
@@ -661,7 +1505,7 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 554.125,
+      "y": 535.828125,
       "width": 288,
       "height": 35.1875
     },
@@ -669,7 +1513,17 @@
     "start": null,
     "selected": null,
     "images": [],
-    "proposal": "b"
+    "proposal": "b",
+    "contract": {
+      "statuses": [
+        {
+          "id": "skillz",
+          "text": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+          "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+        }
+      ],
+      "primaryCounts": []
+    }
   },
   {
     "variant": "b",
@@ -679,7 +1533,7 @@
     "overflow": false,
     "h1": {
       "x": 16,
-      "y": 361.734375,
+      "y": 377.734375,
       "width": 288,
       "height": 124.40625
     },
@@ -693,6 +1547,10 @@
         "src": "http://127.0.0.1:5144/assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp"
       }
     ],
-    "proposal": "b"
+    "proposal": "b",
+    "contract": {
+      "statuses": [],
+      "primaryCounts": []
+    }
   }
 ]

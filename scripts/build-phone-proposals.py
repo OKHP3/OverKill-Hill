@@ -1,13 +1,19 @@
 #!/usr/bin/env python3
 """Render isolated A14 layout studies from current pages, never production files."""
 import hashlib
+import importlib.util
+import io
 import json
 import re
 import subprocess
+import tarfile
 from pathlib import Path
+
+from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / ".local/a14"
+A11 = '9bfe170badf3133fab8119643aafeb1f04d2d0c9'
 ROUTES = ("index.html", "projects/index.html", "projects/skillz/index.html", "contact/index.html")
 CONTACT = '''<h3>What are you trying to untangle?</h3>
 <p>A few details can help start the conversation. Share whatever is useful:</p>
@@ -31,6 +37,8 @@ CSS = """
 .proposal-choices a {display:inline-flex;align-items:center;min-height:44px;font-weight:700;}
 .proposal .project-card h3 {font-size:1.2rem;}
 .proposal .project-card {border-top:2px solid var(--okh-orange);}
+.proposal [data-project-status] {font-size:.9rem;line-height:1.6;}
+.proposal .project-card .btn-primary {white-space:normal;max-width:100%;}
 .proposal-a .grid-3:has(>.project-card) {grid-template-columns:1fr;gap:0;}
 .proposal-a .project-card {border-radius:0;border-left:0;border-right:0;padding:1.2rem 0;background:transparent;box-shadow:none;}
 .proposal-b .hero h1 {max-width:17ch;}
@@ -69,6 +77,23 @@ def homepage(text, variant):
 
 def build():
     OUT.mkdir(parents=True, exist_ok=True)
+    # Read the verified contract into this checkout's ignored preview area only.
+    contract_root = OUT / 'contract-source'
+    archive = subprocess.check_output(['git', 'archive', A11, 'site-src', 'scripts/project-status.py'], cwd=ROOT)
+    with tarfile.open(fileobj=io.BytesIO(archive)) as bundle:
+        for member in bundle.getmembers():
+            if member.isdir():
+                continue
+            destination = (contract_root / member.name).resolve()
+            if not member.isfile() or not destination.is_relative_to(contract_root.resolve()):
+                raise ValueError('Unexpected contract archive member')
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(bundle.extractfile(member).read())
+    spec = importlib.util.spec_from_file_location('a14_project_status', contract_root / 'scripts/project-status.py')
+    contract = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(contract)
+    records = contract.load_registry(contract_root)
+    (OUT / 'contract-summaries.json').write_text(json.dumps({r['id']: {'text': contract.summary(r), 'url': r['evidence']['url']} for r in records}, indent=2), encoding='utf-8')
     (OUT / 'proposal.css').write_text(CSS, encoding='utf-8')
     source_hashes = {}
     for variant in ('a', 'b'):
@@ -76,6 +101,10 @@ def build():
             raw = (ROOT / route).read_bytes()
             source_hashes[route] = hashlib.sha256(raw).hexdigest()
             text = raw.decode('utf-8')
+            source_path = contract_root / 'site-src/pages' / route.replace('.html', '.main.html')
+            main = source_path.read_text(encoding='utf-8')
+            main = contract.render(main, '/' + route.removesuffix('index.html'), records)
+            text = re.sub(r'(<main\b[^>]*>).*?(</main>)', lambda m: m[1] + main + m[2], text, count=1, flags=re.S)
             if route == 'index.html':
                 text = homepage(text, variant)
                 # Verified A12 editorial contract, commit 2074a969825e81e742d728b6816fb0adb364b445.
@@ -85,6 +114,23 @@ def build():
             if route == 'contact/index.html':
                 # A15 optional copy, commit e9154af71eb8248cad2efcf2d44fa5d06bd0ad06.
                 text = re.sub(r'(Operating remotely across U.S. Central Time\s*</p>)', r'\1' + CONTACT, text, count=1)
+            soup = BeautifulSoup(text, 'html.parser')
+            for card in soup.select('.project-card'):
+                for heading_link in card.select('h2 a, h3 a'):
+                    heading_link.unwrap()
+                actions = [a for a in card.select('a[href]') if not a.find_parent(attrs={'data-project-status': True})]
+                if actions:
+                    primary = actions[0]
+                    primary['class'] = ['btn', 'btn-primary']
+                    href = primary['href']
+                    primary.string = ('Try catalog' if href == 'https://okhp3.github.io/skillz/' else
+                                      'Read journal' if '/mac-studio-local-ai-workbench/' in href else
+                                      'Inspect project' if href.startswith('/projects/') else
+                                      'View concept' if href in ('/writings/magnus-saga/', '/writings/biases-as-constants/') else
+                                      'Read essay' if href.startswith('/writings/') else
+                                      'Discuss access' if href.startswith('mailto:') else
+                                      'Browse resources' if href == '/prompt-forge/' else 'Visit site')
+            text = str(soup)
             text = re.sub(r'<body([^>]*)>', rf'<body\1 data-proposal="{variant}">', text, count=1)
             # Existing brand scope is unchanged; proposal styling is scoped via main.
             text = text.replace('<main id="main">', f'<main id="main" class="proposal proposal-{variant}">')
@@ -92,12 +138,12 @@ def build():
             for target in ROUTES:
                 original = '/' + target.removesuffix('index.html')
                 text = text.replace(f'href="{original}"', f'href="/.local/a14/{variant}{original}"')
-            note = f'<aside class="proposal-note" aria-label="Proposal status">A14 {variant.upper()} · Layout study. New introduction and Contact prompts are proposed. A11 labels pending.<br><a href="/.local/a14/a/">A: Project-led</a><a href="/.local/a14/b/">B: Editorial</a><a href="/">Current site</a></aside>'
+            note = f'<aside class="proposal-note" aria-label="Proposal status">A14 {variant.upper()} · Proposal for selection. A11 source descriptions; delivery unknown. Introduction and Contact prompts proposed.<br><a href="/.local/a14/a/">A: Project-led</a><a href="/.local/a14/b/">B: Editorial</a><a href="/">Current site</a></aside>'
             text = text.replace('<main ', note + '<main ', 1)
             target = OUT / variant / route
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text, encoding='utf-8')
-    manifest = {'baseline': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(), 'source_sha256': source_hashes, 'status': 'layout-only; A11 and owner selection pending', 'a12': '2074a969825e81e742d728b6816fb0adb364b445', 'a15': 'e9154af71eb8248cad2efcf2d44fa5d06bd0ad06', 'routes': list(ROUTES)}
+    manifest = {'baseline': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(), 'source_sha256': source_hashes, 'status': 'proposal; owner selection and acceptance pending', 'a11': A11, 'a12': '2074a969825e81e742d728b6816fb0adb364b445', 'a15': 'e9154af71eb8248cad2efcf2d44fa5d06bd0ad06', 'routes': list(ROUTES)}
     (OUT / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
     print(f'Rendered 8 proposal pages in {OUT}. Serve repository on loopback for review.')
 
