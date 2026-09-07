@@ -20,6 +20,7 @@ Verify that the committed index is current without writing it:
 from __future__ import annotations
 
 import json
+import runpy
 import os
 import re
 import subprocess
@@ -29,6 +30,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+PROJECT_STATUS = runpy.run_path(str(ROOT / "scripts/project-status.py"))
 OUT = ROOT / "assets" / "data" / "search-index.json"
 SITE = "https://overkillhill.com"
 
@@ -458,6 +460,10 @@ def process_file(path: Path, locale: str = "") -> list[dict]:
     canonical = read_meta(html, "canonical")
     url_path = canonical.replace(SITE, "") if canonical.startswith(SITE) else url_for(path)
     body = parser.collected_text()
+    if url_path.startswith("/projects/") and not locale:
+        record = next((r for r in PROJECT_STATUS["load_registry"](ROOT) if r["route"] == url_path), None)
+        if record:
+            body = PROJECT_STATUS["summary"](record) + " " + body
 
     category_path = url_path
     if locale and category_path.startswith(f"/{locale}/"):

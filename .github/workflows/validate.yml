@@ -108,7 +108,9 @@ jobs:
         run: python3 scripts/test-check-banner.py
 
       - name: Check public project-status records
-        run: python3 scripts/check-project-status.py
+        run: |
+          python3 scripts/check-project-status.py
+          python3 tests/test-project-status.py
 
       - name: Check generated HTML is current
         run: python3 scripts/build-site.py --check
