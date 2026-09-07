@@ -1,0 +1,117 @@
+{
+  "observed_at_utc": "2026-09-07T07:09:11.629747+00:00",
+  "source_commit": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+  "method": "Python urllib HTTPS GET, one network vantage; no POST or configuration changes",
+  "longest_headers_line_characters": 4304,
+  "responses": [
+    {
+      "path": "/",
+      "status": 200,
+      "final_url": "https://overkillhill.com/",
+      "headers": {
+        "server": "GitHub.com",
+        "cache-control": "max-age=600",
+        "content-security-policy": null,
+        "strict-transport-security": null,
+        "x-content-type-options": null,
+        "x-frame-options": null,
+        "permissions-policy": null,
+        "cross-origin-opener-policy": null,
+        "cross-origin-resource-policy": null,
+        "referrer-policy": null
+      },
+      "body_sha256": "b991323b31156f8e383d9278669578fa6fc1ac01374fe0ceff76f9f94fdc834a"
+    },
+    {
+      "path": "/assets/js/app.js",
+      "status": 200,
+      "final_url": "https://overkillhill.com/assets/js/app.js",
+      "headers": {
+        "server": "GitHub.com",
+        "cache-control": "max-age=600",
+        "content-security-policy": null,
+        "strict-transport-security": null,
+        "x-content-type-options": null,
+        "x-frame-options": null,
+        "permissions-policy": null,
+        "cross-origin-opener-policy": null,
+        "cross-origin-resource-policy": null,
+        "referrer-policy": null
+      },
+      "body_sha256": "a825dbf7f874318c6131caebb672a7695e8057dc76dbddcac1097e4012aaf7d2"
+    },
+    {
+      "path": "/assets/audit/release-manifest.json",
+      "status": 200,
+      "final_url": "https://overkillhill.com/assets/audit/release-manifest.json",
+      "headers": {
+        "server": "GitHub.com",
+        "cache-control": "max-age=600",
+        "content-security-policy": null,
+        "strict-transport-security": null,
+        "x-content-type-options": null,
+        "x-frame-options": null,
+        "permissions-policy": null,
+        "cross-origin-opener-policy": null,
+        "cross-origin-resource-policy": null,
+        "referrer-policy": null
+      },
+      "body_sha256": "75369969469dba4445da8b32a44db29dc61a189dab809c02b778fc98614ed0fa",
+      "manifest_commit": "98922aebf71d90b2b18ecc34c8b00a041fff51c7"
+    },
+    {
+      "path": "/fr/",
+      "status": 200,
+      "final_url": "https://overkillhill.com/fr/",
+      "headers": {
+        "server": "GitHub.com",
+        "cache-control": "max-age=600",
+        "content-security-policy": null,
+        "strict-transport-security": null,
+        "x-content-type-options": null,
+        "x-frame-options": null,
+        "permissions-policy": null,
+        "cross-origin-opener-policy": null,
+        "cross-origin-resource-policy": null,
+        "referrer-policy": null
+      },
+      "body_sha256": "f271f1200de03b3358bf300b7e40315cd7cf535dd316f6499f99277d5d3d55a6"
+    },
+    {
+      "path": "/found-ry/",
+      "status": 200,
+      "final_url": "https://overkillhill.com/found-ry/",
+      "headers": {
+        "server": "GitHub.com",
+        "cache-control": "max-age=600",
+        "content-security-policy": null,
+        "strict-transport-security": null,
+        "x-content-type-options": null,
+        "x-frame-options": null,
+        "permissions-policy": null,
+        "cross-origin-opener-policy": null,
+        "cross-origin-resource-policy": null,
+        "referrer-policy": null
+      },
+      "body_sha256": "4c46993a6e06b9e4d14d27136c7322c1a25c46a810c8a10c89fe31641a9019c6"
+    },
+    {
+      "path": "/__csp-report",
+      "status": 404,
+      "final_url": "https://overkillhill.com/__csp-report",
+      "headers": {
+        "server": "GitHub.com",
+        "cache-control": null,
+        "content-security-policy": null,
+        "strict-transport-security": null,
+        "x-content-type-options": null,
+        "x-frame-options": null,
+        "permissions-policy": null,
+        "cross-origin-opener-policy": null,
+        "cross-origin-resource-policy": null,
+        "referrer-policy": null
+      },
+      "body_sha256": "939d68850c9aa89bce1cec588e6383e49cc7277391fecb6a9eb1f65f57400b0a"
+    }
+  ]
+}
