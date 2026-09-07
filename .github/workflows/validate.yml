@@ -87,6 +87,12 @@ jobs:
       - name: Run published-locale release-gate regressions
         run: python3 -m unittest tests/test-i18n-release.py
 
+      - name: Test the Pages translation freshness dependency
+        run: python3 tests/test-i18n-workflow.py
+
+      - name: Check current published-locale freshness
+        run: python3 scripts/check-i18n-release.py --mode check --format json
+
       - name: Keep localized homepage heroes aligned
         run: python3 tests/test-homepage-hero-parity.py
 
