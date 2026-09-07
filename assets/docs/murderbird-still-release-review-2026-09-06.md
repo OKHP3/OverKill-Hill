@@ -52,4 +52,8 @@ Checks ran against a dedicated server at127.0.0.1:5397 serving this isolated tre
 
 Social byte reproducibility depends on pinned browser/font rendering environment; generator fails on unloaded required font families and changed accepted art. CI's committed-byte subset check does not claim to certify another font renderer. Screenshot/raw browser evidence remains local; the selected reports summarize observed checks, not full WCAG or hidden-mechanism certification. Thirty-two existing locale GA4/JSON-LD warnings are not newly repaired here. `_headers` is a repository declaration, not evidence that GitHub Pages serves headers.
 
-The final PR description records commit/ref, built artifact inspection and current CI state. No main-branch change, merge, pruning, branch deletion, or deployment is authorized by this draft.
+The final PR description records commit/ref, built artifact inspection and current CI state. The initial draft did not authorize merge or deployment.
+
+## Authorized release follow-up
+
+The owner subsequently requested integration into origin/main and safe cleanup. The release branch normally merged main at `256c194c` without conflicts. A bounded AI review of the two changed French homepage units retained their wording; the other three French routes were verified as having no semantic delta after removing generated CSP and asset fingerprints. Exact source/target hashes and review findings are recorded in `i18n/pilot/fr/murderbird-stills-ai-review-2026-09-06.json` and adopted using the existing site release wrapper. No policy or validation gate was changed. This is AI review, not native-speaker approval or full-page translation certification. German and Spanish advisory states remain visible. Final CI and deployment outcomes must be verified on the actual release SHA.
