@@ -123,6 +123,7 @@ def load_config(path: Path) -> dict:
 
 
 def check(root: Path, config: dict) -> tuple[list[dict], bool]:
+    root = root.resolve()
     results: list[dict] = []
     passed = True
     for item in config["routes"]:
