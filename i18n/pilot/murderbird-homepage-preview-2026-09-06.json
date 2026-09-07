@@ -1,0 +1,98 @@
+{
+  "status": "model-translated, native review not performed",
+  "scope": "Local-preview homepage alt and invitation only; no story translation or publication",
+  "authority": "Bounded coordinating-task fallback instruction; full exact-pair fail-closed workflow did not pass",
+  "sourceRevision": "2d7e92d23fcbe875c7421d4509109bffd22b0c48",
+  "sourcePath": "site-src/pages/index.main.html",
+  "sourceHash": "c54b29830da390ed0646aa67138397b258dea3f67ff052647127c0a7f1f88178",
+  "sourceLocale": "en-US",
+  "sourceRegister": "plainspoken",
+  "sourceUnits": {
+    "alt": "The MurderBird stands on two metal feet beside a workbench and CRT computer, with a hooked beak, compact folded wings, dark patinated armor, and a glowing orange eye.",
+    "cta": "Meet the MurderBird: read the origin story →"
+  },
+  "protected": [
+    "MurderBird",
+    "/writings/murderbird/"
+  ],
+  "missingPrerequisites": [
+    "FR/DE/ES project pair records and owner-approved voice profiles",
+    "ES-MX profile remains provisional"
+  ],
+  "translations": [
+    {
+      "route": "fr",
+      "alt": "Le MurderBird se tient sur deux pieds métalliques à côté d’un établi et d’un ordinateur à écran cathodique. Il possède un bec crochu, des ailes compactes repliées, une armure sombre patinée et un œil orange lumineux.",
+      "cta": "Découvrez le MurderBird : lisez son histoire (en anglais) →",
+      "targetLocale": "fr-FR",
+      "targetPath": "fr/index.html",
+      "targetHash": "4d2bee756ea817c7935a7cee38bf75162d61322ce46b41ea7f4aecc108c6e56d",
+      "sourceDirection": "Directly from en-US; no target-to-target chaining",
+      "textVersion": 1,
+      "review": "model-translated, native review not performed"
+    },
+    {
+      "route": "de",
+      "alt": "Der MurderBird steht auf zwei Metallfüßen neben einer Werkbank und einem Computer mit Röhrenmonitor. Er hat einen gebogenen Schnabel, kompakte angelegte Flügel, eine dunkle patinierte Panzerung und ein orange leuchtendes Auge.",
+      "cta": "Lerne den MurderBird kennen: Lies seine Ursprungsgeschichte (auf Englisch) →",
+      "targetLocale": "de-DE",
+      "targetPath": "de/index.html",
+      "targetHash": "43cddd521b90f7a073940d80ea8438fbb6ff0b7da9bd168eff37726a7d4fb4da",
+      "sourceDirection": "Directly from en-US; no target-to-target chaining",
+      "textVersion": 1,
+      "review": "model-translated, native review not performed"
+    },
+    {
+      "route": "es",
+      "alt": "El MurderBird está de pie sobre dos patas metálicas junto a un banco de trabajo y un ordenador con monitor de tubo. Tiene un pico curvo, alas compactas plegadas, una armadura oscura con pátina y un ojo naranja luminoso.",
+      "cta": "Conoce al MurderBird: lee su historia de origen (en inglés) →",
+      "targetLocale": "es-ES",
+      "targetPath": "es/index.html",
+      "targetHash": "762e24f2bb772c94e9bd9cf895030a38cf05a2b785cb20fef72f42150d78eae8",
+      "sourceDirection": "Directly from en-US; no target-to-target chaining",
+      "textVersion": 1,
+      "review": "model-translated, native review not performed"
+    },
+    {
+      "route": "es-mx",
+      "alt": "El MurderBird está de pie sobre dos patas metálicas junto a un banco de trabajo y una computadora con monitor de tubo. Tiene un pico curvo, alas compactas plegadas, una armadura oscura con pátina y un ojo naranja brillante.",
+      "cta": "Conoce al MurderBird: lee la historia de su origen (en inglés) →",
+      "targetLocale": "es-MX",
+      "targetPath": "es-mx/index.html",
+      "targetHash": "8072ad3052f946c00403915a824b134f56ed24c6543333d5bb0b6bd78974c0c0",
+      "sourceDirection": "Directly from en-US; no target-to-target chaining",
+      "textVersion": 1,
+      "review": "model-translated, native review not performed"
+    },
+    {
+      "route": "en-gb",
+      "alt": "The MurderBird stands on two metal feet beside a workbench and CRT computer, with a hooked beak, compact folded wings, dark patinated armour, and a glowing orange eye.",
+      "cta": "Meet the MurderBird: read the origin story (in English) →",
+      "targetLocale": "en-GB",
+      "targetPath": "en-gb/index.html",
+      "targetHash": "36102d9425991dde30e7b372a7c0bb51934e7e8b3ec231880900ba5249e92f2e",
+      "sourceDirection": "Directly from en-US; no target-to-target chaining",
+      "textVersion": 1,
+      "review": "model-translated, native review not performed"
+    }
+  ],
+  "checks": {
+    "homeLayouts": 36,
+    "sceneLayouts": 30,
+    "consoleErrors": [],
+    "metadata": {
+      "og": "https://overkillhill.com/assets/img/og/murderbird-story-share-2026-09-06.png",
+      "width": "1200",
+      "height": "630",
+      "type": "image/png",
+      "twitter": "https://overkillhill.com/assets/img/og/murderbird-story-share-2026-09-06.png",
+      "articles": [
+        "https://overkillhill.com/assets/img/og/murderbird-story-share-2026-09-06.png"
+      ],
+      "paragraphs": 76,
+      "figures": 5,
+      "videos": 0
+    }
+  },
+  "screenshots": ".local/murderbird-review/homepage-qa/"
+}

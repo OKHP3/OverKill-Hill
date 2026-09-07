@@ -1,0 +1,99 @@
+# MurderBird unified direction
+
+Version 1.2. September 6, 2026. Coordinating production brief, not a release record.
+
+Jamie appointed task `01a07924-14ac-7030-a52f-0f0d826f7aa0` to direct the four MurderBird tasks. Jamie's instructions remain the highest authority. This lead resolves cross-task visual continuity, scope, acceptance, and release order. Execution remains with the four existing tasks.
+
+## One experience
+
+An illustrated myth about a body that survives, machinery that accumulates, and a mind that learns to judge. The reader follows one recognizable creature across time. Images establish place, material, and scale. Motion demonstrates weight and intention. Sound makes physical events tangible. The first independent choice is the emotional center.
+
+The complete story remains readable without JavaScript or media. Stillness and silence are the defaults. Optional media follows chapter transitions; no automatic sound, forced scrolling, or mandatory cinematic opening.
+
+## Authority and evidence
+
+- Narrative authority: Jamie's instructions and `site-src/pages/writings/murderbird/index.main.html`. GitHub main was independently read for this coordination pass; the story task verified main at `2d7e92d23fcbe875c7421d4509109bffd22b0c48`.
+- Brand authority: `AGENTS.md` Section 6 and current `assets/css/theme.css`. The existing OverKill Hill profile, version 1.1.0, is supporting documentation, not a replacement for current tokens. No new brand or blended profile is being created.
+- Current artifacts are evidence of production, not approval. Existing catalogs expressly label both 1.8 m and approximately 2 m as proposals. Neither is an owner-approved numerical measurement.
+- The lead selects **2.0 m floor to crown in a neutral upright pose as the common production target**. This resolves the competing production scales without adding a numerical claim to the published fiction. Poses may lower the head; the underlying body does not grow between eras. Existing 1.8 m files stay preserved as earlier studies.
+- Old seamless alien-shell and four-era briefs remain historical source records. They do not override this story's handmade ancient body and three-era progression.
+
+## Shared visual grammar
+
+Current production reference: `assets/img/library/murderbird-unified-master-candidate-03-2026-09-06.png`, SHA-256 `538C51BCDBF5BFCE95A0932FDBBB0F5868B446F4985346D15E6CACD32430E633`. The lead directly inspected the image and independently verified its hash. Accepted for illustrative head, body silhouette, compact folded wing/rear contour, modern materials, and floor-supported staging. This supersedes candidate01/02 HOLD as the reference for new scoped production; those earlier images remain historical candidates. This is lead production acceptance, not an owner-approved engineering model or public release. Exact height, hidden mechanisms, and close-up shoulder topology are not certified by this raster. Apply era-specific changes without copying modern hardware backward in time.
+
+1. Preserve the deep curved hooked bill, segmented crown, circular optic housing, substantial terrestrial legs, compact strong neck, and folded ornamental wings. The fossil fragments inform load-bearing anatomy; the bill and wing ornaments retain the court's eagle commission. No complete fossil species reconstruction or fossil bones embedded in machinery.
+2. Use one selected reference package across stills and video. The character owner records its exact paths, hashes, proportions, and anatomical left-shoulder landmark. A set of generative studies is not a mechanically consistent model or animation rig.
+3. Floor or a credible assembly cradle carries the weight. A normal bench and ordinary CRT establish scale. The Bird may lower its head or lightly touch the casing, but the computer does not carry it. Show supported weight transfer in every action.
+4. Ancient bronze is cast and handworked with irregular edges, hammer marks, and peened pins. Water adds brown-black surfaces, deep green seams, and sparse blue mineral deposits. Industrial iron braces and brass bearings remain distinguishable. Modern wiring follows old tendon paths; power and processing are concealed within the inherited body. No decorative chest reactor.
+5. Preserve the twice-fitted anatomical left shoulder and its limited travel. Do not mirror that history to the opposite side for composition. Keep wings compact; long flight-feather trains in current candidates need correction.
+6. Humans are anonymous supporting roles: shadows, silhouettes, cropped hands, obscured faces, and contextual scale. Avoid individualized portraits. The Bird remains the protagonist.
+7. Frame materials clearly with restrained directional light and readable silhouettes. Rust-orange and amber are accents against bronze, patina, teal, espresso, and warm paper. Avoid universal orange haze, unreadably dark details, and neon cyberpunk styling. Preserve the site's existing light and dark modes.
+8. Keep title and caption typography as real text using the existing Alfa Slab One, DM Sans, and JetBrains Mono roles. Blueprint grids and industrial stripes belong to the site's graphic framing or historical sigil, not as unexplained physical scenery in every era. Verify intact brand-name rendering at narrow widths.
+
+## Era and scene contract
+
+| Beat | Required continuity | Media purpose |
+|---|---|---|
+| Fossil and eagle dispute | Incomplete bone/joint fragments; uncertainty retained | Explain the terrestrial body and inherited eagle features |
+| Maker | Handworked bronze; original unexplained mechanism; no later electronics or Victorian repairs | Material, scale, deliberate construction; retain the story's ambiguity about early behavior |
+| Water | Inert body, dark optic, sediment and mineral history | Stillness, passage of time; restrained environmental motion |
+| Recovery and transport, 1853 | Heavy inert load, slings/crate, private displacement | Show weight and loss of provenance without glorifying removal |
+| Mechanic, 1873 onward | Industrial repairs and finite externally powered or wound movement | Distinguish repeatable machinery from modern learning |
+| Heart and mind, 2025 | Onboard finite energy and processing are separate additions | Explain both capabilities without a glowing-reactor shortcut |
+| First choice | Anticipation of a failing support, supported weight shift | Signature motion moment: evidence of judgment |
+| Sentinel | Floor-standing beside the CRT; accumulated history visible | Quiet scrutiny, deliberate gesture, a return to work |
+
+Modern orange optic light must not be projected backward into the inert water or industrial stages. Ancient behavior stays consistent with the story's unresolved mechanism; do not rewrite it as proven modern AI or erase its described actions.
+
+## Ownership
+
+| Task ID | Exact current task title | Execution responsibility |
+|---|---|---|
+| `01a0744b-8fb9-7b10-9925-72b509f1c05e` | OKHP3 MurderBird Story | Narrative canon, scene mapping, sole site integration and coordinated release execution |
+| `01a073b1-716a-70b1-b3bb-eb283618fe90` | OKHP3 MurderBird on Video | Verify/recover motion and sound, coherent shot briefs, playable deliverables and accessibility companions |
+| `01a07546-73bb-76b0-88e7-3a5cb7c4c99e` | OKHP3 MurderBird Reimagined | Narrative illustration reconciliation and scene delivery, including assessment of the existing eight-scene package; originally produced the seven scale-series studies |
+| `019fb11d-38c5-7752-8569-76883102e38b` | OKHP3 MurderBird Reimagined | Character reference selection, proportions, material/repair continuity, and cross-site pose library |
+
+The video task confirmed original authorship of the eight-scene package and Blender scale stage. Assignment to the illustration task is prospective stewardship, not a change to that provenance. Only the story task changes shared page sources, stylesheet, browser behavior, metadata, or generated site outputs. Only the lead edits this brief. Other tasks use distinct lane report paths and deliver media to the integrator.
+
+## Assets and handoff
+
+Current candidates include `assets/murderbird/v2/` and overlapping `assets/img/library/murderbird-*` series. Local untracked files are not on GitHub merely because they are in its checkout. Preserve originals, including failed candidates and earlier scale stages, until a documented preservation and relocation plan is accepted.
+
+Extend the existing manifest model rather than invent competing catalogs. The video task reports an existing consolidated register at `assets/murderbird/v2/coordination/asset-register.json` and its generator `build-register.py`; the integrator must inspect and adopt that record rather than creating a third register. Preserve `assets/murderbird/v2/manifest.json` as package provenance. Record stable asset ID, scene, era, reference version, source prompt/provenance, actual path and hash, dimensions/duration/bytes, candidate status, continuity findings, derivative paths, intended placement, alt text, poster, captions, transcript, and actual audio status.
+
+The video task also reports seven distinct technically playable studies in `C:/Users/jamie/Documents/murderbird-production/2026-09-06/`, with matching recorded hashes and successful decode checks. They remain unaccepted for the revised story: scale, Maker action, historical props, and supported staging have defects. Embedded AAC tracks exist but are not an accepted sound design. This is an execution-owner report, not independent lead playback verification.
+
+Before release, map the mixed staging package into the repository's existing taxonomy: image masters in `assets/img/library/`, generated WebP in `assets/img/webp/`, human reports in `assets/docs/`, tooling in `scripts/`, and machine QA in `assets/audit/`. Video/audio/Blender destinations must be reconciled with the active deployment inventory by the integrator before moving files. Do not blindly commit the whole staging folder or Downloads.
+
+Verify cutout alpha from pixels; painted checkerboards are failures. Do not upscale derivatives or claim icon readiness from a detailed full-body image. Preserve historical manifesto artwork and accurate historical captions. No unrelated project-art replacement.
+
+## Sequence and acceptance
+
+1. Character owner supplies one reference selection and discrepancy list. Narrative owner prepares the bounded floor/support prose correction now. Illustration and video owners audit their existing work against this brief in parallel.
+2. Correct and review a small coherent set of stills against the reference. The illustration owner maps each accepted scene to an actual narrative beat. Missing fossil/transport scenes are explicit gaps, not fulfilled by misleading captions.
+3. Integrator builds the illustrated story, then applies a restrained homepage invitation and appropriate social/locale parity. Preserve uninterrupted paragraphs and historical lineage images.
+4. Video owner supplies real reviewed clips. Prioritize first choice; add other moments only when they explain something. Player activation is explicit with posters, controls, appropriate captions and descriptive transcripts. Sound is optional, independently controllable, and never overlaps competing tracks.
+5. Optional construction/era exploration uses keyboard-accessible buttons and explanatory text. Do not morph inconsistent geometries. Reduced motion and media failure retain the complete experience.
+6. Integrator returns a reviewable diff, continuity evidence, desktop/mobile and light/dark checks, keyboard/reduced-motion/media-failure checks, and appropriate source/build/site gates. The lead resolves acceptance issues and schedules one release path with CI, SHA-bound deployment, and live verification. A passing build alone is not publication acceptance.
+
+No task independently merges shared changes, prunes another task's work, creates a competing release, or treats a candidate as accepted. Each checkpoint reports what actually changed, exact files and refs, verification, defects, and next dependencies. This brief authorizes coordinated preparation and scoped execution; it does not claim that media or a release has passed review.
+
+## Coordination checkpoints
+
+- All four tasks acknowledged the coordinating lead and returned initial inventories. The two identically titled image tasks have distinct responsibilities in the ownership table.
+- Character report: `assets/docs/murderbird-character-reference-checkpoint-2026-09-06.md`. Lead directly inspected candidate 01 and confirms HOLD for hanging wing plates and ambiguous shoulder band. One localized correction is authorized; no pose or era batch can derive from the held candidate. A particular strap topology is not narrative canon. The required landmark is the inherited refitted left shoulder and its limited travel.
+- Illustration report: `assets/docs/murderbird-illustration-checkpoint-2026-09-06.md`. All eight narrative images and seven scale studies reviewed by that lane. No release PASS. After common-reference correction, prioritize water, heart, and sentinel for a small illustrated preview. Recovery packing is already represented; missing onward transport must not be described as missing recovery. Fossil/dispute and distinct cranial mind coverage remain gaps.
+- First-choice acceptance requires a loosened fastener visibly associated with a loaded support and a credible supported response. A detached floor bolt alone does not demonstrate anticipation. The artwork and clip must make the causal event legible without asserting that a still proves a complete motion sequence.
+- Story owner reports the bounded staging corrections applied locally. Its rebuild exposed social-review HTML entering public search and universe navigation. The lead inspected the owning template and assigned the integrator to add persistent noindex metadata in `assets/murderbird/v2/build-library.py` and regenerate review layouts. Media lanes must leave that builder and generated outputs reserved during the fix. This is not permission to publish the staging package.
+- Readiness remains separate from generation and decode success. Do not infer a global validation PASS from a lane's whitespace check or technical media inspection.
+- Boundary follow-up complete: integrator relocated only nine review HTML files into `.local/murderbird-review/`, preserving byte-verified backups, and changed the owning builder so both full and markup-only generation stay there. Original image/provenance/Blender files remain in place. Structural, audit, search, universe, and link checks passed locally according to the integrator. The lead independently reran `tests/test-murderbird-review-boundary.py` successfully and reviewed the bounded prose diff; no CI, deployment, or live acceptance is implied.
+- Character candidate 02 improves the near-wing mantle and removes the cross-wing band. Lead directly inspected it; a residual posterior train remains. A further single region-specific edit is authorized solely for that contour, preserving the accepted head/near-wing improvements. A subtle shoulder repair that is not demonstrable in a full-body view is not automatically a contradiction; close-up continuity review is separate from full-body silhouette acceptance.
+- Three corrected scenes are accepted for local illustrated preview following direct lead inspection and independent video-lane continuity review: `murderbird-unified-water-candidate-2026-09-06.png` (SHA-256 `0DB88F0529288A9C6032662A9FB9E62D1AE077322241C4D9BD2C5A8EB915C117`), `murderbird-unified-heart-candidate-2026-09-06.png` (`9430F91E3CD3FC8223297720A0F57EC1C46E9C8245CFBA91495E9C362029FEA9`), and `murderbird-unified-sentinel-candidate-2026-09-06.png` (`D6153907884045E824E3BE9CD02A7A446FB75F6E8B35A246918CF11AC620667E`), all in `assets/img/library/`. Regular joint/rod forms alone do not establish later-era hardware in Water; no electric wiring, modern power unit, or identifiable later repair was found in this review. Caption Heart as power inspection, not completed mind; caption Sentinel as watching beside the computer, not a talon gesture absent from the image. No final public release is implied.
+- Video access is being coordinated through the character task's direct CUA browser tools because the video task's runtime lacks them. The video task retains shot and media review ownership. A separate opening-frame image is required for the loaded-support first-choice sequence; the free-standing character reference alone is not its literal first frame. Only read-only Firefly account/options inspection is currently assigned to the browser operator.
+- Pilot follow-up: opening `assets/img/library/murderbird-first-choice-opening-candidate-2026-09-06.png`, SHA-256 `C12874D1898DBEE7617DF22ACAF39165B4453C5A9282091274C37AD6070AD5F6`, was directly reviewed by lead and video owner. The visible central saddle-pivot fastener is the seated target; both feet stay planted. After operator verified Firefly balance 1200/4000 and displayed cost 400, lead authorized one eight-second Veo 3.1 pilot capped at 400 existing credits, 720p/16:9/24fps, Audio OFF. Upload was denied by the browser tool (`-32000 Not allowed`); First frame remained empty. No Generate click, job, debit, or output occurred. Dependent browser work waits for the user to enable required extension file-URL access; no bypass or repeated unchanged attempts. Prior authorization persists after permission repair, subject to fresh cost/input checks.
+- Initial still set now also includes Mechanic (`assets/img/library/murderbird-unified-mechanic-candidate-2026-09-06.png`, SHA-256 `0BD7C79510BE9EEEF024F8861A7576B777A7F5DE5710523E8D2AB039D03C65F9`) after lead and independent character review, and clean Maker (`assets/img/library/murderbird-unified-maker-clean-candidate-2026-09-06.png`, SHA-256 `93966EB269AE9F8D8D00E05E913CBB23F7656204E6F3FDF7FD26E8A39CA0CBB9`) after direct lead inspection and hash verification. Both accepted for local illustrated preview, subject to rendered checks. Maker01/02 remain held because of identity/material defects; clean Maker used a fresh scene rather than those contaminated inputs. Caption quiet ancient inspection and industrial repair, not unpictured hammer breaking or autonomous awakening.
+- Homepage/locale connection is assigned to the sole integrator. Only changed short alt text and story CTA may use a documented plain-text translation fallback for local preview where full pair-profile records are missing. Do not invent owner approval, native-speaker review, or a successful full translation-skill gate. Preserve existing locale copy and explicitly identify the English story destination. No release-level language approval is implied.
+- Consolidated local preview accepted after lead review of balanced story hero, English homepage, narrow French homepage, sharing card, and clean Maker placement. Integrator reports five chapter figures, five homepage variants, accurate story social metadata, and green structural/search/CSP/cache/accessibility checks. Lead authorized an isolated, exact-allowlist draft PR for the accepted still release and its reproducible dependencies. Primary work and held candidates stay preserved. No merge or deployment is authorized by this checkpoint; video remains blocked on user extension permission and locale native review remains unperformed.
+- Clean-selection dependency follow-up: existing homepage hero-parity tests include EN-GB, so lead approved that sixth homepage's image/alt/CTA update and owning generator correction without changing its draft/noindex state. Preserve parity tests. The selected release record is a derived accepted-only subset of exploratory provenance, not a competing editorial catalog; the full v2 experimental package remains outside the release selection.

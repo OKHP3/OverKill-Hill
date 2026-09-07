@@ -37,7 +37,7 @@ def main() -> int:
         fail("builder must not use the Spain Spanish tree as an input")
     if "source_path = ROOT / rel" not in builder:
         fail("builder must open canonical en-US paths for both pairs")
-    source_hashes = json.loads((ROOT / "i18n/pilot/source-hashes-thread-closeout-2026-09-06.json").read_text(encoding="utf-8"))
+    source_hashes = json.loads((ROOT / "i18n/pilot/source-hashes-murderbird-stills-2026-09-06.json").read_text(encoding="utf-8"))
     for name in ("index.html", "about-index.html", "projects-index.html", "contact-index.html"):
         if not (ROOT / "i18n/pilot/es-mx/reviewed" / name).exists():
             fail(f"missing reviewed es-MX source artifact: {name}")

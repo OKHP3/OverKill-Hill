@@ -87,6 +87,13 @@ jobs:
       - name: Keep localized homepage heroes aligned
         run: python3 tests/test-homepage-hero-parity.py
 
+      - name: Verify accepted MurderBird still dependencies and placements
+        run: |
+          python3 scripts/build-murderbird-release-register.py --check
+          python3 tests/test-murderbird-still-release.py
+          python3 scripts/build-release.py --output .local/murderbird-ci-release --commit "${{ github.sha }}"
+          python3 scripts/build-murderbird-release-register.py --check --package .local/murderbird-ci-release
+
       - name: Keep reviewed page scaffolds and navigation current
         run: python3 tests/test-review-closeout.py
 

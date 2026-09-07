@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ROUTES = {"/": "index.html", "/about/": "about/index.html", "/projects/": "projects/index.html", "/contact/": "contact/index.html"}
 REVIEWED_ES_MX = {"index.html": "index.html", "about/index.html": "about-index.html", "projects/index.html": "projects-index.html", "contact/index.html": "contact-index.html"}
 BASE = "https://overkillhill.com"
-SOURCE_HASHES = ROOT / 'i18n' / 'pilot' / 'source-hashes-thread-closeout-2026-09-06.json'
+SOURCE_HASHES = ROOT / 'i18n' / 'pilot' / 'source-hashes-murderbird-stills-2026-09-06.json'
 PAIR_CONTRACTS = {
     'en-gb': ('dictionary.en-us-en-uk.json', 'voice-profile.en-us.json'),
     'es-mx': ('dictionary.en-us-es-mx.json', 'voice-profile.en-us.json'),
@@ -265,12 +265,19 @@ def replace_navigation_identity(page: str, locale: str) -> str:
 
 
 HOMEPAGE_HERO_ALTS = {
-    'es-mx': 'MurderBird mecánico de frente, abalanzándose con el pico y las garras visibles',
+    'es-mx': 'El MurderBird está de pie sobre dos patas metálicas junto a un banco de trabajo y una computadora con monitor de tubo. Tiene un pico curvo, alas compactas plegadas, una armadura oscura con pátina y un ojo naranja brillante.',
+    'en-gb': 'The MurderBird stands on two metal feet beside a workbench and CRT computer, with a hooked beak, compact folded wings, dark patinated armour, and a glowing orange eye.',
+}
+
+# Bounded local-preview fallback; no native-language approval is implied.
+HOMEPAGE_STORY_CTAS = {
+    'es-mx': 'Conoce al MurderBird: lee la historia de su origen (en inglés) →',
+    'en-gb': 'Meet the MurderBird: read the origin story (in English) →',
 }
 
 
 def replace_homepage_hero(page: str, locale: str, canonical: str) -> str:
-    """Reuse the canonical hero structure while preserving reviewed locale alt."""
+    """Reuse canonical structure with recorded local-preview locale text."""
     if locale not in HOMEPAGE_HERO_ALTS:
         raise SystemExit(f'No reviewed homepage hero alt for {locale}')
     pattern = r'<div class="hero-visual">.*?</div>'
@@ -284,6 +291,13 @@ def replace_homepage_hero(page: str, locale: str, canonical: str) -> str:
     )
     if count != 1:
         raise SystemExit('Canonical homepage hero must have an image alt')
+    hero, count = re.subn(
+        r'<a href="/writings/murderbird/">.*?</a>',
+        lambda _: '<a href="/writings/murderbird/" hreflang="en">' + escape(HOMEPAGE_STORY_CTAS[locale]) + '</a>',
+        hero, count=1, flags=re.S,
+    )
+    if count != 1:
+        raise SystemExit('Canonical homepage story invitation missing')
     updated, count = re.subn(pattern, lambda _: hero, page, count=1, flags=re.S)
     if count != 1:
         raise SystemExit(f'Missing homepage hero for {locale}')
@@ -339,7 +353,8 @@ def build_en_gb(source: str, route: str, dictionary: dict) -> str:
     page = page.replace(f'href="{route}" hreflang="en-GB"', f'href="/en-gb{route}" hreflang="en-GB"')
     page = page.replace('class="lang-flag"', 'class="lang-flag"', 1)
     page = re.sub(r'<svg aria-hidden="true" class="lang-flag".*?</svg>', ST_GEORGE, page, count=1, flags=re.S)
-    return replace_navigation_identity(replace_locale_switch(page, 'en-gb', route), 'en-gb')
+    page = replace_navigation_identity(replace_locale_switch(page, 'en-gb', route), 'en-gb')
+    return replace_homepage_hero(page, 'en-gb', source) if route == '/' else page
 
 
 def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> str:

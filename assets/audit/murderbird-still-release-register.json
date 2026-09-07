@@ -1,0 +1,271 @@
+{
+  "schema": 1,
+  "selectionBase": "2d7e92d23fcbe875c7421d4509109bffd22b0c48",
+  "status": "draft-review-only; no deployment or final-art approval",
+  "lineage": "Derived accepted-only subset of local exploratory assets/murderbird/v2/coordination/asset-register.json; exploratory package intentionally omitted and preserved in primary checkout, not a release dependency or published location.",
+  "acceptanceReceipt": "docs/murderbird-unified-direction.md",
+  "languageReview": "Model-translated or adapted, native review not performed; locale lifecycle unchanged",
+  "mediaStatus": "Five chapter stills and one hero; no video/audio. Pilot blocked on user extension file-access permission.",
+  "masters": [
+    {
+      "path": "assets/img/library/murderbird-unified-maker-clean-candidate-2026-09-06.png",
+      "sha256": "93966eb269ae9f8d8d00e05e913cbb23f7656204e6f3fdf7fd26e8a39ca0cbb9",
+      "bytes": 2941763,
+      "width": 1536,
+      "height": 1024,
+      "id": "maker",
+      "acceptanceScope": "Quiet ancient inspection, hooded back-view Maker, intact lowered hammer; not hammer breaking or exact historical attire.",
+      "authority": "Coordinating task explicit local-preview acceptance",
+      "placements": [
+        "/writings/murderbird/#media-maker"
+      ],
+      "generator": "python scripts/build-murderbird-hero.py --asset maker",
+      "derivatives": [
+        {
+          "path": "assets/img/webp/murderbird-unified-maker-clean-2026-09-06-480.webp",
+          "sha256": "42802445e438cd3e612d4e588096c8f6f2827e98619f5cf0fdf0bb8f4c3fad10",
+          "bytes": 38504,
+          "width": 480,
+          "height": 320
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-maker-clean-2026-09-06-960.webp",
+          "sha256": "0495ab582d63d9011dd64c7872e0aa9e82aadb32484267d3547aed2bdfadaefb",
+          "bytes": 134728,
+          "width": 960,
+          "height": 640
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-maker-clean-2026-09-06-1536.webp",
+          "sha256": "10da9f9ff4cd7ffe8fc5b400c163b2f522950379308fea942a60439484590156",
+          "bytes": 296716,
+          "width": 1536,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-mechanic-candidate-2026-09-06.png",
+      "sha256": "0bd7c79510be9eeef024f8861a7576b777a7f5de5710523e8d2ab039d03c65f9",
+      "bytes": 2453693,
+      "width": 1672,
+      "height": 940,
+      "id": "mechanic",
+      "acceptanceScope": "Industrial repairs around ancient bronze; floor supports; no autonomous awakening.",
+      "authority": "Coordinating task explicit local-preview acceptance",
+      "placements": [
+        "/writings/murderbird/#media-mechanic"
+      ],
+      "generator": "python scripts/build-murderbird-hero.py --asset mechanic",
+      "derivatives": [
+        {
+          "path": "assets/img/webp/murderbird-unified-mechanic-2026-09-06-480.webp",
+          "sha256": "8482b0a0013b74c2ce1ba8ac4b8599a470138e4af346d48817a3ce9cdd5b76b2",
+          "bytes": 36180,
+          "width": 480,
+          "height": 270
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-mechanic-2026-09-06-960.webp",
+          "sha256": "5117b19e160ab7b72dd9bd1570e6826dc71954248826e85e0b61a54e1bc3d4d4",
+          "bytes": 120204,
+          "width": 960,
+          "height": 540
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-mechanic-2026-09-06-1536.webp",
+          "sha256": "2fbc363fec586920f4996c4fedea3fc8c3f6ef8652da2a2b638a6ef2820eac69",
+          "bytes": 236264,
+          "width": 1536,
+          "height": 864
+        }
+      ]
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-water-candidate-2026-09-06.png",
+      "sha256": "0db88f0529288a9c6032662a9fb9e62d1ae077322241c4d9bd2c5a8eb915c117",
+      "bytes": 2387810,
+      "width": 1672,
+      "height": 940,
+      "id": "water",
+      "acceptanceScope": "Inert partly submerged body and mineral history; no exact chemistry or hidden mechanism certification.",
+      "authority": "Coordinating task explicit local-preview acceptance",
+      "placements": [
+        "/writings/murderbird/#media-water"
+      ],
+      "generator": "python scripts/build-murderbird-hero.py --asset water",
+      "derivatives": [
+        {
+          "path": "assets/img/webp/murderbird-unified-water-2026-09-06-480.webp",
+          "sha256": "e230ae04c965340dcd17f47cd9a2209834101cc705e5128dffe969f1562aaae5",
+          "bytes": 22514,
+          "width": 480,
+          "height": 270
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-water-2026-09-06-960.webp",
+          "sha256": "8c628297853c3eb4fc6a1a24621254f29a827182840ee8b807c57c8e12eb910a",
+          "bytes": 92500,
+          "width": 960,
+          "height": 540
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-water-2026-09-06-1536.webp",
+          "sha256": "b80a65d9183bba984ea114c55bceaa4891c39224d6553050385f896f66e92a07",
+          "bytes": 188054,
+          "width": 1536,
+          "height": 864
+        }
+      ]
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-master-candidate-03-2026-09-06.png",
+      "sha256": "538c51bcdbf5bfce95a0932fdbbb0f5868b446f4985346d15e6cacd32430e633",
+      "bytes": 2319632,
+      "width": 1536,
+      "height": 1024,
+      "id": "hero",
+      "acceptanceScope": "Head, silhouette, folded wing/rear contour, modern materials and floor staging; not a certified rig or exact height.",
+      "authority": "Coordinating task explicit local-preview acceptance",
+      "placements": [
+        "/#forge",
+        "/fr/#forge",
+        "/de/#forge",
+        "/es/#forge",
+        "/es-mx/#forge",
+        "/en-gb/#forge",
+        "/writings/murderbird/#media-hero"
+      ],
+      "generator": "python scripts/build-murderbird-hero.py --asset hero",
+      "derivatives": [
+        {
+          "path": "assets/img/webp/murderbird-unified-master-03-2026-09-06-480.webp",
+          "sha256": "3fc5180e88d37865e6009585790aea1c70243f37c836ce134a600ea94a319cee",
+          "bytes": 19800,
+          "width": 480,
+          "height": 320
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+          "sha256": "fa7d04bbb3a0ed04d9ef7fed6d4f9dde74d56063eabbde2080a7d2da556c5b1d",
+          "bytes": 75222,
+          "width": 960,
+          "height": 640
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+          "sha256": "0008c49f34594156c5667bb306281f2f41419cbf53b2f4e93dd8a48c74a3ef37",
+          "bytes": 173666,
+          "width": 1536,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-heart-candidate-2026-09-06.png",
+      "sha256": "9430f91e3cd3fc8223297720a0f57ec1c46e9c8245cfba91495e9c362029fea9",
+      "bytes": 2213537,
+      "width": 1672,
+      "height": 940,
+      "id": "heart",
+      "acceptanceScope": "Power inspection, not a completed mind.",
+      "authority": "Coordinating task explicit local-preview acceptance",
+      "placements": [
+        "/writings/murderbird/#media-heart"
+      ],
+      "generator": "python scripts/build-murderbird-hero.py --asset heart",
+      "derivatives": [
+        {
+          "path": "assets/img/webp/murderbird-unified-heart-2026-09-06-480.webp",
+          "sha256": "b8cf0df9b839313b28c65d3e2bb0d1dd0d500bd82573785cd3e5def5c5182057",
+          "bytes": 23908,
+          "width": 480,
+          "height": 270
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-heart-2026-09-06-960.webp",
+          "sha256": "2da0670fca165aa2dd9141b45a3ab5ab08b9565e09b657bcf880225296b7522b",
+          "bytes": 88482,
+          "width": 960,
+          "height": 540
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-heart-2026-09-06-1536.webp",
+          "sha256": "0cdbab1e18b18f18006aa150c27e52b0c05e0431a6688ad669f48684479b965d",
+          "bytes": 179112,
+          "width": 1536,
+          "height": 864
+        }
+      ]
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-sentinel-candidate-2026-09-06.png",
+      "sha256": "d6153907884045e824e3be9cd02a7a446fb75f6e8b35a246918cf11ac620667e",
+      "bytes": 2044132,
+      "width": 1672,
+      "height": 940,
+      "id": "sentinel",
+      "acceptanceScope": "Floor-standing Bird watches operator beside CRT; no unpictured talon gesture or screen text.",
+      "authority": "Coordinating task explicit local-preview acceptance",
+      "placements": [
+        "/writings/murderbird/#media-sentinel"
+      ],
+      "generator": "python scripts/build-murderbird-hero.py --asset sentinel",
+      "derivatives": [
+        {
+          "path": "assets/img/webp/murderbird-unified-sentinel-2026-09-06-480.webp",
+          "sha256": "d48f14f947e150ef4fc599dc86f8f513850d79297b96e3998fdd0edf52ca9893",
+          "bytes": 19858,
+          "width": 480,
+          "height": 270
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-sentinel-2026-09-06-960.webp",
+          "sha256": "1ba13f6d60d29717e0677203152b39d7fc428a415bd2bceae29b5925902d6fdf",
+          "bytes": 71104,
+          "width": 960,
+          "height": 540
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-sentinel-2026-09-06-1536.webp",
+          "sha256": "89f4fef87380d2de1eebf6bfd56b27f726fb2720a86661a17647f60b4d4f5ed1",
+          "bytes": 149086,
+          "width": 1536,
+          "height": 864
+        }
+      ]
+    }
+  ],
+  "social": {
+    "path": "assets/img/og/murderbird-story-share-2026-09-06.png",
+    "sha256": "d6fefa4a22b07f4427a73c1e55ba236c05771bac1b8394274475c343f2d86a14",
+    "bytes": 449979,
+    "width": 1200,
+    "height": 630,
+    "source": "hero",
+    "generator": "node scripts/build-murderbird-story-social.mjs",
+    "processing": "Complete proportional art and separate real HTML typography; no crop",
+    "placements": [
+      "Story Open Graph",
+      "Story Twitter card",
+      "Story Article image"
+    ]
+  },
+  "deferred": {
+    "exactHeldFilenames": [
+      "murderbird-unified-maker-candidate-2026-09-06.png",
+      "murderbird-unified-maker-candidate-02-2026-09-06.png",
+      "murderbird-unified-master-candidate-2026-09-06.png",
+      "murderbird-unified-master-candidate-02-2026-09-06.png",
+      "murderbird-first-choice-opening-candidate-2026-09-06.png"
+    ],
+    "localOnly": [
+      "assets/murderbird/v2/",
+      ".local/",
+      "output/",
+      "unselected scale/human-scale studies",
+      "external original video files"
+    ]
+  },
+  "reproduction": "Install requirements-qa.txt and npm ci; generate six WebP sets, render social with loaded site fonts, then run this builder. --check verifies recorded bytes; --package verifies a built release."
+}

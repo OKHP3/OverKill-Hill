@@ -1,0 +1,71 @@
+{
+  "language_pair": "en-US -> fr-FR",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "reviewed_on": "2026-09-06",
+  "source_revision": "12b1775a3e6c4d3c930dd1dcf32af284d195a831",
+  "reviewer": "Codex story release integrator",
+  "review_scope": "Bounded semantic and terminology review of the two changed French homepage text units against English; existing text elsewhere retained. The other three routes have no semantic delta after the existing source normalizer removes generated CSP and asset fingerprints. This is AI review under the existing site release policy, not native-speaker approval or a new full-page translation certification.",
+  "units": [
+    {
+      "selector": "#forge .hero-illustration@alt",
+      "source": "The MurderBird stands on two metal feet beside a workbench and CRT computer, with a hooked beak, compact folded wings, dark patinated armor, and a glowing orange eye.",
+      "target": "Le MurderBird se tient sur deux pieds métalliques à côté d’un établi et d’un ordinateur à écran cathodique. Il possède un bec crochu, des ailes compactes repliées, une armure sombre patinée et un œil orange lumineux.",
+      "finding": "Retain. All depicted attributes and spatial relationships are preserved. The two-sentence French construction is grammatical and readable; écran cathodique correctly conveys CRT. MurderBird is protected."
+    },
+    {
+      "selector": "#forge .hero-visual a",
+      "source": "Meet the MurderBird: read the origin story →",
+      "target": "Découvrez le MurderBird : lisez son histoire (en anglais) →",
+      "finding": "Retain. Natural vous imperatives match existing page voice. The invitation preserves the story purpose; the added English-language notice truthfully labels the destination. Brand name, destination URL and arrow remain protected."
+    }
+  ],
+  "metadata_comparison_base": "256c194c",
+  "metadata_only": {
+    "about/index.html": true,
+    "contact/index.html": true,
+    "projects/index.html": true,
+    "fr/about/index.html": true,
+    "fr/contact/index.html": true,
+    "fr/projects/index.html": true
+  },
+  "limitations": [
+    "No human or native-language approval claimed.",
+    "Unchanged page copy is retained, not retranslated.",
+    "German and Spanish advisory review states are not adopted by this record."
+  ],
+  "routes": [
+    {
+      "route": "/",
+      "locale": "fr",
+      "target_path": "fr/index.html",
+      "source_sha256": "e4015c951581b8bfda1a374a98a51a020ca08be8e74e8fc3cdab0a57a3e28323",
+      "target_sha256": "4d2bee756ea817c7935a7cee38bf75162d61322ce46b41ea7f4aecc108c6e56d",
+      "disposition": "retained-ai-reviewed"
+    },
+    {
+      "route": "/about/",
+      "locale": "fr",
+      "target_path": "fr/about/index.html",
+      "source_sha256": "b110068fc17c5c72a39df68d9ba3fb1dd1b62fc5052676050c2e2a25141ef1ac",
+      "target_sha256": "52ee48e437d754c0d1a056631fc92e3d74f8899e69f38d56dc16e135da6b76a8",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/contact/",
+      "locale": "fr",
+      "target_path": "fr/contact/index.html",
+      "source_sha256": "c10b130a50588791ef53b2b002d003e333bab00ea7f686f52499629fdef7e773",
+      "target_sha256": "5197b4f2aaa0bdcaffdafb06f75c354b089ce7a937297d1177bbcdf394c86392",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/projects/",
+      "locale": "fr",
+      "target_path": "fr/projects/index.html",
+      "source_sha256": "50cf0a5226e838c098ca2c9d036eecf73025c4a4e7a6f86a753441236bc7d7d9",
+      "target_sha256": "5a91a8091623ab1d1fac6ef25ffd23177e7e231c14c20b14e0bc01dbf44204d9",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    }
+  ]
+}

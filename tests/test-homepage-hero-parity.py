@@ -84,7 +84,7 @@ class HomepageHeroParityTests(unittest.TestCase):
 
     def test_regeneration_tracks_a_changed_canonical_hero_and_escapes_alt(self):
         canonical = (ROOT / "index.html").read_text(encoding="utf-8")
-        changed = canonical.replace("murderbird-frontal-attack-2026-09-05", "future-canonical-hero")
+        changed = canonical.replace("murderbird-unified-master-03-2026-09-06", "future-canonical-hero")
         previous = MODULE.HOMEPAGE_HERO_ALTS['es-mx']
         try:
             MODULE.HOMEPAGE_HERO_ALTS['es-mx'] = 'MurderBird "fuerte" & claro'
@@ -99,10 +99,26 @@ class HomepageHeroParityTests(unittest.TestCase):
         with self.assertRaisesRegex(SystemExit, 'No reviewed homepage hero alt'):
             MODULE.replace_homepage_hero(canonical, 'unknown', canonical)
 
+    def test_regeneration_preserves_new_alt_and_english_story_invitation(self):
+        canonical = (ROOT / "index.html").read_text(encoding="utf-8")
+        for locale in ("en-gb", "es-mx"):
+            dictionary, _ = MODULE.load_pair_contract(locale)
+            if locale == "en-gb":
+                rendered = MODULE.build_en_gb(canonical, "/", dictionary)
+            else:
+                reviewed = (ROOT / "i18n/pilot/es-mx/reviewed/index.html").read_text(encoding="utf-8")
+                rendered = MODULE.build_es_mx(reviewed, canonical, "/", dictionary)
+            fragment = hero_fragment(rendered)
+            parser = HeroParser()
+            parser.feed(fragment)
+            self.assertEqual(MODULE.HOMEPAGE_HERO_ALTS[locale], parser.images[0]["alt"])
+            self.assertIn(MODULE.HOMEPAGE_STORY_CTAS[locale], fragment)
+            self.assertIn('href="/writings/murderbird/" hreflang="en"', fragment)
+
     def test_former_lazy_sentinel_hero_fails_the_contract(self):
         page = (ROOT / "es-mx/index.html").read_text(encoding="utf-8")
         former = hero_fragment(page).replace(
-            "/assets/img/murderbird-frontal-attack-2026-09-05.png",
+            "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
             "/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png",
         ).replace('loading="eager"', 'loading="lazy"')
         with self.assertRaises(AssertionError):
