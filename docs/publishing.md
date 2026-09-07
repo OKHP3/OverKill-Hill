@@ -11,7 +11,14 @@ require a new credential or changes to account permissions.
 
 [Publish GitHub Pages](../.github/workflows/pages.yml) invokes the reusable
 validation workflow for the exact release revision. Validation builds an
-allowlisted `site-release` artifact named `validated-site-<commit-sha>`.
+allowlisted `site-release` artifact named
+`validated-site-<commit-sha>-<run-id>-<run-attempt>`. Committed HTML, search,
+and universe freshness are checked before regeneration. The reusable workflow
+returns the successful validation attempt's artifact name to the download step,
+including when only deployment is retried. Pages upload and deployment both use
+`github-pages-<run-id>-<run-attempt>` so retries do not select an earlier Pages
+artifact. Keep the validated artifact available during its one-day retention;
+after expiry, rerun validation and deployment together.
 The deploy job downloads that artifact and verifies its commit identity and
 recorded file hashes and byte lengths with `scripts/build-release.py --verify`
 before uploading it to Pages. The local schema 3 implementation covers every
@@ -48,7 +55,7 @@ its destinations and behavior.
 
 The Pages workflow runs this verifier after deployment, using the deployment
 URL and the validated commit SHA. It uploads the resulting JSON as the
-`live-edge-report-<run-id>` release evidence artifact. The check reads the
+`live-edge-report-<run-id>-<run-attempt>` release evidence artifact. The check reads the
 committed sitemap and generated search index, requests every sitemap route plus
 the noindex utility boundaries, checks security and cache headers, verifies
 shared CSS/JS fingerprints, and confirms the deployed release manifest:

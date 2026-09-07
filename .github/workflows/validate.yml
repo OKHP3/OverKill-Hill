@@ -2,6 +2,10 @@ name: Site Validation
 
 on:
   workflow_call:
+    outputs:
+      release-artifact-name:
+        description: Validated artifact from the successful validation attempt
+        value: ${{ jobs.validate.outputs.release-artifact-name }}
   push:
     branches: [main]
   pull_request:
@@ -23,6 +27,8 @@ jobs:
     timeout-minutes: 20
     name: Validate site HTML, links, and structure
     if: github.event_name != 'schedule'
+    outputs:
+      release-artifact-name: validated-site-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
       - name: Checkout repository
@@ -53,6 +59,13 @@ jobs:
         run: |
           npm ci
           npx playwright install --with-deps chromium
+
+      # Reject stale submitted bytes before any generator can repair them.
+      - name: Check committed HTML, search, and universe freshness
+        run: |
+          python3 scripts/build-site.py --check
+          python3 scripts/build-search-index.py --check
+          python3 scripts/sync-universe-map.py --check
 
       - name: Regenerate indexed universe navigation
         run: |
@@ -258,7 +271,7 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: validated-site-${{ github.sha }}
+          name: validated-site-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: site-release
           include-hidden-files: true
           if-no-files-found: error

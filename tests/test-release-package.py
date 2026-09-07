@@ -8,6 +8,7 @@ import hashlib
 import os
 import re
 import shutil
+import shlex
 import subprocess
 import sys
 import tempfile
@@ -294,6 +295,57 @@ class ReleasePackageTests(unittest.TestCase):
             result = self.build(Path(temporary) / "site-release", source)
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("unsafe published page path", result.stderr)
+
+    def test_release_retries_use_matching_attempt_artifacts(self) -> None:
+        pages = (ROOT / ".github/workflows/pages.yml").read_text()
+        validation = (ROOT / ".github/workflows/validate.yml").read_text()
+        attempt = "github-pages-${{ github.run_id }}-${{ github.run_attempt }}"
+        self.assertIn("name: " + attempt, pages)
+        self.assertIn("artifact_name: " + attempt, pages)
+        self.assertIn("name: ${{ needs.validate.outputs.release-artifact-name }}", pages)
+        self.assertIn("value: ${{ jobs.validate.outputs.release-artifact-name }}", validation)
+        validated = "validated-site-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}"
+        self.assertIn("name: " + validated, validation)
+        self.assertIn("release-artifact-name: " + validated, validation)
+
+    def test_committed_freshness_precedes_regeneration(self) -> None:
+        workflow = (ROOT / ".github/workflows/validate.yml").read_text()
+        first_build = workflow.index("python3 scripts/build-site.py\n")
+        for command in ("build-site.py", "build-search-index.py", "sync-universe-map.py"):
+            self.assertLess(workflow.index(f"python3 scripts/{command} --check"), first_build)
+
+    def test_freshness_gate_rejects_stale_outputs_without_repair(self) -> None:
+        workflow = (ROOT / ".github/workflows/validate.yml").read_text()
+        match = re.search(
+            r"- name: Check committed HTML, search, and universe freshness\n"
+            r"        run: \|\n((?:          [^\n]+\n)+)", workflow,
+        )
+        self.assertIsNotNone(match)
+        commands = "\n".join(line.strip() for line in match[1].splitlines())
+        commands = commands.replace("python3 ", shlex.quote(sys.executable) + " ")
+        with tempfile.TemporaryDirectory() as temporary:
+            source = Path(temporary) / "source"
+            shutil.copytree(ROOT, source, ignore=shutil.ignore_patterns(
+                ".git", ".local", ".pr-head", "node_modules", "__pycache__", "site-release",
+            ))
+            def check():
+                return subprocess.run(["bash", "-e", "-c", commands], cwd=source,
+                                      text=True, capture_output=True)
+            clean = check()
+            self.assertEqual(clean.returncode, 0, clean.stdout + clean.stderr)
+            for relative, changed, diagnostic in (
+                ("index.html", b"<!-- stale generated HTML -->", "index.html"),
+                ("assets/data/search-index.json", b"{}", "Search index is stale"),
+            ):
+                with self.subTest(path=relative):
+                    path = source / relative
+                    original = path.read_bytes()
+                    path.write_bytes(changed)
+                    rejected = check()
+                    self.assertNotEqual(rejected.returncode, 0)
+                    self.assertIn(diagnostic, rejected.stdout + rejected.stderr)
+                    self.assertEqual(path.read_bytes(), changed)
+                    path.write_bytes(original)
 
     def test_pages_workflow_deploys_only_after_reusable_validation(self) -> None:
         pages_workflow = (ROOT / ".github/workflows/pages.yml").read_text(encoding="utf-8")
