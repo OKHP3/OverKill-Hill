@@ -216,7 +216,9 @@ jobs:
         run: npm run test:csp:regressions
 
       - name: Run search and embedded-app regressions
-        run: node --test tests/search-page.test.mjs tests/search-index.test.mjs tests/search-index-locale.test.mjs tests/embed-workflow.test.mjs tests/mermaid-links.test.mjs
+        run: |
+          python3 tests/test-search-sections.py
+          node --test tests/search-page.test.mjs tests/search-index.test.mjs tests/search-index-locale.test.mjs tests/embed-workflow.test.mjs tests/mermaid-links.test.mjs
 
       - name: Keep content visible when optional reveal scripts fail
         run: node tests/test-reveal-browser.mjs
