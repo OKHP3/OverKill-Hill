@@ -1,0 +1,137 @@
+{
+  "role": "SAFETY/PORTABILITY",
+  "reviewed_at_utc": "2026-09-06T03:31:35.730773+00:00",
+  "input_version": "draft-1",
+  "artifacts": [
+    {
+      "path": "assets/docs/audit-comprehensive-website-2026-09-05.md",
+      "expected_sha256": "e9ee3dc11e16ca33b6e582eff2d600cbe987896621befebf1ea9be51f7fe99e1",
+      "actual_sha256": "e9ee3dc11e16ca33b6e582eff2d600cbe987896621befebf1ea9be51f7fe99e1",
+      "matches": true
+    },
+    {
+      "path": "assets/docs/website-advancement-plan-2026-09-05.md",
+      "expected_sha256": "a68cfb644154d97699a75f30348aee2bbae7e46d4d2e5aff3a286a6c4b81cfba",
+      "actual_sha256": "a68cfb644154d97699a75f30348aee2bbae7e46d4d2e5aff3a286a6c4b81cfba",
+      "matches": true
+    }
+  ],
+  "decision": "approve-with-limits",
+  "summary": "The integrated packet is safe as an assessment and proposed implementation plan. It separates local, remote, live and CI evidence; does not claim compromise or security certification; and does not authorize account changes or public dispatch. Correct one wrong canonical shell path before handing the plan to workers. Two wording clarifications improve publication and ADR consistency.",
+  "claim_evidence": [
+    {
+      "claim": "Production edge assurance is partial, despite a successful deployment.",
+      "tier": "confirmed",
+      "judged_location": "assets/docs/audit-comprehensive-website-2026-09-05.md:145,155",
+      "evidence": [
+        "assets/audit/comprehensive-2026-09-05/ci-live-edge/live-edge-report.json: status PARTIAL; checks 427, failures 0, blocked 38, warnings 315",
+        "assets/audit/comprehensive-2026-09-05/live-security-headers.json: sampled GitHub responses omit desired response headers"
+      ],
+      "assessment": "Accurately qualified; page meta CSP is acknowledged. No false no-CSP or active-compromise claim."
+    },
+    {
+      "claim": "Package verification accepts a changed copied JavaScript file.",
+      "tier": "confirmed",
+      "judged_location": "assets/docs/website-advancement-plan-2026-09-05.md:77",
+      "evidence": [
+        "scripts/build-release.py:167-179 hashes sitemap and English index only",
+        "scripts/build-release.py:222-230 verifies only those hashes plus inventory",
+        "assets/audit/comprehensive-2026-09-05/release-integrity-probe.json"
+      ],
+      "assessment": "Negative fixture supports the narrow custom-verifier gap. Packet does not claim an observed supply-chain attack."
+    },
+    {
+      "claim": "Replit root publication has a different boundary from Pages, but live Replit exposure is not established.",
+      "tier": "confirmed configuration; unknown deployment",
+      "judged_location": "assets/docs/website-advancement-plan-2026-09-05.md:27,38",
+      "evidence": [
+        ".replit:67-69 publicDir dot",
+        "scripts/build-release.py explicit allowlist",
+        "assessment limits state authenticated Replit deployment was not inspected"
+      ],
+      "assessment": "Conditional priority and explicit absence of exposure claim are appropriate."
+    },
+    {
+      "claim": "Delegation briefs are proposals rather than dispatched or blanket-authorized account work.",
+      "tier": "confirmed text",
+      "judged_location": "assets/docs/website-advancement-plan-2026-09-05.md:3,69,73,89,93,97",
+      "evidence": [
+        "Brief A prohibits unapproved push, merge, account settings, sibling propagation and publishing",
+        "Brief E prohibits applying design variants to public artifact",
+        "Brief F prohibits DNS, hosting, preload, credentials and production changes",
+        "Brief G separates review from publication"
+      ],
+      "assessment": "Scope and publication authority are sufficiently explicit; Copilot reviewable PR output belongs to a future authorized implementation task."
+    },
+    {
+      "claim": "Sibling foundation compatibility must be preserved and propagated through controlled integration.",
+      "tier": "confirmed source contract",
+      "judged_location": "assets/docs/audit-comprehensive-website-2026-09-05.md:147; assets/docs/website-advancement-plan-2026-09-05.md concurrency table",
+      "evidence": [
+        "docs/adr/0001-shared-runtime-compatibility.md: shared three-file byte-identical superset",
+        "scripts/sync-foundation-files.py: explicit source/revision and lock handling"
+      ],
+      "assessment": "One integrator, compatibility testing and authorized propagation avoid accidental fleet edits."
+    },
+    {
+      "claim": "Analytics changes require a fresh owner decision rather than silently reversing a prior decision.",
+      "tier": "confirmed text and historical record",
+      "judged_location": "assets/docs/website-advancement-plan-2026-09-05.md:38,116",
+      "evidence": [
+        "docs/sxs-infrastructure-audit-2026-08-29.md:138-144 records owner decision to remove visible consent UI",
+        "plan W13 explicitly revisits an existing owner policy"
+      ],
+      "assessment": "Appropriate preference continuity; packet avoids legal noncompliance conclusions."
+    },
+    {
+      "claim": "The shell owner should edit site-src/partials.",
+      "tier": "disconfirmed",
+      "judged_location": "assets/docs/website-advancement-plan-2026-09-05.md:58",
+      "evidence": [
+        "scripts/build-site.py:23 defines PARTIALS as assets/partials",
+        "assets/partials/head.html",
+        "assets/partials/header.html",
+        "assets/partials/footer.html",
+        "site-src/partials does not exist"
+      ],
+      "assessment": "Incorrect canonical source path must be corrected before dispatch."
+    }
+  ],
+  "material_objections": [
+    {
+      "id": "SP-01",
+      "severity": "medium portability/implementation accuracy",
+      "blocking_scope": "Worker dispatch involving the shell; not delivery of the assessment as a draft",
+      "location": "assets/docs/website-advancement-plan-2026-09-05.md:58",
+      "objection": "Concurrency ownership names nonexistent site-src/partials/** instead of the renderer actual assets/partials/**. A worker may create a duplicate source tree or edit the wrong surface.",
+      "smallest_change": "Replace only that path with assets/partials/** and rehash the judged packet."
+    }
+  ],
+  "nonblocking_notes": [
+    {
+      "id": "SP-02",
+      "location": "assets/docs/audit-comprehensive-website-2026-09-05.md:41",
+      "note": "Only French is described as published/indexable, while all 20 locale routes are publicly served. Adjacent wording explains draft addressability, but published is overloaded.",
+      "suggestion": "Say only French is approved for indexing; all 20 locale routes are publicly addressable."
+    },
+    {
+      "id": "SP-03",
+      "location": "assets/docs/website-advancement-plan-2026-09-05.md:W07",
+      "note": "The existing ADR explicitly says keep wide-screen lerp follow, while CSS sticky is a proposed replacement in the workstream. Reduced-motion correction is compatible; changing default behavior may revise that decision.",
+      "suggestion": "When implementing W07, preserve the accepted default behavior or amend the relevant ADR decision in the same review, with sibling compatibility evidence."
+    }
+  ],
+  "smallest_decisive_tests": [
+    "Verify the plan shell path equals scripts/build-site.py PARTIALS; confirm all named existing ownership paths exist.",
+    "After any correction, recompute both packet SHA-256 values and retain this review against its original frozen hashes.",
+    "For future implementation, use the named copied-artifact tamper fixtures and attempt-specific artifact selection test; do not run a production mutation just to prove the audit.",
+    "For future host changes, validate the selected adapter with staging response headers; preserve DNS/account approval boundaries."
+  ],
+  "limitations": [
+    "Reviewer is a sub-agent of the same model family and shares conversation/history with the parent; this is role-separated analysis, not independent organizational assurance.",
+    "Reviewer contributed the earlier security/delivery workstream. This review judged only the parent-authored integrated assessment and advancement plan; that contribution reduces independence for overlapping security claims.",
+    "No extra full suites, exploit tests, live account changes, external messages or publication were performed.",
+    "UI, linguistic quality, legal interpretation, field performance and external app completeness were not independently re-tested in this bounded safety/portability review.",
+    "No judged file was edited. The frozen hashes match review-input draft-1."
+  ]
+}

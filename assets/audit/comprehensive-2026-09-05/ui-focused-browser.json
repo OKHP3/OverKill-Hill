@@ -1,0 +1,468 @@
+[
+  {
+    "name": "desktop",
+    "url": "https://overkillhill.com/",
+    "metrics": {
+      "title": "OverKill Hill P³™: Precision · Protocol · Promptcraft",
+      "viewport": 1440,
+      "width": 1440,
+      "height": 5196,
+      "hiddenReveals": [
+        "Selected work\n\nCurrent status and proof, reviewed September 5, 2026.\n\nLIVE: ACTIVE BUILD\n\nSkillz Forge\n\nDiscoverable, in",
+        "How OverKill Hill thinks\n\nThe “OverKill” in the name isn’t about complexity for its own sake. It’s about going far enoug",
+        "Fresh from the Forge\n\nThe most recent thing to clear the workbench and go public.\n\nFRESH FROM THE FORGE\n\nThe First Diagr",
+        "Writing on the horizon\n\nTwo newer pieces are taking shape in the forge. Follow along while the drafts are still warm.\n\nD",
+        "Projects from the forge\n\nSome of the systems that live on the Hill. Each one is a blueprint you can walk into: documente",
+        "Let’s build something enduring.\n\nWhether you’re ready for a single, precise tool or a whole custom stack, OverKill Hill "
+      ],
+      "nav": {
+        "display": "block",
+        "visibility": "visible"
+      },
+      "h1": {
+        "x": 160,
+        "y": 288.03125,
+        "width": 629.984375,
+        "height": 103.65625,
+        "top": 288.03125,
+        "right": 789.984375,
+        "bottom": 391.6875,
+        "left": 160
+      },
+      "main": {
+        "x": 0,
+        "y": 124.046875,
+        "width": 1440,
+        "height": 4606.171875,
+        "top": 124.046875,
+        "right": 1440,
+        "bottom": 4730.21875,
+        "left": 0
+      }
+    }
+  },
+  {
+    "test": "skip",
+    "state": {
+      "active": "<a class=\"okh-skip-link\" href=\"#main\">Skip to main content</a>",
+      "hash": "",
+      "scrollY": 0
+    }
+  },
+  {
+    "test": "skip-next-tab",
+    "state": "<a aria-label=\"OverKill Hill P³ home\" href=\"/\">\n<img alt=\"OverKill Hill P³\" height=\"40\" loading=\"eager\" src=\"/assets/img/favicons/murderbird-v2-icon-nav-96.png\" width=\"40\">\n<span class=\"sr-only\">OverKill&nbsp;Hill&nbsp;P³™ Home</span>\n</a>"
+  },
+  {
+    "test": "search-arrow",
+    "state": {
+      "input": "<input type=\"search\" class=\"okh-search-input\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"Search the Forge — articles, projects, ideas…\" aria-label=\"Search\" style=\"\">",
+      "active": "<input type=\"search\" class=\"okh-search-input\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"Search the Forge — articles, projects, ideas…\" aria-label=\"Search\" style=\"\">",
+      "selected": "<a class=\"okh-search-result\" href=\"/projects/mermaid-theme-builder/\" data-active=\"true\"><div class=\"okh-search-result-meta\"><span class=\"okh-search-result-cat\">Project</span><span class=\"okh-search-result-url\">/projects/mermaid-theme-builder/</span></div><h3 class=\"okh-search-result-title\"><mark>Mermaid</mark> Theme Builder | OverKill Hill P³™</h3><p class=\"okh-search-result-snippet\">overkillhill.com / projects / <mark>mermaid</mark>-theme-builder Community Tool Open Source v0.6.1 Shipped Agent Skill Family Shipped <mark>Mermaid</mark> Theme Builder Visual governance for AI-generated <mark>Mermaid</mark> diagrams. Paste <mark>Mermaid</mark>, detect th…</p></a>",
+      "status": "12 results found for mermaid.",
+      "results": "PROJECT\n/PROJECTS/BPMN-FOR-MERMAID/\nBPMN for Mermaid | OverKill Hill P³™\n\noverkillhill.com / projects / bpmn-for-mermaid Open Source bpmn-beta DSL BP-SKILL Agent Suite Active BPMN for Mermaid Text-first. Standards-aware. Git-native. Agent-ready. Two things live in this project. First: bpmn-bet…\n\nPROJECT\n/PROJECTS/MERMAID-THEME-BUILDER/\nMermaid Theme Builder | OverKill Hill P³™\n\noverkillhill.com / projects / mermaid-theme-builder Community Tool Open Source v0.6.1 Shipped Agent Skill Family Shipped Mermaid Theme Builder Visual governance for AI-generated Mermaid diagrams. Paste Mermaid, detect th…\n\nPROJECT\n/PROJECTS/BPMN-FOR-MERMAID/#FEATURES\nWhat the project does — BPMN for Mermaid | OverKill Hill P³™\n\nFeatures What the project does 🔷 Mermaid-Native DSL Starts with bpmn-beta : the diagram type keyword. Reads like every other Mermaid diagram. No boilerplate, no XML, no schema to import. ⊞ Pools & Lanes experimental Poo…\n\nPROJECT\n/PROJECTS/BPMN-FOR-MERMAID/#HONEST-SCOPE\nWhat this is, and what it isn't — BPMN for Mermaid | OverKill Hill P³™\n\nHonest Scope What this is, and what it isn't This is a Mermaid-native BPMN descriptive subset proposal. ✓ A readable DSL for the BPMN 2.0 Descriptive Conformance subset: start/end events, tasks, gateways, flows, pools, a…\n\nPROJECT\n/PROJECTS/BPMN-FOR-MERMAID/#RELATED-RESOURCES\nRelated Resources — BPMN for Mermaid | OverKill Hill P³™\n\nRelated Mermaid Theme Builder ↗ Mermaid.js Theming Docs ↗ BPMN.org ↗ OMG BPMN 2.0 Spec ↗ Mermaid GitHub ↗ All OverKill Hill Projects </div\n\nPROJECT\n/PROJECTS/MERMAID-THEME-BUILDER/#PERSONAS\nWho uses Mermaid Theme Builder — Mermaid Theme Builder | OverKill Hill P³™\n\nBuilt For Who uses Mermaid Theme Builder ◈ Enterprise Architects Need repeatable visual standards across hundreds of diagrams. One governed theme applies consistently: no manual re-styling after every AI generation. ⚡ AI…\n\nPROJECT\n/PROJECTS/MERMAID-THEME-BUILDER/#PROBLEM\nThe Missing Layer — Mermaid Theme Builder | OverKill Hill P³™\n\n… the dice When ChatGPT, Claude, Copilot, or Gemini generate Mermaid diagrams, each prompt produces different colors, inconsistent styling, and no memory of what worked before. ◫ Default styling = brand disconnection Merm…\n\nPROJECT\n/PROJECTS/MERMAID-THEME-BUILDER/#RELATED-RESOURCES\nRelated Resources — Mermaid Theme Builder | OverKill Hill P³™\n\n…ll Family Manifest (FAMILY.md) ↗ SKILL.md Source ↗ BPMN for Mermaid (sibling) Mermaid.js Theming Docs ↗ themeVariables Reference ↗ Mermaid.js Syntax Reference ↗ The First Diagram is a Liar All OverKill Hill Projects </di…\n\nPROJECT\n/PROJECTS/MERMAID-THEME-BUILDER/#WHAT-IT-IS\nA governance workbench, not a diagram editor — Mermaid Theme Builder | OverKill Hill P³™\n\n… What It Is ◆ A visual workbench for defining and enforcing Mermaid diagram themes ◆ A renderer-aware export tool: flags what breaks in GitHub, GitLab, Obsidian, Notion, Confluence ◆ A brand palette enforcer: presets for…\n\nARTICLE SECTION\n/WRITINGS/FIRST-DIAGRAM-IS-A-LIAR/#MERMAID-SYNTAX-VS-PLATFORM\nMermaid the Syntax vs Mermaid.ai the Platform — The First Diagram Is Usually a Liar: v0.5 | OverKill Hill P³™\n\nMermaid the syntax is a language. Mermaid.ai the platform is one AI-assisted on-ramp to that language. Those are not the same thing. Mermaid.ai is a generative AI product purpose-built to help you produce Mermaid code fa…\n\nARTICLE SECTION\n/WRITINGS/FIRST-DIAGRAM-IS-A-LIAR/#WHAT-MERMAID-ACTUALLY-IS\nWhat a Mermaid Diagram Actually Is — The First Diagram Is Usually a Liar: v0.5 | OverKill Hill P³™\n\nMermaid is not AI. That sentence needs to land before anything else in this article makes sense, because if you carry the wrong assumption into the council comparison, the entire experiment looks like something it isn’t.…\n\nPROJECT\n/PROJECTS/BPMN-FOR-MERMAID/#BUILD-PROGRESS\nWhere the project is — BPMN for Mermaid | OverKill Hill P³™\n\n…Architecture, Roadmap, About). Validates the core thesis: a Mermaid-native readable BPMN DSL can render BPMN-correct shapes without bpmn-js.",
+      "inert": false
+    }
+  },
+  {
+    "name": "mobile",
+    "url": "https://overkillhill.com/",
+    "metrics": {
+      "title": "OverKill Hill P³™: Precision · Protocol · Promptcraft",
+      "viewport": 390,
+      "width": 390,
+      "height": 8784,
+      "hiddenReveals": [],
+      "nav": {
+        "display": "block",
+        "visibility": "visible"
+      },
+      "h1": {
+        "x": 0,
+        "y": 258.96875,
+        "width": 390,
+        "height": 124.40625,
+        "top": 258.96875,
+        "right": 390,
+        "bottom": 383.375,
+        "left": 0
+      },
+      "main": {
+        "x": 0,
+        "y": 163.3125,
+        "width": 390,
+        "height": 7655.21875,
+        "top": 163.3125,
+        "right": 390,
+        "bottom": 7818.53125,
+        "left": 0
+      }
+    }
+  },
+  {
+    "test": "mobile-nav",
+    "state": {
+      "active": "<button aria-controls=\"navigation\" aria-expanded=\"true\" class=\"nav-toggle\">\n<span class=\"sr-only\">Toggle navigation</span>\n<span class=\"bar\"></span><span class=\"bar\"></span><span class=\"bar\"></span>\n</button>",
+      "navRect": {
+        "x": 0,
+        "y": -802.125,
+        "width": 390,
+        "height": 718.4375,
+        "top": -802.125,
+        "right": 390,
+        "bottom": -83.6875,
+        "left": 0
+      },
+      "links": [
+        {
+          "text": "The Forge",
+          "r": {
+            "x": 24,
+            "y": -784.125,
+            "width": 88.328125,
+            "height": 18,
+            "top": -784.125,
+            "right": 112.328125,
+            "bottom": -766.125,
+            "left": 24
+          }
+        },
+        {
+          "text": "Our Projects",
+          "r": {
+            "x": 24,
+            "y": -741.078125,
+            "width": 116.453125,
+            "height": 18,
+            "top": -741.078125,
+            "right": 140.453125,
+            "bottom": -723.078125,
+            "left": 24
+          }
+        },
+        {
+          "text": "Skillz Forge",
+          "r": {
+            "x": 44,
+            "y": -712.03125,
+            "width": 322,
+            "height": 29.890625,
+            "top": -712.03125,
+            "right": 366,
+            "bottom": -682.140625,
+            "left": 44
+          }
+        },
+        {
+          "text": "Found‑Rᵧ",
+          "r": {
+            "x": 44,
+            "y": -682.140625,
+            "width": 322,
+            "height": 29.890625,
+            "top": -682.140625,
+            "right": 366,
+            "bottom": -652.25,
+            "left": 44
+          }
+        },
+        {
+          "text": "Mermaid Theme Builder",
+          "r": {
+            "x": 44,
+            "y": -652.25,
+            "width": 322,
+            "height": 29.890625,
+            "top": -652.25,
+            "right": 366,
+            "bottom": -622.359375,
+            "left": 44
+          }
+        },
+        {
+          "text": "BPMN for Mermaid",
+          "r": {
+            "x": 44,
+            "y": -622.359375,
+            "width": 322,
+            "height": 29.890625,
+            "top": -622.359375,
+            "right": 366,
+            "bottom": -592.46875,
+            "left": 44
+          }
+        },
+        {
+          "text": "Mac Studio Local AI Workbench",
+          "r": {
+            "x": 44,
+            "y": -592.46875,
+            "width": 322,
+            "height": 29.890625,
+            "top": -592.46875,
+            "right": 366,
+            "bottom": -562.578125,
+            "left": 44
+          }
+        },
+        {
+          "text": "Abrahamic Reference Engine",
+          "r": {
+            "x": 44,
+            "y": -562.578125,
+            "width": 322,
+            "height": 29.890625,
+            "top": -562.578125,
+            "right": 366,
+            "bottom": -532.6875,
+            "left": 44
+          }
+        },
+        {
+          "text": "Glee-fully Chai Chasers",
+          "r": {
+            "x": 44,
+            "y": -532.6875,
+            "width": 322,
+            "height": 29.890625,
+            "top": -532.6875,
+            "right": 366,
+            "bottom": -502.796875,
+            "left": 44
+          }
+        },
+        {
+          "text": "Kieran's LifeTrkr",
+          "r": {
+            "x": 44,
+            "y": -502.796875,
+            "width": 322,
+            "height": 29.890625,
+            "top": -502.796875,
+            "right": 366,
+            "bottom": -472.90625,
+            "left": 44
+          }
+        },
+        {
+          "text": "Telling Forward",
+          "r": {
+            "x": 44,
+            "y": -472.90625,
+            "width": 322,
+            "height": 29.890625,
+            "top": -472.90625,
+            "right": 366,
+            "bottom": -443.015625,
+            "left": 44
+          }
+        },
+        {
+          "text": "Writings",
+          "r": {
+            "x": 24,
+            "y": -413.015625,
+            "width": 75.75,
+            "height": 18,
+            "top": -413.015625,
+            "right": 99.75,
+            "bottom": -395.015625,
+            "left": 24
+          }
+        },
+        {
+          "text": "The Manifesto",
+          "r": {
+            "x": 44,
+            "y": -383.96875,
+            "width": 322,
+            "height": 29.890625,
+            "top": -383.96875,
+            "right": 366,
+            "bottom": -354.078125,
+            "left": 44
+          }
+        },
+        {
+          "text": "The Prompt Forge",
+          "r": {
+            "x": 44,
+            "y": -354.078125,
+            "width": 322,
+            "height": 29.890625,
+            "top": -354.078125,
+            "right": 366,
+            "bottom": -324.1875,
+            "left": 44
+          }
+        },
+        {
+          "text": "The First Diagram is a Liar",
+          "r": {
+            "x": 44,
+            "y": -324.1875,
+            "width": 322,
+            "height": 29.890625,
+            "top": -324.1875,
+            "right": 366,
+            "bottom": -294.296875,
+            "left": 44
+          }
+        },
+        {
+          "text": "About",
+          "r": {
+            "x": 24,
+            "y": -264.296875,
+            "width": 52.671875,
+            "height": 18,
+            "top": -264.296875,
+            "right": 76.671875,
+            "bottom": -246.296875,
+            "left": 24
+          }
+        },
+        {
+          "text": "OKHP³™ Universe",
+          "r": {
+            "x": 44,
+            "y": -235.25,
+            "width": 322,
+            "height": 29.890625,
+            "top": -235.25,
+            "right": 366,
+            "bottom": -205.359375,
+            "left": 44
+          }
+        },
+        {
+          "text": "About OKHP³™",
+          "r": {
+            "x": 44,
+            "y": -205.359375,
+            "width": 322,
+            "height": 29.890625,
+            "top": -205.359375,
+            "right": 366,
+            "bottom": -175.46875,
+            "left": 44
+          }
+        },
+        {
+          "text": "Contact",
+          "r": {
+            "x": 44,
+            "y": -175.46875,
+            "width": 322,
+            "height": 29.890625,
+            "top": -175.46875,
+            "right": 366,
+            "bottom": -145.578125,
+            "left": 44
+          }
+        },
+        {
+          "text": "Legal",
+          "r": {
+            "x": 44,
+            "y": -145.578125,
+            "width": 322,
+            "height": 29.890625,
+            "top": -145.578125,
+            "right": 366,
+            "bottom": -115.6875,
+            "left": 44
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "nojs-desktop",
+    "url": "https://overkillhill.com/",
+    "metrics": {
+      "title": "OverKill Hill P³™: Precision · Protocol · Promptcraft",
+      "viewport": 1440,
+      "width": 1440,
+      "height": 5198,
+      "hiddenReveals": [
+        "THE FORGE\n\nPrecision · Protocol · Promptcraft\n\nTHE DIGITAL FORGE\n\nThis is where AI systems are designed, tested, and har",
+        "Start with the work\n\nJamie designs practical AI tools and working methods for founders, operators, and curious teams.\n\nU",
+        "Selected work\n\nCurrent status and proof, reviewed September 5, 2026.\n\nLIVE: ACTIVE BUILD\n\nSkillz Forge\n\nDiscoverable, in",
+        "How OverKill Hill thinks\n\nThe “OverKill” in the name isn’t about complexity for its own sake. It’s about going far enoug",
+        "Fresh from the Forge\n\nThe most recent thing to clear the workbench and go public.\n\nFRESH FROM THE FORGE\n\nThe First Diagr",
+        "Writing on the horizon\n\nTwo newer pieces are taking shape in the forge. Follow along while the drafts are still warm.\n\nD",
+        "Projects from the forge\n\nSome of the systems that live on the Hill. Each one is a blueprint you can walk into: documente",
+        "Let’s build something enduring.\n\nWhether you’re ready for a single, precise tool or a whole custom stack, OverKill Hill "
+      ],
+      "nav": {
+        "display": "block",
+        "visibility": "visible"
+      },
+      "h1": {
+        "x": 160,
+        "y": 308.875,
+        "width": 629.984375,
+        "height": 103.65625,
+        "top": 308.875,
+        "right": 789.984375,
+        "bottom": 412.53125,
+        "left": 160
+      },
+      "main": {
+        "x": 0,
+        "y": 124.046875,
+        "width": 1440,
+        "height": 4608.171875,
+        "top": 124.046875,
+        "right": 1440,
+        "bottom": 4732.21875,
+        "left": 0
+      }
+    }
+  },
+  {
+    "name": "nojs-mobile",
+    "url": "https://overkillhill.com/",
+    "metrics": {
+      "title": "OverKill Hill P³™: Precision · Protocol · Promptcraft",
+      "viewport": 390,
+      "width": 390,
+      "height": 8755,
+      "hiddenReveals": [],
+      "nav": {
+        "display": "block",
+        "visibility": "visible"
+      },
+      "h1": {
+        "x": 0,
+        "y": 258.96875,
+        "width": 390,
+        "height": 124.40625,
+        "top": 258.96875,
+        "right": 390,
+        "bottom": 383.375,
+        "left": 0
+      },
+      "main": {
+        "x": 0,
+        "y": 163.3125,
+        "width": 390,
+        "height": 7647.546875,
+        "top": 163.3125,
+        "right": 390,
+        "bottom": 7810.859375,
+        "left": 0
+      }
+    }
+  },
+  {
+    "test": "toc-reduced-motion",
+    "frames": [
+      "translateY(25.2px)",
+      "translateY(153.34px)",
+      "translateY(216.97px)",
+      "translateY(264.69px)"
+    ]
+  }
+]

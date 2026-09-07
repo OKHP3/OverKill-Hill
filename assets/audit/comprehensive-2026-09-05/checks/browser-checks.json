@@ -1,0 +1,62 @@
+{
+  "commit": "40e18ee7916f4a54196cc407d60999ba1d786d11",
+  "checked_at": "2026-09-06T03:17:39.165615+00:00",
+  "checks": [
+    {
+      "id": "phone-overflow",
+      "command": [
+        "node",
+        "scripts/phone-overflow-qa.mjs",
+        "--base-url=http://127.0.0.1:5057"
+      ],
+      "exit_code": 0,
+      "seconds": 2.51,
+      "log": "phone-overflow.log"
+    },
+    {
+      "id": "responsive",
+      "command": [
+        "node",
+        "scripts/responsive-qa.mjs",
+        "--base=http://127.0.0.1:5057"
+      ],
+      "exit_code": 0,
+      "seconds": 18.64,
+      "log": "responsive.log"
+    },
+    {
+      "id": "accessibility",
+      "command": [
+        "node",
+        "scripts/accessibility-qa.mjs",
+        "--base-url=http://127.0.0.1:5057"
+      ],
+      "exit_code": 0,
+      "seconds": 21.03,
+      "log": "accessibility.log"
+    },
+    {
+      "id": "screen-reader-tree",
+      "command": [
+        "node",
+        "scripts/screen-reader-tree-audit.mjs",
+        "--base-url=http://127.0.0.1:5057"
+      ],
+      "exit_code": 0,
+      "seconds": 9.59,
+      "log": "screen-reader-tree.log"
+    },
+    {
+      "id": "csp-browser",
+      "command": [
+        "node",
+        "scripts/csp-qa.mjs",
+        "--base-url=http://127.0.0.1:5057",
+        "--report=/tmp/okh-assessment-20260905-oiP7ek/results/csp-browser.json"
+      ],
+      "exit_code": 1,
+      "seconds": 0.2,
+      "log": "csp-browser.log"
+    }
+  ]
+}

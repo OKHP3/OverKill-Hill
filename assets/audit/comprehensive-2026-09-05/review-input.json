@@ -1,0 +1,22 @@
+{
+  "version": "draft-1",
+  "decision_question": "Is this recommendation packet evidence-supported, useful for execution, and safe within its stated assessment scope?",
+  "acceptance_criteria": [
+    "Material claims trace to current source or measured evidence.",
+    "Local, remote, live, CI, analytical and unknown evidence remain distinct.",
+    "No model-confidence, performance, security, accessibility or translation overclaims.",
+    "Tasks have implementable scope, sequencing and acceptance evidence.",
+    "No implementation/publication is falsely claimed or implicitly authorized.",
+    "Owner voice, public-private boundaries and preservation decisions remain intact."
+  ],
+  "artifacts": [
+    {
+      "path": "assets/docs/audit-comprehensive-website-2026-09-05.md",
+      "sha256": "e9ee3dc11e16ca33b6e582eff2d600cbe987896621befebf1ea9be51f7fe99e1"
+    },
+    {
+      "path": "assets/docs/website-advancement-plan-2026-09-05.md",
+      "sha256": "a68cfb644154d97699a75f30348aee2bbae7e46d4d2e5aff3a286a6c4b81cfba"
+    }
+  ]
+}
