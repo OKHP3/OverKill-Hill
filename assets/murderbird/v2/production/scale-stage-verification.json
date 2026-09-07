@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "metric_units": true,
+    "bird_envelope_1_8m": true,
+    "adult_height_1_8m": true,
+    "bench_top_0_9m": true,
+    "crt_height_0_4m": true,
+    "three_cameras": true,
+    "packed_reference": true
+  },
+  "all_pass": true,
+  "blender_version": "5.2.1 LTS"
+}

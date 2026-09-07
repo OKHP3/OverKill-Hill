@@ -1,0 +1,831 @@
+{
+  "version": 1,
+  "publicationStatus": "local-review-only",
+  "sourceRepositoryRevision": "2d7e92d23fcbe875c7421d4509109bffd22b0c48",
+  "storySource": "site-src/pages/writings/murderbird/index.main.html",
+  "scaleStatus": "proposed approximately 1.8 m standing height; pending canon confirmation",
+  "processing": "Whole-frame proportional resize and encoding only. No crop, retouch, compositing, or generation in Pillow.",
+  "entries": [
+    {
+      "id": "01-maker",
+      "title": "The Maker: inspection in the courtyard",
+      "storyEra": "Ancient construction, before immersion",
+      "alt": "An adult-height bronze MurderBird stands on the stone courtyard floor beside its ancient Maker, who holds a hammer lowered at their side.",
+      "caption": "The body is made; the bones remain evidence, never machinery.",
+      "placements": [
+        "MurderBird story Maker section",
+        "history feature card",
+        "wide editorial hero"
+      ],
+      "reviewStatus": "visual-review-recorded; canon-and-publication-pending",
+      "generationTool": "OpenAI native image generation",
+      "originPromptPointers": [
+        "masters/ancient-metadata.json#01-maker"
+      ],
+      "status": "candidate",
+      "prompt": "Use case: historical-scene. Create one premium cinematic photoreal LANDSCAPE 16:9 narrative master image for OverKill Hill, The Maker. Use attached reference only for MurderBird identity, human-height scale and shape: about 1.8 metres floor to crown, substantial hips, long sturdy terrestrial legs, deep hooked bronze bill, swept segmented crown, overlapping hammered bronze armor, subtly mismatched left shoulder plate, compact folded ornamental wings and SHORT tail. This is the same fictional constructed bird in its ANCIENT original era; remove every modern wire, electronic circuit, Victorian strap, industrial piston, fabricated steel frame and illuminated eye. Its construction is hand-worked ancient bronze plates, peened pins, concealed original linkages, restrained warm aged bronze with fine irregular tool marks; not steampunk clutter. Scene: quiet inspection in an ancient Mesopotamian masonry courtyard, bird entirely visible from crown to both floor-planted talons at center-right. An anonymous adult Maker in simple period wool/linen clothing stands beside it on EXACTLY SAME FLOOR AND DEPTH PLANE, same approximate height, hands lowered, facing the bird, no face portrait emphasis. Ordinary stone doorway and adult establish honest scale. Use believable weight bearing contacts and substantial legs, no tabletop perching. The bird stands calmly, attention directed toward a small wooden-handled metal hammer held lowered by the person: anticipation of inspection, no violent act or damage. Golden morning side-light, broad soft courtyard shadow on left with tasteful negative space suitable for later website title overlay; no baked text. Rich tactile stone, bronze and cloth, sober archaeological speculative fiction, grounded cinema still. Preserve crown and hooked head silhouette from reference while simplifying era-specific parts; two legs only, anatomy legible, fully folded ornamental wings, no flying or eagle-size creature. NO fossil skull or fossils, no computers, no electricity, no glowing eye, no later industrial objects, no fantasy runes, no writing, no watermark. Wide single scene, no collage.",
+      "storySourceCommit": "2d7e92d23fcbe875c7421d4509109bffd22b0c48",
+      "limitations": [
+        "1.8 m is a working design target, not a measured engineering model or established textual measurement.",
+        "Ancient mechanism is speculative fiction, not a historically verified machine.",
+        "Hammer remains intact: scene is anticipation of inspection, not the story's completed handle-breaking beat.",
+        "Fine joint and pin details are generative and are not guaranteed interchangeable with other masters."
+      ],
+      "visualReviewPointer": "independent-visual-review.md",
+      "master": {
+        "path": "masters/01-maker.png",
+        "width": 1672,
+        "height": 940,
+        "bytes": 2585917,
+        "sha256": "438fe5443d7c11ffbd41e99c4fb2425fb241c73c3757380a26fd4cf8a2b8a064"
+      },
+      "derivatives": [
+        {
+          "path": "derivatives/01-maker-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 32848,
+          "sha256": "4db4b446dd525d1f496f85becb414e4bd8c735088a1ba2f7904d516dbcd0443b"
+        },
+        {
+          "path": "derivatives/01-maker-480.jpg",
+          "width": 480,
+          "height": 270,
+          "bytes": 40888,
+          "sha256": "7d56d75d8c72fc51a855ae0b2b1235b75a3e1f56621761d74d19d1d4d5210ed2"
+        },
+        {
+          "path": "derivatives/01-maker-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 112378,
+          "sha256": "72759cac4878532fd7417f070baceb74b2a0fe0f88604a22547b9683264ca6ef"
+        },
+        {
+          "path": "derivatives/01-maker-960.jpg",
+          "width": 960,
+          "height": 540,
+          "bytes": 147874,
+          "sha256": "f8b53098cb73cf156a8ff5b0a5010671c30b04c89c5c79c95a167ac6371a03ba"
+        },
+        {
+          "path": "derivatives/01-maker-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 237148,
+          "sha256": "214633ac0b1124470c4e6d6011b051d561934fe5377d83c72f4927af619468bd"
+        },
+        {
+          "path": "derivatives/01-maker-1600.jpg",
+          "width": 1600,
+          "height": 900,
+          "bytes": 347312,
+          "sha256": "5cba6b1c66040824505f794cb28083980ae270832f7f37ffd4426cbc005d84fb"
+        }
+      ],
+      "socialCard": {
+        "layout": "social/01-maker.html",
+        "width": 1200,
+        "height": 630,
+        "status": "rasterized-candidate",
+        "raster": {
+          "path": "social/01-maker.png",
+          "width": 1200,
+          "height": 630,
+          "bytes": 1021779,
+          "sha256": "3b70e7c108df9534184f7691a36cbdf2baff78a346ddcfd0ebbe1a2648403b53"
+        }
+      },
+      "imageObjectDraft": {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "name": "The Maker: inspection in the courtyard",
+        "description": "An adult-height bronze MurderBird stands on the stone courtyard floor beside its ancient Maker, who holds a hammer lowered at their side.",
+        "caption": "The body is made; the bones remain evidence, never machinery.",
+        "contentUrl": "https://overkillhill.com/assets/murderbird/v2/social/01-maker.png",
+        "encodingFormat": "image/png",
+        "width": 1200,
+        "height": 630
+      },
+      "metadataSnippetDraft": "<meta property=\"og:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/01-maker.png\">\n<meta property=\"og:image:width\" content=\"1200\">\n<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"An adult-height bronze MurderBird stands on the stone courtyard floor beside its ancient Maker, who holds a hammer lowered at their side.\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/01-maker.png\">\n<meta name=\"twitter:image:alt\" content=\"An adult-height bronze MurderBird stands on the stone courtyard floor beside its ancient Maker, who holds a hammer lowered at their side.\">"
+    },
+    {
+      "id": "02-water",
+      "title": "What the Water Kept",
+      "storyEra": "Long immersion before the 1853 excavation",
+      "alt": "The inert bronze MurderBird lies on its side in shallow cistern water, its dark eye and mineral-stained plates beside masonry steps and a slack lowering rope.",
+      "caption": "Stillness, mineral deposits, and the long preservation of a body.",
+      "placements": [
+        "MurderBird story Water section",
+        "archaeological history feature card",
+        "wide atmospheric divider"
+      ],
+      "reviewStatus": "visual-review-recorded; canon-and-publication-pending",
+      "generationTool": "OpenAI native image generation",
+      "originPromptPointers": [
+        "masters/ancient-metadata.json#02-water"
+      ],
+      "status": "candidate",
+      "prompt": "Use case: historical-scene. Create a premium cinematic photoreal LANDSCAPE 16:9 narrative master image for OverKill Hill, What the Water Kept. Input image is the identity reference for the SAME ancient constructed MurderBird, preserve its exact deep hooked bronze bill, swept layered segmented crown, rounded mismatched shoulder plate, compact folded ornamental wings, substantial hips, long sturdy terrestrial legs and short tail. Same adult-height body approximately 1.8m when upright, NOT small raptor. Scene: centuries after its ancient Maker lowered it into a disused masonry cistern, long before any Victorian restoration. Show its ENTIRE inert body resting heavily on its side in shallow dark still water and mineral silt at cistern bottom, head and both legs all within frame, collapsed by gravity rather than posed standing awake. Thick ancient lowering rope lies slack around torso and trails up along large masonry blocks and several full-size stone stair treads, giving honest physical scale. Water has darkened bronze brown-black; green and blue mineral deposits in seams, thin roots trace lower plates. The eye is completely dark and lifeless. No movement, no cognition, no glowing parts. Original ancient hand-worked plates and peened pins only, no modern circuitry, no Victorian iron repair straps, no steam hoses. A narrow soft shaft of daylight from high above grazes crown and corroded shoulder, physically believable reflections, readable overall silhouette with deep nuanced shadow, dark teal mineral palette and muted bronze. Composition bird right-center, still water and textured masonry left gives restrained breathing room, no text. A grounded fictional archaeological cinematic photograph, sober tactile materials, not fantasy illustration. No humans needed, no skulls, no fossils, no skeleton incorporated, no flames, no blood, no magic, no text, no watermark. Keep full body visible and match head and plate silhouette to attached ancient Maker image; single coherent wide scene, no collage.",
+      "storySourceCommit": "2d7e92d23fcbe875c7421d4509109bffd22b0c48",
+      "limitations": [
+        "Masonry and stairs imply scale; no person provides a direct height comparison.",
+        "Rope is visible on stairs and behind body; its full body attachment is occluded.",
+        "An artistic long-immersion scene: exact rope preservation and mineral formation are not archaeological claims.",
+        "Fine joint and pin details are generative and are not guaranteed interchangeable with other masters."
+      ],
+      "visualReviewPointer": "independent-visual-review.md",
+      "master": {
+        "path": "masters/02-water.png",
+        "width": 1672,
+        "height": 940,
+        "bytes": 2386514,
+        "sha256": "fe0890b1f757ab9699f1efc7325d262263741d0366128c5df622d6a80582a3ee"
+      },
+      "derivatives": [
+        {
+          "path": "derivatives/02-water-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 20846,
+          "sha256": "83c2ed52bfaff92cf4dbda6c46136dda8f14a75d94a62058a2a8c82cf62d952e"
+        },
+        {
+          "path": "derivatives/02-water-480.jpg",
+          "width": 480,
+          "height": 270,
+          "bytes": 30680,
+          "sha256": "659a455f56adbd7042dd1c609824c7ab7600667a8aa89c180deae826457cf42c"
+        },
+        {
+          "path": "derivatives/02-water-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 78598,
+          "sha256": "937fb12fb5b0869969b4821ba8f69de7270c92dad6321dda1f41f54b4638a6e0"
+        },
+        {
+          "path": "derivatives/02-water-960.jpg",
+          "width": 960,
+          "height": 540,
+          "bytes": 117700,
+          "sha256": "487a613cfd8117891bd892c20136697351cb8096693a77b2c0b41c75c8efb777"
+        },
+        {
+          "path": "derivatives/02-water-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 171768,
+          "sha256": "39cc66df87cd421136bbc596e4ad073f2eb331cb4cb8711e4df49348af74cb96"
+        },
+        {
+          "path": "derivatives/02-water-1600.jpg",
+          "width": 1600,
+          "height": 900,
+          "bytes": 290019,
+          "sha256": "cbc9ea93edd56788320d4a3ae1ce9523b5bd1843adf81e17934aacb18eee56d6"
+        }
+      ],
+      "socialCard": {
+        "layout": "social/02-water.html",
+        "width": 1200,
+        "height": 630,
+        "status": "rasterized-candidate",
+        "raster": {
+          "path": "social/02-water.png",
+          "width": 1200,
+          "height": 630,
+          "bytes": 879669,
+          "sha256": "d503f656b159399c2763fa8abb3483816295a83b277e1bca16a03472a12f688a"
+        }
+      },
+      "imageObjectDraft": {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "name": "What the Water Kept",
+        "description": "The inert bronze MurderBird lies on its side in shallow cistern water, its dark eye and mineral-stained plates beside masonry steps and a slack lowering rope.",
+        "caption": "Stillness, mineral deposits, and the long preservation of a body.",
+        "contentUrl": "https://overkillhill.com/assets/murderbird/v2/social/02-water.png",
+        "encodingFormat": "image/png",
+        "width": 1200,
+        "height": 630
+      },
+      "metadataSnippetDraft": "<meta property=\"og:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/02-water.png\">\n<meta property=\"og:image:width\" content=\"1200\">\n<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"The inert bronze MurderBird lies on its side in shallow cistern water, its dark eye and mineral-stained plates beside masonry steps and a slack lowering rope.\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/02-water.png\">\n<meta name=\"twitter:image:alt\" content=\"The inert bronze MurderBird lies on its side in shallow cistern water, its dark eye and mineral-stained plates beside masonry steps and a slack lowering rope.\">"
+    },
+    {
+      "id": "03-recovery",
+      "title": "What the water released",
+      "storyEra": "1853 recovery and packing",
+      "alt": "Workers secure the inert, human-height bronze MurderBird in a timber cradle beside the excavated cistern in 1853.",
+      "caption": "Excavation and transport precede the later restoration.",
+      "placements": [
+        "/writings/murderbird/#the-water",
+        "story timeline recovery card",
+        "historical social preview"
+      ],
+      "reviewStatus": "visual-review-recorded; canon-and-publication-pending",
+      "generationTool": "OpenAI native image generation",
+      "originPromptPointers": [
+        "masters/restoration-metadata.json#03-recovery"
+      ],
+      "status": "candidate",
+      "prompt": "Create a photoreal cinematic historical-scene website master image, landscape 16:9, 1920x1080 or higher. Reference image is IDENTITY AND SCALE reference only, not a scene to copy. Scene: 1853, arid Mesopotamian ruined cistern excavation, the recovered fictional MurderBird being secured for transport, anonymous workers in simple period linen clothing at the SAME depth plane as the machine establish human-height scale. Preserve reference swept segmented crown, deep curved bronze bill, asymmetrical refitted left shoulder plate, recognizable overlapping hammered bronze silhouette; both heavy terrestrial mechanical legs and broad talons visible; wings compact folded ornamental armor, no extended flight feathers. Approximately 1.8m floor-to-crown when upright, equal adult height, NOT giant and NOT eagle-sized. Entire inert bird is supported upright by a substantial low wooden transport cradle and padded hemp ropes from timber tripod; feet resting in cradle at ground level, crown only slightly above adjacent adult heads because base is low. Crate boards and straw being prepared beside it. Worn dark brown-black ancient bronze, green-blue mineral deposits in seams, silt and root traces. REMOVE all modern wiring/electronics, modern machinery, Victorian repair straps and bright machined brass bearings shown in reference: this scene precedes restoration. Eyes entirely dark opaque unlit metal apertures, no orange glow, no visible intelligence. Frame entire bird including both feet and adjacent adult workers, clear scale cues, quiet weight and awkward heaviness rather than triumphant treasure discovery. Natural dusty side light, muted ochre stone, cinematic but credible materials, 50mm normal perspective. No text, logo, watermark, fossil skull, modern tools, flying, giant fantasy proportions, head injury or gore. The bird is an ancient crafted automaton, never an actual fossil or taxonomic reconstruction.",
+      "storySourceCommit": null,
+      "limitations": [
+        "Fictional historical interpretation, not archaeological evidence.",
+        "Approximately 1.8m is a working production target, not a measured 3D model.",
+        "Ropes partially obscure shoulders and torso; do not use as an engineering rigging diagram."
+      ],
+      "visualReviewPointer": "independent-visual-review.md",
+      "master": {
+        "path": "masters/03-recovery.png",
+        "width": 1672,
+        "height": 941,
+        "bytes": 2763215,
+        "sha256": "360eea9479a1e9dd1456db5acefdeb3b70f760a87f1acaa6a9efbb305d58f8c2"
+      },
+      "derivatives": [
+        {
+          "path": "derivatives/03-recovery-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 40436,
+          "sha256": "8073ef7e114950a4254b5098863bdc1aceacfaa2983576441784db3dfd39ec48"
+        },
+        {
+          "path": "derivatives/03-recovery-480.jpg",
+          "width": 480,
+          "height": 270,
+          "bytes": 47300,
+          "sha256": "266fc6a5d1df078d9b4fef029a321fdf55e4aa4421f005e9f0b08f104eccaeb4"
+        },
+        {
+          "path": "derivatives/03-recovery-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 128336,
+          "sha256": "a556b2b7cb7212f32260109606554d0082426d354f1eb9224662aeaa50c641c3"
+        },
+        {
+          "path": "derivatives/03-recovery-960.jpg",
+          "width": 960,
+          "height": 540,
+          "bytes": 161965,
+          "sha256": "a525fb1b3a94012cc672d6017cdfcd1cf4fa1cc84d933ab6305b6734ca71b4e7"
+        },
+        {
+          "path": "derivatives/03-recovery-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 271748,
+          "sha256": "affeee2d52b70464c92250a5fb9f8d875558c684e418429a953a37903650d5d7"
+        },
+        {
+          "path": "derivatives/03-recovery-1600.jpg",
+          "width": 1600,
+          "height": 900,
+          "bytes": 375637,
+          "sha256": "96e8400832f601feb70fc5aac424dfeb1f6a47dff5a76f52e4bac8a5ea14c292"
+        }
+      ],
+      "socialCard": {
+        "layout": "social/03-recovery.html",
+        "width": 1200,
+        "height": 630,
+        "status": "rasterized-candidate",
+        "raster": {
+          "path": "social/03-recovery.png",
+          "width": 1200,
+          "height": 630,
+          "bytes": 1091484,
+          "sha256": "d4515c913a4142793661a7163d9e12214cc3d73a8a24de9b73496c6916b51c23"
+        }
+      },
+      "imageObjectDraft": {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "name": "What the water released",
+        "description": "Workers secure the inert, human-height bronze MurderBird in a timber cradle beside the excavated cistern in 1853.",
+        "caption": "Excavation and transport precede the later restoration.",
+        "contentUrl": "https://overkillhill.com/assets/murderbird/v2/social/03-recovery.png",
+        "encodingFormat": "image/png",
+        "width": 1200,
+        "height": 630
+      },
+      "metadataSnippetDraft": "<meta property=\"og:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/03-recovery.png\">\n<meta property=\"og:image:width\" content=\"1200\">\n<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"Workers secure the inert, human-height bronze MurderBird in a timber cradle beside the excavated cistern in 1853.\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/03-recovery.png\">\n<meta name=\"twitter:image:alt\" content=\"Workers secure the inert, human-height bronze MurderBird in a timber cradle beside the excavated cistern in 1853.\">"
+    },
+    {
+      "id": "04-mechanic",
+      "title": "Different centuries carrying the load",
+      "storyEra": "1873 industrial restoration",
+      "alt": "An 1873 mechanic adjusts a brass bearing on the human-height MurderBird, supported in a floor-level iron cradle with an external pressure hose.",
+      "caption": "Iron braces and brass bushings remain visibly distinct from ancient bronze.",
+      "placements": [
+        "/writings/murderbird/#the-mechanic",
+        "repair and engineering editorial cards",
+        "historical social preview"
+      ],
+      "reviewStatus": "visual-review-recorded; canon-and-publication-pending",
+      "generationTool": "OpenAI native image generation",
+      "originPromptPointers": [
+        "masters/restoration-metadata.json#04-mechanic"
+      ],
+      "status": "candidate",
+      "prompt": "Create a photoreal cinematic historical-scene website master, landscape 16:9, 1920x1080 or higher. Input image is character identity and approximate human-height scale reference ONLY. Setting: 1873 private repair workshop behind an English ironworks, tall multi-pane daylight windows, wooden floor on heavy beams, cast-iron hand tools, a blurred period line-shaft belt in background. Same fictional MurderBird as reference, full body visible from segmented swept crown to both broad talons, approximately1.8m floor-to-crown adult height, with anonymous adult restorer in linen shirt and leather apron standing adjacent on SAME depth plane. Normal 50mm view. Bird's feet at floor level, sturdy iron assembly cradle supporting breast from sides, no tall pedestal or table; believable weight through deep hips, substantial terrestrial legs and ankles. Preserve deep curved bill, irregular ancient bronze plates, refitted mismatched left shoulder, compact folded ornamental wing mantles. Corroded dark bronze retains green-blue water deposits and old hand tool marks; distinct newly fitted 1873 iron repair straps and brass bushings visibly cross ancient construction without concealing it. An open side plate reveals brass bearing, iron linkage and pressure cylinder. One period cloth-braided external pressure hose visibly connects cylinder to workshop power off-frame and rests on floor. Restorer uses a simple wrench near the replacement brass bearing, quietly studying fit. Bird motionless under externally supplied power trial, eyes unlit dark metal apertures with daylight glint only, no orange glow or autonomous gaze. No electronics, electric wires, power core, LCD/CRT, modern hydraulic machinery, internal furnace, coal fire inside bird, glossy polished gold, spread wings, eagle-sized body, giant towering bird. Entire figure and adult scale cue clear, both feet included. Medium-dark industrial background with readable bronze texture and mild cool daylight/warm brass contrast. Documentary material realism, no text, words, logo, watermark. This is fictional historical reconstruction; retain its particular asymmetries.",
+      "storySourceCommit": null,
+      "limitations": [
+        "AI-generated mechanisms illustrate the fiction rather than verified engineering.",
+        "Working 1.8m scale; corrected from initial oversized render to adult-height crown.",
+        "Uses proposed floor-level staging; published story still includes a bench-traversal phrase."
+      ],
+      "correctionPrompt": "Edit this 1873 workshop image only to correct scale. Keep the workshop, adult mechanic, realistic lighting, 16:9 framing and period details unchanged. Shrink the ENTIRE bronze bird uniformly by approximately 18 percent while keeping its two feet on the floor at exactly their current level. The TOP OF THE BIRD'S CROWN must now be at the SAME HEIGHT as the top of the adjacent mechanic's head (both approximately1.8m). Shrink its supporting iron cradle proportionally so support is still correctly under breast. Preserve all head/neck/legs proportions internally, ancient patinated bronze, segmented swept crown, curved bill, mismatched shoulder, folded wings, unlit eyes, exposed brass bearing and iron linkage. Reposition mechanic's wrench/hands slightly to the now-lower side bearing while preserving his standing height. External pressure hose stays connected and rests on floor. No other changes, no added text.",
+      "visualReviewPointer": "independent-visual-review.md",
+      "master": {
+        "path": "masters/04-mechanic.png",
+        "width": 1672,
+        "height": 941,
+        "bytes": 2453614,
+        "sha256": "3b1bbaff3457fa05dfde6a13f82530710751c2c61fa33536cc8d4294b7fe2b0a"
+      },
+      "derivatives": [
+        {
+          "path": "derivatives/04-mechanic-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 31556,
+          "sha256": "2324e4f17972e4fcf48270a025417a5f53a0388302fcaeb54f076454615b48aa"
+        },
+        {
+          "path": "derivatives/04-mechanic-480.jpg",
+          "width": 480,
+          "height": 270,
+          "bytes": 40403,
+          "sha256": "efab17de9e9af9e09c6d3e43e482294f5fd452be131f56884988cce5643e428c"
+        },
+        {
+          "path": "derivatives/04-mechanic-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 105882,
+          "sha256": "da0e65bd563bc1e104b04ea1e4f4ca602dc3f897b8de27078559357acdf3e04c"
+        },
+        {
+          "path": "derivatives/04-mechanic-960.jpg",
+          "width": 960,
+          "height": 540,
+          "bytes": 145953,
+          "sha256": "d355a965741301c45bbc7776cd2bd399f1e6428ed628dda7148c0e8e44f7f598"
+        },
+        {
+          "path": "derivatives/04-mechanic-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 222230,
+          "sha256": "0bac84a271ebdac37b0fecc35a00c701522c8daf72518b6023f4b4aa5ae590f9"
+        },
+        {
+          "path": "derivatives/04-mechanic-1600.jpg",
+          "width": 1600,
+          "height": 900,
+          "bytes": 338790,
+          "sha256": "f5c0b93f7471ec6b84cbce688303ffd02f8b82cbc6bc755e5b03e29375765638"
+        }
+      ],
+      "socialCard": {
+        "layout": "social/04-mechanic.html",
+        "width": 1200,
+        "height": 630,
+        "status": "rasterized-candidate",
+        "raster": {
+          "path": "social/04-mechanic.png",
+          "width": 1200,
+          "height": 630,
+          "bytes": 985855,
+          "sha256": "0cf64a4fd505c54543c8dbd78a697793e74ebc75acee69af96a9f22696d85a22"
+        }
+      },
+      "imageObjectDraft": {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "name": "Different centuries carrying the load",
+        "description": "An 1873 mechanic adjusts a brass bearing on the human-height MurderBird, supported in a floor-level iron cradle with an external pressure hose.",
+        "caption": "Iron braces and brass bushings remain visibly distinct from ancient bronze.",
+        "contentUrl": "https://overkillhill.com/assets/murderbird/v2/social/04-mechanic.png",
+        "encodingFormat": "image/png",
+        "width": 1200,
+        "height": 630
+      },
+      "metadataSnippetDraft": "<meta property=\"og:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/04-mechanic.png\">\n<meta property=\"og:image:width\" content=\"1200\">\n<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"An 1873 mechanic adjusts a brass bearing on the human-height MurderBird, supported in a floor-level iron cradle with an external pressure hose.\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/04-mechanic.png\">\n<meta name=\"twitter:image:alt\" content=\"An 1873 mechanic adjusts a brass bearing on the human-height MurderBird, supported in a floor-level iron cradle with an external pressure hose.\">"
+    },
+    {
+      "id": "05-heart",
+      "title": "The heart",
+      "storyEra": "2025 — power and sensing",
+      "alt": "An adult-height bronze MurderBird stands in a workshop cradle while its ceramic power core is inspected.",
+      "caption": "A modern heart gives the old mechanisms energy; a mind is a separate achievement.",
+      "placements": [
+        "story chapter: The heart",
+        "technical editorial",
+        "Found-ry"
+      ],
+      "reviewStatus": "visual-review-recorded; canon-and-publication-pending",
+      "generationTool": "OpenAI native image generation",
+      "originPromptPointers": [
+        "masters/modern-metadata.json#05-heart"
+      ],
+      "status": "candidate",
+      "prompt": "Use reference image as MurderBird identity and physical scale reference. Photoreal cinematic 16:9 landscape, rich tactile material and clear readable subject, realistic workshop light, no lettering, watermark or collage. Same approximately 1.8m human-height terrestrial mechanical bird: deep hooked beak, swept segmented crown, compact folded ornamental wings, substantial hips and long sturdy load-bearing legs, asymmetrical refitted left shoulder, hammered ancient dark bronze and verdigris seams, later iron repair straps/brass bearings, restrained orange circular optics. Both feet rest on concrete floor, never on computer or table; ordinary adults and props at same depth establish scale. Not a flying eagle, no giant 3m monster. Modern era 2025. Scene: three-quarter full-body engineering inspection in workshop. Anonymous adult technician beside bird, at same depth, crown near technician head height. Breast access panel open on hinge to reveal a SINGLE modest sealed ceramic power cartridge nested within ring of small capacitors in original counterweight cradle. Old shafts and pressure cylinders surround it, tidy subtle insulated leads follow old tendon routes. External floor-level braces support body while tested. No glowing reactor, no science-fiction holograms. CRT on independent steel workbench shows only dim abstract amber indicators. Strong quiet precision, not spectacle. Whole bird fits with generous margins.",
+      "storySourceCommit": "2d7e92d23fcbe875c7421d4509109bffd22b0c48",
+      "limitations": [
+        "Approximate adult height is a working design target; not a measured character rig.",
+        "Fine joints, tail and armor details vary generatively across images; review before animation.",
+        "Floor-standing interpretation needs coordinated story wording changes before publication."
+      ],
+      "correctivePrompt": "Precise scale correction only to this workshop power-core image. Preserve scene, adult technician's height/position, CRT bench, camera, light, and all bird identity/features/open hinged breast panel/ceramic power cartridge. Shrink ENTIRE bird uniformly about 12 percent and keep its feet at same floor level. Bird crown must be approximately level with technician crown, NOT a head taller than him. Ensure both human and bird on SAME depth plane, grounded contact shadows. Reposition floor support braces to smaller body. Technician's hand naturally reaches edge of breast panel as before. No other changes. Full body and existing details preserved, no text. This is approximately 1.8m machine beside1.8m adult, not2m or3m.",
+      "visualReviewPointer": "independent-visual-review.md",
+      "master": {
+        "path": "masters/05-heart.png",
+        "width": 1672,
+        "height": 940,
+        "bytes": 2131911,
+        "sha256": "aef458232a6e3f090a3c0ff8bc71d5a39ba4a2dd46721dda257682474ed10520"
+      },
+      "derivatives": [
+        {
+          "path": "derivatives/05-heart-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 21726,
+          "sha256": "e0da5291e16dda643604cd8c4fe96040db3c965a6f72e661ff103f6e6197da4d"
+        },
+        {
+          "path": "derivatives/05-heart-480.jpg",
+          "width": 480,
+          "height": 270,
+          "bytes": 31974,
+          "sha256": "ac20d5780035619b9f1504dc5ec68187b45923de5f4c13f69c04d85603242f99"
+        },
+        {
+          "path": "derivatives/05-heart-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 74676,
+          "sha256": "7c3b2cca0c2bade659508b231a37772f3026bbbdc22be98882297e75571d166d"
+        },
+        {
+          "path": "derivatives/05-heart-960.jpg",
+          "width": 960,
+          "height": 540,
+          "bytes": 116567,
+          "sha256": "25a9ec5317b51ec8837ffbbcddbf08013508635deb248594e404e84b0a619463"
+        },
+        {
+          "path": "derivatives/05-heart-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 161308,
+          "sha256": "32f13fce41e9732881c603011936e2c2fe77a7d759dc0e8b8122d585e0732c46"
+        },
+        {
+          "path": "derivatives/05-heart-1600.jpg",
+          "width": 1600,
+          "height": 900,
+          "bytes": 273501,
+          "sha256": "11e2a7a8febbaeb351dcdd399cb8b04cf013bd079f7cfefe0cae7bd0319274c3"
+        }
+      ],
+      "socialCard": {
+        "layout": "social/05-heart.html",
+        "width": 1200,
+        "height": 630,
+        "status": "rasterized-candidate",
+        "raster": {
+          "path": "social/05-heart.png",
+          "width": 1200,
+          "height": 630,
+          "bytes": 849648,
+          "sha256": "79a9ecf72109e66b33e94604e21bab9fc20a352fc8086f4ae2e547105848f549"
+        }
+      },
+      "imageObjectDraft": {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "name": "The heart",
+        "description": "An adult-height bronze MurderBird stands in a workshop cradle while its ceramic power core is inspected.",
+        "caption": "A modern heart gives the old mechanisms energy; a mind is a separate achievement.",
+        "contentUrl": "https://overkillhill.com/assets/murderbird/v2/social/05-heart.png",
+        "encodingFormat": "image/png",
+        "width": 1200,
+        "height": 630
+      },
+      "metadataSnippetDraft": "<meta property=\"og:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/05-heart.png\">\n<meta property=\"og:image:width\" content=\"1200\">\n<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"An adult-height bronze MurderBird stands in a workshop cradle while its ceramic power core is inspected.\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/05-heart.png\">\n<meta name=\"twitter:image:alt\" content=\"An adult-height bronze MurderBird stands in a workshop cradle while its ceramic power core is inspected.\">"
+    },
+    {
+      "id": "06-choice",
+      "title": "The first choice",
+      "storyEra": "2025 — agency",
+      "alt": "The MurderBird shifts its weight and lowers its head toward a loose support bolt while the technician watches from a distance.",
+      "caption": "The first choice is measured, observant, and consequential.",
+      "placements": [
+        "story chapter: The first choice",
+        "project cards",
+        "editorial"
+      ],
+      "reviewStatus": "visual-review-recorded; canon-and-publication-pending",
+      "generationTool": "OpenAI native image generation",
+      "originPromptPointers": [
+        "masters/modern-metadata.json#06-choice"
+      ],
+      "status": "candidate",
+      "prompt": "Photoreal cinematic 16:9 landscape illustration for MurderBird story. Preserve reference identity: approximately adult human height (1.8m working target), deep curved hooked bill, swept segmented crown, hammered dark bronze, verdigris in seams, mismatched left shoulder plate, visible Victorian iron straps and brass bearing repairs, subtle modern leads using old routes, subdued orange circular optics. Long substantial terrestrial legs and compact folded ornamental wings; same proportions as reference, not flying eagle. Full bird head to both feet grounded on concrete floor, computer never carries weight. Ordinary people and workshop furniture at same depth set scale. No text, no watermark. Modern workshop moment of autonomous balance correction. Entire bird at center-right bends neck to inspect a visibly loosened bolt at the BASE of a floor-level support stand adjacent to its left foot, shifting weight to other firmly grounded leg. No falling machinery. Anonymous adult technician in background at same floor plane stands still with hands folded clear of bird, not assisting. Normal steel bench and CRT inbackground. Readable bolt placement and stable anatomy, no tools held by talons. Quiet intelligent attention and agency; no attack.",
+      "storySourceCommit": "2d7e92d23fcbe875c7421d4509109bffd22b0c48",
+      "limitations": [
+        "Approximate adult height is a working design target; not a measured character rig.",
+        "Fine joints, tail and armor details vary generatively across images; review before animation.",
+        "Floor-standing interpretation needs coordinated story wording changes before publication."
+      ],
+      "correctivePrompt": "Correct scale in this exact image of MurderBird inspecting a floor-support bolt. Preserve bird appearance, action, colors, workshop and entire composition. Shrink the ENTIRE bird uniformly by about20percent, KEEP one foot firmly on samefloor and other foot slightlyraised. Crouched shoulders should be around the standing adult's CHEST height, not above hishead; bowed head still examines bolt. Move the adult observer forward slightly so his feet are at SAMEdepth plane as groundedbirdfoot and visible, hands crossedawayfrombird. Adultheight remains1.8m; birdwouldbe1.8m ifupright, but crouching now so torso muchlower. The machine is human-height, not giant. Reposition smallfloorbolt nearitslowerbeak asnecessary, keepgantrynormalheight. Maintain same deepcurvedbill,crown,bronzeplates,foldedwings,longlegjoints,orangeeye; fullbody remainsinsideframe. No text.",
+      "visualReviewPointer": "independent-visual-review.md",
+      "master": {
+        "path": "masters/06-choice.png",
+        "width": 1672,
+        "height": 940,
+        "bytes": 2088241,
+        "sha256": "f5584de132a36f66cd673d8be8e003e368279285915e665d79a95de58a419313"
+      },
+      "derivatives": [
+        {
+          "path": "derivatives/06-choice-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 21472,
+          "sha256": "0adce9971546d64cdb9a3a3fbfbb2257a41fb2a3f72994c26d68f26803d45710"
+        },
+        {
+          "path": "derivatives/06-choice-480.jpg",
+          "width": 480,
+          "height": 270,
+          "bytes": 32046,
+          "sha256": "b25322c2279c35e29fcb48c6b03fa99d2a5d909fdf861bd9b1014f2ad750e2e5"
+        },
+        {
+          "path": "derivatives/06-choice-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 72444,
+          "sha256": "cb9b35e95399214738d1fec2d18318c860195d15f7003c50ef27b4911c58f320"
+        },
+        {
+          "path": "derivatives/06-choice-960.jpg",
+          "width": 960,
+          "height": 540,
+          "bytes": 114196,
+          "sha256": "2b4496f5ba385318fc3e644a5e8a5bd1e5ec9bfbcbaeff41d7d16cd64766854d"
+        },
+        {
+          "path": "derivatives/06-choice-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 154644,
+          "sha256": "6ac4d41b77b1fb63d1cc644b3fe3fd9e2c4562f1d923365cb88bdc6a9d221cd3"
+        },
+        {
+          "path": "derivatives/06-choice-1600.jpg",
+          "width": 1600,
+          "height": 900,
+          "bytes": 266265,
+          "sha256": "21ffcf2d9e609b6d25eb857f21a95cb3fc199a9c8a36b2e75f4951b132320e10"
+        }
+      ],
+      "socialCard": {
+        "layout": "social/06-choice.html",
+        "width": 1200,
+        "height": 630,
+        "status": "rasterized-candidate",
+        "raster": {
+          "path": "social/06-choice.png",
+          "width": 1200,
+          "height": 630,
+          "bytes": 837933,
+          "sha256": "ee1dbcb075b9e6937a0df5fa49059ba77719599f21ac16cf587f8ecc7c5d55f0"
+        }
+      },
+      "imageObjectDraft": {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "name": "The first choice",
+        "description": "The MurderBird shifts its weight and lowers its head toward a loose support bolt while the technician watches from a distance.",
+        "caption": "The first choice is measured, observant, and consequential.",
+        "contentUrl": "https://overkillhill.com/assets/murderbird/v2/social/06-choice.png",
+        "encodingFormat": "image/png",
+        "width": 1200,
+        "height": 630
+      },
+      "metadataSnippetDraft": "<meta property=\"og:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/06-choice.png\">\n<meta property=\"og:image:width\" content=\"1200\">\n<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"The MurderBird shifts its weight and lowers its head toward a loose support bolt while the technician watches from a distance.\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/06-choice.png\">\n<meta name=\"twitter:image:alt\" content=\"The MurderBird shifts its weight and lowers its head toward a loose support bolt while the technician watches from a distance.\">"
+    },
+    {
+      "id": "07-sentinel",
+      "title": "The sentinel",
+      "storyEra": "2025 — chosen purpose",
+      "alt": "An adult-height MurderBird watches an operator resume work at a CRT, standing on the workshop floor beside the desk.",
+      "caption": "The floor bears its weight; the screen holds its questions.",
+      "placements": [
+        "story ending",
+        "about",
+        "writings banner"
+      ],
+      "reviewStatus": "visual-review-recorded; canon-and-publication-pending",
+      "generationTool": "OpenAI native image generation",
+      "originPromptPointers": [
+        "masters/modern-metadata.json#07-sentinel"
+      ],
+      "status": "candidate",
+      "prompt": "Photoreal cinematic 16:9 landscape illustration for MurderBird story. Preserve reference identity: approximately adult human height (1.8m working target), deep curved hooked bill, swept segmented crown, hammered dark bronze, verdigris in seams, mismatched left shoulder plate, visible Victorian iron straps and brass bearing repairs, subtle modern leads using old routes, subdued orange circular optics. Long substantial terrestrial legs and compact folded ornamental wings; same proportions as reference, not flying eagle. Full bird head to both feet grounded on concrete floor, computer never carries weight. Ordinary people and workshop furniture at same depth set scale. No text, no watermark. Modernworkshop quiet two-subject scene. Anonymous adult operator seated at ordinary desk with small beige CRT, hands on keyboard resuming unfinished work. Bird stands BESIDE desk entirely on concretefloor, neck inclined toward human hands and screen, warmorangeeye. Birdcrown approximately equalstandingadultheight, much taller than seatedoperator. Desk is normal0.9m high steelbench. Do not put a foot, weight or body oncomputer. Careful coexistence, no threateninghumanpose, no roboticattack. Cool shadow and warm desk lamp. Generous readable environmental context, widescreen narrative composition.",
+      "storySourceCommit": "2d7e92d23fcbe875c7421d4509109bffd22b0c48",
+      "limitations": [
+        "Approximate adult height is a working design target; not a measured character rig.",
+        "Fine joints, tail and armor details vary generatively across images; review before animation.",
+        "Floor-standing interpretation needs coordinated story wording changes before publication."
+      ],
+      "visualReviewPointer": "independent-visual-review.md",
+      "master": {
+        "path": "masters/07-sentinel.png",
+        "width": 1672,
+        "height": 940,
+        "bytes": 2024288,
+        "sha256": "1c0d77cb8652432a8aeb78ce3135e6cf20aac7e8d048bb700124e7767ada0480"
+      },
+      "derivatives": [
+        {
+          "path": "derivatives/07-sentinel-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 17842,
+          "sha256": "55de0e7791840e6bffa63ec2f974838d5798c971cb186856e380a1d635c4a47d"
+        },
+        {
+          "path": "derivatives/07-sentinel-480.jpg",
+          "width": 480,
+          "height": 270,
+          "bytes": 28209,
+          "sha256": "2f8beb594b1f885e52326a62d08a9b46241b483d5b37918900b4231eff4faa17"
+        },
+        {
+          "path": "derivatives/07-sentinel-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 62478,
+          "sha256": "e06ba9412eda4939106ce504a20d28ab6517abaffac22e3fd26c0f62b2a668d7"
+        },
+        {
+          "path": "derivatives/07-sentinel-960.jpg",
+          "width": 960,
+          "height": 540,
+          "bytes": 102730,
+          "sha256": "1c0ec3816ce9d6ba087970f89cc423b405105e1de23de2a9d15e10b00e4ddca3"
+        },
+        {
+          "path": "derivatives/07-sentinel-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 139982,
+          "sha256": "bbef551d1ccea1a81f8ec02acd82b498542623a32e4311b5abff96ea642fdeee"
+        },
+        {
+          "path": "derivatives/07-sentinel-1600.jpg",
+          "width": 1600,
+          "height": 900,
+          "bytes": 246152,
+          "sha256": "53976dedf0c62cc8fe7962fc4390976760c1efde17a2898910c723a36d594638"
+        }
+      ],
+      "socialCard": {
+        "layout": "social/07-sentinel.html",
+        "width": 1200,
+        "height": 630,
+        "status": "rasterized-candidate",
+        "raster": {
+          "path": "social/07-sentinel.png",
+          "width": 1200,
+          "height": 630,
+          "bytes": 792373,
+          "sha256": "d6c06d9ce4c0794dae934ad0e3a13705cabd4cc0703f7caaa6439b62c0e6431f"
+        }
+      },
+      "imageObjectDraft": {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "name": "The sentinel",
+        "description": "An adult-height MurderBird watches an operator resume work at a CRT, standing on the workshop floor beside the desk.",
+        "caption": "The floor bears its weight; the screen holds its questions.",
+        "contentUrl": "https://overkillhill.com/assets/murderbird/v2/social/07-sentinel.png",
+        "encodingFormat": "image/png",
+        "width": 1200,
+        "height": 630
+      },
+      "metadataSnippetDraft": "<meta property=\"og:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/07-sentinel.png\">\n<meta property=\"og:image:width\" content=\"1200\">\n<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"An adult-height MurderBird watches an operator resume work at a CRT, standing on the workshop floor beside the desk.\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/07-sentinel.png\">\n<meta name=\"twitter:image:alt\" content=\"An adult-height MurderBird watches an operator resume work at a CRT, standing on the workshop floor beside the desk.\">"
+    },
+    {
+      "id": "08-hero",
+      "title": "The persistent question",
+      "storyEra": "2025 — sentinel",
+      "alt": "The bronze MurderBird stands beside a small CRT in a dark workshop, its orange eye turned toward the unfinished work.",
+      "caption": "Ancient body. Industrial repairs. Modern heart and mind.",
+      "placements": [
+        "homepage hero",
+        "about banner",
+        "social cover"
+      ],
+      "reviewStatus": "visual-review-recorded; canon-and-publication-pending",
+      "generationTool": "OpenAI native image generation",
+      "originPromptPointers": [
+        "masters/modern-metadata.json#08-hero"
+      ],
+      "status": "candidate",
+      "prompt": "Use reference image as MurderBird identity and physical scale reference. Photoreal cinematic 16:9 landscape, rich tactile material and clear readable subject, realistic workshop light, no lettering, watermark or collage. Same approximately 1.8m human-height terrestrial mechanical bird: deep hooked beak, swept segmented crown, compact folded ornamental wings, substantial hips and long sturdy load-bearing legs, asymmetrical refitted left shoulder, hammered ancient dark bronze and verdigris seams, later iron repair straps/brass bearings, restrained orange circular optics. Both feet rest on concrete floor, never on computer or table; ordinary adults and props at same depth establish scale. Not a flying eagle, no giant 3m monster. Modern era 2025. Website hero composition: bird full body in RIGHT half of wide landscape, ordinary CRT on separate small robust steel workbench at far right, dim normal-height doorway behind establishes scale. LEFT 40 percent is quiet deep charcoal workshop shadow with subtle blueprint-grid-like architecture and no busy props, designed for HTML headline overlay. No text baked into image. Three-quarter alert stance, head bowed slightly toward screen, one repaired ankle and asymmetrical plate clearly visible. No human needed if doorway and standard 0.9m bench establish human scale. Small warm optical amber highlight, patinated bronze against muted blue-grey shadows. Cinematic editorial, dignified persistent problem-solving, never attack pose.",
+      "storySourceCommit": "2d7e92d23fcbe875c7421d4509109bffd22b0c48",
+      "limitations": [
+        "Approximate adult height is a working design target; not a measured character rig.",
+        "Fine joints, tail and armor details vary generatively across images; review before animation.",
+        "Floor-standing interpretation needs coordinated story wording changes before publication."
+      ],
+      "visualReviewPointer": "independent-visual-review.md",
+      "master": {
+        "path": "masters/08-hero.png",
+        "width": 1672,
+        "height": 940,
+        "bytes": 2021174,
+        "sha256": "55056e1b02af38635652de4617d171fec1d90edd93ce876dfa46c990b0f73768"
+      },
+      "derivatives": [
+        {
+          "path": "derivatives/08-hero-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 12202,
+          "sha256": "56cae2652cc2aac0f6756179d9989e9927638e8e99b26165220e5700b4b743c3"
+        },
+        {
+          "path": "derivatives/08-hero-480.jpg",
+          "width": 480,
+          "height": 270,
+          "bytes": 22201,
+          "sha256": "2daac6923bca8b23d83d03752ffcc48ad958599caf539e2412085d706edf9f94"
+        },
+        {
+          "path": "derivatives/08-hero-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 48978,
+          "sha256": "a483dd0131511c39b6c548c7d6d44564cae84a56600073d69db78ee51713bf69"
+        },
+        {
+          "path": "derivatives/08-hero-960.jpg",
+          "width": 960,
+          "height": 540,
+          "bytes": 87187,
+          "sha256": "741aafb5243273cfe37af80e2b43f58f558ab46d2a10a451387d9fd93f7545fe"
+        },
+        {
+          "path": "derivatives/08-hero-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 113358,
+          "sha256": "3b92274c2bf89111986b7d9d73c76f986e7cc10a847fdc72ba431e14b26ead9e"
+        },
+        {
+          "path": "derivatives/08-hero-1600.jpg",
+          "width": 1600,
+          "height": 900,
+          "bytes": 219293,
+          "sha256": "5bd41fca941d62c2875e85b8a19d128bbaa666e62ad632f7173b7471bd156147"
+        }
+      ],
+      "socialCard": {
+        "layout": "social/08-hero.html",
+        "width": 1200,
+        "height": 630,
+        "status": "rasterized-candidate",
+        "raster": {
+          "path": "social/08-hero.png",
+          "width": 1200,
+          "height": 630,
+          "bytes": 727020,
+          "sha256": "24715ca60132b53947ddec74793328d582ce62c9317306aef1abe98c672aaedf"
+        }
+      },
+      "imageObjectDraft": {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "name": "The persistent question",
+        "description": "The bronze MurderBird stands beside a small CRT in a dark workshop, its orange eye turned toward the unfinished work.",
+        "caption": "Ancient body. Industrial repairs. Modern heart and mind.",
+        "contentUrl": "https://overkillhill.com/assets/murderbird/v2/social/08-hero.png",
+        "encodingFormat": "image/png",
+        "width": 1200,
+        "height": 630
+      },
+      "metadataSnippetDraft": "<meta property=\"og:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/08-hero.png\">\n<meta property=\"og:image:width\" content=\"1200\">\n<meta property=\"og:image:height\" content=\"630\">\n<meta property=\"og:image:alt\" content=\"The bronze MurderBird stands beside a small CRT in a dark workshop, its orange eye turned toward the unfinished work.\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:image\" content=\"https://overkillhill.com/assets/murderbird/v2/social/08-hero.png\">\n<meta name=\"twitter:image:alt\" content=\"The bronze MurderBird stands beside a small CRT in a dark workshop, its orange eye turned toward the unfinished work.\">"
+    }
+  ]
+}

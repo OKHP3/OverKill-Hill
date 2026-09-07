@@ -1,0 +1,775 @@
+{
+  "scope": "snapshot, not an approval or publication manifest",
+  "sourceRevision": "2d7e92d23fcbe875c7421d4509109bffd22b0c48",
+  "collections": {
+    "unified-scenes": 5,
+    "narrative": 8,
+    "human-scale": 8,
+    "scale-series": 7,
+    "unified-reference": 1
+  },
+  "imageMasters": [
+    {
+      "collection": "unified-scenes",
+      "path": "assets/img/library/murderbird-unified-maker-clean-candidate-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "not-published",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2941763,
+      "sha256": "93966eb269ae9f8d8d00e05e913cbb23f7656204e6f3fdf7fd26e8a39ca0cbb9",
+      "reviewStatus": "lead-accepted-local-illustrated-preview",
+      "id": "murderbird-unified-maker",
+      "acceptance": {
+        "authority": "coordinating-lead",
+        "brief": "docs/murderbird-unified-direction.md",
+        "scope": [
+          "Quiet inspection of completed floor-standing body by back-view hooded Maker with intact lowered hammer; not the hammer-breaking event or exact historical attire certification"
+        ],
+        "limitations": [
+          "Local preview acceptance, not Jamie final-art or deployment approval",
+          "No numeric height, engineering, chemistry, or hidden mechanism certification"
+        ]
+      },
+      "placements": [
+        "/writings/murderbird/#media-maker"
+      ],
+      "derivativeBuilder": "scripts/build-murderbird-hero.py --asset maker",
+      "derivatives": [
+        {
+          "path": "assets/img/webp/murderbird-unified-maker-clean-2026-09-06-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 296716,
+          "sha256": "10da9f9ff4cd7ffe8fc5b400c163b2f522950379308fea942a60439484590156",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-maker-clean-2026-09-06-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 38504,
+          "sha256": "42802445e438cd3e612d4e588096c8f6f2827e98619f5cf0fdf0bb8f4c3fad10",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-maker-clean-2026-09-06-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 134728,
+          "sha256": "0495ab582d63d9011dd64c7872e0aa9e82aadb32484267d3547aed2bdfadaefb",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        }
+      ]
+    },
+    {
+      "collection": "unified-scenes",
+      "path": "assets/img/library/murderbird-unified-mechanic-candidate-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "not-published",
+      "width": 1672,
+      "height": 940,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2453693,
+      "sha256": "0bd7c79510be9eeef024f8861a7576b777a7f5de5710523e8d2ab039d03c65f9",
+      "reviewStatus": "lead-accepted-local-illustrated-preview",
+      "id": "murderbird-unified-mechanic",
+      "acceptance": {
+        "authority": "coordinating-lead",
+        "brief": "docs/murderbird-unified-direction.md",
+        "scope": [
+          "Industrial repairs fitted around ancient bronze; floor-supported body; no autonomous awakening claim"
+        ],
+        "limitations": [
+          "Local preview acceptance, not Jamie final-art or deployment approval",
+          "No numeric height, engineering, chemistry, or hidden mechanism certification"
+        ]
+      },
+      "placements": [
+        "/writings/murderbird/#media-mechanic"
+      ],
+      "derivativeBuilder": "scripts/build-murderbird-hero.py --asset mechanic",
+      "derivatives": [
+        {
+          "path": "assets/img/webp/murderbird-unified-mechanic-2026-09-06-1536.webp",
+          "width": 1536,
+          "height": 864,
+          "bytes": 236264,
+          "sha256": "2fbc363fec586920f4996c4fedea3fc8c3f6ef8652da2a2b638a6ef2820eac69",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-mechanic-2026-09-06-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 36180,
+          "sha256": "8482b0a0013b74c2ce1ba8ac4b8599a470138e4af346d48817a3ce9cdd5b76b2",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-mechanic-2026-09-06-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 120204,
+          "sha256": "5117b19e160ab7b72dd9bd1570e6826dc71954248826e85e0b61a54e1bc3d4d4",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        }
+      ]
+    },
+    {
+      "collection": "unified-scenes",
+      "path": "assets/img/library/murderbird-unified-water-candidate-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "not-published",
+      "width": 1672,
+      "height": 940,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2387810,
+      "sha256": "0db88f0529288a9c6032662a9fb9e62d1ae077322241c4d9bd2c5a8eb915c117",
+      "reviewStatus": "lead-accepted-local-illustrated-preview",
+      "id": "murderbird-unified-water",
+      "acceptance": {
+        "authority": "coordinating-lead",
+        "brief": "docs/murderbird-unified-direction.md",
+        "scope": [
+          "Inert partly submerged body and mineral history; no exact chemistry or internal-mechanism claim"
+        ],
+        "limitations": [
+          "Local preview acceptance, not Jamie final-art or deployment approval",
+          "No numeric height, engineering, chemistry, or hidden mechanism certification"
+        ]
+      },
+      "placements": [
+        "/writings/murderbird/#media-water"
+      ],
+      "derivativeBuilder": "scripts/build-murderbird-hero.py --asset water",
+      "derivatives": [
+        {
+          "path": "assets/img/webp/murderbird-unified-water-2026-09-06-1536.webp",
+          "width": 1536,
+          "height": 864,
+          "bytes": 188054,
+          "sha256": "b80a65d9183bba984ea114c55bceaa4891c39224d6553050385f896f66e92a07",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-water-2026-09-06-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 22514,
+          "sha256": "e230ae04c965340dcd17f47cd9a2209834101cc705e5128dffe969f1562aaae5",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-water-2026-09-06-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 92500,
+          "sha256": "8c628297853c3eb4fc6a1a24621254f29a827182840ee8b807c57c8e12eb910a",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        }
+      ]
+    },
+    {
+      "collection": "unified-scenes",
+      "path": "assets/img/library/murderbird-unified-heart-candidate-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "not-published",
+      "width": 1672,
+      "height": 940,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2213537,
+      "sha256": "9430f91e3cd3fc8223297720a0f57ec1c46e9c8245cfba91495e9c362029fea9",
+      "reviewStatus": "lead-accepted-local-illustrated-preview",
+      "id": "murderbird-unified-heart",
+      "acceptance": {
+        "authority": "coordinating-lead",
+        "brief": "docs/murderbird-unified-direction.md",
+        "scope": [
+          "Power assembly inspection; not completed heart and mind"
+        ],
+        "limitations": [
+          "Local preview acceptance, not Jamie final-art or deployment approval",
+          "No numeric height, engineering, chemistry, or hidden mechanism certification"
+        ]
+      },
+      "placements": [
+        "/writings/murderbird/#media-heart"
+      ],
+      "derivativeBuilder": "scripts/build-murderbird-hero.py --asset heart",
+      "derivatives": [
+        {
+          "path": "assets/img/webp/murderbird-unified-heart-2026-09-06-1536.webp",
+          "width": 1536,
+          "height": 864,
+          "bytes": 179112,
+          "sha256": "0cdbab1e18b18f18006aa150c27e52b0c05e0431a6688ad669f48684479b965d",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-heart-2026-09-06-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 23908,
+          "sha256": "b8cf0df9b839313b28c65d3e2bb0d1dd0d500bd82573785cd3e5def5c5182057",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-heart-2026-09-06-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 88482,
+          "sha256": "2da0670fca165aa2dd9141b45a3ab5ab08b9565e09b657bcf880225296b7522b",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        }
+      ]
+    },
+    {
+      "collection": "unified-scenes",
+      "path": "assets/img/library/murderbird-unified-sentinel-candidate-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "not-published",
+      "width": 1672,
+      "height": 940,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2044132,
+      "sha256": "d6153907884045e824e3be9cd02a7a446fb75f6e8b35a246918cf11ac620667e",
+      "reviewStatus": "lead-accepted-local-illustrated-preview",
+      "id": "murderbird-unified-sentinel",
+      "acceptance": {
+        "authority": "coordinating-lead",
+        "brief": "docs/murderbird-unified-direction.md",
+        "scope": [
+          "Floor-standing Bird watching operator beside CRT; no invisible screen text claim"
+        ],
+        "limitations": [
+          "Local preview acceptance, not Jamie final-art or deployment approval",
+          "No numeric height, engineering, chemistry, or hidden mechanism certification"
+        ]
+      },
+      "placements": [
+        "/writings/murderbird/#media-sentinel"
+      ],
+      "derivativeBuilder": "scripts/build-murderbird-hero.py --asset sentinel",
+      "derivatives": [
+        {
+          "path": "assets/img/webp/murderbird-unified-sentinel-2026-09-06-1536.webp",
+          "width": 1536,
+          "height": 864,
+          "bytes": 149086,
+          "sha256": "89f4fef87380d2de1eebf6bfd56b27f726fb2720a86661a17647f60b4d4f5ed1",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-sentinel-2026-09-06-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 19858,
+          "sha256": "d48f14f947e150ef4fc599dc86f8f513850d79297b96e3998fdd0edf52ca9893",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-sentinel-2026-09-06-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 71104,
+          "sha256": "1ba13f6d60d29717e0677203152b39d7fc428a415bd2bceae29b5925902d6fdf",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        }
+      ]
+    },
+    {
+      "collection": "narrative",
+      "path": "assets/murderbird/v2/masters/01-maker.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1672,
+      "height": 940,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2585917,
+      "sha256": "438fe5443d7c11ffbd41e99c4fb2425fb241c73c3757380a26fd4cf8a2b8a064",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "narrative",
+      "path": "assets/murderbird/v2/masters/02-water.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1672,
+      "height": 940,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2386514,
+      "sha256": "fe0890b1f757ab9699f1efc7325d262263741d0366128c5df622d6a80582a3ee",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "narrative",
+      "path": "assets/murderbird/v2/masters/03-recovery.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2763215,
+      "sha256": "360eea9479a1e9dd1456db5acefdeb3b70f760a87f1acaa6a9efbb305d58f8c2",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "narrative",
+      "path": "assets/murderbird/v2/masters/04-mechanic.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2453614,
+      "sha256": "3b1bbaff3457fa05dfde6a13f82530710751c2c61fa33536cc8d4294b7fe2b0a",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "narrative",
+      "path": "assets/murderbird/v2/masters/05-heart.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1672,
+      "height": 940,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2131911,
+      "sha256": "aef458232a6e3f090a3c0ff8bc71d5a39ba4a2dd46721dda257682474ed10520",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "narrative",
+      "path": "assets/murderbird/v2/masters/06-choice.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1672,
+      "height": 940,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2088241,
+      "sha256": "f5584de132a36f66cd673d8be8e003e368279285915e665d79a95de58a419313",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "narrative",
+      "path": "assets/murderbird/v2/masters/07-sentinel.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1672,
+      "height": 940,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2024288,
+      "sha256": "1c0d77cb8652432a8aeb78ce3135e6cf20aac7e8d048bb700124e7767ada0480",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "narrative",
+      "path": "assets/murderbird/v2/masters/08-hero.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1672,
+      "height": 940,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2021174,
+      "sha256": "55056e1b02af38635652de4617d171fec1d90edd93ce876dfa46c990b0f73768",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "human-scale",
+      "path": "assets/img/library/murderbird-floor-master-landscape-1536-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2350513,
+      "sha256": "e371aa650d1ad0f1cdd8cfe41281fd70ba0d94b71808bf9cc3313009d21f4c29",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "human-scale",
+      "path": "assets/img/library/murderbird-camera-advance-square-1254-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2251407,
+      "sha256": "dce2772586e68243b22dce0ee9b06a472872e174a1b85dc24ff8300aac51486f",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "human-scale",
+      "path": "assets/img/library/murderbird-social-hero-wide-1774-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1774,
+      "height": 887,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 1661639,
+      "sha256": "262d7b211a59c1200b4c63e8379048715074fbba74e80aa13b01c3fa7fcdaff7",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "human-scale",
+      "path": "assets/img/library/murderbird-head-avatar-square-1254-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2198883,
+      "sha256": "82411a8198b9266690bb40de4e4657a76a3149ef631886a1ea1625a878b7638d",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "human-scale",
+      "path": "assets/img/library/murderbird-profile-stride-landscape-1536-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2324507,
+      "sha256": "c4007fcf57bee2122c86c879d1db65ba7094eb984ad65a9ed5d24119dae87db0",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "human-scale",
+      "path": "assets/img/library/murderbird-repair-detail-landscape-1536-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2374470,
+      "sha256": "01cc3ce39f1ec0f9eb1f759f2c4e214eacae70c9705bda879769c5b4d9c3e0b6",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "human-scale",
+      "path": "assets/img/library/murderbird-rear-view-landscape-1536-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2235857,
+      "sha256": "0fbcfc39fbbb832ddfbf9dba4e080e2d964b1eae186d499e0f0a01f781a86998",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "human-scale",
+      "path": "assets/img/library/murderbird-standing-cutout-candidate-portrait-1024-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2030914,
+      "sha256": "c1d5a36eb682fc88a2430d6a5e6670df88a5af2b6224f87132f01fa9bc2e3192",
+      "reviewStatus": "rejected-transparent-use"
+    },
+    {
+      "collection": "scale-series",
+      "path": "assets/img/library/murderbird-scale-advance-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2215181,
+      "sha256": "2ea41c2cf7c99a9ce56b88702f2898dc778549d79fdb56fc7b3d88fe27f5120f",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "scale-series",
+      "path": "assets/img/library/murderbird-scale-cutout-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1098,
+      "height": 1432,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 1770118,
+      "sha256": "e9c4e14131a47d48c02ed7fdab70d2a8c12dc845315799f894e32acde0c92aa1",
+      "reviewStatus": "rejected-transparent-use"
+    },
+    {
+      "collection": "scale-series",
+      "path": "assets/img/library/murderbird-scale-hero-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2250430,
+      "sha256": "587369c8c55d0ac4a6a449a24463539332a9af81d6d97326997d6a9164a8bcc5",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "scale-series",
+      "path": "assets/img/library/murderbird-scale-icon-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 1962442,
+      "sha256": "e87aa77ddc805b140e7d0f9011cb92a41fb23e72afa48fa478b2051f1c70a970",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "scale-series",
+      "path": "assets/img/library/murderbird-scale-profile-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2225377,
+      "sha256": "b1c61c297079f90fb32617dc2c689ff7f2db5c76a5f8f4fa8845751578872e64",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "scale-series",
+      "path": "assets/img/library/murderbird-scale-repair-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 3236977,
+      "sha256": "d534490f81ad54eb8fb69b6019dae18ae00c271137c4e4af4269590ca40e71bb",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "scale-series",
+      "path": "assets/img/library/murderbird-scale-social-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "unverified",
+      "width": 1731,
+      "height": 909,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2011864,
+      "sha256": "143a20c0a024797176800e7b07b3b19163f8fb912b56331a6cd2e9826789a50b",
+      "reviewStatus": "candidate"
+    },
+    {
+      "collection": "unified-reference",
+      "path": "assets/img/library/murderbird-unified-master-candidate-03-2026-09-06.png",
+      "exists": true,
+      "gitTracked": false,
+      "publicationStatus": "local-story-and-homepage-preview-only",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "bytes": 2319632,
+      "sha256": "538c51bcdbf5bfce95a0932fdbbb0f5868b446f4985346d15e6cacd32430e633",
+      "reviewStatus": "lead-accepted-illustrative-production-reference",
+      "id": "murderbird-unified-reference-03",
+      "acceptance": {
+        "authority": "coordinating-lead",
+        "brief": "docs/murderbird-unified-direction.md",
+        "briefVersion": "1.2",
+        "scope": [
+          "head",
+          "body silhouette",
+          "compact folded wing and rear contour",
+          "modern materials",
+          "floor-supported staging"
+        ],
+        "limitations": [
+          "Not Jamie final-art approval or deployment acceptance",
+          "Not certified 2.0 m geometry or an animation rig",
+          "Hidden mechanisms and close-up shoulder topology are not certified",
+          "Modern hardware must not be copied into earlier eras"
+        ]
+      },
+      "placements": [
+        "/writings/murderbird/#media-hero",
+        "/#forge",
+        "/fr/#forge",
+        "/de/#forge",
+        "/es/#forge",
+        "/es-mx/#forge"
+      ],
+      "derivativeBuilder": "scripts/build-murderbird-hero.py",
+      "derivatives": [
+        {
+          "path": "assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 173666,
+          "sha256": "0008c49f34594156c5667bb306281f2f41419cbf53b2f4e93dd8a48c74a3ef37",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-master-03-2026-09-06-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 19800,
+          "sha256": "3fc5180e88d37865e6009585790aea1c70243f37c836ce134a600ea94a319cee",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        },
+        {
+          "path": "assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 75222,
+          "sha256": "fa7d04bbb3a0ed04d9ef7fed6d4f9dde74d56063eabbde2080a7d2da556c5b1d",
+          "processing": "proportional resize and WebP encoding; no crop or upscale"
+        }
+      ]
+    },
+    {
+      "id": "murderbird-story-share",
+      "collection": "story-social-composition",
+      "path": "assets/img/og/murderbird-story-share-2026-09-06.png",
+      "width": 1200,
+      "height": 630,
+      "bytes": 449979,
+      "sha256": "d6fefa4a22b07f4427a73c1e55ba236c05771bac1b8394274475c343f2d86a14",
+      "gitTracked": false,
+      "source": "assets/img/library/murderbird-unified-master-candidate-03-2026-09-06.png",
+      "sourceSha256": "538c51bcdbf5bfce95a0932fdbbb0f5868b446f4985346d15e6cacd32430e633",
+      "generator": "scripts/build-murderbird-story-social.mjs",
+      "reviewHtml": ".local/murderbird-review/social/murderbird-story-share.html",
+      "reviewStatus": "local-review-candidate",
+      "publicationStatus": "not-published",
+      "placements": [
+        "/writings/murderbird/ Open Graph",
+        "/writings/murderbird/ Twitter card",
+        "/writings/murderbird/ Article image"
+      ],
+      "processing": "Full uncropped accepted illustration with real Alfa Slab One, DM Sans and JetBrains Mono typography; 1200x630 PNG"
+    }
+  ],
+  "videoOriginals": [
+    {
+      "path": "C:\\Users\\jamie\\Documents\\murderbird-production\\2026-09-06\\01-the-maker-original.mp4",
+      "bytes": 12163177,
+      "sha256": "58c52857b429f238c16760c6f8263a4d3d593b2d2c22aa606991ec702b86ce9b",
+      "inRepository": false,
+      "reviewStatus": "legacy-scale-study-not-current-narrative-media",
+      "metadataRecord": "C:\\Users\\jamie\\Documents\\murderbird-production\\2026-09-06\\video-metadata.json"
+    },
+    {
+      "path": "C:\\Users\\jamie\\Documents\\murderbird-production\\2026-09-06\\02-the-water-original.mp4",
+      "bytes": 17625181,
+      "sha256": "505a79333ce99bfdc836a859384841bd767ec37ec6181b6b427a17bbd41e9194",
+      "inRepository": false,
+      "reviewStatus": "legacy-scale-study-not-current-narrative-media",
+      "metadataRecord": "C:\\Users\\jamie\\Documents\\murderbird-production\\2026-09-06\\video-metadata.json"
+    },
+    {
+      "path": "C:\\Users\\jamie\\Documents\\murderbird-production\\2026-09-06\\03-the-mechanic-original.mp4",
+      "bytes": 15901496,
+      "sha256": "47332a9aa9cae09fdfaee9626cf2fe128eb93f85eea1e94f3b8bcd00035763ce",
+      "inRepository": false,
+      "reviewStatus": "legacy-scale-study-not-current-narrative-media",
+      "metadataRecord": "C:\\Users\\jamie\\Documents\\murderbird-production\\2026-09-06\\video-metadata.json"
+    },
+    {
+      "path": "C:\\Users\\jamie\\Documents\\murderbird-production\\2026-09-06\\04-the-heart-original.mp4",
+      "bytes": 16557721,
+      "sha256": "34f04752112294aa39d9e944a3b1287df9c9530ef9a49af2dee1b4093a821879",
+      "inRepository": false,
+      "reviewStatus": "legacy-scale-study-not-current-narrative-media",
+      "metadataRecord": "C:\\Users\\jamie\\Documents\\murderbird-production\\2026-09-06\\video-metadata.json"
+    },
+    {
+      "path": "C:\\Users\\jamie\\Documents\\murderbird-production\\2026-09-06\\05-the-first-choice-original.mp4",
+      "bytes": 11703809,
+      "sha256": "ba227d7084e25fa768f92ced271d58cb9b8efc4c1448c1582412e754fb4289e3",
+      "inRepository": false,
+      "reviewStatus": "legacy-scale-study-not-current-narrative-media",
+      "metadataRecord": "C:\\Users\\jamie\\Documents\\murderbird-production\\2026-09-06\\video-metadata.json"
+    },
+    {
+      "path": "C:\\Users\\jamie\\Documents\\murderbird-production\\2026-09-06\\06-the-sentinel-original.mp4",
+      "bytes": 11501155,
+      "sha256": "e834ca4d67e57c4e390fda434db154d127d106d483666f901a6be2b23b7d93e3",
+      "inRepository": false,
+      "reviewStatus": "legacy-scale-study-not-current-narrative-media",
+      "metadataRecord": "C:\\Users\\jamie\\Documents\\murderbird-production\\2026-09-06\\video-metadata.json"
+    },
+    {
+      "path": "C:\\Users\\jamie\\Documents\\murderbird-production\\2026-09-06\\legacy-vertical-sentinel-original.mp4",
+      "bytes": 29043223,
+      "sha256": "be2bbf080c22ddcff9d86a84463e90efbcb532cacbe544a19fe1a772458d3f39",
+      "inRepository": false,
+      "reviewStatus": "legacy-scale-study-not-current-narrative-media",
+      "metadataRecord": "C:\\Users\\jamie\\Documents\\murderbird-production\\2026-09-06\\video-metadata.json"
+    }
+  ],
+  "standaloneAudioInAssetsAndContext": [],
+  "audioNote": "Downloaded videos have AAC tracks per verified metadata. Artistic suitability has not been audited; no accepted soundtrack inferred.",
+  "githubCheck": {
+    "path": "assets/murderbird/v2/manifest.json",
+    "ref": "main",
+    "result": "GitHub connector returned404 at review time"
+  },
+  "provenanceDocuments": [
+    "assets/murderbird/v2/manifest.json",
+    "assets/docs/murderbird-human-scale-library-2026-09-06.md",
+    "assets/docs/murderbird-scale-series-catalog-2026-09-06.md"
+  ]
+}

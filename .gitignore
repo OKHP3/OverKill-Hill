@@ -31,6 +31,8 @@ build/
 .vite/
 
 # Test output
+output/
+.playwright-cli/
 test-results/
 playwright-report/
 coverage/

@@ -20,6 +20,7 @@ from xml.etree import ElementTree
 
 
 ROOT = Path(__file__).resolve().parents[1]
+ARCHIVE_POLICY = "config/murderbird-source-archive.json"
 ROOT_FILES = (
     ".nojekyll",
     "CNAME",
@@ -48,6 +49,7 @@ REQUIRED_EXCLUSIONS = (
     "site-src/pages/index.main.html",
     "tests/csp-qa.test.mjs",
     "assets/templates/template--homepage.html",
+    "assets/murderbird/v2",
 )
 PUBLIC_HTML_DIRECTORIES = (
     "about", "contact", "de", "en-gb", "es", "es-mx", "found-ry", "fr", "legal", "manifesto",
@@ -57,6 +59,34 @@ PUBLIC_HTML_DIRECTORIES = (
 
 def fail(message: str) -> None:
     raise SystemExit(f"ERROR: {message}")
+
+
+def load_archived_library_paths(source: Path) -> set[Path]:
+    """Exact source-only PNG paths; missing or malformed policy fails closed."""
+    try:
+        policy = json.loads((source / ARCHIVE_POLICY).read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        fail(f"cannot read archive policy: {exc}")
+    if not isinstance(policy, dict) or policy.get("schema") != 1:
+        fail("archive policy has an unsupported schema")
+    entries = policy.get("excludedLibraryPngs")
+    if not isinstance(entries, list) or not entries:
+        fail("archive policy requires a non-empty excludedLibraryPngs list")
+    paths: set[Path] = set()
+    for entry in entries:
+        if not isinstance(entry, str) or "\\" in entry:
+            fail("archive policy contains an invalid path")
+        path = PurePosixPath(entry)
+        if (path.as_posix() != entry or len(path.parts) != 4
+                or path.parts[:3] != ("assets", "img", "library")
+                or path.suffix != ".png" or ".." in path.parts
+                or ":" in entry):
+            fail(f"unsafe archive PNG path: {entry!r}")
+        relative = Path(*path.parts)
+        if relative in paths:
+            fail(f"duplicate archive PNG path: {entry}")
+        paths.add(relative)
+    return paths
 
 
 def checked_relative_path(value: object, label: str) -> Path:
@@ -109,7 +139,7 @@ def copy_file(source: Path, output: Path, relative: Path) -> None:
     shutil.copy2(original, target)
 
 
-def copy_runtime_assets(source: Path, output: Path) -> None:
+def copy_runtime_assets(source: Path, output: Path, archived: set[Path]) -> None:
     for directory, extensions in RUNTIME_ASSET_RULES:
         original_directory = source / directory
         if not original_directory.exists():
@@ -120,6 +150,8 @@ def copy_runtime_assets(source: Path, output: Path) -> None:
             if extensions is not None and original.suffix.lower() not in extensions:
                 continue
             relative = original.relative_to(source)
+            if relative in archived:
+                continue
             target = output / relative
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(original, target)
@@ -137,7 +169,7 @@ def route_file(path: str) -> Path:
     return Path(route.lstrip("/"))
 
 
-def verify_package(output: Path, pages: list[Path]) -> None:
+def verify_package(output: Path, pages: list[Path], archived: set[Path]) -> None:
     for page in pages:
         if not (output / page).is_file():
             fail(f"published page is missing from package: {page.as_posix()}")
@@ -147,6 +179,9 @@ def verify_package(output: Path, pages: list[Path]) -> None:
     for forbidden in REQUIRED_EXCLUSIONS:
         if (output / forbidden).exists():
             fail(f"forbidden source file entered release package: {forbidden}")
+    for forbidden in sorted(archived):
+        if (output / forbidden).exists():
+            fail(f"archived source file entered release package: {forbidden.as_posix()}")
 
     try:
         sitemap = ElementTree.parse(output / "sitemap.xml")
@@ -190,13 +225,14 @@ def build(source: Path, output: Path, commit: str) -> None:
     if len(commit) != 40 or any(char not in "0123456789abcdef" for char in commit.lower()):
         fail("commit must be a full 40-character Git SHA")
     pages = load_public_pages(source)
+    archived = load_archived_library_paths(source)
     output.mkdir(parents=True)
     for page in pages:
         copy_file(source, output, page)
     for root_file in ROOT_FILES:
         copy_file(source, output, Path(root_file))
-    copy_runtime_assets(source, output)
-    verify_package(output, pages)
+    copy_runtime_assets(source, output, archived)
+    verify_package(output, pages, archived)
     write_manifest(output, commit)
     print(f"Built allowlisted release: {len(pages)} HTML pages, {sum(1 for path in output.rglob('*') if path.is_file())} files")
 
@@ -206,7 +242,8 @@ def verify(source: Path, output: Path, commit: str) -> None:
     if not output.is_dir():
         fail(f"release output does not exist: {output}")
     pages = load_public_pages(source)
-    verify_package(output, pages)
+    archived = load_archived_library_paths(source)
+    verify_package(output, pages, archived)
     manifest_path = output / "assets/audit/release-manifest.json"
     try:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))

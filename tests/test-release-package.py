@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import json
+import hashlib
+import os
 import re
 import shutil
 import subprocess
@@ -16,9 +18,133 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BUILDER = ROOT / "scripts/build-release.py"
 COMMIT = "a" * 40
+ARCHIVE_POLICY = "config/murderbird-source-archive.json"
+
+
+def accepted_murderbird_media() -> list[str]:
+    """The 25 selected still paths from PR 54, not a new art approval."""
+    paths = ["assets/img/og/murderbird-story-share-2026-09-06.png"]
+    for scene in ("maker-clean", "mechanic", "water", "heart", "sentinel", "master"):
+        variant = "-03" if scene == "master" else ""
+        paths.append(f"assets/img/library/murderbird-unified-{scene}-candidate{variant}-2026-09-06.png")
+        for width in (480, 960, 1536):
+            paths.append(f"assets/img/webp/murderbird-unified-{scene}{variant}-2026-09-06-{width}.webp")
+    return paths
 
 
 class ReleasePackageTests(unittest.TestCase):
+    def test_real_selected_media_overlay_when_available(self) -> None:
+        media_root = Path(os.environ.get("MURDERBIRD_MEDIA_REVIEW_SOURCE", str(ROOT)))
+        register_path = media_root / "assets/audit/murderbird-still-release-register.json"
+        if not register_path.is_file():
+            self.skipTest("Accepted still release is a separate branch; set MURDERBIRD_MEDIA_REVIEW_SOURCE for combined proof")
+        register = json.loads(register_path.read_text(encoding="utf-8"))
+        records = list(register["masters"])
+        for master in register["masters"]:
+            records.extend(master["derivatives"])
+        # The social record remains owned by the still release register.
+        social = register.get("social")
+        self.assertIsInstance(social, dict)
+        records.append(social)
+        self.assertEqual({record["path"] for record in records}, set(accepted_murderbird_media()))
+        with tempfile.TemporaryDirectory() as temporary:
+            source, output = Path(temporary) / "source", Path(temporary) / "release"
+            policy = self.archive_fixture(source)
+            for record in records:
+                original = media_root / record["path"]
+                self.assertEqual(hashlib.sha256(original.read_bytes()).hexdigest(), record["sha256"], record["path"])
+                shutil.copy2(original, source / record["path"])
+            for relative in policy["excludedLibraryPngs"]:
+                shutil.copy2(ROOT / relative, source / relative)
+            shutil.copytree(ROOT / "assets/murderbird/v2", source / "assets/murderbird/v2", dirs_exist_ok=True, ignore=shutil.ignore_patterns("__pycache__"))
+            built = self.build(output, source)
+            self.assertEqual(built.returncode, 0, built.stderr)
+            self.assertEqual(self.verify(output, source).returncode, 0)
+            for record in records:
+                self.assertEqual(hashlib.sha256((output / record["path"]).read_bytes()).hexdigest(), record["sha256"], record["path"])
+            for relative in policy["excludedLibraryPngs"] + ["assets/murderbird/v2"]:
+                self.assertFalse((output / relative).exists(), relative)
+
+    def test_archived_source_bytes_match_preservation_receipt(self) -> None:
+        receipt = json.loads((ROOT / "assets/audit/murderbird-source-preservation.json").read_text(encoding="utf-8"))
+        policy = json.loads((ROOT / ARCHIVE_POLICY).read_text(encoding="utf-8"))
+        entries = {entry["path"]: entry for entry in receipt["files"]}
+        actual = {path.relative_to(ROOT).as_posix() for path in (ROOT / "assets/murderbird/v2").rglob("*") if path.is_file() and "__pycache__" not in path.parts}
+        actual.update(policy["excludedLibraryPngs"])
+        self.assertEqual(set(entries), actual)
+        for relative, entry in entries.items():
+            data = (ROOT / relative).read_bytes()
+            self.assertEqual(len(data), entry["bytes"], relative)
+            self.assertEqual(hashlib.sha256(data).hexdigest(), entry["sha256"], relative)
+
+    def archive_fixture(self, source: Path) -> dict:
+        """Tiny synthetic release inputs, never substitutes for production art."""
+        source.mkdir()
+        paths = {
+            "site-src/pages.json": json.dumps({"pages": [{"path": "index.html"}]}),
+            "index.html": "<!doctype html><title>Release boundary fixture</title>",
+            "sitemap.xml": '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://overkillhill.com/</loc></url></urlset>',
+            "assets/data/search-index.json": "{}",
+        }
+        for name in (".nojekyll", "CNAME", "favicon.ico", "favicon.svg", "humans.txt", "llms.txt", "robots.txt", "site.webmanifest"):
+            paths[name] = "fixture"
+        policy = json.loads((ROOT / ARCHIVE_POLICY).read_text(encoding="utf-8"))
+        paths[ARCHIVE_POLICY] = json.dumps(policy)
+        for relative in policy["excludedLibraryPngs"] + accepted_murderbird_media():
+            paths[relative] = "synthetic path-boundary fixture, not a production image"
+        paths["assets/murderbird/v2/masters/01-maker.png"] = "historical fixture"
+        paths["assets/img/library/unrelated-library-fixture.png"] = "unrelated fixture"
+        for relative, value in paths.items():
+            target = source / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(value, encoding="utf-8")
+        return policy
+
+    def test_archive_exclusion_preserves_all_25_selected_media_paths(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            source, output = Path(temporary) / "source", Path(temporary) / "release"
+            policy = self.archive_fixture(source)
+            built = self.build(output, source)
+            self.assertEqual(built.returncode, 0, built.stderr)
+            for relative in policy["excludedLibraryPngs"]:
+                self.assertFalse((output / relative).exists(), relative)
+            self.assertFalse((output / "assets/murderbird/v2").exists())
+            self.assertEqual(len(accepted_murderbird_media()), 25)
+            for relative in accepted_murderbird_media() + ["assets/img/library/unrelated-library-fixture.png"]:
+                self.assertEqual((output / relative).read_bytes(), (source / relative).read_bytes())
+            self.assertEqual(self.verify(output, source).returncode, 0)
+
+            # Even a rewritten release inventory cannot authorize archived art.
+            forbidden = policy["excludedLibraryPngs"][0]
+            shutil.copy2(source / forbidden, output / forbidden)
+            manifest_path = output / "assets/audit/release-manifest.json"
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            manifest["files"] = sorted(manifest["files"] + [forbidden])
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+            rejected = self.verify(output, source)
+            self.assertNotEqual(rejected.returncode, 0)
+            self.assertIn("archived source file entered release", rejected.stderr)
+
+    def test_archive_policy_fails_closed_for_missing_or_unsafe_entries(self) -> None:
+        invalid_entries = ["../index.html", "assets/img/library/../hero.png", "assets/img/library//held.png", "assets/img/library/./held.png", "assets/img/library/held.webp", "assets/img/hero.png", "C:/held.png", "assets\\img\\library\\held.png"]
+        with tempfile.TemporaryDirectory() as temporary:
+            source = Path(temporary) / "source"
+            policy = self.archive_fixture(source)
+            path = source / ARCHIVE_POLICY
+            cases = [None, "not json", json.dumps({"schema": 999}), json.dumps({"schema": 1, "excludedLibraryPngs": "not a list"})]
+            for entry in invalid_entries:
+                cases.append(json.dumps({**policy, "excludedLibraryPngs": [entry]}))
+            cases.append(json.dumps({**policy, "excludedLibraryPngs": [policy["excludedLibraryPngs"][0]] * 2}))
+            for index, value in enumerate(cases):
+                with self.subTest(case=index):
+                    if value is None:
+                        path.unlink()
+                    else:
+                        path.write_text(value, encoding="utf-8")
+                    rejected = self.build(Path(temporary) / f"release-{index}", source)
+                    self.assertNotEqual(rejected.returncode, 0)
+                    self.assertIn("archive", rejected.stderr.lower())
+
     def build(self, output: Path, source: Path = ROOT) -> subprocess.CompletedProcess[str]:
         return subprocess.run(
             [sys.executable, str(BUILDER), "--source", str(source), "--output", str(output), "--commit", COMMIT],
@@ -67,6 +193,9 @@ class ReleasePackageTests(unittest.TestCase):
                 "site-src/pages/index.main.html", "tests/csp-qa.test.mjs",
                 "assets/templates/template--homepage.html",
             ):
+                self.assertFalse((output / forbidden).exists(), forbidden)
+            policy = json.loads((ROOT / ARCHIVE_POLICY).read_text(encoding="utf-8"))
+            for forbidden in policy["excludedLibraryPngs"] + ["assets/murderbird/v2", ARCHIVE_POLICY]:
                 self.assertFalse((output / forbidden).exists(), forbidden)
             manifest = json.loads((output / "assets/audit/release-manifest.json").read_text(encoding="utf-8"))
             self.assertEqual(manifest["commit"], COMMIT)

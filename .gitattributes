@@ -1,2 +1,5 @@
 scripts/post-merge.sh text eol=lf
 assets/audit/universe-map/** text=auto eol=lf
+
+# Preserve historical MurderBird source bytes, including original line endings.
+assets/murderbird/v2/** -text

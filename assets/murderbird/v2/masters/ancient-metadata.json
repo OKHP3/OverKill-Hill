@@ -1,0 +1,46 @@
+{
+  "created": "2026-09-06",
+  "storySourceCommit": "2d7e92d23fcbe875c7421d4509109bffd22b0c48",
+  "generator": "built-in image_gen",
+  "status": "reviewable production candidates; not published",
+  "assets": [
+    {
+      "id": "01-maker",
+      "title": "The Maker: inspection in the courtyard",
+      "alt": "An adult-height bronze MurderBird stands on the stone courtyard floor beside its ancient Maker, who holds a hammer lowered at their side.",
+      "era": "Ancient construction, before immersion",
+      "placements": [
+        "MurderBird story Maker section",
+        "history feature card",
+        "wide editorial hero"
+      ],
+      "source": "built-in image_gen; identity reference scale-study-human-height-candidate.png",
+      "prompt": "Use case: historical-scene. Create one premium cinematic photoreal LANDSCAPE 16:9 narrative master image for OverKill Hill, The Maker. Use attached reference only for MurderBird identity, human-height scale and shape: about 1.8 metres floor to crown, substantial hips, long sturdy terrestrial legs, deep hooked bronze bill, swept segmented crown, overlapping hammered bronze armor, subtly mismatched left shoulder plate, compact folded ornamental wings and SHORT tail. This is the same fictional constructed bird in its ANCIENT original era; remove every modern wire, electronic circuit, Victorian strap, industrial piston, fabricated steel frame and illuminated eye. Its construction is hand-worked ancient bronze plates, peened pins, concealed original linkages, restrained warm aged bronze with fine irregular tool marks; not steampunk clutter. Scene: quiet inspection in an ancient Mesopotamian masonry courtyard, bird entirely visible from crown to both floor-planted talons at center-right. An anonymous adult Maker in simple period wool/linen clothing stands beside it on EXACTLY SAME FLOOR AND DEPTH PLANE, same approximate height, hands lowered, facing the bird, no face portrait emphasis. Ordinary stone doorway and adult establish honest scale. Use believable weight bearing contacts and substantial legs, no tabletop perching. The bird stands calmly, attention directed toward a small wooden-handled metal hammer held lowered by the person: anticipation of inspection, no violent act or damage. Golden morning side-light, broad soft courtyard shadow on left with tasteful negative space suitable for later website title overlay; no baked text. Rich tactile stone, bronze and cloth, sober archaeological speculative fiction, grounded cinema still. Preserve crown and hooked head silhouette from reference while simplifying era-specific parts; two legs only, anatomy legible, fully folded ornamental wings, no flying or eagle-size creature. NO fossil skull or fossils, no computers, no electricity, no glowing eye, no later industrial objects, no fantasy runes, no writing, no watermark. Wide single scene, no collage.",
+      "limitations": [
+        "1.8 m is a working design target, not a measured engineering model or established textual measurement.",
+        "Ancient mechanism is speculative fiction, not a historically verified machine.",
+        "Hammer remains intact: scene is anticipation of inspection, not the story's completed handle-breaking beat.",
+        "Fine joint and pin details are generative and are not guaranteed interchangeable with other masters."
+      ]
+    },
+    {
+      "id": "02-water",
+      "title": "What the Water Kept",
+      "alt": "The inert bronze MurderBird lies on its side in shallow cistern water, its dark eye and mineral-stained plates beside masonry steps and a slack lowering rope.",
+      "era": "Long immersion before the 1853 excavation",
+      "placements": [
+        "MurderBird story Water section",
+        "archaeological history feature card",
+        "wide atmospheric divider"
+      ],
+      "source": "built-in image_gen; identity reference 01-maker.png",
+      "prompt": "Use case: historical-scene. Create a premium cinematic photoreal LANDSCAPE 16:9 narrative master image for OverKill Hill, What the Water Kept. Input image is the identity reference for the SAME ancient constructed MurderBird, preserve its exact deep hooked bronze bill, swept layered segmented crown, rounded mismatched shoulder plate, compact folded ornamental wings, substantial hips, long sturdy terrestrial legs and short tail. Same adult-height body approximately 1.8m when upright, NOT small raptor. Scene: centuries after its ancient Maker lowered it into a disused masonry cistern, long before any Victorian restoration. Show its ENTIRE inert body resting heavily on its side in shallow dark still water and mineral silt at cistern bottom, head and both legs all within frame, collapsed by gravity rather than posed standing awake. Thick ancient lowering rope lies slack around torso and trails up along large masonry blocks and several full-size stone stair treads, giving honest physical scale. Water has darkened bronze brown-black; green and blue mineral deposits in seams, thin roots trace lower plates. The eye is completely dark and lifeless. No movement, no cognition, no glowing parts. Original ancient hand-worked plates and peened pins only, no modern circuitry, no Victorian iron repair straps, no steam hoses. A narrow soft shaft of daylight from high above grazes crown and corroded shoulder, physically believable reflections, readable overall silhouette with deep nuanced shadow, dark teal mineral palette and muted bronze. Composition bird right-center, still water and textured masonry left gives restrained breathing room, no text. A grounded fictional archaeological cinematic photograph, sober tactile materials, not fantasy illustration. No humans needed, no skulls, no fossils, no skeleton incorporated, no flames, no blood, no magic, no text, no watermark. Keep full body visible and match head and plate silhouette to attached ancient Maker image; single coherent wide scene, no collage.",
+      "limitations": [
+        "Masonry and stairs imply scale; no person provides a direct height comparison.",
+        "Rope is visible on stairs and behind body; its full body attachment is occluded.",
+        "An artistic long-immersion scene: exact rope preservation and mineral formation are not archaeological claims.",
+        "Fine joint and pin details are generative and are not guaranteed interchangeable with other masters."
+      ]
+    }
+  ]
+}
