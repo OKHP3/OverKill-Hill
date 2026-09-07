@@ -78,7 +78,30 @@ def summary_html(record):
             + f' (reviewed {record["reviewed"]}).</p><!-- /AUTOGEN:PROJECT-STATUS -->')
 
 
-def render(main, route, records):
+def visitor_summary(record):
+    """Proposal display text; keep limitations derived from the canonical record."""
+    if record['evidence']['delivery'] != 'unknown':
+        raise ValueError('Disclosure wording requires review for a new delivery state')
+    text = record['maturity'].rstrip('.') + '.'
+    if record['maturity'] == 'Unknown':
+        text = record['availability'] + '. Maturity unknown.'
+    if record['id'] == 'mac-studio-local-ai-workbench':
+        # The RAG limit is material even when the source disclosure is closed.
+        return text + ' ' + record['evidence']['summary']
+    software = record['availability'] in ('Published project', 'Published catalog project', 'Noindex concept page')
+    label = 'Operation unverified.' if software else 'Delivery unverified.'
+    return text + ' ' + label
+
+
+def disclosure_html(record):
+    """Optional native disclosure for isolated presentation proposals."""
+    return (f'<div data-project-status-disclosure="{html.escape(record["id"], quote=True)}">'
+            + '<p data-project-status-brief="">' + html.escape(visitor_summary(record)) + '</p>'
+            + '<details><summary>Status and source</summary>'
+            + summary_html(record) + '</details></div>')
+
+
+def render(main, route, records, *, disclosure=False):
     """Render status once per applicable card or detail, preserving source history."""
     if route not in ('/', '/projects/', '/universe/') and not any(r['route'] == route and r['kind'] == 'detail' for r in records):
         return main
@@ -86,12 +109,15 @@ def render(main, route, records):
     for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
         if str(comment).strip() in ('AUTOGEN:PROJECT-STATUS', '/AUTOGEN:PROJECT-STATUS'):
             comment.extract()
+    for old in soup.select('[data-project-status-disclosure]'):
+        old.decompose()
     for old in soup.select('[data-project-status]'):
         old.decompose()
+    formatter = disclosure_html if disclosure else summary_html
     by_route = {r['route']: r for r in records}
     record = by_route.get(route)
     if record and record['kind'] == 'detail':
-        soup.h1.insert_after(BeautifulSoup(summary_html(record), 'html.parser'))
+        soup.h1.insert_after(BeautifulSoup(formatter(record), 'html.parser'))
     if route in ('/', '/projects/', '/universe/'):
         for card in soup.find_all('article'):
             matches = {a.get('href') for a in card.find_all('a')} & by_route.keys()
@@ -99,5 +125,8 @@ def render(main, route, records):
                 record = by_route[matches.pop()]
                 heading = card.find(['h2', 'h3'])
                 if heading:
-                    heading.insert_after(BeautifulSoup(summary_html(record), 'html.parser'))
+                    anchor = heading
+                    if disclosure:
+                        anchor = next((p for p in heading.find_next_siblings('p') if not p.find('a')), heading)
+                    anchor.insert_after(BeautifulSoup(formatter(record), 'html.parser'))
     return str(soup)
