@@ -2,9 +2,10 @@
   "source_revision": "2d7e92d23fcbe875c7421d4509109bffd22b0c48 plus isolated MurderBird still preview",
   "review_scope": "Bounded hero and invitation changes only; model-translated/adapted, native review not performed. All other locale editorial units retained. This fingerprint record is not language approval.",
   "normalized_routes": {
-    "/": "ce8d36fbe043d2e3d8d14f29c9e5f0349a62fcd5480b826b895ada4bfa2ad83c",
+    "/": "8570df71783a91daa6c6d96f2255af9b7db1f33dc5ef92e2aafbe7bc9d3f1969",
     "/about/": "5a42603e7a5704b3a4d2642f83b0dfaaa2f570790ae372f4589dc5e92106bdb0",
     "/projects/": "e0ab3fd4732dfce81397f9462d1c09d08dc8a2ab762a5b600660e9bd0427f08c",
     "/contact/": "1b137f2356e4a352cb3a4a4201e6bc90e9f5aae1dce0c1b48030b1883076934a"
-  }
+  },
+  "fallback_metadata_update": "PNG fallback only; unchanged editorial text verified against d112ca4e by tests/test-murderbird-fallback-editorial.py; prior review limitations retained."
 }

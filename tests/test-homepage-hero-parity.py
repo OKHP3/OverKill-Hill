@@ -63,6 +63,8 @@ class HomepageHeroParityTests(unittest.TestCase):
         self.assertIn("MurderBird", image.get("alt", ""))
         self.assertNotRegex(image.get("alt", ""), r"sentinel|chouette|búho", msg="alt text names the former identity")
         self.assertEqual(expected_image.get("src"), image.get("src"))
+        self.assertTrue(image.get("src", "").endswith(".png"))
+        self.assertNotIn("srcset", image)
         self.assertEqual(expected_image.get("width"), image.get("width"))
         self.assertEqual(expected_image.get("height"), image.get("height"))
         self.assertEqual("eager", image.get("loading"))
@@ -84,7 +86,7 @@ class HomepageHeroParityTests(unittest.TestCase):
 
     def test_regeneration_tracks_a_changed_canonical_hero_and_escapes_alt(self):
         canonical = (ROOT / "index.html").read_text(encoding="utf-8")
-        changed = canonical.replace("murderbird-unified-master-03-2026-09-06", "future-canonical-hero")
+        changed = canonical.replace("murderbird-unified-master-03-2026-09-06", "future-canonical-hero").replace("murderbird-unified-master-candidate-03-2026-09-06", "future-canonical-hero")
         previous = MODULE.HOMEPAGE_HERO_ALTS['es-mx']
         try:
             MODULE.HOMEPAGE_HERO_ALTS['es-mx'] = 'MurderBird "fuerte" & claro'

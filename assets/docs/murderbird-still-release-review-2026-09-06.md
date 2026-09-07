@@ -1,4 +1,4 @@
-# MurderBird aligned stills — draft release review
+# MurderBird aligned stills - draft release review
 
 ## Scope and authority
 
