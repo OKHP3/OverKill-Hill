@@ -1,0 +1,114 @@
+[
+  {
+    "browser": "chromium",
+    "console": [],
+    "failed": [
+      {
+        "url": "https://www.google-analytics.com/g/collect",
+        "failure": {
+          "errorText": "net::ERR_ABORTED"
+        }
+      },
+      {
+        "url": "https://www.google-analytics.com/g/collect",
+        "failure": {
+          "errorText": "net::ERR_ABORTED"
+        }
+      },
+      {
+        "url": "https://www.google-analytics.com/g/collect",
+        "failure": {
+          "errorText": "net::ERR_ABORTED"
+        }
+      }
+    ],
+    "styles": [
+      "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap",
+      "http://127.0.0.1:5220/assets/css/theme.css?v=18ec9e5b"
+    ],
+    "selection": {
+      "focus": "<input type=\"search\" class=\"okh-search-input\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"Search the Forge: articles, projects, ideas…\" aria-label=\"Search\">",
+      "selected": [
+        "<a class=\"okh-search-result\" href=\"/projects/mermaid-theme-builder/\" data-active=\"true\"><div class=\"okh-search-result-meta\"><span class=\"okh-search-result-cat\">Project</span><span class=\"okh-search-result-url\">/projects/mermaid-theme-builder/</span></div><h3 class=\"okh-search-result-title\"><mark>Mermaid</mark> Theme Builder | OverKill Hill P³™</h3><p class=\"okh-search-result-snippet\">overkillhill.com / projects / <mark>mermaid</mark>-theme-builder Community Tool Open Source v0.6.1 Shipped Agent Skill Family Shipped <mark>Mermaid</mark> Theme Builder Visual governance for AI-generated <mark>Mermaid</mark> diagrams. Paste <mark>Mermaid</mark>, detect th…</p></a>"
+      ],
+      "dirty": [
+        "Related Mermaid Theme Builder ↗ Mermaid.js Theming Docs ↗ BPMN.org ↗ OMG BPMN 2.0 Spec ↗ Mermaid GitHub ↗ All OverKill Hill Projects </div",
+        "…ll Family Manifest (FAMILY.md) ↗ SKILL.md Source ↗ BPMN for Mermaid (sibling) Mermaid.js Theming Docs ↗ themeVariables Reference ↗ Mermaid.js Syntax Reference ↗ The First Diagram is a Liar All OverKill Hill Projects </di…"
+      ]
+    },
+    "dedicatedEnter": "http://127.0.0.1:5220/writings/murderbird/",
+    "candidate": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+    "evidenceNote": "External request query parameters omitted from retained report."
+  },
+  {
+    "browser": "firefox",
+    "console": [],
+    "failed": [],
+    "styles": [
+      "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap",
+      "http://127.0.0.1:5220/assets/css/theme.css?v=18ec9e5b"
+    ],
+    "selection": {
+      "focus": "<input type=\"search\" class=\"okh-search-input\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"Search the Forge: articles, projects, ideas…\" aria-label=\"Search\">",
+      "selected": [
+        "<a class=\"okh-search-result\" href=\"/projects/mermaid-theme-builder/\" data-active=\"true\"><div class=\"okh-search-result-meta\"><span class=\"okh-search-result-cat\">Project</span><span class=\"okh-search-result-url\">/projects/mermaid-theme-builder/</span></div><h3 class=\"okh-search-result-title\"><mark>Mermaid</mark> Theme Builder | OverKill Hill P³™</h3><p class=\"okh-search-result-snippet\">overkillhill.com / projects / <mark>mermaid</mark>-theme-builder Community Tool Open Source v0.6.1 Shipped Agent Skill Family Shipped <mark>Mermaid</mark> Theme Builder Visual governance for AI-generated <mark>Mermaid</mark> diagrams. Paste <mark>Mermaid</mark>, detect th…</p></a>"
+      ],
+      "dirty": [
+        "Related Mermaid Theme Builder ↗ Mermaid.js Theming Docs ↗ BPMN.org ↗ OMG BPMN 2.0 Spec ↗ Mermaid GitHub ↗ All OverKill Hill Projects </div",
+        "…ll Family Manifest (FAMILY.md) ↗ SKILL.md Source ↗ BPMN for Mermaid (sibling) Mermaid.js Theming Docs ↗ themeVariables Reference ↗ Mermaid.js Syntax Reference ↗ The First Diagram is a Liar All OverKill Hill Projects </di…"
+      ]
+    },
+    "dedicatedEnter": "http://127.0.0.1:5220/writings/murderbird/",
+    "candidate": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+    "evidenceNote": "External request query parameters omitted from retained report."
+  },
+  {
+    "browser": "webkit",
+    "console": [
+      "Failed to load resource: SSL connect error",
+      "Failed to load resource: SSL connect error",
+      "Failed to load resource: SSL connect error",
+      "Failed to load resource: SSL connect error",
+      "Failed to load resource: SSL connect error"
+    ],
+    "failed": [
+      {
+        "url": "https://127.0.0.1:5220/site.webmanifest",
+        "failure": {
+          "errorText": "SSL connect error"
+        }
+      },
+      {
+        "url": "https://127.0.0.1:5220/assets/css/theme.css?v=18ec9e5b",
+        "failure": {
+          "errorText": "SSL connect error"
+        }
+      },
+      {
+        "url": "https://127.0.0.1:5220/assets/js/app.js?v=a825dbf7",
+        "failure": {
+          "errorText": "SSL connect error"
+        }
+      },
+      {
+        "url": "https://127.0.0.1:5220/assets/img/murderbird-v2-icon-nav-96.png",
+        "failure": {
+          "errorText": "SSL connect error"
+        }
+      },
+      {
+        "url": "https://127.0.0.1:5220/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+        "failure": {
+          "errorText": "SSL connect error"
+        }
+      }
+    ],
+    "styles": [
+      "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap",
+      "https://127.0.0.1:5220/assets/css/theme.css?v=18ec9e5b"
+    ],
+    "error": "page.waitForFunction: Timeout 7000ms exceeded.",
+    "candidate": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+    "evidenceNote": "External request query parameters omitted from retained report."
+  }
+]

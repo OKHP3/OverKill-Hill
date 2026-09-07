@@ -1,0 +1,247 @@
+{
+  "candidate": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+  "date": "2026-09-07T07:10:25.520Z",
+  "node": "v24.11.1",
+  "playwright": "1.62.1",
+  "runs": [
+    {
+      "browser": "chromium",
+      "version": "151.0.7922.34",
+      "tasks": [
+        {
+          "id": 1,
+          "failOpen": [
+            {
+              "mode": "normal",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 0.861057
+            },
+            {
+              "mode": "no-js",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 0
+            },
+            {
+              "mode": "blocked-app",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 0
+            },
+            {
+              "mode": "missing-observer",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 0
+            },
+            {
+              "mode": "reduced-motion",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "first": {
+            "url": "http://127.0.0.1:5220/",
+            "active": "<a class=\"okh-skip-link\" href=\"#main\">Skip to main content</a>",
+            "inMain": false
+          },
+          "continuation": {
+            "url": "http://127.0.0.1:5220/#main",
+            "active": "<a href=\"#forge\">The Forge</a>",
+            "inMain": true
+          }
+        },
+        {
+          "id": 3,
+          "expanded": "true",
+          "destination": {
+            "url": "http://127.0.0.1:5220/contact/",
+            "active": "<body>\n  <a class=\"okh-skip-link\" href=\"#main\">Skip to main content</a>\n<header class=\"site-header\" id=\"top\">\n<div class=\"container\">\n<div class=\"logo\">\n<a aria-label=\"OverKill Hill P³ home\" href=\"/\">\n<img alt=\"OverKill Hill P³\" height=\"40\" loading=\"eager\" src=\"/assets/img/murderbird-v2-icon-nav-96.png\" width=\"40\">\n<span class=\"sr-only\">OverKill&nbsp;Hill&nbsp;P³™ Home</span>\n</a>\n</div>\n<nav aria-label=\"Primary\" class=\"primary-nav\" id=\"navigation\" aria-hidden=\"true\" inert=\"\">\n<ul>\n<li><a href=\"/#forge\">The Forge</a></li>\n<li class=\"has-submenu\">\n<a href=\"/projects/\">Our Projects</a>\n<ul class",
+            "inMain": false
+          },
+          "heading": "How to Reach The Hill",
+          "overflow": false
+        },
+        {
+          "id": 4,
+          "error": "locator.waitFor: Timeout 8000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.okh-search-result').first() to be visible\u001b[22m\n"
+        },
+        {
+          "id": 5,
+          "jump": {
+            "url": "http://127.0.0.1:5220/writings/murderbird/#the-maker",
+            "active": "<section id=\"the-maker\" aria-labelledby=\"maker-title\" tabindex=\"-1\">\n        <p class=\"manifesto-og-label\">Era I · Bronze Age Mesopotamia · The body</p>\n        <h2 id=\"maker-title\">The Maker</h2>\n        <p>The first thing recorded about the bird was that it broke a hammer. The hammer belonged to the Maker, whose workshop had spent seven winters bringing the creature into being. The court preferred to say three. Three sounded like an ambitious commission, while seven suggested something had gone wrong. Something had gone wrong almost every day, and the bronze carried evidence of most of it.</",
+            "inMain": true
+          },
+          "continuation": {
+            "url": "http://127.0.0.1:5220/writings/murderbird/#the-maker",
+            "active": "<a href=\"#the-maker\">I · The Maker</a>",
+            "inMain": true
+          }
+        }
+      ]
+    },
+    {
+      "browser": "firefox",
+      "version": "153.0",
+      "tasks": [
+        {
+          "id": 1,
+          "failOpen": [
+            {
+              "mode": "normal",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1
+            },
+            {
+              "mode": "no-js",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 0
+            },
+            {
+              "mode": "blocked-app",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 0
+            },
+            {
+              "mode": "missing-observer",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 0
+            },
+            {
+              "mode": "reduced-motion",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "first": {
+            "url": "http://127.0.0.1:5220/",
+            "active": "<a class=\"okh-skip-link\" href=\"#main\">Skip to main content</a>",
+            "inMain": false
+          },
+          "continuation": {
+            "url": "http://127.0.0.1:5220/#main",
+            "active": "<a href=\"#forge\">The Forge</a>",
+            "inMain": true
+          }
+        },
+        {
+          "id": 3,
+          "expanded": "true",
+          "destination": {
+            "url": "http://127.0.0.1:5220/contact/",
+            "active": "<body>\n  <a class=\"okh-skip-link\" href=\"#main\">Skip to main content</a>\n<header class=\"site-header\" id=\"top\">\n<div class=\"container\">\n<div class=\"logo\">\n<a aria-label=\"OverKill Hill P³ home\" href=\"/\">\n<img alt=\"OverKill Hill P³\" height=\"40\" loading=\"eager\" src=\"/assets/img/murderbird-v2-icon-nav-96.png\" width=\"40\">\n<span class=\"sr-only\">OverKill&nbsp;Hill&nbsp;P³™ Home</span>\n</a>\n</div>\n<nav aria-label=\"Primary\" class=\"primary-nav\" id=\"navigation\" aria-hidden=\"true\" inert=\"\">\n<ul>\n<li><a href=\"/#forge\">The Forge</a></li>\n<li class=\"has-submenu\">\n<a href=\"/projects/\">Our Projects</a>\n<ul class",
+            "inMain": false
+          },
+          "heading": "How to Reach The Hill",
+          "overflow": false
+        },
+        {
+          "id": 4,
+          "selection": {
+            "url": "http://127.0.0.1:5220/",
+            "active": "<input type=\"search\" class=\"okh-search-input\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"Search the Forge: articles, projects, ideas…\" aria-label=\"Search\">",
+            "inMain": false
+          },
+          "activeDescendant": null,
+          "selected": [
+            {
+              "text": "PROJECT\n/PROJECTS/MERMAID-THEME-BUILDER/\nMermaid Theme Builder | OverKill Hill P³™\n\noverkillhill.com / projects / mermaid-theme-builder Community Tool Open Source v0.6.1 Shipped Agent Skill Family Shipped Mermaid Theme Builder Visual governance for AI-generated Mermaid diagrams. Paste Mermaid, detect th…",
+              "role": null,
+              "selected": null
+            }
+          ],
+          "dirtySnippets": [
+            "Related Mermaid Theme Builder ↗ Mermaid.js Theming Docs ↗ BPMN.org ↗ OMG BPMN 2.0 Spec ↗ Mermaid GitHub ↗ All OverKill Hill Projects </div",
+            "…l Family Manifest (FAMILY.md) ↗ SKILL.md Source ↗ BPMN for Mermaid (sibling) Mermaid.js Theming Docs ↗ themeVariables Reference ↗ Mermaid.js Syntax Reference ↗ The First Diagram is a Liar All OverKill Hill Projects </div"
+          ],
+          "escape": {
+            "url": "http://127.0.0.1:5220/",
+            "active": "<button type=\"button\" class=\"okh-search-trigger\" aria-label=\"Open search (Ctrl+K)\"><svg class=\"okh-search-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"></circle><path d=\"m20 20-3.5-3.5\"></path></svg><span class=\"okh-search-label\">Search</span><kbd>Ctrl+K</kbd></button>",
+            "inMain": false
+          },
+          "error": "Tab target not reached: #search-page-input"
+        },
+        {
+          "id": 5,
+          "jump": {
+            "url": "http://127.0.0.1:5220/writings/murderbird/#the-maker",
+            "active": "<section id=\"the-maker\" aria-labelledby=\"maker-title\" tabindex=\"-1\">\n        <p class=\"manifesto-og-label\">Era I · Bronze Age Mesopotamia · The body</p>\n        <h2 id=\"maker-title\">The Maker</h2>\n        <p>The first thing recorded about the bird was that it broke a hammer. The hammer belonged to the Maker, whose workshop had spent seven winters bringing the creature into being. The court preferred to say three. Three sounded like an ambitious commission, while seven suggested something had gone wrong. Something had gone wrong almost every day, and the bronze carried evidence of most of it.</",
+            "inMain": true
+          },
+          "continuation": {
+            "url": "http://127.0.0.1:5220/writings/murderbird/#the-maker",
+            "active": "<a href=\"#the-maker\">I · The Maker</a>",
+            "inMain": true
+          }
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "version": "26.5",
+      "tasks": [
+        {
+          "id": 1,
+          "failOpen": [
+            {
+              "mode": "normal",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1
+            },
+            {
+              "mode": "no-js",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1
+            },
+            {
+              "mode": "blocked-app",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1
+            },
+            {
+              "mode": "missing-observer",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1
+            },
+            {
+              "mode": "reduced-motion",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "first": {
+            "url": "http://127.0.0.1:5220/",
+            "active": "<button aria-expanded=\"false\" aria-haspopup=\"true\" aria-label=\"Language: English (US)\" class=\"lang-switch-toggle\" type=\"button\"><span class=\"lang-flag-current\"><svg aria-hidden=\"true\" class=\"lang-flag\" height=\"14\" viewBox=\"0 0 30 20\" width=\"21\"><rect fill=\"#B22234\" height=\"20\" width=\"30\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"1.54\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"4.62\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"7.69\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"10.77\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"13.85\"",
+            "inMain": false
+          },
+          "continuation": {
+            "url": "http://127.0.0.1:5220/",
+            "active": "<button aria-controls=\"navigation\" aria-expanded=\"false\" class=\"nav-toggle\">\n<span class=\"sr-only\">Toggle navigation</span>\n<span class=\"bar\"></span><span class=\"bar\"></span><span class=\"bar\"></span>\n</button>",
+            "inMain": false
+          }
+        },
+        {
+          "id": 3,
+          "expanded": "false",
+          "error": "Tab target not reached: #navigation a[href=\"/contact/\"]"
+        },
+        {
+          "id": 4,
+          "error": "Tab target not reached: .okh-search-trigger"
+        },
+        {
+          "id": 5,
+          "error": "Tab target not reached: a[href=\"#the-maker\"]"
+        }
+      ]
+    }
+  ],
+  "servedRootMatches": true
+}
