@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "**Precision · Protocol · Promptcraft**",
   "private": true,
+  "engines": {
+    "node": ">=24 <25"
+  },
   "scripts": {
     "test:accessibility": "node scripts/accessibility-qa.mjs",
     "test:csp": "node scripts/csp-qa.mjs",
