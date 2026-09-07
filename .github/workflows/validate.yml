@@ -75,6 +75,9 @@ jobs:
       - name: Test the Pages release boundary
         run: python3 tests/test-release-package.py
 
+      - name: Keep historical MurderBird review HTML local
+        run: python3 tests/test-murderbird-review-boundary.py
+
       - name: Run live-edge and post-merge regression tests
         run: python3 -m unittest tests/test_verify_live_edge.py
 

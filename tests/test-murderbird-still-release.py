@@ -1,11 +1,17 @@
 """Clean-checkout dependencies and narrative placement for the accepted still release."""
 import runpy
+import json
+import shutil
+import subprocess
+import sys
+import tempfile
 import unittest
 from pathlib import Path
 from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 MODULE = runpy.run_path(str(ROOT / 'scripts/build-murderbird-release-register.py'))
+RELEASE = runpy.run_path(str(ROOT / 'scripts/build-release.py'))
 
 
 class MurderBirdStillTests(unittest.TestCase):
@@ -31,9 +37,68 @@ class MurderBirdStillTests(unittest.TestCase):
         self.assertFalse(page.select('video, audio'))
 
     def test_exploratory_package_not_required(self):
-        self.assertFalse((ROOT / 'assets/murderbird/v2').exists())
-        for name in MODULE['HELD_NAMES']:
-            self.assertFalse((ROOT / 'assets/img/library' / name).exists())
+        # Archived source may coexist in Git. Prove dependency independence in
+        # a selected-input tree instead of requiring its absence from the repo.
+        selected = MODULE['record']()
+        with tempfile.TemporaryDirectory(prefix='murderbird-selected-inputs-') as temporary:
+            fixture = Path(temporary)
+            required = [
+                'scripts/build-murderbird-hero.py',
+                'scripts/build-murderbird-release-register.py',
+                selected['social']['path'],
+                *[master['path'] for master in selected['masters']],
+            ]
+            for relative in required:
+                target = fixture / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(ROOT / relative, target)
+            (fixture / 'assets/audit').mkdir(parents=True)
+
+            def run_builder(name, *arguments):
+                result = subprocess.run(
+                    [sys.executable, str(fixture / 'scripts' / name), *arguments],
+                    cwd=fixture, capture_output=True, text=True, check=False,
+                )
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+            self.assertFalse((fixture / 'assets/murderbird/v2').exists())
+            self.assertFalse((fixture / 'assets/img/webp').exists())
+            for master in selected['masters']:
+                run_builder('build-murderbird-hero.py', '--asset', master['id'])
+                run_builder('build-murderbird-hero.py', '--check', '--asset', master['id'])
+            run_builder('build-murderbird-release-register.py')
+            run_builder('build-murderbird-release-register.py', '--check')
+            rebuilt = json.loads((fixture / 'assets/audit/murderbird-still-release-register.json').read_text(encoding='utf-8'))
+            self.assertEqual(6, len(rebuilt['masters']))
+            self.assertEqual(18, sum(len(master['derivatives']) for master in rebuilt['masters']))
+            self.assertEqual(18, len(list((fixture / 'assets/img/webp').glob('*.webp'))))
+            self.assertEqual(selected['social']['sha256'], rebuilt['social']['sha256'])
+            self.assertEqual(
+                {master['path']: master['sha256'] for master in selected['masters']},
+                {master['path']: master['sha256'] for master in rebuilt['masters']},
+            )
+            self.assertFalse((fixture / 'assets/murderbird/v2').exists())
+            for name in MODULE['HELD_NAMES']:
+                self.assertFalse((fixture / 'assets/img/library' / name).exists())
+            # Positive dependency control: an accepted input really is required.
+            missing = fixture / selected['masters'][0]['path']
+            missing.unlink()
+            rejected = subprocess.run(
+                [sys.executable, str(fixture / 'scripts/build-murderbird-release-register.py'), '--check'],
+                cwd=fixture, capture_output=True, text=True, check=False,
+            )
+            self.assertNotEqual(rejected.returncode, 0)
+            self.assertIn(missing.name, rejected.stderr)
+
+    def test_archived_inputs_stay_out_of_pages(self):
+        self.assertTrue((ROOT / 'assets/murderbird/v2').is_dir())
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary) / 'site-release'
+            RELEASE['build'](ROOT, output, 'a' * 40)
+            self.assertFalse((output / 'assets/murderbird/v2').exists())
+            for name in MODULE['HELD_NAMES']:
+                self.assertTrue((ROOT / 'assets/img/library' / name).is_file())
+                self.assertFalse((output / 'assets/img/library' / name).exists())
 
 
 if __name__ == '__main__':

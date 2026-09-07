@@ -1,0 +1,82 @@
+{
+  "created": "2026-09-06",
+  "storySourceCommit": "2d7e92d23fcbe875c7421d4509109bffd22b0c48",
+  "generator": "built-in image_gen",
+  "status": "reviewable production candidates; not published",
+  "assets": [
+    {
+      "id": "05-heart",
+      "correctivePrompt": "Precise scale correction only to this workshop power-core image. Preserve scene, adult technician's height/position, CRT bench, camera, light, and all bird identity/features/open hinged breast panel/ceramic power cartridge. Shrink ENTIRE bird uniformly about 12 percent and keep its feet at same floor level. Bird crown must be approximately level with technician crown, NOT a head taller than him. Ensure both human and bird on SAME depth plane, grounded contact shadows. Reposition floor support braces to smaller body. Technician's hand naturally reaches edge of breast panel as before. No other changes. Full body and existing details preserved, no text. This is approximately 1.8m machine beside1.8m adult, not2m or3m.",
+      "title": "The heart",
+      "alt": "An adult-height bronze MurderBird stands in a workshop cradle while its ceramic power core is inspected.",
+      "era": "2025 — power and sensing",
+      "placements": [
+        "story chapter: The heart",
+        "technical editorial",
+        "Found-ry"
+      ],
+      "prompt": "Use reference image as MurderBird identity and physical scale reference. Photoreal cinematic 16:9 landscape, rich tactile material and clear readable subject, realistic workshop light, no lettering, watermark or collage. Same approximately 1.8m human-height terrestrial mechanical bird: deep hooked beak, swept segmented crown, compact folded ornamental wings, substantial hips and long sturdy load-bearing legs, asymmetrical refitted left shoulder, hammered ancient dark bronze and verdigris seams, later iron repair straps/brass bearings, restrained orange circular optics. Both feet rest on concrete floor, never on computer or table; ordinary adults and props at same depth establish scale. Not a flying eagle, no giant 3m monster. Modern era 2025. Scene: three-quarter full-body engineering inspection in workshop. Anonymous adult technician beside bird, at same depth, crown near technician head height. Breast access panel open on hinge to reveal a SINGLE modest sealed ceramic power cartridge nested within ring of small capacitors in original counterweight cradle. Old shafts and pressure cylinders surround it, tidy subtle insulated leads follow old tendon routes. External floor-level braces support body while tested. No glowing reactor, no science-fiction holograms. CRT on independent steel workbench shows only dim abstract amber indicators. Strong quiet precision, not spectacle. Whole bird fits with generous margins.",
+      "source": "built-in image_gen; reference scale-study-human-height-candidate.png",
+      "limitations": [
+        "Approximate adult height is a working design target; not a measured character rig.",
+        "Fine joints, tail and armor details vary generatively across images; review before animation.",
+        "Floor-standing interpretation needs coordinated story wording changes before publication."
+      ]
+    },
+    {
+      "id": "08-hero",
+      "title": "The persistent question",
+      "alt": "The bronze MurderBird stands beside a small CRT in a dark workshop, its orange eye turned toward the unfinished work.",
+      "era": "2025 — sentinel",
+      "placements": [
+        "homepage hero",
+        "about banner",
+        "social cover"
+      ],
+      "prompt": "Use reference image as MurderBird identity and physical scale reference. Photoreal cinematic 16:9 landscape, rich tactile material and clear readable subject, realistic workshop light, no lettering, watermark or collage. Same approximately 1.8m human-height terrestrial mechanical bird: deep hooked beak, swept segmented crown, compact folded ornamental wings, substantial hips and long sturdy load-bearing legs, asymmetrical refitted left shoulder, hammered ancient dark bronze and verdigris seams, later iron repair straps/brass bearings, restrained orange circular optics. Both feet rest on concrete floor, never on computer or table; ordinary adults and props at same depth establish scale. Not a flying eagle, no giant 3m monster. Modern era 2025. Website hero composition: bird full body in RIGHT half of wide landscape, ordinary CRT on separate small robust steel workbench at far right, dim normal-height doorway behind establishes scale. LEFT 40 percent is quiet deep charcoal workshop shadow with subtle blueprint-grid-like architecture and no busy props, designed for HTML headline overlay. No text baked into image. Three-quarter alert stance, head bowed slightly toward screen, one repaired ankle and asymmetrical plate clearly visible. No human needed if doorway and standard 0.9m bench establish human scale. Small warm optical amber highlight, patinated bronze against muted blue-grey shadows. Cinematic editorial, dignified persistent problem-solving, never attack pose.",
+      "source": "built-in image_gen; reference scale-study-human-height-candidate.png",
+      "limitations": [
+        "Approximate adult height is a working design target; not a measured character rig.",
+        "Fine joints, tail and armor details vary generatively across images; review before animation.",
+        "Floor-standing interpretation needs coordinated story wording changes before publication."
+      ]
+    },
+    {
+      "id": "06-choice",
+      "correctivePrompt": "Correct scale in this exact image of MurderBird inspecting a floor-support bolt. Preserve bird appearance, action, colors, workshop and entire composition. Shrink the ENTIRE bird uniformly by about20percent, KEEP one foot firmly on samefloor and other foot slightlyraised. Crouched shoulders should be around the standing adult's CHEST height, not above hishead; bowed head still examines bolt. Move the adult observer forward slightly so his feet are at SAMEdepth plane as groundedbirdfoot and visible, hands crossedawayfrombird. Adultheight remains1.8m; birdwouldbe1.8m ifupright, but crouching now so torso muchlower. The machine is human-height, not giant. Reposition smallfloorbolt nearitslowerbeak asnecessary, keepgantrynormalheight. Maintain same deepcurvedbill,crown,bronzeplates,foldedwings,longlegjoints,orangeeye; fullbody remainsinsideframe. No text.",
+      "title": "The first choice",
+      "era": "2025 — agency",
+      "alt": "The MurderBird shifts its weight and lowers its head toward a loose support bolt while the technician watches from a distance.",
+      "placements": [
+        "story chapter: The first choice",
+        "project cards",
+        "editorial"
+      ],
+      "prompt": "Photoreal cinematic 16:9 landscape illustration for MurderBird story. Preserve reference identity: approximately adult human height (1.8m working target), deep curved hooked bill, swept segmented crown, hammered dark bronze, verdigris in seams, mismatched left shoulder plate, visible Victorian iron straps and brass bearing repairs, subtle modern leads using old routes, subdued orange circular optics. Long substantial terrestrial legs and compact folded ornamental wings; same proportions as reference, not flying eagle. Full bird head to both feet grounded on concrete floor, computer never carries weight. Ordinary people and workshop furniture at same depth set scale. No text, no watermark. Modern workshop moment of autonomous balance correction. Entire bird at center-right bends neck to inspect a visibly loosened bolt at the BASE of a floor-level support stand adjacent to its left foot, shifting weight to other firmly grounded leg. No falling machinery. Anonymous adult technician in background at same floor plane stands still with hands folded clear of bird, not assisting. Normal steel bench and CRT inbackground. Readable bolt placement and stable anatomy, no tools held by talons. Quiet intelligent attention and agency; no attack.",
+      "source": "built-in image_gen; reference scale-study-human-height-candidate.png",
+      "limitations": [
+        "Approximate adult height is a working design target; not a measured character rig.",
+        "Fine joints, tail and armor details vary generatively across images; review before animation.",
+        "Floor-standing interpretation needs coordinated story wording changes before publication."
+      ]
+    },
+    {
+      "id": "07-sentinel",
+      "title": "The sentinel",
+      "era": "2025 — chosen purpose",
+      "alt": "An adult-height MurderBird watches an operator resume work at a CRT, standing on the workshop floor beside the desk.",
+      "placements": [
+        "story ending",
+        "about",
+        "writings banner"
+      ],
+      "prompt": "Photoreal cinematic 16:9 landscape illustration for MurderBird story. Preserve reference identity: approximately adult human height (1.8m working target), deep curved hooked bill, swept segmented crown, hammered dark bronze, verdigris in seams, mismatched left shoulder plate, visible Victorian iron straps and brass bearing repairs, subtle modern leads using old routes, subdued orange circular optics. Long substantial terrestrial legs and compact folded ornamental wings; same proportions as reference, not flying eagle. Full bird head to both feet grounded on concrete floor, computer never carries weight. Ordinary people and workshop furniture at same depth set scale. No text, no watermark. Modernworkshop quiet two-subject scene. Anonymous adult operator seated at ordinary desk with small beige CRT, hands on keyboard resuming unfinished work. Bird stands BESIDE desk entirely on concretefloor, neck inclined toward human hands and screen, warmorangeeye. Birdcrown approximately equalstandingadultheight, much taller than seatedoperator. Desk is normal0.9m high steelbench. Do not put a foot, weight or body oncomputer. Careful coexistence, no threateninghumanpose, no roboticattack. Cool shadow and warm desk lamp. Generous readable environmental context, widescreen narrative composition.",
+      "source": "built-in image_gen; reference scale-study-human-height-candidate.png",
+      "limitations": [
+        "Approximate adult height is a working design target; not a measured character rig.",
+        "Fine joints, tail and armor details vary generatively across images; review before animation.",
+        "Floor-standing interpretation needs coordinated story wording changes before publication."
+      ]
+    }
+  ]
+}

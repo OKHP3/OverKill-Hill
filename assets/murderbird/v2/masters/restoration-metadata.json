@@ -1,0 +1,67 @@
+{
+  "generationMethod": "built-in image_gen",
+  "created": "2026-09-06",
+  "status": "production candidates; not published",
+  "identityReference": "C:/Users/jamie/Documents/murderbird-production/2026-09-06/scale-study-human-height-candidate.png",
+  "assets": [
+    {
+      "id": "03-recovery",
+      "title": "What the water released",
+      "alt": "Workers secure the inert, human-height bronze MurderBird in a timber cradle beside the excavated cistern in 1853.",
+      "era": "1853 recovery and packing",
+      "placements": [
+        "/writings/murderbird/#the-water",
+        "story timeline recovery card",
+        "historical social preview"
+      ],
+      "source": "https://overkillhill.com/writings/murderbird/",
+      "sourceCommit": "2d7e92d23fcbe875c7421d4509109bffd22b0c48",
+      "prompt": "Create a photoreal cinematic historical-scene website master image, landscape 16:9, 1920x1080 or higher. Reference image is IDENTITY AND SCALE reference only, not a scene to copy. Scene: 1853, arid Mesopotamian ruined cistern excavation, the recovered fictional MurderBird being secured for transport, anonymous workers in simple period linen clothing at the SAME depth plane as the machine establish human-height scale. Preserve reference swept segmented crown, deep curved bronze bill, asymmetrical refitted left shoulder plate, recognizable overlapping hammered bronze silhouette; both heavy terrestrial mechanical legs and broad talons visible; wings compact folded ornamental armor, no extended flight feathers. Approximately 1.8m floor-to-crown when upright, equal adult height, NOT giant and NOT eagle-sized. Entire inert bird is supported upright by a substantial low wooden transport cradle and padded hemp ropes from timber tripod; feet resting in cradle at ground level, crown only slightly above adjacent adult heads because base is low. Crate boards and straw being prepared beside it. Worn dark brown-black ancient bronze, green-blue mineral deposits in seams, silt and root traces. REMOVE all modern wiring/electronics, modern machinery, Victorian repair straps and bright machined brass bearings shown in reference: this scene precedes restoration. Eyes entirely dark opaque unlit metal apertures, no orange glow, no visible intelligence. Frame entire bird including both feet and adjacent adult workers, clear scale cues, quiet weight and awkward heaviness rather than triumphant treasure discovery. Natural dusty side light, muted ochre stone, cinematic but credible materials, 50mm normal perspective. No text, logo, watermark, fossil skull, modern tools, flying, giant fantasy proportions, head injury or gore. The bird is an ancient crafted automaton, never an actual fossil or taxonomic reconstruction.",
+      "generatedSource": "C:/Users/jamie/.codex/generated_images/01a0790f-5274-7180-8598-dcbfe7295c25/exec-1457027d-6c89-4bea-9867-819724bf9e48.png",
+      "limitations": [
+        "Fictional historical interpretation, not archaeological evidence.",
+        "Approximately 1.8m is a working production target, not a measured 3D model.",
+        "Ropes partially obscure shoulders and torso; do not use as an engineering rigging diagram."
+      ],
+      "visualQA": [
+        "Full body and feet visible; adult workers establish scale.",
+        "Eyes unlit; no modern power core or CRT.",
+        "Timber cradle, rope supports and transport packing visible.",
+        "Ancient bronze, mineral seams, curved bill and segmented crown retained."
+      ],
+      "width": 1672,
+      "height": 941,
+      "aspectRatioNote": "Near 16:9 source (1672x941); use aspect-ratio 16/9 with negligible edge crop for exact layout."
+    },
+    {
+      "id": "04-mechanic",
+      "title": "Different centuries carrying the load",
+      "alt": "An 1873 mechanic adjusts a brass bearing on the human-height MurderBird, supported in a floor-level iron cradle with an external pressure hose.",
+      "era": "1873 industrial restoration",
+      "placements": [
+        "/writings/murderbird/#the-mechanic",
+        "repair and engineering editorial cards",
+        "historical social preview"
+      ],
+      "source": "https://overkillhill.com/writings/murderbird/",
+      "sourceCommit": "2d7e92d23fcbe875c7421d4509109bffd22b0c48",
+      "prompt": "Create a photoreal cinematic historical-scene website master, landscape 16:9, 1920x1080 or higher. Input image is character identity and approximate human-height scale reference ONLY. Setting: 1873 private repair workshop behind an English ironworks, tall multi-pane daylight windows, wooden floor on heavy beams, cast-iron hand tools, a blurred period line-shaft belt in background. Same fictional MurderBird as reference, full body visible from segmented swept crown to both broad talons, approximately1.8m floor-to-crown adult height, with anonymous adult restorer in linen shirt and leather apron standing adjacent on SAME depth plane. Normal 50mm view. Bird's feet at floor level, sturdy iron assembly cradle supporting breast from sides, no tall pedestal or table; believable weight through deep hips, substantial terrestrial legs and ankles. Preserve deep curved bill, irregular ancient bronze plates, refitted mismatched left shoulder, compact folded ornamental wing mantles. Corroded dark bronze retains green-blue water deposits and old hand tool marks; distinct newly fitted 1873 iron repair straps and brass bushings visibly cross ancient construction without concealing it. An open side plate reveals brass bearing, iron linkage and pressure cylinder. One period cloth-braided external pressure hose visibly connects cylinder to workshop power off-frame and rests on floor. Restorer uses a simple wrench near the replacement brass bearing, quietly studying fit. Bird motionless under externally supplied power trial, eyes unlit dark metal apertures with daylight glint only, no orange glow or autonomous gaze. No electronics, electric wires, power core, LCD/CRT, modern hydraulic machinery, internal furnace, coal fire inside bird, glossy polished gold, spread wings, eagle-sized body, giant towering bird. Entire figure and adult scale cue clear, both feet included. Medium-dark industrial background with readable bronze texture and mild cool daylight/warm brass contrast. Documentary material realism, no text, words, logo, watermark. This is fictional historical reconstruction; retain its particular asymmetries.",
+      "correctionPrompt": "Edit this 1873 workshop image only to correct scale. Keep the workshop, adult mechanic, realistic lighting, 16:9 framing and period details unchanged. Shrink the ENTIRE bronze bird uniformly by approximately 18 percent while keeping its two feet on the floor at exactly their current level. The TOP OF THE BIRD'S CROWN must now be at the SAME HEIGHT as the top of the adjacent mechanic's head (both approximately1.8m). Shrink its supporting iron cradle proportionally so support is still correctly under breast. Preserve all head/neck/legs proportions internally, ancient patinated bronze, segmented swept crown, curved bill, mismatched shoulder, folded wings, unlit eyes, exposed brass bearing and iron linkage. Reposition mechanic's wrench/hands slightly to the now-lower side bearing while preserving his standing height. External pressure hose stays connected and rests on floor. No other changes, no added text.",
+      "generatedSource": "C:/Users/jamie/.codex/generated_images/01a0790f-5274-7180-8598-dcbfe7295c25/exec-0d1f36e1-ab8c-4c99-b504-a44825531667.png",
+      "limitations": [
+        "AI-generated mechanisms illustrate the fiction rather than verified engineering.",
+        "Working 1.8m scale; corrected from initial oversized render to adult-height crown.",
+        "Uses proposed floor-level staging; published story still includes a bench-traversal phrase."
+      ],
+      "visualQA": [
+        "After correction, crown approximately at standing adult head height.",
+        "Both feet grounded; separate iron cradle visibly supports breast.",
+        "Eyes unlit and pressure hose visible along floor.",
+        "Victorian repair metals remain distinct from patinated ancient bronze."
+      ],
+      "width": 1672,
+      "height": 941,
+      "aspectRatioNote": "Near 16:9 source (1672x941); use aspect-ratio 16/9 with negligible edge crop for exact layout."
+    }
+  ]
+}
