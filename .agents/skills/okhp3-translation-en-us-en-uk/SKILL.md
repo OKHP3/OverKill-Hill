@@ -202,6 +202,15 @@ English quality, native acceptance, or live automation behavior. It does
 not inherit evidence from any other pair package, including
 `okhp3-translation-en-us-fr-fr`.
 
+## Regression tests
+
+From this package directory, run `python3 -m unittest discover -s tests -v`
+or `python3 tests/test_en_us_to_en_uk.py -v`.
+The underscore test filename is a tool-required exception to kebab-case:
+Python unittest discovery requires an importable module name. Keep the active
+hyphenated planner and validator helper filenames unchanged. These tests check
+mechanical behavior, not linguistic quality or publication approval.
+
 ## About
 
 Built by [Jamie Hill](https://overkillhill.com) · [OverKill Hill P³](https://overkillhill.com)

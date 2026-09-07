@@ -36,6 +36,7 @@ follows the same convention as `askjamie/scripts/README.md`.
 | `screen-reader-tree-audit.mjs` | active | Screen-reader accessibility tree audit (`npm run test:*`) |
 | `sync-foundation-files.py` | active | Audit-first, explicit-revision sync of theme.css/app.js/mermaid-init.js across the three sibling repos |
 | `test-check-banner.py` | active | Focused regression checks for localized construction-banner validation |
+| `test-translation-skills.py` | active | Discover five exact-pair suites and the detector suite; fail on missing, empty, reduced, or failing coverage; standard library only |
 | `validate-site.py` | active | Structural site validation |
 | `verify-live-edge.py` | active | Live-edge deployment verification |
 
