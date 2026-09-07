@@ -1,3 +1,9 @@
+// French interaction drafts and source provenance: i18n/pilot/fr/interactions/.
+// Display text only. Locale routes, search keys, and keyboard behavior stay canonical.
+function okhLocaleText(english, french) {
+  return /^fr(?:-|$)/i.test(document.documentElement.lang || "") ? french : english;
+}
+
 // ════════════════════════════════════════════════════════════════════════════
 //  app.js — Shared client-side script (OverKill Hill P³)
 //
@@ -196,9 +202,9 @@ document.addEventListener("DOMContentLoaded", () => {
       dark:   '<svg class="tt-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
     };
     const STATE_ARIA  = {
-      system: "Switch to light mode",
-      light:  "Switch to dark mode",
-      dark:   "Switch to system mode",
+      system: okhLocaleText("Switch to light mode", "Passer au mode clair"),
+      light:  okhLocaleText("Switch to dark mode", "Passer au mode sombre"),
+      dark:   okhLocaleText("Switch to system mode", "Utiliser le thème du système"),
     };
 
     const savedTheme = readStorage("okh-theme");
@@ -635,10 +641,12 @@ document.addEventListener("DOMContentLoaded", () => {
     introduction: "Find tools, guides, and pages across AskJamie.",
     suggestions: ["writing", "resume", "decisions", "clarity"],
   } : {
-    label: "Search OverKill Hill",
-    placeholder: "Search the Forge: articles, projects, ideas…",
-    introduction: "Search across writings, projects, manifesto, and the Council archives.",
-    suggestions: ["mermaid", "ROY", "council", "manifesto", "diagram", "visual edition"],
+    label: okhLocaleText("Search OverKill Hill", "Rechercher sur OverKill Hill"),
+    placeholder: okhLocaleText("Search the Forge: articles, projects, ideas…", "Rechercher dans la forge : articles, projets, idées…"),
+    introduction: okhLocaleText("Search across writings, projects, manifesto, and the Council archives.", "Recherchez parmi les pages disponibles en français. La recherche complète donne accès au contenu en anglais."),
+    suggestions: /^fr(?:-|$)/i.test(document.documentElement.lang || "")
+      ? ["projets", "protocoles", "contact", "IA"]
+      : ["mermaid", "ROY", "council", "manifesto", "diagram", "visual edition"],
   };
 
   // ----- index loader (cached promise) -----
@@ -795,15 +803,28 @@ document.addEventListener("DOMContentLoaded", () => {
     return html + escapeHtml(original.slice(offset));
   }
 
+  function categoryLabel(category) {
+    const labels = {
+      Home: okhLocaleText("Home", "Accueil"),
+      Brand: okhLocaleText("Brand", "Marque"),
+      Project: okhLocaleText("Project", "Projet"),
+      About: okhLocaleText("About", "À propos"),
+      Projects: okhLocaleText("Projects", "Projets"),
+      Contact: okhLocaleText("Contact", "Contact"),
+      Page: okhLocaleText("Page", "Page"),
+    };
+    return labels[category] || category;
+  }
+
   // ----- result rendering -----
   function renderResultHtml(result, tokens) {
     const e = result.entry;
     const snip = snippetFor(e, tokens, 220);
     return (
       '<div class="okh-search-result-meta">' +
-        '<span class="okh-search-result-cat">'  + escapeHtml(e.category || "Page") + "</span>" +
+        '<span class="okh-search-result-cat">'  + escapeHtml(categoryLabel(e.category || "Page")) + "</span>" +
         (e.branch_label ? '<span>' + escapeHtml(e.branch_label) + '</span>' : "") +
-        (e.publication_state ? '<span class="okh-search-result-state">' + escapeHtml({live: "Live catalog entry", beta: "Beta", unavailable: "Unavailable"}[e.publication_state] || e.publication_state) + '</span>' : "") +
+        (e.publication_state ? '<span class="okh-search-result-state">' + escapeHtml({live: okhLocaleText("Live catalog entry", "Entrée du catalogue en ligne"), beta: okhLocaleText("Beta", "Bêta"), unavailable: okhLocaleText("Unavailable", "Indisponible")}[e.publication_state] || e.publication_state) + '</span>' : "") +
         '<span class="okh-search-result-url">'  + escapeHtml(e.url) + "</span>" +
       "</div>" +
       '<h3 class="okh-search-result-title">' + highlight(e.title || e.url, tokens) + "</h3>" +
@@ -826,18 +847,18 @@ document.addEventListener("DOMContentLoaded", () => {
             '<circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />' +
           "</svg>" +
           '<input type="search" class="okh-search-input" autocomplete="off" spellcheck="false" ' +
-            'placeholder="' + escapeHtml(searchCopy().placeholder) + '" aria-label="Search" />' +
-          '<button type="button" class="okh-search-close" aria-label="Close search">Esc</button>' +
+            'placeholder="' + escapeHtml(searchCopy().placeholder) + '" aria-label="' + okhLocaleText("Search", "Rechercher") + '" />' +
+          '<button type="button" class="okh-search-close" aria-label="' + okhLocaleText("Close search", "Fermer la recherche") + '">' + okhLocaleText("Esc", "Échap") + '</button>' +
         "</div>" +
-        '<div class="okh-search-results" role="list" aria-label="Search results"></div>' +
+        '<div class="okh-search-results" role="list" aria-label="' + okhLocaleText("Search results", "Résultats de recherche") + '"></div>' +
         '<div class="okh-search-status sr-only" role="status" aria-live="polite" aria-atomic="true"></div>' +
         '<div class="okh-search-footer">' +
           '<div class="okh-search-keys">' +
-            "<span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>" +
-            "<span><kbd>↵</kbd> open</span>" +
-            "<span><kbd>Esc</kbd> close</span>" +
+            "<span><kbd>↑</kbd><kbd>↓</kbd> " + okhLocaleText("navigate", "parcourir") + "</span>" +
+            "<span><kbd>↵</kbd> " + okhLocaleText("open", "ouvrir") + "</span>" +
+            "<span><kbd>" + okhLocaleText("Esc", "Échap") + "</kbd> " + okhLocaleText("close", "fermer") + "</span>" +
           "</div>" +
-          '<a href="/search/">Open full search →</a>' +
+          '<a href="/search/">' + okhLocaleText("Open full search →", "Ouvrir la recherche complète (contenu en anglais) →") + '</a>' +
         "</div>" +
       "</div>"
     );
@@ -909,18 +930,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showLoading() {
       indexState = "loading";
-      list.innerHTML = '<p class="okh-search-loading">Loading search index…</p>';
-      status.textContent = "Loading search index…";
+      list.innerHTML = '<p class="okh-search-loading">' + okhLocaleText("Loading search index…", "Chargement de l’index de recherche…") + '</p>';
+      status.textContent = okhLocaleText("Loading search index…", "Chargement de l’index de recherche…");
     }
 
     function setLoadError(error) {
       indexState = "error";
       list.innerHTML =
         '<div class="okh-search-noresults okh-search-noresults--error">' +
-          "<p>Search could not load the index.</p>" +
-          '<button type="button" class="okh-search-retry">Retry search index</button>' +
+          "<p>" + okhLocaleText("Search could not load the index.", "La recherche n’a pas pu charger l’index.") + "</p>" +
+          '<button type="button" class="okh-search-retry">' + okhLocaleText("Retry search index", "Réessayer de charger l’index") + '</button>' +
         "</div>";
-      status.textContent = "Search index failed to load.";
+      status.textContent = okhLocaleText("Search index failed to load.", "Impossible de charger l’index de recherche.");
       console.warn("[okh-search] overlay index load failed:", error);
       list.querySelector(".okh-search-retry").addEventListener("click", () => {
         showLoading();
@@ -966,7 +987,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderEmpty() {
       overlay.querySelector(".okh-search-footer a").href = "/search/";
       list.innerHTML = emptyStateHtml();
-      status.textContent = "Search ready. Enter a term or choose a suggested search.";
+      status.textContent = okhLocaleText("Search ready. Enter a term or choose a suggested search.", "La recherche est prête. Saisissez un terme ou choisissez une suggestion.");
       list.querySelectorAll("button[data-q]").forEach((btn) => {
         btn.addEventListener("click", () => {
           input.value = btn.getAttribute("data-q") || "";
@@ -980,8 +1001,8 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.querySelector(".okh-search-footer a").href = "/search/" + (q ? "?q=" + encodeURIComponent(q) : "");
       if (indexState !== "ready") return;
       if (!entries.length) {
-        list.innerHTML = '<p class="okh-search-empty">No indexed pages are available.</p>';
-        status.textContent = "No indexed pages are available.";
+        list.innerHTML = '<p class="okh-search-empty">' + okhLocaleText("No indexed pages are available.", "Aucune page indexée n’est disponible.") + '</p>';
+        status.textContent = okhLocaleText("No indexed pages are available.", "Aucune page indexée n’est disponible.");
         return;
       }
       if (!q) { renderEmpty(); currentResults = []; lastTokens = []; return; }
@@ -989,9 +1010,9 @@ document.addEventListener("DOMContentLoaded", () => {
       currentResults = search(entries, q, 12);
       if (!currentResults.length) {
         list.innerHTML =
-          '<div class="okh-search-noresults"><p>No matches for <strong>' +
-          escapeHtml(q) + "</strong>.</p><p>Try " + searchCopy().suggestions.map(escapeHtml).join(", ") + ".</p></div>";
-        status.textContent = "No search results for " + q + ".";
+          '<div class="okh-search-noresults"><p>' + okhLocaleText("No matches for ", "Aucun résultat pour ") + '<strong>' +
+          escapeHtml(q) + "</strong>.</p><p>" + okhLocaleText("Try ", "Essayez ") + searchCopy().suggestions.map(escapeHtml).join(", ") + ".</p></div>";
+        status.textContent = okhLocaleText("No search results for ", "Aucun résultat de recherche pour ") + q + ".";
         return;
       }
       list.innerHTML = currentResults.map((r) => (
@@ -1000,8 +1021,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "</a></div>"
       )).join("");
       status.textContent = currentResults.length +
-        (currentResults.length === 1 ? " result" : " results") +
-        " found for " + q + ".";
+        (currentResults.length === 1
+          ? okhLocaleText(" result found for ", " résultat trouvé pour ")
+          : okhLocaleText(" results found for ", " résultats trouvés pour ")) + q + ".";
     }
     input.addEventListener("input", render);
     initResultNavigation(input, list);
@@ -1047,13 +1069,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn      = document.createElement("button");
     btn.type       = "button";
     btn.className  = "okh-search-trigger";
-    btn.setAttribute("aria-label", "Open search (" + shortcut + ")");
+    btn.setAttribute("aria-label", okhLocaleText("Open search (", "Ouvrir la recherche (") + shortcut + ")");
     btn.innerHTML = (
       '<svg class="okh-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" ' +
         'stroke="currentColor" stroke-width="2" aria-hidden="true">' +
         '<circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />' +
       "</svg>" +
-      '<span class="okh-search-label">Search</span>' +
+      '<span class="okh-search-label">' + okhLocaleText("Search", "Rechercher") + '</span>' +
       '<kbd>' + shortcut + '</kbd>'
     );
     btn.addEventListener("click", (e) => { e.preventDefault(); openFn(btn); });
@@ -1092,12 +1114,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (error) {
         list.innerHTML = listMarkup(
           '<div class="okh-search-noresults okh-search-noresults--error">' +
-            "<p>Search could not load the index.</p>" +
-            "<p>Check your connection, then try again.</p>" +
-            '<button type="button" class="okh-search-retry">Retry search index</button>' +
+            "<p>" + okhLocaleText("Search could not load the index.", "La recherche n’a pas pu charger l’index.") + "</p>" +
+            "<p>" + okhLocaleText("Check your connection, then try again.", "Vérifiez votre connexion, puis réessayez.") + "</p>" +
+            '<button type="button" class="okh-search-retry">' + okhLocaleText("Retry search index", "Réessayer de charger l’index") + '</button>' +
           "</div>");
         list.querySelector(".okh-search-retry").addEventListener("click", () => initialize(true));
-        if (stats) stats.textContent = "Search index failed to load.";
+        if (stats) stats.textContent = okhLocaleText("Search index failed to load.", "Impossible de charger l’index de recherche.");
         return true;
       }
       return false;
@@ -1146,19 +1168,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       if (!indexLoaded) {
         list.innerHTML = "";
-        if (stats) stats.textContent = "Loading index…";
+        if (stats) stats.textContent = okhLocaleText("Loading index…", "Chargement de l’index…");
         return;
       }
       if (!entries.length) {
-        list.innerHTML = listMarkup('<p class="okh-search-empty">No indexed pages are available.</p>');
-        if (stats) stats.textContent = "No indexed pages are available.";
+        list.innerHTML = listMarkup('<p class="okh-search-empty">' + okhLocaleText("No indexed pages are available.", "Aucune page indexée n’est disponible.") + '</p>');
+        if (stats) stats.textContent = okhLocaleText("No indexed pages are available.", "Aucune page indexée n’est disponible.");
         return;
       }
       if (!q && !isGlee()) {
         list.innerHTML = "";
         if (stats) stats.textContent = entries.length
           ? "Type to search " + entries.length + " indexed entries." + scopeNotice
-          : "Loading index…" + scopeNotice;
+          : okhLocaleText("Loading index…", "Chargement de l’index…") + scopeNotice;
         return;
       }
       const tokens = tokenize(q);
@@ -1167,11 +1189,11 @@ document.addEventListener("DOMContentLoaded", () => {
           .slice(0, 60).map((entry) => ({ entry }));
       if (!results.length) {
         list.innerHTML = listMarkup(
-          '<div class="search-empty-state"><p>No matches for <strong>' +
+          '<div class="search-empty-state"><p>' + okhLocaleText("No matches for ", "Aucun résultat pour ") + '<strong>' +
           escapeHtml(q) + "</strong>" +
           (activeCategory !== "all" ? ' in <em>' + escapeHtml(activeCategory) + "</em>" : "") +
           ".</p></div>");
-        if (stats) stats.textContent = "0 results";
+        if (stats) stats.textContent = okhLocaleText("0 results", "0 résultat");
         return;
       }
       if (stats) stats.textContent =
@@ -1228,7 +1250,7 @@ document.addEventListener("DOMContentLoaded", () => {
       indexLoadError = null;
       indexLoaded = false;
       list.innerHTML = "";
-      if (stats) stats.textContent = "Loading index…";
+      if (stats) stats.textContent = okhLocaleText("Loading index…", "Chargement de l’index…");
       loadIndex(retry).then((d) => {
         indexLoadError = null;
         indexLoaded = true;
