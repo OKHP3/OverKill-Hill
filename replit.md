@@ -215,7 +215,7 @@ Inspect the archived helper's header before using it for a deliberately scoped
 migration; do not treat its old release workflow as current repository
 architecture.
 
-**Lower-level tool (check only / manual fix):**
+**Active checker and optional auto-fixer:**
 
 ```
 python3 scripts/check-mtb-version.py              # check only
@@ -224,10 +224,14 @@ python3 scripts/check-mtb-version.py --update --prev-sprint v0.5.x
 python3 scripts/check-mtb-version.py --dry-run    # preview fixes, no writes
 ```
 
-The update and dry-run options above are historical guidance for the archived
-helper and are not part of the current active command contract.
+The active checker supports these options, as verified with `--help` on
+2026-09-07. Check mode and `--dry-run` do not write. `--update` backs up and
+patches the files named in the checker; it is an optional mutator, not a
+read-only validation command. Keep the English `site-src/` authoring inputs
+aligned with any release change and verify `scripts/build-site.py --check`
+afterward so regeneration cannot undo a direct HTML patch.
 
-**Manual checklist — locations auto-patched by the release script:**
+**Manual checklist: locations targeted by the active checker in update mode:**
 
 | Location | What changes |
 |---|---|
@@ -239,7 +243,7 @@ helper and are not part of the current active command contract.
 | Sidebar · Status meta-val | `v{version} Shipped` |
 | Sidebar · Build Phase meta-val | `v{sprint} {sprint-name}` |
 
-The checker also updates the `**Current version:**` and active-sprint lines in this section. Review the release and roadmap table summaries after each release because they intentionally describe more than the structured values the checker manages.
+In `--update` mode, the checker also targets the `**Current version:**` and active-sprint lines in this section; check mode never updates them. Review the release and roadmap table summaries after each release because they intentionally describe more than the structured values the checker manages.
 
 ## Internal Search Engine
 
@@ -276,11 +280,17 @@ The attribute value is ignored; its presence is the signal. The script discovers
 
 ## SEO / Metadata Status
 
+The bullets and deferred list below preserve an earlier SEO checkpoint; they
+are not the current inventory or an executable backlog. On 2026-09-07,
+`scripts/check-links.py` verified 31 sitemap URLs, with `/search/` intentionally
+excluded by noindex. Use that check and `scripts/test-seo-fixtures.py` to verify
+current metadata before acting on any historical item below.
+
 - `sitemap.xml` — rebuilt with all 18 indexable URLs (was 8). Includes writings hub, all writings, all 4 v03 field guides, projects hub, both indexable projects, and `/search/`.
 - `robots.txt` — explicit opt-ins for GPTBot, ChatGPT-User, OAI-SearchBot, Google-Extended, ClaudeBot, anthropic-ai, PerplexityBot, CCBot, Applebot-Extended, Bytespider; crawl-delay for AhrefsBot/SemrushBot.
 - `site.webmanifest` — fixed (was empty name + broken icon paths). Now: name "OverKill Hill P³™", short_name "OKHP³", correct favicon paths, dark theme color #111827.
 
-### Proposed but not yet implemented (deferred)
+### Historical deferred proposals (recheck before implementation)
 - BreadcrumbList JSON-LD on article + project + heat pages
 - Sitewide Organization JSON-LD with sameAs (LinkedIn/Fiverr/X/YouTube/Facebook/Ko-fi)
 - `og:type=article` + `article:published_time` on writings pages (currently `website`)
@@ -300,19 +310,34 @@ The attribute value is ignored; its presence is the signal. The script discovers
 
 ### Propagation workflow
 
-Run `scripts/sync-foundation-files.py` (identical copy in all three repos' `scripts/`, self-locating from `../..` relative to its own path):
+Use this checkout's `scripts/sync-foundation-files.py`; its default mode audits
+all three sibling checkouts without writing. Writes require an explicitly
+selected source repository and its approved full 40-character commit SHA:
 
 ```bash
-python3 scripts/sync-foundation-files.py            # dry run: report only, writes nothing
-python3 scripts/sync-foundation-files.py --apply     # write resolved content to disk
-python3 scripts/sync-foundation-files.py --commit    # write + git commit in each changed repo
+python3 scripts/sync-foundation-files.py
+python3 scripts/sync-foundation-files.py --apply --source-repo overkill-hill --source-revision APPROVED_FULL_COMMIT_SHA
+python3 scripts/sync-foundation-files.py --commit --source-repo overkill-hill --source-revision APPROVED_FULL_COMMIT_SHA
 ```
 
-For each foundation file it groups the three repos' copies by exact content. One group means already in sync. Two groups means it overwrites whichever repo(s) don't hold the version with the most recent `git log` touch — this is what produces both directions above without hand-coded routing. Three groups (every repo genuinely different) is reported as a **conflict** and nothing is written; that needs the same manual/agent blend-and-resolve treatment `theme.css` went through on 2026-08-30, not an automatic pick. Writing `theme.css` into glee-fullytools also re-runs that repo's `sync-css-version.py` and `sync-portfolio-stats.py` automatically, since a plain file copy alone leaves its cache-bust tokens and portfolio stats stale.
+Replace `APPROVED_FULL_COMMIT_SHA` with the reviewed immutable revision.
+`--source-repo` also accepts `glee-fullytools` or `askjamie`. The source bytes
+come from that commit, not its working tree. The script never chooses a winner
+from commit timestamps, file modification times, or the hub designation.
+Inspect and reconcile differing legitimate work before choosing the source.
 
-If a repo's `.git/index.lock` is actively held by another process at commit time, the script writes the file but skips that repo's commit and says so rather than fighting the lock — commit it by hand once the other process is done. If a sibling checkout is absent, the script exits with configuration status 3 rather than pretending the three-way check passed; run it from a mirror root containing all three checkouts.
+Before writing, the script refuses dirty, staged, or untracked sibling work
+and Git locks; locks are reported, never removed. Missing sibling checkouts
+produce configuration status 3. Configured post-write generators run by
+default, and the report accounts for foundation and generated changes.
+A failed generator prevents all commits. A later commit failure can leave
+reported, recoverable writes; inspect the change account before continuing.
+`--commit` includes only accounted paths and does not push any repository.
 
-The three foundation files remain a strict byte-identical contract. Site-specific behavior is expressed inside the shared superset using `.glee-main`, `.askjamie-main`, `data-theme`, `data-color-scheme`, page data attributes, and the presence or absence of optional markup. The sync tool reports a genuine three-way conflict instead of automatically choosing a winner. The runtime compatibility design and behavior classification are maintained in the ADR linked above.
+The three foundation files retain their byte-identical contract. Site-specific
+behavior belongs in the shared superset through `.glee-main`,
+`.askjamie-main`, `data-theme`, `data-color-scheme`, page data attributes, and
+optional markup. The compatibility ADR above defines the runtime design.
 
 ### Site-specific divergence is expressed via class hooks, not separate files
 

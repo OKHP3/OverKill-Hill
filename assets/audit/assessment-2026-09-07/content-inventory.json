@@ -1,0 +1,3492 @@
+{
+  "baseline": "ca38d5b9fc46746ea8b41e2ba32e39685c53f511",
+  "prior_source": "897df5d3",
+  "method": "HTMLParser over authoritative English main bodies, excluding script/style; word counts include code and diagram text, not reading-time estimates",
+  "pages": [
+    {
+      "source": "site-src/pages/404.main.html",
+      "sha256": "1b90cec55b69ce6a4e1f9d0a5743a80f2d401e28fa2c1ec4bf20e29bab82925d",
+      "words_including_code": 142,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Experiencing technical difficulties."
+        },
+        {
+          "level": "h2",
+          "text": "What might have gone wrong?"
+        },
+        {
+          "level": "h3",
+          "text": "Work in progress"
+        },
+        {
+          "level": "h3",
+          "text": "Typo in the URL"
+        },
+        {
+          "level": "h3",
+          "text": "Old bookmark"
+        }
+      ],
+      "links": [
+        "/#forge",
+        "/",
+        "mailto:contact@overkillhill.com"
+      ]
+    },
+    {
+      "source": "site-src/pages/about/index.main.html",
+      "sha256": "073c845f49649c7ceb6c1e0dbea4a4ae9cf653c354dd3a02e66b5a316aee7a72",
+      "words_including_code": 524,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "About OverKill Hill P³™"
+        },
+        {
+          "level": "h2",
+          "text": "Who’s on the Hill"
+        },
+        {
+          "level": "h2",
+          "text": "Experience behind the work"
+        },
+        {
+          "level": "h3",
+          "text": "13+ years"
+        },
+        {
+          "level": "h3",
+          "text": "28"
+        },
+        {
+          "level": "h3",
+          "text": "Enterprise scale"
+        },
+        {
+          "level": "h3",
+          "text": "~5,000 users"
+        },
+        {
+          "level": "h3",
+          "text": "Continued education"
+        },
+        {
+          "level": "h2",
+          "text": "Why the Hill exists"
+        },
+        {
+          "level": "h2",
+          "text": "How I work with you"
+        }
+      ],
+      "links": [
+        "/#forge",
+        "/projects/",
+        "/#forge",
+        "mailto:contact@overkillhill.com"
+      ]
+    },
+    {
+      "source": "site-src/pages/contact/index.main.html",
+      "sha256": "782169d7fc17ff98cd31cf040eb1dab557c3ba6dd82a6fe81e9aec2fa116a803",
+      "words_including_code": 333,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "How to Reach The Hill"
+        },
+        {
+          "level": "h2",
+          "text": "Contact"
+        },
+        {
+          "level": "h2",
+          "text": "Support the Forge with Ko‑fi"
+        },
+        {
+          "level": "h3",
+          "text": "Fuel the Forge"
+        }
+      ],
+      "links": [
+        "/#forge",
+        "mailto:contact@overkillhill.com",
+        "/#forge",
+        "https://ko-fi.com/overkillhillp3"
+      ]
+    },
+    {
+      "source": "site-src/pages/found-ry/index.main.html",
+      "sha256": "f915ee40f5a3e486df48481c1524e136db09aac1a44707009d69189b6ab45399",
+      "words_including_code": 51,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Found‑Rᵧ has a new address"
+        }
+      ],
+      "links": [
+        "/projects/found-ry/",
+        "/projects/",
+        "/prompt-forge/",
+        "/projects/skillz/"
+      ]
+    },
+    {
+      "source": "site-src/pages/index.main.html",
+      "sha256": "83617386aa2f0ddae7ee3c7ae3c4bf21d6312d5416386c2b14d8ddaabb8eccbc",
+      "words_including_code": 705,
+      "unchanged_since_prior_audit_source": false,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Precision · Protocol · Promptcraft"
+        },
+        {
+          "level": "h3",
+          "text": "What happens at the Hill?"
+        },
+        {
+          "level": "h2",
+          "text": "Start with the work"
+        },
+        {
+          "level": "h3",
+          "text": "Use a tool"
+        },
+        {
+          "level": "h3",
+          "text": "Inspect the work"
+        },
+        {
+          "level": "h3",
+          "text": "Discuss a project"
+        },
+        {
+          "level": "h2",
+          "text": "Selected work"
+        },
+        {
+          "level": "h3",
+          "text": "Skillz Forge"
+        },
+        {
+          "level": "h3",
+          "text": "Abrahamic Reference Engine"
+        },
+        {
+          "level": "h3",
+          "text": "The First Diagram Is Usually a Liar"
+        },
+        {
+          "level": "h2",
+          "text": "How OverKill Hill thinks"
+        },
+        {
+          "level": "h3",
+          "text": "Protocol-driven by default"
+        },
+        {
+          "level": "h3",
+          "text": "Performance forged, not presumed"
+        },
+        {
+          "level": "h3",
+          "text": "Crafted to scale with humans"
+        },
+        {
+          "level": "h2",
+          "text": "Fresh from the Forge"
+        },
+        {
+          "level": "h3",
+          "text": "The First Diagram Is Usually a Liar"
+        },
+        {
+          "level": "h2",
+          "text": "Writing on the horizon"
+        },
+        {
+          "level": "h3",
+          "text": "Magnus Progenitor Saga"
+        },
+        {
+          "level": "h3",
+          "text": "Biases as Constants"
+        },
+        {
+          "level": "h2",
+          "text": "Projects from the forge"
+        },
+        {
+          "level": "h3",
+          "text": "Glee-fully Personalizable Tools"
+        },
+        {
+          "level": "h3",
+          "text": "AskJamie"
+        },
+        {
+          "level": "h3",
+          "text": "The Prompt Forge"
+        },
+        {
+          "level": "h2",
+          "text": "Let’s build something enduring."
+        }
+      ],
+      "links": [
+        "#forge",
+        "/projects/",
+        "/manifesto/",
+        "/writings/murderbird/",
+        "/projects/skillz/",
+        "/projects/",
+        "/contact/",
+        "/projects/skillz/",
+        "https://okhp3.github.io/skillz/",
+        "https://github.com/OKHP3/skillz",
+        "/projects/abrahamic-reference-engine/",
+        "/projects/abrahamic-reference-engine/",
+        "/writings/first-diagram-is-a-liar/",
+        "/writings/first-diagram-is-a-liar/",
+        "/writings/first-diagram-is-a-liar/",
+        "/writings/first-diagram-is-a-liar/",
+        "/writings/magnus-saga/",
+        "/writings/magnus-saga/",
+        "/writings/biases-as-constants/",
+        "/writings/biases-as-constants/",
+        "https://glee-fully.tools/",
+        "https://askjamie.bot",
+        "/prompt-forge/",
+        "mailto:contact@overkillhill.com"
+      ]
+    },
+    {
+      "source": "site-src/pages/legal/index.main.html",
+      "sha256": "cd40f028f6716a2f6c6843247d4826648caaa3ced7326b2fd1c99e18039e2d5f",
+      "words_including_code": 443,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Legal notice & usage disclaimer."
+        },
+        {
+          "level": "h2",
+          "text": "Privacy Policy"
+        },
+        {
+          "level": "h2",
+          "text": "Terms of Use"
+        },
+        {
+          "level": "h2",
+          "text": "Cookies and Analytics"
+        },
+        {
+          "level": "h2",
+          "text": "Accessibility Statement"
+        },
+        {
+          "level": "h2",
+          "text": "Legal Notice"
+        }
+      ],
+      "links": [
+        "/#top",
+        "mailto:contact@overkillhill.com",
+        "mailto:contact@overkillhill.com"
+      ]
+    },
+    {
+      "source": "site-src/pages/manifesto/index.main.html",
+      "sha256": "bda94c0c8084e3176f6cc69e1a24687c2ec7e09217fe9942fc6ebff956949a60",
+      "words_including_code": 5312,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Manifesto of OKHP³™"
+        },
+        {
+          "level": "h2",
+          "text": "The First Statement"
+        },
+        {
+          "level": "h2",
+          "text": "The Fires Were Already Burning"
+        },
+        {
+          "level": "h3",
+          "text": "Ralph Hill -- v0.0 (The Prototype)"
+        },
+        {
+          "level": "h3",
+          "text": "Vyrle Hill -- v1.0 (First Production Release)"
+        },
+        {
+          "level": "h3",
+          "text": "Jamie Hill -- v2.0 (Architectural Rewrite)"
+        },
+        {
+          "level": "h3",
+          "text": "Rylee Hill -- v3.0 (Next Generation)"
+        },
+        {
+          "level": "h2",
+          "text": "The MurderBird -- Origin of the Sigil"
+        },
+        {
+          "level": "h3",
+          "text": "How the Bird Was Built"
+        },
+        {
+          "level": "h3",
+          "text": "What the Image Actually Is"
+        },
+        {
+          "level": "h3",
+          "text": "The MurderBird Reads the Manifesto"
+        },
+        {
+          "level": "h2",
+          "text": "The Recursive Thinking Behind the Machine"
+        },
+        {
+          "level": "h2",
+          "text": "The Canon Ends. The Living Hill Begins."
+        },
+        {
+          "level": "h2",
+          "text": "The Living OverKill Hill P³™ Manifesto"
+        },
+        {
+          "level": "h3",
+          "text": "This Is Not Minimalism"
+        },
+        {
+          "level": "h3",
+          "text": "The First Answer Is Usually a Draft"
+        },
+        {
+          "level": "h3",
+          "text": "Words Are Infrastructure"
+        },
+        {
+          "level": "h3",
+          "text": "AI Is a Power Tool, Not a Priest"
+        },
+        {
+          "level": "h3",
+          "text": "The Council Beats the Oracle"
+        },
+        {
+          "level": "h3",
+          "text": "Diagrams Must Pay Rent"
+        },
+        {
+          "level": "h3",
+          "text": "Systems Need Soul"
+        },
+        {
+          "level": "h3",
+          "text": "Joy Is Not the Enemy of Discipline"
+        },
+        {
+          "level": "h3",
+          "text": "Governance Is How Meaning Survives Scale"
+        },
+        {
+          "level": "h3",
+          "text": "Build the Thing That Refuses to Flatten You"
+        },
+        {
+          "level": "h3",
+          "text": "What OverKill Hill P³™ Actually Is"
+        },
+        {
+          "level": "h3",
+          "text": "The Line in the Concrete"
+        }
+      ],
+      "links": [
+        "/#forge",
+        "#og-manifesto",
+        "#living-manifesto",
+        "/writings/murderbird/",
+        "#og-manifesto",
+        "#the-forge-before",
+        "#murderbird-genesis",
+        "/prompt-forge/",
+        "/prompt-forge/",
+        "#promptcraft-connection",
+        "/prompt-forge/",
+        "#top",
+        "#living-manifesto",
+        "#living-manifesto",
+        "/prompt-forge/",
+        "/writings/first-diagram-is-a-liar/#roy",
+        "/writings/first-diagram-is-a-liar/#council-scoring",
+        "/writings/first-diagram-is-a-liar/",
+        "/projects/",
+        "/writings/first-diagram-is-a-liar/",
+        "/prompt-forge/",
+        "/contact/",
+        "#og-manifesto",
+        "#the-forge-before",
+        "#murderbird-genesis",
+        "#promptcraft-connection",
+        "#intro-overkill",
+        "#not-minimalism",
+        "#first-answer",
+        "#words-infrastructure",
+        "#ai-power-tool",
+        "#council-oracle",
+        "#diagrams-pay-rent",
+        "#systems-need-soul",
+        "#joy-discipline",
+        "#governance-scale",
+        "#refuses-flatten",
+        "#what-okh-is",
+        "#line-in-concrete"
+      ]
+    },
+    {
+      "source": "site-src/pages/projects/abrahamic-reference-engine/index.main.html",
+      "sha256": "2d59017fd0738b46aad63a57b7ca4d4d29c74345082c30ef926a9cd3f130bbb5",
+      "words_including_code": 1176,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Abrahamic Reference Engine"
+        },
+        {
+          "level": "h2",
+          "text": "The Reference Gap"
+        },
+        {
+          "level": "h3",
+          "text": "Most scripture tools are built for insiders"
+        },
+        {
+          "level": "h3",
+          "text": "Cross-tradition comparison requires a scholar"
+        },
+        {
+          "level": "h3",
+          "text": "AI models hallucinate scripture"
+        },
+        {
+          "level": "h3",
+          "text": "Translation choice is invisible"
+        },
+        {
+          "level": "h2",
+          "text": "Four modes. One engine."
+        },
+        {
+          "level": "h3",
+          "text": "Browse traditions and denominations"
+        },
+        {
+          "level": "h3",
+          "text": "Look up passages from real sources"
+        },
+        {
+          "level": "h3",
+          "text": "Compare shared themes across traditions"
+        },
+        {
+          "level": "h3",
+          "text": "Track religious holidays across all three traditions"
+        },
+        {
+          "level": "h2",
+          "text": "Built for humans. Packaged for agents."
+        },
+        {
+          "level": "h3",
+          "text": "okhp3-verse-lookup"
+        },
+        {
+          "level": "h3",
+          "text": "okhp3-tradition-reference"
+        },
+        {
+          "level": "h3",
+          "text": "okhp3-cross-tradition-compare"
+        },
+        {
+          "level": "h3",
+          "text": "okhp3-tradition-observance-calendar"
+        },
+        {
+          "level": "h2",
+          "text": "Why these three traditions?"
+        },
+        {
+          "level": "h2",
+          "text": "The rules the engine runs on."
+        },
+        {
+          "level": "h3",
+          "text": "Neutrality first"
+        },
+        {
+          "level": "h3",
+          "text": "Attribution always"
+        },
+        {
+          "level": "h3",
+          "text": "Context without preaching"
+        },
+        {
+          "level": "h3",
+          "text": "Difference is data"
+        },
+        {
+          "level": "h3",
+          "text": "Free and open where possible"
+        },
+        {
+          "level": "h2",
+          "text": "A reference engine. Not a religion."
+        },
+        {
+          "level": "h2",
+          "text": "Where it came from."
+        }
+      ],
+      "links": [
+        "/",
+        "/projects/",
+        "https://okhp3.github.io/abrahamic-reference-engine/",
+        "https://github.com/OKHP3/skillz",
+        "https://github.com/OKHP3/abrahamic-reference-engine",
+        "https://okhp3.github.io/abrahamic-reference-engine/",
+        "https://okhp3.github.io/abrahamic-reference-engine/",
+        "https://okhp3.github.io/abrahamic-reference-engine/",
+        "https://okhp3.github.io/abrahamic-reference-engine/",
+        "https://okhp3.github.io/abrahamic-reference-engine/",
+        "https://github.com/OKHP3/skillz",
+        "https://github.com/OKHP3/skillz",
+        "https://www.pewresearch.org/religion/religious-landscape-study/",
+        "https://okhp3.github.io/abrahamic-reference-engine/origin/are00_thread_summary.md",
+        "https://okhp3.github.io/abrahamic-reference-engine/origin",
+        "https://github.com/OKHP3/abrahamic-reference-engine",
+        "https://okhp3.github.io/abrahamic-reference-engine/",
+        "https://overkillhill.com",
+        "https://github.com/OKHP3/skillz",
+        "https://okhp3.github.io/abrahamic-reference-engine/",
+        "https://github.com/OKHP3/skillz",
+        "https://github.com/OKHP3/abrahamic-reference-engine",
+        "https://github.com/OKHP3/abrahamic-reference-engine/issues",
+        "https://github.com/OKHP3/skillz",
+        "https://www.pewresearch.org/religion/religious-landscape-study/",
+        "/projects/mermaid-theme-builder/",
+        "/projects/",
+        "#problem",
+        "#embed-demo",
+        "#three-modes",
+        "#agent-skills",
+        "#scope",
+        "#principles",
+        "#what-is-not",
+        "#origin"
+      ]
+    },
+    {
+      "source": "site-src/pages/projects/bfs-framing-intelligent-futures/index.main.html",
+      "sha256": "3a9a155fd79957dc042a9bde8c20365cdcb6c834017832f562654fb85710f94f",
+      "words_including_code": 1444,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "BFS Framing Intelligent Futures"
+        },
+        {
+          "level": "h2",
+          "text": "From OverKill Hill experiment to BrandGuard™ lens"
+        },
+        {
+          "level": "h3",
+          "text": "What the project is"
+        },
+        {
+          "level": "h3",
+          "text": "Why BFS was first"
+        },
+        {
+          "level": "h3",
+          "text": "How it evolved into AskJamie™ BrandGuard™"
+        },
+        {
+          "level": "h2",
+          "text": "Why this matters for the next era of digital commerce"
+        },
+        {
+          "level": "h3",
+          "text": "From search results to model answers"
+        },
+        {
+          "level": "h3",
+          "text": "The semantic land rush"
+        },
+        {
+          "level": "h3",
+          "text": "Protecting public brand stories"
+        },
+        {
+          "level": "h2",
+          "text": "What the BFS project can do today"
+        },
+        {
+          "level": "h3",
+          "text": "Succession & acquisition crossroads"
+        },
+        {
+          "level": "h3",
+          "text": "Safety & fleet accountability"
+        },
+        {
+          "level": "h3",
+          "text": "New builder, clean break from old employer"
+        },
+        {
+          "level": "h3",
+          "text": "“Who is BFS?” for homeowners and pros"
+        },
+        {
+          "level": "h3",
+          "text": "Field math: board‑feet, weight, and loads"
+        },
+        {
+          "level": "h3",
+          "text": "Prefab, READY‑FRAME®, and speed"
+        },
+        {
+          "level": "h3",
+          "text": "Culture, reviews, and investor lens"
+        },
+        {
+          "level": "h2",
+          "text": "AskJamie™ BrandGuard™ & the OverKill Hill P³ universe"
+        },
+        {
+          "level": "h3",
+          "text": "AskJamie™: the articulate lens maker"
+        },
+        {
+          "level": "h3",
+          "text": "BrandGuard™: protecting stories in the model era"
+        },
+        {
+          "level": "h3",
+          "text": "OverKill Hill P³™: People, Protocols, Prototypes"
+        },
+        {
+          "level": "h2",
+          "text": "Where this goes next"
+        },
+        {
+          "level": "h3",
+          "text": "For Builders FirstSource & close partners"
+        },
+        {
+          "level": "h3",
+          "text": "For other brands staring at the same horizon"
+        }
+      ],
+      "links": [
+        "https://askjamie.bot/lens-system/okhp3-brandguard/",
+        "https://www.bldr.com",
+        "https://chatgpt.com/g/g-68e8927c5cd48191863e613f04ee042d-bfs-framing-intelligent-futures",
+        "/contact/"
+      ]
+    },
+    {
+      "source": "site-src/pages/projects/bpmn-for-mermaid/index.main.html",
+      "sha256": "558bfbb65391d2542fb4c6016d71f8d7991d8c418d92093252c68779f8e9199a",
+      "words_including_code": 2585,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "BPMN for Mermaid"
+        },
+        {
+          "level": "h2",
+          "text": "What bpmn-beta looks like"
+        },
+        {
+          "level": "h2",
+          "text": "Where to find the project"
+        },
+        {
+          "level": "h2",
+          "text": "BP-SKILL"
+        },
+        {
+          "level": "h3",
+          "text": "What it is"
+        },
+        {
+          "level": "h3",
+          "text": "Why bpmn-beta is the visual output layer, not the whole product"
+        },
+        {
+          "level": "h3",
+          "text": "The 15 skills -- grouped by layer"
+        },
+        {
+          "level": "h3",
+          "text": "The standards it aligns to"
+        },
+        {
+          "level": "h3",
+          "text": "Install the suite"
+        },
+        {
+          "level": "h2",
+          "text": "What's working, what's not"
+        },
+        {
+          "level": "h2",
+          "text": "The gap Mermaid has always had"
+        },
+        {
+          "level": "h3",
+          "text": "The current options"
+        },
+        {
+          "level": "h3",
+          "text": "bpmn-beta"
+        },
+        {
+          "level": "h2",
+          "text": "What the project does"
+        },
+        {
+          "level": "h3",
+          "text": "Mermaid-Native DSL"
+        },
+        {
+          "level": "h3",
+          "text": "Pools & Lanes experimental"
+        },
+        {
+          "level": "h3",
+          "text": "BPMN 2.0 Correct Shapes"
+        },
+        {
+          "level": "h3",
+          "text": "AI-Generatable Syntax"
+        },
+        {
+          "level": "h3",
+          "text": "No bpmn-js Dependency"
+        },
+        {
+          "level": "h3",
+          "text": "Mermaid Theme Integration"
+        },
+        {
+          "level": "h3",
+          "text": "Playground & DSL Reference"
+        },
+        {
+          "level": "h3",
+          "text": "Open Source, MIT License"
+        },
+        {
+          "level": "h3",
+          "text": "15 Agent Skills -- BP-SKILL Suite"
+        },
+        {
+          "level": "h3",
+          "text": "Process Narrative Specification"
+        },
+        {
+          "level": "h2",
+          "text": "What this is, and what it isn't"
+        },
+        {
+          "level": "h2",
+          "text": "Where the project is"
+        },
+        {
+          "level": "h3",
+          "text": "Need process architecture built to spec?"
+        }
+      ],
+      "links": [
+        "/",
+        "/projects/",
+        "#embed-playground",
+        "https://okhp3.github.io/mermaid-diagram-bpmn/skills",
+        "https://github.com/OKHP3/mermaid-diagram-bpmn",
+        "https://okhp3.github.io/mermaid-diagram-bpmn/",
+        "https://okhp3.github.io/mermaid-diagram-bpmn/",
+        "https://okhp3.github.io/mermaid-diagram-bpmn/",
+        "https://okhp3.github.io/mermaid-diagram-bpmn/",
+        "https://okhp3.github.io/mermaid-diagram-bpmn/",
+        "https://okhp3.github.io/mermaid-diagram-bpmn/",
+        "https://okhp3.github.io/mermaid-diagram-bpmn/",
+        "https://github.com/OKHP3/mermaid-diagram-bpmn",
+        "https://okhp3.github.io/mermaid-diagram-bpmn/skills",
+        "https://agentskills.io",
+        "https://okhp3.github.io/mermaid-diagram-bpmn/skills",
+        "https://github.com/mermaid-js/mermaid/issues/7699",
+        "https://pro.fiverr.com/s/VYKPpoB",
+        "/contact/",
+        "/projects/mermaid-theme-builder/",
+        "https://github.com/OKHP3/mermaid-diagram-bpmn",
+        "https://overkillhill.com",
+        "https://okhp3.github.io/mermaid-diagram-bpmn/",
+        "https://okhp3.github.io/mermaid-diagram-bpmn/skills",
+        "https://github.com/OKHP3/mermaid-diagram-bpmn",
+        "https://github.com/OKHP3/mermaid-diagram-bpmn/issues",
+        "https://github.com/mermaid-js/mermaid/issues/7699",
+        "/projects/mermaid-theme-builder/",
+        "https://mermaid.js.org/config/theming.html",
+        "https://www.bpmn.org/",
+        "https://www.omg.org/spec/BPMN/",
+        "https://github.com/mermaid-js/mermaid",
+        "/projects/",
+        "#features",
+        "#build-progress"
+      ]
+    },
+    {
+      "source": "site-src/pages/projects/first-diagram-is-a-liar/index.main.html",
+      "sha256": "d4dadba8d70d1e7804d214c7f11dde02ab6ff165ef666ee33947af39123ce697",
+      "words_including_code": 1038,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "The First Diagram Is Usually a Liar"
+        },
+        {
+          "level": "h2",
+          "text": "A tidy diagram can still be a tidy lie."
+        },
+        {
+          "level": "h3",
+          "text": "The first shape feels more certain than the idea."
+        },
+        {
+          "level": "h3",
+          "text": "Explanation has a cost."
+        },
+        {
+          "level": "h3",
+          "text": "Different tools answer different questions."
+        },
+        {
+          "level": "h3",
+          "text": "Revision is part of the evidence."
+        },
+        {
+          "level": "h2",
+          "text": "The Writing is the narrative. The tutorial is the rehearsal room."
+        },
+        {
+          "level": "h3",
+          "text": "Read the argument in full."
+        },
+        {
+          "level": "h3",
+          "text": "Test the method against your own thinking."
+        },
+        {
+          "level": "h2",
+          "text": "Five moves for an honest model."
+        },
+        {
+          "level": "h3",
+          "text": "Find the hidden claim."
+        },
+        {
+          "level": "h3",
+          "text": "Count understanding against explanation."
+        },
+        {
+          "level": "h3",
+          "text": "Show the shape of the work."
+        },
+        {
+          "level": "h3",
+          "text": "Keep the council legible."
+        },
+        {
+          "level": "h3",
+          "text": "Put the source beside the picture."
+        },
+        {
+          "level": "h2",
+          "text": "Receipts before rankings."
+        },
+        {
+          "level": "h3",
+          "text": "Governing brief archived"
+        },
+        {
+          "level": "h3",
+          "text": "Prompts, Mermaid, and renders archived"
+        },
+        {
+          "level": "h3",
+          "text": "Specialty records archived"
+        },
+        {
+          "level": "h3",
+          "text": "Council-Assisted Scoring current writing"
+        },
+        {
+          "level": "h2",
+          "text": "The rules the project runs on."
+        },
+        {
+          "level": "h3",
+          "text": "Source before polish."
+        },
+        {
+          "level": "h3",
+          "text": "Comparison needs conditions."
+        },
+        {
+          "level": "h3",
+          "text": "Disagreement is useful data."
+        },
+        {
+          "level": "h3",
+          "text": "ROY is a heuristic."
+        },
+        {
+          "level": "h3",
+          "text": "Make the handoff survive."
+        },
+        {
+          "level": "h2",
+          "text": "A field guide. Not a diagram factory."
+        },
+        {
+          "level": "h2",
+          "text": "It started as a diagramming shootout."
+        }
+      ],
+      "links": [
+        "/",
+        "/projects/",
+        "/writings/first-diagram-is-a-liar/",
+        "https://github.com/OKHP3/first-diagram-is-a-liar",
+        "https://okhp3.github.io/first-diagram-is-a-liar/",
+        "/writings/first-diagram-is-a-liar/",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/tree/main/src",
+        "/writings/first-diagram-is-a-liar/",
+        "https://github.com/OKHP3/first-diagram-is-a-liar",
+        "https://github.com/OKHP3/first-diagram-is-a-liar",
+        "/writings/first-diagram-is-a-liar/",
+        "https://okhp3.github.io/first-diagram-is-a-liar/",
+        "https://overkillhill.com",
+        "/writings/first-diagram-is-a-liar/",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/tree/main/archive",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/tree/main/src",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/issues",
+        "/writings/first-diagram-is-a-liar/",
+        "/projects/mermaid-theme-builder/",
+        "/projects/",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/tree/main/docs",
+        "#problem",
+        "#companion",
+        "#what-it-does",
+        "#evidence",
+        "#principles",
+        "#what-is-not",
+        "#origin"
+      ]
+    },
+    {
+      "source": "site-src/pages/projects/found-ry/index.main.html",
+      "sha256": "9018ff066374abbd793d061262036eb808b59b6f2cae2966735cdab95f35dfe5",
+      "words_including_code": 3244,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Found‑Rᵧ"
+        },
+        {
+          "level": "h2",
+          "text": "A good prototype is not a thing you can hand to anyone"
+        },
+        {
+          "level": "h3",
+          "text": "The builder UI rewards vagueness"
+        },
+        {
+          "level": "h3",
+          "text": "The hard parts have no surface"
+        },
+        {
+          "level": "h3",
+          "text": "The reasoning evaporates"
+        },
+        {
+          "level": "h3",
+          "text": "There is no exit"
+        },
+        {
+          "level": "h2",
+          "text": "Ore, heat, anvil, quench"
+        },
+        {
+          "level": "h3",
+          "text": "The ore is the prompt"
+        },
+        {
+          "level": "h3",
+          "text": "The heat is the pressure of specificity"
+        },
+        {
+          "level": "h3",
+          "text": "The anvil is the nine stations"
+        },
+        {
+          "level": "h3",
+          "text": "The quench is where you find out"
+        },
+        {
+          "level": "h3",
+          "text": "The maker's mark is governance"
+        },
+        {
+          "level": "h3",
+          "text": "The shelf is where it becomes reusable"
+        },
+        {
+          "level": "h2",
+          "text": "Where this sits in the ecosystem"
+        },
+        {
+          "level": "h2",
+          "text": "Nine stations, in this order, for a reason"
+        },
+        {
+          "level": "h2",
+          "text": "Three tools that run on the finished work"
+        },
+        {
+          "level": "h3",
+          "text": "Score it before you defend it"
+        },
+        {
+          "level": "h3",
+          "text": "Decide where it should live"
+        },
+        {
+          "level": "h3",
+          "text": "Leave with the specification"
+        },
+        {
+          "level": "h2",
+          "text": "A design workbench, not a hosting platform"
+        },
+        {
+          "level": "h2",
+          "text": "The rules the workbench runs on."
+        },
+        {
+          "level": "h3",
+          "text": "If a prompt would do the job, do not build a GPT"
+        },
+        {
+          "level": "h3",
+          "text": "Non-goals are a first-class field"
+        },
+        {
+          "level": "h3",
+          "text": "Every capability carries a rationale"
+        },
+        {
+          "level": "h3",
+          "text": "The gate has to be able to say no"
+        },
+        {
+          "level": "h3",
+          "text": "The specification leaves with you"
+        },
+        {
+          "level": "h3",
+          "text": "Nothing leaves the browser"
+        },
+        {
+          "level": "h2",
+          "text": "The first five hundred pieces"
+        },
+        {
+          "level": "h2",
+          "text": "Where the build is going"
+        },
+        {
+          "level": "h3",
+          "text": "Need a Custom GPT that survives contact with real users?"
+        },
+        {
+          "level": "h2",
+          "text": "Bring something to the anvil"
+        }
+      ],
+      "links": [
+        "/",
+        "/projects/",
+        "https://okhp3.github.io/OverKill-Hill-FoundRy/",
+        "https://github.com/OKHP3/OverKill-Hill-FoundRy",
+        "/prompt-forge/",
+        "/prompt-forge/",
+        "/projects/skillz/",
+        "https://okhp3.github.io/OverKill-Hill-FoundRy/",
+        "https://okhp3.github.io/OverKill-Hill-FoundRy/",
+        "https://okhp3.github.io/OverKill-Hill-FoundRy/",
+        "https://okhp3.github.io/OverKill-Hill-FoundRy/",
+        "https://okhp3.github.io/OverKill-Hill-FoundRy/",
+        "/prompt-forge/",
+        "https://okhp3.github.io/OverKill-Hill-FoundRy/",
+        "/projects/skillz/",
+        "https://github.com/OKHP3/OverKill-Hill-FoundRy",
+        "/projects/glee-fully-chai-chasers/",
+        "/projects/skillz/",
+        "https://github.com/OKHP3/OverKill-Hill-FoundRy",
+        "https://pro.fiverr.com/s/VYKPpoB",
+        "/contact/",
+        "https://okhp3.github.io/OverKill-Hill-FoundRy/",
+        "https://okhp3.github.io/OverKill-Hill-FoundRy/",
+        "https://github.com/OKHP3/OverKill-Hill-FoundRy",
+        "/prompt-forge/",
+        "/projects/skillz/",
+        "https://okhp3.github.io/OverKill-Hill-FoundRy/",
+        "https://github.com/OKHP3/OverKill-Hill-FoundRy",
+        "https://okhp3.github.io/OverKill-Hill-FoundRy/",
+        "https://overkillhill.com",
+        "https://okhp3.github.io/OverKill-Hill-FoundRy/",
+        "/prompt-forge/",
+        "/projects/skillz/",
+        "https://github.com/OKHP3/OverKill-Hill-FoundRy",
+        "https://github.com/OKHP3/OverKill-Hill-FoundRy/issues",
+        "/prompt-forge/",
+        "/projects/skillz/",
+        "/projects/glee-fully-chai-chasers/",
+        "/universe/",
+        "/projects/",
+        "#problem",
+        "#the-forge",
+        "#embed-tool",
+        "#ecosystem",
+        "#stations",
+        "#tools",
+        "#what-it-is",
+        "#principles",
+        "#origin",
+        "#roadmap"
+      ]
+    },
+    {
+      "source": "site-src/pages/projects/glee-fully-chai-chasers/index.main.html",
+      "sha256": "7a6edfe9e7aae5af78dead603c22a7bfe9786f3e43b54f8082107decc64f50b4",
+      "words_including_code": 1369,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Glee-fully Chai Chasers"
+        },
+        {
+          "level": "h2",
+          "text": "Why this needed governance"
+        },
+        {
+          "level": "h3",
+          "text": "Multi-agent work usually produces multi-agent chaos."
+        },
+        {
+          "level": "h3",
+          "text": "\"Looks done\" is not done."
+        },
+        {
+          "level": "h3",
+          "text": "Vibes don't survive handoffs."
+        },
+        {
+          "level": "h3",
+          "text": "Personal projects deserve engineering discipline too."
+        },
+        {
+          "level": "h2",
+          "text": "A real game. A real spec. A real test."
+        },
+        {
+          "level": "h3",
+          "text": "A real cascade engine."
+        },
+        {
+          "level": "h3",
+          "text": "A simulation oracle as the definition of done."
+        },
+        {
+          "level": "h3",
+          "text": "Personalization as product spec."
+        },
+        {
+          "level": "h3",
+          "text": "Zero backend, zero money."
+        },
+        {
+          "level": "h2",
+          "text": "Five tools. One product. No chaos."
+        },
+        {
+          "level": "h3",
+          "text": "The canonical spec"
+        },
+        {
+          "level": "h3",
+          "text": "The decision log"
+        },
+        {
+          "level": "h3",
+          "text": "The oracle"
+        },
+        {
+          "level": "h3",
+          "text": "Layered authority"
+        },
+        {
+          "level": "h3",
+          "text": "Bounded prompts with validation loops"
+        },
+        {
+          "level": "h2",
+          "text": "The rules the build ran on."
+        },
+        {
+          "level": "h3",
+          "text": "One spec to rule them all."
+        },
+        {
+          "level": "h3",
+          "text": "Tests are the product owner at 2 a.m."
+        },
+        {
+          "level": "h3",
+          "text": "Bounded work or no work."
+        },
+        {
+          "level": "h3",
+          "text": "Generous by design."
+        },
+        {
+          "level": "h3",
+          "text": "The gift outranks the architecture."
+        },
+        {
+          "level": "h2",
+          "text": "What Happened After the Gift"
+        },
+        {
+          "level": "h2",
+          "text": "A birthday gift. Not a casino. Not a wagering product."
+        },
+        {
+          "level": "h2",
+          "text": "Nine days. One shot at the reveal."
+        }
+      ],
+      "links": [
+        "/",
+        "/projects/",
+        "https://okhp3.github.io/glee-fully-chai-chasers/",
+        "https://github.com/OKHP3/glee-fully-chai-chasers",
+        "https://github.com/OKHP3/glee-fully-chai-chasers/tree/main/docs",
+        "https://okhp3.github.io/glee-fully-chai-chasers/",
+        "https://okhp3.github.io/glee-fully-chai-chasers/",
+        "https://okhp3.github.io/glee-fully-chai-chasers/",
+        "https://okhp3.github.io/glee-fully-chai-chasers/",
+        "https://github.com/OKHP3/glee-fully-chai-chasers/blob/main/docs/DESIGN-SPEC.md",
+        "https://github.com/OKHP3/glee-fully-chai-chasers/blob/main/docs/DECISION-LOG.md",
+        "https://github.com/OKHP3/glee-fully-chai-chasers/blob/main/src/engine/simulation.test.ts",
+        "https://github.com/OKHP3/glee-fully-chai-chasers/blob/main/docs/IMPLEMENTATION-BASELINE.md",
+        "https://github.com/OKHP3/glee-fully-chai-chasers/tree/main/docs/prompts",
+        "https://github.com/OKHP3/glee-fully-chai-chasers/blob/main/docs/DECISION-LOG.md",
+        "https://github.com/OKHP3/glee-fully-chai-chasers",
+        "https://okhp3.github.io/glee-fully-chai-chasers/",
+        "https://overkillhill.com",
+        "https://okhp3.github.io/glee-fully-chai-chasers/",
+        "https://github.com/OKHP3/glee-fully-chai-chasers",
+        "https://github.com/OKHP3/glee-fully-chai-chasers/issues",
+        "https://glee-fully.tools/arcade/",
+        "https://glee-fully.tools/",
+        "/projects/abrahamic-reference-engine/",
+        "/projects/",
+        "#problem",
+        "#embed-demo",
+        "#what-it-does",
+        "#orchestration",
+        "#principles",
+        "#after-the-gift",
+        "#what-is-not",
+        "#origin"
+      ]
+    },
+    {
+      "source": "site-src/pages/projects/hometools/index.main.html",
+      "sha256": "baf093dcdb0ea74bb1437cec9488cbf54ff6bb66b657a3fc8cadee6d3c4bf3d3",
+      "words_including_code": 108,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Homestead‑R"
+        },
+        {
+          "level": "h2",
+          "text": "About Homestead‑R"
+        },
+        {
+          "level": "h3",
+          "text": "Underlying GPTs"
+        }
+      ],
+      "links": []
+    },
+    {
+      "source": "site-src/pages/projects/index.main.html",
+      "sha256": "5e6b98ab57d994d8fc00d8f8e40c604a28d3a99ac9e91718f2f87bef64c2becf",
+      "words_including_code": 531,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Projects from the Hill"
+        },
+        {
+          "level": "h2",
+          "text": "Built at the Hill"
+        },
+        {
+          "level": "h3",
+          "text": "Skillz Forge"
+        },
+        {
+          "level": "h3",
+          "text": "Found‑Rᵧ"
+        },
+        {
+          "level": "h3",
+          "text": "Mermaid Theme Builder"
+        },
+        {
+          "level": "h3",
+          "text": "BPMN for Mermaid"
+        },
+        {
+          "level": "h3",
+          "text": "Mac Studio Local AI Workbench"
+        },
+        {
+          "level": "h3",
+          "text": "Prompt Forge"
+        },
+        {
+          "level": "h3",
+          "text": "Glee-fully Chai Chasers"
+        },
+        {
+          "level": "h3",
+          "text": "Abrahamic Reference Engine"
+        },
+        {
+          "level": "h3",
+          "text": "The First Diagram Is Usually a Liar"
+        },
+        {
+          "level": "h3",
+          "text": "Kieran's LifeTrkr"
+        },
+        {
+          "level": "h3",
+          "text": "Telling Forward"
+        },
+        {
+          "level": "h2",
+          "text": "External Tools & Platforms"
+        },
+        {
+          "level": "h3",
+          "text": "Glee-fully Personalizable Tools"
+        },
+        {
+          "level": "h3",
+          "text": "AskJamie"
+        },
+        {
+          "level": "h3",
+          "text": "Protocol Libraries"
+        },
+        {
+          "level": "h2",
+          "text": "Status and proof"
+        },
+        {
+          "level": "h3",
+          "text": "Skillz Forge"
+        },
+        {
+          "level": "h3",
+          "text": "Abrahamic Reference Engine"
+        },
+        {
+          "level": "h3",
+          "text": "Ready to build your own?"
+        }
+      ],
+      "links": [
+        "/projects/skillz/",
+        "/projects/found-ry/",
+        "/projects/mermaid-theme-builder/",
+        "/projects/bpmn-for-mermaid/",
+        "/projects/mac-studio-local-ai-workbench/",
+        "/prompt-forge/",
+        "/projects/glee-fully-chai-chasers/",
+        "/projects/abrahamic-reference-engine/",
+        "/projects/first-diagram-is-a-liar/",
+        "/projects/kierans-lifetrkr/",
+        "/projects/telling-forward/",
+        "https://glee-fully.tools/",
+        "https://askjamie.bot/",
+        "mailto:contact@overkillhill.com",
+        "/projects/skillz/",
+        "https://github.com/OKHP3/skillz",
+        "/projects/abrahamic-reference-engine/",
+        "https://github.com/OKHP3/abrahamic-reference-engine",
+        "https://pro.fiverr.com/s/VYKPpoB",
+        "/contact/"
+      ]
+    },
+    {
+      "source": "site-src/pages/projects/kierans-lifetrkr/index.main.html",
+      "sha256": "c152712b17402f9e8e8e3a8547b231d913017da6bc5c3dbe68445c3ae37b5db0",
+      "words_including_code": 690,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Kieran's LifeTrkr"
+        },
+        {
+          "level": "h2",
+          "text": "One day, too many places to look"
+        },
+        {
+          "level": "h3",
+          "text": "Routines get scattered"
+        },
+        {
+          "level": "h3",
+          "text": "Small progress needs a home"
+        },
+        {
+          "level": "h3",
+          "text": "Today is not the same as someday"
+        },
+        {
+          "level": "h3",
+          "text": "Reflection belongs beside action"
+        },
+        {
+          "level": "h2",
+          "text": "A quiet answer to “What does today require?”"
+        },
+        {
+          "level": "h3",
+          "text": "Home"
+        },
+        {
+          "level": "h3",
+          "text": "Rituals and habits"
+        },
+        {
+          "level": "h3",
+          "text": "Calendar and Today"
+        },
+        {
+          "level": "h3",
+          "text": "Someday and the oracle"
+        },
+        {
+          "level": "h2",
+          "text": "Personal by design"
+        },
+        {
+          "level": "h3",
+          "text": "Browser-owned records"
+        },
+        {
+          "level": "h3",
+          "text": "Read, do not write"
+        },
+        {
+          "level": "h3",
+          "text": "Fallbacks are part of the product"
+        },
+        {
+          "level": "h3",
+          "text": "Low noise wins"
+        },
+        {
+          "level": "h2",
+          "text": "An infrastructure for the next generation"
+        },
+        {
+          "level": "h2",
+          "text": "A life OS. Not a life manager."
+        }
+      ],
+      "links": [
+        "/",
+        "/projects/",
+        "https://okhp3.github.io/kierans-lifetrkr/#/",
+        "https://github.com/OKHP3/kierans-lifetrkr",
+        "https://overkillhill.com/manifesto/#the-forge-before",
+        "https://okhp3.github.io/kierans-lifetrkr/#/",
+        "https://okhp3.github.io/kierans-lifetrkr/#/",
+        "https://okhp3.github.io/kierans-lifetrkr/#/",
+        "https://overkillhill.com/manifesto/#the-forge-before",
+        "https://github.com/OKHP3/kierans-lifetrkr",
+        "https://okhp3.github.io/kierans-lifetrkr/#/",
+        "https://overkillhill.com/manifesto/#the-forge-before",
+        "https://okhp3.github.io/kierans-lifetrkr/#/",
+        "https://github.com/OKHP3/kierans-lifetrkr",
+        "https://overkillhill.com/manifesto/#the-forge-before",
+        "https://overkillhill.com/manifesto/#the-forge-before",
+        "/projects/abrahamic-reference-engine/",
+        "/projects/glee-fully-chai-chasers/",
+        "/projects/",
+        "#problem",
+        "#embed-demo",
+        "#what-it-does",
+        "#principles",
+        "#origin",
+        "#what-is-not"
+      ]
+    },
+    {
+      "source": "site-src/pages/projects/mac-studio-local-ai-workbench/index.main.html",
+      "sha256": "28d57d8449c73bdd47b8b143ef4aacfd57f152d734e051ad4e0d268f112184a7",
+      "words_including_code": 3715,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Mac Studio Local AI Workbench"
+        },
+        {
+          "level": "h2",
+          "text": "What This Is Worth"
+        },
+        {
+          "level": "h2",
+          "text": "Status Board"
+        },
+        {
+          "level": "h2",
+          "text": "Timeline"
+        },
+        {
+          "level": "h3",
+          "text": "Hardware planning and research"
+        },
+        {
+          "level": "h3",
+          "text": "Hardware unboxed, OS baseline"
+        },
+        {
+          "level": "h3",
+          "text": "Development foundation"
+        },
+        {
+          "level": "h3",
+          "text": "Ollama install and first models"
+        },
+        {
+          "level": "h3",
+          "text": "Model collection and LM Studio"
+        },
+        {
+          "level": "h3",
+          "text": "Open WebUI, VSCode, and MCP foundation"
+        },
+        {
+          "level": "h3",
+          "text": "MCP servers and app ecosystem"
+        },
+        {
+          "level": "h3",
+          "text": "App ecosystem and Edge PWAs"
+        },
+        {
+          "level": "h3",
+          "text": "VSCode extension audit across machines"
+        },
+        {
+          "level": "h3",
+          "text": "Git workspace, OneDrive sync, and repos"
+        },
+        {
+          "level": "h3",
+          "text": "Normalization, benchmarking, and baseline archive"
+        },
+        {
+          "level": "h3",
+          "text": "Post-baseline hardening and publication"
+        },
+        {
+          "level": "h3",
+          "text": "OpenClaw installation"
+        },
+        {
+          "level": "h3",
+          "text": "Larry comes online"
+        },
+        {
+          "level": "h3",
+          "text": "RAG stack + LM Studio consolidation"
+        },
+        {
+          "level": "h3",
+          "text": "Benchmarks + architecture diagrams"
+        },
+        {
+          "level": "h2",
+          "text": "Meet Larry"
+        },
+        {
+          "level": "h2",
+          "text": "Model Inventory"
+        },
+        {
+          "level": "h2",
+          "text": "Model Selection Policy"
+        },
+        {
+          "level": "h2",
+          "text": "Benchmark Snapshot"
+        },
+        {
+          "level": "h2",
+          "text": "How It's Built: Three Views"
+        },
+        {
+          "level": "h3",
+          "text": "Token Routing: How Requests Flow"
+        },
+        {
+          "level": "h3",
+          "text": "Capability Map: What the Workbench Can Do"
+        },
+        {
+          "level": "h3",
+          "text": "Physical Architecture: Where Everything Lives"
+        },
+        {
+          "level": "h2",
+          "text": "The Operating Model"
+        },
+        {
+          "level": "h2",
+          "text": "Next Phase"
+        },
+        {
+          "level": "h2",
+          "text": "Build Your Own"
+        },
+        {
+          "level": "h3",
+          "text": "Quick Facts"
+        },
+        {
+          "level": "h2",
+          "text": "Core Toolchain"
+        },
+        {
+          "level": "h2",
+          "text": "AI Runtimes"
+        },
+        {
+          "level": "h2",
+          "text": "Storage Architecture"
+        },
+        {
+          "level": "h2",
+          "text": "Key Decisions"
+        },
+        {
+          "level": "h3",
+          "text": "Need a local AI workbench designed for your workflow?"
+        }
+      ],
+      "links": [
+        "/",
+        "/projects/",
+        "https://openclaw.ai/",
+        "https://github.com/OKHP3/mac-studio-local-ai-workbench",
+        "/writings/first-diagram-is-a-liar/#council",
+        "https://github.com/OKHP3/mac-studio-local-ai-workbench",
+        "https://www.apple.com/mac-studio/compare/",
+        "https://ollama.com",
+        "https://openwebui.com",
+        "https://openclaw.ai",
+        "https://lmstudio.ai",
+        "#value-framing",
+        "#status-board",
+        "#timeline",
+        "#meet-larry",
+        "#models",
+        "#benchmarks",
+        "#how-its-built",
+        "#operating-model",
+        "#next-phase",
+        "#stack",
+        "#decisions",
+        "https://pro.fiverr.com/s/VYKPpoB",
+        "/contact/"
+      ]
+    },
+    {
+      "source": "site-src/pages/projects/mermaid-theme-builder/index.main.html",
+      "sha256": "0474a4d30208b08ccd2b7d90675d9ae263b6342136f1758bf1b082ffb9934bd3",
+      "words_including_code": 4604,
+      "unchanged_since_prior_audit_source": false,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Mermaid Theme Builder"
+        },
+        {
+          "level": "h2",
+          "text": "The Missing Layer"
+        },
+        {
+          "level": "h3",
+          "text": "Every prompt is a fresh roll of the dice"
+        },
+        {
+          "level": "h3",
+          "text": "Default styling = brand disconnection"
+        },
+        {
+          "level": "h3",
+          "text": "Not all diagram types style the same way"
+        },
+        {
+          "level": "h3",
+          "text": "3–5 follow-up prompts just to fix styling"
+        },
+        {
+          "level": "h2",
+          "text": "v0.6.1: Shipped Aug 2026"
+        },
+        {
+          "level": "h2",
+          "text": "A governance workbench, not a diagram editor"
+        },
+        {
+          "level": "h2",
+          "text": "What you get here that you don't get from prompting an LLM"
+        },
+        {
+          "level": "h3",
+          "text": "Prompting an LLM"
+        },
+        {
+          "level": "h3",
+          "text": "Mermaid Theme Builder"
+        },
+        {
+          "level": "h2",
+          "text": "Who uses Mermaid Theme Builder"
+        },
+        {
+          "level": "h3",
+          "text": "Enterprise Architects"
+        },
+        {
+          "level": "h3",
+          "text": "AI Power Users"
+        },
+        {
+          "level": "h3",
+          "text": "Documentation Teams"
+        },
+        {
+          "level": "h3",
+          "text": "Product Managers"
+        },
+        {
+          "level": "h3",
+          "text": "Developers"
+        },
+        {
+          "level": "h2",
+          "text": "Six community pain points MTB addresses"
+        },
+        {
+          "level": "h3",
+          "text": "Custom colors and styles"
+        },
+        {
+          "level": "h3",
+          "text": "Branded consistency"
+        },
+        {
+          "level": "h3",
+          "text": "Renderer parity"
+        },
+        {
+          "level": "h3",
+          "text": "Export fidelity"
+        },
+        {
+          "level": "h3",
+          "text": "Diagram-family limits"
+        },
+        {
+          "level": "h3",
+          "text": "AI-generated Mermaid drift"
+        },
+        {
+          "level": "h2",
+          "text": "What shipped in v0.4 and v0.5"
+        },
+        {
+          "level": "h3",
+          "text": "Renderer Intelligence"
+        },
+        {
+          "level": "h3",
+          "text": "Look API Support"
+        },
+        {
+          "level": "h3",
+          "text": "Reference Capability Registry"
+        },
+        {
+          "level": "h3",
+          "text": "Agent Skill Family (SKILL.md)"
+        },
+        {
+          "level": "h3",
+          "text": "Multi-Diagram Splitting"
+        },
+        {
+          "level": "h3",
+          "text": "Shareable URL State"
+        },
+        {
+          "level": "h3",
+          "text": "Vitest 4 Test Suite"
+        },
+        {
+          "level": "h2",
+          "text": "Hypothesis Validated"
+        },
+        {
+          "level": "h3",
+          "text": "98 sources analyzed"
+        },
+        {
+          "level": "h3",
+          "text": "Pain is real and documented"
+        },
+        {
+          "level": "h3",
+          "text": "No existing tool fills the gap"
+        },
+        {
+          "level": "h3",
+          "text": "Genuine ecosystem gap confirmed"
+        },
+        {
+          "level": "h2",
+          "text": "What it's built on"
+        },
+        {
+          "level": "h3",
+          "text": "React 19 + Vite 8"
+        },
+        {
+          "level": "h3",
+          "text": "Tailwind CSS v4"
+        },
+        {
+          "level": "h3",
+          "text": "Mermaid.js 11.16.0"
+        },
+        {
+          "level": "h3",
+          "text": "TypeScript 7.0 (strict)"
+        },
+        {
+          "level": "h3",
+          "text": "Playwright e2e Tests"
+        },
+        {
+          "level": "h3",
+          "text": "PWA-Ready"
+        },
+        {
+          "level": "h2",
+          "text": "What the builder does"
+        },
+        {
+          "level": "h3",
+          "text": "Live Diagram Preview"
+        },
+        {
+          "level": "h3",
+          "text": "Diagram Family Detection"
+        },
+        {
+          "level": "h3",
+          "text": "Multi-Format Export"
+        },
+        {
+          "level": "h3",
+          "text": "Prompt Scaffold Generator"
+        },
+        {
+          "level": "h3",
+          "text": "Renderer Capability Notes"
+        },
+        {
+          "level": "h3",
+          "text": "Brand Palette Presets"
+        },
+        {
+          "level": "h3",
+          "text": "Precise Color Controls"
+        },
+        {
+          "level": "h3",
+          "text": "Browser-Only: No Server"
+        },
+        {
+          "level": "h3",
+          "text": "Pan / Zoom Canvas"
+        },
+        {
+          "level": "h3",
+          "text": "SKILL.md Package"
+        },
+        {
+          "level": "h3",
+          "text": "Open Source, MIT License"
+        },
+        {
+          "level": "h3",
+          "text": "Look API: Classic, Neo, Hand-Drawn"
+        },
+        {
+          "level": "h3",
+          "text": "Reference Tab: 31 Family Registry"
+        },
+        {
+          "level": "h3",
+          "text": "Multi-Diagram Splitting"
+        },
+        {
+          "level": "h3",
+          "text": "Vitest 4 Test Suite"
+        },
+        {
+          "level": "h2",
+          "text": "How it fits the ecosystem"
+        },
+        {
+          "level": "h3",
+          "text": "Mermaid.js"
+        },
+        {
+          "level": "h3",
+          "text": "Mermaid.ai"
+        },
+        {
+          "level": "h3",
+          "text": "BPMN for Mermaid"
+        },
+        {
+          "level": "h3",
+          "text": "SKILL.md / Agent Workflows"
+        },
+        {
+          "level": "h2",
+          "text": "Support taxonomy: not all families are equal"
+        },
+        {
+          "level": "h2",
+          "text": "Why renderer-aware output matters"
+        },
+        {
+          "level": "h2",
+          "text": "SKILL.md: headless diagram governance"
+        },
+        {
+          "level": "h3",
+          "text": "What the SKILL.md package does"
+        },
+        {
+          "level": "h3",
+          "text": "Install in your AI coding assistant"
+        },
+        {
+          "level": "h2",
+          "text": "Desktop-first. Mobile companion mode."
+        },
+        {
+          "level": "h3",
+          "text": "Full power-user experience"
+        },
+        {
+          "level": "h3",
+          "text": "Useful subset, honestly scoped"
+        },
+        {
+          "level": "h2",
+          "text": "Where the build is going"
+        },
+        {
+          "level": "h3",
+          "text": "Need a Mermaid governance layer for your stack?"
+        }
+      ],
+      "links": [
+        "/",
+        "/projects/",
+        "https://okhp3.github.io/mermaid-theme-builder/#compose",
+        "/writings/first-diagram-is-a-liar/",
+        "https://github.com/OKHP3/mermaid-theme-builder",
+        "https://okhp3.github.io/mermaid-theme-builder/",
+        "https://okhp3.github.io/mermaid-theme-builder/",
+        "https://okhp3.github.io/mermaid-theme-builder/",
+        "https://okhp3.github.io/mermaid-theme-builder/#apply",
+        "https://okhp3.github.io/mermaid-theme-builder/",
+        "https://okhp3.github.io/mermaid-theme-builder/",
+        "https://okhp3.github.io/mermaid-theme-builder/#compose",
+        "https://okhp3.github.io/mermaid-theme-builder/#apply",
+        "https://okhp3.github.io/mermaid-theme-builder/#examples",
+        "https://okhp3.github.io/mermaid-theme-builder/#reference",
+        "https://okhp3.github.io/mermaid-theme-builder/",
+        "https://github.com/OKHP3/mermaid-theme-builder",
+        "/writings/first-diagram-is-a-liar/",
+        "/projects/bpmn-for-mermaid/",
+        "/projects/bpmn-for-mermaid/",
+        "https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/FAMILY.md",
+        "https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/okhp3-mermaid-theme-builder/SKILL.md",
+        "https://pro.fiverr.com/s/VYKPpoB",
+        "/contact/",
+        "/projects/bpmn-for-mermaid/",
+        "https://github.com/OKHP3/mermaid-theme-builder",
+        "https://overkillhill.com",
+        "https://github.com/OKHP3/mermaid-theme-builder",
+        "https://github.com/OKHP3/mermaid-theme-builder/issues",
+        "https://github.com/OKHP3/mermaid-theme-builder/blob/main/CONTRIBUTING.md",
+        "https://okhp3.github.io/mermaid-theme-builder/#compose",
+        "https://okhp3.github.io/mermaid-theme-builder/#apply",
+        "https://okhp3.github.io/mermaid-theme-builder/#extract",
+        "https://github.com/OKHP3/mermaid-theme-builder",
+        "https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/FAMILY.md",
+        "https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/okhp3-mermaid-theme-builder/SKILL.md",
+        "/projects/bpmn-for-mermaid/",
+        "https://mermaid.js.org/config/theming.html",
+        "https://mermaid.js.org/config/theming.html#theme-variables",
+        "https://mermaid.js.org/intro/syntax-reference.html",
+        "/writings/first-diagram-is-a-liar/",
+        "/projects/",
+        "#problem",
+        "#release",
+        "#what-it-is",
+        "#why-this-exists",
+        "#personas",
+        "#where-this-helps",
+        "#research",
+        "#features",
+        "#stack",
+        "#roadmap"
+      ]
+    },
+    {
+      "source": "site-src/pages/projects/pathscrib-r/index.main.html",
+      "sha256": "dd00948c4bdca52e512ab887188fad51f8fd9c002de9d3c63ed8cfbf73c3a7be",
+      "words_including_code": 113,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "PathScrib‑R"
+        },
+        {
+          "level": "h2",
+          "text": "About PathScrib‑R"
+        },
+        {
+          "level": "h3",
+          "text": "Copilot & GPT Components"
+        }
+      ],
+      "links": []
+    },
+    {
+      "source": "site-src/pages/projects/skillz/index.main.html",
+      "sha256": "d0cb38b3d454a700b435298e17be7804da7e363986b051c570f06a2d778637ce",
+      "words_including_code": 3629,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Skillz Forge"
+        },
+        {
+          "level": "h2",
+          "text": "The prompt is not the artifact. The durable method is."
+        },
+        {
+          "level": "h3",
+          "text": "Disposable prompts in chat history"
+        },
+        {
+          "level": "h3",
+          "text": "Prompt protocols that define conditions"
+        },
+        {
+          "level": "h3",
+          "text": "Reusable skills that package methods"
+        },
+        {
+          "level": "h3",
+          "text": "GitHub repositories that preserve the method"
+        },
+        {
+          "level": "h2",
+          "text": "What is a SKILL.md?"
+        },
+        {
+          "level": "h3",
+          "text": "Activation triggers"
+        },
+        {
+          "level": "h3",
+          "text": "Role and context"
+        },
+        {
+          "level": "h3",
+          "text": "Inputs and method"
+        },
+        {
+          "level": "h3",
+          "text": "Boundaries and failure handling"
+        },
+        {
+          "level": "h3",
+          "text": "Outputs and validation"
+        },
+        {
+          "level": "h3",
+          "text": "Companion skills"
+        },
+        {
+          "level": "h2",
+          "text": "A discovery workbench, not a marketplace"
+        },
+        {
+          "level": "h2",
+          "text": "How a prompt becomes a portable capability"
+        },
+        {
+          "level": "h2",
+          "text": "148 public distribution skills across 16 active families"
+        },
+        {
+          "level": "h2",
+          "text": "Verified application capabilities"
+        },
+        {
+          "level": "h3",
+          "text": "Search by task or phrase"
+        },
+        {
+          "level": "h3",
+          "text": "Browse skill families"
+        },
+        {
+          "level": "h3",
+          "text": "Filter by maturity"
+        },
+        {
+          "level": "h3",
+          "text": "Inspect individual skills"
+        },
+        {
+          "level": "h3",
+          "text": "Copy a raw installation URL"
+        },
+        {
+          "level": "h3",
+          "text": "Save favorites locally"
+        },
+        {
+          "level": "h3",
+          "text": "Explore curated stacks"
+        },
+        {
+          "level": "h3",
+          "text": "Start with the work"
+        },
+        {
+          "level": "h3",
+          "text": "Compose a local stack"
+        },
+        {
+          "level": "h3",
+          "text": "Open native GitHub paths"
+        },
+        {
+          "level": "h3",
+          "text": "View static generated activity context"
+        },
+        {
+          "level": "h2",
+          "text": "Skills in action: four recurring scenarios"
+        },
+        {
+          "level": "h3",
+          "text": "Governed Mermaid Workflow"
+        },
+        {
+          "level": "h3",
+          "text": "Process Documentation Pipeline"
+        },
+        {
+          "level": "h3",
+          "text": "New Skill Creation Pipeline"
+        },
+        {
+          "level": "h3",
+          "text": "AI Conversation Capture and Repository Reconciliation"
+        },
+        {
+          "level": "h2",
+          "text": "How skill maturity and evidence work"
+        },
+        {
+          "level": "h3",
+          "text": "Evidence status, separately"
+        },
+        {
+          "level": "h2",
+          "text": "How to contribute, improve, or report"
+        },
+        {
+          "level": "h3",
+          "text": "Open an issue for a bug"
+        },
+        {
+          "level": "h3",
+          "text": "Suggest a new skill"
+        },
+        {
+          "level": "h3",
+          "text": "Improve trigger descriptions"
+        },
+        {
+          "level": "h3",
+          "text": "Use Discussions for design questions"
+        },
+        {
+          "level": "h3",
+          "text": "Report missing metadata"
+        },
+        {
+          "level": "h3",
+          "text": "Security advisories"
+        },
+        {
+          "level": "h2",
+          "text": "How Skillz Forge is built"
+        },
+        {
+          "level": "h3",
+          "text": "React + TypeScript"
+        },
+        {
+          "level": "h3",
+          "text": "Vite"
+        },
+        {
+          "level": "h3",
+          "text": "Fuse.js phrase search"
+        },
+        {
+          "level": "h3",
+          "text": "Static generated catalog"
+        },
+        {
+          "level": "h3",
+          "text": "GitHub Pages"
+        },
+        {
+          "level": "h3",
+          "text": "GitHub as source of truth"
+        },
+        {
+          "level": "h2",
+          "text": "Where the build is going"
+        },
+        {
+          "level": "h3",
+          "text": "Need a custom Agent Skills system for your team?"
+        },
+        {
+          "level": "h2",
+          "text": "Ready to start?"
+        }
+      ],
+      "links": [
+        "/",
+        "/projects/",
+        "https://okhp3.github.io/skillz/",
+        "https://github.com/OKHP3/skillz",
+        "/prompt-forge/",
+        "https://github.com/OKHP3/skillz",
+        "https://okhp3.github.io/skillz/",
+        "https://okhp3.github.io/skillz/",
+        "https://okhp3.github.io/skillz/",
+        "https://okhp3.github.io/skillz/",
+        "https://okhp3.github.io/skillz/",
+        "https://okhp3.github.io/skillz/",
+        "/prompt-forge/",
+        "/projects/found-ry/",
+        "https://okhp3.github.io/skillz/",
+        "https://github.com/OKHP3/skillz",
+        "#maturity",
+        "https://okhp3.github.io/skillz/",
+        "https://github.com/OKHP3/skillz/tree/main/docs",
+        "https://okhp3.github.io/skillz/",
+        "https://okhp3.github.io/skillz/",
+        "https://okhp3.github.io/skillz/",
+        "https://okhp3.github.io/skillz/",
+        "https://github.com/OKHP3/skillz/issues",
+        "https://github.com/OKHP3/skillz/issues",
+        "https://github.com/OKHP3/skillz/issues",
+        "https://github.com/OKHP3/skillz/pulls",
+        "https://github.com/OKHP3/skillz/discussions",
+        "https://pro.fiverr.com/s/VYKPpoB",
+        "/contact/",
+        "https://okhp3.github.io/skillz/",
+        "https://github.com/OKHP3/skillz/issues",
+        "/projects/found-ry/",
+        "https://github.com/OKHP3/skillz",
+        "https://okhp3.github.io/skillz/#/privacy",
+        "https://okhp3.github.io/skillz/",
+        "https://github.com/OKHP3/skillz",
+        "/prompt-forge/",
+        "/contact/",
+        "https://okhp3.github.io/skillz/",
+        "https://overkillhill.com",
+        "https://okhp3.github.io/skillz/",
+        "https://github.com/OKHP3/skillz",
+        "https://github.com/OKHP3/skillz",
+        "https://github.com/OKHP3/skillz/issues",
+        "https://github.com/OKHP3/skillz/pulls",
+        "/prompt-forge/",
+        "/projects/found-ry/",
+        "https://okhp3.github.io/skillz/",
+        "https://github.com/OKHP3/skillz",
+        "https://github.com/OKHP3/skillz/discussions",
+        "/projects/mermaid-theme-builder/",
+        "/projects/bpmn-for-mermaid/",
+        "/projects/",
+        "#problem",
+        "#what-is-skill-md",
+        "#what-it-is",
+        "#embed-tool",
+        "#forge-path",
+        "#inventory",
+        "#features",
+        "#demonstration-pathways",
+        "#maturity",
+        "#collaboration",
+        "#stack",
+        "#roadmap"
+      ]
+    },
+    {
+      "source": "site-src/pages/projects/telling-forward/index.main.html",
+      "sha256": "977f32ab4a3f77ab906bacf41854387417fe232cdf2fea1be0202c07f74657bc",
+      "words_including_code": 1245,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Telling Forward"
+        },
+        {
+          "level": "h2",
+          "text": "Open canon, not open chaos"
+        },
+        {
+          "level": "h3",
+          "text": "The seed and the canon"
+        },
+        {
+          "level": "h3",
+          "text": "Branches and alternate continuities"
+        },
+        {
+          "level": "h3",
+          "text": "A governed canon"
+        },
+        {
+          "level": "h3",
+          "text": "A provenance record"
+        },
+        {
+          "level": "h2",
+          "text": "GitHub stays backstage"
+        },
+        {
+          "level": "h2",
+          "text": "The rules the platform runs on"
+        },
+        {
+          "level": "h3",
+          "text": "Start with the person, not the prose."
+        },
+        {
+          "level": "h3",
+          "text": "Assist without taking authorship."
+        },
+        {
+          "level": "h3",
+          "text": "Keep provenance visible."
+        },
+        {
+          "level": "h3",
+          "text": "Separate canon from possibility."
+        },
+        {
+          "level": "h3",
+          "text": "Give every world a steward."
+        },
+        {
+          "level": "h3",
+          "text": "Earn the right to monetize."
+        },
+        {
+          "level": "h2",
+          "text": "Trust and momentum first, monetization last"
+        },
+        {
+          "level": "h2",
+          "text": "The stories and ideas already on the shelf"
+        },
+        {
+          "level": "h3",
+          "text": "Magnus Progenitor Saga"
+        },
+        {
+          "level": "h3",
+          "text": "Biases as Constants"
+        },
+        {
+          "level": "h2",
+          "text": "Why not \"Forge\"?"
+        }
+      ],
+      "links": [
+        "/",
+        "/projects/",
+        "https://okhp3.github.io/telling-forward/",
+        "https://github.com/OKHP3/telling-forward",
+        "https://github.com/OKHP3/telling-forward/blob/main/docs/MISSION.md",
+        "/writings/magnus-saga/",
+        "/writings/magnus-saga/",
+        "/writings/biases-as-constants/",
+        "/writings/biases-as-constants/",
+        "https://github.com/OKHP3/telling-forward",
+        "https://okhp3.github.io/telling-forward/",
+        "https://overkillhill.com",
+        "https://okhp3.github.io/telling-forward/",
+        "https://github.com/OKHP3/telling-forward",
+        "https://github.com/OKHP3/telling-forward/tree/main/docs/adr",
+        "https://github.com/OKHP3/telling-forward/blob/main/docs/MISSION.md",
+        "https://github.com/OKHP3/telling-forward/blob/main/CONTENT-LICENSE.md",
+        "/writings/magnus-saga/",
+        "/writings/biases-as-constants/",
+        "/projects/skillz/",
+        "/projects/",
+        "#premise",
+        "#mechanics",
+        "#principles",
+        "#staged-path",
+        "#companion-writings",
+        "#origin"
+      ]
+    },
+    {
+      "source": "site-src/pages/projects/un-nocked-truth/index.main.html",
+      "sha256": "3213fa79f2baf4ff765b83c41621b569efc6ea3d0d0c9de46e8d8578a1453860",
+      "words_including_code": 138,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Un‑NOCKed Truth"
+        },
+        {
+          "level": "h2",
+          "text": "About Un‑NOCKed Truth"
+        },
+        {
+          "level": "h3",
+          "text": "Underlying GPTs"
+        }
+      ],
+      "links": []
+    },
+    {
+      "source": "site-src/pages/prompt-forge/index.main.html",
+      "sha256": "9b9fe8c49292230fffc822b884b317deb3f25473d7ea1ea2e0ceb17b9546ae9b",
+      "words_including_code": 2085,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Prompt Forge"
+        },
+        {
+          "level": "h2",
+          "text": "Prompts Are Not the Artifact"
+        },
+        {
+          "level": "h2",
+          "text": "What Makes a Prompt a Protocol"
+        },
+        {
+          "level": "h2",
+          "text": "Six Flagship Prompt Systems"
+        },
+        {
+          "level": "h2",
+          "text": "The Prompt Forge Anatomy"
+        },
+        {
+          "level": "h2",
+          "text": "From Raw Intent to Working Protocol"
+        },
+        {
+          "level": "h2",
+          "text": "The Prompt Vault"
+        },
+        {
+          "level": "h2",
+          "text": "Council of AIs: Critique Before Execution"
+        },
+        {
+          "level": "h3",
+          "text": "The Workflow"
+        },
+        {
+          "level": "h2",
+          "text": "What Gets Published, and What Does Not"
+        },
+        {
+          "level": "h2",
+          "text": "Related Paths"
+        },
+        {
+          "level": "h2",
+          "text": "Bring a Messy Prompt to the Forge"
+        }
+      ],
+      "links": [
+        "#flagship-systems",
+        "#anatomy",
+        "/writings/",
+        "#anatomy",
+        "#operating-model",
+        "#vault",
+        "#protocols",
+        "/projects/bpmn-for-mermaid/",
+        "#council",
+        "/projects/skillz/",
+        "/assets/downloads/okh-prompt-protocol-template.md",
+        "#council",
+        "#gpt-audit",
+        "#council",
+        "/vault/",
+        "/writings/first-diagram-is-a-liar/#council-origin",
+        "/writings/",
+        "/writings/first-diagram-is-a-liar/",
+        "/projects/",
+        "/projects/mermaid-theme-builder/",
+        "/projects/bpmn-for-mermaid/",
+        "/manifesto/",
+        "/universe/",
+        "/contact/",
+        "/contact/",
+        "/writings/",
+        "/projects/",
+        "#thesis",
+        "#protocols",
+        "#flagship-systems",
+        "#anatomy",
+        "#operating-model",
+        "#boundary",
+        "#related"
+      ]
+    },
+    {
+      "source": "site-src/pages/search/index.main.html",
+      "sha256": "f46930781bc1e2a803865fc35bdfb2d9a18934743957500d9634193d61a2e015",
+      "words_including_code": 44,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Search the Forge"
+        }
+      ],
+      "links": [
+        "/",
+        "/writings/",
+        "/projects/"
+      ]
+    },
+    {
+      "source": "site-src/pages/under-construction.main.html",
+      "sha256": "f7a313b3711543cd466d682ceaaa15170051b502f17e1f08185f37dc02ebe4f6",
+      "words_including_code": 140,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "This part of the forge is under construction."
+        },
+        {
+          "level": "h2",
+          "text": "What’s being built here?"
+        },
+        {
+          "level": "h3",
+          "text": "System documentation"
+        },
+        {
+          "level": "h3",
+          "text": "Conversation patterns"
+        },
+        {
+          "level": "h3",
+          "text": "System maps"
+        }
+      ],
+      "links": [
+        "/#forge",
+        "projects/"
+      ]
+    },
+    {
+      "source": "site-src/pages/universe/index.main.html",
+      "sha256": "0253b59c20c230531f07b71bc12c7b7e67fb5130e2bfe6f9b00a11964d08944d",
+      "words_including_code": 1761,
+      "unchanged_since_prior_audit_source": false,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Explore the OverKill Hill universe."
+        },
+        {
+          "level": "h2",
+          "text": "Three sites, one universe"
+        },
+        {
+          "level": "h3",
+          "text": "OverKill Hill"
+        },
+        {
+          "level": "h3",
+          "text": "AskJamie"
+        },
+        {
+          "level": "h3",
+          "text": "Glee-fully Tools"
+        },
+        {
+          "level": "h2",
+          "text": "Published pages on the Hill"
+        },
+        {
+          "level": "h2",
+          "text": "Read the status layer"
+        },
+        {
+          "level": "h3",
+          "text": "Skillz Forge"
+        },
+        {
+          "level": "h3",
+          "text": "Abrahamic Reference Engine"
+        }
+      ],
+      "links": [
+        "/projects/",
+        "/search/",
+        "/universe/",
+        "https://askjamie.bot/universe/",
+        "https://glee-fully.tools/universe/",
+        "/",
+        "/about/",
+        "/contact/",
+        "/fr/",
+        "/legal/",
+        "/manifesto/",
+        "/projects/",
+        "/prompt-forge/",
+        "/universe/",
+        "/vault/",
+        "/writings/",
+        "/fr/",
+        "/fr/about/",
+        "/fr/contact/",
+        "/fr/projects/",
+        "/projects/",
+        "/projects/abrahamic-reference-engine/",
+        "/projects/bfs-framing-intelligent-futures/",
+        "/projects/bpmn-for-mermaid/",
+        "/projects/first-diagram-is-a-liar/",
+        "/projects/found-ry/",
+        "/projects/glee-fully-chai-chasers/",
+        "/projects/kierans-lifetrkr/",
+        "/projects/mac-studio-local-ai-workbench/",
+        "/projects/mermaid-theme-builder/",
+        "/projects/skillz/",
+        "/projects/telling-forward/",
+        "/writings/",
+        "/writings/first-diagram-is-a-liar/",
+        "/writings/murderbird/",
+        "/writings/first-diagram-is-a-liar/",
+        "/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+        "/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+        "/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+        "/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+        "https://mermaidchart.cello.so/UhVlNtC2MlS",
+        "/projects/skillz/",
+        "/projects/abrahamic-reference-engine/"
+      ]
+    },
+    {
+      "source": "site-src/pages/vault/index.main.html",
+      "sha256": "f080bf0e6dbd96fc132a507c4ac60f4ccaaa6fd1a3abb08a11659ecbf6a63e47",
+      "words_including_code": 293,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "The Prompt Vault"
+        },
+        {
+          "level": "h2",
+          "text": "Ready to Download"
+        },
+        {
+          "level": "h2",
+          "text": "Coming Next"
+        }
+      ],
+      "links": [
+        "/prompt-forge/",
+        "#available",
+        "/prompt-forge/",
+        "/assets/downloads/okh-prompt-protocol-template.md",
+        "/prompt-forge/#council",
+        "/prompt-forge/"
+      ]
+    },
+    {
+      "source": "site-src/pages/writings/biases-as-constants/index.main.html",
+      "sha256": "79aa642bc11675571bd3f12ca41a407faca7b549fd95ad62357143b533d46dde",
+      "words_including_code": 95,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Biases as Constants"
+        },
+        {
+          "level": "h2",
+          "text": "About the Project"
+        }
+      ],
+      "links": []
+    },
+    {
+      "source": "site-src/pages/writings/first-diagram-is-a-liar/index.main.html",
+      "sha256": "ec318ec91f8d5d702b302bf704440ef6fe19875a7d2eb7fcde040eec5322ec0f",
+      "words_including_code": 18481,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "The First DiagramIs Usually a Liar"
+        },
+        {
+          "level": "h2",
+          "text": "From Drawing to Modeling"
+        },
+        {
+          "level": "h2",
+          "text": "ROY: Return on Your Words"
+        },
+        {
+          "level": "h2",
+          "text": "Attention Is Finite (and Text Hides Flow)"
+        },
+        {
+          "level": "h2",
+          "text": "What a Mermaid Diagram Actually Is"
+        },
+        {
+          "level": "h2",
+          "text": "Mermaid the Syntax vs Mermaid.ai the Platform"
+        },
+        {
+          "level": "h2",
+          "text": "The One That Should Have Won"
+        },
+        {
+          "level": "h2",
+          "text": "Ideation to Evaluation"
+        },
+        {
+          "level": "h2",
+          "text": "Diagramming Shootout Deck"
+        },
+        {
+          "level": "h3",
+          "text": "V1 First-Pass Diagrams"
+        },
+        {
+          "level": "h3",
+          "text": "V2 Optimized Diagrams"
+        },
+        {
+          "level": "h3",
+          "text": "Competitor Close-ups"
+        },
+        {
+          "level": "h3",
+          "text": "V1 Heat A"
+        },
+        {
+          "level": "h3",
+          "text": "V1 Heat B"
+        },
+        {
+          "level": "h3",
+          "text": "V2 Heat A"
+        },
+        {
+          "level": "h3",
+          "text": "V2 Heat B"
+        },
+        {
+          "level": "h2",
+          "text": "What the Polls Were For"
+        },
+        {
+          "level": "h2",
+          "text": "Why I Built a Council of AIs"
+        },
+        {
+          "level": "h3",
+          "text": "Contender Pre-Reads"
+        },
+        {
+          "level": "h3",
+          "text": "V1 Reads"
+        },
+        {
+          "level": "h3",
+          "text": "V2 Reads"
+        },
+        {
+          "level": "h2",
+          "text": "The Council of AIs"
+        },
+        {
+          "level": "h3",
+          "text": "Same brief. Different strengths. Better synthesis."
+        },
+        {
+          "level": "h3",
+          "text": "Why One Model Is Not Enough"
+        },
+        {
+          "level": "h3",
+          "text": "The Crude Manual Process"
+        },
+        {
+          "level": "h3",
+          "text": "Co-opetition"
+        },
+        {
+          "level": "h3",
+          "text": "Why Each Seat Existed"
+        },
+        {
+          "level": "h3",
+          "text": "What the Council Produced"
+        },
+        {
+          "level": "h2",
+          "text": "The Council Scores the Field"
+        },
+        {
+          "level": "h3",
+          "text": "Round 1: Where the Council Agreed"
+        },
+        {
+          "level": "h3",
+          "text": "Round 2: Where the Council Split"
+        },
+        {
+          "level": "h3",
+          "text": "The Meta-Finding: Models Are Harder on Themselves"
+        },
+        {
+          "level": "h2",
+          "text": "The Models Interview Themselves"
+        },
+        {
+          "level": "h2",
+          "text": "Round 1: The Clean Lie"
+        },
+        {
+          "level": "h2",
+          "text": "Round 2: Honestly Messy"
+        },
+        {
+          "level": "h2",
+          "text": "Prompts in the Wild"
+        },
+        {
+          "level": "h3",
+          "text": "Velocity, iteration, and vibe over premature prompt perfection"
+        },
+        {
+          "level": "h3",
+          "text": "The brief was consistent. The conditions were not."
+        },
+        {
+          "level": "h3",
+          "text": "Prompt 01: The Seed"
+        },
+        {
+          "level": "h3",
+          "text": "Prompt 02: The Meta Turn"
+        },
+        {
+          "level": "h3",
+          "text": "Prompt 03: The Happy-Path Lie"
+        },
+        {
+          "level": "h3",
+          "text": "Prompt 04: Voice and Brand Lock-In"
+        },
+        {
+          "level": "h3",
+          "text": "Prompt 05: The Council Becomes Formal"
+        },
+        {
+          "level": "h3",
+          "text": "Prompt 06: The Hybrid Request"
+        },
+        {
+          "level": "h3",
+          "text": "Prompt 07: The Comment (Origin Story)"
+        },
+        {
+          "level": "h3",
+          "text": "Prompt 08: The Diagram Competition"
+        },
+        {
+          "level": "h2",
+          "text": "Launch Artifacts"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Article: Return on Your Words (ROY)"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Post: v0.1"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Comment: v0.1"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Post: v0.2"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Comment: v0.2"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Post: v0.3"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Comment: v0.3"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Poll: v0.3.1.1"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Comment: v0.3.1.1"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Poll: v0.3.1.2"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Comment: v0.3.1.2"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Post: v0.3.2"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Comment: v0.3.2"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Poll: v0.3.2.1"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Comment: v0.3.2.1"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Poll: v0.3.2.2"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Comment: v0.3.2.2"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Post: v0.3.3"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Comment: v0.3.3"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Post: v0.4"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Comment: v0.4"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Post: v0.5"
+        },
+        {
+          "level": "h3",
+          "text": "LinkedIn Comment: v0.5"
+        },
+        {
+          "level": "h2",
+          "text": "The Thesis, Standing on Its Own"
+        },
+        {
+          "level": "h3",
+          "text": "Bring me the problem where one answer is not enough"
+        },
+        {
+          "level": "h3",
+          "text": "Support the Forge"
+        },
+        {
+          "level": "h3",
+          "text": "Version History"
+        }
+      ],
+      "links": [
+        "/",
+        "/writings/",
+        "#roy",
+        "#council-scoring",
+        "#artifacts",
+        "#version-history",
+        "/projects/bpmn-for-mermaid/",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/archive/diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-square.pdf",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/archive/diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-square.pptx",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/archive/diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-wide.pdf",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/archive/diagramming-shootout/slides/etch-ai-sketch-using-a-council-to-design-at-velocity-wide.pptx",
+        "https://github.com/OKHP3/first-diagram-is-a-liar",
+        "https://mermaid.ai/d/8fe5c9ae-c8ac-4754-98fd-268ae3ceeef7",
+        "https://mermaid.ai/d/fade689d-cfd2-47d9-b316-86a21a0533fb",
+        "https://mermaid.ai/d/b49cf4f6-5071-4207-8673-0ae56d328ed6",
+        "https://mermaid.ai/d/2f015a7f-4589-4a27-8cc4-5b2d7bcd9d83",
+        "https://mermaid.ai/d/d93b0060-2743-40de-869e-a84dc07553f2",
+        "https://mermaid.ai/d/fb3557e2-df35-46f8-a8cd-4abe56c82ed5",
+        "https://mermaid.ai/d/90d988cd-3af8-4fcf-b42e-4bd3da3da29a",
+        "https://mermaidchart.cello.so/UhVlNtC2MlS",
+        "https://mermaid.ai/d/2e9a4321-6302-44ca-82cc-e2020479fdf5",
+        "https://mermaid.ai/d/ea1ba020-7f26-483d-9892-3d98b5b6db23",
+        "https://mermaid.ai/d/18c4c328-bef3-4d80-bebf-d9127c39fe43",
+        "https://mermaid.ai/d/e2a6df7d-dbbe-40d6-bdae-967ac33737be",
+        "https://mermaid.ai/d/1e77a8a7-ec42-47ea-8cc6-8fe03204785c",
+        "https://mermaid.ai/d/54541ba0-3c57-4065-bf53-c698123747bc",
+        "https://mermaid.ai/d/b40280fd-8ef3-4992-bbe3-9dbfce6fe603",
+        "https://mermaid.ai/d/478c63dc-47c1-419a-b4a9-dac33707fc55",
+        "https://mermaidchart.cello.so/UhVlNtC2MlS",
+        "#council-scoring",
+        "/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+        "/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+        "/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+        "/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+        "#council-scoring",
+        "#council-scoring",
+        "https://www.perplexity.ai/hub/blog/introducing-model-council",
+        "/projects/mac-studio-local-ai-workbench/",
+        "https://mermaid.ai/d/8fe5c9ae-c8ac-4754-98fd-268ae3ceeef7",
+        "#round2",
+        "https://mermaid.ai/d/2e9a4321-6302-44ca-82cc-e2020479fdf5",
+        "#artifacts",
+        "https://github.com/OKHP3/first-diagram-is-a-liar",
+        "https://www.linkedin.com/pulse/first-diagram-usually-liar-jamie-hill-lv3hc/",
+        "https://www.linkedin.com/in/jamiehill75",
+        "https://www.linkedin.com/company/overkillhillp3",
+        "https://mermaidchart.cello.so/UhVlNtC2MlS",
+        "https://ko-fi.com/overkillhillp3",
+        "https://www.linkedin.com/pulse/first-diagram-usually-liar-jamie-hill-lv3hc/",
+        "https://github.com/OKHP3/first-diagram-is-a-liar",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/tree/main/archive/diagramming-shootout/diagrams",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/archive/diagramming-shootout/council-brief.md",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/tree/main/archive/diagramming-shootout/prompts",
+        "https://mermaid.ai/d/8fe5c9ae-c8ac-4754-98fd-268ae3ceeef7",
+        "https://mermaid.ai/d/fade689d-cfd2-47d9-b316-86a21a0533fb",
+        "https://mermaid.ai/d/b49cf4f6-5071-4207-8673-0ae56d328ed6",
+        "https://mermaid.ai/d/2f015a7f-4589-4a27-8cc4-5b2d7bcd9d83",
+        "https://mermaid.ai/d/d93b0060-2743-40de-869e-a84dc07553f2",
+        "https://mermaid.ai/d/fb3557e2-df35-46f8-a8cd-4abe56c82ed5",
+        "https://mermaid.ai/d/90d988cd-3af8-4fcf-b42e-4bd3da3da29a",
+        "https://mermaid.ai/d/2e9a4321-6302-44ca-82cc-e2020479fdf5",
+        "https://mermaid.ai/d/ea1ba020-7f26-483d-9892-3d98b5b6db23",
+        "https://mermaid.ai/d/18c4c328-bef3-4d80-bebf-d9127c39fe43",
+        "https://mermaid.ai/d/e2a6df7d-dbbe-40d6-bdae-967ac33737be",
+        "https://mermaid.ai/d/1e77a8a7-ec42-47ea-8cc6-8fe03204785c",
+        "https://mermaid.ai/d/54541ba0-3c57-4065-bf53-c698123747bc",
+        "https://mermaid.ai/d/b40280fd-8ef3-4992-bbe3-9dbfce6fe603",
+        "https://mermaid.ai/d/478c63dc-47c1-419a-b4a9-dac33707fc55",
+        "https://mermaidchart.cello.so/UhVlNtC2MlS",
+        "/writings/first-diagram-is-a-liar/v03/v1-heat-a/",
+        "/writings/first-diagram-is-a-liar/v03/v1-heat-b/",
+        "/writings/first-diagram-is-a-liar/v03/v2-heat-a/",
+        "/writings/first-diagram-is-a-liar/v03/v2-heat-b/",
+        "#pivot",
+        "#roy",
+        "#attention-finite",
+        "#what-mermaid-actually-is",
+        "#mermaid-syntax-vs-platform",
+        "#one-that-should-have-won",
+        "#ideation-to-evaluation",
+        "#deck",
+        "#v03-3-tie-off",
+        "#council-origin",
+        "#council",
+        "#why-one-model",
+        "#crude-manual-process",
+        "#co-opetition",
+        "#council-seats",
+        "#council-synthesis",
+        "#council-scoring",
+        "#model-interviews",
+        "#round1",
+        "#round2",
+        "#prompts",
+        "#artifacts",
+        "#thesis"
+      ]
+    },
+    {
+      "source": "site-src/pages/writings/first-diagram-is-a-liar/v03/v1-heat-a/index.main.html",
+      "sha256": "a262bf4229d43ca4040ee80988e11149b4574d9409692f3415ea4146d769dcb6",
+      "words_including_code": 1300,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "V1 Heat A: First-Pass Field Guide"
+        }
+      ],
+      "links": [
+        "/",
+        "/writings/",
+        "/writings/first-diagram-is-a-liar/",
+        "/writings/first-diagram-is-a-liar/#field-guide",
+        "https://mermaid.ai/d/b49cf4f6-5071-4207-8673-0ae56d328ed6",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v1/etch-ai-sketch-using-a-council-to-design-at-velocity-chatgpt-v1.mmd",
+        "https://mermaid.ai/d/fade689d-cfd2-47d9-b316-86a21a0533fb",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v1/etch-ai-sketch-using-a-council-to-design-at-velocity-claude-v1.mmd",
+        "https://mermaid.ai/d/d93b0060-2743-40de-869e-a84dc07553f2",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v1/etch-ai-sketch-using-a-council-to-design-at-velocity-gemini-v1.mmd",
+        "https://mermaid.ai/d/2f015a7f-4589-4a27-8cc4-5b2d7bcd9d83",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v1/etch-ai-sketch-using-a-council-to-design-at-velocity-perplexity-v1.mmd",
+        "/writings/first-diagram-is-a-liar/#v1-diagrams",
+        "/writings/first-diagram-is-a-liar/#v03-deck",
+        "https://mermaidchart.cello.so/UhVlNtC2MlS"
+      ]
+    },
+    {
+      "source": "site-src/pages/writings/first-diagram-is-a-liar/v03/v1-heat-b/index.main.html",
+      "sha256": "ab1755d38a5ebd33db8ef5fe20c96ac507b7597bb1d9777b770d518f58430a73",
+      "words_including_code": 879,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "V1 Heat B: First-Pass Field Guide"
+        }
+      ],
+      "links": [
+        "/",
+        "/writings/",
+        "/writings/first-diagram-is-a-liar/",
+        "/writings/first-diagram-is-a-liar/#field-guide",
+        "https://mermaid.ai/d/8fe5c9ae-c8ac-4754-98fd-268ae3ceeef7",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v1/etch-ai-sketch-using-a-council-to-design-at-velocity-copilot-v1.mmd",
+        "https://mermaid.ai/d/fb3557e2-df35-46f8-a8cd-4abe56c82ed5",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v1/etch-ai-sketch-using-a-council-to-design-at-velocity-notion-v1.mmd",
+        "https://mermaid.ai/d/90d988cd-3af8-4fcf-b42e-4bd3da3da29a",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v1/etch-ai-sketch-using-a-council-to-design-at-velocity-replit-v1.mmd",
+        "/writings/first-diagram-is-a-liar/#v1-diagrams",
+        "/writings/first-diagram-is-a-liar/#v03-deck",
+        "https://mermaidchart.cello.so/UhVlNtC2MlS"
+      ]
+    },
+    {
+      "source": "site-src/pages/writings/first-diagram-is-a-liar/v03/v2-heat-a/index.main.html",
+      "sha256": "9542f84b47fffb91d1c636eb03b53f444f4269488a4a7720e3dac169c7b6bba0",
+      "words_including_code": 1710,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "V2 Heat A: Revised Diagram Field Guide"
+        }
+      ],
+      "links": [
+        "/",
+        "/writings/",
+        "/writings/first-diagram-is-a-liar/",
+        "/writings/first-diagram-is-a-liar/#field-guide",
+        "https://mermaid.ai/d/18c4c328-bef3-4d80-bebf-d9127c39fe43",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-chatgpt-v2.mmd",
+        "https://mermaid.ai/d/ea1ba020-7f26-483d-9892-3d98b5b6db23",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-copilot-v2.mmd",
+        "https://mermaid.ai/d/54541ba0-3c57-4065-bf53-c698123747bc",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-gemini-v2.mmd",
+        "https://mermaid.ai/d/b40280fd-8ef3-4992-bbe3-9dbfce6fe603",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-notion-v2.mmd",
+        "/writings/first-diagram-is-a-liar/#v2-diagrams",
+        "/writings/first-diagram-is-a-liar/#v03-deck",
+        "https://mermaidchart.cello.so/UhVlNtC2MlS"
+      ]
+    },
+    {
+      "source": "site-src/pages/writings/first-diagram-is-a-liar/v03/v2-heat-b/index.main.html",
+      "sha256": "8542e4b7cd2c082a454738c7fb33f257d5a7f7f6fd5809dcadc3a4dfc9035e3e",
+      "words_including_code": 1746,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "V2 Heat B: Revised Diagram Field Guide"
+        }
+      ],
+      "links": [
+        "/",
+        "/writings/",
+        "/writings/first-diagram-is-a-liar/",
+        "/writings/first-diagram-is-a-liar/#field-guide",
+        "https://mermaid.ai/d/e2a6df7d-dbbe-40d6-bdae-967ac33737be",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-chatgpt-v2pro.mmd",
+        "https://mermaid.ai/d/2e9a4321-6302-44ca-82cc-e2020479fdf5",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-claude-v2.mmd",
+        "https://mermaid.ai/d/1e77a8a7-ec42-47ea-8cc6-8fe03204785c",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-perplexity-v2.mmd",
+        "https://mermaid.ai/d/478c63dc-47c1-419a-b4a9-dac33707fc55",
+        "https://github.com/OKHP3/first-diagram-is-a-liar/blob/main/etch-ai-sketch-vibe-diagramming-shootout/diagrams/v2/etch-ai-sketch-using-a-council-to-design-at-velocity-replit-v2.mmd",
+        "/writings/first-diagram-is-a-liar/#v2-diagrams",
+        "/writings/first-diagram-is-a-liar/#v03-deck",
+        "https://mermaidchart.cello.so/UhVlNtC2MlS"
+      ]
+    },
+    {
+      "source": "site-src/pages/writings/index.main.html",
+      "sha256": "bff300a249ffdc4df163293f6b27dbe944cf4b8d8dbfd6af912b53dce02aeaa4",
+      "words_including_code": 194,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Writings from the Hill"
+        },
+        {
+          "level": "h2",
+          "text": "Latest from the Forge"
+        },
+        {
+          "level": "h3",
+          "text": "The MurderBird"
+        },
+        {
+          "level": "h3",
+          "text": "The First Diagram Is Usually a Liar"
+        },
+        {
+          "level": "h3",
+          "text": "The Magnus Saga"
+        },
+        {
+          "level": "h3",
+          "text": "Biases as Constants"
+        }
+      ],
+      "links": [
+        "/writings/murderbird/",
+        "/writings/first-diagram-is-a-liar/",
+        "/writings/magnus-saga/",
+        "/writings/biases-as-constants/"
+      ]
+    },
+    {
+      "source": "site-src/pages/writings/magnus-saga/index.main.html",
+      "sha256": "8e09a8bc127c9e251623ecdfc23e5a6b46fd7b83772b8ef4f78d65227c0bdc04",
+      "words_including_code": 96,
+      "unchanged_since_prior_audit_source": true,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Magnus Progenitor Saga"
+        },
+        {
+          "level": "h2",
+          "text": "About the Saga"
+        }
+      ],
+      "links": []
+    },
+    {
+      "source": "site-src/pages/writings/murderbird/index.main.html",
+      "sha256": "4cfd460826b47d4ca96e0c9260afadb5d689fac1301f0b37274e40991eaaa69b",
+      "words_including_code": 5551,
+      "unchanged_since_prior_audit_source": false,
+      "headings": [
+        {
+          "level": "h1",
+          "text": "The MurderBird"
+        },
+        {
+          "level": "h2",
+          "text": "The Maker"
+        },
+        {
+          "level": "h2",
+          "text": "What the water kept"
+        },
+        {
+          "level": "h2",
+          "text": "The Mechanic"
+        },
+        {
+          "level": "h2",
+          "text": "The Builder"
+        },
+        {
+          "level": "h3",
+          "text": "The heart"
+        },
+        {
+          "level": "h3",
+          "text": "The mind"
+        },
+        {
+          "level": "h3",
+          "text": "The first choice"
+        },
+        {
+          "level": "h2",
+          "text": "What remains"
+        },
+        {
+          "level": "h2",
+          "text": "Three eras. One bird."
+        },
+        {
+          "level": "h2",
+          "text": "The visual record"
+        }
+      ],
+      "links": [
+        "/writings/",
+        "#the-maker",
+        "#visual-record",
+        "#the-maker",
+        "#the-water",
+        "#the-mechanic",
+        "#the-builder",
+        "#the-heart",
+        "#the-mind",
+        "#first-choice",
+        "#the-sentinel",
+        "#visual-record",
+        "#visual-record",
+        "/manifesto/#murderbird-genesis",
+        "#murderbird",
+        "/writings/"
+      ]
+    }
+  ]
+}

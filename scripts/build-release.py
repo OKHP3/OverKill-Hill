@@ -20,6 +20,7 @@ from xml.etree import ElementTree
 
 
 ROOT = Path(__file__).resolve().parents[1]
+MANIFEST_RELATIVE = "assets/audit/release-manifest.json"
 ARCHIVE_POLICY = "config/murderbird-source-archive.json"
 ROOT_FILES = (
     ".nojekyll",
@@ -206,13 +207,19 @@ def write_manifest(output: Path, commit: str) -> None:
         if not path.is_file():
             fail(f"generated artifact is missing from release package: {public_path}")
         artifacts[f"/{public_path}"] = {"sha256": sha256(path)}
-    manifest_relative = "assets/audit/release-manifest.json"
-    files = sorted(
-        [path.relative_to(output).as_posix() for path in output.rglob("*") if path.is_file()]
-        + [manifest_relative]
-    )
-    manifest = {"schema": 2, "commit": commit, "artifacts": artifacts, "files": files}
-    target = output / manifest_relative
+    # Preserve the two public artifact entries consumed by live-edge monitoring.
+    # Every other released byte is checked locally before upload via integrity;
+    # the manifest itself cannot carry its own digest.
+    integrity = {}
+    for path in sorted(path for path in output.rglob("*") if path.is_file()):
+        data = path.read_bytes()
+        integrity[path.relative_to(output).as_posix()] = {
+            "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data),
+        }
+    files = sorted([*integrity, MANIFEST_RELATIVE])
+    manifest = {"schema": 3, "commit": commit, "artifacts": artifacts,
+                "files": files, "integrity": integrity}
+    target = output / MANIFEST_RELATIVE
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
@@ -244,12 +251,12 @@ def verify(source: Path, output: Path, commit: str) -> None:
     pages = load_public_pages(source)
     archived = load_archived_library_paths(source)
     verify_package(output, pages, archived)
-    manifest_path = output / "assets/audit/release-manifest.json"
+    manifest_path = output / MANIFEST_RELATIVE
     try:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         fail(f"cannot read release manifest: {exc}")
-    if not isinstance(manifest, dict) or manifest.get("schema") != 2:
+    if not isinstance(manifest, dict) or manifest.get("schema") != 3:
         fail("release manifest has an unsupported schema")
     if manifest.get("commit") != commit:
         fail(f"release manifest commit does not match expected SHA: {manifest.get('commit')!r}")
@@ -265,6 +272,20 @@ def verify(source: Path, output: Path, commit: str) -> None:
     actual_files = sorted(path.relative_to(output).as_posix() for path in output.rglob("*") if path.is_file())
     if manifest.get("files") != actual_files:
         fail("release manifest file inventory does not match packaged bytes")
+    integrity = manifest.get("integrity")
+    if not isinstance(integrity, dict) or set(integrity) != set(actual_files) - {MANIFEST_RELATIVE}:
+        fail("release manifest integrity inventory does not match packaged files")
+    # Iterate verified on-disk paths, never a path supplied only by the manifest.
+    for relative in actual_files:
+        if relative == MANIFEST_RELATIVE:
+            continue
+        entry = integrity[relative]
+        data = (output / relative).read_bytes()
+        if (not isinstance(entry, dict) or type(entry.get("bytes")) is not int
+                or entry["bytes"] != len(data)):
+            fail(f"release manifest byte size mismatch for {relative}")
+        if entry.get("sha256") != hashlib.sha256(data).hexdigest():
+            fail(f"release manifest hash mismatch for {relative}")
     print(f"Verified SHA-bound release: {len(pages)} HTML pages, {len(actual_files)} files")
 
 

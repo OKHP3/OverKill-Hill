@@ -33,6 +33,80 @@ def accepted_murderbird_media() -> list[str]:
 
 
 class ReleasePackageTests(unittest.TestCase):
+    def test_every_released_file_has_verified_bytes(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            source, output = Path(temporary) / "source", Path(temporary) / "release"
+            self.archive_fixture(source)
+            extra = {
+                "assets/css/theme.css": b"body{}",
+                "assets/js/app.js": b"void 0;",
+                "assets/data/search-index-fr.json": b"{}",
+                "assets/vendor/runtime.mjs": b"export default 1;",
+            }
+            for relative, data in extra.items():
+                target = source / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(data)
+            self.assertEqual(self.build(output, source).returncode, 0)
+            manifest_path = output / "assets/audit/release-manifest.json"
+            manifest = json.loads(manifest_path.read_text())
+            integrity = manifest.get("integrity", {})
+            self.assertEqual(set(integrity), set(manifest["files"]) - {"assets/audit/release-manifest.json"})
+            for relative, entry in integrity.items():
+                data = (output / relative).read_bytes()
+                self.assertEqual(entry, {"sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)})
+            self.assertEqual(self.verify(output, source).returncode, 0)
+            for relative in ["index.html", *extra, accepted_murderbird_media()[0]]:
+                target = output / relative
+                original = target.read_bytes()
+                # Same-length replacement proves the digest, not just size, is checked.
+                for changed in [bytes([original[0] ^ 1]) + original[1:], original + b"audit"]:
+                    with self.subTest(path=relative, size=len(changed)):
+                        target.write_bytes(changed)
+                        rejected = self.verify(output, source)
+                        self.assertNotEqual(rejected.returncode, 0)
+                        self.assertIn(relative, rejected.stderr)
+                target.write_bytes(original)
+
+    def test_integrity_manifest_and_inventory_fail_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            source, output = Path(temporary) / "source", Path(temporary) / "release"
+            self.archive_fixture(source)
+            self.assertEqual(self.build(output, source).returncode, 0)
+            path = output / "assets/audit/release-manifest.json"
+            original = path.read_text()
+            for change in ("missing-map", "missing-entry", "extra-entry", "wrong-size", "wrong-hash", "wrong-commit", "old-schema"):
+                with self.subTest(change=change):
+                    manifest = json.loads(original)
+                    if change == "missing-map":
+                        manifest.pop("integrity", None)
+                    elif change == "missing-entry":
+                        manifest.get("integrity", {}).pop("index.html", None)
+                    elif change == "extra-entry":
+                        manifest.setdefault("integrity", {})["../outside"] = {}
+                    elif change == "wrong-size":
+                        manifest.setdefault("integrity", {}).setdefault("index.html", {})["bytes"] = -1
+                    elif change == "wrong-hash":
+                        manifest.setdefault("integrity", {}).setdefault("index.html", {})["sha256"] = "0" * 64
+                    elif change == "wrong-commit":
+                        manifest["commit"] = "b" * 40
+                    else:
+                        manifest["schema"] = 2
+                    path.write_text(json.dumps(manifest))
+                    self.assertNotEqual(self.verify(output, source).returncode, 0)
+            path.write_text(original)
+            target = output / accepted_murderbird_media()[0]
+            data = target.read_bytes()
+            target.unlink()
+            self.assertNotEqual(self.verify(output, source).returncode, 0)
+            renamed = target.with_name("renamed.png")
+            renamed.write_bytes(data)
+            self.assertNotEqual(self.verify(output, source).returncode, 0)
+            target.write_bytes(data)
+            self.assertNotEqual(self.verify(output, source).returncode, 0)
+            renamed.unlink()
+            self.assertEqual(self.verify(output, source).returncode, 0)
+
     def test_real_selected_media_overlay_when_available(self) -> None:
         media_root = Path(os.environ.get("MURDERBIRD_MEDIA_REVIEW_SOURCE", str(ROOT)))
         register_path = media_root / "assets/audit/murderbird-still-release-register.json"

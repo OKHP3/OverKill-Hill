@@ -2,35 +2,37 @@
 
 ## Normal release path
 
-Push the reviewed commit to `main`. `.github/workflows/validate.yml` checks that
-exact commit, then the Pages job runs only when validation succeeds. The deploy
-job has read-only contents access plus the minimum Pages write and OIDC
-permissions. Its `pages` concurrency group prevents overlapping deployments.
-Before upload, the job writes `assets/audit/release-manifest.json` with the
-validated commit SHA and SHA-256 hashes for `sitemap.xml` and
-`assets/data/search-index.json`. That manifest is deployed with the site, so a
-Pages artifact cannot be treated as current unless it identifies the commit
-that passed validation and the generated files match its recorded hashes.
+Prepare the change on a review branch in this repository and run the relevant
+checks from [Site Validation](../.github/workflows/validate.yml). Open a pull
+request for review. Merge into protected `main` only within the owner's publication
+authorization; passing local checks is not itself a publication instruction.
+Use the existing authenticated Git/GitHub workflow. This runbook does not
+require a new credential or changes to account permissions.
 
-## Controlled API publishing from Replit
+[Publish GitHub Pages](../.github/workflows/pages.yml) invokes the reusable
+validation workflow for the exact release revision. Validation builds an
+allowlisted `site-release` artifact named `validated-site-<commit-sha>`.
+The deploy job downloads that artifact and verifies its commit identity and
+recorded file hashes and byte lengths with `scripts/build-release.py --verify`
+before uploading it to Pages. The local schema 3 implementation covers every
+packaged file except the manifest itself; production remains schema 2 until
+this change is released. The manifest is a trusted-workflow integrity record,
+not an independent signature. The `pages` concurrency group queues deployments.
+The deployment job uses read-only contents access, Pages write access, and
+OIDC permission.
 
-Use this only when the normal GitHub workflow is unavailable or when syncing
-the explicitly listed governance files in `scripts/push-to-github.py`.
+After deployment, confirm the workflow result and the uploaded live-edge
+report. A release is not verified solely because a push or merge succeeded.
+Read the deployed manifest and checks against the exact intended revision.
 
-1. Create or use the workspace secret named `GITHUB_PAT`. Use a fine-grained
-   credential limited to the required repositories and contents write access.
-2. Run the helper without copying the credential into a file or remote:
+## Historical Replit API helper
 
-   ```bash
-   GITHUB_TOKEN="$GITHUB_PAT" python3 scripts/push-to-github.py
-   ```
-
-3. Review the API response and resulting commit in GitHub.
-
-The script uses HTTPS and an Authorization header. It does not rewrite Git
-remotes, persist the credential, or print it. Do not use the OAuth credential
-used by ordinary Replit Git pushes for this path. Rotate or remove the
-fine-grained credential when the controlled operation is complete.
+The former `scripts/push-to-github.py` is archived at
+[`scripts/archive/push-to-github.py`](../scripts/archive/push-to-github.py).
+It is not an active release command. Its historical PAT-based governance
+sync procedure is not a fallback for the normal PR and Pages workflow.
+Do not run it for a current site release without a separate, scoped review of
+its destinations and behavior.
 
 ## Failure diagnosis
 
@@ -38,8 +40,9 @@ fine-grained credential when the controlled operation is complete.
   fix the reported file or generated artifact before retrying.
 - Pages failure: confirm the workflow has `pages: write` and `id-token: write`,
   then inspect the failed `upload-pages-artifact` or `deploy-pages` step.
-- Authentication failure: repair the `GITHUB_PAT` workspace secret and its
-  repository permissions. Never paste a token into chat or a Git remote.
+- Authentication failure: inspect the existing Git/GitHub session and report
+  the exact blocked operation. Resolve access through the approved account
+  workflow; never paste credentials into chat, a file, or a Git remote.
 
 ## Read-only live-edge verification
 
@@ -54,6 +57,8 @@ shared CSS/JS fingerprints, and confirms the deployed release manifest:
 python3 scripts/verify-live-edge.py \
   --base https://overkillhill.com \
   --expected-commit "$(git rev-parse HEAD)" \
+  --hosting github-pages \
+  --accept-blocked \
   --report assets/audit/live-edge-report.json
 ```
 
@@ -87,7 +92,7 @@ does not enforce protection. When direct GitHub Pages omits a desired header,
 the verifier records the absence as `WARN`; this documents the accepted
 hosting limitation without describing the missing control as active.
 
-### Latest canonical-domain result
+### Historical canonical-domain result (September 3, 2026)
 
 **Run date:** September 3, 2026
 **Base:** `https://overkillhill.com`
@@ -134,7 +139,7 @@ policy, then rerun the verifier in its default `strict` mode. Until that
 happens, do not describe the production site as enforcing the `_headers`
 security or cache policy.
 
-### Confirmed DNS and edge-path follow-up
+### Historical DNS and edge-path follow-up (September 3, 2026)
 
 **Checked:** September 3, 2026
 **Evidence:** live DNS resolution and HTTPS response headers from the canonical domain
@@ -146,7 +151,7 @@ identified `server: GitHub.com`, included GitHub/Fastly cache markers, and conti
 to return `Cache-Control: max-age=600`. No Cloudflare edge marker or the headers
 declared in `_headers` was present.
 
-This confirms that the canonical hostname is currently reaching GitHub Pages
+This confirmed that the canonical hostname was reaching GitHub Pages at that check
 directly rather than a Cloudflare-proxied edge. No Cloudflare zone or Transform
 Rules control is available through the approved workspace access path, so no
 edge configuration was changed. The accepted direct-Pages strategy and its
