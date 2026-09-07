@@ -545,7 +545,7 @@ def report_display_path(path: Path) -> str:
     """Format report paths without assuming they are inside the repository."""
     resolved = path.resolve()
     try:
-        return resolved.relative_to(ROOT).as_posix()
+        return resolved.relative_to(ROOT.resolve()).as_posix()
     except ValueError:
         return str(resolved)
 
