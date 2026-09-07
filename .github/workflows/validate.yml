@@ -87,6 +87,9 @@ jobs:
       - name: Test the Pages release boundary
         run: python3 tests/test-release-package.py
 
+      - name: Test preview serving and report storage boundaries
+        run: python3 tests/test-preview-server.py
+
       - name: Keep historical MurderBird review HTML local
         run: python3 tests/test-murderbird-review-boundary.py
 
