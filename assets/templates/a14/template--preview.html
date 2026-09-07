@@ -1,0 +1,88 @@
+<!-- Local A14 proposal shell. Tokens: DIRECTION, NAME, PAGE, BODY.
+     Uses the existing static template's fonts, shared stylesheet and semantic shell.
+     Inline experimental styles are confined to this non-published review template.
+     Selected production rules must move into theme.css after owner selection. -->
+<!doctype html>
+<html lang="en-US" data-color-scheme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>[[NAME]] · [[PAGE]] · A14 proposal</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/theme.css?v=18ec9e5b">
+<style>
+/* AUTOGEN:A14-PREVIEW. Review-only scope; no shared runtime writes. */
+body { margin:0; }
+[data-a14] { --gutter:20px; }
+[data-a14] .review-bar { padding:8px var(--gutter); background:#e6a03c; color:#0f172a; font:12px/1.5 var(--font-mono); }
+[data-a14] .review-bar a { color:inherit; text-decoration:underline; }
+[data-a14] .preview-nav { background:#1c3a34; border-bottom:3px solid #c46a2c; }
+[data-a14] .preview-nav>div { max-width:1160px; margin:auto; padding:16px var(--gutter); display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+[data-a14] .preview-nav strong { font:18px var(--font-heading); }
+[data-a14] .preview-nav nav { display:flex; flex-wrap:wrap; gap:16px; }
+[data-a14] a { text-underline-offset:4px; }
+[data-a14] .preview-nav a { padding:8px 0; color:#f0ebe5; }
+[data-a14] .container,[data-a14] .proposal-wrap { width:calc(100% - 2 * var(--gutter)); max-width:1120px; margin-inline:auto; padding-inline:0; }
+[data-a14] .container .container { width:100%; }
+[data-a14] .hero { padding:32px 0; min-height:0; }
+[data-a14] .hero .container { padding-inline:0; }
+[data-a14] .reveal-on-scroll { opacity:1; transform:none; }
+[data-a14] .proposal-hero { padding-block:32px; display:grid; grid-template-columns:1.1fr 1fr; gap:40px; align-items:center; }
+[data-a14] .proposal-hero h1 { font-size:clamp(28px,4vw,48px); line-height:1.2; max-width:18ch; margin:12px 0 20px; }
+[data-a14] .eyebrow { font:12px/1.6 var(--font-mono); color:#e6a03c; letter-spacing:.07em; text-transform:uppercase; }
+[data-a14] .proposal-lead { font-size:19px; max-width:50ch; }
+[data-a14] .task-choices { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+[data-a14] .task-choices a { border:1px solid #c46a2c; padding:12px 14px; font-weight:600; text-decoration:none; min-height:46px; }
+[data-a14] .task-choices a:first-child { background:#c46a2c; color:#0f172a; }
+[data-a14] .accepted-art { margin:0; }
+[data-a14] .accepted-art img { display:block; width:100%; height:auto; border-radius:8px; }
+[data-a14] .accepted-art figcaption { font-size:13px; padding-top:10px; }
+[data-a14] .selected { padding-block:24px 40px; }
+[data-a14] .selected h2 { font-size:26px; margin:0 0 18px; }
+[data-a14] .selected-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+[data-a14] .selection { display:flex; flex-direction:column; padding:22px; background:var(--color-surface); border:1px solid var(--color-border-subtle); border-top:3px solid #c46a2c; }
+[data-a14] .selection h3 { font-size:20px; line-height:1.3; margin:10px 0; }
+[data-a14] .selection .evidence { font-size:13px; color:var(--color-muted); }
+[data-a14] .selection .primary-action { margin-top:auto; padding-block:12px; min-height:44px; font-weight:600; }
+[data-a14] .content-section { padding-block:32px; }
+[data-a14] .project-hero { padding-top:24px; }
+[data-a14] .orientation { border-left:3px solid #c46a2c; padding:12px 18px; margin-block:20px; background:var(--color-surface); }
+[data-a14] .orientation a { display:inline-block; padding-block:8px; }
+[data-a14] .preview-footer { padding-block:36px; border-top:1px solid var(--color-border-subtle); }
+[data-a14="b"] .proposal-hero { display:block; padding-bottom:12px; }
+[data-a14="b"] .proposal-hero h1 { max-width:28ch; }
+[data-a14="b"] .selected-grid { display:block; }
+[data-a14="b"] .selection { display:grid; grid-template-columns:150px 1fr 1fr 160px; column-gap:24px; align-items:center; border:0; border-top:1px solid #c46a2c; padding:16px 0; background:transparent; }
+[data-a14="b"] .selection .evidence { grid-column:3; }
+[data-a14="b"] .selection .summary { display:none; }
+[data-a14="b"] .selection .primary-action { grid-column:4; grid-row:1 / 3; margin:0; }
+[data-a14="b"] .selection h3 { grid-column:2; grid-row:1 / 3; }
+[data-a14="b"] .accepted-art { max-width:760px; margin:0 auto 40px; }
+[data-a14="b"] .project-card { border-radius:0; box-shadow:none; border-width:1px 0 0; background:transparent; }
+@media(max-width:700px) {
+ [data-a14] .proposal-hero { grid-template-columns:1fr; gap:24px; padding-top:24px; }
+ [data-a14] .proposal-hero h1 { font-size:28px; }
+ [data-a14] .proposal-lead { font-size:17px; }
+ [data-a14] .selected-grid { grid-template-columns:1fr; }
+ [data-a14] .preview-nav>div { gap:4px; padding-block:10px; }
+ [data-a14] .preview-nav nav { gap:18px; }
+ [data-a14] .hero-grid { grid-template-columns:1fr; gap:24px; }
+ [data-a14] .hero-content { max-width:100%; }
+ [data-a14] .hero h1,[data-a14] .project-hero h1 { font-size:28px; }
+ [data-a14] .project-layout { display:block; }
+ [data-a14] .hero-ctas { flex-direction:column; align-items:flex-start; }
+ [data-a14="b"] .selection { grid-template-columns:1fr; gap:0; padding:16px 0; }
+ [data-a14="b"] .selection>* { grid-column:1!important; grid-row:auto!important; }
+ [data-a14="b"] .selection .primary-action { margin-top:0; }
+}
+</style>
+</head>
+<body data-a14="[[DIRECTION]]">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="review-bar">A14 [[DIRECTION]] · [[NAME]] · Proposed layout and new copy. Status examples pending A11/A12. <a href="../index.html">Compare</a></div>
+<header class="preview-nav"><div><strong>OverKill Hill P³™</strong><nav aria-label="Preview pages"><a href="home.html">Home</a><a href="projects.html">Projects</a><a href="detail.html">Tool detail</a><a href="contact.html">Contact</a></nav></div></header>
+<main id="main" tabindex="-1">[[BODY]]</main>
+<footer class="proposal-wrap preview-footer"><p>Precision · Protocol · Promptcraft</p><a href="/universe/">Explore the full archive</a> · <a href="/manifesto/">Read the manifesto</a></footer>
+</body>
+</html>

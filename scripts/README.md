@@ -75,6 +75,21 @@ including its own governance docs, before this move.
 All reference-only and retired scripts live in `scripts/archive/`. Read
 their headers and review their target paths before adapting any of them.
 
+## A14 local presentation review
+
+- `build-a14-proposals.py`: active, manual review generator. Reads the four
+  current English main bodies and `assets/templates/a14/template--preview.html`;
+  writes eight unapproved alternatives and an input-hash record to `.local/a14/`.
+  It does not update published pages or the shared runtime.
+- `a14-proposal-qa.mjs`: active, manual browser review. Requires the existing
+  Playwright dependency and a loopback preview on port 5144 (`A14_BASE` overrides
+  the URL). `PLAYWRIGHT_MODULE` can name an existing installation's entry module.
+  Missing browser execution fails. Screenshots/full output stay in `.local/a14/`;
+  the compact dated QA record goes to `assets/audit/`.
+
+See `assets/docs/remediation-a14-2026-09-07.md` for owner-selection and
+integration boundaries. These tools are not added to the production pipeline.
+
 ## Provenance
 
 This classification and the `scripts/archive/` convention were ported from

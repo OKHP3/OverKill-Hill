@@ -1,0 +1,920 @@
+{
+  "browser": "151.0.7922.34",
+  "baseline": {
+    "h1": {
+      "x": 0,
+      "y": 258.96875
+    },
+    "#start-here-heading": {
+      "x": 15.59375,
+      "y": 1562.671875
+    },
+    "#selected-work-heading": {
+      "x": 15.59375,
+      "y": 2332.21875
+    }
+  },
+  "tasks": [
+    {
+      "direction": "a",
+      "result": "PASS",
+      "scope": "No-JS skip, home to shelf to detail release, Contact email href; no message sent"
+    },
+    {
+      "direction": "b",
+      "result": "PASS",
+      "scope": "No-JS skip, home to shelf to detail release, Contact email href; no message sent"
+    }
+  ],
+  "scope": "Local A14 proposals only. Reduced motion, dark palette, external embeds blocked in layout cases. Not integrated release acceptance.",
+  "results": [
+    {
+      "direction": "a",
+      "name": "home",
+      "width": 320,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 278.375,
+        "width": 280,
+        "right": 300
+      },
+      "selected": {
+        "x": 20,
+        "y": 884.171875,
+        "width": 280,
+        "right": 300
+      },
+      "choices": {
+        "x": 20,
+        "y": 439.9375,
+        "width": 280,
+        "right": 300
+      },
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "a",
+      "name": "projects",
+      "width": 320,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 251.1875,
+        "width": 280,
+        "right": 300
+      },
+      "selected": {
+        "x": 20,
+        "y": 519.6875,
+        "width": 280,
+        "right": 300
+      },
+      "choices": null,
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "a",
+      "name": "detail",
+      "width": 320,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 419.015625,
+        "width": 280,
+        "right": 300
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "a",
+      "name": "contact",
+      "width": 320,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 346.84375,
+        "width": 280,
+        "right": 300
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "home",
+      "width": 320,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 278.375,
+        "width": 280,
+        "right": 300
+      },
+      "selected": {
+        "x": 20,
+        "y": 622.71875,
+        "width": 280,
+        "right": 300
+      },
+      "choices": {
+        "x": 20,
+        "y": 439.9375,
+        "width": 280,
+        "right": 300
+      },
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "projects",
+      "width": 320,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 251.1875,
+        "width": 280,
+        "right": 300
+      },
+      "selected": {
+        "x": 20,
+        "y": 519.6875,
+        "width": 280,
+        "right": 300
+      },
+      "choices": null,
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "detail",
+      "width": 320,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 419.015625,
+        "width": 280,
+        "right": 300
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "contact",
+      "width": 320,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 346.84375,
+        "width": 280,
+        "right": 300
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "a",
+      "name": "home",
+      "width": 390,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 218.78125,
+        "width": 305.640625,
+        "right": 325.640625
+      },
+      "selected": {
+        "x": 20,
+        "y": 811.65625,
+        "width": 350,
+        "right": 370
+      },
+      "choices": {
+        "x": 20,
+        "y": 380.34375,
+        "width": 350,
+        "right": 370
+      },
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "a",
+      "name": "projects",
+      "width": 390,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 191.59375,
+        "width": 350,
+        "right": 370
+      },
+      "selected": {
+        "x": 20,
+        "y": 434.5,
+        "width": 350,
+        "right": 370
+      },
+      "choices": null,
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "a",
+      "name": "detail",
+      "width": 390,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 338.953125,
+        "width": 350,
+        "right": 370
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "a",
+      "name": "contact",
+      "width": 390,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 287.25,
+        "width": 350,
+        "right": 370
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "home",
+      "width": 390,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 200.78125,
+        "width": 350,
+        "right": 370
+      },
+      "selected": {
+        "x": 20,
+        "y": 485.53125,
+        "width": 350,
+        "right": 370
+      },
+      "choices": {
+        "x": 20,
+        "y": 362.34375,
+        "width": 350,
+        "right": 370
+      },
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "projects",
+      "width": 390,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 173.59375,
+        "width": 350,
+        "right": 370
+      },
+      "selected": {
+        "x": 20,
+        "y": 416.5,
+        "width": 350,
+        "right": 370
+      },
+      "choices": null,
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "detail",
+      "width": 390,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 320.953125,
+        "width": 350,
+        "right": 370
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "contact",
+      "width": 390,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 269.25,
+        "width": 350,
+        "right": 370
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "a",
+      "name": "home",
+      "width": 768,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 177.78125,
+        "width": 335.328125,
+        "right": 355.328125
+      },
+      "selected": {
+        "x": 20,
+        "y": 495.46875,
+        "width": 728,
+        "right": 748
+      },
+      "choices": {
+        "x": 20,
+        "y": 352.28125,
+        "width": 360.375,
+        "right": 380.375
+      },
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "a",
+      "name": "projects",
+      "width": 768,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 142.59375,
+        "width": 728,
+        "right": 748
+      },
+      "selected": {
+        "x": 20,
+        "y": 292.84375,
+        "width": 728,
+        "right": 748
+      },
+      "choices": null,
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "a",
+      "name": "detail",
+      "width": 768,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 221.359375,
+        "width": 728,
+        "right": 748
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "a",
+      "name": "contact",
+      "width": 768,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 238.25,
+        "width": 728,
+        "right": 748
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "home",
+      "width": 768,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 177.78125,
+        "width": 521.625,
+        "right": 541.625
+      },
+      "selected": {
+        "x": 20,
+        "y": 379.015625,
+        "width": 728,
+        "right": 748
+      },
+      "choices": {
+        "x": 20,
+        "y": 315.421875,
+        "width": 728,
+        "right": 748
+      },
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "projects",
+      "width": 768,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 142.59375,
+        "width": 728,
+        "right": 748
+      },
+      "selected": {
+        "x": 20,
+        "y": 292.84375,
+        "width": 728,
+        "right": 748
+      },
+      "choices": null,
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "detail",
+      "width": 768,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 221.359375,
+        "width": 728,
+        "right": 748
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "contact",
+      "width": 768,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 20,
+        "y": 238.25,
+        "width": 728,
+        "right": 748
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "a",
+      "name": "home",
+      "width": 1280,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 80,
+        "y": 213.234375,
+        "width": 523.96875,
+        "right": 603.96875
+      },
+      "selected": {
+        "x": 80,
+        "y": 548.25,
+        "width": 1120,
+        "right": 1200
+      },
+      "choices": {
+        "x": 80,
+        "y": 429.203125,
+        "width": 565.703125,
+        "right": 645.703125
+      },
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "a",
+      "name": "projects",
+      "width": 1280,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 80,
+        "y": 142.59375,
+        "width": 1120,
+        "right": 1200
+      },
+      "selected": {
+        "x": 80,
+        "y": 301.125,
+        "width": 1120,
+        "right": 1200
+      },
+      "choices": null,
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "a",
+      "name": "detail",
+      "width": 1280,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 80,
+        "y": 221.359375,
+        "width": 1120,
+        "right": 1200
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "a",
+      "name": "contact",
+      "width": 1280,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 80,
+        "y": 238.25,
+        "width": 629.984375,
+        "right": 709.984375
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "home",
+      "width": 1280,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 80,
+        "y": 177.78125,
+        "width": 815.0625,
+        "right": 895.0625
+      },
+      "selected": {
+        "x": 80,
+        "y": 399.75,
+        "width": 1120,
+        "right": 1200
+      },
+      "choices": {
+        "x": 80,
+        "y": 336.15625,
+        "width": 1120,
+        "right": 1200
+      },
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "projects",
+      "width": 1280,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 80,
+        "y": 142.59375,
+        "width": 1120,
+        "right": 1200
+      },
+      "selected": {
+        "x": 80,
+        "y": 301.125,
+        "width": 1120,
+        "right": 1200
+      },
+      "choices": null,
+      "primaryCounts": [
+        1,
+        1,
+        1
+      ],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "detail",
+      "width": 1280,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 80,
+        "y": 221.359375,
+        "width": 1120,
+        "right": 1200
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    },
+    {
+      "direction": "b",
+      "name": "contact",
+      "width": 1280,
+      "fonts": {
+        "heading": true,
+        "body": true
+      },
+      "overflow": false,
+      "h1": {
+        "x": 80,
+        "y": 238.25,
+        "width": 629.984375,
+        "right": 709.984375
+      },
+      "selected": null,
+      "choices": null,
+      "primaryCounts": [],
+      "brokenImages": [],
+      "duplicateIds": [],
+      "failures": []
+    }
+  ]
+}
