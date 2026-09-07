@@ -366,30 +366,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Scroll reveal
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+  // Optional scroll animation. Visibility never depends on this controller.
+  let revealObserver;
+  try {
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+        typeof window.IntersectionObserver === "function") {
+      const revealEls = document.querySelectorAll(".reveal-on-scroll");
+      revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
 
-  if (!prefersReducedMotion && "IntersectionObserver" in window) {
-    const revealEls = document.querySelectorAll(".reveal-on-scroll");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    revealEls.forEach((el) => observer.observe(el));
-  } else {
-    document
-      .querySelectorAll(".reveal-on-scroll")
-      .forEach((el) => el.classList.add("is-visible"));
+      revealEls.forEach((el) => revealObserver.observe(el));
+    }
+  } catch (error) {
+    // An unavailable enhancement must not interrupt anchors or other controls.
+    revealObserver?.disconnect();
   }
 
   // Smooth scroll for internal anchors
