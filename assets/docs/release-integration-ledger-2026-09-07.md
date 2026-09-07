@@ -178,3 +178,39 @@ A04 received reviewed A03 contract. A10/A17 received reviewed A07/A08 contracts
 and instructions to resume dependent implementation. A06 was asked to deliver
 its immutable factual contract directly to A11/A12. A20 is preparing baseline
 evidence and awaits an exact frozen combined SHA for independent acceptance.
+
+### First wave generation checkpoint
+
+Selected first wave: A03/A04/A05/A07/A08/A09/A17/A18 and A19 decision evidence.
+A10 may join once its isolated CSP rerun is reviewed. A06/A11/A12 content,
+A13 French updates and A14-A16 presentation/performance remain later work.
+Coordinator explicitly authorized bounded regional exact-pair review after
+English freezes; no source-hash adoption has occurred in this wave.
+
+| Package | Worker SHA | Integration SHA | A21 independent evidence |
+| --- | --- | --- | --- |
+| A04 | `007787fd032679cc44ba3197f2e1779084fe1297` | `09f1f999` | Source parser/focus review; 14 browser tests PASS against combined A03/A04. Three parser cases passed initially; published-snippet case correctly failed on old generated data, then all four PASS after regeneration. Worker generated commit was not imported. |
+| A05 | `133676c745ca85cfc7e1f41cdc3b1470d6181b83` | `eb7e8688` | Source recipe reviewed; independent fresh pinned ZIP, five install checks PASS including public Git blob verification and both client directories. Actual client activation remains NOT RUN. |
+| A17 | `9e1ade72dd9154103cf006502726fc7b94b139ca` | `0714a2d4` | Source review; nine reporter tests and seven expression tests PASS. One workflow conflict resolved by keeping BOTH A07 output and A17 job concurrency. Expression tests rerun after resolution. Real CI paths remain NOT RUN. |
+| A18 | `0840faaaa9713dc46853abdc61b0562f56f25c31` | `6857dd55` | Source/API/boundary review; independent nine-test suite passes with one unavailable Windows file-symlink case. Real junction cases pass. Linux CI must execute POSIX symlinks; Replit publicDir remains unresolved. Test wired into CI. |
+
+Combined generation ran HTML, cache fingerprints, CSP, HTML again, default
+search/universe, and French/regional indexes. Changes comprise A05 rendered
+Skillz copy, parsed English/French search excerpts and shared fingerprints in
+56 public pages plus supporting partial/templates. No regional text, original
+manifesto text, accepted art or approval metadata was changed.
+
+Post-generation PASS: 36-page HTML freshness, 56-page CSP, cache fingerprints
+(146 scanned, zero pending writes), four search-parser regressions, regional
+draft/noindex gate, locale links, two-record current status gate and structural
+validation with no new voice warnings. These counts describe this checkpoint,
+not final A10 coverage. Combined CI, artifact acceptance and live readback remain
+pending. Local fixture/archive evidence is under ignored `.local/a21-evidence/`.
+
+A06 reviewed source `d763059a` plus grammar correction `b3b62821`, and A12
+`2074a969` plus `e4e8b085` remain queued for the content wave. A11 has the verified
+facts contract. French homepage changed units were routed to A13; regional
+reviews will follow the final English content. Existing de/es stale units stay
+separate from newly changed units. A14 preliminary packet `7d4b8407` is not an
+owner selection. A20 baseline packet `fb0aadda` rejects the old reproduced
+failures and supplies no final combined or human acceptance.
