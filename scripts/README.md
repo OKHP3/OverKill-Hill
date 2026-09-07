@@ -108,3 +108,29 @@ updates only the owned universe source block. `--check` verifies freshness.
 The default search-index rebuild invokes it automatically, then rebuilds HTML.
 `tests/test-universe-integration.py` checks source stability and search exclusion;
 `tests/test-universe-browser.mjs` checks rendering and navigation.
+
+
+### Shipped-page browser inventory and report output
+
+`qa-release-inventory.mjs` is an active shared QA helper. It reads the exact
+`build-release.py` publication inventory for responsive, phone overflow,
+route-wide accessibility, and CSP loops. The sitemap remains the indexing
+boundary. All 56 baseline shipped routes are exercised, including noindex
+locale drafts, legacy routes, search, 404, and the holding page. No route is
+exempted; historical review HTML outside the release allowlist is not shipped.
+CSP's explicit `--paths` option is focused diagnostic coverage only.
+
+Responsive QA requires Playwright and Chromium by default. Missing browser
+execution exits 2 with a BLOCKED report. `--static` is an explicit structural
+lint mode with `browser_acceptance: false` and browser status NOT RUN.
+`--report=PATH` selects its JSON report; the default is ignored
+`test-results/responsive-qa/results.json`, with failure screenshots alongside.
+Reports retain commit, working-tree state, runtime environment, mode, routes,
+and browser version when execution succeeds. The former tracked documentation
+report is historical and is no longer rewritten by audits.
+
+`audit-site.py --quiet` writes to ignored `test-results/static-audit/report.md`.
+Its existing `--report PATH` option selects another destination. The Markdown
+report records static mode, commit, Python version, and platform.
+Run `node --test tests/qa-release-inventory.test.mjs` for inventory and browser
+failure regressions. CI should retain these two default report paths as artifacts.

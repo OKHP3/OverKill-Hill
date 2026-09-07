@@ -1,8 +1,9 @@
 #!/usr/bin/env node
+import { loadReleasePaths } from './qa-release-inventory.mjs';
 /**
  * Route-wide browser check for the enforcing Content Security Policy.
  *
- * Every route in sitemap.xml is loaded in a real browser. Cross-origin
+ * Every shipped release route is loaded in a real browser. Cross-origin
  * requests are intentionally aborted so the result does not depend on CDN,
  * analytics, font, or embedded-app availability. Chromium still evaluates
  * the page's CSP before a request reaches the route handler, so an
@@ -55,17 +56,7 @@ function loadPublicPaths() {
     }))];
   }
 
-  const sitemap = readFileSync(new URL("../sitemap.xml", import.meta.url), "utf8");
-  const locations = [...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
-    .map((match) => match[1]);
-  if (!locations.length) throw new Error("sitemap.xml has no public routes");
-  return [...new Set(locations.map((location) => {
-    const url = new URL(location);
-    if (url.origin !== "https://overkillhill.com" || url.search || url.hash) {
-      throw new Error(`Invalid sitemap URL: ${location}`);
-    }
-    return url.pathname || "/";
-  }))];
+  return loadReleasePaths();
 }
 
 const PUBLIC_PATHS = loadPublicPaths();

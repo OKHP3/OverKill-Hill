@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { loadReleasePaths } from './qa-release-inventory.mjs';
 /**
  * Browser accessibility QA for representative page types.
  *
@@ -48,17 +49,7 @@ const BOOLEAN_ARIA = new Set([
 ]);
 
 function loadPublicPaths() {
-  const sitemap = readFileSync(new URL("../sitemap.xml", import.meta.url), "utf8");
-  const locations = [...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
-    .map((match) => match[1]);
-  if (!locations.length) throw new Error("sitemap.xml has no public routes");
-  return [...new Set(locations.map((location) => {
-    const url = new URL(location);
-    if (url.origin !== "https://overkillhill.com" || url.search || url.hash) {
-      throw new Error(`Invalid sitemap URL: ${location}`);
-    }
-    return url.pathname || "/";
-  }))];
+  return loadReleasePaths();
 }
 
 const PUBLIC_PATHS = loadPublicPaths();

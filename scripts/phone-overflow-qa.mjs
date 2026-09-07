@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { loadReleasePaths } from './qa-release-inventory.mjs';
 /**
  * Phone overflow QA
  * =================
@@ -17,7 +18,7 @@
 
 import { chromium } from 'playwright';
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -30,7 +31,7 @@ const VIEWPORT = { width: 320, height: 800 };
 const TABLE_WRAPPER_SELECTOR = '.data-table-wrap, .table-scroll-wrap';
 const WIDE_TABLE_SELECTOR = '.data-table, .schedule-table, .gen-table';
 
-// The sitemap is the source of truth for the indexable production inventory.
+// The release builder is the source of truth for shipped-page coverage.
 // Every route gets the document-level overflow check. Only pages with known
 // high-risk content opt into the more specific table and diagram assertions.
 const TARGETED_EXPECTATIONS = new Map([
@@ -45,29 +46,7 @@ function pageName(path) {
 }
 
 function loadPublicPages() {
-  const sitemap = readFileSync(new URL('../sitemap.xml', import.meta.url), 'utf8');
-  const locations = [...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
-    .map((match) => match[1]);
-
-  if (locations.length === 0) {
-    throw new Error('sitemap.xml does not contain any <loc> entries');
-  }
-
-  const paths = locations.map((location) => {
-    const url = new URL(location);
-    if (url.origin !== 'https://overkillhill.com') {
-      throw new Error(`sitemap.xml contains a non-production URL: ${location}`);
-    }
-    if (url.search || url.hash) {
-      throw new Error(`sitemap.xml URL must not contain a query or fragment: ${location}`);
-    }
-    return url.pathname || '/';
-  });
-
-  const uniquePaths = new Set(paths);
-  if (uniquePaths.size !== paths.length) {
-    throw new Error('sitemap.xml contains duplicate public page URLs');
-  }
+  const paths = loadReleasePaths();
 
   return paths.map((path) => ({
     name: pageName(path),

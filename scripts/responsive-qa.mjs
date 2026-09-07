@@ -1,22 +1,23 @@
 #!/usr/bin/env node
+import { loadReleasePaths } from './qa-release-inventory.mjs';
 /**
  * OverKill Hill responsive QA script.
  *
- * MODE A — Playwright (when available):
+ * MODE A: Playwright (required by default):
  *   Visits each public page at 10 viewport widths and checks:
  *   - No horizontal overflow (scrollWidth > innerWidth)
  *   - No JS console errors
  *   - All images loaded (no broken img src)
  *   - CSS and JS assets load (no 404 on critical resources)
  *
- * MODE B — Static lint (Playwright not available):
- *   Runs 10 structural checks per page per viewport (same pass/fail schema).
+ * MODE B: Static lint (explicit --static only):
+ *   Runs seven structural checks per page per viewport (same pass/fail schema).
  *   Checks that are viewport-agnostic (viewport meta, h1, alt, etc.) are
- *   run once per page and applied to all 8 viewport rows — clearly flagged
+ *   run once per page and applied to all 10 viewport rows, clearly flagged
  *   as `static-lint` so results are not confused with live browser checks.
  *
  * Usage:
- *   node scripts/responsive-qa.mjs [--base=http://localhost:5000]
+ *   node scripts/responsive-qa.mjs [--base=http://localhost:5000] [--report=path] [--static]
  *
  * Third-party resources are deliberately blocked in browser mode so the
  * result measures the local site, not CDN availability. Navigation therefore
@@ -32,6 +33,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
+import { execFileSync } from 'node:child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = dirname(__filename);
@@ -54,28 +56,25 @@ const VIEWPORTS = [
   { name: 'desktop-1920', width: 1920, height: 1080 },
 ];
 
-// The sitemap is the release inventory. This avoids silently testing a stale
+// The release builder owns the shipped HTML inventory. This avoids silently testing a stale
 // hand-maintained list when a public route is added or retired.
 function loadPublicPaths() {
-  const sitemap = readFileSync(resolve(ROOT, 'sitemap.xml'), 'utf8');
-  const locations = [...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
-    .map((match) => match[1]);
-  if (locations.length === 0) throw new Error('sitemap.xml has no public routes');
-  return [...new Set(locations.map((location) => {
-    const url = new URL(location);
-    if (url.origin !== 'https://overkillhill.com' || url.search || url.hash) {
-      throw new Error(`Invalid sitemap URL for responsive QA: ${location}`);
-    }
-    return url.pathname || '/';
-  }))];
+  return loadReleasePaths();
 }
 const PUBLIC_PATHS = loadPublicPaths();
 
-const RESULTS_DIR    = resolve(ROOT, 'assets/docs/responsive-qa');
-const RESULTS_FILE   = resolve(RESULTS_DIR, 'results.json');
+const RESULTS_FILE = resolve(ROOT, process.argv.find(a => a.startsWith('--report='))?.slice(9) || 'test-results/responsive-qa/results.json');
+const RESULTS_DIR = dirname(RESULTS_FILE);
+
 const SCREENSHOTS_DIR = resolve(RESULTS_DIR, 'screenshots');
 
+function evidence() {
+  return { commit: execFileSync('git', ['rev-parse', 'HEAD'], {cwd: ROOT, encoding: 'utf8'}).trim(), working_tree_dirty: Boolean(execFileSync('git', ['status', '--porcelain'], {cwd: ROOT, encoding: 'utf8'}).trim()), environment: {node: process.version, platform: process.platform, arch: process.arch}, routes: PUBLIC_PATHS, exceptions: [] };
+}
+
 // ── MODE A: Playwright ────────────────────────────────────────────────────────
+
+let launchedBrowser;
 
 async function runWithPlaywright() {
   let pw;
@@ -83,7 +82,7 @@ async function runWithPlaywright() {
     const require = createRequire(import.meta.url);
     pw = require('playwright');
   } catch {
-    return null; // playwright not installed — fall back to MODE B
+    throw new Error('Playwright is unavailable; browser QA NOT RUN');
   }
 
   mkdirSync(RESULTS_DIR, { recursive: true });
@@ -92,8 +91,9 @@ async function runWithPlaywright() {
   let browser;
   try {
     browser = await pw.chromium.launch({ headless: true });
-  } catch {
-    return null; // chromium binary not available — fall back to MODE B
+    launchedBrowser = browser;
+  } catch (error) {
+    throw new Error('Chromium launch failed; browser QA NOT RUN: ' + error.message);
   }
 
   // Create one persistent context+page per viewport (8 total) so we never pay
@@ -269,8 +269,12 @@ async function runWithPlaywright() {
   await browser.close();
 
   const report = {
+    ...evidence(),
     generated: new Date().toISOString(),
+    browser_version: browser.version(),
     mode: 'playwright',
+    status: totalFails ? 'FAIL' : 'PASS',
+    browser_acceptance: totalFails === 0,
     base_url: BASE_URL,
     pages_checked: PUBLIC_PATHS.length,
     viewports_checked: VIEWPORTS.length,
@@ -332,7 +336,7 @@ function staticLintPage(path, html) {
 }
 
 async function staticAnalysis() {
-  console.log('Playwright not available — running static-lint analysis (MODE B).\n');
+  console.log('Explicit static-lint analysis. Browser QA NOT RUN.\n');
   console.log('NOTE: Static lint checks HTML structure only. It cannot detect');
   console.log('      horizontal overflow, JS console errors, or broken images');
   console.log('      at runtime. Run with Playwright for full browser coverage.\n');
@@ -347,7 +351,7 @@ async function staticAnalysis() {
     const fsPath = path.endsWith('.html')
       ? resolve(ROOT, path.replace(/^\//, ''))
       : resolve(ROOT, path.replace(/^\//, ''), 'index.html');
-      if (!existsSync(fsPath)) throw new Error(`Sitemap route has no local page: ${path}`);
+      if (!existsSync(fsPath)) throw new Error(`Release route has no local page: ${path}`);
 
     const html   = readFileSync(fsPath, 'utf-8');
     const errors = staticLintPage(path, html);
@@ -376,10 +380,13 @@ async function staticAnalysis() {
   }
 
   const report = {
+    ...evidence(),
     generated: new Date().toISOString(),
     mode: 'static-lint',
+    status: 'NOT RUN',
+    browser_acceptance: false,
     note: [
-      'Static-lint mode: 10 structural checks per page, applied uniformly to all 8 viewport rows.',
+      'Static-lint mode: Seven structural checks per page, applied uniformly to all 10 viewport rows.',
       'Viewport-specific checks (overflow, console errors, broken images) require Playwright.',
       'To run full browser QA: npm install -D playwright && npx playwright install chromium && node scripts/responsive-qa.mjs',
     ].join(' '),
@@ -409,8 +416,14 @@ async function staticAnalysis() {
   console.log(`Base URL: ${BASE_URL}`);
   console.log(`Pages: ${PUBLIC_PATHS.length} | Viewports: ${VIEWPORTS.length}\n`);
 
-  const pwResult = FORCE_STATIC ? null : await runWithPlaywright();
-  if (!pwResult) {
-    await staticAnalysis();
+  try {
+    if (FORCE_STATIC) await staticAnalysis();
+    else await runWithPlaywright();
+  } catch (error) {
+    await launchedBrowser?.close();
+    mkdirSync(RESULTS_DIR, { recursive: true });
+    writeFileSync(RESULTS_FILE, JSON.stringify({ ...evidence(), generated: new Date().toISOString(), mode: 'playwright', status: 'BLOCKED', browser_acceptance: false, error: error.message, results: [] }, null, 2));
+    console.error('BLOCKED: browser QA NOT RUN or incomplete: ' + error.message);
+    process.exitCode = 2;
   }
 })();
