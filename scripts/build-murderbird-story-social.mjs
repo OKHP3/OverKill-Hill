@@ -15,7 +15,7 @@ const bytes = await readFile(path.join(root, source));
 if (digest(bytes) !== expected) throw new Error('Accepted artwork changed: renewed review required.');
 const theme = await readFile(path.join(root, 'assets/css/theme.css'), 'utf8');
 const fonts = 'https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap';
-const html = `<!doctype html><html lang="en-US"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>MurderBird story share composition — local review</title><link rel="stylesheet" href="${fonts}"><style>${theme}
+const html = `<!doctype html><html lang="en-US"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>MurderBird story share composition - local review</title><link rel="stylesheet" href="${fonts}"><style>${theme}
 html,body{width:1200px;height:630px;margin:0;overflow:hidden;background:var(--okh-espresso);color:var(--okh-paper)}
 main{height:630px;display:grid;grid-template-columns:400px 680px;gap:24px;padding:44px 48px 72px;position:relative;box-sizing:border-box}
 .copy{align-self:center;z-index:1}.eyebrow{font:14px var(--font-mono);letter-spacing:2px;color:var(--okh-amber);margin:0 0 22px}
