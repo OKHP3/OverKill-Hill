@@ -22,7 +22,7 @@ metadata:
   homepage: https://overkillhill.com
   author-github: https://github.com/OKHP3
   in_scope: "Deterministic drift detection between an English source page inventory and its configured target-locale counterparts; CI gating; hand-off routing to the correct translation-pair skill."
-  out_of_scope: "Performing translation or register mediation itself, discovering pages outside the site's own search index, auto-publishing, or any behavior beyond reporting and an explicit --adopt baseline write."
+  out_of_scope: "Performing translation or register mediation itself, discovering pages outside the site's own search index, auto-publishing, or any behavior beyond reporting and an explicit --mode adopt baseline write."
 ---
 
 # okhp3-i18n-page-sync
@@ -51,7 +51,7 @@ never one compounded skill.
 |---|---|
 | Reading a site's generated search index as the English page inventory | Crawling the filesystem or a live site to discover pages itself |
 | Comparing each in-scope page's source hash against a persisted ledger, per configured target locale | Deciding what "in scope" means; that is an explicit, owner-set config field |
-| A read-only `--report`/`--check` mode safe for CI, and an explicit `--adopt` mode that only ever records a baseline | Drafting, editing, or publishing any translated page content |
+| A read-only `--mode report`/`--mode check` mode safe for CI, and an explicit `--mode adopt` mode that only ever records a baseline | Drafting, editing, or publishing any translated page content |
 | Naming the exact-pair `okhp3-translation-en-us-<pair>` skill responsible for each flagged route | Performing that translation itself, or any specialist-register simplification |
 
 ## Required inputs
@@ -67,8 +67,8 @@ never one compounded skill.
 3. If `in_scope_routes` is set, narrow the candidate list to exactly those routes. A route never listed there can never appear in a drift report, no matter how long its translation has lagged. This is what makes a partial pilot rollout safe to run in CI without failing the build over content nobody has committed to translating.
 4. For each in-scope English page and each configured target locale, compare the target file's presence and the ledger's recorded `synced_source_sha256` against the page's current source hash to classify it `missing`, `stale`, `needs_baseline` (a translation exists but was never confirmed in the ledger), or `in_sync`.
 5. Also report `orphan`: a ledger entry whose English source page no longer appears in the search index at all. This is a warning, not build-breaking drift; a page can be legitimately retired.
-6. In `--check` mode (the one wired into CI), exit 1 only when `missing` or `stale` routes exist. `needs_baseline` and `orphan` are surfaced but never fail the build; they need a one-time `--adopt` or a human decision, not an emergency.
-7. Never translate. For every `missing` or `stale` route, name the exact `okhp3-translation-en-us-<pair>` skill from the config and stop. Handing that route to the named translation skill, and then confirming the result with `--adopt --routes "<route>"`, is a separate step for a human or a subsequent agent turn — never folded into this skill's own output.
+6. In `--mode check` mode (the one wired into CI), exit 1 only when `missing` or `stale` routes exist. `needs_baseline` and `orphan` are surfaced but never fail the build; they need a one-time `--mode adopt` or a human decision, not an emergency.
+7. Never translate. For every `missing` or `stale` route, name the exact `okhp3-translation-en-us-<pair>` skill from the config and stop. Handing that route to the named translation skill, and then confirming the result with `--mode adopt --routes "<route>"`, is a separate step for a human or a subsequent agent turn, never folded into this skill's own output.
 
 ## Format-adapter boundary
 
@@ -76,21 +76,46 @@ This skill assumes a page is exactly the file at `<locale-root>/<route-path>/ind
 
 ## Controlled automation
 
-The GitHub Action built around this skill (see `templates/`) runs `--check` on every push and pull request against `main`, and fails the job on real drift so it shows up the same way any other site-validation failure does. It performs no writes, opens no pull request, and calls no external API: the only remediation path out of a failing check is a human or an agent session running the named translation skill and then `--adopt`. This keeps the automation boundary the `language-mediation` family already documents intact: automation may detect and flag, but drafting and publishing stay explicit, reviewed, human-initiated steps.
+The GitHub Action built around this skill (see `templates/`) runs `--mode check` on every push and pull request against `main`, and fails the job on real drift so it shows up the same way any other site-validation failure does. It performs no writes, opens no pull request, and calls no external API: the only remediation path out of a failing check is a human or an agent session running the named translation skill and then `--mode adopt`. This keeps the automation boundary the `language-mediation` family already documents intact: automation may detect and flag, but drafting and publishing stay explicit, reviewed, human-initiated steps.
 
 ## Quality and review gates
 
-This skill has nothing to say about translation quality; it only proves that a translated file exists and was confirmed against the current English source. Passing `--check` is not evidence that a translation is accurate, current in tone, or reviewed. Those claims belong entirely to whichever `okhp3-translation-en-us-<pair>` skill produced the page.
+This skill has nothing to say about translation quality; it only proves that a translated file exists and was confirmed against the current English source. Passing `--mode check` is not evidence that a translation is accurate, current in tone, or reviewed. Those claims belong entirely to whichever `okhp3-translation-en-us-<pair>` skill produced the page.
 
 ## Output contract
 
-Return `Configured` (yes/no), `Missing routes` (route, locale, skill to run), `Stale routes` (route, locale, skill to run), `Needs-baseline routes`, `Orphaned routes`, and `Check result`. When routes are flagged, name the next action explicitly: which translation skill, for which route, followed by `--adopt --routes "<route>"` once that translation lands.
+Return `Configured` (yes/no), `Missing routes` (route, locale, skill to run), `Stale routes` (route, locale, skill to run), `Needs-baseline routes`, `Orphaned routes`, and `Check result`. When routes are flagged, name the next action explicitly: which translation skill, for which route, followed by `--mode adopt --routes "<route>"` once that translation lands.
 
 ## Resource routing
 
 - Read `references/config-schema.md` before writing or editing a consuming site's `i18n/sync.config.json`.
 - Copy `templates/i18n-page-sync-workflow.yml` into a consuming repository's `.github/workflows/` to wire this into CI. It requires no secrets and calls no external service.
 - Run `scripts/i18n-page-sync.py --help` before using it directly. Use `--mode report` to preview drift, `--mode check` to verify a repository the way CI does, and `--mode adopt` only once a translation is actually confirmed.
+
+## CLI examples and consuming-site policy
+
+Run from a consuming repository's root:
+
+```sh
+python3 .agents/skills/okhp3-i18n-page-sync/scripts/i18n-page-sync.py --root . --mode report
+python3 .agents/skills/okhp3-i18n-page-sync/scripts/i18n-page-sync.py --root . --mode check --format json
+```
+
+For a consumer without a stronger adoption wrapper, after reviewing the
+selected route in every configured target locale:
+
+```sh
+python3 .agents/skills/okhp3-i18n-page-sync/scripts/i18n-page-sync.py --root . --mode adopt --routes /about/
+```
+
+`--routes` accepts space-separated routes. Adoption writes only the configured
+state ledger, for existing targets classified `needs_baseline` or `stale`;
+it does not refresh an already `in_sync` pair's target hash. There is no
+portable locale-selection or provenance flag. It does not enforce review
+records, publication state, or target-only integrity. Consumers may wrap
+this detector with stricter site policy without changing these semantics.
+Use a consuming site's documented wrapper when one exists, including for
+adoption; do not use this generic recipe to bypass it.
 
 ## Evaluation and release
 
