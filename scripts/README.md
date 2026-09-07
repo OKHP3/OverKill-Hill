@@ -38,6 +38,7 @@ follows the same convention as `askjamie/scripts/README.md`.
 | `test-check-banner.py` | active | Focused regression checks for localized construction-banner validation |
 | `validate-site.py` | active | Structural site validation |
 | `verify-live-edge.py` | active | Live-edge deployment verification |
+| `write-actions-summary.py` | active | Compact Actions summaries from existing live-edge and external-runtime JSON; first-party failures remain distinct |
 
 The following scripts are **reference-only**. They may still be useful for a
 deliberately scoped maintenance or migration task, but they are not part of

@@ -91,3 +91,7 @@ jobs:
           path: assets/audit/live-edge-report.json
           if-no-files-found: error
           retention-days: 30
+
+      - name: Summarize content delivery and edge policy
+        if: always()
+        run: python3 scripts/write-actions-summary.py --kind edge --report assets/audit/live-edge-report.json
