@@ -36,7 +36,6 @@ Precise localized object removal on the supplied 1536x1024 image. Only edit the 
 
 Preserve all other parts of this exact picture: head, eye, bill, crown, neck, oval near wing, breast, body mass, cylinders, round joint and every leg/foot, foot contact shadows, floor, workbench, CRT, framing, lighting and materials. Do not add shoulder markings, straps or other repairs. Do not adjust scale or camera. Do not create a new scene. Keep opaque 1536x1024 output.
 ```
-
 ## Candidate 02: one targeted edit, subsequent checkpoint
 
 Date: 2026-09-06. Supersedes candidate 01 only as the latest review image, not as an approved master. Original candidate 01 and all source references remain unchanged.
@@ -170,4 +169,3 @@ Scale staging: bird is on FLOOR to right of ordinary 0.90m-high workbench; norma
 
 Photographic lighting: neutral soft key reveals all armor and joints, restrained warm edge, faint green CRT reflection. Sparse espresso workshop backdrop. Crisp lifelike practical creature, no painterly haze, no decorative cogs, no captions, logos, watermarks or blueprint scenery. Maintain existing OverKill Hill bronze/green/espresso/rust-amber identity. This is an inspectable reference portrait, not an action shot or collage.
 ```
-

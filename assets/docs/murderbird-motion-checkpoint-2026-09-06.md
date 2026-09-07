@@ -154,4 +154,3 @@ Acceptance: no body-scale drift or left/right swap; compact wings stay folded; a
 - No final audio-generation/narration service or audible-review capability is established here. Do not purchase, install or promise one without the applicable instruction/tool access.
 
 **Next executable dependency:** receive the character package from the lead, bind its exact references to MOT-FC-001 and recheck the available authorized video-service controls/credit cost. Then generate and review one pilot, not a whole sequence. Meanwhile the report's clip evidence and sound/caption plan are complete for lead review. Only the lead coordinates dependencies and acceptance; the narrative task alone integrates and releases shared pages.
-

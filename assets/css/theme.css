@@ -2273,6 +2273,125 @@ body.construction-dismissed .construction-overlay,
   font-size: 0.8rem; color: var(--color-muted, #6b7280);
   margin-top: 0.5rem; font-style: italic; padding-left: 0.5rem;
 }
+/* Story-only framing: the full creature leads, not the decorative backdrop. */
+#murderbird {
+  min-height: 0;
+  isolation: isolate;
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+#murderbird .hero-inner {
+  width: 100%;
+  padding: clamp(2rem, 4vw, 3.5rem) 1.5rem;
+}
+
+#murderbird .hero-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 3vw, 3rem);
+  align-items: center;
+}
+
+#murderbird .hero-visual {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 0 0 auto;
+}
+
+#murderbird .hero-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+#murderbird .hero-blueprint-bg {
+  z-index: 0;
+  opacity: 0.2;
+}
+
+#murderbird .brand-stripes {
+  z-index: 0;
+  opacity: 0.08;
+  animation: none;
+}
+
+#murderbird .hero-blueprint-bg::before,
+#murderbird .hero-blueprint-bg::after {
+  animation: none;
+}
+
+#murderbird h1,
+#murderbird .hero-tagline {
+  color: var(--color-fg);
+}
+
+#murderbird h1 {
+  font-size: clamp(2.05rem, 3.6vw, 3rem);
+}
+
+#murderbird .story-brand-name {
+  white-space: nowrap;
+}
+
+#murderbird .hero-eyebrow,
+#murderbird .hero-eyebrow a {
+  color: var(--color-muted);
+}
+
+#murderbird .btn-quiet {
+  color: var(--color-fg);
+  background: var(--color-surface);
+  border-color: var(--color-muted);
+}
+
+#murderbird a:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 1024px) {
+  #murderbird .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #murderbird .hero-visual {
+    max-width: none;
+    margin: 0;
+  }
+}
+
+#the-maker .murderbird-scene,
+#the-mechanic .murderbird-scene,
+#the-water .murderbird-scene,
+#the-builder .murderbird-scene,
+#the-sentinel .murderbird-scene {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+#the-maker .murderbird-scene img,
+#the-mechanic .murderbird-scene img,
+#the-water .murderbird-scene img,
+#the-builder .murderbird-scene img,
+#the-sentinel .murderbird-scene img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+#the-maker .murderbird-scene figcaption,
+#the-mechanic .murderbird-scene figcaption,
+#the-water .murderbird-scene figcaption,
+#the-builder .murderbird-scene figcaption,
+#the-sentinel .murderbird-scene figcaption {
+  margin-top: 0.75rem;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 .murderbird-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 3rem; align-items: start; margin: 2rem 0;

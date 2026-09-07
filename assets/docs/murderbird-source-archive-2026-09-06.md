@@ -10,8 +10,10 @@ release, not a new art, video, audio, scale or deployment approval.
 - Isolated branch: `codex/murderbird-source-archive-20260906`. Primary checkout is not changed.
 - PR #54's selected paths, including its six masters, eighteen WebP variants,
   social PNG, integration report and unified-direction document, are excluded
-  from this residual copy. That PR was closed without merge at this checkpoint;
-  its contents remain a separate integration dependency, not main or deployment.
+  from this residual copy. That PR was subsequently restored and squash-merged
+  as `d112ca4eb091c0567fc3fd4f3f307168dd38a552`. The isolated archive branch
+  merged that main revision normally before its final checkpoint. Deployment
+  remains the coordinating lead's responsibility.
 - [Release exclusion policy](../../config/murderbird-source-archive.json)
   enumerates twenty exact library PNG paths. They stay in Git source but are
   not copied into Pages. Missing or malformed policy fails the release build.
@@ -83,7 +85,15 @@ or publicly playable. Review HTML is generated only under excluded
   cover malformed/missing policy and injection into an existing package.
 - PASS: local-only review HTML regression. CI now invokes it; the Pillow pin
   matches the already-used still-release dependency.
+- PASS: after merging the still release, all seven release-package tests run
+  directly against the combined checkout, including the real 25-file media
+  register proof, with no external overlay setting required.
+- PASS: structural validation, generated HTML/search checks, fingerprint check
+  and static audit before the main merge. Structural and voice warnings were
+  existing baseline advisories; no public page was changed by the archive work.
+- WARN: preserved v2 text retains original line endings and historical
+  whitespace. The preservation requirement takes precedence over reformatting
+  those source bytes. New code/config/index whitespace is checked separately.
 - Public-safe documentation scan and structural checks are reported in the
   worker handoff. Local tests do not constitute CI, browser, merge or deployment
   acceptance. The integrator still owns final combined-source release checks.
-

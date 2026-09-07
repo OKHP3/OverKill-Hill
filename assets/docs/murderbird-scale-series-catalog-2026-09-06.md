@@ -191,4 +191,3 @@ Edit this image ONLY to remove every checkerboard background pixel and produce a
 - [Story continuity and proposed text corrections](murderbird-scale-series-continuity-2026-09-06.md)
 
 Next production gates: approve physical scale and head; shorten wing silhouette consistently; obtain true alpha; review compact icons at actual size and mask boundaries; create final social and responsive exports; reconcile proposed story staging; integrate approved assets across source, metadata and locales with validation. Preserve original manifesto and story historical sigil. No bulk replacement of project-specific imagery.
-

@@ -225,7 +225,6 @@ This internal JSON is a candidate catalog, not deployed structured data. Rights 
   ]
 }
 ```
-
 ## Story continuity corrections pending
 
 The live authoring source still includes scale-conflicting text. Proposed changes, not applied here: pressure line follows bird across workshop floor instead of bench; lifting sling instead of hand beneath breast; crossing workshop floor instead of workbench; stopping beside workbench and lowering head toward CRT; workshop floor bears weight instead of computer casing. The original sigil remains explicitly historical. Resolve these with story ownership before deploying revised literal narrative illustrations.
@@ -296,4 +295,3 @@ Reference image anchors exact character identity. Create a genuinely transparent
 ```text
 Edit target: last supplied standing MurderBird image. Remove the painted checkerboard background completely and output actual transparent RGBA PNG with background alpha zero. Preserve the bird's pixels, anatomy, head, orange eye, bronze surfaces, feet and pose. No checkerboard pixels, no white or gray background. This is background extraction only, no restyling, no shadow.
 ```
-

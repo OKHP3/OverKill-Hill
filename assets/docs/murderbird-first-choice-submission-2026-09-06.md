@@ -51,4 +51,3 @@ The pilot was authorized in principle but not generated in this task because its
 ## Handoff status
 
 Reference verified and bound; detailed MOT-FC-001 timing, seated-fastener causality and sound/accessibility plan complete. Candidate01/02 and old 1.8m HOLD are superseded for this reference decision, not destroyed. New generation has **not** occurred because the actual control path and cost state cannot be verified here. No shared page, builder, gallery, social output, original or consolidated register was modified. The checkpoint report remains the audit record; this packet is its reference-bound execution supplement.
-

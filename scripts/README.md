@@ -10,6 +10,10 @@ follows the same convention as `askjamie/scripts/README.md`.
 
 | Script | Classification | Use |
 | --- | --- | --- |
+| `build-murderbird-hero.py` | active | Hash-locked proportional delivery for six accepted still sources |
+| `build-murderbird-story-social.mjs` | active | Full-art story social raster with real fonts; local-only review HTML |
+| `build-murderbird-release-register.py` | active | Derived accepted subset and built-release dependency checks |
+| `murderbird-integration-qa.mjs` | active | Six-homepage and five-scene local browser checks; translation fallback receipt |
 | `accessibility-qa.mjs` | active | Accessibility QA (`npm run test:*`) |
 | `audit-site.py` | active | Site audit |
 | `build-search-index.py` | active | Rebuild the generated search index |
