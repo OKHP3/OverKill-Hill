@@ -218,3 +218,102 @@ test("Glee hero heading contrasts with its actual paper panel in light, dark and
     }
   } finally { await browser.close(); }
 });
+
+test("arrow navigation focuses ordinary links, preserves bounds, Tab and Escape return", async () => {
+  const browser = await chromium.launch({ headless: true });
+  const page = await browser.newPage();
+  try {
+    await page.route("**/assets/data/search-index.json", route => route.fulfill({ contentType: "application/json", body: JSON.stringify({ entries: makeSearchEntries().slice(0, 3) }) }));
+    await page.goto(`${baseUrl}/`, { waitUntil: "domcontentloaded" });
+    const trigger = page.locator(".okh-search-trigger");
+    await trigger.click();
+    const input = page.locator(".okh-search-input");
+    await input.fill("omega");
+    const links = page.locator(".okh-search-results .okh-search-result");
+    await links.first().waitFor();
+    await input.press("ArrowDown");
+    assert.equal(await links.first().evaluate(el => el === document.activeElement), true);
+    assert.match(await links.first().ariaSnapshot(), /link/);
+    await page.keyboard.press("ArrowUp");
+    assert.equal(await input.evaluate(el => el === document.activeElement), true);
+    await input.press("ArrowDown");
+    await page.keyboard.press("ArrowDown");
+    await page.keyboard.press("ArrowDown");
+    await page.keyboard.press("ArrowDown");
+    assert.equal(await links.last().evaluate(el => el === document.activeElement), true);
+    await page.keyboard.press("Tab");
+    assert.equal(await page.locator(".okh-search-footer a").evaluate(el => el === document.activeElement), true);
+    await page.keyboard.press("Tab");
+    assert.equal(await input.evaluate(el => el === document.activeElement), true);
+    await input.fill("zzzz-no-match");
+    assert.equal(await links.count(), 0);
+    await input.press("ArrowDown");
+    await input.press("Enter");
+    assert.equal(new URL(page.url()).pathname, "/");
+    await input.fill("");
+    assert.match(await page.locator(".okh-search-status").innerText(), /Search ready/);
+    await page.keyboard.press("Escape");
+    assert.equal(await trigger.evaluate(el => el === document.activeElement), true);
+  } finally { await browser.close(); }
+});
+
+test("dedicated search preserves input Enter and focused-link Enter destinations", async () => {
+  const browser = await chromium.launch({ headless: true });
+  const page = await browser.newPage();
+  try {
+    const responder = route => route.fulfill({ contentType: "application/json", body: JSON.stringify({ entries: makeSearchEntries().slice(0, 3) }) });
+    await openSearchPage(page, responder, "/search/?q=omega");
+    const input = page.locator("#search-page-input");
+    await input.press("Enter");
+    await page.waitForURL("**/brand-01/");
+    await page.goto(`${baseUrl}/search/?q=omega`);
+    await page.locator("#search-results .okh-search-result").first().waitFor();
+    await input.press("ArrowDown");
+    await page.keyboard.press("ArrowDown");
+    await page.keyboard.press("Enter");
+    await page.waitForURL("**/brand-02/");
+  } finally { await browser.close(); }
+});
+
+test("empty indexes and failures stay distinct when the query is cleared", async () => {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    for (const failed of [false, true]) {
+      const page = await browser.newPage();
+      await openSearchPage(page, route => route.fulfill({ status: failed ? 503 : 200, contentType: "application/json", body: JSON.stringify({ entries: [] }) }), "/search/");
+      const expected = failed ? /failed to load/ : /No searchable pages/;
+      assert.match(await page.locator("#search-stats").innerText(), expected);
+      await page.locator("#search-page-input").fill("omega");
+      await page.locator("#search-page-input").fill("");
+      assert.match(await page.locator("#search-stats").innerText(), expected);
+      await page.close();
+    }
+  } finally { await browser.close(); }
+});
+
+test("loading retains typed queries and an empty overlay reports its catalog state", async () => {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    for (const overlayMode of [false, true]) {
+      const page = await browser.newPage();
+      let release;
+      const ready = new Promise(resolve => { release = resolve; });
+      await page.route("**/assets/data/search-index.json", async route => {
+        await ready;
+        await route.fulfill({ contentType: "application/json", body: JSON.stringify({ entries: [] }) });
+      });
+      await page.goto(`${baseUrl}${overlayMode ? "/" : "/search/"}`, { waitUntil: "domcontentloaded" });
+      if (overlayMode) await page.locator(".okh-search-trigger").click();
+      const input = page.locator(overlayMode ? ".okh-search-input" : "#search-page-input");
+      const status = page.locator(overlayMode ? ".okh-search-status" : "#search-stats");
+      await input.fill("omega");
+      assert.match(await status.innerText(), /Loading/);
+      release();
+      await page.getByText("No searchable pages are available.", { exact: true }).first().waitFor();
+      assert.equal(await input.inputValue(), "omega");
+      await input.fill("");
+      assert.match(await status.innerText(), /No searchable pages/);
+      await page.close();
+    }
+  } finally { await browser.close(); }
+});

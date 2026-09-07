@@ -799,6 +799,29 @@ document.addEventListener("DOMContentLoaded", () => {
     return html + escapeHtml(original.slice(offset));
   }
 
+  function bindResultNavigation(input, list) {
+    list.addEventListener("keydown", (event) => {
+      const links = Array.from(list.querySelectorAll(".okh-search-result"));
+      const index = links.indexOf(event.target.closest(".okh-search-result"));
+      if (index < 0) return;
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        const next = index + (event.key === "ArrowDown" ? 1 : -1);
+        if (next < 0) input.focus();
+        else links[Math.min(next, links.length - 1)].focus();
+      }
+    });
+    list.addEventListener("focusin", (event) => {
+      list.querySelectorAll(".okh-search-result").forEach((link) => {
+        if (link === event.target) link.setAttribute("data-active", "true");
+        else link.removeAttribute("data-active");
+      });
+    });
+    list.addEventListener("focusout", () => {
+      list.querySelectorAll("[data-active]").forEach((link) => link.removeAttribute("data-active"));
+    });
+  }
+
   // ----- result rendering -----
   function renderResultHtml(result, tokens) {
     const e = result.entry;
@@ -868,6 +891,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const status   = overlay.querySelector(".okh-search-status");
     const closeBtn = overlay.querySelector(".okh-search-close");
 
+    let loading = true;
+    let indexError = null;
+    bindResultNavigation(input, list);
     let entries        = [];
     let activeIdx      = 0;
     let currentResults = [];
@@ -876,6 +902,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let focusTimer     = null;
 
     function setLoadError(error) {
+      loading = false;
+      indexError = error;
       list.innerHTML =
         '<div class="okh-search-noresults okh-search-noresults--error">' +
           "<p>Search could not load the index.</p>" +
@@ -884,11 +912,14 @@ document.addEventListener("DOMContentLoaded", () => {
       status.textContent = "Search index failed to load.";
       console.warn("[okh-search] overlay index load failed:", error);
       list.querySelector(".okh-search-retry").addEventListener("click", () => {
-        list.innerHTML = '<p class="okh-search-loading">Loading search index…</p>';
+        loading = true;
+        indexError = null;
+        render();
         loadIndex(true).then((d) => {
+          loading = false;
           entries = d;
-          if (input.value.trim()) render();
-          else renderEmpty();
+          render();
+          if (overlay.dataset.open === "true") input.focus();
         }).catch(setLoadError);
       });
     }
@@ -905,10 +936,12 @@ document.addEventListener("DOMContentLoaded", () => {
       lastFocus = opener || document.activeElement;
       overlay.dataset.open = "true";
       document.documentElement.style.overflow = "hidden";
+      render();
       loadIndex().then((d) => {
+        loading = false;
+        indexError = null;
         entries = d;
-        if (input.value.trim()) render();
-        else renderEmpty();
+        render();
       }).catch(setLoadError);
       focusTimer = setTimeout(() => {
         if (overlay.dataset.open === "true") input.focus();
@@ -935,20 +968,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
     }
-    function setActive(i) {
-      const links = list.querySelectorAll(".okh-search-result");
-      activeIdx = Math.max(0, Math.min(i, links.length - 1));
-      links.forEach((el, idx) => {
-        if (idx === activeIdx) {
-          el.setAttribute("data-active", "true");
-          el.scrollIntoView({ block: "nearest" });
-        } else {
-          el.removeAttribute("data-active");
-        }
-      });
-    }
     function render() {
       const q = input.value.trim();
+      if (loading) {
+        list.innerHTML = '<p class="okh-search-loading">Loading search index…</p>';
+        status.textContent = "Loading search index…";
+        return;
+      }
+      if (indexError) { setLoadError(indexError); return; }
+      if (!entries.length) {
+        list.innerHTML = '<p class="okh-search-empty">No searchable pages are available.</p>';
+        status.textContent = "No searchable pages are available.";
+        return;
+      }
       overlay.querySelector(".okh-search-footer a").href = "/search/" + (q ? "?q=" + encodeURIComponent(q) : "");
       if (!q) { renderEmpty(); currentResults = []; lastTokens = []; return; }
       lastTokens     = tokenize(q);
@@ -968,12 +1000,14 @@ document.addEventListener("DOMContentLoaded", () => {
       status.textContent = currentResults.length +
         (currentResults.length === 1 ? " result" : " results") +
         " found for " + q + ".";
-      setActive(0);
+      activeIdx = 0;
     }
     input.addEventListener("input", render);
     input.addEventListener("keydown", (ev) => {
-      if (ev.key === "ArrowDown")  { ev.preventDefault(); setActive(activeIdx + 1); }
-      else if (ev.key === "ArrowUp") { ev.preventDefault(); setActive(activeIdx - 1); }
+      if (ev.key === "ArrowDown" || ev.key === "ArrowUp") {
+        ev.preventDefault();
+        list.querySelector(".okh-search-result")?.focus();
+      }
       else if (ev.key === "Enter") {
         const links = list.querySelectorAll(".okh-search-result");
         if (links[activeIdx]) { ev.preventDefault(); window.location.href = links[activeIdx].getAttribute("href"); }
@@ -1055,6 +1089,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!input || !list) return;
 
     let entries        = [];
+    let indexLoading = true;
+    bindResultNavigation(input, list);
     let activeCategory = "all";
     let indexLoadError = null;
     let activeIdx = 0;
@@ -1062,6 +1098,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const listMarkup = (html) => list.tagName === "UL" ? "<li>" + html + "</li>" : html;
 
     function setIndexLoadError(error) {
+      indexLoading = false;
       indexLoadError = error || null;
       if (error) {
         list.innerHTML = listMarkup(
@@ -1114,15 +1151,20 @@ document.addEventListener("DOMContentLoaded", () => {
       const historyMode = options && options.historyMode === "push" ? "push" : "replace";
       const q = input.value.trim();
       writeQueryToURL(q, activeCategory, historyMode === "replace");
-      if (!q && !isGlee()) {
+      if (indexLoading) {
         list.innerHTML = "";
-        if (stats) stats.textContent = entries.length
-          ? "Type to search " + entries.length + " indexed entries." + scopeNotice
-          : "Loading index…" + scopeNotice;
+        if (stats) stats.textContent = "Loading index…" + scopeNotice;
         return;
       }
-      if (indexLoadError) {
-        setIndexLoadError(indexLoadError);
+      if (indexLoadError) { setIndexLoadError(indexLoadError); return; }
+      if (!entries.length) {
+        list.innerHTML = listMarkup('<p class="okh-search-empty">No searchable pages are available.</p>');
+        if (stats) stats.textContent = "No searchable pages are available." + scopeNotice;
+        return;
+      }
+      if (!q && !isGlee()) {
+        list.innerHTML = "";
+        if (stats) stats.textContent = "Type to search " + entries.length + " indexed entries." + scopeNotice;
         return;
       }
       const tokens = tokenize(q);
@@ -1146,20 +1188,7 @@ document.addEventListener("DOMContentLoaded", () => {
           renderResultHtml(r, tokens) +
         "</a>")
       )).join("");
-      setActive(0, false);
-    }
-
-    function setActive(index, scroll) {
-      const links = list.querySelectorAll(".okh-search-result");
-      activeIdx = Math.max(0, Math.min(index, links.length - 1));
-      links.forEach((link, position) => {
-        if (position === activeIdx) link.setAttribute("data-active", "true");
-        else link.removeAttribute("data-active");
-      });
-      if (scroll && links[activeIdx]) {
-        links[activeIdx].scrollIntoView({ block: "nearest" });
-        if (stats) stats.textContent = "Selected: " + links[activeIdx].querySelector("h3").textContent;
-      }
+      activeIdx = 0;
     }
 
     function buildCategoryChips() {
@@ -1203,12 +1232,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function initialize(retry) {
+      indexLoading = true;
       if (stats) stats.textContent = "Loading index…";
       loadIndex(retry).then((d) => {
+        indexLoading = false;
         indexLoadError = null;
         entries = d;
         const initial = readQueryFromURL();
-        input.value = initial.q;
         activeCategory = initial.category || "all";
         buildCategoryChips();
         activeCategory = normalizeCategory(activeCategory);
@@ -1228,7 +1258,7 @@ document.addEventListener("DOMContentLoaded", () => {
     input.addEventListener("keydown", (event) => {
       if (event.key === "ArrowDown" || event.key === "ArrowUp") {
         event.preventDefault();
-        setActive(activeIdx + (event.key === "ArrowDown" ? 1 : -1), true);
+        list.querySelector(".okh-search-result")?.focus();
       } else if (event.key === "Enter") {
         event.preventDefault();
         const links = list.querySelectorAll(".okh-search-result");

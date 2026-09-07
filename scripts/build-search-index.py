@@ -153,7 +153,6 @@ class TextExtractor(HTMLParser):
                     self._h2_parts.append((self._current_heading_id, text))
                 else:
                     self._h3_parts.append(text)
-                self._text_parts.append(text)
             self._current_heading = None
 
     def handle_data(self, data):
@@ -247,160 +246,108 @@ def excerpt(text: str, limit: int = 600) -> str:
     return cut + "…"
 
 
+class SectionParser(HTMLParser):
+    """Locate complete element boundaries without slicing through HTML tags."""
+
+    def __init__(self, html):
+        super().__init__(convert_charrefs=True)
+        self.html = html
+        self.lines = [0]
+        for match in re.finditer("\n", html):
+            self.lines.append(match.end())
+        self.nodes = []
+        self.stack = []
+        self.feed(html)
+        # Unclosed elements end at EOF. Do not flush incomplete tag syntax as text.
+
+    def source_offset(self):
+        line, column = self.getpos()
+        return self.lines[line - 1] + column
+
+    def handle_starttag(self, tag, attrs):
+        if tag in TextExtractor.VOID_TAGS:
+            return
+        node = dict(tag=tag, attrs=dict(attrs), start=self.source_offset(),
+                    content=self.source_offset() + len(self.get_starttag_text()),
+                    end=len(self.html), after=len(self.html))
+        self.nodes.append(node)
+        self.stack.append(node)
+
+    def handle_startendtag(self, tag, attrs):
+        pass
+
+    def handle_endtag(self, tag):
+        for index in range(len(self.stack) - 1, -1, -1):
+            if self.stack[index]["tag"] == tag:
+                for node in self.stack[index:]:
+                    node["end"] = self.source_offset()
+                    node["after"] = self.html.find(">", self.source_offset()) + 1
+                del self.stack[index:]
+                break
+
+    def text(self, start, end):
+        parser = TextExtractor()
+        parser.feed(self.html[start:end])
+        return parser.collected_text()
+
+    def title(self, node):
+        for heading in self.nodes:
+            if heading["tag"] in {"h2", "h3"} and node["content"] <= heading["start"] < node["end"]:
+                return self.text(heading["content"], heading["end"])
+        labels = node["attrs"].get("aria-labelledby", "").split()
+        text = " ".join(self.text(label["content"], label["end"])
+                        for name in labels for label in self.nodes
+                        if label["attrs"].get("id") == name)
+        return text or node["attrs"].get("id", "").replace("-", " ").title()
+
+
+def section_entry(parser, node, base_url, base_title, category, start=None, end=None, minimum=60):
+    plain = parser.text(node["content"] if start is None else start,
+                        node["end"] if end is None else end)
+    if len(plain) < minimum:
+        return None
+    title = (parser.text(node["content"], node["end"]) if node["tag"] == "h2"
+             else parser.title(node))
+    return {"url": f"{base_url}#{node['attrs']['id']}",
+            "title": f"{title} \u2014 {base_title}", "category": category,
+            "description": excerpt(plain, 220), "headings": [],
+            "body": excerpt(plain, 800), "parent": base_url}
+
+
 def extract_article_sections(html: str, base_url: str, base_title: str) -> list[dict]:
-    """For the long-form article, emit one entry per <section id="..."> with an h2 inside,
-    plus per top-level <h2 id="...">."""
-    out: list[dict] = []
-    # Match sections with id
-    for m in re.finditer(
-        r'<section[^>]*\sid=["\']([^"\']+)["\'][^>]*>(.*?)</section>',
-        html, re.S | re.I,
-    ):
-        sec_id = m.group(1)
-        body = m.group(2)
-        # Pull a title — first h2/h3 inside
-        title_match = re.search(r"<h[23][^>]*>(.*?)</h[23]>", body, re.S | re.I)
-        if title_match:
-            sec_title = re.sub(r"<[^>]+>", "", title_match.group(1))
-            sec_title = unescape(re.sub(r"\s+", " ", sec_title).strip())
-        else:
-            sec_title = sec_id.replace("-", " ").title()
-        # Strip tags
-        plain = re.sub(r"<script.*?</script>", " ", body, flags=re.S | re.I)
-        plain = re.sub(r"<style.*?</style>", " ", plain, flags=re.S | re.I)
-        plain = re.sub(r"<[^>]+>", " ", plain)
-        plain = unescape(re.sub(r"\s+", " ", plain).strip())
-        if len(plain) < 60:
+    """Extract complete sections and standalone heading ranges with a parser."""
+    parser = SectionParser(html)
+    out = []
+    for node in parser.nodes:
+        if node["tag"] == "section" and node["attrs"].get("id"):
+            entry = section_entry(parser, node, base_url, base_title, "Article Section")
+            if entry:
+                out.append(entry)
+    headings = [node for node in parser.nodes if node["tag"] == "h2"]
+    for index, node in enumerate(headings):
+        if not node["attrs"].get("id") or any(e["url"] == f"{base_url}#{node['attrs']['id']}" for e in out):
             continue
-        out.append({
-            "url": f"{base_url}#{sec_id}",
-            "title": f"{sec_title} — {base_title}",
-            "category": "Article Section",
-            "description": excerpt(plain, 220),
-            "headings": [],
-            "body": excerpt(plain, 800),
-            "parent": base_url,
-        })
-    # Also catch standalone <h2 id="..."> not inside a <section id="...">
-    for m in re.finditer(
-        r'<h2[^>]*\sid=["\']([^"\']+)["\'][^>]*>(.*?)</h2>',
-        html, re.S | re.I,
-    ):
-        h_id = m.group(1)
-        # If we already produced this anchor as a section, skip
-        if any(e["url"].endswith(f"#{h_id}") for e in out):
-            continue
-        h_title = re.sub(r"<[^>]+>", "", m.group(2))
-        h_title = unescape(re.sub(r"\s+", " ", h_title).strip())
-        if not h_title:
-            continue
-        # Grab the text immediately following the heading until the next h2
-        rest = html[m.end():]
-        next_h2 = re.search(r"<h2", rest, re.I)
-        chunk = rest[: next_h2.start()] if next_h2 else rest[:4000]
-        plain = re.sub(r"<script.*?</script>", " ", chunk, flags=re.S | re.I)
-        plain = re.sub(r"<style.*?</style>", " ", plain, flags=re.S | re.I)
-        plain = re.sub(r"<[^>]+>", " ", plain)
-        plain = unescape(re.sub(r"\s+", " ", plain).strip())
-        if len(plain) < 80:
-            continue
-        out.append({
-            "url": f"{base_url}#{h_id}",
-            "title": f"{h_title} — {base_title}",
-            "category": "Article Section",
-            "description": excerpt(plain, 220),
-            "headings": [],
-            "body": excerpt(plain, 800),
-            "parent": base_url,
-        })
+        end = headings[index + 1]["start"] if index + 1 < len(headings) else len(html)
+        entry = section_entry(parser, node, base_url, base_title, "Article Section",
+                              start=node["after"], end=end, minimum=80)
+        if entry:
+            out.append(entry)
     return out
 
 
 def extract_div_sections(html: str, base_url: str, base_title: str,
-                          section_ids: list[str], tag: str = "div",
-                          category: str = "Project") -> list[dict]:
-    """Emit one search entry per named block element with the given id.
-
-    `tag` controls which HTML element to match (default "div"; also accepts
-    "section", "article", etc.).  `category` sets the search result category
-    label (default "Project").
-
-    Used for project pages that organize sections as divs rather than <section>,
-    and for Prompt Forge pages that use <section> / <article> elements.
-    Only the IDs listed in `section_ids` are extracted.
-    """
-    out: list[dict] = []
-    open_tag = tag.lower()
-    close_tag = f"</{open_tag}"
-    open_sentinel = f"<{open_tag}"
-
+                         section_ids: list[str], tag: str = "div",
+                         category: str = "Project") -> list[dict]:
+    """Extract named blocks using parsed nesting and complete tag boundaries."""
+    parser = SectionParser(html)
+    out = []
     for sec_id in section_ids:
-        # Find the opening tag for this id
-        open_re = re.compile(
-            r'<' + re.escape(open_tag) + r'\b[^>]*\bid=["\']' + re.escape(sec_id) + r'["\'][^>]*>',
-            re.I,
-        )
-        m = open_re.search(html)
-        if not m:
-            continue
-        # Walk forward to find the matching closing tag
-        start = m.end()
-        depth = 1
-        pos = start
-        while pos < len(html) and depth > 0:
-            next_open = html.find(open_sentinel, pos)
-            next_close = html.find(close_tag, pos)
-            if next_open != -1 and (next_close == -1 or next_open < next_close):
-                depth += 1
-                pos = next_open + len(open_sentinel)
-            elif next_close != -1:
-                depth -= 1
-                pos = next_close + len(close_tag)
-            else:
-                break
-        body = html[start:pos]
-
-        # Pull the first h2 (or h3) as the section title
-        title_match = re.search(r"<h[23][^>]*>(.*?)</h[23]>", body, re.S | re.I)
-        if title_match:
-            sec_title = re.sub(r"<[^>]+>", "", title_match.group(1))
-            sec_title = unescape(re.sub(r"\s+", " ", sec_title).strip())
-        else:
-            # Fall back to aria-labelledby: find the referenced element in the
-            # full HTML and use its text (strips <br>/<small> siblings cleanly).
-            opening_tag = m.group(0)
-            aria_match = re.search(r'aria-labelledby=["\']([^"\']+)["\']', opening_tag, re.I)
-            if aria_match:
-                label_id = aria_match.group(1).strip()
-                label_el = re.search(
-                    r'id=["\']' + re.escape(label_id) + r'["\'][^>]*>(.*?)</',
-                    html, re.S | re.I,
-                )
-                if label_el:
-                    raw = re.sub(r"<[^>]+>", " ", label_el.group(1))
-                    sec_title = unescape(re.sub(r"\s+", " ", raw).strip())
-                else:
-                    sec_title = sec_id.replace("-", " ").title()
-            else:
-                sec_title = sec_id.replace("-", " ").title()
-
-        # Plaintext
-        plain = re.sub(r"<script.*?</script>", " ", body, flags=re.S | re.I)
-        plain = re.sub(r"<style.*?</style>", " ", plain, flags=re.S | re.I)
-        plain = re.sub(r"<[^>]+>", " ", plain)
-        plain = unescape(re.sub(r"\s+", " ", plain).strip())
-        if len(plain) < 60:
-            continue
-
-        out.append({
-            "url": f"{base_url}#{sec_id}",
-            "title": f"{sec_title} — {base_title}",
-            "category": category,
-            "description": excerpt(plain, 220),
-            "headings": [],
-            "body": excerpt(plain, 800),
-            "parent": base_url,
-        })
+        node = next((n for n in parser.nodes if n["tag"] == tag.lower()
+                     and n["attrs"].get("id") == sec_id), None)
+        if node:
+            entry = section_entry(parser, node, base_url, base_title, category)
+            if entry:
+                out.append(entry)
     return out
 
 
