@@ -15,5 +15,8 @@
   },
   "dependencies": {
     "playwright": "^1.62.1"
+  },
+  "engines": {
+    "node": ">=24 <25"
   }
 }

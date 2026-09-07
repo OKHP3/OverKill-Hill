@@ -144,6 +144,21 @@ python3 scripts/validate-site.py
 
 Checks every HTML page for: title, meta description, canonical, single H1, JSON-LD, sitemap inclusion, broken internal links, broken asset references, external `target="_blank"` links missing `rel="noopener"`, placeholder hrefs, `P3` (without superscript) brand violations, and old-tagline regressions. Run before every commit.
 
+Browser QA uses Node 24 LTS. `.nvmrc` is the shared local/CI major-version
+selector; both Node jobs in `.github/workflows/validate.yml` read it. Use the
+latest available 24.x patch. `package.json` declares `>=24 <25`, and `.npmrc`
+enforces it during installation. When advancing the major, update these two
+version declarations together and rerun clean installation and browser gates.
+The [official Node release table](https://nodejs.org/en/about/previous-releases)
+listed Node 24 as LTS and Node 20 as end-of-life on September 7, 2026.
+
+With nvm installed, run `nvm install` then `nvm use` in this directory. Other
+version managers must select Node 24 before running npm. Confirm `node --version`
+and `npm --version` in validation evidence. No Node server is deployed: Node
+runs QA tools, and the published site remains static HTML, CSS, and JavaScript.
+Replit's separate preview runtime assessment is recorded in
+[the A08 handoff](assets/docs/remediation-a08-2026-09-07.md).
+
 For the browser-level phone layout check used in CI:
 
 ```bash
