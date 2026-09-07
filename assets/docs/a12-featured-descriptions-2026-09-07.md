@@ -34,3 +34,7 @@ Apply A06 and both A12 source commits, preserving all scoped hunks in shared fil
 The homepage English label changes require exact-pair locale review together with A06's homepage changes. No locale file, approval hash, publication date or noindex boundary was changed here. A06's report records the existing pilot/regional drift; A21 must resolve the applicable release requirements without claiming translation acceptance from structural checks. Writings, Vault and the workbench are outside the configured four-route translation pilot.
 
 C08 source coverage is complete when A06 and A12 are combined. Final A11 consistency, generated previews, actual social previews, locale acceptance and publication remain unverified. No worker merge or deployment occurred.
+
+## A11 dependency review addendum
+
+Reviewed `9bfe170badf3133fab8119643aafeb1f04d2d0c9` after its handoff. Confirmed: it does not change `pages.json` or the workbench extras fragment. Its renderer applies project status only to main content, and its search integration adds a status summary to body text without replacing editorial metadata. The workbench record explicitly says published build journal, dated build record with current readiness unverified, May 30 benchmark, August 2 end-to-end RAG unverified, and delivery unknown. Those fields agree with A06/A12 descriptions. A12 accepts the source compatibility contract; combined rendering and release validation remain A21 responsibilities. This resolves the pending A11 source-contract review recorded above without claiming integrated execution.
