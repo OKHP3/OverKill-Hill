@@ -94,6 +94,7 @@ jobs:
         run: |
           python3 scripts/build-murderbird-release-register.py --check
           python3 tests/test-murderbird-still-release.py
+          python3 tests/test-murderbird-png-fallback.py
           python3 scripts/build-release.py --output .local/murderbird-ci-release --commit "${{ github.sha }}"
           python3 scripts/build-murderbird-release-register.py --check --package .local/murderbird-ci-release
 
