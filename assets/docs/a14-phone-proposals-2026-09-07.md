@@ -64,6 +64,17 @@ preview has noindex/nofollow and a visible pending-status notice. The release
 builder's existing allowlist excludes previews, this report, scripts and the
 retained screenshots. No sitemap, search index or locale change is needed.
 
+The dedicated `serve-phone-proposals.py` server stages a fresh tree from the
+release builder's explicit inventory, then adds only the eight proposal pages
+and preview stylesheet. Its URL space is `/proposals/`, never `/.local/`.
+The server binds only `127.0.0.1`; it serves exact allowlisted files, rejects
+private/dot/traversal paths and untrusted Host values, checks symlinks/reparse
+points, and supports only GET/HEAD. It has no directory listing or report-writing
+endpoint. The staging allowlist and contract source stay outside its HTTP root.
+This corrects the initial reproduction instructions, which used the old
+repository server. A18's hardened `server.py` intentionally rejects private
+paths and is not changed or bypassed by modifying its configuration.
+
 ## Observations and checks
 
 Confirmed local 390px measurements, including the review notice in proposals:
@@ -98,6 +109,11 @@ supports earlier access, not a claim about conversions or task success.
   or evidence files packaged. This is a local boundary check, not a deployment.
 - Visual inspection: desktop homepage and shelf, phone selected-work differences
   and Contact; the retained complete surface matrix supports further review.
+- PASS: dedicated server boundary tests, eight passed and one real-symlink test
+  skipped because Windows denied symlink creation. Independent mocked symlink
+  and Windows reparse guards pass. Exact page/query/HEAD serving, denied directory
+  listings/unlisted files, private/encoded traversal, hostile Host, and denied POST
+  are covered. All 43 browser samples were rerun on the dedicated server.
 
 Machine records: [geometry](../audit/phone-proposals-2026-09-07.json),
 [supplemental checks](../audit/phone-proposals-supplemental-2026-09-07.json), and
@@ -108,20 +124,22 @@ or the already bundled runtime package available to Node:
 
 ```powershell
 py -3 scripts/build-phone-proposals.py
-$env:HOST = '127.0.0.1'
-$env:PORT = '5144'
-py -3 server.py
+py -3 scripts/serve-phone-proposals.py
 # In another terminal in this checkout:
+py -3 tests/test-phone-proposal-server.py
 node scripts/phone-proposals-qa.mjs
 ```
 
-Open `http://127.0.0.1:5144/.local/a14/a/` or the corresponding `b/` path.
+Open `http://127.0.0.1:5145/proposals/a/` or the corresponding `b/` path.
 Only four routes per variant are previewed; other existing links lead to the
-current site in this local checkout. The "Current site" review link returns
+staged release baseline. The "Current site" review link returns
 to the baseline. The A11 commit must be present in the local Git object store.
 Rebuild after updating the pinned contract to a reviewed integrated candidate;
 the builder intentionally expects these existing page structures. Shell metadata
 and shared runtime still come from this checkout's unchanged generated baseline.
+Restart the dedicated server after rebuilding previews; it deliberately serves
+its fixed staged snapshot. Stop it with Ctrl+C. It creates a unique ignored
+preview tree for each run and does not delete prior trees or alter other servers.
 
 ## Unresolved gates and next handoff
 

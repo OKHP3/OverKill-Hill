@@ -134,18 +134,18 @@ def build():
             text = re.sub(r'<body([^>]*)>', rf'<body\1 data-proposal="{variant}">', text, count=1)
             # Existing brand scope is unchanged; proposal styling is scoped via main.
             text = text.replace('<main id="main">', f'<main id="main" class="proposal proposal-{variant}">')
-            text = text.replace('</head>', '<meta name="robots" content="noindex,nofollow"/><link rel="stylesheet" href="/.local/a14/proposal.css"/></head>')
+            text = text.replace('</head>', '<meta name="robots" content="noindex,nofollow"/><link rel="stylesheet" href="/proposals/proposal.css"/></head>')
             for target in ROUTES:
                 original = '/' + target.removesuffix('index.html')
-                text = text.replace(f'href="{original}"', f'href="/.local/a14/{variant}{original}"')
-            note = f'<aside class="proposal-note" aria-label="Proposal status">A14 {variant.upper()} · Proposal for selection. A11 source descriptions; delivery unknown. Introduction and Contact prompts proposed.<br><a href="/.local/a14/a/">A: Project-led</a><a href="/.local/a14/b/">B: Editorial</a><a href="/">Current site</a></aside>'
+                text = text.replace(f'href="{original}"', f'href="/proposals/{variant}{original}"')
+            note = f'<aside class="proposal-note" aria-label="Proposal status">A14 {variant.upper()} · Proposal for selection. A11 source descriptions; delivery unknown. Introduction and Contact prompts proposed.<br><a href="/proposals/a/">A: Project-led</a><a href="/proposals/b/">B: Editorial</a><a href="/">Current site</a></aside>'
             text = text.replace('<main ', note + '<main ', 1)
             target = OUT / variant / route
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text, encoding='utf-8')
     manifest = {'baseline': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(), 'source_sha256': source_hashes, 'status': 'proposal; owner selection and acceptance pending', 'a11': A11, 'a12': '2074a969825e81e742d728b6816fb0adb364b445', 'a15': 'e9154af71eb8248cad2efcf2d44fa5d06bd0ad06', 'routes': list(ROUTES)}
     (OUT / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
-    print(f'Rendered 8 proposal pages in {OUT}. Serve repository on loopback for review.')
+    print(f'Rendered 8 proposal pages in {OUT}. Run scripts/serve-phone-proposals.py for review.')
 
 
 if __name__ == '__main__':

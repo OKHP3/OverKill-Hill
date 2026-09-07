@@ -13,7 +13,7 @@ for(const width of [390,1280,320]) for(const variant of ['baseline','a','b']) {
  for(const route of routes){
  const page=await browser.newPage({viewport:{width,height:width===1280?800:844},reducedMotion:'reduce'});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
- const url='http://127.0.0.1:5144/'+(variant==='baseline'?'':'.local/a14/'+variant+'/')+route;
+ const url='http://127.0.0.1:5145/'+(variant==='baseline'?'':'proposals/'+variant+'/')+route;
  await page.goto(url,{waitUntil:'networkidle'});await page.evaluate(()=>document.fonts.ready);
  await page.screenshot({path:'.local/a14/'+variant+'-'+(route.replaceAll('/','-').replace(/-$/,'')||'home')+'-'+width+'.png',fullPage:false});
  const metrics=await page.evaluate(()=>{
@@ -40,7 +40,7 @@ for(const width of [390,1280,320]) for(const variant of ['baseline','a','b']) {
 const supplemental=[];
 for(const variant of ['a','b'])for(const route of ['','projects/','projects/skillz/','contact/'])for(const javaScriptEnabled of [true,false]){
  const page=await browser.newPage({viewport:{width:390,height:844},colorScheme:'dark',javaScriptEnabled,reducedMotion:'reduce'});
- await page.goto('http://127.0.0.1:5144/.local/a14/'+variant+'/'+route,{waitUntil:'networkidle'});
+ await page.goto('http://127.0.0.1:5145/proposals/'+variant+'/'+route,{waitUntil:'networkidle'});
  const state=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth,hidden:[...document.querySelectorAll('main .reveal-on-scroll')].some(e=>getComputedStyle(e).opacity==='0'),theme:document.documentElement.dataset.theme}));
  assert.equal(state.overflow,false);assert.equal(state.hidden,false);
  if(javaScriptEnabled)assert.equal(state.theme,'dark');
