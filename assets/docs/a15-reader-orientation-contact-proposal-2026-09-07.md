@@ -72,6 +72,22 @@ handwritten competing claim in this block.
 
 ## Source ownership and preservation contract
 
+Dependency update: A11 supplied source candidate
+`9bfe170badf3133fab8119643aafeb1f04d2d0c9`. Its handoff, registry and helper
+were inspected directly from that commit. Schema 2 separates availability,
+maturity and evidence; summaries use `data-project-status` and
+`data-project-status-text`. Source-described evidence does not establish runtime
+delivery, which remains unknown. This satisfies source-contract discovery,
+not integrated release acceptance. A11's reported test results were not rerun
+in this A15 checkout. The optional copy above creates no competing status or
+service claim and needs no change for that contract.
+
+A14 reports incorporating the exact Contact fragment into both isolated
+previews after the Central Time paragraph. That is an upstream report, not an
+A15 visual acceptance result. No selected presentation or final preview commit
+has been supplied here. The essay evidence route remains outside A14's
+four-page preview scope and still needs rendered acceptance after selection.
+
 Only the following authoritative files would need A15 insertions after the
 dependencies are verified:
 
