@@ -345,7 +345,7 @@
 <div aria-hidden="true" class="feature-icon">🤖</div>
 <div>
 <h3>AI-Generatable Syntax</h3>
-<p>Clean enough for LLMs to produce valid <code>bpmn-beta</code> on first try. Readable enough for non-experts to write directly. No prompt repair loops for syntax errors.</p>
+<p>Designed to make <code>bpmn-beta</code> readable for people and writable by LLMs. First-try correctness is not established here. Check generated syntax and rendered output in the playground; repairs may still be needed.</p>
 </div>
 </div>
 <div class="feature-item">
@@ -401,7 +401,7 @@
 <ul>
 <li><span class="scope-yes">✓</span> A readable DSL for the BPMN 2.0 Descriptive Conformance subset: start/end events, tasks, gateways, flows, pools, and lanes.</li>
 <li><span class="scope-yes">✓</span> Text-first, Git-native, works inside a Markdown code fence.</li>
-<li><span class="scope-yes">✓</span> AI-generatable: designed to be writable by LLMs without syntax repair.</li>
+<li><span class="scope-yes">✓</span> AI-generatable: designed to be writable by LLMs, with output checked in the playground.</li>
 <li><span class="scope-yes">✓</span> The visual output layer of the business process documentation methodology described by BP-SKILL.</li>
 <li><span class="scope-yes">✓</span> A domain extension to the Agent Skills open standard (agentskills.io).</li>
 <li><span class="scope-yes">✓</span> Compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, Cursor, VS Code, and all other Agent Skills-conformant platforms.</li>
@@ -598,7 +598,7 @@
 </div>
 <div class="faq-item">
 <p class="faq-q">Can LLMs generate valid bpmn-beta?</p>
-<p class="faq-a">That's by design. The DSL is intentionally short and predictable: no XML attributes, no metadata blocks, no nested namespaces. A well-prompted LLM should produce valid <code>bpmn-beta</code> on the first try for common process patterns. The Playground lets you verify output immediately.</p>
+<p class="faq-a">That's by design. The DSL is intentionally short and predictable: no XML attributes, no metadata blocks, no nested namespaces. That is a design goal, not a measured first-try success rate. LLM output can still need syntax repair. The Playground lets you verify output immediately.</p>
 </div>
 <div class="faq-item">
 <p class="faq-q">How does this relate to Mermaid Theme Builder?</p>

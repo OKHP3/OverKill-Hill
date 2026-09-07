@@ -59,9 +59,10 @@
 <div class="callout callout--success" role="note">
 <span class="callout-icon">✅</span>
 <div>
+<p><strong>Dated build journal · May 2026.</strong> The status board, runtime inventory and results below record the May build, with updates through May 30. They are not a live audit of today’s workstation. Earlier plans and test failures remain as history.</p>
 <strong>BASELINE COMPLETE</strong>: Build finished, normalized, benchmarked, and archived on 2026-05-12.
 
-              System is in a known-good, restorable state.
+              The May 12 record describes a known-good, restorable state.
 
               Archive: <code style="font-family:var(--font-mono);font-size:0.85em;">/Volumes/OKH-Local/05_Research_Vault/mac-studio-setup_DONE_2026-05-12.tar.gz</code>
 <br/><span style="font-size:0.85em;opacity:0.75;margin-top:0.4rem;display:inline-block;">2026-05-13 post-baseline: Ollama plist corrected, Open WebUI updated to latest, Edge PWA resolved. Project page published.</span>
@@ -436,7 +437,7 @@
 <div class="timeline-entry">
 <div class="timeline-date">May 30<br/>2026</div>
 <div class="timeline-body">
-<h3>Benchmarks + architecture diagrams</h3>
+<h3 id="may-30-benchmarks">Benchmarks + architecture diagrams</h3>
 <div class="timeline-rows">
 <div class="timeline-row">
 <span class="timeline-row-label did">Did</span>
@@ -621,7 +622,8 @@
 <!-- BENCHMARKS -->
 <div class="content-block" id="benchmarks">
 <div class="section-label">Smoke Test Results · 2026-05-12</div>
-<h2>Benchmark Snapshot</h2>
+<h2>Benchmark Snapshot · May 12, 2026</h2>
+<p>This table preserves the initial two-model smoke test, including its failures. The <a href="#may-30-benchmarks">May 30 journal entry</a> reports a later strict-prompt run across six models. That report does not replace this table or establish performance beyond that run.</p>
 <div aria-label="Local benchmark results table" class="data-table-wrap" role="region" tabindex="0">
 <table class="data-table">
 <thead>
@@ -661,7 +663,7 @@
 </table>
 </div>
 <p style="font-size:0.82rem;color:var(--color-muted);margin-top:0.75rem;line-height:1.55;">
-<strong style="color:var(--color-fg);">Conclusion:</strong>
+<strong style="color:var(--color-fg);">May 12 conclusion (historical):</strong>
 
                   Neither model is governance-grade for autonomous structured artifact generation under simple prompting.
 
@@ -993,8 +995,9 @@ mindmap
 </div>
 <!-- NEXT PHASE -->
 <div class="content-block" id="next-phase">
-<div class="section-label">What's Next</div>
-<h2>Next Phase</h2>
+<div class="section-label">Historical Plan · May 2026</div>
+<h2>Next Phase at the Baseline</h2>
+<p>These were the next steps after the May 12 baseline. The May 29 entry records RAG stack deployment, and the <a href="#may-30-benchmarks">May 30 entry</a> records the strict benchmark across all six Ollama models, including the four remaining models. Those tasks are no longer pending in this journal. Completion of the other items, and corpus ingestion beyond stack deployment, is not established by these entries.</p>
 <div class="next-phase-list">
 <div class="next-phase-item">Execute ChatGPT content update: populate all GitHub repository stub docs</div>
 <div class="next-phase-item">Backup baseline archive to OneDrive and Time Machine</div>
@@ -1005,7 +1008,7 @@ mindmap
 <div class="callout callout--info" role="note" style="margin-top:1.25rem;">
 <span class="callout-icon">🧠</span>
 <div style="display:flex;flex-direction:column;gap:0.6rem;">
-<p style="margin:0;line-height:1.65;"><strong>RAG Roadmap</strong>: The baseline is complete. The next phase is the retrieval layer.</p>
+<p style="margin:0;line-height:1.65;"><strong>Original RAG roadmap (historical)</strong>: This describes the intended retrieval layer before the May 29 stack deployment. It does not establish corpus ingestion or retrieval quality.</p>
 <p style="margin:0;line-height:1.65;">nomic-embed-text + Qdrant + Open WebUI Knowledge will turn this workbench into a local AI that knows the author's actual work: not just its training data. Personal writing, GitHub repos, conversation archives, and workspace exports will be chunked, embedded, and indexed locally. The model will retrieve before it generates.</p>
 <p style="margin:0;line-height:1.65;font-weight:600;color:var(--okh-amber);">This is how a generic local AI becomes a genuine second brain.</p>
 </div>
@@ -1213,7 +1216,7 @@ mindmap
 <li><a href="#benchmarks">Benchmarks</a></li>
 <li><a href="#how-its-built">How It's Built</a></li>
 <li><a href="#operating-model">Operating Model</a></li>
-<li><a href="#next-phase">Next Phase</a></li>
+<li><a href="#next-phase">Historical Next Phase</a></li>
 <li><a href="#stack">Environment Blueprint</a></li>
 <li><a href="#decisions">Architecture Decisions</a></li>
 </ul>
