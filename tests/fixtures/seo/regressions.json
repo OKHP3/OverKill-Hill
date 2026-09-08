@@ -18,6 +18,23 @@
       "value": "image/jpeg"
     }
   ],
+
+  "social_card_mismatch": [
+    {
+      "id": "image",
+      "route": "/about/",
+      "field": "meta:twitter:image",
+      "value": "https://overkillhill.com/assets/img/projects/found-ry/found-ry-hero-1024.png",
+      "expected": "social card image mismatch"
+    },
+    {
+      "id": "alt",
+      "route": "/about/",
+      "field": "meta:twitter:image:alt",
+      "value": "A different social preview description",
+      "expected": "social-card image alt mismatch"
+    }
+  ],
   "social_image_parity": {
     "route": "/",
     "field": "meta:twitter:image",
@@ -89,5 +106,10 @@
       "key": "next",
       "value": "https://overkillhill.com/"
     }
-  ]
+  ],
+  "noindex_social_card": {
+    "route": "/found-ry/",
+    "image_value": "https://overkillhill.com/assets/img/library/over-kill-hill-p3-title-left-comp-right-wide-1536.png",
+    "alt_value": "A different social preview description"
+  }
 }
