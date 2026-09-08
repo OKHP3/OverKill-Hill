@@ -381,6 +381,22 @@ def _image_asset_path(url: str) -> Path | None:
         return None
     return ROOT / unquote(parsed.path).lstrip("/")
 
+def validate_social_card_consistency(location: str, values: dict[str, str]) -> list[Finding]:
+    """Keep Open Graph and Twitter social-card metadata aligned."""
+    findings = validate_social_image_parity(location, values)
+    og_image = values.get("meta:og:image", "")
+    twitter_image = values.get("meta:twitter:image", "")
+    if og_image and twitter_image:
+        og_alt = values.get("meta:og:image:alt", "")
+        twitter_alt = values.get("meta:twitter:image:alt", "")
+        if og_alt != twitter_alt:
+            findings.append(Finding(
+                "ERROR", location,
+                "social-card image alt mismatch: "
+                f"meta:og:image:alt={og_alt!r}, meta:twitter:image:alt={twitter_alt!r}",
+            ))
+    return findings
+
 
 def validate_image_contract(location: str, values: dict[str, str]) -> list[Finding]:
     """Check declared social-card metadata against the actual local asset."""
@@ -639,7 +655,7 @@ def validate_source_seo_contract(pages: list[dict]) -> list[Finding]:
             for key in ("meta:og:image", "meta:twitter:image"):
                 if RETIRED_SOCIAL_IMAGE in metadata.get(key, ""):
                     findings.append(Finding("ERROR", rel, f"indexable source page uses retired social image: {key}"))
-            findings.extend(validate_social_image_parity(rel, metadata))
+            findings.extend(validate_social_card_consistency(rel, metadata))
             findings.extend(validate_image_contract(rel, metadata))
 
         if is_article_page(page):
@@ -683,7 +699,7 @@ def validate_generated_seo(
         for key in ("meta:og:image", "meta:twitter:image"):
             if RETIRED_SOCIAL_IMAGE in values.get(key, ""):
                 findings.append(Finding("ERROR", rel, f"indexable generated page uses retired social image: {key}"))
-        findings.extend(validate_social_image_parity(rel, values))
+        findings.extend(validate_social_card_consistency(rel, values))
         findings.extend(validate_image_contract(rel, values))
     if is_article_page(manifest_page):
         if values.get("meta:og:type", "").lower() != "article":
@@ -1401,7 +1417,6 @@ def run_banner_check() -> int:
     if result.stderr:
         print(result.stderr, end="")
     return result.returncode
-
 
 
 def run_voice_lint() -> int:

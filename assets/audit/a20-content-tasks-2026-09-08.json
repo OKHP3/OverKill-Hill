@@ -1,0 +1,457 @@
+{
+  "candidate": "ed9a47d0e7e247977de8bd58ba10ac9376fa1ed5",
+  "date": "2026-09-08T11:57:54.734Z",
+  "node": "v24.11.1",
+  "playwright": "1.62.1",
+  "transport": "Local HTTPS, ephemeral self-signed certificate; ignoreHTTPSErrors true; CSP unchanged; external requests aborted",
+  "runs": [
+    {
+      "browser": "chromium",
+      "version": "151.0.7922.34",
+      "tasks": [
+        {
+          "id": 1,
+          "status": "PASS",
+          "errors": [],
+          "rootBytesMatch": true,
+          "modes": [
+            {
+              "mode": "normal",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            },
+            {
+              "mode": "no-js",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            },
+            {
+              "mode": "blocked-app",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            },
+            {
+              "mode": "missing-observer",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            },
+            {
+              "mode": "constructor-failure",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            },
+            {
+              "mode": "observe-failure",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            },
+            {
+              "mode": "stalled-observer",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            },
+            {
+              "mode": "reduced-motion",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "status": "PASS",
+          "errors": [],
+          "rootBytesMatch": true,
+          "first": {
+            "url": "https://127.0.0.1:5221/",
+            "active": "<a class=\"okh-skip-link\" href=\"#main\">Skip to main content</a>",
+            "inMain": false,
+            "outline": "rgb(196, 106, 44) solid 2px"
+          },
+          "continuation": {
+            "url": "https://127.0.0.1:5221/#main",
+            "active": "<a href=\"#forge\">The Forge</a>",
+            "inMain": true,
+            "outline": "rgb(196, 106, 44) solid 2px"
+          }
+        },
+        {
+          "id": 3,
+          "status": "PASS",
+          "errors": [],
+          "rootBytesMatch": true,
+          "expanded": "true",
+          "destination": {
+            "url": "https://127.0.0.1:5221/contact/",
+            "active": "<body>\n  <a class=\"okh-skip-link\" href=\"#main\">Skip to main content</a>\n<header class=\"site-header\" id=\"top\">\n<div class=\"container\">\n<div class=\"logo\">\n<a aria-label=\"OverKill Hill P³ home\" href=\"/\">\n<img alt=\"OverKill Hill P³\" height=\"40\" loading=\"eager\" src=\"/assets/img/murderbird-v2-icon-nav-96.png\" width=\"40\">\n<span class=\"sr-only\">OverKill&nbsp;Hill&nbsp;P³™ Home</span>\n</a>\n</div>\n<nav aria-label=\"Primary\" class=\"primary-nav\" id=\"navigation\" aria-hidden=\"true\" inert=\"\">\n<ul>\n<li><a href=\"/#forge\">The Forge</a></li>\n<li class=\"has-submenu\">\n<a href=\"/projects/\">Our Projects</a>\n<ul class=\"submenu\">\n<li><a href=\"/projects/skillz/\">Skillz Forge</a></li>\n<li><a href=\"/projects/found-ry/\">Found‑Rᵧ</a></li>\n<li><a href=\"/projects/mermaid-theme-builder/\">Mermaid Theme Builder</a></li>\n<li>",
+            "inMain": false,
+            "outline": "rgb(15, 23, 42) none 3px"
+          },
+          "heading": "How to Reach The Hill",
+          "overflow": false
+        },
+        {
+          "id": 4,
+          "status": "PASS",
+          "errors": [],
+          "rootBytesMatch": true,
+          "selection": {
+            "url": "https://127.0.0.1:5221/",
+            "active": "<a class=\"okh-search-result\" href=\"/projects/bpmn-for-mermaid/\" data-active=\"true\"><div class=\"okh-search-result-meta\"><span class=\"okh-search-result-cat\">Project</span><span class=\"okh-search-result-url\">/projects/bpmn-for-mermaid/</span></div><h3 class=\"okh-search-result-title\">BPMN for <mark>Mermaid</mark> | OverKill Hill P³™</h3><p class=\"okh-search-result-snippet\">Availability: Published project. Maturity: Prototype; not a production <mark>Mermaid</mark> plugin. Evidence: Source description only. Delivery: unknown. overkillhill.com / projects / bpmn-for-<mark>mermaid</mark> Open Source bpmn-beta DSL BP-SKI…</p></a>",
+            "inMain": false,
+            "outline": "rgb(196, 106, 44) solid 2px"
+          },
+          "dirtySnippets": [],
+          "escape": {
+            "url": "https://127.0.0.1:5221/",
+            "active": "<button type=\"button\" class=\"okh-search-trigger\" aria-label=\"Open search (Ctrl+K)\"><svg class=\"okh-search-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"></circle><path d=\"m20 20-3.5-3.5\"></path></svg><span class=\"okh-search-label\">Search</span><kbd>Ctrl+K</kbd></button>",
+            "inMain": false,
+            "outline": "rgb(196, 106, 44) solid 2px"
+          },
+          "enter": "https://127.0.0.1:5221/writings/murderbird/"
+        },
+        {
+          "id": 5,
+          "status": "PASS",
+          "errors": [],
+          "rootBytesMatch": true,
+          "jump": {
+            "url": "https://127.0.0.1:5221/writings/murderbird/#the-maker",
+            "active": "<section id=\"the-maker\" aria-labelledby=\"maker-title\" tabindex=\"-1\">\n        <p class=\"manifesto-og-label\">Era I · Bronze Age Mesopotamia · The body</p>\n        <h2 id=\"maker-title\">The Maker</h2>\n        <p>The first thing recorded about the bird was that it broke a hammer. The hammer belonged to the Maker, whose workshop had spent seven winters bringing the creature into being. The court preferred to say three. Three sounded like an ambitious commission, while seven suggested something had gone wrong. Something had gone wrong almost every day, and the bronze carried evidence of most of it.</p>\n        <p>Copper came from the hills, and tin arrived by routes that changed with the season and the telling. Beyond the workshop, canals carried river water between fields and walls of sun-dried ",
+            "inMain": true,
+            "outline": "rgb(16, 16, 16) auto 1px"
+          },
+          "continuation": {
+            "url": "https://127.0.0.1:5221/writings/murderbird/#the-maker",
+            "active": "<a href=\"#the-maker\">I · The Maker</a>",
+            "inMain": true,
+            "outline": "rgb(196, 106, 44) solid 2px"
+          }
+        }
+      ]
+    },
+    {
+      "browser": "firefox",
+      "version": "153.0",
+      "tasks": [
+        {
+          "id": 1,
+          "status": "PASS",
+          "errors": [],
+          "rootBytesMatch": true,
+          "modes": [
+            {
+              "mode": "normal",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 538
+              }
+            },
+            {
+              "mode": "no-js",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 538
+              }
+            },
+            {
+              "mode": "blocked-app",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 538
+              }
+            },
+            {
+              "mode": "missing-observer",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 538
+              }
+            },
+            {
+              "mode": "constructor-failure",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 538
+              }
+            },
+            {
+              "mode": "observe-failure",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 538
+              }
+            },
+            {
+              "mode": "stalled-observer",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 538
+              }
+            },
+            {
+              "mode": "reduced-motion",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 538
+              }
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "status": "PASS",
+          "errors": [],
+          "rootBytesMatch": true,
+          "first": {
+            "url": "https://127.0.0.1:5221/",
+            "active": "<a class=\"okh-skip-link\" href=\"#main\">Skip to main content</a>",
+            "inMain": false,
+            "outline": "rgb(196, 106, 44) solid 2px"
+          },
+          "continuation": {
+            "url": "https://127.0.0.1:5221/#main",
+            "active": "<a href=\"#forge\">The Forge</a>",
+            "inMain": true,
+            "outline": "rgb(196, 106, 44) solid 2px"
+          }
+        },
+        {
+          "id": 3,
+          "status": "PASS",
+          "errors": [],
+          "rootBytesMatch": true,
+          "expanded": "true",
+          "destination": {
+            "url": "https://127.0.0.1:5221/contact/",
+            "active": "<body>\n  <a class=\"okh-skip-link\" href=\"#main\">Skip to main content</a>\n<header class=\"site-header\" id=\"top\">\n<div class=\"container\">\n<div class=\"logo\">\n<a aria-label=\"OverKill Hill P³ home\" href=\"/\">\n<img alt=\"OverKill Hill P³\" height=\"40\" loading=\"eager\" src=\"/assets/img/murderbird-v2-icon-nav-96.png\" width=\"40\">\n<span class=\"sr-only\">OverKill&nbsp;Hill&nbsp;P³™ Home</span>\n</a>\n</div>\n<nav aria-label=\"Primary\" class=\"primary-nav\" id=\"navigation\" aria-hidden=\"true\" inert=\"\">\n<ul>\n<li><a href=\"/#forge\">The Forge</a></li>\n<li class=\"has-submenu\">\n<a href=\"/projects/\">Our Projects</a>\n<ul class=\"submenu\">\n<li><a href=\"/projects/skillz/\">Skillz Forge</a></li>\n<li><a href=\"/projects/found-ry/\">Found‑Rᵧ</a></li>\n<li><a href=\"/projects/mermaid-theme-builder/\">Mermaid Theme Builder</a></li>\n<li>",
+            "inMain": false,
+            "outline": "rgb(15, 23, 42) 3px"
+          },
+          "heading": "How to Reach The Hill",
+          "overflow": false
+        },
+        {
+          "id": 4,
+          "status": "PASS",
+          "errors": [],
+          "rootBytesMatch": true,
+          "selection": {
+            "url": "https://127.0.0.1:5221/",
+            "active": "<a class=\"okh-search-result\" href=\"/projects/bpmn-for-mermaid/\" data-active=\"true\"><div class=\"okh-search-result-meta\"><span class=\"okh-search-result-cat\">Project</span><span class=\"okh-search-result-url\">/projects/bpmn-for-mermaid/</span></div><h3 class=\"okh-search-result-title\">BPMN for <mark>Mermaid</mark> | OverKill Hill P³™</h3><p class=\"okh-search-result-snippet\">Availability: Published project. Maturity: Prototype; not a production <mark>Mermaid</mark> plugin. Evidence: Source description only. Delivery: unknown. overkillhill.com / projects / bpmn-for-<mark>mermaid</mark> Open Source bpmn-beta DSL BP-SKI…</p></a>",
+            "inMain": false,
+            "outline": "rgb(196, 106, 44) solid 2px"
+          },
+          "dirtySnippets": [],
+          "escape": {
+            "url": "https://127.0.0.1:5221/",
+            "active": "<button type=\"button\" class=\"okh-search-trigger\" aria-label=\"Open search (Ctrl+K)\"><svg class=\"okh-search-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"></circle><path d=\"m20 20-3.5-3.5\"></path></svg><span class=\"okh-search-label\">Search</span><kbd>Ctrl+K</kbd></button>",
+            "inMain": false,
+            "outline": "rgb(196, 106, 44) solid 2px"
+          },
+          "enter": "https://127.0.0.1:5221/writings/murderbird/"
+        },
+        {
+          "id": 5,
+          "status": "PASS",
+          "errors": [],
+          "rootBytesMatch": true,
+          "jump": {
+            "url": "https://127.0.0.1:5221/writings/murderbird/#the-maker",
+            "active": "<section id=\"the-maker\" aria-labelledby=\"maker-title\" tabindex=\"-1\">\n        <p class=\"manifesto-og-label\">Era I · Bronze Age Mesopotamia · The body</p>\n        <h2 id=\"maker-title\">The Maker</h2>\n        <p>The first thing recorded about the bird was that it broke a hammer. The hammer belonged to the Maker, whose workshop had spent seven winters bringing the creature into being. The court preferred to say three. Three sounded like an ambitious commission, while seven suggested something had gone wrong. Something had gone wrong almost every day, and the bronze carried evidence of most of it.</p>\n        <p>Copper came from the hills, and tin arrived by routes that changed with the season and the telling. Beyond the workshop, canals carried river water between fields and walls of sun-dried ",
+            "inMain": true,
+            "outline": "rgb(15, 23, 42) auto 1px"
+          },
+          "continuation": {
+            "url": "https://127.0.0.1:5221/writings/murderbird/#the-maker",
+            "active": "<a href=\"#the-maker\">I · The Maker</a>",
+            "inMain": true,
+            "outline": "rgb(196, 106, 44) solid 2px"
+          }
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "version": "26.5",
+      "tasks": [
+        {
+          "id": 1,
+          "status": "PASS",
+          "errors": [],
+          "rootBytesMatch": true,
+          "modes": [
+            {
+              "mode": "normal",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            },
+            {
+              "mode": "no-js",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            },
+            {
+              "mode": "blocked-app",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            },
+            {
+              "mode": "missing-observer",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            },
+            {
+              "mode": "constructor-failure",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            },
+            {
+              "mode": "observe-failure",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            },
+            {
+              "mode": "stalled-observer",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            },
+            {
+              "mode": "reduced-motion",
+              "text": "Precision · Protocol · Promptcraft",
+              "ancestorOpacity": 1,
+              "art": {
+                "complete": true,
+                "width": 537
+              }
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "status": "FAIL",
+          "errors": [],
+          "rootBytesMatch": true,
+          "first": {
+            "url": "https://127.0.0.1:5221/",
+            "active": "<button aria-expanded=\"false\" aria-haspopup=\"true\" aria-label=\"Language: English (US)\" class=\"lang-switch-toggle\" type=\"button\"><span class=\"lang-flag-current\"><svg aria-hidden=\"true\" class=\"lang-flag\" height=\"14\" viewBox=\"0 0 30 20\" width=\"21\"><rect fill=\"#B22234\" height=\"20\" width=\"30\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"1.54\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"4.62\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"7.69\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"10.77\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"13.85\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"16.92\"></rect><rect fill=\"#3C3B6E\" height=\"10.77\" width=\"12\"></rect></svg></span></button>",
+            "inMain": false,
+            "outline": "3px none rgb(249, 250, 251)"
+          },
+          "error": "The input did not match the regular expression /okh-skip-link/. Input:\n\n'<button aria-expanded=\"false\" aria-haspopup=\"true\" aria-label=\"Language: English (US)\" class=\"lang-switch-toggle\" type=\"button\"><span class=\"lang-flag-current\"><svg aria-hidden=\"true\" class=\"lang-flag\" height=\"14\" viewBox=\"0 0 30 20\" width=\"21\"><rect fill=\"#B22234\" height=\"20\" width=\"30\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"1.54\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"4.62\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"7.69\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"10.77\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"13.85\"></rect><rect fill=\"#FFFFFF\" height=\"1.54\" width=\"30\" y=\"16.92\"></rect><rect fill=\"#3C3B6E\" height=\"10.77\" width=\"12\"></rect></svg></span></button>'\n"
+        },
+        {
+          "id": 3,
+          "status": "FAIL",
+          "errors": [],
+          "rootBytesMatch": true,
+          "expanded": "true",
+          "error": "Tab target not reached: #navigation a[href=\"/contact/\"]"
+        },
+        {
+          "id": 4,
+          "status": "PASS",
+          "errors": [],
+          "rootBytesMatch": true,
+          "selection": {
+            "url": "https://127.0.0.1:5221/",
+            "active": "<a class=\"okh-search-result\" href=\"/projects/bpmn-for-mermaid/\" data-active=\"true\"><div class=\"okh-search-result-meta\"><span class=\"okh-search-result-cat\">Project</span><span class=\"okh-search-result-url\">/projects/bpmn-for-mermaid/</span></div><h3 class=\"okh-search-result-title\">BPMN for <mark>Mermaid</mark> | OverKill Hill P³™</h3><p class=\"okh-search-result-snippet\">Availability: Published project. Maturity: Prototype; not a production <mark>Mermaid</mark> plugin. Evidence: Source description only. Delivery: unknown. overkillhill.com / projects / bpmn-for-<mark>mermaid</mark> Open Source bpmn-beta DSL BP-SKI…</p></a>",
+            "inMain": false,
+            "outline": "2px solid rgb(196, 106, 44)"
+          },
+          "dirtySnippets": [],
+          "escape": {
+            "url": "https://127.0.0.1:5221/",
+            "active": "<button type=\"button\" class=\"okh-search-trigger\" aria-label=\"Open search (Ctrl+K)\"><svg class=\"okh-search-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"></circle><path d=\"m20 20-3.5-3.5\"></path></svg><span class=\"okh-search-label\">Search</span><kbd>Ctrl+K</kbd></button>",
+            "inMain": false,
+            "outline": "2px solid rgb(196, 106, 44)"
+          },
+          "enter": "https://127.0.0.1:5221/writings/murderbird/"
+        },
+        {
+          "id": 5,
+          "status": "FAIL",
+          "errors": [],
+          "rootBytesMatch": true,
+          "error": "Tab target not reached: a[href=\"#the-maker\"]"
+        }
+      ]
+    }
+  ]
+}
