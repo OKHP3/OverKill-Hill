@@ -34,6 +34,7 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         expected_commit: str | None = None,
         manifest_commit: str = "a" * 40,
         hosting_headers: dict[str, str] | None = None,
+        asset_fingerprint: str | None = None,
     ) -> tuple[int, dict[str, object]]:
         """Run the full verifier against deterministic synthetic edge responses."""
         sitemap = verify_live_edge.canonical_text_bytes(verify_live_edge.SITEMAP)
@@ -58,9 +59,12 @@ class VerifyLiveEdgeTests(unittest.TestCase):
             "x-fastly-request-id": "fixture-fastly",
         }
         html_headers.update(hosting_headers or {})
+        css_bytes = verify_live_edge.canonical_text_bytes(ROOT / "assets/css/theme.css")
+        css_hash = asset_fingerprint or hashlib.sha256(css_bytes).hexdigest()[:8]
+        css_path = f"/assets/css/theme.css?v={css_hash}"
         html = (
             '<!doctype html><meta name="robots" content="{robots}">'
-            '<link href="/assets/css/theme.css?v=f0de78d0" rel="stylesheet">'
+            f'<link href="{css_path}" rel="stylesheet">'
         )
         responses = {
             verify_live_edge.RELEASE_MANIFEST: {
@@ -102,14 +106,14 @@ class VerifyLiveEdgeTests(unittest.TestCase):
                 "headers": html_headers,
                 "body": html.format(robots="noindex").encode("utf-8"),
             },
-            "/assets/css/theme.css?v=f0de78d0": {
+            css_path: {
                 "ok": True,
                 "status": 200,
                 "headers": {
                     "content-type": "text/css",
                     "cache-control": "max-age=31536000, immutable",
                 },
-                "body": (ROOT / "assets/css/theme.css").read_bytes(),
+                "body": css_bytes,
             },
         }
 
@@ -165,6 +169,12 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         checks = {item["check"]: item for item in report["checks"]}
         self.assertEqual(checks["release manifest"]["status"], "FAIL")
         self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
+
+    def test_wrong_asset_fingerprint_still_fails(self) -> None:
+        return_code, report = self.run_live_edge_fixture(asset_fingerprint="00000000")
+        self.assertEqual(return_code, 1)
+        self.assertTrue(any(item["status"] == "FAIL" and "fingerprint" in str(item)
+                            for item in report["checks"]))
 
     def test_changed_hosting_path_fails_despite_pages_limitations(self) -> None:
         return_code, report = self.run_live_edge_fixture(
