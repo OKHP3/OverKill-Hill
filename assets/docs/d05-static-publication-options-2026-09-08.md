@@ -15,7 +15,7 @@ assets. It rejects unsafe paths and verifies that source files such as
 `server.py`, `site-src/pages.json`, `AGENTS.md`, and build/test tooling are not
 in the package. The existing release and preview tests exercise this boundary.
 
-The checked-in `.replit` file declares:
+This proposal branch changes `.replit` to declare:
 
 ```toml
 [deployment]
@@ -28,13 +28,25 @@ other configuration that invokes `scripts/build-release.py` before a static
 deployment. The available repository evidence therefore proves the package
 builder and the selected publication directory, but does not prove that a
 Replit deployment will materialize `site-release` automatically.
+The current `origin/main` checkout and the observed Replit deployment still use
+`publicDir = "."`; the `site-release` setting exists only in this unpublished
+proposal branch.
+
+The new regression test is not wired into the existing GitHub Actions workflow;
+it has been run locally with the release-package and preview-server tests.
+
+The available public probes are status-only evidence: `/server.py` returned
+HTTP 200 with Python source and `/site-src/pages.json` returned HTTP 200 with
+JSON. Those observations identify the current exposure but do not establish
+the complete deployed file inventory or deployment provenance.
 
 ## Options
 
-1. **Retire the existing Replit route.** This avoids changing a public route
-   whose exact deployment intent and deployment identifier are not recorded in
-   this repository. The Replit UI warns that changing deployment type requires
-   unpublishing and publishing again; no such action is authorized here.
+1. **Retire the existing Replit route.** This removes the exposure, but
+   interrupts users of that URL. The exact deployment intent, usage, and
+   deployment identifier are not recorded in this repository. The Replit UI
+   warns that changing deployment type requires unpublishing and publishing
+   again; no such action is authorized here.
 
 2. **Republish from a verified staged package.** First arrange an owner-approved
    process that runs the exact builder command above and places its output at
@@ -54,5 +66,8 @@ deployment type” action and warns that the route must be unpublished and
 published again; no standalone unpublish control was observed. Site usage
 intent and the exact deployment ID remain unknown.
 
-This D05 work does not deploy, unpublish, push, or mutate Replit. A parent/owner
-decision is required between retirement and an owner-approved republish path.
+This D05 work does not deploy, unpublish, push, or mutate Replit. That boundary
+comes from the A21 integration directive for the A08/D05 separate proposal; it
+is an explicit task restriction, not an inferred skill approval requirement. A
+parent/owner decision is required between retirement and an owner-approved
+republish path.
