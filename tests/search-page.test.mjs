@@ -41,6 +41,92 @@ function makeSearchEntries() {
   return entries;
 }
 
+for (const overlayMode of [true, false]) {
+  test(`search distinguishes loading and an empty index (${overlayMode ? "overlay" : "page"})`, async () => {
+    const browser = await chromium.launch({ headless: true });
+    const page = await browser.newPage();
+    let releaseIndex;
+    const pending = new Promise(resolve => { releaseIndex = resolve; });
+    try {
+      await page.route("**/assets/data/search-index.json", async route => {
+        await pending;
+        await route.fulfill({ contentType: "application/json", body: '{"entries":[]}' });
+      });
+      await page.goto(`${baseUrl}${overlayMode ? "/" : "/search/"}`, { waitUntil: "domcontentloaded" });
+      if (overlayMode) await page.locator(".okh-search-trigger").click();
+      const input = page.locator(overlayMode ? ".okh-search-input" : "#search-page-input");
+      const status = page.locator(overlayMode ? ".okh-search-status" : "#search-stats");
+      await input.fill("omega");
+      assert.match(await status.textContent(), /Loading/);
+      releaseIndex();
+      await page.waitForFunction(selector => document.querySelector(selector).textContent.includes("No indexed pages"), overlayMode ? ".okh-search-status" : "#search-stats");
+      await input.fill("");
+      assert.match(await status.textContent(), /No indexed pages/);
+      await input.press("Enter");
+      assert.equal(await input.evaluate(el => el === document.activeElement), true);
+    } finally { releaseIndex(); await browser.close(); }
+  });
+
+  test(`search focuses ordinary result links (${overlayMode ? "overlay" : "page"})`, async () => {
+    const browser = await chromium.launch({ headless: true });
+    const page = await browser.newPage();
+    try {
+      await page.route("**/assets/data/search-index.json", route => route.fulfill({
+        contentType: "application/json", body: JSON.stringify({ entries: makeSearchEntries().slice(0, 3) }),
+      }));
+      await page.goto(`${baseUrl}${overlayMode ? "/" : "/search/?q=omega"}`, { waitUntil: "networkidle" });
+      const trigger = page.locator(".okh-search-trigger");
+      if (overlayMode) await trigger.click();
+      const input = page.locator(overlayMode ? ".okh-search-input" : "#search-page-input");
+      const scope = page.locator(overlayMode ? ".okh-search-results" : "#search-results");
+      await input.fill("omega");
+      const links = scope.locator(".okh-search-result");
+      await links.first().waitFor();
+      await input.press("ArrowDown");
+      assert.equal(await links.first().evaluate(el => el === document.activeElement), true);
+      await page.keyboard.press("ArrowDown");
+      assert.equal(await links.nth(1).evaluate(el => el === document.activeElement), true);
+      await page.keyboard.press("Tab");
+      assert.equal(await links.last().evaluate(el => el === document.activeElement), true);
+      await page.keyboard.press("ArrowDown");
+      assert.equal(await links.last().evaluate(el => el === document.activeElement), true);
+      await page.keyboard.press("ArrowUp");
+      await page.keyboard.press("ArrowUp");
+      await page.keyboard.press("ArrowUp");
+      assert.equal(await input.evaluate(el => el === document.activeElement), true);
+      assert.equal(await input.inputValue(), "omega");
+      await input.press("ArrowUp");
+      assert.equal(await links.last().evaluate(el => el === document.activeElement), true);
+      await input.focus();
+      await input.fill("no-such-result");
+      await input.press("ArrowDown");
+      assert.equal(await input.evaluate(el => el === document.activeElement), true);
+      await input.fill("omega");
+      if (overlayMode) {
+        await input.press("ArrowDown");
+        await page.keyboard.press("Escape");
+        assert.equal(await trigger.evaluate(el => el === document.activeElement), true);
+        await trigger.click();
+      }
+      await input.press("ArrowDown");
+      const target = await links.first().getAttribute("href");
+      await page.keyboard.press("Enter");
+      await page.waitForURL(`${baseUrl}${target}`);
+    } finally { await browser.close(); }
+  });
+}
+
+test("Enter from the dedicated search input opens its first result", async () => {
+  const browser = await chromium.launch({ headless: true });
+  const page = await browser.newPage();
+  try {
+    await openSearchPage(page, route => route.fulfill({ contentType: "application/json", body: JSON.stringify({ entries: makeSearchEntries() }) }));
+    const target = await page.locator("#search-results .okh-search-result").first().getAttribute("href");
+    await page.locator("#search-page-input").press("Enter");
+    await page.waitForURL(`${baseUrl}${target}`);
+  } finally { await browser.close(); }
+});
+
 test("uses each site's identity and vocabulary in the shared search overlay", async () => {
   const browser = await chromium.launch({ headless: true });
   const home = await readFile(resolve(repositoryRoot, "index.html"), "utf8");

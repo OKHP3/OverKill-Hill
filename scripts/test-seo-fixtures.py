@@ -164,6 +164,13 @@ class SEOFixtureTests(unittest.TestCase):
             "social image type",
         )
 
+    def test_mismatched_social_images_rejected_in_source(self) -> None:
+        mutation = self.fixture_data["social_image_parity"]
+        self.assert_source_seo_mutation(
+            mutation,
+            "social card image mismatch",
+        )
+
     def test_missing_article_metadata_rejected_in_source(self) -> None:
         mutation = self.fixture_data["missing_article_metadata"]
         self.assert_source_seo_mutation(
@@ -258,6 +265,27 @@ class SEOFixtureTests(unittest.TestCase):
                     self.pages_by_route["/"],
                 )
                 self.assert_rejected(findings, "social image")
+
+    def test_mismatched_social_images_rejected_in_generated_metadata(self) -> None:
+        mutation = self.fixture_data["social_image_parity"]
+        path = GENERATED_FIXTURE / "index.html.fixture"
+        original_raw = path.read_text(encoding="utf-8")
+        mutated_raw = mutate_meta(
+            original_raw,
+            mutation["field"],
+            mutation["value"],
+        )
+        self.assertEqual(
+            original_raw.split("<body>", 1)[1],
+            mutated_raw.split("<body>", 1)[1],
+            "generated fixture mutation changed editorial content",
+        )
+        findings = validator.validate_generated_seo(
+            path,
+            parse_html(mutated_raw),
+            self.pages_by_route[mutation["route"]],
+        )
+        self.assert_rejected(findings, "social card image mismatch")
 
     def test_missing_article_metadata_rejected_in_generated_metadata(self) -> None:
         mutation = self.fixture_data["missing_article_metadata"]

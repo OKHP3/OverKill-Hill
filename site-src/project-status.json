@@ -1,29 +1,349 @@
 {
-  "schema": 1,
-  "reviewed": "2026-09-05",
+  "schema": 2,
+  "reviewed": "2026-09-07",
+  "review_scope": "Editorial source review; no current external functional acceptance.",
   "projects": [
     {
       "id": "abrahamic-reference-engine",
       "title": "Abrahamic Reference Engine",
-      "purpose": "Citation-first scripture reference across Judaism, Christianity, and Islam.",
-      "status": "Active",
-      "version": "v1.1",
-      "surface_status": "Active",
-      "reviewed": "2026-09-05",
       "route": "/projects/abrahamic-reference-engine/",
-      "source": "https://github.com/OKHP3/abrahamic-reference-engine"
+      "kind": "detail",
+      "availability": "Published project",
+      "maturity": "Reported active release v1.1",
+      "reviewed": "2026-09-07",
+      "shelf": true,
+      "shelf_exception": null,
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Source description only.",
+        "source": "site-src/pages/projects/abrahamic-reference-engine/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/abrahamic-reference-engine/index.html"
+      }
+    },
+    {
+      "id": "bfs-framing-intelligent-futures",
+      "title": "BFS Framing Intelligent Futures",
+      "route": "/projects/bfs-framing-intelligent-futures/",
+      "kind": "detail",
+      "availability": "Published case study",
+      "maturity": "Independent prototype",
+      "reviewed": "2026-09-07",
+      "shelf": false,
+      "shelf_exception": "Historical independent prototype, retained off the main shelf.",
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Source description only.",
+        "source": "site-src/pages/projects/bfs-framing-intelligent-futures/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/bfs-framing-intelligent-futures/index.html"
+      }
+    },
+    {
+      "id": "bpmn-for-mermaid",
+      "title": "BPMN for Mermaid",
+      "route": "/projects/bpmn-for-mermaid/",
+      "kind": "detail",
+      "availability": "Published project",
+      "maturity": "Prototype; not a production Mermaid plugin",
+      "reviewed": "2026-09-07",
+      "shelf": true,
+      "shelf_exception": null,
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Source description only.",
+        "source": "site-src/pages/projects/bpmn-for-mermaid/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/bpmn-for-mermaid/index.html"
+      }
+    },
+    {
+      "id": "first-diagram-is-a-liar",
+      "title": "The First Diagram Is Usually a Liar",
+      "route": "/projects/first-diagram-is-a-liar/",
+      "kind": "detail",
+      "availability": "Published writing companion",
+      "maturity": "Tutorial and evidence archive",
+      "reviewed": "2026-09-07",
+      "shelf": true,
+      "shelf_exception": null,
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Source description only.",
+        "source": "site-src/pages/projects/first-diagram-is-a-liar/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/first-diagram-is-a-liar/index.html"
+      }
+    },
+    {
+      "id": "found-ry",
+      "title": "Found‑Rᵧ",
+      "route": "/projects/found-ry/",
+      "kind": "detail",
+      "availability": "Published project",
+      "maturity": "Browser workbench; maturity unverified",
+      "reviewed": "2026-09-07",
+      "shelf": true,
+      "shelf_exception": null,
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Source description only.",
+        "source": "site-src/pages/projects/found-ry/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/found-ry/index.html"
+      }
+    },
+    {
+      "id": "glee-fully-chai-chasers",
+      "title": "Glee-fully Chai Chasers",
+      "route": "/projects/glee-fully-chai-chasers/",
+      "kind": "detail",
+      "availability": "Published project",
+      "maturity": "Browser game; maturity unverified",
+      "reviewed": "2026-09-07",
+      "shelf": true,
+      "shelf_exception": null,
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Source description only.",
+        "source": "site-src/pages/projects/glee-fully-chai-chasers/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/glee-fully-chai-chasers/index.html"
+      }
+    },
+    {
+      "id": "hometools",
+      "title": "Homestead‑R",
+      "route": "/projects/hometools/",
+      "kind": "detail",
+      "availability": "Noindex concept page",
+      "maturity": "Planned capabilities; no public launch established",
+      "reviewed": "2026-09-07",
+      "shelf": false,
+      "shelf_exception": "Concept, not selected for the main shelf.",
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Source description only.",
+        "source": "site-src/pages/projects/hometools/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/hometools/index.html"
+      }
+    },
+    {
+      "id": "kierans-lifetrkr",
+      "title": "Kieran's LifeTrkr",
+      "route": "/projects/kierans-lifetrkr/",
+      "kind": "detail",
+      "availability": "Published project",
+      "maturity": "Pre-production v0.1.10",
+      "reviewed": "2026-09-07",
+      "shelf": true,
+      "shelf_exception": null,
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Source description only.",
+        "source": "site-src/pages/projects/kierans-lifetrkr/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/kierans-lifetrkr/index.html"
+      }
+    },
+    {
+      "id": "mac-studio-local-ai-workbench",
+      "title": "Mac Studio Local AI Workbench",
+      "route": "/projects/mac-studio-local-ai-workbench/",
+      "kind": "detail",
+      "availability": "Published build journal",
+      "maturity": "Dated build record; current readiness unverified",
+      "reviewed": "2026-09-07",
+      "shelf": true,
+      "shelf_exception": null,
+      "evidence": {
+        "tier": "source-described",
+        "summary": "May 30 benchmark recorded; August 2 report leaves end-to-end RAG unverified.",
+        "source": "site-src/pages/projects/mac-studio-local-ai-workbench/index.main.html",
+        "delivery": "unknown",
+        "revision": "863d48a80958d91452e5ccac0bb0d181f7192688",
+        "url": "https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/reports/openclaw-related-runtime-readiness-audit-2026-08-02.md"
+      }
+    },
+    {
+      "id": "mermaid-theme-builder",
+      "title": "Mermaid Theme Builder",
+      "route": "/projects/mermaid-theme-builder/",
+      "kind": "detail",
+      "availability": "Published project",
+      "maturity": "Reported release v0.6.1",
+      "reviewed": "2026-09-07",
+      "shelf": true,
+      "shelf_exception": null,
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Source description only.",
+        "source": "site-src/pages/projects/mermaid-theme-builder/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/mermaid-theme-builder/index.html"
+      }
+    },
+    {
+      "id": "pathscrib-r",
+      "title": "PathScrib‑R",
+      "route": "/projects/pathscrib-r/",
+      "kind": "detail",
+      "availability": "Noindex concept page",
+      "maturity": "Planned capabilities; no public launch established",
+      "reviewed": "2026-09-07",
+      "shelf": false,
+      "shelf_exception": "Concept, not selected for the main shelf.",
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Source description only.",
+        "source": "site-src/pages/projects/pathscrib-r/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/pathscrib-r/index.html"
+      }
     },
     {
       "id": "skillz",
       "title": "Skillz Forge",
-      "purpose": "Discoverable, inspectable, and installable Agent Skill contracts.",
-      "status": "Active",
-      "surface_status": "Live: Active Build",
-      "reviewed": "2026-09-05",
       "route": "/projects/skillz/",
-      "live": "https://okhp3.github.io/skillz/",
-      "source": "https://github.com/OKHP3/skillz",
-      "featured": true
+      "kind": "detail",
+      "availability": "Published catalog project",
+      "maturity": "Active build; package maturity varies",
+      "reviewed": "2026-09-07",
+      "shelf": true,
+      "shelf_exception": null,
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Source description only.",
+        "source": "site-src/pages/projects/skillz/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
+      }
+    },
+    {
+      "id": "telling-forward",
+      "title": "Telling Forward",
+      "route": "/projects/telling-forward/",
+      "kind": "detail",
+      "availability": "Published project",
+      "maturity": "Static Author App prototype; service operations separate",
+      "reviewed": "2026-09-07",
+      "shelf": true,
+      "shelf_exception": null,
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Source description only.",
+        "source": "site-src/pages/projects/telling-forward/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/telling-forward/index.html"
+      }
+    },
+    {
+      "id": "un-nocked-truth",
+      "title": "Un‑NOCKed Truth",
+      "route": "/projects/un-nocked-truth/",
+      "kind": "detail",
+      "availability": "Noindex concept page",
+      "maturity": "Planned capabilities; no public launch established",
+      "reviewed": "2026-09-07",
+      "shelf": false,
+      "shelf_exception": "Concept, not selected for the main shelf.",
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Source description only.",
+        "source": "site-src/pages/projects/un-nocked-truth/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/un-nocked-truth/index.html"
+      }
+    },
+    {
+      "id": "prompt-forge",
+      "title": "Prompt Forge",
+      "route": "/prompt-forge/",
+      "kind": "shelf-exception",
+      "availability": "Published resource hub",
+      "maturity": "Workshop resources; not a software release",
+      "reviewed": "2026-09-07",
+      "shelf": true,
+      "shelf_exception": "Intentional shelf entry without a project detail route.",
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Shelf reference only.",
+        "source": "site-src/pages/projects/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+      }
+    },
+    {
+      "id": "glee-fully",
+      "title": "Glee-fully Personalizable Tools",
+      "route": "https://glee-fully.tools/",
+      "kind": "shelf-exception",
+      "availability": "External site link",
+      "maturity": "Unknown",
+      "reviewed": "2026-09-07",
+      "shelf": true,
+      "shelf_exception": "Intentional shelf entry without a project detail route.",
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Shelf reference only.",
+        "source": "site-src/pages/projects/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+      }
+    },
+    {
+      "id": "askjamie",
+      "title": "AskJamie",
+      "route": "https://askjamie.bot/",
+      "kind": "shelf-exception",
+      "availability": "External site link",
+      "maturity": "Unknown",
+      "reviewed": "2026-09-07",
+      "shelf": true,
+      "shelf_exception": "Intentional shelf entry without a project detail route.",
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Shelf reference only.",
+        "source": "site-src/pages/projects/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+      }
+    },
+    {
+      "id": "protocol-libraries",
+      "title": "Protocol Libraries",
+      "route": "mailto:contact@overkillhill.com",
+      "kind": "shelf-exception",
+      "availability": "Access inquiry",
+      "maturity": "Unknown",
+      "reviewed": "2026-09-07",
+      "shelf": true,
+      "shelf_exception": "Intentional shelf entry without a project detail route.",
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Shelf reference only.",
+        "source": "site-src/pages/projects/index.main.html",
+        "delivery": "unknown",
+        "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+        "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+      }
     }
   ]
 }

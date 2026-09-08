@@ -1,0 +1,93 @@
+{
+  "candidate": "d4d5f289a327d2012c81d4129c42d2f180599834",
+  "baseline": "c2d23f088d5c29cc3df5c2e8f1b5eb9d479da61a",
+  "normalization": "UTF-8 with CRLF normalized to LF before DOM comparison. Initial raw-byte parser assertion encountered line-ending variance; explicit decoding passes.",
+  "historical_test_unchanged": true,
+  "checks": [
+    {
+      "path": "index.html",
+      "check": "Historical fallback image alt/title contract",
+      "status": "PASS"
+    },
+    {
+      "path": "index.html",
+      "check": "Historical whole-page text equality",
+      "status": "FAIL",
+      "expected_for_content_wave": true,
+      "reason": "A06 goal qualification, A11 status content, A12 Featured claims and A13 reviewed French updates change whole-page text."
+    },
+    {
+      "path": "fr/index.html",
+      "check": "Historical fallback image alt/title contract",
+      "status": "PASS"
+    },
+    {
+      "path": "fr/index.html",
+      "check": "Historical whole-page text equality",
+      "status": "FAIL",
+      "expected_for_content_wave": true,
+      "reason": "A06 goal qualification, A11 status content, A12 Featured claims and A13 reviewed French updates change whole-page text."
+    },
+    {
+      "path": "writings/biases-as-constants/index.html",
+      "check": "Original narrative or unrelated main text unchanged from content baseline",
+      "status": "PASS"
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/index.html",
+      "check": "Original narrative or unrelated main text unchanged from content baseline",
+      "status": "PASS"
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v1-heat-a/index.html",
+      "check": "Original narrative or unrelated main text unchanged from content baseline",
+      "status": "PASS"
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v1-heat-b/index.html",
+      "check": "Original narrative or unrelated main text unchanged from content baseline",
+      "status": "PASS"
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v2-heat-a/index.html",
+      "check": "Original narrative or unrelated main text unchanged from content baseline",
+      "status": "PASS"
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v2-heat-b/index.html",
+      "check": "Original narrative or unrelated main text unchanged from content baseline",
+      "status": "PASS"
+    },
+    {
+      "path": "writings/magnus-saga/index.html",
+      "check": "Original narrative or unrelated main text unchanged from content baseline",
+      "status": "PASS"
+    },
+    {
+      "path": "writings/murderbird/index.html",
+      "check": "Original narrative or unrelated main text unchanged from content baseline",
+      "status": "PASS"
+    },
+    {
+      "path": "manifesto/index.html",
+      "check": "Original narrative or unrelated main text unchanged from content baseline",
+      "status": "PASS"
+    },
+    {
+      "path": "about/index.html",
+      "check": "Original narrative or unrelated main text unchanged from content baseline",
+      "status": "PASS"
+    },
+    {
+      "path": "contact/index.html",
+      "check": "Original narrative or unrelated main text unchanged from content baseline",
+      "status": "PASS"
+    },
+    {
+      "path": "assets/img/etch-ai-sketch-using-a-council-to-design-at-velocity.png",
+      "check": "Original PNG bytes unchanged",
+      "status": "PASS"
+    }
+  ],
+  "interpretation": "Historical text equality fails, not waived or reported as passing. Its fallback-only premise conflicts with approved content changes. Image alt/title protection, original PNG identity and original narrative/unrelated main-text requirements remain independently checked."
+}

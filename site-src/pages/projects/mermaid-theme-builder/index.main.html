@@ -10,8 +10,8 @@
 <div class="tag-row">
 <span class="tag">Community Tool</span>
 <span class="tag">Open Source</span>
-<span class="tag tag--accent">v0.6.1 Shipped</span>
-<span class="tag tag--accent">Agent Skill Family Shipped</span>
+
+
 </div>
 <h1>Mermaid Theme Builder</h1>
 <p class="hero-sub">Visual governance for AI-generated Mermaid diagrams.</p>
@@ -161,7 +161,7 @@
 <li><span class="bullet">◆</span>A visual workbench for defining and enforcing Mermaid diagram themes</li>
 <li><span class="bullet">◆</span>A renderer-aware export tool: flags what breaks in GitHub, GitLab, Obsidian, Notion, Confluence</li>
 <li><span class="bullet">◆</span>A brand palette enforcer: presets for OverKill Hill P³, Glee-fully, and AskJamie, plus four utility palettes (Ocean Depth, Forest Sage, Slate Ember, Violet Mist)</li>
-<li><span class="bullet">◆</span>A prompt scaffold generator: AI tools stay on-brand from the first generation</li>
+<li><span class="bullet">◆</span>A prompt scaffold generator: designed to give AI tools brand guidance before generation</li>
 <li><span class="bullet">◆</span>A SKILL.md-packaged agent skill for headless diagram-governance workflows</li>
 <li><span class="bullet">◆</span>An open-source community contribution to the Mermaid.js ecosystem. MIT licensed. Free always.</li>
 </ul>
@@ -198,7 +198,7 @@
 <span class="why-mark why-mark--yes">✓</span>
 <h3>Mermaid Theme Builder</h3>
 </div>
-<p>Pick a color, see every diagram type update instantly. Export as a <code>themeVariables</code> block, a Markdown style bootstrap, or a renderer-aware prompt scaffold. AI tools stay on-brand from the first generation, not the sixth.</p>
+<p>Pick a color, see every diagram type update instantly. Export as a <code>themeVariables</code> block, a Markdown style bootstrap, or a renderer-aware prompt scaffold. The scaffold gives AI tools brand guidance before generation; check the result in your target renderer.</p>
 </div>
 </div>
 <div class="why-note">
@@ -471,7 +471,7 @@
 <div aria-hidden="true" class="feature-icon">◎</div>
 <div>
 <h3>Prompt Scaffold Generator</h3>
-<p>Generates LLM-ready prompt prefixes with your theme embedded. AI tools produce on-brand Mermaid on the first try: no follow-up styling cycles needed.</p>
+<p>Generates LLM-ready prompt prefixes with your theme embedded. The scaffold aims to reduce styling rework. Check the generated diagram in your target renderer; follow-up edits may still be needed.</p>
 </div>
 </div>
 <div class="feature-item">
@@ -909,7 +909,7 @@ cp -R "$package" .github/skills/okhp3-mermaid-theme-builder</pre>
 <span class="step-num">05</span>
 <div class="step-content">
 <strong>Use prompt scaffolds in ChatGPT, Claude, or Copilot</strong>
-<p>Paste the generated prompt scaffold before your next diagram request. AI tools produce on-brand Mermaid from the first generation, with no follow-up styling cycles needed.</p>
+<p>Paste the generated prompt scaffold before your next diagram request. The scaffold supplies brand guidance; inspect the generated diagram in your target renderer and revise as needed.</p>
 </div>
 </li>
 </ol>
@@ -993,7 +993,7 @@ cp -R "$package" .github/skills/okhp3-mermaid-theme-builder</pre>
 </div>
 <div class="faq-item">
 <p class="faq-q">Can I use the exported theme with Docusaurus, VitePress, or GitHub?</p>
-<p class="faq-a">Yes. The exported themeVariables object is standard Mermaid config; it works anywhere Mermaid.js is used. Check your platform's docs on how to pass themeVariables.</p>
+<p class="faq-a">The exported themeVariables object uses Mermaid configuration, but support depends on the host and diagram type. Check whether your platform accepts custom themeVariables, then test the export in that renderer.</p>
 </div>
 <div class="faq-item">
 <p class="faq-q">Does it support dark/light mode preview toggle?</p>
