@@ -36,10 +36,10 @@ restore old runtime or translation bytes to match them.
 | --- | --- | --- |
 | A03/A04/A05/A07/A08/A09/A10/A18 and T01 | First-wave work incorporated in PR62, including superseding implementations | A21 compares and preserves remaining local variants before cleanup |
 | A06/A11/A12/A13/A16 | Content wave incorporated in PR65 | Reconcile residual local work against the published implementation; do not merge entire old branches |
-| A14 | Forge front door layout implemented in PR76 at `bd6ceacc2ab1238020216ad010c485ad9e3e94b9` | Preserve the original proposal record as historical evidence; production layout is now adopted |
+| A14 | Option A Forge front door layout implemented in PR76 at `bd6ceacc2ab1238020216ad010c485ad9e3e94b9` | Preserve Option A as current production; Option B editorial dimensional cards are authorized and pending implementation, release, and acceptance |
 | A15 | Reader/contact proposal preserved through PR75 integration without adoption | Keep the proposal artifact and dated evidence; applying new content still needs source review |
 | A17 | Implementation delivered; hosted evidence PR68 merged at `b200c034` | Retain the dated evidence and superseded local variant |
-| A19/T05/W13 | Hosting, locale-policy and analytics proposal packages remain outside main | Preserve original artifacts and dated evidence without adopting policy or changing settings |
+| A19/T05/W13 | Proposal artifacts preserved through PR75 without policy, hosting, analytics, or locale-publication adoption | Preserve the dated evidence and require a fresh owner decision before any future adoption |
 | T02 | Reviewed-target integrity safeguards incorporated through PR75 at `95230cf2` | Retain the closeout evidence; current-SHA and hosted acceptance remain separate gates |
 | T03 | Translation package discovery safeguards incorporated through PR75 at `95230cf2` | Retain the closeout evidence; current-SHA and hosted acceptance remain separate gates |
 | T04 | Translation operating documentation incorporated through PR75 at `95230cf2` | Retain the closeout evidence; current-SHA and hosted acceptance remain separate gates |
@@ -59,11 +59,13 @@ PRs: [62](https://github.com/OKHP3/OverKill-Hill/pull/62),
 PR74 is merged at `250f5f12`; owner main fast-forwarded to it cleanly, preserving
 the earlier local `11895417` commit. PR75 and PR76 have now been merged into
 current main. PR75 incorporates the reviewed T02, T03, T04 and T06 safeguards
-and preserves the A15 proposal artifact; PR76 adopts the A14 Forge front door
-layout. The isolated integration candidate also combines reviewed PR66, PR67 and
-PR69-73 through ordinary branch merges, but candidate inclusion is not a claim
-that every proposal package was adopted. T05/W13/A19 preserve the original dated
-policy packages without adopting settings or publication changes.
+and preserves the A15 proposal artifact; PR76 adopts the A14 Option A Forge front
+door layout. A14 Option B editorial dimensional cards are authorized for a
+future implementation and release, not yet current production. The isolated
+integration candidate also combines reviewed PR66, PR67 and PR69-73 through
+ordinary branch merges, but candidate inclusion is not a claim that every
+proposal package was adopted. T05/W13/A19 preserve the original dated policy
+packages without adopting settings or publication changes.
 
 Combined local validation passes: 59 translation skill tests, eight discovery
 regressions, 18 reviewed-target integrity regressions, four regional-generator
@@ -71,9 +73,7 @@ regressions and five staging-header proposal tests. Generated HTML and search
 index freshness checks pass using the existing QA virtual environment. German
 and Spanish draft drift remains advisory under the current policy; no review
 hashes were adopted to hide it. Hosted checks, current-SHA acceptance, and
-native/device validation remain separate open gates. A shared CI
-comparison-checkout exclusion and a stale legacy status fixture are being
-repaired as bounded integration dependencies.
+native/device validation remain separate open gates.
 
 Five separate Codex tasks were created with requested model `gpt-5.4-mini` and
 low effort. Actual thread IDs and worktrees below were read back after setup.
