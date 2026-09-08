@@ -1,6 +1,25 @@
 # A14 thread closeout check
 
-September 8, 2026. **Not fully addressed; owner selection remains open.**
+September 8, 2026. **Option A selected; integration and acceptance remain open.**
+
+## Owner selection update
+
+The owner explicitly selected "option A for A14" in this task on September 8.
+This resolves the owner-choice gate in the earlier closeout inventory below.
+Selected direction: **A, Forge front door**, as rendered by this task's
+`d31d55075bbe4885f38658b16a12ac305094cfe2` implementation: early practical task
+choices, accepted MurderBird artwork, then selected work. The reviewed local
+entry is `http://127.0.0.1:5144/.local/a14/a/home.html`.
+
+A21 has received the decision and exact implementation identity. The distinct
+PR 67 implementation must not be substituted solely because it also names an
+alternative A. A21 owns adapting the selected direction to reviewed A11/A12
+content, canonical CSS and generation, and A15's Contact proposal at `865025f4`.
+A20 integrated acceptance and normal publication gates remain required. This
+choice does not itself authorize bypassing checks, merging main or deploying.
+
+The inventory below records the state before the owner selection; its first
+open activity is now resolved. Other implementation and acceptance items remain.
 
 This task's proposal implementation is commit
 `d31d55075bbe4885f38658b16a12ac305094cfe2`. It is now preserved on GitHub at
