@@ -14,12 +14,28 @@ try {
     const page = await browser.newPage({viewport: {width, height: 800}});
     await page.route('**/*', route => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
     const response = await page.request.get(base + '/site-src/project-status.json');
-    assert.deepEqual(await response.json(), registry, 'Preview must serve the current registry');
+    assert.equal(response.status(), 404, 'Private registry must not be served');
     for (const route of ['/', '/projects/', ...registry.projects.filter(r => r.kind === 'detail').map(r => r.route)]) {
-      await page.goto(base + route, {waitUntil: 'domcontentloaded'});
+      const publicResponse = await page.goto(base + route, {waitUntil: 'domcontentloaded'});
+      assert.ok(publicResponse, route + ' navigation must return HTML');
+      assert.equal(publicResponse.status(), 200, route + ' public HTML status');
+      const candidate = readFileSync(new URL('..' + route + 'index.html', import.meta.url));
+      assert.deepEqual(await publicResponse.body(), candidate, route + ' served HTML must match local candidate bytes');
       const blocks = page.locator('[data-project-status]');
       assert.ok(await blocks.count() > 0, route);
+      const expected = route === '/projects/' ? registry.projects.filter(r => r.shelf) : registry.projects.filter(r => r.kind === 'detail' && r.route === route);
+      if (expected.length) {
+        assert.deepEqual((await blocks.evaluateAll(nodes => nodes.map(node => node.dataset.projectStatus))).sort(),
+          expected.map(record => record.id).sort(), route + ' status record coverage');
+      }
       for (const block of await blocks.all()) {
+        const id = await block.getAttribute('data-project-status');
+        const record = registry.projects.find(record => record.id === id);
+        assert.ok(record, route + ' unknown status record ' + id);
+        const expectedText = `Availability: ${record.availability}. Maturity: ${record.maturity}. Evidence: ${record.evidence.summary} Delivery: ${record.evidence.delivery}.`;
+        assert.equal(await block.locator('[data-project-status-text]').textContent(), expectedText, route + ' canonical status text');
+        assert.equal(await block.locator('a').getAttribute('href'), record.evidence.url, route + ' evidence source');
+        assert.ok((await block.textContent()).includes(`(reviewed ${record.reviewed}).`), route + ' evidence review date');
         await block.scrollIntoViewIfNeeded();
         assert.ok(await block.isVisible(), route);
         const box = await block.boundingBox();
@@ -37,6 +53,6 @@ try {
 } finally {
   await browser.close();
 }
-console.log(`PASS ${checks} route/viewport checks, including noindex concepts; served registry matched candidate.`);
+console.log(`PASS ${checks} route/viewport checks, including noindex concepts; public HTML matched candidate bytes, rendered status matched local registry, private registry returned 404.`);
 
 console.log(`Screenshots: ${output}`);
