@@ -12,3 +12,4 @@
 - [CSP enforcement boundary](csp-enforcement-boundary.md) — source policies can enforce via meta while live response headers still depend on a header-capable edge; keep builder serialization stable.
 - [Browser fixture process model](browser-fixture-process-model.md) — local HTTP fixture servers need asynchronous child-process tests so the Node event loop can keep serving browser requests.
 - [Notion editorial access](notion-editorial-access.md) — an authorized Notion connection may need binding before use; search titles, then fetch page content explicitly.
+- [Cross-site foundation review](cross-site-foundation-review.md) — theme parity needs immutable reviewed revisions plus each site's actual markup; sibling checkouts may be absent locally.

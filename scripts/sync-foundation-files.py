@@ -28,6 +28,11 @@ from pathlib import Path
 FOUNDATION_FILES = ["assets/css/theme.css", "assets/js/app.js", "assets/js/mermaid-init.js"]
 FOUNDATION_CONTRACT = "byte-identical compatible superset (ADR-0001)"
 REPO_DIRS = ["overkill-hill", "glee-fullytools", "askjamie"]
+SITE_LABELS = {
+    "overkill-hill": "OKH",
+    "glee-fullytools": "Glee",
+    "askjamie": "AskJamie",
+}
 POST_WRITE_HOOKS = {"glee-fullytools": {"assets/css/theme.css": [["python3", "scripts/sync-css-version.py"], ["python3", "scripts/sync-portfolio-stats.py"]]}}
 SHA_RE = re.compile(r"^[0-9a-fA-F]{40}$")
 
@@ -98,6 +103,12 @@ def read_worktree(repo: Path, relpath: str) -> bytes | None:
     return path.read_bytes() if path.is_file() else None
 
 
+def git_revision(repo: Path) -> str:
+    """Return the checkout revision, or an explicit unavailable marker."""
+    result = run(repo, ["git", "rev-parse", "HEAD"])
+    return result.stdout.strip() if result.returncode == 0 else "unavailable"
+
+
 def source_bytes(repo: Path, revision: str, relpath: str) -> tuple[bytes | None, str | None]:
     result = subprocess.run(["git", "show", f"{revision}:{relpath}"], cwd=repo, capture_output=True, timeout=30)
     return (result.stdout, None) if result.returncode == 0 else (None, result.stderr.decode(errors="replace").strip() or f"{relpath} absent from source revision")
@@ -124,11 +135,23 @@ def inspect(files: list[str], repos: dict[str, Path]) -> list[dict]:
     report = []
     for relpath in files:
         groups: dict[str, list[str]] = {}
+        sites: dict[str, dict] = {}
         for name, repo in repos.items():
             content = read_worktree(repo, relpath)
             fingerprint = "missing" if content is None else hashlib.sha256(content).hexdigest()
             groups.setdefault(fingerprint, []).append(name)
-        report.append({"file": relpath, "status": "in-sync" if len(groups) == 1 and "missing" not in groups else "diverged", "groups": groups})
+            sites[name] = {
+                "site": SITE_LABELS.get(name, name),
+                "revision": git_revision(repo),
+                "sha256": fingerprint,
+                "bytes": len(content) if content is not None else None,
+            }
+        report.append({
+            "file": relpath,
+            "status": "in-sync" if len(groups) == 1 and "missing" not in groups else "diverged",
+            "groups": groups,
+            "sites": sites,
+        })
     return report
 
 

@@ -110,6 +110,25 @@ are reported as generated changes and included in a `--commit`; a generator
 failure prevents every commit and leaves the written paths reported for manual,
 reviewed recovery. `--no-hooks` is an explicit exceptional mode, not a default.
 
+The browser-level theme synchronization check is opt-in because sibling
+checkouts are not guaranteed to be mounted in every workspace. It reads each
+configured checkout's actual `index.html`, `assets/css/theme.css`, and
+`assets/js/app.js`, compares the foundation bytes, and reports the site and
+revision for every drift:
+
+```bash
+THEME_CONTROL_SITES='[
+  {"name":"OKH","root":"../overkill-hill"},
+  {"name":"Glee","root":"../glee-fullytools"},
+  {"name":"AskJamie","root":"../askjamie"}
+]' npm run test:theme-controls
+```
+
+Each entry may include a reviewed full commit SHA as `revision`. When present,
+the test reads all three files from that immutable revision instead of the
+working tree. The default browser fixtures remain available when the sibling
+repositories are absent.
+
 ### Universe map integration
 
 `sync-universe-map.py` calls the installed `okhp3-universe-map` generator and

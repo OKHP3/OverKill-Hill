@@ -1,13 +1,18 @@
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import { after, before, test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
-import { dirname, join } from "node:path";
+import { dirname, join, resolve } from "node:path";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+import { createHash } from "node:crypto";
 
 const testsDirectory = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = join(testsDirectory, "..");
 const appScript = await readFile(join(repositoryRoot, "assets", "js", "app.js"), "utf8");
+const execFileAsync = promisify(execFile);
 
 const BRAND_EXPECTATIONS = {
   glee: {
@@ -52,7 +57,21 @@ function fixtureMarkup(bodyClass = "") {
 </html>`;
 }
 
-async function openFixture({ bodyClass = "", storage = {}, colorScheme = "light" } = {}) {
+function withFoundation(markup, css, script) {
+  const withoutScripts = markup.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
+  const withStyles = css ? withoutScripts.replace("</head>", `<style>${css}</style>\n</head>`) : withoutScripts;
+  const injected = `<script>${script}</script>`;
+  return withStyles.includes("</body>") ? withStyles.replace("</body>", `${injected}</body>`) : `${withStyles}${injected}`;
+}
+
+async function openFixture({
+  bodyClass = "",
+  storage = {},
+  colorScheme = "light",
+  markup = fixtureMarkup(bodyClass),
+  css = "",
+  script = appScript,
+} = {}) {
   const page = await browser.newPage();
   await page.emulateMedia({ colorScheme });
   await page.addInitScript(({ mode, values }) => {
@@ -80,7 +99,7 @@ async function openFixture({ bodyClass = "", storage = {}, colorScheme = "light"
     mode: storage === "blocked" ? "blocked" : "available",
     values: storage === "blocked" ? {} : storage,
   });
-  await page.setContent(fixtureMarkup(bodyClass), { waitUntil: "domcontentloaded" });
+  await page.setContent(withFoundation(markup, css, script), { waitUntil: "domcontentloaded" });
   return page;
 }
 
@@ -133,6 +152,7 @@ test("OKH supports system, light, and dark transitions", async () => {
     await page.close();
   }
 });
+
 
 test("Glee and AskJamie keep their light baseline and update theme-color metadata", async () => {
   for (const [brand, expected] of Object.entries(BRAND_EXPECTATIONS)) {
@@ -199,6 +219,150 @@ test("all three theme controls survive disabled storage", async () => {
       const final = await readState(page, fixture.selector);
       assert.equal(final.state, fixture.name === "OKH" ? "system" : "auto", `${fixture.name} cycles without storage`);
       assert.equal(pageErrors.length, 0, `${fixture.name} has no storage exception`);
+    } finally {
+      await page.close();
+    }
+  }
+});
+
+const DEFAULT_SITE_ROOTS = [
+  { name: "OKH", root: join(repositoryRoot, "..", "overkill-hill"), bodyClass: "", selector: ".theme-toggle" },
+  { name: "Glee", root: join(repositoryRoot, "..", "glee-fullytools"), bodyClass: "glee-main", selector: ".glee-color-toggle" },
+  { name: "AskJamie", root: join(repositoryRoot, "..", "askjamie"), bodyClass: "askjamie-main", selector: ".glee-color-toggle" },
+];
+
+function configuredSiteInputs() {
+  if (process.env.THEME_CONTROL_SITES) {
+    const configured = JSON.parse(process.env.THEME_CONTROL_SITES);
+    return configured.map((site) => ({
+      ...site,
+      root: resolve(repositoryRoot, site.root),
+    }));
+  }
+
+  const available = DEFAULT_SITE_ROOTS.filter((site) => site.root && directoryExists(site.root));
+  if (available.length === 0) return [];
+  if (available.length !== DEFAULT_SITE_ROOTS.length) {
+    throw new Error(`Theme-control sync requires all three site checkouts; found ${available.map(({ name }) => name).join(", ")}`);
+  }
+  return available;
+}
+
+function directoryExists(path) {
+  return existsSync(join(path, "index.html")) &&
+    existsSync(join(path, "assets", "css", "theme.css")) &&
+    existsSync(join(path, "assets", "js", "app.js"));
+}
+
+async function loadConfiguredSite(site) {
+  let revision = site.revision || "unavailable";
+  try {
+    let markup;
+    let cssBuffer;
+    let scriptBuffer;
+    if (site.revision) {
+      const { stdout: resolvedRevision } = await execFileAsync(
+        "git",
+        ["-C", site.root, "rev-parse", "--verify", `${site.revision}^{commit}`],
+      );
+      if (resolvedRevision.trim() !== site.revision) {
+        throw new Error(`reviewed revision resolved unexpectedly to ${resolvedRevision.trim()}`);
+      }
+      const readReviewedFile = async (path) => {
+        const { stdout } = await execFileAsync(
+          "git",
+          ["-C", site.root, "show", `${site.revision}:${path}`],
+          { encoding: "buffer", maxBuffer: 16 * 1024 * 1024 },
+        );
+        return stdout;
+      };
+      [markup, cssBuffer, scriptBuffer] = await Promise.all([
+        readReviewedFile("index.html"),
+        readReviewedFile("assets/css/theme.css"),
+        readReviewedFile("assets/js/app.js"),
+      ]);
+      markup = markup.toString("utf8");
+    } else {
+      [markup, cssBuffer, scriptBuffer] = await Promise.all([
+        readFile(join(site.root, "index.html"), "utf8"),
+        readFile(join(site.root, "assets", "css", "theme.css")),
+        readFile(join(site.root, "assets", "js", "app.js")),
+      ]);
+      const { stdout: actualRevision } = await execFileAsync("git", ["-C", site.root, "rev-parse", "HEAD"]);
+      revision = actualRevision.trim();
+    }
+    return {
+      ...site,
+      markup,
+      cssBuffer,
+      scriptBuffer,
+      revision,
+      css: cssBuffer.toString("utf8"),
+      script: scriptBuffer.toString("utf8"),
+    };
+  } catch (error) {
+    throw new Error(`${site.name} foundation revision ${revision}: ${error.message}`, { cause: error });
+  }
+}
+
+function sha256(buffer) {
+  return createHash("sha256").update(buffer).digest("hex");
+}
+
+test("configured sites keep foundation bytes and run against actual markup hooks", async (t) => {
+  const inputs = configuredSiteInputs();
+  if (inputs.length === 0) {
+    t.skip("no three-site checkout set; set THEME_CONTROL_SITES for the cross-site sync audit");
+    return;
+  }
+  assert.equal(inputs.length, 3, "exactly OKH, Glee, and AskJamie must be configured");
+
+  const sites = await Promise.all(inputs.map(loadConfiguredSite));
+  const byName = new Map(sites.map((site) => [site.name, site]));
+  for (const expectedName of ["OKH", "Glee", "AskJamie"]) {
+    assert.ok(byName.has(expectedName), `missing configured site ${expectedName}`);
+  }
+
+  for (const file of ["cssBuffer", "scriptBuffer"]) {
+    const baseline = sites[0][file];
+    const baselineHash = sha256(baseline);
+    for (const site of sites.slice(1)) {
+      assert.deepEqual(
+        site[file],
+        baseline,
+        `${site.name} foundation drift at ${site.revision}: ${file} sha256 ${sha256(site[file])}, expected ${baselineHash}`,
+      );
+    }
+  }
+
+  for (const site of sites) {
+    const expected = DEFAULT_SITE_ROOTS.find(({ name }) => name === site.name);
+    assert.ok(expected, `unknown configured site ${site.name} at foundation revision ${site.revision}`);
+    const page = await openFixture({
+      markup: site.markup,
+      css: site.css,
+      script: site.script,
+    });
+    try {
+      assert.equal(
+        await page.locator("body").evaluate((body, expectedBodyClass) => (
+          expectedBodyClass
+            ? body.classList.contains(expectedBodyClass)
+            : !body.classList.contains("glee-main") && !body.classList.contains("askjamie-main")
+        ), expected.bodyClass),
+        true,
+        `${site.name} markup hook missing at foundation revision ${site.revision}`,
+      );
+      await assert.doesNotReject(
+        () => page.locator(expected.selector).waitFor({ state: "attached", timeout: 2000 }),
+        `${site.name} theme control missing at foundation revision ${site.revision}`,
+      );
+      const state = await readState(page, expected.selector);
+      assert.equal(
+        state.state,
+        site.name === "OKH" ? "system" : "auto",
+        `${site.name} theme baseline at foundation revision ${site.revision}`,
+      );
     } finally {
       await page.close();
     }
