@@ -160,10 +160,11 @@ on April 30, 2028. When changing the supported major, update `.nvmrc` and
 the package engine range together, refresh root lockfile metadata, and rerun
 clean installation and browser QA.
 
-Replit preview uses `python3 server.py`, not a Node server. Its separate
-`.replit` environment still declares `nodejs-20`; that environment is not
-accepted for Node QA. Verify available modules and Node 24 execution in the
-connected Replit workspace before changing that platform configuration.
+Replit preview uses `python3 server.py`. Its `.replit` environment selects
+`nodejs-24` for browser QA, matching the local and CI major-version contract.
+Open a fresh Shell after changing modules so it loads the selected runtime.
+Connected Replit installation, browser and preview checks are recorded in
+[the A08 runtime evidence](assets/docs/qa-runtime-a08-2026-09-07.md).
 
 ```bash
 npm ci
