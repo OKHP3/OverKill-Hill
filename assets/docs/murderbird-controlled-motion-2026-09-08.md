@@ -56,3 +56,16 @@ the successful run used the executable bundled with imageio-ffmpeg 0.6.0.
 Review the exported motion at normal speed and close-up before promoting it
 beyond a controlled study. Add sound and integrate into the longer sequence
 only after the motion is accepted for that use.
+
+## Owner acceptance for the story page
+
+Later on September 8, the owner reviewed the delivered study and explicitly
+approved incorporating it into the MurderBird story page. This supersedes the
+publication hold for this exact clip, SHA-256
+`635f0e1552bac61699c03c8406157207f6230ea817bb1ecaeb3adbb3a7bf8613`.
+
+The publication copy is `assets/video/murderbird-first-choice-635f0e15.mp4`,
+placed at `/writings/murderbird/#media-first-choice` with native controls,
+a first-frame poster, and an adjacent visual description. Playback is manual;
+the eight-second clip is identified as silent. The longer film and the earlier
+rejected clips are not included in this acceptance.

@@ -339,6 +339,10 @@ class ReleasePackageTests(unittest.TestCase):
             self.assertNotIn("/en-gb/", search_index)
             self.assertNotIn("/es-mx/", search_index)
             self.assertTrue((output / "assets/downloads/okh-prompt-protocol-template.md").is_file())
+            video = "assets/video/murderbird-first-choice-635f0e15.mp4"
+            self.assertEqual((output / video).read_bytes(), (ROOT / video).read_bytes())
+            self.assertTrue((output / "assets/img/murderbird-first-choice-poster.jpg").is_file())
+            self.assertFalse((output / "assets/murderbird/production").exists())
             for forbidden in (
                 "AGENTS.md", "package-lock.json", "scripts/build-site.py",
                 "site-src/pages/index.main.html", "tests/csp-qa.test.mjs",

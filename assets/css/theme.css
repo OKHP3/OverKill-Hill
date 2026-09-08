@@ -2375,12 +2375,14 @@ body.construction-dismissed .construction-overlay,
 #the-sentinel .murderbird-scene {
   width: 100%;
   margin: 2rem 0;
+  scroll-margin-top: 12rem;
 }
 
 #the-maker .murderbird-scene img,
 #the-mechanic .murderbird-scene img,
 #the-water .murderbird-scene img,
 #the-builder .murderbird-scene img,
+#the-builder .murderbird-scene video,
 #the-sentinel .murderbird-scene img {
   display: block;
   width: 100%;
