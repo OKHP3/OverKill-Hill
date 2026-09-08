@@ -1,0 +1,19 @@
+{
+  "language_pair": {"source_locale": "en-US", "target_locale": "es-MX", "direction": "one-way"},
+  "skill": "okhp3-translation-en-us-es-mx@1.0.0",
+  "source": {
+    "path": "site-src/pages/contact/index.main.html",
+    "baseline_revision_before_a15": "git:6071bc2b0c748fde88b1d5ef1302e039e256444b",
+    "register_state": "plainspoken",
+    "voice_profile": "i18n/pilot/es-mx/voice-profile.en-us.json",
+    "changed_unit": "A15:OPTIONAL-INQUIRY block"
+  },
+  "target": {"path": "es-mx/contact/index.html", "dictionary": "dictionary.en-us-es-mx.json"},
+  "status": "machine-drafted",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "needs_native_review": true,
+  "assumptions": ["Mexican Spanish tú register follows the project voice boundary; surrounding reviewed content remains unchanged."],
+  "unresolved_terms": [],
+  "preservation": {"placement": "After the email/location paragraph and before the social-media paragraph.", "markers_preserved": true, "protected_tokens_preserved": ["contact@overkillhill.com"], "surrounding_content_modified": false, "noindex_preserved": true}
+}

@@ -20,8 +20,10 @@ project-status fact or layout changed.
 
 French Contact receives only the corresponding inquiry block. The exact-pair
 translation record and independent AI review retain native/human approval false.
-The essay is outside the configured translation inventory. German/Spanish and
-regional drafts remain unchanged, including noindex boundaries.
+The essay is outside the configured translation inventory. German and Spain
+Spanish drafts remain unchanged. The UK-English and Mexican-Spanish Contact
+drafts receive the corresponding bounded addition to satisfy their structural
+and source-freshness gate, retaining noindex and human/native approval false.
 
 ## Verification
 
@@ -32,7 +34,7 @@ regional drafts remain unchanged, including noindex boundaries.
 | English and French search freshness; universe freshness | PASS |
 | Structural validation | PASS, zero errors and 32 existing warnings; no new voice warnings |
 | Internal links | PASS, zero broken links and zero style issues |
-| Locale links and regional draft tests | PASS; four draft tests |
+| Locale links and regional draft unit tests | PASS; four draft unit tests; these alone did not prove the actual regional release gate |
 | Published-locale freshness | PASS, all four French routes current; eight German/Spanish draft routes remain nonblocking drift |
 | CSP and cache checks | PASS; no policy or fingerprint changes required |
 | French changed-unit validator and independent semantic review | PASS, AI-reviewed only; see `i18n/pilot/fr/a15-contact-translation-2026-09-08.json` and `a15-contact-review-2026-09-08.json` |
@@ -42,6 +44,13 @@ Generator CSP normalization briefly rewrote unrelated locale metadata; those
 local-only side effects were discarded and the retained policy passes the CSP
 checker. An intermediate search freshness check failed before the final rebuild;
 both final indexes pass. No failure is represented as a passing first attempt.
+
+The first hosted run failed `scripts/check-regional-drafts.py`: the new Contact
+heading changed canonical source freshness and h3 coverage in both regional
+drafts. The earlier four unit tests passed but did not cover this final source
+state. The correction adds the exact-pair inquiry text to both drafts and
+records reviewed source/target hashes without publishing them. Final gate
+results and baseline reconciliation are recorded with the release handoff.
 
 ## Release boundary
 
