@@ -77,6 +77,12 @@
       "expected": "article JSON-LD dateModified is not ISO 8601"
     }
   ],
+  "article_date_mismatch": {
+    "route": "/writings/first-diagram-is-a-liar/",
+    "field": "datePublished",
+    "value": "2026-04-08",
+    "expected": "article JSON-LD datePublished does not match article:published_time"
+  },
   "organization_same_as_drift": {
     "from": "https://www.linkedin.com/company/overkillhillp3",
     "to": "https://example.com/not-the-verified-profile"
