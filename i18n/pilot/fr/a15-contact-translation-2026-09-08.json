@@ -1,0 +1,51 @@
+{
+  "language_pair": {
+    "source_locale": "en-US",
+    "target_locale": "fr-FR",
+    "direction": "one-way"
+  },
+  "skill": "okhp3-translation-en-us-fr-fr@1.1.0",
+  "source": {
+    "path": "site-src/pages/contact/index.main.html",
+    "baseline_revision_before_a15": "git:6071bc2b0c748fde88b1d5ef1302e039e256444b",
+    "revision_note": "The baseline revision predates the A15 addition; the changed block is working-tree evidence and is not assigned a Git revision here.",
+    "register_state": "plainspoken",
+    "voice_profile": "i18n/pilot/fr/interactions/voice-profile.en-us.json",
+    "register_mediation_record": null,
+    "changed_unit": "A15:OPTIONAL-INQUIRY block",
+    "block_sha256": "a49efb3ac5663ea9e57a98da43ba5b0a1065b8180a8644733e081b720f147f3f"
+  },
+  "target": {
+    "path": "fr/contact/index.html",
+    "dictionary": "i18n/pilot/fr/interactions/dictionary.en-us-fr-fr.json",
+    "block_sha256": "02c3894b3673004667cb6c66f055b689bafa4f25faf4448a73612ac7fda22e93"
+  },
+  "manifest": "i18n/pilot/fr/interactions/manifest.json",
+  "status": "machine-drafted",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "needs_native_review": true,
+  "assumptions": [
+    "Existing project voice uses vous for France French.",
+    "The validator pair comparison was run against the source fragment and full localized page; full-page structure and URL drift are expected because the source is a content fragment and the target is a complete localized route.",
+    "Only the marked A15 block is in scope; surrounding reviewed French content remains unchanged."
+  ],
+  "unresolved_terms": [],
+  "mechanical_checks": {
+    "delta_validator_command": "py -3 .agents/skills/okhp3-translation-en-us-fr-fr/scripts/validate-en-us-to-fr-fr.py --project i18n/pilot/fr/interactions/manifest.json --source-file i18n/pilot/fr/a15-source-fragment.html --target-file i18n/pilot/fr/a15-target-fragment.html --format text",
+    "delta_validator_result": "PASS: comparable A15 fragments; manifest, plainspoken-register, structure, and protected-token checks passed. No French-quality or native-review certification.",
+    "whole_page_diagnostic": "FAIL: comparing site-src/pages/contact/index.main.html with fr/contact/index.html reports expected fragment-versus-complete-route HTML structure and URL drift; retained as an out-of-scope diagnostic only.",
+    "planner_result": "Not used as contact coverage; the existing interactions manifest planner is unrelated to this bounded contact delta."
+  },
+  "preservation": {
+    "placement": "Inserted after the existing email/location paragraph and before the existing social-media paragraph.",
+    "markers_preserved": true,
+    "protected_tokens_preserved": ["contact@overkillhill.com"],
+    "surrounding_content_modified": false,
+    "sync_state_modified": false
+  },
+  "limitations": [
+    "No native-language approval is claimed.",
+    "This record does not claim publication, runtime delivery, or complete locale parity."
+  ]
+}

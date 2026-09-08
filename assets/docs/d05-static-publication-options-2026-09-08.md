@@ -1,103 +1,111 @@
-# D05 static publication options
+# D05 Replit static publication closeout
 
-## Evidence
+## Outcome: source exposure fixed
 
-The repository contains an allowlisted release builder at
-`scripts/build-release.py`. Its CLI requires an output directory and a full
-40-character commit SHA. The exact build invocation is:
+On September 8, 2026, the owner authorized repairing the old public Replit
+publication while preserving repository sources. PR #85 merged at
+`1af9218fe22562800a6383c0271d67357c3f3318`; A21 confirmed its Git tree matched the
+independently reviewed candidate `3003da99fe1f5a8f5d855e7e01fa205046a4f678`.
+Required Site Validation run `34258607857` and i18n run `34258607792` passed.
 
-```text
-python3 scripts/build-release.py --output .local/site-release --commit <validated-40-character-sha>
-```
+The actual Replit project was synchronized to that accepted commit. Its
+Publishing settings showed `.local/site-release` as the effective public
+directory. The deployment-specific `REPLIT_RELEASE_SHA` was submitted with the
+same full SHA through Settings > Publish. The successful publication completed
+its build and bundling stages; Production reported a new publication.
 
-The builder copies published HTML, required root files, and approved runtime
-assets. It rejects unsafe paths and verifies that source files such as
-`server.py`, `site-src/pages.json`, `AGENTS.md`, and build/test tooling are not
-in the package. The existing release and preview tests exercise this boundary.
+Public URL: <https://over-kill-hill.replit.app/>
+Source change: <https://github.com/OKHP3/OverKill-Hill/pull/85>
 
-This proposal branch changes `.replit` to declare:
+## Verification
 
-```toml
-[deployment]
-deploymentTarget = "static"
-publicDir = ".local/site-release"
-```
+The root executor verified the live manifest contains the accepted SHA and 372
+files. Public homepage, project hub, JavaScript, and stylesheet returned 200.
+The following internal paths returned 404:
 
-The proposal now supplies `build = "python3 scripts/build-replit-release.py"`.
-Official Replit documentation describes a Static Deployment public directory and
-optional build command ([deployment types](https://docs.replit.com/features/publishing/deployment-types));
-the configuration reference defines the deployment `build` string
-([configuration](https://docs.replit.com/features/project-setup/configuration)).
-This verifies the configuration model, but does not verify this workspace's
-deployment settings until the owner inspects them. Replit availability of Git
-metadata during the deployment build is not verified; the wrapper therefore
-fails closed unless `REPLIT_RELEASE_SHA` matches `HEAD` in a clean checkout.
-The current `origin/main` checkout and the observed Replit deployment still use
-`publicDir = "."`; the `.local/site-release` setting exists only in this unpublished
-proposal branch.
+- `/server.py`
+- `/site-src/pages.json`
+- `/AGENTS.md`
+- `/replit.md`
+- `/.git/config`
+- `/scripts/build-release.py`
+- `/tests/test-preview-server.py`
+- `/.local/`
 
-The regression test is wired into the existing GitHub Actions workflow and has
-been run locally with the release-package and preview-server tests.
+A18 independently verified at `2026-09-08T17:55:31Z` that the live manifest
+matched the accepted SHA. Homepage, `/projects/found-ry/`, JavaScript,
+stylesheet, and search-index responses returned 200 and their SHA-256 values
+matched the live manifest. Nine private/listing paths returned 404, including
+`/.replit`, `/scripts/build-replit-release.py`,
+`/.local/site-release/index.html`, and `/assets/js/`. A18 accepted D05 source
+exposure remediation as PASS.
 
-The available public probes are status-only evidence: `/server.py` returned
-HTTP 200 with Python source and `/site-src/pages.json` returned HTTP 200 with
-JSON. Those observations identify the current exposure but do not establish
-the complete deployed file inventory or deployment provenance.
+A21 independently verified the same manifest and public/private boundary at
+`2026-09-08T17:55:36Z`, including `/contact/` 200 and `/.local/a08/` 404.
+Only statuses and public manifest/hash markers were retained; source response
+bodies were not retained.
 
-## Options
+## Build and recovery contract
 
-1. **Retire the existing Replit route.** This removes the exposure, but
-   interrupts users of that URL. The exact deployment intent, usage, and
-   deployment identifier are not recorded in this repository. The Replit UI
-   exposes a “Shut down” control that says the published app will cease to
-   exist and billing will be canceled; no such action is authorized here.
+`.replit` invokes `python3 scripts/build-replit-release.py`. The wrapper
+requires an explicitly accepted full `REPLIT_RELEASE_SHA`, matching HEAD, and a
+clean checkout. This does not independently attest GitHub CI; the publication
+operator supplies the SHA whose required checks and review passed.
 
-2. **Republish from a verified staged package.** First arrange an owner-approved
-   process that runs the exact builder command above and places its output at
-   the configured `.local/site-release` directory. Then inspect the resulting static
-   deployment and verify the public edge. Current UI inspection did not expose
-   a build field, so the owner must verify that the documented build setting is
-   honored before publication.
+Before building, prior output moves into unique private recovery storage under
+`.local/replit-release-*/previous`. Failed preflight, build, or verification
+leaves the public output directory absent. The wrapper builds and verifies the
+allowlisted package, rechecks source identity, then promotes the package to
+`.local/site-release`. It preserves recovery and failed staging bytes privately
+and performs no recursive deletion.
 
-3. **Keep the route unchanged pending an owner decision.** This preserves the
-   current public state while leaving the known root-publication exposure
-   unresolved. It is not a hardened publication outcome.
+Eight focused tests ran: seven passed and the Windows symlink-privilege test
+skipped. Tests cover fresh and repeated builds, preflight/build/verification
+failure, preservation, SHA identity, clean source, and path guards. The suite is
+wired into CI. Two real local builds each verified 56 HTML pages and 372 files.
+After staging, generated-source checks remained 36 pages, search remained 160
+entries, structural validation remained 56 pages, and the checkout stayed
+clean. The actual Replit workspace also built and verified the package before
+publication. Existing `.local/` exclusions prevent staging from polluting
+source scans or recursive packaging.
 
-## Limits and owner gate
+The first publish attempt failed closed because leaving the settings draft
+with Back discarded the new variable. The corrected attempt submitted the
+variable using Settings > Publish and completed successfully. No safeguard was
+relaxed and no repository authoring file was removed.
 
-The current Replit UI reports Static, Public, `publicDir` as `.`, and
-`over-kill-hill.replit.app` published 13 days ago. It exposes a “Change
-deployment type” action and a “Shut down” control that cancels billing and
-removes the published app. Site usage
-intent and the exact deployment ID remain unknown.
+Official configuration references:
+[Replit deployment types](https://docs.replit.com/features/publishing/deployment-types)
+and [Replit configuration](https://docs.replit.com/features/project-setup/configuration).
 
-This D05 work does not deploy, unpublish, push, or mutate Replit. That boundary
-comes from the A21 integration directive for the A08/D05 separate proposal; it
-is an explicit task restriction, not an inferred skill approval requirement. A
-parent/owner decision is required between retirement and an owner-approved
-republish path.
+## Separate host compatibility limit
 
-## Authorized remediation and staging behavior
+`/.well-known/security.txt` appears in the release manifest but returned 404
+from Replit in A18's independent check. The exact host cause is unverified;
+this is a documented public-route compatibility limit, not a source-exposure
+failure. This repair does not claim full Replit route parity or header-policy
+acceptance. No hosting migration or retirement was performed.
 
-On September 8, the parent relayed the owner's explicit instruction to fix the
-public source exposure. This supersedes the earlier no-deployment restriction
-for this narrow repair; retirement is not selected. Repository sources remain
-intact. Publication still requires reviewed code and successful checks.
+## Related runtime closeout
 
-The deployment wrapper requires `REPLIT_RELEASE_SHA` to be deliberately set in
-the deployment environment to the accepted, CI-validated commit. It verifies
-that HEAD matches and the checkout is clean; these checks do not independently
-attest that GitHub CI passed. Missing Git metadata or the variable fails closed.
-There is no repository-root fallback.
+PR #83 merged the Replit Node 24 module at
+`6071bc2b0c748fde88b1d5ef1302e039e256444b`. Actual Replit main was clean and
+synchronized at that SHA, and a fresh shell reported Node 24.13.0 and npm
+11.6.2. The publication fix retains that runtime setting. Runtime tests and
+preview-boundary evidence remain in `qa-runtime-a08-2026-09-07.md`.
 
-Before building, previous public output moves into unique private recovery
-storage under `.local/replit-release-*/previous`. Failed preflight, build, or
-package verification leaves `.local/site-release` absent. Successful build and
-manifest verification promote only the new package. Recovery and failed staging
-bytes remain private for inspection; no recursive deletion is performed.
+## Post-publication reconciliation
 
-The existing `.local/` ignore and source-scanning exclusions apply to both the
-public package and private staging. The release builder uses explicit public
-route and asset allowlists and cannot recursively package these directories.
-Actual publishing must confirm the effective directory, deployment variable,
-build execution, and successful public/negative route probes.
+On September 8, Replit created an empty-tree `Published your App` checkpoint
+`065e75c0263a2e7a28799485c7a7fe08332e9274`. Its file tree matched the published
+source commit `1af9218fe22562800a6383c0271d67357c3f3318`; both diff statistics and
+changed-path inventory were empty. The checkpoint was preserved locally and
+pushed to `codex/replit-publication-checkpoint-20260908`. No reset, deletion,
+or authoring-source removal was used.
+
+Replit's local main was then recreated from the current remote main and
+verified clean, ahead/behind 0/0, at
+`bdd6bed1c737cf4d44e7cea5dae37afb33e18970`. This later source HEAD is distinct
+from the accepted Replit live release SHA, which remains
+`1af9218fe22562800a6383c0271d67357c3f3318`. Subsequent repository integration
+must not be represented as a Replit publication without a new verified publish.

@@ -5,7 +5,7 @@
     "/": "df5fd6d76273da8bd1badb7e7eba28dcdd8fec5f011a37b0e7cbd297b2479cce",
     "/about/": "5a42603e7a5704b3a4d2642f83b0dfaaa2f570790ae372f4589dc5e92106bdb0",
     "/projects/": "fcd349bf885f88ee04be16d35aae4939253ce2f5607c289f4bd4bb2db951519b",
-    "/contact/": "9e6c173e860df22ae121c9c2c0695dce5c034320e5ec8e302a65db8ec41517e0"
+    "/contact/": "e53a66b921164e997e01fb36f27ca8384804f39fc15ff833fe4ab0b3fb4dcc0a"
   },
   "fallback_metadata_update": "PNG fallback only; unchanged editorial text verified against d112ca4e by tests/test-murderbird-fallback-editorial.py; prior review limitations retained.",
   "content_wave_update": {
@@ -59,6 +59,29 @@
         "prior_target_sha256": "974c8ae0f8898806459b062900a1b924600a795eb35f11c60d13db16e8cc7536",
         "target_sha256": "c963f34a74bd17d2fe8d95274090c6b1f830fbd25274db7c88d09d9c12cc4c90",
         "scope": "Presentation adaptation and compact hero text; complete prior copy and source status retained in native disclosures",
+        "human_native_approved": false,
+        "release_accepted": false
+      }
+    ]
+  },
+  "a15_contact_update": {
+    "source_revision": "git:43497469",
+    "reviewed_on": "2026-09-08",
+    "scope": "Only optional inquiry addition; exact prior draft bytes preserved outside marker block after newline normalization. AI-reviewed, no publication promotion.",
+    "records": [
+      {
+        "locale": "en-gb",
+        "route": "/contact/",
+        "target_sha256": "53a5ab097f953ee09e9b979fd8da3088b91374d1a953754d147712e55d4c1758",
+        "record": "i18n/pilot/en-gb/a15-contact-translation-2026-09-08.json",
+        "human_native_approved": false,
+        "release_accepted": false
+      },
+      {
+        "locale": "es-mx",
+        "route": "/contact/",
+        "target_sha256": "548d15917a3aa5bf75ee34ebf9dbb14d5d117c32ca4933f4203845a0384f0e74",
+        "record": "i18n/pilot/es-mx/a15-contact-translation-2026-09-08.json",
         "human_native_approved": false,
         "release_accepted": false
       }
