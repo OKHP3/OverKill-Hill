@@ -13,20 +13,21 @@ ledger record yet.
 
 Three modes:
 
-  --report   Read-only. Print the drift report. Never writes.
-  --check    Same as --report, but exits 1 if actionable drift exists
-             (missing or stale routes). Intended for CI. Never writes.
-  --adopt    Write mode. For every target-locale page that already exists
-             but has no ledger record, record its current source hash as the
-             confirmed baseline. Run this once to bootstrap an existing
-             locale, and again after a human or agent completes a real
-             translation update for specific routes (pass --routes to limit
-             it). Never invents or edits page content.
+  --mode report   Read-only. Print the drift report. Never writes.
+  --mode check    Same as report, but exits 1 if actionable drift exists
+                  (missing or stale routes). Intended for CI. Never writes.
+  --mode adopt    Write mode. For every target-locale page that already exists
+                  but has no ledger record, record its current source hash as
+                  the confirmed baseline. Run this once to bootstrap an
+                  existing locale, and again after a human or agent completes
+                  a real translation update for specific routes. Pass
+                  --routes to limit adoption to specific pages. Never invents
+                  or edits page content.
 
 A route flagged ``missing`` or ``stale`` should be handed to the matching
 ``okhp3-translation-en-us-<pair>`` skill to produce or update the draft, then
-confirmed here with --adopt. This script performs the detection stage only;
-it does not perform or substitute for the translation stage.
+confirmed here with ``--mode adopt``. This script performs the detection stage
+only; it does not perform or substitute for the translation stage.
 """
 
 from __future__ import annotations
