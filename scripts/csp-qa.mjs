@@ -234,12 +234,31 @@ function getExternalDependency(dependencies, request) {
   return dependency;
 }
 
-function serialiseExternalDependency(dependency) {
+function extractHttpUrls(text) {
+  // Chromium includes the blocked resource URL in CSP console diagnostics.
+  // Normalise it the same way as dependency inventory keys for correlation.
+  return [...text.matchAll(/https?:\/\/[^\s'"]+/g)]
+    .map(([url]) => {
+      try {
+        const value = new URL(url);
+        value.search = "";
+        value.hash = "";
+        return value.href;
+      } catch {
+        return null;
+      }
+    })
+    .filter(Boolean);
+}
+
+function serialiseExternalDependency(dependency, cspBlockedUrls) {
   const hasHttpError = dependency.responses.some(({ status }) => status >= 400);
   const hasFailure = dependency.failures.length > 0;
   const hasResponse = dependency.responses.length > 0;
+  const cspBlocked = cspBlockedUrls.has(dependency.url);
   let state = "available";
-  if (hasHttpError || hasFailure) state = "unavailable";
+  if (cspBlocked) state = "blocked-by-csp";
+  else if (hasHttpError || hasFailure) state = "unavailable";
   else if (!hasResponse) state = "no-response";
 
   return {
@@ -250,6 +269,7 @@ function serialiseExternalDependency(dependency) {
     requestCount: dependency.requestCount,
     responses: dependency.responses,
     failures: dependency.failures,
+    cspBlocked,
     state,
   };
 }
@@ -321,9 +341,11 @@ async function checkExternalRoute(browser, path) {
   }
 
   await page.close();
+  const cspBlockedUrls = new Set(cspDiagnostics.flatMap(extractHttpUrls));
   return {
     path,
-    dependencies: [...dependencies.values()].map(serialiseExternalDependency),
+    dependencies: [...dependencies.values()]
+      .map((dependency) => serialiseExternalDependency(dependency, cspBlockedUrls)),
     cspDiagnostics,
     localErrors: [...localErrors],
   };
@@ -340,6 +362,7 @@ function mergeExternalDependencies(results) {
           resourceTypes: [],
           responses: [],
           failures: [],
+          cspBlocked: false,
         });
       }
       const existing = merged.get(dependency.url);
@@ -350,7 +373,10 @@ function mergeExternalDependencies(results) {
       existing.requestCount += dependency.requestCount;
       existing.responses.push(...dependency.responses);
       existing.failures.push(...dependency.failures);
-      existing.state = existing.failures.length ||
+      existing.cspBlocked = existing.cspBlocked || dependency.cspBlocked;
+      existing.state = existing.cspBlocked
+        ? "blocked-by-csp"
+        : existing.failures.length ||
         existing.responses.some(({ status }) => status >= 400)
         ? "unavailable"
         : existing.responses.length

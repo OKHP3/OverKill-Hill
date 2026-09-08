@@ -16,6 +16,7 @@ const fixtureFiles = new Map([
   ["/page-error.html", "page-error.html"],
   ["/missing-resource.html", "missing-resource.html"],
   ["/unrendered-mermaid.html", "unrendered-mermaid.html"],
+  ["/external-csp-blocked.html", "external-csp-blocked.html"],
 ]);
 
 let server;
@@ -55,8 +56,9 @@ async function serveFixture(request, response) {
 
   const fixtureName = fixtureFiles.get(path);
   if (fixtureName) {
+    const fixture = await readFile(join(fixtureDirectory, fixtureName), "utf8");
     response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
-    response.end(await readFile(join(fixtureDirectory, fixtureName)));
+    response.end(fixture.replaceAll("__EXTERNAL_BASE_URL__", externalBaseUrl));
     return;
   }
 
@@ -78,6 +80,14 @@ before(async () => {
     if (path === "/outage.png") {
       response.writeHead(503, { "content-type": "text/plain" });
       response.end("fixture dependency intentionally unavailable");
+      return;
+    }
+    if (path === "/blocked.png") {
+      response.writeHead(200, { "content-type": "image/png" });
+      response.end(Buffer.from(
+        "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=",
+        "base64",
+      ));
       return;
     }
     response.writeHead(404, { "content-type": "text/plain" });
@@ -192,6 +202,34 @@ test("reports external outages separately from the local CSP gate", async () => 
     assert.ok(healthy.requestCount >= 1);
     assert.ok(outage.requestCount >= 1);
     assert.deepEqual(outage.routes, ["/external-health.html"]);
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("reports CSP-blocked dependencies separately from external outages", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-blocked-health-"));
+  const reportPath = join(reportDirectory, "report.json");
+  try {
+    const result = await runCspQa("/external-csp-blocked.html", [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /CSP diagnostics were observed/);
+    assert.doesNotMatch(result.output, /EXTERNAL OUTAGE:/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.mode, "external-health");
+    assert.equal(report.status, "CSP_BLOCKED");
+    assert.equal(report.summary.cspDiagnostics, 1);
+    assert.equal(report.summary.externalOutages, 0);
+    assert.equal(report.summary.localFailures, 0);
+
+    const blocked = report.dependencies.find(({ url }) => url.endsWith("/blocked.png"));
+    assert.ok(blocked, JSON.stringify(report, null, 2));
+    assert.equal(blocked.state, "blocked-by-csp");
+    assert.equal(blocked.cspBlocked, true);
   } finally {
     await rm(reportDirectory, { recursive: true, force: true });
   }
