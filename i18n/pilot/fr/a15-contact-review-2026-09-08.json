@@ -1,0 +1,21 @@
+{
+  "language_pair": "en-US -> fr-FR",
+  "skill": "okhp3-translation-en-us-fr-fr@1.1.0",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "reviewed_on": "2026-09-08",
+  "baseline_revision": "6071bc2b0c748fde88b1d5ef1302e039e256444b",
+  "review_scope": "Independent A15 source-unit review: optional four inquiry prompts, unfinished brief allowance, page link context and copyable email fallback preserve meaning and vous register. No commitment, deadline or qualification added. All previous source/target bytes preserved outside marked insertion after CRLF normalization. Existing published French policy retained; no native certification.",
+  "translation_record": "i18n/pilot/fr/a15-contact-translation-2026-09-08.json",
+  "routes": [
+    {
+      "route": "/contact/",
+      "locale": "fr",
+      "source_path": "contact/index.html",
+      "target_path": "fr/contact/index.html",
+      "source_sha256": "c76e80709d94cac8d71c93b815314df884ccd7ac2c36b2b4e4ed20eed6b04644",
+      "target_sha256": "48f52b1bf3acab732044c91bd9412f1cdd6721724b287cc46b91cf9ef78afc60",
+      "disposition": "retained-ai-reviewed"
+    }
+  ]
+}
