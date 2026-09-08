@@ -12,7 +12,7 @@ The evidence route exposed all five requested destinations: `#scoring-model`, `#
 
 ## Focused test
 
-`tests/test-reader-orientation.mjs` ran 97 assertions across four contexts:
+`tests/test-reader-orientation.mjs` ran 121 assertions across four contexts:
 
 - desktop, light, normal motion
 - 390 x 844 phone, dark, reduced motion
@@ -30,3 +30,7 @@ Desktop and phone Contact screenshots were retained outside the repository at `C
 This is browser automation evidence only. It does not claim a human assistive-technology session, screen-reader acceptance, external mail-client operation, live deployment acceptance, or locale translation acceptance. The automated phone check covered the requested narrow viewport and overflow condition; it did not replace a full visual design review at every breakpoint or zoom level.
 
 Reproduce with an owned preview server and `BASE_URL=http://127.0.0.1:<port> node tests/test-reader-orientation.mjs`. Screenshots are optional through `A15_SCREENSHOT_DIR`; the test has no machine-specific output path.
+
+After the media merge, the final 121-assertion run also checked UK-English and
+Mexican-Spanish Contact heading visibility, overflow and retained noindex in
+every context. All passed.
