@@ -24,16 +24,20 @@ publicDir = "site-release"
 ```
 
 The proposal now supplies `build = "python3 scripts/build-replit-release.py"`.
-Official Replit documentation describes a Static Deployment build command that
-runs when creating a deployment and a public directory whose contents are
-served. This verifies the configuration model, but does not verify this
-workspace's deployment settings until the owner inspects them.
+Official Replit documentation describes a Static Deployment public directory and
+optional build command ([deployment types](https://docs.replit.com/features/publishing/deployment-types));
+the configuration reference defines the deployment `build` string
+([configuration](https://docs.replit.com/features/project-setup/configuration)).
+This verifies the configuration model, but does not verify this workspace's
+deployment settings until the owner inspects them. Replit availability of Git
+metadata during the deployment build is not verified; the wrapper therefore
+fails closed unless `REPLIT_RELEASE_SHA` matches `HEAD` in a clean checkout.
 The current `origin/main` checkout and the observed Replit deployment still use
 `publicDir = "."`; the `site-release` setting exists only in this unpublished
 proposal branch.
 
-The new regression test is not wired into the existing GitHub Actions workflow;
-it has been run locally with the release-package and preview-server tests.
+The regression test is wired into the existing GitHub Actions workflow and has
+been run locally with the release-package and preview-server tests.
 
 The available public probes are status-only evidence: `/server.py` returned
 HTTP 200 with Python source and `/site-src/pages.json` returned HTTP 200 with

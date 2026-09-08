@@ -34,19 +34,21 @@ class ReplitStaticPublicationTests(unittest.TestCase):
             (output / "old.txt").write_text("old", encoding="utf-8")
             def successful_build(command, cwd, check):
                 staged = Path(command[command.index("--output") + 1])
-                staged.mkdir()
+                staged.mkdir(exist_ok=True)
                 (staged / "new.txt").write_text("new", encoding="utf-8")
 
             with patch.object(wrapper, "ROOT", root), patch.object(wrapper, "OUTPUT", output), \
                     patch.object(wrapper, "BUILDER", root / "builder.py"), \
-                    patch.object(wrapper.subprocess, "check_output", return_value="a" * 40), \
+                    patch.object(wrapper, "BACKUP", root / ".backup"), \
+                    patch.object(wrapper, "accepted_commit", return_value="a" * 40), \
                     patch.object(wrapper.subprocess, "run", side_effect=successful_build):
                 self.assertEqual(wrapper.main(), 0)
             self.assertEqual((output / "new.txt").read_text(encoding="utf-8"), "new")
             self.assertFalse((output / "old.txt").exists())
             with patch.object(wrapper, "ROOT", root), patch.object(wrapper, "OUTPUT", output), \
                     patch.object(wrapper, "BUILDER", root / "builder.py"), \
-                    patch.object(wrapper.subprocess, "check_output", return_value="c" * 40), \
+                    patch.object(wrapper, "BACKUP", root / ".backup"), \
+                    patch.object(wrapper, "accepted_commit", return_value="c" * 40), \
                     patch.object(wrapper.subprocess, "run", side_effect=successful_build):
                 self.assertEqual(wrapper.main(), 0)
             self.assertEqual((output / "new.txt").read_text(encoding="utf-8"), "new")
@@ -57,11 +59,12 @@ class ReplitStaticPublicationTests(unittest.TestCase):
             (output / "keep.txt").write_text("keep", encoding="utf-8")
             with patch.object(wrapper, "ROOT", root), patch.object(wrapper, "OUTPUT", output), \
                     patch.object(wrapper, "BUILDER", root / "builder.py"), \
-                    patch.object(wrapper.subprocess, "check_output", return_value="b" * 40), \
+                    patch.object(wrapper, "BACKUP", root / ".backup"), \
+                    patch.object(wrapper, "accepted_commit", return_value="b" * 40), \
                     patch.object(wrapper.subprocess, "run", side_effect=failed_build):
                 with self.assertRaises(subprocess.CalledProcessError):
                     wrapper.main()
-            self.assertEqual((output / "keep.txt").read_text(encoding="utf-8"), "keep")
+            self.assertFalse(output.exists())
 
     def test_allowlisted_release_excludes_private_source_paths(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
