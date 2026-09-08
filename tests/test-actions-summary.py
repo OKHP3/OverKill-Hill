@@ -11,6 +11,9 @@ SCRIPT = ROOT / 'scripts/write-actions-summary.py'
 
 
 class SummaryTests(unittest.TestCase):
+    def load_fixture(self, name):
+        return json.loads((ROOT / 'tests/fixtures/actions-summary' / name).read_text())
+
     def run_summary(self, report, kind='edge'):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / 'report.json'
@@ -38,6 +41,25 @@ class SummaryTests(unittest.TestCase):
         self.assertEqual(code, 1)
         self.assertIn('| Content delivery | FAILED |', summary)
         self.assertIn('HTTP 404', summary)
+
+    def test_confirmed_live_edge_failures_remain_visible_in_their_area(self):
+        code, summary = self.run_summary(self.load_fixture('live-edge-failure.json'))
+
+        self.assertEqual(code, 1)
+        self.assertIn('| Content delivery | FAILED |', summary)
+        self.assertIn('| Edge policy | FAILED |', summary)
+        self.assertIn('release manifest', summary)
+        self.assertIn('x-frame-options', summary)
+        self.assertIn('confirmed policy failures remain visible', summary)
+
+    def test_pages_only_blocked_fixture_is_partial_and_not_enforcement_proof(self):
+        code, summary = self.run_summary(self.load_fixture('live-edge-pages-blocked.json'))
+
+        self.assertEqual(code, 0)
+        self.assertIn('| Content delivery | PASS |', summary)
+        self.assertIn('| Edge policy | PARTIAL |', summary)
+        self.assertIn('do not prove enforcement', summary)
+        self.assertNotIn('| Edge policy | FAILED |', summary)
 
     def test_transport_block_is_unknown_not_external_outage(self):
         code, summary = self.run_summary({'checks': [{'check': 'route /', 'status': 'BLOCKED', 'evidence': 'timeout'}]})

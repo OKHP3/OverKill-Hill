@@ -41,8 +41,15 @@ def edge_summary(report):
                 or item['evidence'].startswith('GitHub Pages serves this response but does not apply repository _headers;'))
     content = [item for item in checks if not policy(item)]
     edge = [item for item in checks if policy(item)]
+    edge_state = state(edge)
+    if edge_state == 'FAILED':
+        edge_evidence = f'{len(edge)} checks; confirmed policy failures remain visible'
+    elif edge_state == 'PARTIAL':
+        edge_evidence = f'{len(edge)} checks; BLOCKED hosting limitations do not prove enforcement'
+    else:
+        edge_evidence = f'{len(edge)} checks; policy checks were evaluated'
     lines = [row('Content delivery', state(content), f'{len(content)} checks; sampled delivery and release binding only'),
-             row('Edge policy', state(edge), f'{len(edge)} checks; PARTIAL does not mean policy is enforced'),
+             row('Edge policy', edge_state, edge_evidence),
              row('External availability', 'NOT RUN', 'Use the separate third-party runtime report')]
     binding = next((item for item in checks if item['check'] == 'release manifest'), None)
     lines += ['', f"Expected release SHA: {cell(report.get('expected_commit') or 'not specified (monitoring)')}",
@@ -61,7 +68,7 @@ def edge_summary(report):
         lines += [f"- {cell(item['check'])}: {cell(item['evidence'])}" for item in failures[:12]]
         if len(failures) > 12:
             lines.append(f'- {len(failures) - 12} additional failures remain in the JSON artifact.')
-    lines += ['', 'Blocked transport checks are inconclusive. Accepted Pages policy limits are not external outages.']
+    lines += ['', 'Blocked transport checks are inconclusive. Pages-only BLOCKED policy checks do not prove enforcement and are not external outages.']
     return lines, bool(failures)
 
 
