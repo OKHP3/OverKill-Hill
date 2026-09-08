@@ -14,8 +14,13 @@ directory locked.
 - Archive ref created for the unique detached commit `37eb4c28`:
   `refs/archive/2026-09-08/a21-retry-evidence`
 - The commit at `37eb4c28` is now protected before any worktree cleanup.
-- Existing tracked evidence in `C:/Users/jamie/.codex/worktrees/ace6/overkill-hill/.local/a21-evidence`
-  remains untouched.
+- The `ace6/.local/a21-evidence` material was ignored raw evidence, not tracked
+  repository content. It was preserved without deletion at
+  `C:/Users/jamie/OKH-Local/01_ChatGPT_Exports/2026-09-08/a21-release-evidence-preserved-1655`.
+  The snapshot contains 2,779 files totaling 1,308,423,643 bytes; every source
+  and copy SHA-256 matched. Its sibling manifest is
+  `a21-release-evidence-preserved-1655-manifest.json`. The `ace6` source remains
+  active and no deletion is authorized.
 
 ## What was cleaned up
 
@@ -42,4 +47,3 @@ directory locked.
 - Keep: active named branches, open PR work, and preserved evidence.
 - Archive: unique detached commit `37eb4c28`.
 - Delete later: `3d63` detached worktree, once the Windows lock clears.
-
