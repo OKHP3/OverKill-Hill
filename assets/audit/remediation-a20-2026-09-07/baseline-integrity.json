@@ -1,0 +1,12 @@
+{
+  "scope": "local baseline, not integrated candidate or live release",
+  "commit": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+  "schema": 3,
+  "files": 371,
+  "html_pages": 56,
+  "verified_payloads": 370,
+  "manifest_sha256": "75369969469dba4445da8b32a44db29dc61a189dab809c02b778fc98614ed0fa",
+  "inventory_and_every_payload": "PASS",
+  "manifest_self_digest": "excluded by design; separately recorded above",
+  "production_checked": false
+}
