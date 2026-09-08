@@ -13,9 +13,13 @@
       "locale": "fr",
       "source_path": "contact/index.html",
       "target_path": "fr/contact/index.html",
-      "source_sha256": "c76e80709d94cac8d71c93b815314df884ccd7ac2c36b2b4e4ed20eed6b04644",
-      "target_sha256": "48f52b1bf3acab732044c91bd9412f1cdd6721724b287cc46b91cf9ef78afc60",
+      "source_sha256": "20cc4d87487d7d7c454413581d8959c8f683817c96d0fa8a8fd05f309dab0968",
+      "target_sha256": "1266a664c794c8febb0c0dd416f2dc984e613aea2446da9415c386cf9e279910",
       "disposition": "retained-ai-reviewed"
     }
-  ]
+  ],
+  "release_rebind": {
+    "baseline": "bdd6bed1c737cf4d44e7cea5dae37afb33e18970",
+    "scope": "Exact prior reviewed A15 source and target bytes unchanged except CSS fingerprint. Retained main reviewed hashes for all other French routes."
+  }
 }
