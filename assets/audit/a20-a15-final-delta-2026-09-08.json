@@ -1,0 +1,142 @@
+{
+  "candidate": "60cf2d1ed8d81d99d05754b5f94dbb2712b6ed3f",
+  "baseline": "f805158a364b96ac9b3f44a5ee92f0d4fa95d67a",
+  "checks": [
+    {
+      "path": "contact/index.html",
+      "originalPreserved": true,
+      "sha256": "20cc4d87487d7d7c454413581d8959c8f683817c96d0fa8a8fd05f309dab0968",
+      "noindex": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    },
+    {
+      "path": "fr/contact/index.html",
+      "originalPreserved": true,
+      "sha256": "1266a664c794c8febb0c0dd416f2dc984e613aea2446da9415c386cf9e279910",
+      "noindex": "index, follow"
+    },
+    {
+      "path": "en-gb/contact/index.html",
+      "originalPreserved": true,
+      "sha256": "7ba4a86870cfc93b456cc75be8fab5b75bc94b1044aae31c8a112645a41ea4fe",
+      "noindex": "noindex, follow"
+    },
+    {
+      "path": "es-mx/contact/index.html",
+      "originalPreserved": true,
+      "sha256": "48892a42347bea4d9aacb00b6e5fc93a56fb13325bc37f2c920389fc945628a6",
+      "noindex": "noindex, follow"
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/index.html",
+      "originalPreserved": true,
+      "sha256": "cbc8599ba169a60da311270073de07005675fd1460b3512cd26358ab51645484",
+      "noindex": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    }
+  ],
+  "syncChangedKeys": [
+    "/pages//contact//targets/fr/synced_source_sha256",
+    "/pages//contact//targets/fr/target_sha256"
+  ],
+  "review": {
+    "language_pair": "en-US -> fr-FR",
+    "skill": "okhp3-translation-en-us-fr-fr@1.1.0",
+    "review_status": "ai-reviewed",
+    "native_or_human_approval": false,
+    "reviewed_on": "2026-09-08",
+    "baseline_revision": "6071bc2b0c748fde88b1d5ef1302e039e256444b",
+    "review_scope": "Independent A15 source-unit review: optional four inquiry prompts, unfinished brief allowance, page link context and copyable email fallback preserve meaning and vous register. No commitment, deadline or qualification added. All previous source/target bytes preserved outside marked insertion after CRLF normalization. Existing published French policy retained; no native certification.",
+    "translation_record": "i18n/pilot/fr/a15-contact-translation-2026-09-08.json",
+    "routes": [
+      {
+        "route": "/contact/",
+        "locale": "fr",
+        "source_path": "contact/index.html",
+        "target_path": "fr/contact/index.html",
+        "source_sha256": "20cc4d87487d7d7c454413581d8959c8f683817c96d0fa8a8fd05f309dab0968",
+        "target_sha256": "1266a664c794c8febb0c0dd416f2dc984e613aea2446da9415c386cf9e279910",
+        "disposition": "retained-ai-reviewed"
+      }
+    ],
+    "release_rebind": {
+      "baseline": "bdd6bed1c737cf4d44e7cea5dae37afb33e18970",
+      "scope": "Exact prior reviewed A15 source and target bytes unchanged except CSS fingerprint. Retained main reviewed hashes for all other French routes."
+    }
+  },
+  "esMxReviewedInputMatches": false,
+  "regionalRecordLimits": {
+    "en-gb": {
+      "language_pair": {
+        "source_locale": "en-US",
+        "target_locale": "en-GB",
+        "direction": "one-way"
+      },
+      "skill": "okhp3-translation-en-us-en-uk@1.0.0",
+      "source": {
+        "path": "site-src/pages/contact/index.main.html",
+        "baseline_revision_before_a15": "git:6071bc2b0c748fde88b1d5ef1302e039e256444b",
+        "register_state": "plainspoken",
+        "voice_profile": "i18n/pilot/en-gb/voice-profile.en-us.json",
+        "changed_unit": "A15:OPTIONAL-INQUIRY block"
+      },
+      "target": {
+        "path": "en-gb/contact/index.html",
+        "dictionary": "dictionary.en-us-en-uk.json"
+      },
+      "status": "machine-drafted",
+      "review_status": "ai-reviewed",
+      "native_or_human_approval": false,
+      "needs_native_review": true,
+      "assumptions": [
+        "The bounded block requires no British spelling or vocabulary changes; surrounding reviewed content remains unchanged."
+      ],
+      "unresolved_terms": [],
+      "preservation": {
+        "placement": "After the email/location paragraph and before the social-media paragraph.",
+        "markers_preserved": true,
+        "protected_tokens_preserved": [
+          "contact@overkillhill.com"
+        ],
+        "surrounding_content_modified": false,
+        "noindex_preserved": true
+      }
+    },
+    "es-mx": {
+      "language_pair": {
+        "source_locale": "en-US",
+        "target_locale": "es-MX",
+        "direction": "one-way"
+      },
+      "skill": "okhp3-translation-en-us-es-mx@1.0.0",
+      "source": {
+        "path": "site-src/pages/contact/index.main.html",
+        "baseline_revision_before_a15": "git:6071bc2b0c748fde88b1d5ef1302e039e256444b",
+        "register_state": "plainspoken",
+        "voice_profile": "i18n/pilot/es-mx/voice-profile.en-us.json",
+        "changed_unit": "A15:OPTIONAL-INQUIRY block"
+      },
+      "target": {
+        "path": "es-mx/contact/index.html",
+        "dictionary": "dictionary.en-us-es-mx.json"
+      },
+      "status": "machine-drafted",
+      "review_status": "ai-reviewed",
+      "native_or_human_approval": false,
+      "needs_native_review": true,
+      "assumptions": [
+        "Mexican Spanish t\u00fa register follows the project voice boundary; surrounding reviewed content remains unchanged."
+      ],
+      "unresolved_terms": [],
+      "preservation": {
+        "placement": "After the email/location paragraph and before the social-media paragraph.",
+        "markers_preserved": true,
+        "protected_tokens_preserved": [
+          "contact@overkillhill.com"
+        ],
+        "surrounding_content_modified": false,
+        "noindex_preserved": true
+      }
+    }
+  },
+  "esMxReviewedInsertedBlockMatches": true,
+  "wholeDocumentComparisonLimit": "Reviewed source is transformed into a noindex regional output; whole-document identity is not the generator contract. The bounded A15 inserted block matches exactly."
+}

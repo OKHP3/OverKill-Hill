@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-09-08T18:11:47.419133+00:00",
+  "fixCommit": "f805158a364b96ac9b3f44a5ee92f0d4fa95d67a",
+  "liveCommit": "f805158a364b96ac9b3f44a5ee92f0d4fa95d67a",
+  "pagesRun": 34260828061,
+  "pagesConclusion": "success",
+  "manifestSha256": "cd4256f1b78a037bededca22f15f8885f1950ba2f1b8422ba46af9b68bd32604",
+  "endpoints": [
+    {
+      "path": ".well-known/security.txt",
+      "status": 200,
+      "bytes": 952,
+      "sha256": "9013936b89b9370881525d777602e16c6aa790190fb17876cb553926f7970071",
+      "exactMergedGitBytes": true,
+      "manifestDigestMatch": true
+    },
+    {
+      "path": ".well-known/discord",
+      "status": 200,
+      "bytes": 44,
+      "sha256": "529f48a83942f1ba98948b656a8ff7303cb00d8666cc4a1ca6beb16d35059e08",
+      "exactMergedGitBytes": true,
+      "manifestDigestMatch": true
+    }
+  ]
+}
