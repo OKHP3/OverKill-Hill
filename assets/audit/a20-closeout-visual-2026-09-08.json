@@ -1,0 +1,21 @@
+{
+  "candidate": "f4a353",
+  "origin": "https://overkillhill.com",
+  "cname": "overkillhill.com",
+  "coverage": {
+    "browsers": ["chromium", "firefox"],
+    "routes": ["/", "/search/", "/contact/", "/writings/first-diagram-is-a-liar/"],
+    "viewports": [
+      {"label": "short-height", "width": 390, "height": 240},
+      {"label": "zoom-200-equivalent", "width": 640, "height": 844},
+      {"label": "zoom-400-equivalent", "width": 320, "height": 844}
+    ],
+    "checks": ["HTTP 200", "document.fonts.ready and status loaded", "document and body scrollWidth <= clientWidth"]
+  },
+  "result": {"samples": 24, "passed": 24, "failed": 0},
+  "evidence": ".local/a20-closeout-visual/results.json",
+  "limitations": [
+    "Viewport widths are CSS viewport reflow equivalents, not actual browser zoom.",
+    "No human, native macOS, VoiceOver/NVDA, touch hardware, or audio result is claimed."
+  ]
+}

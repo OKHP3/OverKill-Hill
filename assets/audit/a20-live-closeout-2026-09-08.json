@@ -1,0 +1,1895 @@
+{
+  "checkedAt": "2026-09-08T13:24:15.584445+00:00",
+  "origin": "https://overkillhill.com/",
+  "commit": "f4a353c323fc1caa848e03f6f0aa1ea1e520210c",
+  "manifestSha256": "9eb086a79bfe637927d82b89d7fc48746eeb7e3044bedcc2e6753c8eba302210",
+  "checks": [
+    {
+      "path": ".nojekyll",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": ".well-known/discord",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": ".well-known/security.txt",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "404.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "CNAME",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "about/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/css/theme.css",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/data/performance-budget.json",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/data/search-index.de.json",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/data/search-index.en-gb.json",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/data/search-index.es-mx.json",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/data/search-index.es.json",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/data/search-index.fr.json",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/data/search-index.json",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/downloads/okh-prompt-protocol-template.md",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/AskJamie/BrandGuard/ask-jamie-gpt-icon-bfs01-bfs-framing-intelligent-futures-square-1024.png",
+      "gitBlobMatch": true,
+      "manifestMatch": true,
+      "resolvedError": "Command '['git', 'show', 'f4a353c323fc1caa848e03f6f0aa1ea1e520210c:assets/img/AskJamie/BrandGuard/ask-jamie-gpt-icon-bfs01-bfs-framing-intelligent-futures-square-1024.png']' returned non-zero exit status 128."
+    },
+    {
+      "path": "assets/img/AskJamie/BrandGuard/ask-jamie-gpt-icon-bfs01-bfs-framing-intelligent-futures-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/etch-ai-sketch-claude-v2-lores.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/etch-ai-sketch-claude-v2-lores.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/etch-ai-sketch-copilot-v1-lores.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/etch-ai-sketch-copilot-v1-lores.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/etch-ai-sketch-using-a-council-to-design-at-velocity.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/android-chrome-192x192.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/android-chrome-512x512.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/apple-touch-icon.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/archive/favicon-legacy-2026-09-05.ico",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/favicon-16x16.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/favicon-32x32.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/favicon-48x48.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/favicon.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-browser-16.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-browser-32.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-browser-48.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-maskable-192.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-maskable-512.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-nav-96.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-opaque-180.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-opaque-192.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-opaque-512.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon.ico",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-browser-16.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-browser-32.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-browser-48.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-contact-sheet-preview.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-head-master-draft-01.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-mask-evidence-preview.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-maskable-192.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-maskable-512.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-native-size-contact-preview.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-opaque-180.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-opaque-192.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-opaque-512.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-preview.ico",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-safe-margin-preview-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/favicons/source/favicon-source-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/ask-jamie-gpt-icon-bfs01-bfs-framing-intelligent-futures-square-1024-alt.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/ask-jamie-gpt-icon-bfs01-bfs-framing-intelligent-futures-square-1024-alt.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/ask-jamie-gpt-icon-bfs01-bfs-framing-intelligent-futures-square-1024-pre.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/ask-jamie-gpt-icon-bfs01-bfs-framing-intelligent-futures-square-1024-pre.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/etch-ai-sketch-using-a-council-to-design-at-velocity.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/murderbird-story-sentinel-portrait-2026-09-06.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-heart-candidate-2026-09-06.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-maker-clean-candidate-2026-09-06.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-master-candidate-03-2026-09-06.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-mechanic-candidate-2026-09-06.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-sentinel-candidate-2026-09-06.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-water-candidate-2026-09-06.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-square-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-wide-2256.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-wide-2256.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-wide-2390.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-wide-2390.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-wide-4096.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-wide-4096.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-left-error-explosion-background-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-left-error-explosion-background-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-left-error-explosion-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-left-under-construction-background-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-left-under-construction-background-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-left-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-left-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-right-wide-1536-alt.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-right-wide-1536-alt.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-right-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-right-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-comp-left-wide-2390.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-comp-left-wide-2390.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-comp-right-wide-2390.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-comp-right-wide-2390.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-comp-left-square-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-comp-left-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-comp-right-square-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-comp-right-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-desktop-left-square-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-desktop-left-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-desktop-left-title-right-wide-2390.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-desktop-left-title-right-wide-2390.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-desktop-right-square-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-desktop-right-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-laptop-left-square-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-laptop-left-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-laptop-right-square-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-laptop-right-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-sentinel-attacking-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-sentinel-attacking-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-sentinel-warning-square-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-sentinel-warning-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-bot-bird-patrol-comp-right-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-bot-bird-patrol-comp-right-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-bot-bird-patrol-square-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-bot-bird-patrol-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-bot-bird-warn-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-bot-bird-warn-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-horiz-square-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-horiz-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-horz-background-wide-2256.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-horz-background-wide-2256.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-bot-bird-patrol-comp-right-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-bot-bird-patrol-comp-right-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-comp-right-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-comp-right-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-low-bird-warn-comp-right-wide-1992.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-low-bird-warn-comp-right-wide-1992.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-up-bird-waiting-comp-right-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-up-bird-waiting-comp-right-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-up-laptop-right-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-up-laptop-right-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-low-right-bird-perch-comp-square-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-low-right-bird-perch-comp-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-low-right-bird-perch-comp-square-192.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-low-right-bird-perch-comp-square-502.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-low-right-bird-perch-comp-square-502.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-low-right-bird-perch-comp-square-512.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-low-right-bird-perch-comp-square-512.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-mid-bird-patrol-comp-right-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-mid-bird-patrol-comp-right-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bird-patrol-wide-1536-alt.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bird-patrol-wide-1536-alt.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bird-patrol-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bird-patrol-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bot-bird-patrol-comp-left-wide-1536-alt.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bot-bird-patrol-comp-left-wide-1536-alt.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bot-bird-patrol-comp-left-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bot-bird-patrol-comp-left-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bot-bird-warn-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bot-bird-warn-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-laptop-left-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-laptop-left-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-low-bird-crucible-square-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-low-bird-crucible-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-up-bird-patrol-comp-right-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-up-bird-patrol-comp-right-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-stack-left-up-laptop-right-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-stack-left-up-laptop-right-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-stacked-square-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-stacked-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-stacked-square-256.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-up-right-laptop-left-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-up-right-laptop-left-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/murderbird-frontal-attack-2026-09-05.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/murderbird-v2-icon-nav-96.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/og/murderbird-story-share-2026-09-06.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-bird-patrol-comp-left-error-explosion-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-bird-patrol-comp-left-under-construction-wide-1536.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-bird-patrol-comp-left-under-construction-wide-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-sentinel-warning-square-256.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-title-horiz-square-256.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/projects/chai-chasers/social-1280.jpg",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/projects/found-ry/found-ry-hero-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/projects/found-ry/found-ry-hero-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/projects/found-ry/found-ry-screenshot-audit-mode.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/projects/found-ry/found-ry-screenshot-build-brief.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/projects/found-ry/found-ry-screenshot-platform-comparison.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/projects/telling-forward/telling-forward-hero-1024.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/projects/telling-forward/telling-forward-hero-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/projects/telling-forward/telling-forward-social-open-graph-1200x630.png",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-frontal-attack-2026-09-05-1024.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-frontal-attack-2026-09-05-512.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-heart-2026-09-06-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-heart-2026-09-06-480.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-heart-2026-09-06-960.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-maker-clean-2026-09-06-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-maker-clean-2026-09-06-480.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-maker-clean-2026-09-06-960.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-master-03-2026-09-06-480.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-mechanic-2026-09-06-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-mechanic-2026-09-06-480.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-mechanic-2026-09-06-960.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-sentinel-2026-09-06-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-sentinel-2026-09-06-480.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-sentinel-2026-09-06-960.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-water-2026-09-06-1536.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-water-2026-09-06-480.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-water-2026-09-06-960.webp",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/js/app.js",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/js/mermaid-init.js",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/js/universe-map.js",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/abnfDiagram-PAR5IXJI.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/architecture-7GRP2DOG-M7G3SWCO.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/architectureDiagram-2PNWDENW.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/blockDiagram-PUWGUBOA.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/c4Diagram-3NLNHZP5.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-2NMSUPJH.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-32MCUW2P.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-3NPNU5GP.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-3SMGFRGC.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-4CAJECRU.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-4OADUZ5Q.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-5IMINLNL.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-5IQCK5RY.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-5MVFYWFU.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-AQ6EADP3.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-AZZRMDJM.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-CLS4B6BI.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-DZP67EKU.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-EICP7K5X.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-GDY2UAB4.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-H7VHZCWX.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-IJBDOHL6.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-JFFVMJIA.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-JQRUD6KW.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-JZGDI5JK.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-KD6SPIPN.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-NF366YI6.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-NUDPKBEF.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-OJINMHTS.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-Q6NGPIAH.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-QJSWEUOL.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-R7JDMUKV.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-RCXAM2GK.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-RT4MAWR3.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-SFMINX4W.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-SLDQ463B.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-STOV2HOB.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-T5OCTHI4.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-TCEHX7R3.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-VQC2EELJ.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-VRZKL3EH.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-VTHDQ7BV.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-VY2OSTJR.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-WUBWJARI.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-YBMQ5JGJ.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-YDMLL4PJ.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-Z6V44ARX.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-ZJJ7VQJP.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-ZNLK7HRR.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-ZQN7UHIL.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-ZS6VBONO.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-ZUNWM646.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/classDiagram-FGAMPOII.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/classDiagram-v2-AI5RJEK4.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/cose-bilkent-Q72C2OJ3.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/cynefin-OW5HDTMX-6OCTWOGG.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/cynefinDiagram-2OOWUY4M.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/dagre-MPVFI544.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/diagram-AE4NWXFW.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/diagram-BUJID5UG.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/diagram-C44CZ5NI.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/diagram-EYOLEXXS.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/diagram-P7B6PWOJ.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/ebnfDiagram-FTPZ3PV6.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/erDiagram-H3ERR26V.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/eventmodeling-NTZA5JFV-WKSWQHFS.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/flowDiagram-YHGXBVSY.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/ganttDiagram-RWFTB7ED.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/gitGraph-4MIJSDKK-JH2HKYUO.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/gitGraphDiagram-MAR6GKOP.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/info-A6RAGUB7-3TX3OFWW.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/infoDiagram-LV547AFH.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/ishikawaDiagram-PUJQGNDS.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/journeyDiagram-EW5QJT4W.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/kanban-definition-JSQERAZB.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/katex-CZ4GXH2S.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/mindmap-definition-VBJCLQLM.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/packet-AYTQ26CC-MKII6P3Y.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/pegDiagram-7WILOQTJ.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/pie-WAS4IAKB-6B4OPMJ5.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/pieDiagram-EFA7CBSB.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/quadrantDiagram-WARVYA7P.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/radar-RG4KPBEZ-UPTR3XUL.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/railroad-74A4TZTK-MEFUPFMS.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/railroad-abnf-HS5TGJTU-R5YG2S5D.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/railroad-ebnf-LZEXJU2U-G5QEX2L6.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/railroad-peg-WCYAUIDC-H5I2ZRY2.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/railroadDiagram-5NIQVNLQ.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/requirementDiagram-SXREGOKZ.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/sankeyDiagram-VV74M2VP.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/sequenceDiagram-52ZFIFDL.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/sizeCapture-FGA5AGYP.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/stateDiagram-3QAKPIVI.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/stateDiagram-v2-HN2P4RDZ.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/swimlanes-QLVP42QD.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/swimlanesDiagram-JKPDBFCN.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/timeline-definition-GS45XAXW.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/treeView-Q6P3EWNA-ZRJGANNQ.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/treemap-WGGIJYW6-K64VN5AS.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/vennDiagram-QIQU2ZRJ.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/wardley-WFR3VGLG-D67OWCCH.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/wardleyDiagram-U6YNM66N.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/xychartDiagram-XJAZEDNM.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "assets/vendor/mermaid/mermaid.esm.min.mjs",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "contact/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "de/about/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "de/contact/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "de/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "de/projects/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "en-gb/about/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "en-gb/contact/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "en-gb/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "en-gb/projects/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "es/about/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "es/contact/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "es/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "es/projects/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "es-mx/about/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "es-mx/contact/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "es-mx/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "es-mx/projects/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "favicon.ico",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "favicon.svg",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "found-ry/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "fr/about/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "fr/contact/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "fr/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "fr/projects/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "humans.txt",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "legal/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "llms.txt",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "manifesto/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "projects/abrahamic-reference-engine/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "projects/bfs-framing-intelligent-futures/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "projects/bpmn-for-mermaid/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "projects/first-diagram-is-a-liar/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "projects/found-ry/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "projects/glee-fully-chai-chasers/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "projects/hometools/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "projects/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "projects/kierans-lifetrkr/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "projects/mac-studio-local-ai-workbench/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "projects/mermaid-theme-builder/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "projects/pathscrib-r/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "projects/skillz/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "projects/telling-forward/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "projects/un-nocked-truth/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "prompt-forge/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "robots.txt",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "search/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "site.webmanifest",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "sitemap.xml",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "under-construction.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "universe/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "vault/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "writings/biases-as-constants/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v1-heat-a/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v1-heat-b/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v2-heat-a/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v2-heat-b/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "writings/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "writings/magnus-saga/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    },
+    {
+      "path": "writings/murderbird/index.html",
+      "manifestMatch": true,
+      "gitBlobMatch": true
+    }
+  ],
+  "failures": [
+    {
+      "path": ".nojekyll",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": ".well-known/discord",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": ".well-known/security.txt",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "initialFailures": [
+    {
+      "path": ".nojekyll",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": ".well-known/discord",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": ".well-known/security.txt",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "assets/img/AskJamie/BrandGuard/ask-jamie-gpt-icon-bfs01-bfs-framing-intelligent-futures-square-1024.png",
+      "error": "Command '['git', 'show', 'f4a353c323fc1caa848e03f6f0aa1ea1e520210c:assets/img/AskJamie/BrandGuard/ask-jamie-gpt-icon-bfs01-bfs-framing-intelligent-futures-square-1024.png']' returned non-zero exit status 128."
+    }
+  ],
+  "exactMatches": 368,
+  "status": "PARTIAL"
+}
