@@ -39,7 +39,6 @@ class ReplitStaticPublicationTests(unittest.TestCase):
 
             with patch.object(wrapper, "ROOT", root), patch.object(wrapper, "OUTPUT", output), \
                     patch.object(wrapper, "BUILDER", root / "builder.py"), \
-                    patch.object(wrapper, "BACKUP", root / ".backup"), \
                     patch.object(wrapper, "accepted_commit", return_value="a" * 40), \
                     patch.object(wrapper.subprocess, "run", side_effect=successful_build):
                 self.assertEqual(wrapper.main(), 0)
@@ -47,7 +46,6 @@ class ReplitStaticPublicationTests(unittest.TestCase):
             self.assertFalse((output / "old.txt").exists())
             with patch.object(wrapper, "ROOT", root), patch.object(wrapper, "OUTPUT", output), \
                     patch.object(wrapper, "BUILDER", root / "builder.py"), \
-                    patch.object(wrapper, "BACKUP", root / ".backup"), \
                     patch.object(wrapper, "accepted_commit", return_value="c" * 40), \
                     patch.object(wrapper.subprocess, "run", side_effect=successful_build):
                 self.assertEqual(wrapper.main(), 0)
@@ -59,7 +57,6 @@ class ReplitStaticPublicationTests(unittest.TestCase):
             (output / "keep.txt").write_text("keep", encoding="utf-8")
             with patch.object(wrapper, "ROOT", root), patch.object(wrapper, "OUTPUT", output), \
                     patch.object(wrapper, "BUILDER", root / "builder.py"), \
-                    patch.object(wrapper, "BACKUP", root / ".backup"), \
                     patch.object(wrapper, "accepted_commit", return_value="b" * 40), \
                     patch.object(wrapper.subprocess, "run", side_effect=failed_build):
                 with self.assertRaises(subprocess.CalledProcessError):
@@ -104,6 +101,29 @@ class ReplitStaticPublicationTests(unittest.TestCase):
                 self.skipTest(f"symlink creation unavailable: {exc}")
             with self.assertRaises(RuntimeError):
                 wrapper.refuse_link(link)
+
+    def test_fresh_build_and_verification_failure_leave_public_dir_absent(self) -> None:
+        spec = importlib.util.spec_from_file_location("replit_builder", ROOT / "scripts/build-replit-release.py")
+        wrapper = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(wrapper)
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            output = root / "site-release"
+
+            def fail_verify(command, cwd, check):
+                staged = Path(command[command.index("--output") + 1])
+                staged.mkdir(exist_ok=True)
+                if "--verify" in command:
+                    raise subprocess.CalledProcessError(1, command)
+                (staged / "new.txt").write_text("new", encoding="utf-8")
+
+            with patch.object(wrapper, "ROOT", root), patch.object(wrapper, "OUTPUT", output), \
+                    patch.object(wrapper, "BUILDER", root / "builder.py"), \
+                    patch.object(wrapper, "accepted_commit", return_value="a" * 40), \
+                    patch.object(wrapper.subprocess, "run", side_effect=fail_verify):
+                with self.assertRaises(subprocess.CalledProcessError):
+                    wrapper.main()
+            self.assertFalse(output.exists())
 
     def test_allowlisted_release_excludes_private_source_paths(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
