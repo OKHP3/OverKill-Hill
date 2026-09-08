@@ -234,6 +234,9 @@ jobs:
       - name: Run CSP fixture regressions
         run: npm run test:csp:regressions
 
+      - name: Run shared theme-control regressions
+        run: npm run test:theme-controls
+
       - name: Run search and embedded-app regressions
         run: |
           python3 tests/test-search-sections.py
