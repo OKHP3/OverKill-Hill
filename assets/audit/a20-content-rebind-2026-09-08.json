@@ -1,0 +1,26 @@
+{
+  "candidate": "f0b2eb5bb0e99ec5ea6bb4cdf8f97dc115ca24f7",
+  "reviewedCandidate": "ed9a47d0e7e247977de8bd58ba10ac9376fa1ed5",
+  "manifestSha256": "f8c3a9a727d9096ba15303988ae3c05d630f0827628386dc47a3480a37f4f3c7",
+  "files": 372,
+  "identicalPayloadFiles": 371,
+  "changedPackageFiles": [
+    "assets/audit/release-manifest.json"
+  ],
+  "allPayloadDigestsVerified": true,
+  "changedGitFiles": [
+    "assets/docs/foundry-journey-review-2026-09-07.md",
+    "assets/docs/foundry-metadata-parity-2026-09-07.md",
+    "assets/docs/foundry-recovery-faq-2026-09-07.md",
+    "docs/handoffs/coop-pertition-2026-09-07/w01.md",
+    "docs/handoffs/coop-pertition-2026-09-07/w02.md",
+    "docs/handoffs/coop-pertition-2026-09-07/w03.md",
+    "docs/handoffs/coop-pertition-2026-09-07/w04.md",
+    "docs/handoffs/coop-pertition-2026-09-07/w05.md",
+    "docs/handoffs/coop-pertition-2026-09-07/w06.md",
+    "tests/foundry-embed-acceptance.test.mjs",
+    "tests/test-foundry-feature-contract.py",
+    "tests/test-foundry-launch-routes.py"
+  ],
+  "changedGitFilesAbsentFromPackage": true
+}

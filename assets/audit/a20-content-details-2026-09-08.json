@@ -1,0 +1,95 @@
+{
+  "candidate": "ed9a47d0e7e247977de8bd58ba10ac9376fa1ed5",
+  "rows": [
+    {
+      "browser": "chromium",
+      "route": "/projects/hometools/",
+      "status": "PASS",
+      "notice": "Concept page · reviewed September 7, 2026.",
+      "noindex": "noindex, nofollow"
+    },
+    {
+      "browser": "chromium",
+      "route": "/projects/pathscrib-r/",
+      "status": "PASS",
+      "notice": "Concept page · reviewed September 7, 2026.",
+      "noindex": "noindex, nofollow"
+    },
+    {
+      "browser": "chromium",
+      "route": "/projects/un-nocked-truth/",
+      "status": "PASS",
+      "notice": "Concept page · reviewed September 7, 2026.",
+      "noindex": "noindex, nofollow"
+    },
+    {
+      "browser": "chromium",
+      "route": "/fr/",
+      "status": "PASS",
+      "focus": "<a class=\"okh-search-result\" href=\"/fr/projects/\" data-active=\"true\"><div class=\"okh-search-result-meta\"><span class=\"okh-search-result-cat\">Projet</span><span class=\"okh-search-result-url\">/fr/projects/</span></div><h3 class=\"okh-search-result-title\">Nos <mark>projets</mark> | OverKill Hill P³™</h3><p class=\"okh-search-result-snippet\">Les <mark>projets</mark> de la colline Un aperçu des systèmes actuellement forgés chez OverKill Hill P³™ : certains sont publics, d’autres réalisés pour des clients, tous construits avec la même approche guidée par les protocoles. Fo…</p></a>",
+      "fallback": "Ouvrir la recherche complète (contenu en anglais) →",
+      "theme": "Passer au mode clair"
+    },
+    {
+      "browser": "chromium",
+      "route": "/en-gb/projects/",
+      "status": "PASS",
+      "noindex": "noindex, follow",
+      "statusCount": 14,
+      "overflow": false
+    },
+    {
+      "browser": "chromium",
+      "route": "/es-mx/projects/",
+      "status": "PASS",
+      "noindex": "noindex, follow",
+      "statusCount": 14,
+      "overflow": false
+    },
+    {
+      "browser": "firefox",
+      "route": "/projects/hometools/",
+      "status": "PASS",
+      "notice": "Concept page · reviewed September 7, 2026.",
+      "noindex": "noindex, nofollow"
+    },
+    {
+      "browser": "firefox",
+      "route": "/projects/pathscrib-r/",
+      "status": "PASS",
+      "notice": "Concept page · reviewed September 7, 2026.",
+      "noindex": "noindex, nofollow"
+    },
+    {
+      "browser": "firefox",
+      "route": "/projects/un-nocked-truth/",
+      "status": "PASS",
+      "notice": "Concept page · reviewed September 7, 2026.",
+      "noindex": "noindex, nofollow"
+    },
+    {
+      "browser": "firefox",
+      "route": "/fr/",
+      "status": "PASS",
+      "focus": "<a class=\"okh-search-result\" href=\"/fr/projects/\" data-active=\"true\"><div class=\"okh-search-result-meta\"><span class=\"okh-search-result-cat\">Projet</span><span class=\"okh-search-result-url\">/fr/projects/</span></div><h3 class=\"okh-search-result-title\">Nos <mark>projets</mark> | OverKill Hill P³™</h3><p class=\"okh-search-result-snippet\">Les <mark>projets</mark> de la colline Un aperçu des systèmes actuellement forgés chez OverKill Hill P³™ : certains sont publics, d’autres réalisés pour des clients, tous construits avec la même approche guidée par les protocoles. Fo…</p></a>",
+      "fallback": "Ouvrir la recherche complète (contenu en anglais) →",
+      "theme": "Passer au mode clair"
+    },
+    {
+      "browser": "firefox",
+      "route": "/en-gb/projects/",
+      "status": "PASS",
+      "noindex": "noindex, follow",
+      "statusCount": 14,
+      "overflow": false
+    },
+    {
+      "browser": "firefox",
+      "route": "/es-mx/projects/",
+      "status": "PASS",
+      "noindex": "noindex, follow",
+      "statusCount": 14,
+      "overflow": false
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "commit": "f4a353c323fc1caa848e03f6f0aa1ea1e520210c",
+  "pages_run": 34224582972,
+  "full_attempt": 2,
+  "deploy_only_attempt": 3,
+  "parallel_validation_run": 34231410815,
+  "validation_overlap_confirmed": true,
+  "full_jobs": [
+    {
+      "id": 102078124098,
+      "name": "Validate the exact release revision / Validate site HTML, links, and structure",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T13:20:48Z",
+      "completed_at": "2026-09-08T13:25:56Z",
+      "run_attempt": 2
+    },
+    {
+      "id": 102078125260,
+      "name": "Validate the exact release revision / Monitor third-party runtime dependencies",
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-09-08T13:20:47Z",
+      "completed_at": "2026-09-08T13:20:46Z",
+      "run_attempt": 2
+    },
+    {
+      "id": 102078125374,
+      "name": "Validate the exact release revision / Monitor production security and cache policies",
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-09-08T13:20:47Z",
+      "completed_at": "2026-09-08T13:20:46Z",
+      "run_attempt": 2
+    },
+    {
+      "id": 102079922030,
+      "name": "Deploy validated site to GitHub Pages",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T13:26:00Z",
+      "completed_at": "2026-09-08T13:26:43Z",
+      "run_attempt": 2
+    }
+  ],
+  "dispatch_jobs": [
+    {
+      "id": 102078206883,
+      "name": "Monitor third-party runtime dependencies",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T13:21:03Z",
+      "completed_at": "2026-09-08T13:22:54Z",
+      "run_attempt": 1
+    },
+    {
+      "id": 102078207337,
+      "name": "Validate site HTML, links, and structure",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T13:21:03Z",
+      "completed_at": "2026-09-08T13:26:07Z",
+      "run_attempt": 1
+    },
+    {
+      "id": 102078207344,
+      "name": "Monitor production security and cache policies",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T13:21:03Z",
+      "completed_at": "2026-09-08T13:21:23Z",
+      "run_attempt": 1
+    }
+  ],
+  "deploy_only_jobs": [
+    {
+      "id": 102080399494,
+      "name": "Validate the exact release revision / Monitor production security and cache policies",
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-09-08T13:27:20Z",
+      "completed_at": "2026-09-08T13:20:46Z",
+      "run_attempt": 3
+    },
+    {
+      "id": 102080399785,
+      "name": "Deploy validated site to GitHub Pages",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T13:27:23Z",
+      "completed_at": "2026-09-08T13:27:58Z",
+      "run_attempt": 3
+    },
+    {
+      "id": 102080399968,
+      "name": "Validate the exact release revision / Validate site HTML, links, and structure",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T13:20:48Z",
+      "completed_at": "2026-09-08T13:25:56Z",
+      "run_attempt": 3
+    },
+    {
+      "id": 102080409677,
+      "name": "Validate the exact release revision / Monitor third-party runtime dependencies",
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-09-08T13:27:21Z",
+      "completed_at": "2026-09-08T13:20:46Z",
+      "run_attempt": 3
+    }
+  ],
+  "log_evidence": {
+    "full-attempt-2.log": {
+      "sha256": "a9581301df8f8f06ced070b04c0ec6d31dbf6a6a12664cc95132c49217b0e924",
+      "lines": [
+        "Deploy validated site to GitHub Pages\tRequire a validated artifact identity\t2026-09-08T13:26:17.0495232Z   RELEASE_ARTIFACT_NAME: validated-site-f4a353c323fc1caa848e03f6f0aa1ea1e520210c-34224582972-2",
+        "Deploy validated site to GitHub Pages\tVerify downloaded release provenance and bytes\t2026-09-08T13:26:21.8900475Z Verified SHA-bound release: 56 HTML pages, 372 files",
+        "Deploy validated site to GitHub Pages\tDeploy to GitHub Pages\t2026-09-08T13:26:28.2010160Z   artifact_name: github-pages-34224582972-2",
+        "Deploy validated site to GitHub Pages\tSummarize content delivery and edge policy\t2026-09-08T13:26:41.2169688Z | Content delivery | PASS | 74 checks; sampled delivery and release binding only |",
+        "Deploy validated site to GitHub Pages\tSummarize content delivery and edge policy\t2026-09-08T13:26:41.2170122Z | Edge policy | PARTIAL | 354 checks; PARTIAL does not mean policy is enforced |",
+        "Deploy validated site to GitHub Pages\tSummarize content delivery and edge policy\t2026-09-08T13:26:41.2170860Z | External availability | NOT RUN | Use the separate third-party runtime report |",
+        "Deploy validated site to GitHub Pages\tSummarize content delivery and edge policy\t2026-09-08T13:26:41.2171593Z Expected release SHA: f4a353c323fc1caa848e03f6f0aa1ea1e520210c",
+        "Deploy validated site to GitHub Pages\tSummarize content delivery and edge policy\t2026-09-08T13:26:41.2172184Z Release manifest evidence: validated commit f4a353c323fc1caa848e03f6f0aa1ea1e520210c"
+      ]
+    },
+    "deploy-attempt-3.log": {
+      "sha256": "fc83fe1ced53d6c89d96acd6dd979b70903008af5095424a2202ee34a5e650b9",
+      "lines": [
+        "Deploy validated site to GitHub Pages\tRequire a validated artifact identity\t2026-09-08T13:27:39.5033776Z   RELEASE_ARTIFACT_NAME: validated-site-f4a353c323fc1caa848e03f6f0aa1ea1e520210c-34224582972-2",
+        "Deploy validated site to GitHub Pages\tVerify downloaded release provenance and bytes\t2026-09-08T13:27:43.0184173Z Verified SHA-bound release: 56 HTML pages, 372 files",
+        "Deploy validated site to GitHub Pages\tDeploy to GitHub Pages\t2026-09-08T13:27:48.7028740Z   artifact_name: github-pages-34224582972-3",
+        "Deploy validated site to GitHub Pages\tSummarize content delivery and edge policy\t2026-09-08T13:27:55.9168203Z | Content delivery | PASS | 74 checks; sampled delivery and release binding only |",
+        "Deploy validated site to GitHub Pages\tSummarize content delivery and edge policy\t2026-09-08T13:27:55.9168675Z | Edge policy | PARTIAL | 354 checks; PARTIAL does not mean policy is enforced |",
+        "Deploy validated site to GitHub Pages\tSummarize content delivery and edge policy\t2026-09-08T13:27:55.9169255Z | External availability | NOT RUN | Use the separate third-party runtime report |",
+        "Deploy validated site to GitHub Pages\tSummarize content delivery and edge policy\t2026-09-08T13:27:55.9169684Z Expected release SHA: f4a353c323fc1caa848e03f6f0aa1ea1e520210c",
+        "Deploy validated site to GitHub Pages\tSummarize content delivery and edge policy\t2026-09-08T13:27:55.9170119Z Release manifest evidence: validated commit f4a353c323fc1caa848e03f6f0aa1ea1e520210c"
+      ]
+    }
+  },
+  "live_edge_full": {
+    "checks": 428,
+    "failures": 0,
+    "blocked": 39,
+    "warnings": 315
+  },
+  "live_edge_deploy_only": {
+    "checks": 428,
+    "failures": 0,
+    "blocked": 39,
+    "warnings": 315
+  },
+  "limitations": [
+    "No deploy-queue contention or FIFO/newest-SHA guarantee claimed",
+    "No old-revision retry was executed",
+    "Edge policy remains PARTIAL"
+  ]
+}
