@@ -122,6 +122,47 @@ class SEOFixtureTests(unittest.TestCase):
         cls.pages_by_route = {
             page["route"]: page for page in cls.source_pages
         }
+        cls.locale_contract, locale_findings = validator.load_locale_seo_contract()
+        if locale_findings:
+            raise AssertionError(findings_text(locale_findings))
+
+    def test_released_locale_pages_use_social_card_contract(self) -> None:
+        for relative_path, contract in self.locale_contract.items():
+            if not contract["indexable"]:
+                continue
+            path = ROOT / relative_path
+            parser = parse_html(path.read_text(encoding="utf-8"))
+            self.assertFalse(
+                validator.validate_generated_seo(path, parser, None, contract),
+                f"released locale page has social-card drift: {relative_path}",
+            )
+
+    def test_released_locale_social_card_drift_is_rejected(self) -> None:
+        path = ROOT / "fr" / "index.html"
+        parser = parse_html(path.read_text(encoding="utf-8"))
+        parser.meta["twitter:image:alt"] = ["different localized social preview"]
+        findings = validator.validate_generated_seo(
+            path,
+            parser,
+            None,
+            self.locale_contract["fr/index.html"],
+        )
+        self.assert_rejected(findings, "social-card image alt mismatch")
+
+    def test_draft_locale_social_card_drift_remains_exempt(self) -> None:
+        path = ROOT / "de" / "index.html"
+        parser = parse_html(path.read_text(encoding="utf-8"))
+        parser.meta["twitter:image"] = ["https://example.com/drifted-card.png"]
+        parser.meta["twitter:image:alt"] = ["different draft social preview"]
+        self.assertFalse(
+            validator.validate_generated_seo(
+                path,
+                parser,
+                None,
+                self.locale_contract["de/index.html"],
+            ),
+            "noindex locale pilots should remain exempt until promotion",
+        )
 
     def assert_rejected(self, findings: list, expected: str) -> None:
         self.assertTrue(findings, "mutation unexpectedly passed")

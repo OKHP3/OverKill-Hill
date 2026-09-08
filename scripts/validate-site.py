@@ -59,6 +59,7 @@ SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_
 SITEMAP = ROOT / "sitemap.xml"
 SITE_ORIGIN = "https://overkillhill.com"
 MANIFEST = ROOT / "site-src/pages.json"
+LOCALE_MANIFEST = ROOT / "i18n/pilot/manifest.json"
 HEAD_PARTIAL = ROOT / "assets/partials/head.html"
 MANIFEST_EXTERNAL_PREFIXES = ("de/", "es/", "fr/", "en-gb/", "es-mx/")
 THEME_STYLESHEET_PATH = "/assets/css/theme.css"
@@ -401,6 +402,25 @@ def validate_social_card_consistency(location: str, values: dict[str, str]) -> l
     return findings
 
 
+def validate_indexable_social_card(
+    location: str,
+    values: dict[str, str],
+    page_label: str = "page",
+) -> list[Finding]:
+    """Apply the complete social-card contract to an indexable page."""
+    findings: list[Finding] = []
+    label = f"indexable {page_label}"
+    for key in ("meta:og:image", "meta:og:image:width", "meta:og:image:height", "meta:og:image:type"):
+        if not values.get(key):
+            findings.append(Finding("ERROR", location, f"{label} page is missing {key}"))
+    for key in ("meta:og:image", "meta:twitter:image"):
+        if RETIRED_SOCIAL_IMAGE in values.get(key, ""):
+            findings.append(Finding("ERROR", location, f"{label} page uses retired social image: {key}"))
+    findings.extend(validate_social_card_consistency(location, values))
+    findings.extend(validate_image_contract(location, values))
+    return findings
+
+
 def validate_image_contract(location: str, values: dict[str, str]) -> list[Finding]:
     """Check declared social-card metadata against the actual local asset."""
     findings: list[Finding] = []
@@ -600,6 +620,54 @@ def _path_location(path: Path) -> str:
         return str(path)
 
 
+def load_locale_seo_contract() -> tuple[dict[str, dict], list[Finding]]:
+    """Load the manifest-owned indexability boundary for localized pages."""
+    if not LOCALE_MANIFEST.is_file():
+        return {}, []
+    try:
+        manifest = json.loads(LOCALE_MANIFEST.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return {}, [Finding("ERROR", _path_location(LOCALE_MANIFEST), f"cannot read locale manifest: {exc}")]
+
+    locales = manifest.get("locales") if isinstance(manifest, dict) else None
+    if not isinstance(locales, dict):
+        return {}, [Finding("ERROR", _path_location(LOCALE_MANIFEST), "locale manifest has no locales object")]
+
+    contract: dict[str, dict] = {}
+    findings: list[Finding] = []
+    for locale, entry in locales.items():
+        if not isinstance(entry, dict):
+            findings.append(Finding("ERROR", _path_location(LOCALE_MANIFEST), f"locale entry is not an object: {locale!r}"))
+            continue
+        indexable = entry.get("indexable")
+        metadata_source = entry.get("metadata_source")
+        if not isinstance(indexable, bool):
+            findings.append(Finding("ERROR", _path_location(LOCALE_MANIFEST), f"locale {locale!r} must declare boolean indexable state"))
+            indexable = False
+        if metadata_source != "localized-page":
+            findings.append(Finding("ERROR", _path_location(LOCALE_MANIFEST), f"locale {locale!r} must declare metadata_source='localized-page'"))
+        pages = entry.get("pages")
+        if not isinstance(pages, list):
+            findings.append(Finding("ERROR", _path_location(LOCALE_MANIFEST), f"locale {locale!r} has no pages list"))
+            continue
+        for page in pages:
+            if not isinstance(page, dict) or not isinstance(page.get("target_path"), str):
+                findings.append(Finding("ERROR", _path_location(LOCALE_MANIFEST), f"locale {locale!r} has an invalid page entry"))
+                continue
+            page_indexable = page.get("indexable", indexable)
+            page_metadata_source = page.get("metadata_source", metadata_source)
+            if not isinstance(page_indexable, bool):
+                findings.append(Finding("ERROR", _path_location(LOCALE_MANIFEST), f"locale page {page['target_path']!r} must declare boolean indexable state"))
+                page_indexable = False
+            if page_metadata_source != "localized-page":
+                findings.append(Finding("ERROR", _path_location(LOCALE_MANIFEST), f"locale page {page['target_path']!r} must declare metadata_source='localized-page'"))
+            contract[page["target_path"]] = {
+                "indexable": page_indexable,
+                "metadata_source": page_metadata_source,
+            }
+    return contract, findings
+
+
 def _release_matches(raw: str, pattern: re.Pattern[str]) -> list[str]:
     """Extract release labels from one semantic writing-page element."""
     matches = pattern.findall(raw)
@@ -700,17 +768,7 @@ def validate_source_seo_contract(pages: list[dict]) -> list[Finding]:
         seen_paths.add(rel)
 
         if is_indexable_page(page):
-            for key in (
-                "meta:og:image", "meta:og:image:width",
-                "meta:og:image:height", "meta:og:image:type",
-            ):
-                if not metadata.get(key):
-                    findings.append(Finding("ERROR", rel, f"indexable source page is missing {key}"))
-            for key in ("meta:og:image", "meta:twitter:image"):
-                if RETIRED_SOCIAL_IMAGE in metadata.get(key, ""):
-                    findings.append(Finding("ERROR", rel, f"indexable source page uses retired social image: {key}"))
-            findings.extend(validate_social_card_consistency(rel, metadata))
-            findings.extend(validate_image_contract(rel, metadata))
+            findings.extend(validate_indexable_social_card(rel, metadata, "source"))
 
         if is_article_page(page):
             if metadata.get("meta:og:type", "").lower() != "article":
@@ -730,11 +788,27 @@ def validate_generated_seo(
     path: Path,
     parser: TagCounter,
     manifest_page: dict | None,
+    locale_page: dict | None = None,
 ) -> list[Finding]:
     """Ensure rendered metadata still agrees with the source contract."""
     path = path.resolve()
     rel = path.relative_to(ROOT).as_posix()
     if manifest_page is None:
+        if locale_page is not None:
+            if locale_page.get("indexable"):
+                values = {
+                    "meta:" + key: entries[0] if entries else ""
+                    for key, entries in parser.meta.items()
+                }
+                findings = validate_indexable_social_card(rel, values)
+                if locale_page.get("metadata_source") != "localized-page":
+                    findings.append(Finding(
+                        "ERROR",
+                        rel,
+                        "indexable locale page must own its social-card metadata as localized-page",
+                    ))
+                return findings
+            return []
         # The source manifest intentionally covers the English build surface;
         # localized pilot pages are maintained separately and must not acquire
         # new SEO or indexing boundaries from this check.
@@ -747,14 +821,7 @@ def validate_generated_seo(
     }
     findings = validate_organization_nodes(rel, parser)
     if is_indexable_page(manifest_page):
-        for key in ("meta:og:image", "meta:og:image:width", "meta:og:image:height", "meta:og:image:type"):
-            if not values.get(key):
-                findings.append(Finding("ERROR", rel, f"indexable generated page is missing {key}"))
-        for key in ("meta:og:image", "meta:twitter:image"):
-            if RETIRED_SOCIAL_IMAGE in values.get(key, ""):
-                findings.append(Finding("ERROR", rel, f"indexable generated page uses retired social image: {key}"))
-        findings.extend(validate_social_card_consistency(rel, values))
-        findings.extend(validate_image_contract(rel, values))
+        findings.extend(validate_indexable_social_card(rel, values, "generated"))
     if is_article_page(manifest_page):
         findings.extend(validate_article_jsonld_dates(rel, parser))
         if values.get("meta:og:type", "").lower() != "article":
@@ -1241,6 +1308,7 @@ def validate_page(
     expected_theme_url: str | None,
     expected_script_urls: dict[str, str | None],
     manifest_page: dict | None = None,
+    locale_page: dict | None = None,
 ) -> list[Finding]:
     findings: list[Finding] = []
     rel = path.relative_to(ROOT).as_posix()
@@ -1329,7 +1397,7 @@ def validate_page(
         findings.append(Finding("WARN", rel, f"HTML parser exception: {exc}"))
         return findings
 
-    findings.extend(validate_generated_seo(path, parser, manifest_page))
+    findings.extend(validate_generated_seo(path, parser, manifest_page, locale_page))
 
     if not parser.title:
         findings.append(Finding("ERROR", rel, "missing <title>"))
@@ -1502,6 +1570,7 @@ def main() -> int:
     print(f"Validating {len(pages)} HTML pages…\n")
 
     manifest_pages, manifest_findings = load_source_manifest()
+    locale_contract, locale_findings = load_locale_seo_contract()
     manifest_by_path = {
         page.get("path"): page
         for page in manifest_pages
@@ -1509,6 +1578,7 @@ def main() -> int:
     }
     all_findings: list[Finding] = []
     all_findings.extend(manifest_findings)
+    all_findings.extend(locale_findings)
     all_findings.extend(validate_source_seo_contract(manifest_pages))
     all_findings.extend(validate_article_jsonld_source(manifest_pages))
     all_findings.extend(validate_organization_source())
@@ -1560,6 +1630,7 @@ def main() -> int:
                 expected_theme_url,
                 expected_script_urls,
                 manifest_by_path.get(path.relative_to(ROOT).as_posix()),
+                locale_contract.get(path.relative_to(ROOT).as_posix()),
             )
         )
 
