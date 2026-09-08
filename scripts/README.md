@@ -31,6 +31,9 @@ follows the same convention as `askjamie/scripts/README.md`.
 | `phone-overflow-qa.mjs` | active | Phone-viewport overflow QA (`npm run test:*`) |
 | `toc-follow-qa.mjs` | active | All published sidebar menus: centered easing, footer clearance, keyboard reachability, breakpoint changes and reduced motion (`npm run test:toc`) |
 | `check-performance-budget.py` | active | Deterministic first-party asset-weight regression guard for three representative routes |
+| `measure-page-costs.mjs` | active | Manual cold/warm Chromium transfer experiment; gzip/cache fixture, live external costs, phone/desktop trials; writes `.local/a16/` |
+| `build-etch-webp.py` | active | Lossless ETCH-AI-SKETCH WebP derivative with exact RGBA validation; retains original PNG |
+| `check-etch-parity.mjs` | active | Phone/desktop light/dark image geometry and pixel comparison against PNG fallback; loopback preview required |
 | `post-merge.sh` | active | Post-merge rebuild and validation hook |
 | `responsive-qa.mjs` | active | Responsive QA entry point |
 | `screen-reader-tree-audit.mjs` | active | Screen-reader accessibility tree audit (`npm run test:*`) |
@@ -55,6 +58,11 @@ the current validation or release pipeline: `apply-modern-baseline.py`,
 `remove-deprecated-meta.py`, `rename-img-kebab.py`, `reorg-theme-css.py`,
 `responsive-audit.py`, `sync-portfolio-stats.py`, `update-card-srcsets.py`,
 `update-image-refs.py`, and `update-placeholder-dimensions.py`.
+
+The locale drift detector that owns the translation operating guide lives in
+`.agents/skills/okhp3-i18n-page-sync/scripts/i18n-page-sync.py`. It is a
+skill-owned helper, not a top-level pipeline script, and its current interface
+is `--mode report`, `--mode check`, and `--mode adopt`.
 
 The following scripts are **retired**. They are preserved for history only
 and must not be run against overkill-hill: `activate-icons.py`,

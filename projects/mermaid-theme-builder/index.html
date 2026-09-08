@@ -198,10 +198,11 @@
 <div class="tag-row">
 <span class="tag">Community Tool</span>
 <span class="tag">Open Source</span>
-<span class="tag tag--accent">v0.6.1 Shipped</span>
-<span class="tag tag--accent">Agent Skill Family Shipped</span>
 </div>
-<h1>Mermaid Theme Builder</h1>
+<h1>Mermaid Theme Builder</h1><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status="mermaid-theme-builder"><span data-project-status-text="">Availability: Published project. Maturity: Reported release v0.6.1. Evidence: Source description only. Delivery: unknown.</span> <a href="https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/mermaid-theme-builder/index.html">Source record</a> (reviewed 2026-09-07).</p><!-- /AUTOGEN:PROJECT-STATUS -->
+<nav aria-label="Project evidence">
+<a href="#release">Jump to release details ↓</a>
+</nav>
 <p class="hero-sub">Visual governance for AI-generated Mermaid diagrams.</p>
 <p>
             Paste Mermaid, detect the family, apply a reusable theme, preview live, and export renderer-aware code or prompt scaffolds. Browser-only. No login. No backend. Your diagram code, palette data, and exports stay in your browser. UI fonts load from Google Fonts.
@@ -349,7 +350,7 @@
 <li><span class="bullet">◆</span>A visual workbench for defining and enforcing Mermaid diagram themes</li>
 <li><span class="bullet">◆</span>A renderer-aware export tool: flags what breaks in GitHub, GitLab, Obsidian, Notion, Confluence</li>
 <li><span class="bullet">◆</span>A brand palette enforcer: presets for OverKill Hill P³, Glee-fully, and AskJamie, plus four utility palettes (Ocean Depth, Forest Sage, Slate Ember, Violet Mist)</li>
-<li><span class="bullet">◆</span>A prompt scaffold generator: AI tools stay on-brand from the first generation</li>
+<li><span class="bullet">◆</span>A prompt scaffold generator: designed to give AI tools brand guidance before generation</li>
 <li><span class="bullet">◆</span>A SKILL.md-packaged agent skill for headless diagram-governance workflows</li>
 <li><span class="bullet">◆</span>An open-source community contribution to the Mermaid.js ecosystem. MIT licensed. Free always.</li>
 </ul>
@@ -386,7 +387,7 @@
 <span class="why-mark why-mark--yes">✓</span>
 <h3>Mermaid Theme Builder</h3>
 </div>
-<p>Pick a color, see every diagram type update instantly. Export as a <code>themeVariables</code> block, a Markdown style bootstrap, or a renderer-aware prompt scaffold. AI tools stay on-brand from the first generation, not the sixth.</p>
+<p>Pick a color, see every diagram type update instantly. Export as a <code>themeVariables</code> block, a Markdown style bootstrap, or a renderer-aware prompt scaffold. The scaffold gives AI tools brand guidance before generation; check the result in your target renderer.</p>
 </div>
 </div>
 <div class="why-note">
@@ -659,7 +660,7 @@
 <div aria-hidden="true" class="feature-icon">◎</div>
 <div>
 <h3>Prompt Scaffold Generator</h3>
-<p>Generates LLM-ready prompt prefixes with your theme embedded. AI tools produce on-brand Mermaid on the first try: no follow-up styling cycles needed.</p>
+<p>Generates LLM-ready prompt prefixes with your theme embedded. The scaffold aims to reduce styling rework. Check the generated diagram in your target renderer; follow-up edits may still be needed.</p>
 </div>
 </div>
 <div class="feature-item">
@@ -873,7 +874,7 @@ test "$(git -C "$stage/mermaid-theme-builder" rev-parse HEAD)" = "968df040b4bd5d
 package="$stage/mermaid-theme-builder/skills/okhp3-mermaid-theme-builder"
 test -f "$package/SKILL.md"
 mkdir -p .claude/skills
-test ! -e .claude/skills/okhp3-mermaid-theme-builder || { echo "Destination already exists; refusing to overwrite." >&2; exit 1; }
+test ! -e .claude/skills/okhp3-mermaid-theme-builder || { echo "Destination already exists; refusing to overwrite." &gt;&amp;2; exit 1; }
 cp -R "$package" .claude/skills/okhp3-mermaid-theme-builder</pre>
 <p><strong>Cursor</strong></p>
 <pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># Run from a fresh project root. Re-running refuses to overwrite the destination.
@@ -885,7 +886,7 @@ test "$(git -C "$stage/mermaid-theme-builder" rev-parse HEAD)" = "968df040b4bd5d
 package="$stage/mermaid-theme-builder/skills/okhp3-mermaid-theme-builder"
 test -f "$package/SKILL.md"
 mkdir -p .cursor/skills
-test ! -e .cursor/skills/okhp3-mermaid-theme-builder || { echo "Destination already exists; refusing to overwrite." >&2; exit 1; }
+test ! -e .cursor/skills/okhp3-mermaid-theme-builder || { echo "Destination already exists; refusing to overwrite." &gt;&amp;2; exit 1; }
 cp -R "$package" .cursor/skills/okhp3-mermaid-theme-builder</pre>
 <p><strong>GitHub Copilot</strong></p>
 <pre style="background:color-mix(in srgb, var(--color-bg) 30%, transparent);border:1px solid var(--color-border-subtle);border-radius:6px;padding:0.75rem 1rem;font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--color-muted);overflow-x:auto;margin:0.4rem 0 0.9rem;"># Run from a fresh project root. Re-running refuses to overwrite the destination.
@@ -897,7 +898,7 @@ test "$(git -C "$stage/mermaid-theme-builder" rev-parse HEAD)" = "968df040b4bd5d
 package="$stage/mermaid-theme-builder/skills/okhp3-mermaid-theme-builder"
 test -f "$package/SKILL.md"
 mkdir -p .github/skills
-test ! -e .github/skills/okhp3-mermaid-theme-builder || { echo "Destination already exists; refusing to overwrite." >&2; exit 1; }
+test ! -e .github/skills/okhp3-mermaid-theme-builder || { echo "Destination already exists; refusing to overwrite." &gt;&amp;2; exit 1; }
 cp -R "$package" .github/skills/okhp3-mermaid-theme-builder</pre>
 <div class="skill-note">Status: Shipped. The v0.5.x SKILL.md Hardening sprint delivered a 10-skill family covering theme building, architecture, BPMN, data, publishing, repair, and update workflows, plus a core foundation skill. Family manifest: <a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/FAMILY.md" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">skills/FAMILY.md ↗</a> · Theme builder skill: <a href="https://github.com/OKHP3/mermaid-theme-builder/blob/main/skills/okhp3-mermaid-theme-builder/SKILL.md" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">okhp3-mermaid-theme-builder/SKILL.md ↗</a></div>
 </div>
@@ -1097,7 +1098,7 @@ cp -R "$package" .github/skills/okhp3-mermaid-theme-builder</pre>
 <span class="step-num">05</span>
 <div class="step-content">
 <strong>Use prompt scaffolds in ChatGPT, Claude, or Copilot</strong>
-<p>Paste the generated prompt scaffold before your next diagram request. AI tools produce on-brand Mermaid from the first generation, with no follow-up styling cycles needed.</p>
+<p>Paste the generated prompt scaffold before your next diagram request. The scaffold supplies brand guidance; inspect the generated diagram in your target renderer and revise as needed.</p>
 </div>
 </li>
 </ol>
@@ -1181,7 +1182,7 @@ cp -R "$package" .github/skills/okhp3-mermaid-theme-builder</pre>
 </div>
 <div class="faq-item">
 <p class="faq-q">Can I use the exported theme with Docusaurus, VitePress, or GitHub?</p>
-<p class="faq-a">Yes. The exported themeVariables object is standard Mermaid config; it works anywhere Mermaid.js is used. Check your platform's docs on how to pass themeVariables.</p>
+<p class="faq-a">The exported themeVariables object uses Mermaid configuration, but support depends on the host and diagram type. Check whether your platform accepts custom themeVariables, then test the export in that renderer.</p>
 </div>
 <div class="faq-item">
 <p class="faq-q">Does it support dark/light mode preview toggle?</p>
@@ -1360,7 +1361,7 @@ cp -R "$package" .github/skills/okhp3-mermaid-theme-builder</pre>
 <span></span>
 </div>
 </footer>
-    <script src="/assets/js/app.js?v=af787b95"></script>
+    <script src="/assets/js/app.js?v=588df853"></script>
 <script>
       (function () {
         const btn = document.getElementById('reload-btn');

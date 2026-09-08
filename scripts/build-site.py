@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import runpy
 import re
 import subprocess
 import sys
@@ -19,6 +20,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup, NavigableString
 
 ROOT = Path(__file__).resolve().parents[1]
+PROJECT_STATUS = runpy.run_path(str(ROOT / "scripts/project-status.py"))
 SRC = ROOT / "site-src"
 PARTIALS = ROOT / "assets" / "partials"
 MANIFEST = SRC / "pages.json"
@@ -317,6 +319,7 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
     rel = page["path"]
     stem = SRC / "pages" / rel
     main = stem.with_suffix(".main.html").read_text(encoding="utf-8")
+    main = PROJECT_STATUS["render"](main, page["route"], PROJECT_STATUS["load_registry"](ROOT))
     extras = stem.with_suffix(".extras.html").read_text(encoding="utf-8")
     head = (PARTIALS / "head.html").read_text(encoding="utf-8")
     header = (PARTIALS / "header.html").read_text(encoding="utf-8")

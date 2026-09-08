@@ -108,6 +108,9 @@ jobs:
       - name: Run published-locale release-gate regressions
         run: python3 -m unittest tests/test-i18n-release.py
 
+      - name: Test regional locale draft protections
+        run: python3 -m unittest tests/test-locale-drafts.py
+
       - name: Test the Pages translation freshness dependency
         run: python3 tests/test-i18n-workflow.py
 
@@ -135,7 +138,10 @@ jobs:
         run: python3 scripts/test-check-banner.py
 
       - name: Check public project-status records
-        run: python3 scripts/check-project-status.py
+        run: |
+          python3 scripts/check-project-status.py
+          python3 tests/test-project-status.py
+          python3 tests/test_project_status.py
 
       - name: Check generated HTML is current
         run: python3 scripts/build-site.py --check
@@ -155,7 +161,9 @@ jobs:
         run: python3 scripts/check-locale-links.py
 
       - name: Check shared asset fingerprints
-        run: python3 scripts/cache-bust.py --check
+        run: |
+          python3 tests/test-cache-bust-boundary.py
+          python3 scripts/cache-bust.py --check
 
       - name: Check tracked site sources for unresolved merge markers
         run: python3 tests/test-template-conflict-markers.py

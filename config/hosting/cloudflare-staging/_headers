@@ -1,0 +1,12 @@
+# A19 proposal only. Copy into a separately approved staging artifact.
+# Never copy the repository-root _headers alongside this adapter.
+# Resource loading remains governed by the generated per-page meta CSP.
+/*
+  Content-Security-Policy: frame-ancestors 'self'
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=300
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Robots-Tag: noindex

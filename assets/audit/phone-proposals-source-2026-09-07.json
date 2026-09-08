@@ -1,0 +1,19 @@
+{
+  "baseline": "bdbf42215a75fff0818c01fc5b8965eb92a9ea4e",
+  "source_sha256": {
+    "index.html": "ac16b17a9b227e28116f66a0a40658530e88ff3fd21f248f150aa21596cc292a",
+    "projects/index.html": "27d19bcf856af3bb8627fcac1de98d2600517606b7d2b4695e7e8be113dd3fdd",
+    "projects/skillz/index.html": "5b9d49f275e8881d418769219a3df9edebd8ce7f34c41e1ec0892f95f8c0c81d",
+    "contact/index.html": "502e005069eaeceec910653da4fcf345ab520e7ede54496bf40a2e2e48c5cd30"
+  },
+  "status": "proposal; owner selection and acceptance pending",
+  "a11": "73019eadafe25e1d763e6ef6dd223a5b67942202",
+  "a12": "2074a969825e81e742d728b6816fb0adb364b445",
+  "a15": "e9154af71eb8248cad2efcf2d44fa5d06bd0ad06",
+  "routes": [
+    "index.html",
+    "projects/index.html",
+    "projects/skillz/index.html",
+    "contact/index.html"
+  ]
+}

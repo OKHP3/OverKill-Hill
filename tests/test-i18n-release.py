@@ -79,13 +79,13 @@ class I18nReleaseTests(unittest.TestCase):
         report = {
             "missing": [{"route": f"/missing-{index}/", "locale": "fr"} for index in range(4)]
             + [{"route": f"/missing-{index}/", "locale": "de"} for index in range(4)],
-            "stale": [{"route": f"/stale-{index}/", "locale": "es"} for index in range(4)],
+            "stale": [{"route": f"/stale-{index}/", "locale": "es", "target_path": "es/index.html"} for index in range(4)],
             "needs_baseline": [],
             "in_sync": [],
             "orphan": [],
         }
         config = MODULE.load_site_config()
-        with patch.object(MODULE, "run_detector", return_value=report):
+        with patch.object(MODULE, "run_detector", return_value=report), patch.object(MODULE, "page_hash", return_value=None):
             result = MODULE.load_results(config)
         self.assertEqual(12, sum(len(result[key]) for key in ("missing", "stale", "needs_baseline")))
         self.assertEqual({"fr"}, {item["locale"] for item in result["policy"]["blocking_items"]})
@@ -96,13 +96,13 @@ class I18nReleaseTests(unittest.TestCase):
     def test_all_current_blocking_locale_is_not_blocked(self):
         report = {
             "missing": [],
-            "stale": [{"route": "/", "locale": "de"}, {"route": "/", "locale": "es"}],
+            "stale": [{"route": "/fixture/", "locale": "de", "target_path": "de/index.html"}, {"route": "/fixture/", "locale": "es", "target_path": "es/index.html"}],
             "needs_baseline": [],
             "in_sync": [],
             "orphan": [],
         }
         config = MODULE.load_site_config()
-        with patch.object(MODULE, "run_detector", return_value=report):
+        with patch.object(MODULE, "run_detector", return_value=report), patch.object(MODULE, "page_hash", return_value=None):
             result = MODULE.load_results(config)
         self.assertEqual([], result["policy"]["blocking_items"])
         self.assertEqual(2, len(result["policy"]["advisory_items"]))
@@ -215,6 +215,177 @@ class I18nReleaseTests(unittest.TestCase):
                     original["pages"]["/about/"]["targets"][locale],
                     updated["pages"]["/about/"]["targets"][locale],
                 )
+
+
+class ReviewedTargetIntegrityTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.config = {
+            "schema_version": "1.0",
+            "blocking_locales": ["fr"],
+            "in_scope_routes": ["/", "/about/"],
+            "target_locales": {
+                locale: {"locale": pair, "root": locale, "skill": "pair"}
+                for locale, pair in (("fr", "fr-FR"), ("de", "de-DE"))
+            },
+        }
+        for route in ("index.html", "about/index.html"):
+            for prefix in ("", "fr/", "de/"):
+                path = self.root / (prefix + route)
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(
+                    '<meta http-equiv="Content-Security-Policy" content="one">'
+                    '<link href="/assets/css/theme.css?v=11111111">'
+                    '<p>a b ?v=11111111</p>\n',
+                    encoding="utf-8",
+                )
+        (self.root / "assets/data").mkdir(parents=True)
+        (self.root / "assets/data/search-index.json").write_text(
+            json.dumps({"entries": [{"url": "/"}, {"url": "/about/"}]}),
+            encoding="utf-8",
+        )
+        (self.root / "i18n").mkdir()
+        (self.root / "i18n" / "sync.config.json").write_text(json.dumps(self.config), encoding="utf-8")
+        self.state = self.root / "i18n" / "sync-state.json"
+        ledger = {"schema_version": "1.0", "pages": {}}
+        DETECTOR_MODULE.adopt(self.root, self.config, ledger, None)
+        self.state.write_text(json.dumps(ledger), encoding="utf-8")
+        self.original = self.state.read_bytes()
+        self.target = self.root / "fr" / "index.html"
+        self.provenance = self.root / "review.json"
+        self.patch = patch.object(MODULE, "ROOT", self.root)
+        self.patch.start()
+        self.addCleanup(self.patch.stop)
+
+    def review(self):
+        return {
+            "language_pair": "en-US -> fr-FR",
+            "review_status": "ai-reviewed",
+            "native_or_human_approval": False,
+            "routes": [
+                {
+                    "route": "/",
+                    "locale": "fr",
+                    "target_path": "fr/index.html",
+                    "source_sha256": DETECTOR_MODULE.sha256_file(self.root / "index.html"),
+                    "target_sha256": DETECTOR_MODULE.sha256_file(self.target),
+                    "disposition": "retained-ai-reviewed",
+                }
+            ],
+        }
+
+    def test_target_only_change_blocks_without_changing_source_freshness(self):
+        self.target.write_text("<p>changed translation</p>", encoding="utf-8")
+        result = MODULE.load_results(self.config)
+        self.assertEqual(4, len(result["in_sync"]))
+        self.assertEqual(1, len(result["target_changed"]))
+        self.assertEqual("target_changed", result["policy"]["blocking_items"][0]["status"])
+        self.assertEqual(1, MODULE.main(["--mode", "check"]))
+        self.assertEqual(self.original, self.state.read_bytes())
+
+    def test_unchanged_and_crlf_targets_pass(self):
+        self.target.write_bytes(self.target.read_bytes().replace(b"\n", b"\r\n"))
+        self.assertEqual([], MODULE.load_results(self.config)["policy"]["blocking_items"])
+        self.assertEqual(0, MODULE.main(["--mode", "check"]))
+
+    def test_draft_target_change_is_advisory(self):
+        (self.root / "de" / "index.html").write_text("changed", encoding="utf-8")
+        result = MODULE.load_results(self.config)
+        self.assertEqual([], result["policy"]["blocking_items"])
+        self.assertEqual("target_changed", result["policy"]["advisory_items"][0]["status"])
+
+    def test_missing_target_hash_requires_review(self):
+        ledger = json.loads(self.original)
+        del ledger["pages"]["/"]["targets"]["fr"]["target_sha256"]
+        self.state.write_text(json.dumps(ledger), encoding="utf-8")
+        self.assertEqual("target_changed", MODULE.load_results(self.config)["policy"]["blocking_items"][0]["status"])
+
+    def test_generated_metadata_and_semantic_edits_require_review(self):
+        original = self.target.read_text(encoding="utf-8")
+        for before, after in (
+            ('content="one"', 'content="two"'),
+            ("theme.css?v=11111111", "theme.css?v=22222222"),
+            ("a b", "ab"),
+            ("<p>", '<p title="new">'),
+            ("?v=11111111", "?v=22222222"),
+        ):
+            with self.subTest(edit=after):
+                self.target.write_text(original.replace(before, after), encoding="utf-8")
+                self.assertEqual(1, len(MODULE.load_results(self.config)["target_changed"]))
+
+    def test_reviewed_target_only_adoption_updates_only_selected_pair(self):
+        self.target.write_text("<p>reviewed update</p>\r\n", encoding="utf-8", newline="")
+        self.provenance.write_text(json.dumps(self.review()), encoding="utf-8")
+        evidence = self.provenance.read_bytes()
+        self.assertEqual(0, MODULE.adopt(["fr"], ["/"], self.provenance, self.config))
+        updated = json.loads(self.state.read_text(encoding="utf-8"))
+        expected = json.loads(self.original)
+        expected["pages"]["/"]["targets"]["fr"]["target_sha256"] = DETECTOR_MODULE.sha256_file(self.target)
+        self.assertEqual(expected, updated)
+        self.assertEqual([], MODULE.load_results(self.config)["policy"]["blocking_items"])
+        self.assertEqual(evidence, self.provenance.read_bytes())
+
+    def test_invalid_review_never_writes_ledger(self):
+        self.target.write_text("<p>changed</p>", encoding="utf-8")
+        cases = [
+            ("route", "/wrong/"),
+            ("locale", "de"),
+            ("target_path", "de/index.html"),
+            ("source_sha256", "wrong"),
+            ("target_sha256", "wrong"),
+            ("disposition", "rejected"),
+            ("review_status", "rejected"),
+            ("language_pair", "en-US -> de-DE"),
+            ("native_or_human_approval", True),
+        ]
+        for field, value in cases:
+            with self.subTest(field=field):
+                record = self.review()
+                target = record if field in record else record["routes"][0]
+                target[field] = value
+                self.provenance.write_text(json.dumps(record), encoding="utf-8")
+                with self.assertRaises(ValueError):
+                    MODULE.adopt(["fr"], ["/"], self.provenance, self.config)
+                self.assertEqual(self.original, self.state.read_bytes())
+
+    def test_source_and_target_drift_are_reported_independently(self):
+        (self.root / "index.html").write_text("new source", encoding="utf-8")
+        self.target.write_text("new target", encoding="utf-8")
+        result = MODULE.load_results(self.config)
+        statuses = {item["status"] for item in result["policy"]["blocking_items"]}
+        self.assertEqual({"stale", "target_changed"}, statuses)
+
+    def test_duplicate_review_routes_are_rejected(self):
+        record = self.review()
+        record["routes"].append(dict(record["routes"][0]))
+        self.provenance.write_text(json.dumps(record), encoding="utf-8")
+        with self.assertRaises(ValueError):
+            MODULE.adopt(["fr"], ["/"], self.provenance, self.config)
+        self.assertEqual(self.original, self.state.read_bytes())
+
+    def test_valid_review_for_unavailable_pair_is_rejected(self):
+        self.provenance.write_text(json.dumps(self.review()), encoding="utf-8")
+        for unavailable in ("scope", "target", "source"):
+            with self.subTest(unavailable=unavailable):
+                config = dict(self.config)
+                if unavailable == "scope":
+                    config["in_scope_routes"] = ["/about/"]
+                else:
+                    path = self.target if unavailable == "target" else self.root / "index.html"
+                    path.unlink()
+                with self.assertRaises(ValueError):
+                    MODULE.adopt(["fr"], ["/"], self.provenance, config)
+                self.assertEqual(self.original, self.state.read_bytes())
+
+    def test_out_of_scope_and_missing_routes_fail_without_writes(self):
+        self.provenance.write_text(json.dumps(self.review()), encoding="utf-8")
+        for routes in (["/absent/"], ["/", "/about/"]):
+            with self.subTest(routes=routes):
+                with self.assertRaises(ValueError):
+                    MODULE.adopt(["fr"], routes, self.provenance, self.config)
+                self.assertEqual(self.original, self.state.read_bytes())
 
 
 if __name__ == "__main__":

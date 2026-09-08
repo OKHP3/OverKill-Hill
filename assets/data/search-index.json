@@ -12,7 +12,7 @@
         "Start with the work",
         "Selected work",
         "How OverKill Hill thinks",
-        "Fresh from the Forge",
+        "Featured from the Forge",
         "Writing on the horizon",
         "Projects from the forge",
         "Let’s build something enduring.",
@@ -33,7 +33,7 @@
         "AskJamie",
         "The Prompt Forge"
       ],
-      "body": "The Forge Precision · Protocol · Promptcraft The digital forge This is where AI systems are designed, tested, and hardened for real-world performance, with the same care you’d give to a structural beam or a bridge schematic. ⚙ Forge in motion: actively iterated, not under construction OverKill Hill is an active forge. Methods are tested, documented, and refined in public as the work moves. Explore the projects Read the manifesto Meet the MurderBird: read the origin story → What happens at the Hill? OverKill Hill is where prompts aren’t just “clever questions,” they’re protocols ."
+      "body": "The Forge Precision · Protocol · Promptcraft The digital forge This is where AI systems are designed, tested, and hardened for real-world performance, with the same care you’d give to a structural beam or a bridge schematic. Explore the projects Discuss a project Read the manifesto ⚙ Forge in motion: actively iterated, not under construction OverKill Hill is an active forge. Methods are tested, documented, and refined in public as the work moves. Meet the MurderBird: read the origin story → What happens at the Hill? OverKill Hill is where prompts aren’t just “clever questions,” they’re protocols ."
     },
     {
       "url": "/about/",
@@ -63,7 +63,7 @@
         "Support the Forge with Ko‑fi",
         "Fuel the Forge"
       ],
-      "body": "The Forge How to Reach The Hill Our mascot, The OKHP³™ MurderBird, isn't a passenger pigeon, so don't expect it to deliver your message. But don't be shy, despite the menacing metallic appearance, we really do want to hear from you! Contact For project inquiries, collaboration opportunities, or professional engagements, reach out directly: Email: contact@overkillhill.com Location: Operating remotely across U.S. Central Time For updates, news, and musings from the forge, follow OverKill Hill P³™ on social media."
+      "body": "The Forge How to Reach The Hill Our mascot, The OKHP³™ MurderBird, isn't a passenger pigeon, so don't expect it to deliver your message. But don't be shy, despite the menacing metallic appearance, we really do want to hear from you! Email the Hill Jump to contact details ↓ Jump to support ↓ Contact For project inquiries, collaboration opportunities, or professional engagements, reach out directly: Email: contact@overkillhill.com Location: Operating remotely across U.S. Central Time For updates, news, and musings from the forge, follow OverKill Hill P³™ on social media."
     },
     {
       "url": "/legal/",
@@ -193,7 +193,7 @@
       "category": "Brand",
       "description": "GPT Interrogation Agent GPT Audit Contract Public-safe pattern Purpose: Forces Custom GPTs to disclose identity, capabilities, limits, modes, knowledge boundaries, routing, and guardrails.",
       "headings": [],
-      "body": "GPT Interrogation Agent GPT Audit Contract Public-safe pattern Purpose: Forces Custom GPTs to disclose identity, capabilities, limits, modes, knowledge boundaries, routing, and guardrails. Turns black-box assistants into auditable systems. Flips the normal relationship: instead of asking a GPT to perform, it asks the GPT to confess its operating envelope. Before trusting a Custom GPT: force it to state what it thinks it is, what it has access to, what it cannot do, and where the builder instructions are steering it. audit contract governance capability disclosure safe completions meta-prompt See the prompt vault →",
+      "body": "GPT Interrogation Agent GPT Audit Contract Public-safe pattern Purpose: Forces Custom GPTs to disclose identity, capabilities, limits, modes, knowledge boundaries, routing, and guardrails. Produces a self-reported description to compare with observed behavior and other evidence. Self-report alone does not establish how an assistant operates. Flips the normal relationship: instead of asking a GPT to perform, it asks the GPT to confess its operating envelope. Before trusting a Custom GPT: force it to state what it thinks it is, what it has access to, what it cannot do, and where the builder instructions are steering it. audit contract governance capability disclosure safe completions meta-prompt See the prompt vault →",
       "parent": "/prompt-forge/"
     },
     {
@@ -218,9 +218,9 @@
       "url": "/prompt-forge/#protocols",
       "title": "What Makes a Prompt a Protocol — Prompt Forge | OverKill Hill P³™",
       "category": "Brand",
-      "description": "Anatomy What Makes a Prompt a Protocol A disposable prompt asks a question. A protocol defines the operating envelope. These ten elements separate prompts that work once from prompts that work every time.",
+      "description": "Anatomy What Makes a Prompt a Protocol A disposable prompt asks a question. A protocol defines the operating envelope. These ten elements make expectations explicit so you can test and refine a prompt across repeated…",
       "headings": [],
-      "body": "Anatomy What Makes a Prompt a Protocol A disposable prompt asks a question. A protocol defines the operating envelope. These ten elements separate prompts that work once from prompts that work every time. Intent What the user is actually trying to accomplish, not just what they typed. Failure: the model answers the words but misses the job. Role What the model is being asked to become for this task: expert, auditor, synthesizer, critic. Failure: generic outputs with no specialized stance. Context Source facts, constraints, business setting, prior state, and domain vocabulary the model must know. Failure: the model hallucinates what it was never given. Boundaries What must not happen: topics to avoid, actions to refuse, outputs that are out of scope.",
+      "body": "Anatomy What Makes a Prompt a Protocol A disposable prompt asks a question. A protocol defines the operating envelope. These ten elements make expectations explicit so you can test and refine a prompt across repeated use. Intent What the user is actually trying to accomplish, not just what they typed. Failure: the model answers the words but misses the job. Role What the model is being asked to become for this task: expert, auditor, synthesizer, critic. Failure: generic outputs with no specialized stance. Context Source facts, constraints, business setting, prior state, and domain vocabulary the model must know. Failure: the model hallucinates what it was never given. Boundaries What must not happen: topics to avoid, actions to refuse, outputs that are out of scope.",
       "parent": "/prompt-forge/"
     },
     {
@@ -258,12 +258,10 @@
       "headings": [
         "Three sites, one universe",
         "Published pages on the Hill",
-        "Read the status layer",
+        "Status and proof",
         "OverKill Hill",
         "AskJamie",
-        "Glee-fully Tools",
-        "Skillz Forge",
-        "Abrahamic Reference Engine"
+        "Glee-fully Tools"
       ],
       "body": "OKHP³™ Universe Explore the OverKill Hill universe. Follow the connections between our sites, then explore the published pages within each branch. Explore the projects Search the universe Three sites, one universe OverKill Hill Systems, protocols, projects, and writings. You are here. AskJamie The helpdesk, lens system, and professional tools. Explore its current page map. Glee-fully Tools Everyday tools, the toolbox, and the arcade. Explore its current page map. Published pages on the Hill Open a branch to see its diagram and page links. These maps update with our search index. A published page may describe a project that is still in progress. Diagrams rendered with Mermaid.js."
     },
@@ -271,12 +269,12 @@
       "url": "/vault/",
       "title": "The Prompt Vault | OverKill Hill P³™",
       "category": "Brand",
-      "description": "Download reusable prompt protocols, templates, audit contracts, and scoring rubrics from the OverKill Hill P³™ Prompt Vault.",
+      "description": "Download the Prompt Protocol Template. Additional prompt protocols, audit contracts and scoring rubrics are planned for public release.",
       "headings": [
         "Ready to Download",
         "Coming Next"
       ],
-      "body": "The Prompt Forge The Prompt Vault Reusable prompt protocols, templates, audit contracts, and scoring rubrics, each one production-tested and structured for governed, repeatable AI work. Copy it. Fill every field. Browse downloads Back to Prompt Forge Available Now Ready to Download Each artifact is a standalone document you can copy into your own workflow. No login, no paywall; just grab it and put it to work. Available now Prompt Protocol Template The canonical ten-element scaffold for a governed prompt. Includes all anatomy fields (Role through Handoff) with descriptions, blank fields, a filled example, and usage notes. Copy it. Fill every field."
+      "body": "The Prompt Forge The Prompt Vault One downloadable Prompt Protocol Template, with more protocols, audit contracts and scoring rubrics planned for public release. Copy it. Fill every field. Browse downloads Back to Prompt Forge Available Now Ready to Download Each artifact is a standalone document you can copy into your own workflow. No login, no paywall; just grab it and put it to work. Available now Prompt Protocol Template The canonical ten-element scaffold for a governed prompt. Includes all anatomy fields (Role through Handoff) with descriptions, blank fields, a filled example, and usage notes. Copy it. Fill every field."
     },
     {
       "url": "/writings/",
@@ -284,13 +282,13 @@
       "category": "Writing",
       "description": "Essays, articles, and speculative fiction from the OverKill Hill P³ forge, including The First Diagram Is Usually a Liar and the Magnus Progenitor Saga.",
       "headings": [
-        "Latest from the Forge",
+        "Featured from the Forge",
         "The MurderBird",
         "The First Diagram Is Usually a Liar",
         "The Magnus Saga",
         "Biases as Constants"
       ],
-      "body": "OverKill Hill P³™ Writings from the Hill Essays, articles, and speculative fiction from the forge. Some are arguments. Some are experiments. All of them earned their space. Latest from the Forge Speculative Fiction · Origin Story The MurderBird What the Water Kept. An ancient body, an industrial resurrection, and the heart and mind that finally awaken the forge’s sentinel. Read the story → Featured · v0.5 Live The First Diagram Is Usually a Liar Why the first diagram almost always lies, and what ROY (Return on Your Words) means for visual communication. v0.5 is live: the Council of AIs scored each other; every model was harder on itself than the architect was."
+      "body": "OverKill Hill P³™ Writings from the Hill Essays, articles, and speculative fiction from the forge. Some are arguments. Some are experiments. All of them earned their space. Featured from the Forge Speculative Fiction · Origin Story The MurderBird What the Water Kept. An ancient body, an industrial resurrection, and the heart and mind that finally awaken the forge’s sentinel. Read the story → Featured · v0.5 Live The First Diagram Is Usually a Liar Why the first diagram almost always lies, and what ROY (Return on Your Words) means for visual communication. v0.5 is live: the Council of AIs scored each other; every model was harder on itself than the architect was."
     },
     {
       "url": "/writings/murderbird/",
@@ -719,9 +717,13 @@
       "category": "Project",
       "description": "Explore OverKill Hill P³™ projects: local AI workbenches, agentic systems, Mermaid governance tools, and AI architecture built for the real world.",
       "headings": [
+        "Selected work",
         "Built at the Hill",
         "External Tools & Platforms",
         "Status and proof",
+        "Skillz Forge",
+        "Abrahamic Reference Engine",
+        "The First Diagram Is Usually a Liar",
         "Skillz Forge",
         "Found‑Rᵧ",
         "Mermaid Theme Builder",
@@ -736,11 +738,9 @@
         "Glee-fully Personalizable Tools",
         "AskJamie",
         "Protocol Libraries",
-        "Skillz Forge",
-        "Abrahamic Reference Engine",
         "Ready to build your own?"
       ],
-      "body": "Projects from the Hill A sampling of the systems currently being forged at OverKill Hill P³™: some public-facing, some internal client work, all built with the same protocol-driven mindset. Built at the Hill Hosted tools and documented builds, designed, shipped, and maintained here. Skillz Forge The flagship capability library: reusable SKILL.md contracts that AI agents can load, compose, and improve. Discover, inspect, install, and contribute skills built at the Hill. Enter Skillz Forge → Found‑Rᵧ Tools for making tools."
+      "body": "Projects from the Hill A sampling of the systems currently being forged at OverKill Hill P³™: some public-facing, some internal client work, all built with the same protocol-driven mindset. Selected work Project records distinguish published descriptions from verified operation. Skillz Forge Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown. Source record (reviewed 2026-09-07). Discoverable, inspectable, and installable Agent Skill contracts. Open the live forge ↗ · Source ↗ Abrahamic Reference Engine Availability: Published project. Maturity: Reported active release v1.1."
     },
     {
       "url": "/projects/abrahamic-reference-engine/",
@@ -773,7 +773,7 @@
         "Difference is data",
         "Free and open where possible"
       ],
-      "body": "overkillhill.com / projects / abrahamic-reference-engine Foundry Project Open Source v1.1 Active Agent Skills Available Abrahamic Reference Engine Find it. Quote it. Compare it. No sermon required. A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Browse traditions, look up passages from source-aware APIs, and compare shared themes side-by-side. Browser-only. No login. No preaching. No ranking. Launch the Engine Explore Agent Skills View on GitHub The Problem The Reference Gap ◑ Most scripture tools are built for insiders Devotional apps, denominational study tools, and apologetics platforms assume you already belong."
+      "body": "Availability: Published project. Maturity: Reported active release v1.1. Evidence: Source description only. Delivery: unknown. overkillhill.com / projects / abrahamic-reference-engine Foundry Project Open Source Agent Skills Available Abrahamic Reference Engine Availability: Published project. Maturity: Reported active release v1.1. Evidence: Source description only. Delivery: unknown. Source record (reviewed 2026-09-07). Find it. Quote it. Compare it. No sermon required. A neutral, citation-first scripture reference engine for Judaism, Christianity, and Islam. Browse traditions, look up passages from source-aware APIs, and compare shared themes side-by-side. Browser-only. No login."
     },
     {
       "url": "/projects/abrahamic-reference-engine/#agent-skills",
@@ -877,13 +877,13 @@
         "For Builders FirstSource & close partners",
         "For other brands staring at the same horizon"
       ],
-      "body": "OverKill Hill P³ · Incubator Project · Evolved into AskJamie™ BrandGuard™ BFS Framing Intelligent Futures An independent prototype based on publicly available information about Builders FirstSource that answers a hard question: who tells your story inside large language models when they become the default interface? Originally built as an OverKill Hill P³ project, BFS Framing Intelligent Futures became GPT‑BFS01 , the first AskJamie™ BrandGuard™ lens. It turns public BFS knowledge into a conversational expert for wood‑frame construction, and quietly routes every meaningful path back to BLDR.com."
+      "body": "Availability: Published case study. Maturity: Independent prototype. Evidence: Source description only. Delivery: unknown. OverKill Hill P³ · Incubator Project · Evolved into AskJamie™ BrandGuard™ BFS Framing Intelligent Futures Availability: Published case study. Maturity: Independent prototype. Evidence: Source description only. Delivery: unknown. Source record (reviewed 2026-09-07). An independent prototype based on publicly available information about Builders FirstSource that answers a hard question: who tells your story inside large language models when they become the default interface? Originally built as an OverKill Hill P³ project, BFS Framing Intelligent Futures became GPT‑BFS01…"
     },
     {
       "url": "/projects/bpmn-for-mermaid/",
       "title": "BPMN for Mermaid | OverKill Hill P³™",
       "category": "Project",
-      "description": "A text-first bpmn-beta diagram type for Mermaid, plus BP-SKILL: a 15-skill Business Process Agent Skill Suite aligned to BABOK, BPM CBOK, and BPMN 2.0.2.",
+      "description": "BPMN for Mermaid is a prototype and diagram-type contribution proposal. Explore the bpmn-beta DSL, Playground and current rendering limits.",
       "headings": [
         "What bpmn-beta looks like",
         "Where to find the project",
@@ -912,7 +912,7 @@
         "Process Narrative Specification",
         "Need process architecture built to spec?"
       ],
-      "body": "overkillhill.com / projects / bpmn-for-mermaid Open Source bpmn-beta DSL BP-SKILL Agent Suite Active BPMN for Mermaid Text-first. Standards-aware. Git-native. Agent-ready. Two things live in this project. First: bpmn-beta , a text-first DSL for BPMN process diagrams, designed as a Mermaid diagram-type contribution. No XML, no heavyweight tools, no bpmn-js. Second: BP-SKILL, a 15-skill Business Process Agent Skill Suite that uses bpmn-beta as its visual output layer, packaged in the Agent Skills open standard and compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor."
+      "body": "Availability: Published project. Maturity: Prototype; not a production Mermaid plugin. Evidence: Source description only. Delivery: unknown. overkillhill.com / projects / bpmn-for-mermaid Open Source bpmn-beta DSL BP-SKILL Agent Suite BPMN for Mermaid Availability: Published project. Maturity: Prototype; not a production Mermaid plugin. Evidence: Source description only. Delivery: unknown. Source record (reviewed 2026-09-07). Text-first. Standards-aware. Git-native. Agent-ready. Two things live in this project. First: bpmn-beta , a text-first DSL for BPMN process diagrams, designed as a Mermaid diagram-type contribution. No XML, no heavyweight tools, no bpmn-js."
     },
     {
       "url": "/projects/bpmn-for-mermaid/#bp-skill",
@@ -947,7 +947,7 @@
       "category": "Project",
       "description": "Features What the project does 🔷 Mermaid-Native DSL Starts with bpmn-beta : the diagram type keyword. Reads like every other Mermaid diagram. No boilerplate, no XML, no schema to import.",
       "headings": [],
-      "body": "Features What the project does 🔷 Mermaid-Native DSL Starts with bpmn-beta : the diagram type keyword. Reads like every other Mermaid diagram. No boilerplate, no XML, no schema to import. ⊞ Pools & Lanes experimental Pool and lane containment syntax is defined in the DSL spec. Rendering is experimental in the current prototype; verify output in the playground before relying on it. ◆ BPMN 2.0 Correct Shapes Start/end events, user/service/script/receive/send tasks, and XOR/AND/OR gateways are rendered with correct BPMN visual notation, not flowchart approximations. Intermediate events and timer/message/error markers are on the roadmap. 🤖 AI-Generatable Syntax Clean enough for LLMs to produce valid bpmn-beta on first try. Readable enough for non-experts to write directly.",
+      "body": "Features What the project does 🔷 Mermaid-Native DSL Starts with bpmn-beta : the diagram type keyword. Reads like every other Mermaid diagram. No boilerplate, no XML, no schema to import. ⊞ Pools & Lanes experimental Pool and lane containment syntax is defined in the DSL spec. Rendering is experimental in the current prototype; verify output in the playground before relying on it. ◆ BPMN 2.0 Correct Shapes Start/end events, user/service/script/receive/send tasks, and XOR/AND/OR gateways are rendered with correct BPMN visual notation, not flowchart approximations. Intermediate events and timer/message/error markers are on the roadmap. 🤖 AI-Generatable Syntax Designed to make bpmn-beta easier for LLMs and non-experts to write.",
       "parent": "/projects/bpmn-for-mermaid/"
     },
     {
@@ -956,7 +956,7 @@
       "category": "Project",
       "description": "Honest Scope What this is, and what it isn't This is a Mermaid-native BPMN descriptive subset proposal. ✓ A readable DSL for the BPMN 2.0 Descriptive Conformance subset: start/end events, tasks, gateways, flows, pools,…",
       "headings": [],
-      "body": "Honest Scope What this is, and what it isn't This is a Mermaid-native BPMN descriptive subset proposal. ✓ A readable DSL for the BPMN 2.0 Descriptive Conformance subset: start/end events, tasks, gateways, flows, pools, and lanes. ✓ Text-first, Git-native, works inside a Markdown code fence. ✓ AI-generatable: designed to be writable by LLMs without syntax repair. ✓ The visual output layer of the business process documentation methodology described by BP-SKILL. ✓ A domain extension to the Agent Skills open standard (agentskills.io). ✓ Compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, Cursor, VS Code, and all other Agent Skills-conformant platforms. ✗ Not executable BPMN: no process engine, no token simulation, no runtime semantics.",
+      "body": "Honest Scope What this is, and what it isn't This is a Mermaid-native BPMN descriptive subset proposal. ✓ A readable DSL for the BPMN 2.0 Descriptive Conformance subset: start/end events, tasks, gateways, flows, pools, and lanes. ✓ Text-first, Git-native, works inside a Markdown code fence. ✓ AI-generatable: designed for LLM authoring, with output validation still required. ✓ The visual output layer of the business process documentation methodology described by BP-SKILL. ✓ A domain extension to the Agent Skills open standard (agentskills.io). ✓ Compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, Cursor, VS Code, and all other Agent Skills-conformant platforms. ✗ Not executable BPMN: no process engine, no token simulation, no runtime semantics.",
       "parent": "/projects/bpmn-for-mermaid/"
     },
     {
@@ -1020,7 +1020,7 @@
         "ROY is a heuristic.",
         "Make the handoff survive."
       ],
-      "body": "overkillhill.com / projects / first-diagram-is-a-liar Writing Companion Interactive Tutorial ROY Method Evidence Archive No Backend The First Diagram Is Usually a Liar A writing-led field guide for diagrams that earn their words. The project teaches the ROY method, the difference between a tidy lie and an honest diagram, and the value of structured disagreement when a visual model is still taking shape. The companion Writing is the public narrative. The tutorial is the practice surface. The repository keeps the receipts: prompts, Mermaid sources, rendered assets, specialist records, release notes, and the editorial cuts that show how the argument changed."
+      "body": "Availability: Published writing companion. Maturity: Tutorial and evidence archive. Evidence: Source description only. Delivery: unknown. overkillhill.com / projects / first-diagram-is-a-liar Writing Companion Interactive Tutorial ROY Method Evidence Archive No Backend The First Diagram Is Usually a Liar Availability: Published writing companion. Maturity: Tutorial and evidence archive. Evidence: Source description only. Delivery: unknown. Source record (reviewed 2026-09-07). A writing-led field guide for diagrams that earn their words."
     },
     {
       "url": "/projects/first-diagram-is-a-liar/#companion",
@@ -1131,7 +1131,7 @@
         "Nothing leaves the browser",
         "Need a Custom GPT that survives contact with real users?"
       ],
-      "body": "overkillhill.com / projects / found-ry Foundry Project Open Source Live Browser-Only Found‑Rᵧ Tools for making tools. A browser-only build workbench for production-grade Custom GPTs. Nine stations carry a build from raw intent to a governed, shippable artifact: brief, contract, instruction stack, knowledge routing, capabilities, actions, starters, test matrix, ship gate. Then audit it against a rubric, compare it across platforms, and export the whole specification as one document. No backend. No database. No login. Everything stays in your browser."
+      "body": "Availability: Published project. Maturity: Browser workbench; maturity unverified. Evidence: Source description only. Delivery: unknown. overkillhill.com / projects / found-ry Foundry Project Open Source Browser-Only Found‑Rᵧ Availability: Published project. Maturity: Browser workbench; maturity unverified. Evidence: Source description only. Delivery: unknown. Source record (reviewed 2026-09-07). Tools for making tools. A browser-only build workbench for production-grade Custom GPTs. Nine stations carry a build from raw intent to a governed, shippable artifact: brief, contract, instruction stack, knowledge routing, capabilities, actions, starters, test matrix, ship gate."
     },
     {
       "url": "/projects/found-ry/#ecosystem",
@@ -1255,7 +1255,7 @@
         "Generous by design.",
         "The gift outranks the architecture."
       ],
-      "body": "overkillhill.com / projects / glee-fully-chai-chasers Foundry Project Open Source Current build Multi-Agent Build Zero Backend Glee-fully Chai Chasers One wife. Two cats. Five AI tools. Zero real money. A free, original, mobile-first cascading-reels game built as a birthday gift, and a working case study in multi-agent orchestration. One human PM directed Claude, Codex, Replit, ChatGPT, and Copilot against a canonical spec, a decision log, and a failing-test math oracle. Browser-only. Fictional currency. No purchases, no ads, no accounts. Play Chai Chasers View on GitHub Read the Governance Docs The Problem Why this needed governance ◑ Multi-agent work usually produces multi-agent chaos."
+      "body": "Availability: Published project. Maturity: Browser game; maturity unverified. Evidence: Source description only. Delivery: unknown. overkillhill.com / projects / glee-fully-chai-chasers Foundry Project Open Source Multi-Agent Build Zero Backend Glee-fully Chai Chasers Availability: Published project. Maturity: Browser game; maturity unverified. Evidence: Source description only. Delivery: unknown. Source record (reviewed 2026-09-07). One wife. Two cats. Five AI tools. Zero real money. A free, original, mobile-first cascading-reels game built as a birthday gift, and a working case study in multi-agent orchestration."
     },
     {
       "url": "/projects/glee-fully-chai-chasers/#after-the-gift",
@@ -1353,7 +1353,7 @@
         "Fallbacks are part of the product",
         "Low noise wins"
       ],
-      "body": "overkillhill.com / projects / kierans-lifetrkr Personal Tool Open Source Pre-production / v0.1.10 Client-only Kieran's LifeTrkr Rituals. Habits. Today. A little bit of magic. A quiet, mobile-first life OS built for Kieran. LifeTrkr brings routines, habits, local tasks, calendar events, and a daily oracle into one low-noise interface. It keeps personal records in the browser, treats Google Calendar and Google Tasks as read-only sources, and leaves the day in the user's hands."
+      "body": "Availability: Published project. Maturity: Pre-production v0.1.10. Evidence: Source description only. Delivery: unknown. overkillhill.com / projects / kierans-lifetrkr Personal Tool Open Source Client-only Kieran's LifeTrkr Availability: Published project. Maturity: Pre-production v0.1.10. Evidence: Source description only. Delivery: unknown. Source record (reviewed 2026-09-07). Rituals. Habits. Today. A little bit of magic. A quiet, mobile-first life OS built for Kieran. LifeTrkr brings routines, habits, local tasks, calendar events, and a daily oracle into one low-noise interface."
     },
     {
       "url": "/projects/kierans-lifetrkr/#origin",
@@ -1413,7 +1413,7 @@
       "url": "/projects/mac-studio-local-ai-workbench/",
       "title": "Mac Studio Local AI Workbench | OverKill Hill P³™",
       "category": "Project",
-      "description": "Mac Studio M4 Max local AI workstation: 29 models, 11 MCP servers, OpenClaw agent Larry, RAG stack, and verified benchmarks. Build complete.",
+      "description": "May 2026 Mac Studio local AI build journal, with dated benchmark records and an explicit boundary between deployed components and unverified RAG integration.",
       "headings": [
         "What This Is Worth",
         "Status Board",
@@ -1424,7 +1424,7 @@
         "Benchmark Snapshot",
         "How It's Built: Three Views",
         "The Operating Model",
-        "Next Phase",
+        "Next Phase, as Planned in May 2026",
         "Build Your Own",
         "Core Toolchain",
         "AI Runtimes",
@@ -1452,7 +1452,7 @@
         "Quick Facts",
         "Need a local AI workbench designed for your workflow?"
       ],
-      "body": "OverKill Hill P³™ › Projects › Mac Studio Local AI Workbench ✅ Baseline complete · 2026-05-12 · Updated 2026-05-30 Mac Studio Local AI Workbench Production-grade personal AI workstation: local-first, governed, documented, and restorable. Built in 10 days on Apple Silicon. M4 Max 36GB unified memory 512GB internal SSD 1TB OKH-Local NVMe macOS Sequoia 29 models 11 MCP servers 1 autonomous agent ✅ BASELINE COMPLETE : Build finished, normalized, benchmarked, and archived on 2026-05-12. System is in a known-good, restorable state."
+      "body": "Availability: Published build journal. Maturity: Dated build record; current readiness unverified. Evidence: May 30 benchmark recorded; August 2 report leaves end-to-end RAG unverified. Delivery: unknown. OverKill Hill P³™ › Projects › Mac Studio Local AI Workbench May 2026 build journal · Evidence reviewed 2026-09-07 Reading this journal: Hardware, service counts and timeline entries below describe the May 2026 build, not a fresh audit of today’s workstation. The May 30 benchmark record reports six Ollama models tested with five strict output-only prompts: zero outright failures, with formatting issues still recorded."
     },
     {
       "url": "/projects/mac-studio-local-ai-workbench/#decisions",
@@ -1487,7 +1487,7 @@
       "category": "Project",
       "description": "Autonomous Agent Tier Meet Larry Larry is an OpenClaw autonomous agent running on the Mac Studio M4 Max. He doesn't wait for a prompt.",
       "headings": [],
-      "body": "Autonomous Agent Tier Meet Larry Larry is an OpenClaw autonomous agent running on the Mac Studio M4 Max. He doesn't wait for a prompt. He runs in the background, starts at login, and handles the zero-cost tier of the Council of AIs workflow: background tasks, Apple Notes, Reminders, file operations, RAG queries, scheduled jobs, and first-pass summarization. The baseline stack (Ollama, LM Studio, Open WebUI, mlx-lm) is infrastructure. Open WebUI is a chat interface. You open it, you type, you get a response. Larry is something different. The original Larry the Lobster (SpongeBob's friend from Bikini Bottom) was the lifeguard at Goo Lagoon. He was the only thing standing between the residents and a watery grave.",
+      "body": "Autonomous Agent Tier Meet Larry Larry is an OpenClaw autonomous agent running on the Mac Studio M4 Max. He doesn't wait for a prompt. He runs in the background, starts at login, and handles the zero-cost tier of the Council of AIs workflow: background tasks, Apple Notes, Reminders, file operations, planned RAG queries, scheduled jobs, and first-pass summarization. The baseline stack (Ollama, LM Studio, Open WebUI, mlx-lm) is infrastructure. Open WebUI is a chat interface. You open it, you type, you get a response. Larry is something different. The original Larry the Lobster (SpongeBob's friend from Bikini Bottom) was the lifeguard at Goo Lagoon. He was the only thing standing between the residents and a watery grave.",
       "parent": "/projects/mac-studio-local-ai-workbench/"
     },
     {
@@ -1589,7 +1589,7 @@
         "Useful subset, honestly scoped",
         "Need a Mermaid governance layer for your stack?"
       ],
-      "body": "overkillhill.com / projects / mermaid-theme-builder Community Tool Open Source v0.6.1 Shipped Agent Skill Family Shipped Mermaid Theme Builder Visual governance for AI-generated Mermaid diagrams. Paste Mermaid, detect the family, apply a reusable theme, preview live, and export renderer-aware code or prompt scaffolds. Browser-only. No login. No backend. Your diagram code, palette data, and exports stay in your browser. UI fonts load from Google Fonts."
+      "body": "Availability: Published project. Maturity: Reported release v0.6.1. Evidence: Source description only. Delivery: unknown. overkillhill.com / projects / mermaid-theme-builder Community Tool Open Source Mermaid Theme Builder Availability: Published project. Maturity: Reported release v0.6.1. Evidence: Source description only. Delivery: unknown. Source record (reviewed 2026-09-07). Jump to release details ↓ Visual governance for AI-generated Mermaid diagrams. Paste Mermaid, detect the family, apply a reusable theme, preview live, and export renderer-aware code or prompt scaffolds. Browser-only. No login. No backend. Your diagram code, palette data, and exports stay in your browser."
     },
     {
       "url": "/projects/mermaid-theme-builder/#features",
@@ -1597,7 +1597,7 @@
       "category": "Project",
       "description": "Features What the builder does ⚡ Live Diagram Preview Every color change reflects instantly across multiple diagram types: flowchart, sequence, class, Gantt, and more. What you see is what you get.",
       "headings": [],
-      "body": "Features What the builder does ⚡ Live Diagram Preview Every color change reflects instantly across multiple diagram types: flowchart, sequence, class, Gantt, and more. What you see is what you get. ⟳ Diagram Family Detection Automatically identifies your diagram type and applies family-appropriate transformations. Not all Mermaid families behave the same; the tool knows the difference. </> Multi-Format Export Export as a complete themeVariables block, a Markdown style bootstrap you paste before any diagram, or a model-specific LLM prompt scaffold. ◎ Prompt Scaffold Generator Generates LLM-ready prompt prefixes with your theme embedded. AI tools produce on-brand Mermaid on the first try: no follow-up styling cycles needed.",
+      "body": "Features What the builder does ⚡ Live Diagram Preview Every color change reflects instantly across multiple diagram types: flowchart, sequence, class, Gantt, and more. What you see is what you get. ⟳ Diagram Family Detection Automatically identifies your diagram type and applies family-appropriate transformations. Not all Mermaid families behave the same; the tool knows the difference. </> Multi-Format Export Export as a complete themeVariables block, a Markdown style bootstrap you paste before any diagram, or a model-specific LLM prompt scaffold. ◎ Prompt Scaffold Generator Generates LLM-ready prompt prefixes with your theme embedded. The scaffold aims to reduce styling rework. Check the generated diagram in your target renderer; follow-up edits may still be needed.",
       "parent": "/projects/mermaid-theme-builder/"
     },
     {
@@ -1678,7 +1678,7 @@
       "category": "Project",
       "description": "What This Is A governance workbench, not a diagram editor What It Is ◆ A visual workbench for defining and enforcing Mermaid diagram themes ◆ A renderer-aware export tool: flags what breaks in GitHub, GitLab, Obsidian,…",
       "headings": [],
-      "body": "What This Is A governance workbench, not a diagram editor What It Is ◆ A visual workbench for defining and enforcing Mermaid diagram themes ◆ A renderer-aware export tool: flags what breaks in GitHub, GitLab, Obsidian, Notion, Confluence ◆ A brand palette enforcer: presets for OverKill Hill P³, Glee-fully, and AskJamie, plus four utility palettes (Ocean Depth, Forest Sage, Slate Ember, Violet Mist) ◆ A prompt scaffold generator: AI tools stay on-brand from the first generation ◆ A SKILL.md-packaged agent skill for headless diagram-governance workflows ◆ An open-source community contribution to the Mermaid.js ecosystem. MIT licensed. Free always.",
+      "body": "What This Is A governance workbench, not a diagram editor What It Is ◆ A visual workbench for defining and enforcing Mermaid diagram themes ◆ A renderer-aware export tool: flags what breaks in GitHub, GitLab, Obsidian, Notion, Confluence ◆ A brand palette enforcer: presets for OverKill Hill P³, Glee-fully, and AskJamie, plus four utility palettes (Ocean Depth, Forest Sage, Slate Ember, Violet Mist) ◆ A prompt scaffold generator: designed to give AI tools brand guidance before generation ◆ A SKILL.md-packaged agent skill for headless diagram-governance workflows ◆ An open-source community contribution to the Mermaid.js ecosystem. MIT licensed. Free always.",
       "parent": "/projects/mermaid-theme-builder/"
     },
     {
@@ -1696,7 +1696,7 @@
       "category": "Project",
       "description": "Why This Exists What you get here that you don't get from prompting an LLM ✗ Prompting an LLM Generates CSS variable blobs you paste and re-prompt until something looks right.",
       "headings": [],
-      "body": "Why This Exists What you get here that you don't get from prompting an LLM ✗ Prompting an LLM Generates CSS variable blobs you paste and re-prompt until something looks right. No live preview, no iteration feedback, result varies by model. No renderer awareness; you find out what breaks when you paste it. ✓ Mermaid Theme Builder Pick a color, see every diagram type update instantly. Export as a themeVariables block, a Markdown style bootstrap, or a renderer-aware prompt scaffold. AI tools stay on-brand from the first generation, not the sixth. This is a visual governance layer for the Mermaid.js ecosystem, not a commercial product, not a SaaS, not a competitor to Mermaid.ai. It runs entirely in your browser. No account. No data collected.",
+      "body": "Why This Exists What you get here that you don't get from prompting an LLM ✗ Prompting an LLM Generates CSS variable blobs you paste and re-prompt until something looks right. No live preview, no iteration feedback, result varies by model. No renderer awareness; you find out what breaks when you paste it. ✓ Mermaid Theme Builder Pick a color, see every diagram type update instantly. Export as a themeVariables block, a Markdown style bootstrap, or a renderer-aware prompt scaffold. The scaffold gives AI tools brand guidance before generation; check the result in your target renderer. This is a visual governance layer for the Mermaid.js ecosystem, not a commercial product, not a SaaS, not a competitor to Mermaid.ai. It runs entirely in your browser. No account. No data collected.",
       "parent": "/projects/mermaid-theme-builder/"
     },
     {
@@ -1757,7 +1757,7 @@
         "GitHub as source of truth",
         "Need a custom Agent Skills system for your team?"
       ],
-      "body": "overkillhill.com / projects / skillz Flagship Project Open Source Agent Skills Catalog Skillz Forge Live GitHub-Native Active Build Skillz Forge Reusable capabilities from the OverKill Hill P³™ forge. Skillz turns recurring AI methods into portable, inspectable, versioned SKILL.md contracts that agents can load, compose, and improve. Discover, inspect, install, and contribute, entirely through the browser and GitHub. ⤢ Enter Skillz Forge View Source on GitHub Return to Prompt Forge The Problem The prompt is not the artifact. The durable method is. Every recurring AI task deserves a governed method. Most get a prompt buried in chat history instead."
+      "body": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown. overkillhill.com / projects / skillz Flagship Project Open Source Agent Skills Catalog GitHub-Native Skillz Forge Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown. Source record (reviewed 2026-09-07). Reusable capabilities from the OverKill Hill P³™ forge. Skillz turns recurring AI methods into portable, inspectable, versioned SKILL.md contracts that agents can load, compose, and improve."
     },
     {
       "url": "/projects/skillz/#collaboration",
@@ -1883,7 +1883,7 @@
         "Magnus Progenitor Saga",
         "Biases as Constants"
       ],
-      "body": "overkillhill.com / projects / telling-forward Prototype Seed Proprietary Active Build GitHub-Native Telling Forward \"A quiet place for stories to grow.\" Telling Forward is a voice-first, agent-assisted platform for open-canon collaborative fiction : an originating author opens a storyworld, other people extend it through distinct, attributed paths, and readers can follow the resulting lineage without ever mistaking a community branch for the author's canon. GitHub holds the manuscript, the review history, and the provenance record. A custom app is being built so that none of it feels like GitHub. The public prototype is a static Author App deployment."
+      "body": "Availability: Published project. Maturity: Static Author App prototype; service operations separate. Evidence: Source description only. Delivery: unknown. overkillhill.com / projects / telling-forward Proprietary GitHub-Native Telling Forward Availability: Published project. Maturity: Static Author App prototype; service operations separate. Evidence: Source description only. Delivery: unknown. Source record (reviewed 2026-09-07)."
     },
     {
       "url": "/projects/telling-forward/#companion-writings",
@@ -1969,7 +1969,7 @@
         "La performance se forge",
         "Une échelle à taille humaine"
       ],
-      "body": "La forge Précision · Protocoles · Promptcraft La forge numérique C’est ici que les systèmes d’IA sont conçus, testés et renforcés pour fonctionner dans le monde réel, avec le même soin qu’une poutre porteuse ou le plan d’un pont. ⚙ La forge tourne : itération active, pas chantier OverKill Hill est une forge active. Les méthodes sont testées, documentées et affinées au grand jour, au fil de l’avancement du travail. Explorer les projets Lire le manifeste Découvrez le MurderBird : lisez son histoire (en anglais) → Que se passe-t-il sur la colline ? OverKill Hill est l’endroit où les prompts ne sont pas de simples « questions astucieuses », mais des protocoles ."
+      "body": "La forge Précision · Protocoles · Promptcraft La forge numérique C’est ici que les systèmes d’IA sont conçus, testés et renforcés pour fonctionner dans le monde réel, avec le même soin qu’une poutre porteuse ou le plan d’un pont. Explorer les projets Discuter d’un projet Lire le manifeste ⚙ La forge tourne : itération active, pas chantier OverKill Hill est une forge active. Les méthodes sont testées, documentées et affinées au grand jour, au fil de l’avancement du travail. Découvrez le MurderBird : lisez son histoire (en anglais) → Que se passe-t-il sur la colline ? OverKill Hill est l’endroit où les prompts ne sont pas de simples « questions astucieuses », mais des protocoles ."
     },
     {
       "url": "/fr/about/",
@@ -1999,7 +1999,7 @@
         "Soutenir la forge avec Ko‑fi",
         "Alimenter la forge"
       ],
-      "body": "La forge Comment joindre la colline Notre mascotte, le MurderBird d’OKHP³™, n’est pas un pigeon voyageur : ne comptez pas sur lui pour livrer votre message. Mais n’hésitez pas à nous écrire. Derrière son apparence métallique menaçante, nous avons vraiment envie de vous entendre. Contact Pour parler d’un projet, d’une collaboration ou d’une mission professionnelle, écrivez-nous directement : E-mail : contact@overkillhill.com Lieu : travail à distance, sur le fuseau horaire du Centre des États-Unis Pour suivre les nouvelles et les réflexions de la forge, retrouvez OverKill Hill P³™ sur les réseaux sociaux. Nous avons hâte d’échanger avec vous."
+      "body": "La forge Comment joindre la colline Notre mascotte, le MurderBird d’OKHP³™, n’est pas un pigeon voyageur : ne comptez pas sur lui pour livrer votre message. Mais n’hésitez pas à nous écrire. Derrière son apparence métallique menaçante, nous avons vraiment envie de vous entendre. Écrire à la colline Voir les coordonnées ↓ Voir le soutien ↓ Contact Pour parler d’un projet, d’une collaboration ou d’une mission professionnelle, écrivez-nous directement : E-mail : contact@overkillhill.com Lieu : travail à distance, sur le fuseau horaire du Centre des États-Unis Pour suivre les nouvelles et les réflexions de la forge, retrouvez OverKill Hill P³™ sur les réseaux sociaux."
     },
     {
       "url": "/fr/projects/",
@@ -2021,11 +2021,9 @@
         "Glee-fully Personalizable Tools",
         "AskJamie",
         "Bibliothèques de protocoles",
-        "Prêt à construire le vôtre ?",
-        "Skillz Forge",
-        "Abrahamic Reference Engine"
+        "Prêt à construire le vôtre ?"
       ],
-      "body": "Les projets de la colline Un aperçu des systèmes actuellement forgés chez OverKill Hill P³™ : certains sont publics, d’autres réalisés pour des clients, tous construits avec la même approche guidée par les protocoles. Forgés sur la colline Des outils hébergés et des réalisations documentées, conçus, livrés et maintenus ici. Skillz Forge La bibliothèque de capacités principale : des contrats SKILL.md réutilisables que les agents IA peuvent charger, composer et améliorer. Découvrez, inspectez, installez et partagez des compétences forgées sur la colline. Entrer dans Skillz Forge → Found‑Rᵧ Des outils pour fabriquer des outils."
+      "body": "Les projets de la colline Un aperçu des systèmes actuellement forgés chez OverKill Hill P³™ : certains sont publics, d’autres réalisés pour des clients, tous construits avec la même approche guidée par les protocoles. Forgés sur la colline Des outils, des prototypes, des compléments aux écrits et des réalisations documentées. Chaque dossier distingue la disponibilité de la page, la maturité et les éléments probants sur le fonctionnement réel. Skillz Forge Disponibilité : Projet de catalogue publié. Maturité : Construction active ; maturité variable selon les packages. Éléments probants : Description dans la source uniquement. Fonctionnement réel : non vérifié."
     }
   ]
 }

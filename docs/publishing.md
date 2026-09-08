@@ -10,16 +10,27 @@ Use the existing authenticated Git/GitHub workflow. This runbook does not
 require a new credential or changes to account permissions.
 
 [Publish GitHub Pages](../.github/workflows/pages.yml) invokes the reusable
-validation workflow for the exact release revision. Validation builds an
-allowlisted `site-release` artifact named `validated-site-<commit-sha>`.
-The deploy job downloads that artifact and verifies its commit identity and
-recorded file hashes and byte lengths with `scripts/build-release.py --verify`
-before uploading it to Pages. The local schema 3 implementation covers every
-packaged file except the manifest itself; production remains schema 2 until
-this change is released. The manifest is a trusted-workflow integrity record,
-not an independent signature. The `pages` concurrency group queues deployments.
+validation workflow for the exact release revision. Before regeneration,
+validation checks that committed HTML, search data, and universe output are
+current. It then builds an allowlisted `site-release` artifact named
+`validated-site-<commit-sha>-<run-id>-<producer-attempt>` and exports its exact
+name as the reusable workflow output `release_artifact_name`.
+The deploy job requires that output, downloads the named artifact, and verifies
+its commit identity and recorded file hashes and byte lengths with
+`scripts/build-release.py --verify` before uploading it to Pages. Schema 3
+covers every packaged file except the manifest itself. The manifest is a
+trusted-workflow integrity record, not an independent signature. The `pages`
+concurrency group queues deployments.
 The deployment job uses read-only contents access, Pages write access, and
 OIDC permission.
+
+Pages upload and deployment both use
+`github-pages-<run-id>-<deployment-attempt>`. A full rerun creates a new
+validation artifact. A deploy-only rerun consumes the earlier successful
+validation output and creates a new Pages artifact for its own attempt.
+Do not infer the producer attempt from the deployment attempt or fall back to
+an artifact selected by latest name. Confirm both retry paths from hosted run
+evidence before claiming rerun acceptance.
 
 After deployment, confirm the workflow result and the uploaded live-edge
 report. A release is not verified solely because a push or merge succeeded.
@@ -48,8 +59,8 @@ its destinations and behavior.
 
 The Pages workflow runs this verifier after deployment, using the deployment
 URL and the validated commit SHA. It uploads the resulting JSON as the
-`live-edge-report-<run-id>` release evidence artifact. The check reads the
-committed sitemap and generated search index, requests every sitemap route plus
+`live-edge-report-<run-id>-<deployment-attempt>` release evidence artifact.
+The check reads the committed sitemap and generated search index, requests every sitemap route plus
 the noindex utility boundaries, checks security and cache headers, verifies
 shared CSS/JS fingerprints, and confirms the deployed release manifest:
 
