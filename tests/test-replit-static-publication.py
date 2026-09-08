@@ -66,6 +66,45 @@ class ReplitStaticPublicationTests(unittest.TestCase):
                     wrapper.main()
             self.assertFalse(output.exists())
 
+    def test_accepted_commit_rejects_missing_malformed_and_mismatched_sha(self) -> None:
+        spec = importlib.util.spec_from_file_location("replit_builder", ROOT / "scripts/build-replit-release.py")
+        wrapper = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(wrapper)
+        for value in (None, "", "not-a-sha", "a" * 39, "g" * 40):
+            with self.subTest(value=value), patch.dict(wrapper.os.environ, {}, clear=True):
+                if value is not None:
+                    wrapper.os.environ["REPLIT_RELEASE_SHA"] = value
+                with self.assertRaises(RuntimeError):
+                    wrapper.accepted_commit()
+
+    def test_accepted_commit_rejects_mismatched_sha_and_dirty_checkout(self) -> None:
+        spec = importlib.util.spec_from_file_location("replit_builder", ROOT / "scripts/build-replit-release.py")
+        wrapper = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(wrapper)
+        with patch.dict(wrapper.os.environ, {"REPLIT_RELEASE_SHA": "a" * 40}, clear=True), \
+                patch.object(wrapper.subprocess, "check_output", side_effect=["b" * 40]):
+            with self.assertRaises(RuntimeError):
+                wrapper.accepted_commit()
+        with patch.dict(wrapper.os.environ, {"REPLIT_RELEASE_SHA": "a" * 40}, clear=True), \
+                patch.object(wrapper.subprocess, "check_output", side_effect=["a" * 40, " M index.html"]):
+            with self.assertRaises(RuntimeError):
+                wrapper.accepted_commit()
+
+    def test_release_path_refuses_symlinks(self) -> None:
+        spec = importlib.util.spec_from_file_location("replit_builder", ROOT / "scripts/build-replit-release.py")
+        wrapper = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(wrapper)
+        with tempfile.TemporaryDirectory() as temporary:
+            target = Path(temporary) / "target"
+            target.mkdir()
+            link = Path(temporary) / "link"
+            try:
+                link.symlink_to(target, target_is_directory=True)
+            except OSError as exc:
+                self.skipTest(f"symlink creation unavailable: {exc}")
+            with self.assertRaises(RuntimeError):
+                wrapper.refuse_link(link)
+
     def test_allowlisted_release_excludes_private_source_paths(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             output = Path(temporary) / "site-release"
