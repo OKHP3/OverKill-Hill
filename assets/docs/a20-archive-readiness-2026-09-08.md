@@ -50,3 +50,25 @@ the acceptance scope; this report does not silently waive unavailable checks.
 No application source, generators, live content or dependencies changed in this
 closeout. Validation is limited to report links, diff whitespace, JSON validity,
 and Git/GitHub identity. This task is not ready to archive as fully completed.
+
+## Minimum remaining manual session
+
+Use the coordinator's frozen artifact in real Safari/VoiceOver on macOS, then
+NVDA/Firefox on Windows and a physical phone when available. Record exact OS,
+browser and AT versions, device, artifact SHA/digest, date, navigation mode,
+steps, actual spoken/focus result, pass/fail and retained evidence for each row.
+
+| Task | Pages and minimum observation |
+| --- | --- |
+| Reach work | `/`: read hero and art alternative; use Skip then continue into main; follow `/projects/mermaid-theme-builder/`. Recheck visible content with scripts disabled/blocked separately. |
+| Identify maturity | `/projects/`, `/projects/telling-forward/`, and direct `/projects/hometools/`, `/projects/pathscrib-r/`, `/projects/un-nocked-truth/`: read status and distinguish concept/prototype from available software. |
+| Install safely | `/projects/skillz/`: read and copy the exact pinned complete-package instructions; verify resources and no overwrite in a disposable project. Record client activation separately. |
+| Search and read | Search `mermaid` from `/`; navigate results and hear the selected destination; Enter follows, Escape returns focus. `/writings/first-diagram-is-a-liar/`: follow argument/evidence anchors and Back. `/writings/murderbird/`: Read the story lands at `#the-maker`. |
+| Contact | Compact `/` navigation to `/contact/`: keyboard or phone touch exploration reaches the email and inquiry instructions; close/reopen menu and verify focus recovery. Do not send. |
+
+Retain failures and repeat the failed steps on a repaired exact revision. These
+five tasks and actual Safari/VoiceOver, with other platforms when available,
+are original A20 acceptance. A comprehensive WCAG certification or exhaustive
+device/performance study is broader optional work, not an invented prerequisite.
+The additional zoom/short-height/font limits above remain disclosed coverage
+limits; they must not be represented as completed manual tests.
