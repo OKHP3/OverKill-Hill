@@ -1,8 +1,10 @@
 # Thread closeout status
 
 September 8, 2026. Status: **INCOMPLETE for the broader website queue**.
-The original 26 coop-pertition deliverables are complete. This ledger separates
-that verified batch from the older website work referenced during its audit.
+The original 26 coop-pertition deliverables are complete. PR75 and PR76 are
+merged on current `origin/main` at `bd6ceacc2ab1238020216ad010c485ad9e3e94b9`.
+This ledger separates that verified batch from the older website work
+referenced during its audit.
 
 ## Verified completed batch
 
@@ -26,15 +28,16 @@ artifacts. They do not imply every proposed feature or policy was adopted.
 ## Earlier website queue
 
 Baseline for this reconciliation: website `origin/main`
-`f4a353c323fc1caa848e03f6f0aa1ea1e520210c`. Prior reports at `c2d23f08`
-are historical. Do not restore old runtime or translation bytes to match them.
+`bd6ceacc2ab1238020216ad010c485ad9e3e94b9`. Prior reports at `c2d23f08`
+and `f4a353c323fc1caa848e03f6f0aa1ea1e520210c` are historical. Do not
+restore old runtime or translation bytes to match them.
 
 | Packages | Verified disposition | Remaining action |
 | --- | --- | --- |
 | A03/A04/A05/A07/A08/A09/A10/A18 and T01 | First-wave work incorporated in PR62, including superseding implementations | A21 compares and preserves remaining local variants before cleanup |
 | A06/A11/A12/A13/A16 | Content wave incorporated in PR65 | Reconcile residual local work against the published implementation; do not merge entire old branches |
-| A14 | Rendered phone proposals in draft PR67 | Preserve proposal deliverable; production redesign requires a separate explicit selection |
-| A15 | Reader/contact proposal in draft PR66 | Preserve proposal deliverable; applying new content needs review against current source |
+| A14 | Forge front door layout implemented in PR76 at `bd6ceacc2ab1238020216ad010c485ad9e3e94b9` | Preserve the original proposal record as historical evidence; production layout is now adopted |
+| A15 | Reader/contact proposal preserved through PR75 integration without adoption | Keep the proposal artifact and dated evidence; applying new content still needs source review |
 | A17 | Implementation delivered; hosted evidence PR68 merged at `b200c034` | Retain the dated evidence and superseded local variant |
 | A19/T05/W13 | Hosting, locale-policy and analytics proposal packages remain outside main | Preserve original artifacts and dated evidence without adopting policy or changing settings |
 | T02 | Reviewed-target integrity candidate is not incorporated | Port verified safeguards and negative tests to current main |
@@ -54,12 +57,13 @@ PRs: [62](https://github.com/OKHP3/OverKill-Hill/pull/62),
 ### Integration checkpoint
 
 PR74 is merged at `250f5f12`; owner main fast-forwarded to it cleanly, preserving
-the earlier local `11895417` commit. The isolated integration candidate combines
-reviewed PR66, PR67 and PR69-73 through ordinary branch merges. Their commits
-remain reachable; candidate inclusion is not a claim that the PRs have reached
-main. PR66/67 preserve the A15/A14 proposal artifacts only. T05/W13/A19 preserve
-the original dated policy packages without adopting settings or publication
-changes.
+the earlier local `11895417` commit. PR75 and PR76 are now merged on current
+main. The isolated integration candidate combines reviewed PR66, PR67 and PR69-73
+through ordinary branch merges. Their commits remain reachable; candidate
+inclusion is not a claim that the PRs have reached main. PR75 preserves the
+A15 proposal artifact and PR76 adopts the A14 Forge front door layout. T05/W13/A19
+preserve the original dated policy packages without adopting settings or
+publication changes.
 
 Combined local validation passes: 59 translation skill tests, eight discovery
 regressions, 18 reviewed-target integrity regressions, four regional-generator
