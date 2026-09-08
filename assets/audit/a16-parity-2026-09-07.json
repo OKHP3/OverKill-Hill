@@ -1,0 +1,112 @@
+{
+  "browser": "151.0.7922.34",
+  "geometry": [
+    {
+      "device": "desktop",
+      "theme": "light",
+      "before": {
+        "x": 656,
+        "y": 309.296875,
+        "width": 475,
+        "height": 316.65625
+      },
+      "after": {
+        "x": 656,
+        "y": 309.296875,
+        "width": 475,
+        "height": 316.65625
+      },
+      "candidate": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp"
+    },
+    {
+      "device": "desktop",
+      "theme": "dark",
+      "before": {
+        "x": 656,
+        "y": 309.296875,
+        "width": 475,
+        "height": 316.65625
+      },
+      "after": {
+        "x": 656,
+        "y": 309.296875,
+        "width": 475,
+        "height": 316.65625
+      },
+      "candidate": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp"
+    },
+    {
+      "device": "phone",
+      "theme": "light",
+      "before": {
+        "x": 44.59375,
+        "y": 434.21875,
+        "width": 300.8125,
+        "height": 200.53125
+      },
+      "after": {
+        "x": 44.59375,
+        "y": 434.21875,
+        "width": 300.8125,
+        "height": 200.53125
+      },
+      "candidate": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp"
+    },
+    {
+      "device": "phone",
+      "theme": "dark",
+      "before": {
+        "x": 44.59375,
+        "y": 434.21875,
+        "width": 300.8125,
+        "height": 200.53125
+      },
+      "after": {
+        "x": 44.59375,
+        "y": 434.21875,
+        "width": 300.8125,
+        "height": 200.53125
+      },
+      "candidate": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp"
+    }
+  ],
+  "pixels": [
+    {
+      "file": "desktop-dark-before.png",
+      "max_channel_difference": 1,
+      "mean_channel_difference": [
+        0.049457081188776356,
+        0.04970944711937573,
+        0.049337539432176655
+      ]
+    },
+    {
+      "file": "desktop-light-before.png",
+      "max_channel_difference": 1,
+      "mean_channel_difference": [
+        0.049457081188776356,
+        0.04970944711937573,
+        0.049337539432176655
+      ]
+    },
+    {
+      "file": "phone-dark-before.png",
+      "max_channel_difference": 1,
+      "mean_channel_difference": [
+        0.04923323046284398,
+        0.04895134335679952,
+        0.049346717479563186
+      ]
+    },
+    {
+      "file": "phone-light-before.png",
+      "max_channel_difference": 1,
+      "mean_channel_difference": [
+        0.04923323046284398,
+        0.04895134335679952,
+        0.049346717479563186
+      ]
+    }
+  ],
+  "scope": "Image crop only; external requests blocked. Source RGBA bytes are exact; browser scaling permits 1/255 channel rounding."
+}

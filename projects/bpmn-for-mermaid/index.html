@@ -11,7 +11,7 @@
        METADATA: Primary Title & Description
        ======================================== -->
 <title>BPMN for Mermaid | OverKill Hill P³™</title>
-<meta content="A text-first bpmn-beta diagram type for Mermaid, plus BP-SKILL: a 15-skill Business Process Agent Skill Suite aligned to BABOK, BPM CBOK, and BPMN 2.0.2." name="description"/>
+<meta content="BPMN for Mermaid is a prototype and diagram-type contribution proposal. Explore the bpmn-beta DSL, Playground and current rendering limits." name="description"/>
 <meta content="BPMN, Mermaid.js, bpmn-beta, business process modeling, DSL, process modeling, diagram type, open source, BPMN 2.0, OverKill Hill, process diagrams, Mermaid plugin, GitHub playground, bpmn-beta DSL, agent skills, SKILL.md, agentskills.io, BP-SKILL, business process agent skills, BABOK agent skills, BPM CBOK, APQC PCF, DMN 1.4, ISO 9001, process narrative specification, PNS.md, Claude Code skills, OpenAI Codex skills, GitHub Copilot skills" name="keywords"/>
 <meta content="OverKill Hill P³™" name="author"/>
 <meta content="OverKill Hill P³™" name="creator"/>
@@ -20,7 +20,7 @@
        METADATA: Open Graph (Social Sharing)
        ======================================== -->
 <meta content="BPMN for Mermaid | OverKill Hill P³™" property="og:title"/>
-<meta content="bpmn-beta is the visual output layer of a complete business process methodology. BP-SKILL packages 15 Agent Skills conforming to BABOK v3, BPM CBOK v4.0, BPMN 2.0.2, and ISO 9001:2015. No XML required." property="og:description"/>
+<meta content="BPMN for Mermaid is a prototype and diagram-type contribution proposal. Explore the bpmn-beta DSL, Playground and current rendering limits." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://overkillhill.com/projects/bpmn-for-mermaid/" property="og:url"/>
 <meta content="https://overkillhill.com/assets/img/library/over-kill-hill-p3-title-left-comp-right-wide-1536.png" property="og:image"/>
@@ -36,7 +36,7 @@
        ======================================== -->
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="BPMN for Mermaid | OverKill Hill P³™" name="twitter:title"/>
-<meta content="Skills are the AI analogue of SOPs. BP-SKILL is 15 SKILL.md agent skills for the full business process lifecycle. bpmn-beta is the visual output layer. Works with Claude Code, Codex, Copilot, and more." name="twitter:description"/>
+<meta content="BPMN for Mermaid is a prototype and diagram-type contribution proposal. Explore the bpmn-beta DSL, Playground and current rendering limits." name="twitter:description"/>
 <meta content="https://overkillhill.com/assets/img/library/over-kill-hill-p3-title-left-comp-right-wide-1536.png" name="twitter:image"/>
 <meta content="OverKill Hill P³ brand blueprint with the forge title and a vintage computer" name="twitter:image:alt"/>
 <meta content="@OverKillHillP3" name="twitter:site"/>
@@ -199,9 +199,8 @@
 <span class="tag">Open Source</span>
 <span class="tag">bpmn-beta DSL</span>
 <span class="tag">BP-SKILL Agent Suite</span>
-<span class="tag tag--accent">Active</span>
 </div>
-<h1>BPMN for Mermaid</h1>
+<h1>BPMN for Mermaid</h1><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status="bpmn-for-mermaid"><span data-project-status-text="">Availability: Published project. Maturity: Prototype; not a production Mermaid plugin. Evidence: Source description only. Delivery: unknown.</span> <a href="https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/bpmn-for-mermaid/index.html">Source record</a> (reviewed 2026-09-07).</p><!-- /AUTOGEN:PROJECT-STATUS -->
 <p class="hero-sub">Text-first. Standards-aware. Git-native. Agent-ready.</p>
 <p>
             Two things live in this project. First: <code style="font-family:'JetBrains Mono',monospace;font-size:0.92rem;color:var(--okh-orange);">bpmn-beta</code>, a text-first DSL for BPMN process diagrams, designed as a Mermaid diagram-type contribution. No XML, no heavyweight tools, no bpmn-js. Second: BP-SKILL, a 15-skill Business Process Agent Skill Suite that uses bpmn-beta as its visual output layer, packaged in the Agent Skills open standard and compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor.
@@ -533,7 +532,7 @@
 <div aria-hidden="true" class="feature-icon">🤖</div>
 <div>
 <h3>AI-Generatable Syntax</h3>
-<p>Clean enough for LLMs to produce valid <code>bpmn-beta</code> on first try. Readable enough for non-experts to write directly. No prompt repair loops for syntax errors.</p>
+<p>Designed to make <code>bpmn-beta</code> easier for LLMs and non-experts to write. Check generated output in the prototype Playground; syntax repair may still be needed.</p>
 </div>
 </div>
 <div class="feature-item">
@@ -589,7 +588,7 @@
 <ul>
 <li><span class="scope-yes">✓</span> A readable DSL for the BPMN 2.0 Descriptive Conformance subset: start/end events, tasks, gateways, flows, pools, and lanes.</li>
 <li><span class="scope-yes">✓</span> Text-first, Git-native, works inside a Markdown code fence.</li>
-<li><span class="scope-yes">✓</span> AI-generatable: designed to be writable by LLMs without syntax repair.</li>
+<li><span class="scope-yes">✓</span> AI-generatable: designed for LLM authoring, with output validation still required.</li>
 <li><span class="scope-yes">✓</span> The visual output layer of the business process documentation methodology described by BP-SKILL.</li>
 <li><span class="scope-yes">✓</span> A domain extension to the Agent Skills open standard (agentskills.io).</li>
 <li><span class="scope-yes">✓</span> Compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, Cursor, VS Code, and all other Agent Skills-conformant platforms.</li>
@@ -786,7 +785,7 @@
 </div>
 <div class="faq-item">
 <p class="faq-q">Can LLMs generate valid bpmn-beta?</p>
-<p class="faq-a">That's by design. The DSL is intentionally short and predictable: no XML attributes, no metadata blocks, no nested namespaces. A well-prompted LLM should produce valid <code>bpmn-beta</code> on the first try for common process patterns. The Playground lets you verify output immediately.</p>
+<p class="faq-a">That's by design. The DSL is intentionally short and predictable: no XML attributes, no metadata blocks, no nested namespaces. That is a design goal, not a measured first-try success rate. The Playground lets you check generated output and repair syntax errors.</p>
 </div>
 <div class="faq-item">
 <p class="faq-q">How does this relate to Mermaid Theme Builder?</p>
@@ -896,18 +895,6 @@
 </div><!-- /project-layout -->
 </div><!-- /container -->
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
   </main>
 <footer class="site-footer">
 <div class="container footer-grid">
@@ -947,7 +934,7 @@
 <span></span>
 </div>
 </footer>
-    <script src="/assets/js/app.js?v=af787b95"></script>
+    <script src="/assets/js/app.js?v=588df853"></script>
 <script>
       (function () {
         var btn = document.getElementById('bpmn-reload-btn');

@@ -29,7 +29,8 @@
 </nav>
 <div class="project-hero-inner">
 <div>
-<div class="status-badge status-badge--complete">✅ Baseline complete · 2026-05-12 · Updated 2026-05-30</div>
+<div class="status-badge status-badge--complete">May 2026 build journal · Evidence reviewed 2026-09-07</div>
+<p><strong>Reading this journal:</strong> Hardware, service counts and timeline entries below describe the May 2026 build, not a fresh audit of today’s workstation. The <a href="https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/docs/05-benchmark-results.md">May 30 benchmark record</a> reports six Ollama models tested with five strict output-only prompts: zero outright failures, with formatting issues still recorded. The <a href="https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/reports/openclaw-related-runtime-readiness-audit-2026-08-02.md">August 2 readiness report</a> found local services responding but left document ingestion, retrieval and citation through RAG unverified. Earlier pending work is retained below as history.</p>
 <h1>Mac Studio Local AI Workbench</h1>
 <p class="hero-sub">Production-grade personal AI workstation: local-first, governed, documented, and restorable. Built in 10 days on Apple Silicon.</p>
 <div aria-label="Hardware specification" class="hw-spec-row">
@@ -66,7 +67,7 @@
               Archive: <code style="font-family:var(--font-mono);font-size:0.85em;">/Volumes/OKH-Local/05_Research_Vault/mac-studio-setup_DONE_2026-05-12.tar.gz</code>
 <br/><span style="font-size:0.85em;opacity:0.75;margin-top:0.4rem;display:inline-block;">2026-05-13 post-baseline: Ollama plist corrected, Open WebUI updated to latest, Edge PWA resolved. Project page published.</span>
 <br/><span style="font-size:0.85em;opacity:0.75;margin-top:0.4rem;display:inline-block;">2026-05-27/28: OpenClaw installed, agent named Larry, MEMORY.md seeded, SearXNG web search live.</span>
-<br/><span style="font-size:0.85em;opacity:0.75;margin-top:0.4rem;display:inline-block;">2026-05-27 through 2026-05-30: OpenClaw/Larry online, RAG stack deployed, all smoke tests passed, strict benchmark complete, architecture diagrams published. Build declared complete.</span>
+<br/><span style="font-size:0.85em;opacity:0.75;margin-top:0.4rem;display:inline-block;">2026-05-27 through 2026-05-30: Journal reports OpenClaw/Larry online, RAG components deployed, strict benchmark completed and architecture diagrams published. Component deployment does not establish a working retrieval workflow.</span>
 </div>
 </div>
 <div class="mac-body-with-sidebar">
@@ -127,8 +128,8 @@
 <div class="status-item"><span class="check">✓</span><span> OpenClaw 2026.5.26 installed: local AI agent, LaunchAgent configured, gateway on port 18789 <span class="status-date">· 2026-05-27</span></span></div>
 <div class="status-item"><span class="check">✓</span><span> Larry persona configured: gemma3:27b primary, 28 skills eligible, SearXNG web search active <span class="status-date">· 2026-05-28</span></span></div>
 <div class="status-item"><span class="check">✓</span><span> MEMORY.md seeded: agent context-aware: knows Jamie and the Council of AIs stack <span class="status-date">· 2026-05-28</span></span></div>
-<div class="status-item"><span class="check">✓</span><span> RAG stack deployed: nomic-embed-text + Qdrant + Open WebUI <span class="status-date">· 2026-05-29</span></span></div>
-<div class="status-item"><span class="check">✓</span><span> Strict prompt benchmark complete: all 6 models, zero outright failures <span class="status-date">· 2026-05-30</span></span></div>
+<div class="status-item"><span class="check">✓</span><span> RAG component deployment reported; end-to-end retrieval unverified <span class="status-date">· 2026-05-29</span></span></div>
+<div class="status-item"><span class="check">✓</span><span> Strict prompt benchmark recorded: 6 Ollama models, 5 tests, zero outright failures; some formatting issues remained <span class="status-date">· 2026-05-30</span></span></div>
 <div class="status-item"><span class="check">✓</span><span> Architecture diagrams published: flowchart, mind map, and architecture-beta <span class="status-date">· 2026-05-30</span></span></div>
 </div>
 </div>
@@ -455,7 +456,7 @@
 <div class="content-block" data-search-index="" id="meet-larry">
 <div class="section-label">Autonomous Agent Tier</div>
 <h2>Meet Larry</h2>
-<p>Larry is an OpenClaw autonomous agent running on the Mac Studio M4 Max. He doesn't wait for a prompt. He runs in the background, starts at login, and handles the zero-cost tier of the Council of AIs workflow: background tasks, Apple Notes, Reminders, file operations, RAG queries, scheduled jobs, and first-pass summarization.</p>
+<p>Larry is an OpenClaw autonomous agent running on the Mac Studio M4 Max. He doesn't wait for a prompt. He runs in the background, starts at login, and handles the zero-cost tier of the Council of AIs workflow: background tasks, Apple Notes, Reminders, file operations, planned RAG queries, scheduled jobs, and first-pass summarization.</p>
 <p>The baseline stack (Ollama, LM Studio, Open WebUI, mlx-lm) is infrastructure. Open WebUI is a chat interface. You open it, you type, you get a response. Larry is something different.</p>
 <p>The original Larry the Lobster (SpongeBob's friend from Bikini Bottom) was the lifeguard at Goo Lagoon. He was the only thing standing between the residents and a watery grave. This Larry has a similar mandate: protect the workflow from token waste and busywork.</p>
 <p>He introduced himself on first boot with: <em>"Larry's got it."</em></p>
@@ -622,6 +623,7 @@
 <div class="content-block" id="benchmarks">
 <div class="section-label">Smoke Test Results · 2026-05-12</div>
 <h2>Benchmark Snapshot</h2>
+<p>Historical May 12 loose/default-prompt results for two Ollama models. The <a href="https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/docs/05-benchmark-results.md">dated benchmark summary</a> preserves this table and the May 30 six-model strict-prompt pass. These small task samples do not establish general reliability; this page review did not rerun them.</p>
 <div aria-label="Local benchmark results table" class="data-table-wrap" role="region" tabindex="0">
 <table class="data-table">
 <thead>
@@ -663,11 +665,11 @@
 <p style="font-size:0.82rem;color:var(--color-muted);margin-top:0.75rem;line-height:1.55;">
 <strong style="color:var(--color-fg);">Conclusion:</strong>
 
-                  Neither model is governance-grade for autonomous structured artifact generation under simple prompting.
+                  In this May 12 sample, neither model met all structured-output criteria under simple prompting.
 
-                  A strict prompt benchmark pass is recommended before declaring models inadequate.
+                  A strict prompt benchmark pass was recommended at that point and recorded on May 30.
 
-                  gemma3:12b, gemma3:27b, mistral-small3.1:24b, and codestral:22b are not yet benchmarked.
+                  gemma3:12b, gemma3:27b, mistral-small3.1:24b, and codestral:22b were not tested in this May 12 table; all four appear in the May 30 record.
 
                 </p>
 </div>
@@ -993,8 +995,9 @@ mindmap
 </div>
 <!-- NEXT PHASE -->
 <div class="content-block" id="next-phase">
-<div class="section-label">What's Next</div>
-<h2>Next Phase</h2>
+<div class="section-label">Historical planning record</div>
+<h2>Next Phase, as Planned in May 2026</h2>
+<p>This retained list records the earlier plan. The strict six-model benchmark was subsequently recorded on May 30. The <a href="https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/docs/07-rag-roadmap.md">RAG roadmap</a> remains a plan; the August 2 readiness report does not confirm an integrated retrieval workflow. Other items below are not a verified current backlog.</p>
 <div class="next-phase-list">
 <div class="next-phase-item">Execute ChatGPT content update: populate all GitHub repository stub docs</div>
 <div class="next-phase-item">Backup baseline archive to OneDrive and Time Machine</div>
@@ -1005,7 +1008,7 @@ mindmap
 <div class="callout callout--info" role="note" style="margin-top:1.25rem;">
 <span class="callout-icon">🧠</span>
 <div style="display:flex;flex-direction:column;gap:0.6rem;">
-<p style="margin:0;line-height:1.65;"><strong>RAG Roadmap</strong>: The baseline is complete. The next phase is the retrieval layer.</p>
+<p style="margin:0;line-height:1.65;"><strong>Historical RAG roadmap</strong>: The baseline was complete. The proposed next phase was the retrieval layer.</p>
 <p style="margin:0;line-height:1.65;">nomic-embed-text + Qdrant + Open WebUI Knowledge will turn this workbench into a local AI that knows the author's actual work: not just its training data. Personal writing, GitHub repos, conversation archives, and workspace exports will be chunked, embedded, and indexed locally. The model will retrieve before it generates.</p>
 <p style="margin:0;line-height:1.65;font-weight:600;color:var(--okh-amber);">This is how a generic local AI becomes a genuine second brain.</p>
 </div>
@@ -1213,7 +1216,7 @@ mindmap
 <li><a href="#benchmarks">Benchmarks</a></li>
 <li><a href="#how-its-built">How It's Built</a></li>
 <li><a href="#operating-model">Operating Model</a></li>
-<li><a href="#next-phase">Next Phase</a></li>
+<li><a href="#next-phase">Historical Next Phase</a></li>
 <li><a href="#stack">Environment Blueprint</a></li>
 <li><a href="#decisions">Architecture Decisions</a></li>
 </ul>

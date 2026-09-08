@@ -1,0 +1,129 @@
+{
+  "candidate": "daa3ebd84f7401e2e179dffa5ceee8307f34730f",
+  "fixture": [
+    {
+      "key": "Tab",
+      "active": "<button>Button</button>"
+    },
+    {
+      "key": "Tab",
+      "active": "<body><a href=\"#a\">First link</a><button>Button</button><a href=\"#b\">Second link</a></body>"
+    },
+    {
+      "key": "Tab",
+      "active": "<button>Button</button>"
+    },
+    {
+      "key": "Alt+Tab",
+      "active": "<body><a href=\"#a\">First link</a><button>Button</button><a href=\"#b\">Second link</a></body>"
+    },
+    {
+      "key": "Alt+Tab",
+      "active": "<button>Button</button>"
+    }
+  ],
+  "site": [
+    {
+      "scenario": "skip",
+      "url": "https://127.0.0.1:5221/",
+      "active": "<body>\n  <a class=\"okh-skip-link\" href=\"#main\">Skip to main content</a>\n<header class=\"site-header\" id=\"top\">\n<div class=\"container\">\n<div class=\"logo\">\n<a aria-label=\"OverKill Hill P³ home\" href=\"/\">\n<img alt=\"OverKill Hill P³\" height=\"40\" loading=\"eager\" src=\"/assets/img/murderbird-v2-icon-nav-96.png\" width=\"40\">\n<span class=\"sr-only\">OverKill&nbsp;Hill&nbsp;P³™ Home</span>\n</a>\n</div>\n<nav aria-label=\"Primary\" class=\"primary-nav\" id=\"navigation\" aria-hidden=\"false\">\n<ul>\n<li><a aria-current=\"",
+      "attemptedAltTabs": 60,
+      "uniqueObservedFocus": [
+        {
+          "tag": "BUTTON",
+          "cls": "lang-switch-toggle",
+          "href": null,
+          "text": ""
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "okh-search-trigger",
+          "href": null,
+          "text": "Search\nCtrl+K"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "theme-toggle",
+          "href": null,
+          "text": ""
+        },
+        {
+          "tag": "BODY",
+          "cls": "",
+          "href": null,
+          "text": "Skip to main content\nOverKill Hill P³™ Home\nTHE FORGE\nOUR PROJECTS\nWRITINGS\nABOUT\nSearch\nCtrl+K\n🔥HO"
+        }
+      ]
+    },
+    {
+      "scenario": "contact",
+      "url": "https://127.0.0.1:5221/",
+      "active": "<button type=\"button\" class=\"okh-search-trigger\" aria-label=\"Open search (Ctrl+K)\"><svg class=\"okh-search-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"></circle><path d=\"m20 20-3.5-3.5\"></path></svg><span class=\"okh-search-label\">Search</span><kbd>Ctrl+K</kbd></button>",
+      "attemptedAltTabs": 60,
+      "uniqueObservedFocus": [
+        {
+          "tag": "BUTTON",
+          "cls": "lang-switch-toggle",
+          "href": null,
+          "text": ""
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "okh-search-trigger",
+          "href": null,
+          "text": ""
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "theme-toggle",
+          "href": null,
+          "text": ""
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "nav-toggle",
+          "href": null,
+          "text": "Toggle navigation"
+        },
+        {
+          "tag": "BODY",
+          "cls": "",
+          "href": null,
+          "text": "Skip to main content\nOverKill Hill P³™ Home\nTHE FORGE\nOUR PROJECTS\nSKILLZ FORGE\nFOUND‑Rᵧ\nMERMAID THE"
+        }
+      ]
+    },
+    {
+      "scenario": "story",
+      "url": "https://127.0.0.1:5221/writings/murderbird/",
+      "active": "<body>\n  <a class=\"okh-skip-link\" href=\"#main\">Skip to main content</a>\n<header class=\"site-header\" id=\"top\">\n<div class=\"container\">\n<div class=\"logo\">\n<a aria-label=\"OverKill Hill P³ home\" href=\"/\">\n<img alt=\"OverKill Hill P³\" height=\"40\" loading=\"eager\" src=\"/assets/img/murderbird-v2-icon-nav-96.png\" width=\"40\">\n<span class=\"sr-only\">OverKill&nbsp;Hill&nbsp;P³™ Home</span>\n</a>\n</div>\n<nav aria-label=\"Primary\" class=\"primary-nav\" id=\"navigation\" aria-hidden=\"true\" inert=\"\">\n<ul>\n<li><a href=\"",
+      "attemptedAltTabs": 60,
+      "uniqueObservedFocus": [
+        {
+          "tag": "BUTTON",
+          "cls": "okh-search-trigger",
+          "href": null,
+          "text": ""
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "theme-toggle",
+          "href": null,
+          "text": ""
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "nav-toggle",
+          "href": null,
+          "text": "Toggle navigation"
+        },
+        {
+          "tag": "BODY",
+          "cls": "",
+          "href": null,
+          "text": "Skip to main content\nOverKill Hill P³™ Home\nTHE FORGE\nOUR PROJECTS\nSKILLZ FORGE\nFOUND‑Rᵧ\nMERMAID THE"
+        }
+      ]
+    }
+  ]
+}
