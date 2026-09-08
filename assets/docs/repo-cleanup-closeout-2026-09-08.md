@@ -42,4 +42,3 @@ directory locked.
 - Keep: active named branches, open PR work, and preserved evidence.
 - Archive: unique detached commit `37eb4c28`.
 - Delete later: `3d63` detached worktree, once the Windows lock clears.
-
