@@ -1,6 +1,33 @@
 # A09 review fixture portability
 
-Status: implementation and Windows regression checks pass; native macOS acceptance remains unverified.
+Status: COMPLETE as of September 8, 2026. Implementation is integrated on main;
+Windows and native macOS regression checks pass. The original September 7
+evidence below is retained as a dated record and superseded by this closeout.
+
+## September 8 closeout
+
+- Original implementation `c9fa89490c4e7477f5ef1b09a10dec3f942884af` was
+  integrated through PR62, merge `eeb3960778ddb56d99a80c3ae36c2e2db46c082b`.
+  PR61 is closed and superseded. The fixture and archived builder were compared
+  to current main `f4a353c3` and match exactly.
+- Native macOS acceptance passed in
+  [run 34231307833](https://github.com/OKHP3/OverKill-Hill/actions/runs/34231307833)
+  at `7325953737000bf69bf4c2b724826cbed29546f9`, using the hosted
+  `macos-26-arm64` image and CPython 3.11.9 with existing pinned QA dependencies.
+- All 3 review-boundary tests pass: the host default temporary root, an explicit
+  canonical root, and a real POSIX symlink alias root. No temporary-root
+  environment override was applied.
+- All 9 release-package tests pass, including the complete archive preservation
+  receipt and release exclusions. No builder, artwork, manifest, or receipt
+  bytes changed.
+- `.github/workflows/a09-macos-review-fixture.yml` is retained on the task
+  branch as the executable acceptance runner. This closeout does not claim
+  that the additional workflow is installed on main or is a required check.
+- No A09 implementation or platform acceptance blockers remain. This closes
+  A09 only; unrelated advancement-program acceptance and device checks remain
+  with their assigned owners.
+
+## Original September 7 evidence
 
 Baseline: `98922aebf71d90b2b18ecc34c8b00a041fff51c7`.
 Scope: `tests/test-murderbird-review-boundary.py` and this evidence record.
