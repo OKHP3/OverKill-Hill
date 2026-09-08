@@ -70,7 +70,7 @@ deploymentTarget = "static"
 # Static publication consumes the separately built allowlisted release package.
 # The repository root contains authoring sources and local tooling and must not
 # be used as a public directory.
-publicDir = "site-release"
+publicDir = ".local/site-release"
 build = "python3 scripts/build-replit-release.py"
 
 [postMerge]

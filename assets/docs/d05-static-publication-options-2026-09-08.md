@@ -7,7 +7,7 @@ The repository contains an allowlisted release builder at
 40-character commit SHA. The exact build invocation is:
 
 ```text
-python3 scripts/build-release.py --output site-release --commit <validated-40-character-sha>
+python3 scripts/build-release.py --output .local/site-release --commit <validated-40-character-sha>
 ```
 
 The builder copies published HTML, required root files, and approved runtime
@@ -20,7 +20,7 @@ This proposal branch changes `.replit` to declare:
 ```toml
 [deployment]
 deploymentTarget = "static"
-publicDir = "site-release"
+publicDir = ".local/site-release"
 ```
 
 The proposal now supplies `build = "python3 scripts/build-replit-release.py"`.
@@ -33,7 +33,7 @@ deployment settings until the owner inspects them. Replit availability of Git
 metadata during the deployment build is not verified; the wrapper therefore
 fails closed unless `REPLIT_RELEASE_SHA` matches `HEAD` in a clean checkout.
 The current `origin/main` checkout and the observed Replit deployment still use
-`publicDir = "."`; the `site-release` setting exists only in this unpublished
+`publicDir = "."`; the `.local/site-release` setting exists only in this unpublished
 proposal branch.
 
 The regression test is wired into the existing GitHub Actions workflow and has
@@ -54,7 +54,7 @@ the complete deployed file inventory or deployment provenance.
 
 2. **Republish from a verified staged package.** First arrange an owner-approved
    process that runs the exact builder command above and places its output at
-   the configured `site-release` directory. Then inspect the resulting static
+   the configured `.local/site-release` directory. Then inspect the resulting static
    deployment and verify the public edge. Current UI inspection did not expose
    a build field, so the owner must verify that the documented build setting is
    honored before publication.
@@ -76,3 +76,28 @@ comes from the A21 integration directive for the A08/D05 separate proposal; it
 is an explicit task restriction, not an inferred skill approval requirement. A
 parent/owner decision is required between retirement and an owner-approved
 republish path.
+
+## Authorized remediation and staging behavior
+
+On September 8, the parent relayed the owner's explicit instruction to fix the
+public source exposure. This supersedes the earlier no-deployment restriction
+for this narrow repair; retirement is not selected. Repository sources remain
+intact. Publication still requires reviewed code and successful checks.
+
+The deployment wrapper requires `REPLIT_RELEASE_SHA` to be deliberately set in
+the deployment environment to the accepted, CI-validated commit. It verifies
+that HEAD matches and the checkout is clean; these checks do not independently
+attest that GitHub CI passed. Missing Git metadata or the variable fails closed.
+There is no repository-root fallback.
+
+Before building, previous public output moves into unique private recovery
+storage under `.local/replit-release-*/previous`. Failed preflight, build, or
+package verification leaves `.local/site-release` absent. Successful build and
+manifest verification promote only the new package. Recovery and failed staging
+bytes remain private for inspection; no recursive deletion is performed.
+
+The existing `.local/` ignore and source-scanning exclusions apply to both the
+public package and private staging. The release builder uses explicit public
+route and asset allowlists and cannot recursively package these directories.
+Actual publishing must confirm the effective directory, deployment variable,
+build execution, and successful public/negative route probes.

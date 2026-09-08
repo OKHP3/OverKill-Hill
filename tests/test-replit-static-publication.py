@@ -20,7 +20,7 @@ class ReplitStaticPublicationTests(unittest.TestCase):
     def test_static_public_dir_is_the_staged_release(self) -> None:
         config = (ROOT / ".replit").read_text(encoding="utf-8")
         self.assertRegex(config, r'(?m)^deploymentTarget\s*=\s*"static"\s*$')
-        self.assertRegex(config, r'(?m)^publicDir\s*=\s*"site-release"\s*$')
+        self.assertRegex(config, r'(?m)^publicDir\s*=\s*"\.local/site-release"\s*$')
         self.assertRegex(config, r'(?m)^build\s*=\s*"python3 scripts/build-replit-release\.py"\s*$')
 
     def test_replit_builder_replaces_release_only_after_success(self) -> None:
@@ -29,12 +29,13 @@ class ReplitStaticPublicationTests(unittest.TestCase):
         spec.loader.exec_module(wrapper)
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            output = root / "site-release"
-            output.mkdir()
-            (output / "old.txt").write_text("old", encoding="utf-8")
+            output = root / ".local" / "site-release"
             def successful_build(command, cwd, check):
                 staged = Path(command[command.index("--output") + 1])
-                staged.mkdir(exist_ok=True)
+                if "--verify" in command:
+                    self.assertTrue((staged / "new.txt").is_file())
+                    return
+                staged.mkdir()
                 (staged / "new.txt").write_text("new", encoding="utf-8")
 
             with patch.object(wrapper, "ROOT", root), patch.object(wrapper, "OUTPUT", output), \
@@ -43,15 +44,21 @@ class ReplitStaticPublicationTests(unittest.TestCase):
                     patch.object(wrapper.subprocess, "run", side_effect=successful_build):
                 self.assertEqual(wrapper.main(), 0)
             self.assertEqual((output / "new.txt").read_text(encoding="utf-8"), "new")
-            self.assertFalse((output / "old.txt").exists())
+            (output / "old.txt").write_text("old", encoding="utf-8")
             with patch.object(wrapper, "ROOT", root), patch.object(wrapper, "OUTPUT", output), \
                     patch.object(wrapper, "BUILDER", root / "builder.py"), \
                     patch.object(wrapper, "accepted_commit", return_value="c" * 40), \
                     patch.object(wrapper.subprocess, "run", side_effect=successful_build):
                 self.assertEqual(wrapper.main(), 0)
             self.assertEqual((output / "new.txt").read_text(encoding="utf-8"), "new")
+            self.assertFalse((output / "old.txt").exists())
+            self.assertEqual(len(list((root / ".local").glob("*/previous/old.txt"))), 1)
 
             def failed_build(*args, **kwargs):
+                command = args[0]
+                staged = Path(command[command.index("--output") + 1])
+                staged.mkdir()
+                (staged / "partial.txt").write_text("partial", encoding="utf-8")
                 raise subprocess.CalledProcessError(1, "builder")
 
             (output / "keep.txt").write_text("keep", encoding="utf-8")
@@ -62,6 +69,26 @@ class ReplitStaticPublicationTests(unittest.TestCase):
                 with self.assertRaises(subprocess.CalledProcessError):
                     wrapper.main()
             self.assertFalse(output.exists())
+            self.assertEqual(len(list((root / ".local").glob("*/previous/keep.txt"))), 1)
+            self.assertEqual(len(list((root / ".local").glob("*/site-release/partial.txt"))), 1)
+
+    def test_failed_preflight_preserves_previous_privately(self) -> None:
+        spec = importlib.util.spec_from_file_location("replit_builder", ROOT / "scripts/build-replit-release.py")
+        wrapper = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(wrapper)
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            output = root / ".local" / "site-release"
+            output.mkdir(parents=True)
+            (output / "prior.txt").write_text("preserve", encoding="utf-8")
+            with patch.object(wrapper, "ROOT", root), patch.object(wrapper, "OUTPUT", output), \
+                    patch.object(wrapper, "accepted_commit", side_effect=RuntimeError("unaccepted source")):
+                with self.assertRaisesRegex(RuntimeError, "unaccepted source"):
+                    wrapper.main()
+            self.assertFalse(output.exists())
+            preserved = list((root / ".local").glob("*/previous/prior.txt"))
+            self.assertEqual(len(preserved), 1)
+            self.assertEqual(preserved[0].read_text(encoding="utf-8"), "preserve")
 
     def test_accepted_commit_rejects_missing_malformed_and_mismatched_sha(self) -> None:
         spec = importlib.util.spec_from_file_location("replit_builder", ROOT / "scripts/build-replit-release.py")
@@ -108,7 +135,7 @@ class ReplitStaticPublicationTests(unittest.TestCase):
         spec.loader.exec_module(wrapper)
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            output = root / "site-release"
+            output = root / ".local" / "site-release"
 
             def fail_verify(command, cwd, check):
                 staged = Path(command[command.index("--output") + 1])
