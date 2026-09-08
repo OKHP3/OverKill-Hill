@@ -1,0 +1,63 @@
+{
+  "homepage-evidence-intro": "Les dossiers de projet distinguent les descriptions publiées du fonctionnement vérifié.",
+  "shelf-intro": "Des outils, des prototypes, des compléments aux écrits et des réalisations documentées. Chaque dossier distingue la disponibilité de la page, la maturité et les éléments probants sur le fonctionnement réel.",
+  "workbench-description": "Un journal daté de construction d’une installation d’IA locale, avec sa configuration et ses mesures de performance. La vérification du fonctionnement de bout en bout du RAG reste en suspens dans le rapport cité sur l’état de préparation.",
+  "shelf-review-link": "Consultez la disponibilité, la maturité et les éléments probants des projets sur l’étagère des projets (contenu en anglais).",
+  "skillz": {
+    "summary": "Disponibilité : Projet de catalogue publié. Maturité : Construction active ; maturité variable selon les packages. Éléments probants : Description dans la source uniquement. Fonctionnement réel : non vérifié.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "abrahamic-reference-engine": {
+    "summary": "Disponibilité : Projet publié. Maturité : Version active v1.1 annoncée. Éléments probants : Description dans la source uniquement. Fonctionnement réel : non vérifié.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/abrahamic-reference-engine/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "found-ry": {
+    "summary": "Disponibilité : Projet publié. Maturité : Atelier dans le navigateur ; maturité non vérifiée. Éléments probants : Description dans la source uniquement. Fonctionnement réel : non vérifié.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/found-ry/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "mermaid-theme-builder": {
+    "summary": "Disponibilité : Projet publié. Maturité : Version v0.6.1 annoncée. Éléments probants : Description dans la source uniquement. Fonctionnement réel : non vérifié.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/mermaid-theme-builder/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "bpmn-for-mermaid": {
+    "summary": "Disponibilité : Projet publié. Maturité : Prototype ; pas un plugin Mermaid pour la production. Éléments probants : Description dans la source uniquement. Fonctionnement réel : non vérifié.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/bpmn-for-mermaid/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "mac-studio-local-ai-workbench": {
+    "summary": "Disponibilité : Journal de construction publié. Maturité : Compte rendu de construction daté ; état de préparation actuel non vérifié. Éléments probants : Mesure de performance consignée le 30 mai ; le rapport du 2 août laisse le fonctionnement de bout en bout du RAG non vérifié. Fonctionnement réel : non vérifié.",
+    "source_link": "https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/reports/openclaw-related-runtime-readiness-audit-2026-08-02.md",
+    "reviewed": "2026-09-07"
+  },
+  "prompt-forge": {
+    "summary": "Disponibilité : Centre de ressources publié. Maturité : Ressources d’atelier ; pas une version logicielle. Éléments probants : Référence sur l’étagère des projets uniquement. Fonctionnement réel : non vérifié.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "glee-fully-chai-chasers": {
+    "summary": "Disponibilité : Projet publié. Maturité : Jeu dans le navigateur ; maturité non vérifiée. Éléments probants : Description dans la source uniquement. Fonctionnement réel : non vérifié.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/glee-fully-chai-chasers/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "glee-fully": {
+    "summary": "Disponibilité : Lien vers un site externe. Maturité : Inconnue. Éléments probants : Référence sur l’étagère des projets uniquement. Fonctionnement réel : non vérifié.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "askjamie": {
+    "summary": "Disponibilité : Lien vers un site externe. Maturité : Inconnue. Éléments probants : Référence sur l’étagère des projets uniquement. Fonctionnement réel : non vérifié.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "protocol-libraries": {
+    "summary": "Disponibilité : Demande d’accès. Maturité : Inconnue. Éléments probants : Référence sur l’étagère des projets uniquement. Fonctionnement réel : non vérifié.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "source-label": "Dossier source (en anglais)",
+  "source-reviewed": "source examinée le"
+}

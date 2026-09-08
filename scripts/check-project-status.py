@@ -1,80 +1,59 @@
 #!/usr/bin/env python3
-"""Validate the small public project-status registry."""
-from __future__ import annotations
-
+"""Check project inventory and generated status across cards, details and search."""
 import json
+import runpy
 import sys
-from datetime import date
 from pathlib import Path
-from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
-REGISTRY = ROOT / "site-src" / "project-status.json"
-REQUIRED = {"id", "title", "purpose", "status", "surface_status", "reviewed", "route"}
-SURFACES = (
-    ROOT / "index.html",
-    ROOT / "projects" / "index.html",
-    ROOT / "universe" / "index.html",
-)
+STATUS = runpy.run_path(str(ROOT / 'scripts/project-status.py'))
 
 
-def main() -> int:
+def main():
     try:
-        data = json.loads(REGISTRY.read_text(encoding="utf-8"))
-        records = data["projects"]
-        assert isinstance(records, list) and records
-        ids: set[str] = set()
-        for record in records:
-            missing = REQUIRED - record.keys()
-            if missing:
-                raise ValueError(f"{record.get('id', '<unknown>')}: missing {sorted(missing)}")
-            if record["id"] in ids:
-                raise ValueError(f"duplicate id: {record['id']}")
-            ids.add(record["id"])
-            if not isinstance(record["status"], str) or not record["status"].strip():
-                raise ValueError(f"{record['id']}: status must be non-empty text")
-            if not isinstance(record["surface_status"], str) or not record["surface_status"].strip():
-                raise ValueError(f"{record['id']}: surface_status must be non-empty text")
-            if "version" in record and (not isinstance(record["version"], str) or not record["version"].strip()):
-                raise ValueError(f"{record['id']}: version must be non-empty text")
-            date.fromisoformat(record["reviewed"])
-            route = record["route"]
-            if not route.startswith("/") or "?" in route or "#" in route:
-                raise ValueError(f"{record['id']}: invalid route")
-            target = ROOT / route.lstrip("/") / "index.html"
-            if route == "/":
-                target = ROOT / "index.html"
-            if not target.is_file():
-                raise ValueError(f"{record['id']}: route target missing: {route}")
-            for optional in ("live", "source", "proof"):
-                if optional in record:
-                    parsed = urlparse(record[optional])
-                    if optional == "proof" and record[optional].startswith("/"):
-                        continue
-                    if parsed.scheme != "https" or not parsed.netloc:
-                        raise ValueError(f"{record['id']}: {optional} must be an https URL or local route")
-        reviewed_date = date.fromisoformat(data["reviewed"])
-        reviewed_label = reviewed_date.strftime("%B %d, %Y").replace(" 0", " ")
-        rendered = {path: path.read_text(encoding="utf-8") for path in SURFACES}
-        for path, content in rendered.items():
-            soup = BeautifulSoup(content, "html.parser")
-            cards = [str(card) for card in soup.find_all("article")]
-            for record in records:
-                matches = [card for card in cards if record["title"] in card and record["route"] in card]
-                status_matches = [card for card in matches if record["surface_status"] in card]
-                if record.get("version"):
-                    status_matches = [card for card in status_matches if record["version"] in card]
-                if not status_matches:
-                    raise ValueError(f"{path.relative_to(ROOT)}: status card drift for {record['id']}")
-            if reviewed_label not in content:
-                raise ValueError(f"{path.relative_to(ROOT)}: missing registry review date")
-        print(f"Project status registry valid: {len(records)} records")
+        records = STATUS['load_registry'](ROOT)
+        by_id = {r['id']: r for r in records}
+        routes = ['/', '/projects/', '/universe/'] + [r['route'] for r in records if r['kind'] == 'detail']
+        index = json.loads((ROOT / 'assets/data/search-index.json').read_text(encoding='utf-8'))
+        entries = index['entries']
+        for route in routes:
+            path = ROOT / route.lstrip('/') / 'index.html'
+            soup = BeautifulSoup(path.read_text(encoding='utf-8'), 'html.parser')
+            main = soup.find('main')
+            for block in main.select('[data-project-status]'):
+                record = by_id[block['data-project-status']]
+                text = block.select_one('[data-project-status-text]')
+                if text is None or text.get_text() != STATUS['summary'](record):
+                    raise ValueError(f'{route}: stale project summary')
+                link = block.find('a')
+                if link is None or link.get('href') != record['evidence']['url'] or record['reviewed'] not in block.get_text():
+                    raise ValueError(f'{route}: stale evidence link or review date')
+            record = next((r for r in records if r['route'] == route), None)
+            if record and record['kind'] == 'detail':
+                if len(main.select(f'[data-project-status="{record["id"]}"]')) != 1:
+                    raise ValueError(f'{route}: missing or duplicated detail status')
+                noindex = 'noindex' in soup.find('meta', attrs={'name': 'robots'})['content']
+                if noindex != (record['availability'] == 'Noindex concept page'):
+                    raise ValueError(f'{route}: availability disagrees with indexing policy')
+                found = [e for e in entries if e['url'].split('#')[0] == route]
+                if noindex and found:
+                    raise ValueError(f'{route}: concept leaked into search')
+                page_entries = [e for e in found if e['url'] == route]
+                if not noindex and (len(page_entries) != 1 or not page_entries[0]['body'].startswith(STATUS['summary'](record))):
+                    raise ValueError(f'{route}: missing or stale search status')
+            for card in main.find_all('article'):
+                matches = {a.get('href') for a in card.find_all('a')} & {r['route'] for r in records}
+                if route in ('/', '/projects/', '/universe/') and len(matches) == 1:
+                    expected = next(r for r in records if r['route'] in matches)
+                    if len(card.select(f'[data-project-status="{expected["id"]}"]')) != 1:
+                        raise ValueError(f'{route}: missing or duplicated card status')
+        print(f'Project status valid: {len(records)} records; details, shelves and search agree')
         return 0
-    except (AssertionError, KeyError, json.JSONDecodeError, OSError, ValueError) as exc:
-        print(f"Project status registry invalid: {exc}", file=sys.stderr)
+    except (KeyError, TypeError, ValueError, OSError) as exc:
+        print(f'Project status invalid: {exc}', file=sys.stderr)
         return 1
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     sys.exit(main())

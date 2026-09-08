@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "profile_id": "okh-interaction-en-us-2026-09-07",
+  "source_locale": "en-US",
+  "version": "1.0.0",
+  "status": "owner-directed-traits-with-ai-observations",
+  "traits": {
+    "owner_declared": "Preserve PG-13 owner voice, protected writing, and direct en-US source. No generic corporate polish or invented certainty.",
+    "observed": "Short action labels and plain instructions; describe actual state and available next action.",
+    "target_register": "vous, as recorded in the existing French AI review; no native certification."
+  },
+  "samples": [
+    {
+      "path": "assets/js/app.js",
+      "revision": "007787fd032679cc44ba3197f2e1779084fe1297",
+      "examples": [
+        "Search could not load the index.",
+        "Retry search index",
+        "No indexed pages are available."
+      ]
+    }
+  ],
+  "authority": "A13 task instruction and repository owner-authored source; stylistic observations are AI judgment."
+}
