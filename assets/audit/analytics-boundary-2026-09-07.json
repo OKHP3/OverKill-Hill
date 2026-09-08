@@ -1,0 +1,178 @@
+{
+  "date": "2026-09-07",
+  "startingSha": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+  "browser": "151.0.7922.34",
+  "method": "Fresh isolated contexts; all same-origin responses fulfilled from checkout files; every external request aborted. No live Google script or collection request permitted. Cookie absence applies only to blocked-script fixtures.",
+  "results": [
+    {
+      "route": "/",
+      "status": 200,
+      "commands": [
+        [
+          "js",
+          "[time omitted]"
+        ],
+        [
+          "config",
+          "[measurement-id omitted]"
+        ]
+      ],
+      "h1": 1,
+      "tags": 1,
+      "controls": 0,
+      "blockedExternal": [
+        "https://fonts.googleapis.com/css2",
+        "https://www.googletagmanager.com/gtag/js"
+      ],
+      "cookieNames": [],
+      "syntheticEvent": null
+    },
+    {
+      "route": "/legal/",
+      "status": 200,
+      "commands": [
+        [
+          "js",
+          "[time omitted]"
+        ],
+        [
+          "config",
+          "[measurement-id omitted]"
+        ]
+      ],
+      "h1": 1,
+      "tags": 1,
+      "controls": 0,
+      "blockedExternal": [
+        "https://fonts.googleapis.com/css2",
+        "https://www.googletagmanager.com/gtag/js"
+      ],
+      "cookieNames": [],
+      "syntheticEvent": null
+    },
+    {
+      "route": "/search/?q=synthetic-test",
+      "status": 200,
+      "commands": [
+        [
+          "js",
+          "[time omitted]"
+        ],
+        [
+          "config",
+          "[measurement-id omitted]"
+        ]
+      ],
+      "h1": 1,
+      "tags": 1,
+      "controls": 0,
+      "blockedExternal": [
+        "https://fonts.googleapis.com/css2",
+        "https://www.googletagmanager.com/gtag/js"
+      ],
+      "cookieNames": [],
+      "syntheticEvent": null
+    },
+    {
+      "route": "/projects/skillz/",
+      "status": 200,
+      "commands": [
+        [
+          "js",
+          "[time omitted]"
+        ],
+        [
+          "config",
+          "[measurement-id omitted]"
+        ]
+      ],
+      "h1": 1,
+      "tags": 1,
+      "controls": 23,
+      "blockedExternal": [
+        "https://fonts.googleapis.com/css2",
+        "https://www.googletagmanager.com/gtag/js",
+        "https://okhp3.github.io/skillz/",
+        "https://okhp3.github.io/skillz/data/project-summary.json"
+      ],
+      "cookieNames": [],
+      "syntheticEvent": [
+        "event",
+        "skillz_live_app_open",
+        {
+          "event_category": "cta",
+          "event_label": "hero"
+        }
+      ]
+    },
+    {
+      "route": "/fr/",
+      "status": 200,
+      "commands": [],
+      "h1": 1,
+      "tags": 0,
+      "controls": 0,
+      "blockedExternal": [],
+      "cookieNames": [],
+      "syntheticEvent": null
+    },
+    {
+      "route": "/de/",
+      "status": 200,
+      "commands": [],
+      "h1": 1,
+      "tags": 0,
+      "controls": 0,
+      "blockedExternal": [],
+      "cookieNames": [],
+      "syntheticEvent": null
+    },
+    {
+      "route": "/es/",
+      "status": 200,
+      "commands": [],
+      "h1": 1,
+      "tags": 0,
+      "controls": 0,
+      "blockedExternal": [],
+      "cookieNames": [],
+      "syntheticEvent": null
+    },
+    {
+      "route": "/en-GB/",
+      "status": 200,
+      "commands": [
+        [
+          "js",
+          "[time omitted]"
+        ],
+        [
+          "config",
+          "[measurement-id omitted]"
+        ]
+      ],
+      "h1": 1,
+      "tags": 1,
+      "controls": 0,
+      "blockedExternal": [
+        "https://fonts.googleapis.com/css2",
+        "https://www.googletagmanager.com/gtag/js"
+      ],
+      "cookieNames": [],
+      "syntheticEvent": null
+    },
+    {
+      "route": "/es-MX/",
+      "status": 200,
+      "commands": [],
+      "h1": 1,
+      "tags": 0,
+      "controls": 0,
+      "blockedExternal": [
+        "https://fonts.googleapis.com/css2"
+      ],
+      "cookieNames": [],
+      "syntheticEvent": null
+    }
+  ]
+}

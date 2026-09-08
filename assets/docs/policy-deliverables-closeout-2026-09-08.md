@@ -17,6 +17,12 @@ September 8, 2026. This note preserves the current state of the three bounded po
 - The repository closeout doc at [task-closeout-reconciliation-2026-09-08.md](task-closeout-reconciliation-2026-09-08.md) remains the current record for broader task cleanup and main-state reconciliation.
 - No package in this note should be treated as completed, deployed, or owner-approved solely because it is listed here.
 
+## Restored artifacts
+
+- T05 restored the original proposal text from `03af9b23` to [`docs/locale-policy-v2-proposal.md`](../../docs/locale-policy-v2-proposal.md).
+- W13 restored the decision memo and dated boundary evidence from `de46b64a` to [`assets/docs/analytics-decision-w13-2026-09-07.md`](analytics-decision-w13-2026-09-07.md) and [`assets/audit/analytics-boundary-2026-09-07.json`](../audit/analytics-boundary-2026-09-07.json).
+- A19 restored the host decision memo, dated host observation, proposal-only staging headers, and focused offline test from `b0240122` to [`assets/docs/remediation-a19-2026-09-07.md`](remediation-a19-2026-09-07.md), [`assets/audit/a19-host-observation-2026-09-07.json`](../audit/a19-host-observation-2026-09-07.json), [`config/hosting/cloudflare-staging/_headers`](../../config/hosting/cloudflare-staging/_headers), and [`tests/test-cloudflare-header-proposal.py`](../../tests/test-cloudflare-header-proposal.py).
+
 ## Boundary reminder
 
 This closeout does not grant permission to:
