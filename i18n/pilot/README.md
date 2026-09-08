@@ -24,9 +24,10 @@ partials. Locale pages are maintained separately under `/fr/`, `/de/`, and
 ## Operating sequence
 
 1. Run the English build and regenerate the English search index.
-2. Run the page-sync detector in report/check mode. It compares the generated
-   English index with the persisted source hashes and names the exact
-   `okhp3-translation-en-us-<pair>` skill for each stale route.
+2. Run the page-sync detector in `--mode report` or `--mode check`. It
+   compares the generated English index with the persisted source hashes and
+   names the exact `okhp3-translation-en-us-<pair>` skill for each stale
+   route.
 3. Use the named exact-pair skill for the draft. Apply register mediation and
    terminology decisions before regional translation; do not treat a hash
    update as translation-quality evidence.
@@ -37,8 +38,8 @@ partials. Locale pages are maintained separately under `/fr/`, `/de/`, and
    Keep German and Spanish `noindex` and outside the sitemap until human
    editorial review is complete.
 6. Only after review and release QA, update the relevant manifest status and
-   adopt the source baseline with the page-sync tool. Adoption records
-   freshness; it does not certify native-language quality.
+   adopt the source baseline with `--mode adopt`. Adoption records freshness;
+   it does not certify native-language quality.
 
 ## Page and release contract
 
@@ -59,6 +60,7 @@ python3 scripts/build-search-index.py --locale=es
 python3 scripts/check-locale-links.py
 python3 .agents/skills/okhp3-i18n-page-sync/scripts/i18n-page-sync.py --root . --mode report
 python3 .agents/skills/okhp3-i18n-page-sync/scripts/i18n-page-sync.py --root . --mode check
+python3 .agents/skills/okhp3-i18n-page-sync/scripts/i18n-page-sync.py --root . --mode adopt --routes "/about/"
 ```
 
 ## Policy boundary
@@ -78,8 +80,9 @@ behavior is decided and tested with the shared-runtime owner. Do not edit
 
 ## Evidence and history
 
-Historical skill benchmarks and extra exact-pair packages remain preserved;
-their presence does not imply that the current site has used every package.
+Historical skill benchmarks and extra exact-pair packages remain preserved as
+retained checkpoints; their presence does not imply that the current site has
+used every package.
 The `unpublished-scaffold` compatibility branch in the locale checker remains
 under separate review because it is compatibility behavior, not confirmed
 dead code. No new language publication or native-language approval is implied
