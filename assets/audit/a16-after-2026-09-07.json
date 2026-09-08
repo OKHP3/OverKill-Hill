@@ -1,0 +1,3587 @@
+{
+  "schema": "page-cost-experiment/v1",
+  "label": "after",
+  "sourceCommit": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+  "timestamp": "2026-09-07T07:15:50.844Z",
+  "browser": "151.0.7922.34",
+  "node": "v24.11.1",
+  "conditions": {
+    "network": "20 Mbps down, 5 Mbps up, 40 ms latency",
+    "localDelivery": "gzip level 6 for text; public max-age=3600; loopback ephemeral port",
+    "initialWindow": "load plus 2000 ms",
+    "scroll": "800 px steps, 100 ms each, then 2000 ms",
+    "cold": "new browser context for every trial and route",
+    "warm": "same context; navigate about:blank then revisit; cache enabled",
+    "motion": "reduce",
+    "theme": "light",
+    "external": "live, unmodified; external variability retained; CDP page target only, out-of-process iframe traffic may be absent",
+    "byteMeaning": "CDP loadingFinished encodedDataLength, including response overhead; cached requests recorded separately; incomplete requests have no claimed byte length"
+  },
+  "runs": [
+    {
+      "device": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "dpr": 1,
+      "cpu": 1,
+      "route": "/",
+      "trial": 1,
+      "cache": "cold",
+      "initial": {
+        "firstPartyBytes": 2020003,
+        "externalBytes": 250486,
+        "cached": 0,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "scrolled": {
+        "firstPartyBytes": 2020003,
+        "externalBytes": 250486,
+        "cached": 0,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "initialRequests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/html",
+          "encodedBytes": 10140
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 1324
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 48317
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "application/javascript",
+          "encodedBytes": 174146
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/png",
+          "encodedBytes": 9136
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 75411
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/javascript",
+          "encodedBytes": 14104
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 37483
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 19178
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 18355
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 1862895
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "requests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/html",
+          "encodedBytes": 10140
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 1324
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 48317
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "application/javascript",
+          "encodedBytes": 174146
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/png",
+          "encodedBytes": 9136
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 75411
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/javascript",
+          "encodedBytes": 14104
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 37483
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 19178
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 18355
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 1862895
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "runtime": {
+        "longTasks": [
+          87,
+          67
+        ],
+        "navigation": [
+          {
+            "loadMs": 1531.9000000059605,
+            "domContentLoadedMs": 604.7000000178814
+          }
+        ],
+        "fonts": "loaded",
+        "images": [
+          {
+            "src": "/assets/img/murderbird-v2-icon-nav-96.png",
+            "complete": true,
+            "width": 96,
+            "displayedWidth": 40
+          },
+          {
+            "src": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+            "complete": true,
+            "width": 537,
+            "displayedWidth": 320
+          },
+          {
+            "src": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+            "complete": true,
+            "width": 1536,
+            "displayedWidth": 475
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "device": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "dpr": 1,
+      "cpu": 1,
+      "route": "/",
+      "trial": 1,
+      "cache": "warm",
+      "initial": {
+        "firstPartyBytes": 0,
+        "externalBytes": 0,
+        "cached": 1,
+        "failed": 0,
+        "incomplete": 0
+      },
+      "scrolled": {
+        "firstPartyBytes": 0,
+        "externalBytes": 0,
+        "cached": 1,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "initialRequests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": true,
+          "mime": "text/html",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "application/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/png",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/javascript",
+          "encodedBytes": 0
+        }
+      ],
+      "requests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": true,
+          "mime": "text/html",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "application/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/png",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "runtime": {
+        "longTasks": [],
+        "navigation": [
+          {
+            "loadMs": 103,
+            "domContentLoadedMs": 24.900000005960464
+          }
+        ],
+        "fonts": "loaded",
+        "images": [
+          {
+            "src": "/assets/img/murderbird-v2-icon-nav-96.png",
+            "complete": true,
+            "width": 96,
+            "displayedWidth": 40
+          },
+          {
+            "src": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+            "complete": true,
+            "width": 537,
+            "displayedWidth": 320
+          },
+          {
+            "src": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+            "complete": true,
+            "width": 1536,
+            "displayedWidth": 475
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "device": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "dpr": 1,
+      "cpu": 1,
+      "route": "/",
+      "trial": 2,
+      "cache": "cold",
+      "initial": {
+        "firstPartyBytes": 2020003,
+        "externalBytes": 250486,
+        "cached": 0,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "scrolled": {
+        "firstPartyBytes": 2020003,
+        "externalBytes": 250486,
+        "cached": 0,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "initialRequests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/html",
+          "encodedBytes": 10140
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 1324
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 48317
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "application/javascript",
+          "encodedBytes": 174146
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/png",
+          "encodedBytes": 9136
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 75411
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/javascript",
+          "encodedBytes": 14104
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 37068
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 19178
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 18770
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 1862895
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "requests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/html",
+          "encodedBytes": 10140
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 1324
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 48317
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "application/javascript",
+          "encodedBytes": 174146
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/png",
+          "encodedBytes": 9136
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 75411
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/javascript",
+          "encodedBytes": 14104
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 37068
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 19178
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 18770
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 1862895
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "runtime": {
+        "longTasks": [
+          77,
+          55
+        ],
+        "navigation": [
+          {
+            "loadMs": 1420.5,
+            "domContentLoadedMs": 503
+          }
+        ],
+        "fonts": "loaded",
+        "images": [
+          {
+            "src": "/assets/img/murderbird-v2-icon-nav-96.png",
+            "complete": true,
+            "width": 96,
+            "displayedWidth": 40
+          },
+          {
+            "src": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+            "complete": true,
+            "width": 537,
+            "displayedWidth": 320
+          },
+          {
+            "src": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+            "complete": true,
+            "width": 1536,
+            "displayedWidth": 475
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "device": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "dpr": 1,
+      "cpu": 1,
+      "route": "/",
+      "trial": 2,
+      "cache": "warm",
+      "initial": {
+        "firstPartyBytes": 0,
+        "externalBytes": 0,
+        "cached": 1,
+        "failed": 0,
+        "incomplete": 0
+      },
+      "scrolled": {
+        "firstPartyBytes": 0,
+        "externalBytes": 0,
+        "cached": 1,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "initialRequests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": true,
+          "mime": "text/html",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "application/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/png",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/javascript",
+          "encodedBytes": 0
+        }
+      ],
+      "requests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": true,
+          "mime": "text/html",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "application/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/png",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "runtime": {
+        "longTasks": [],
+        "navigation": [
+          {
+            "loadMs": 112.90000000596046,
+            "domContentLoadedMs": 33.60000002384186
+          }
+        ],
+        "fonts": "loaded",
+        "images": [
+          {
+            "src": "/assets/img/murderbird-v2-icon-nav-96.png",
+            "complete": true,
+            "width": 96,
+            "displayedWidth": 40
+          },
+          {
+            "src": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+            "complete": true,
+            "width": 537,
+            "displayedWidth": 320
+          },
+          {
+            "src": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+            "complete": true,
+            "width": 1536,
+            "displayedWidth": 475
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "device": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "dpr": 1,
+      "cpu": 1,
+      "route": "/",
+      "trial": 3,
+      "cache": "cold",
+      "initial": {
+        "firstPartyBytes": 2020003,
+        "externalBytes": 250486,
+        "cached": 0,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "scrolled": {
+        "firstPartyBytes": 2020003,
+        "externalBytes": 250486,
+        "cached": 0,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "initialRequests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/html",
+          "encodedBytes": 10140
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 1324
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 48317
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "application/javascript",
+          "encodedBytes": 174146
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/png",
+          "encodedBytes": 9136
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 75411
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/javascript",
+          "encodedBytes": 14104
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 37483
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 19179
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 18354
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 1862895
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "requests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/html",
+          "encodedBytes": 10140
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 1324
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 48317
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "application/javascript",
+          "encodedBytes": 174146
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/png",
+          "encodedBytes": 9136
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 75411
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/javascript",
+          "encodedBytes": 14104
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 37483
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 19179
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 18354
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 1862895
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "runtime": {
+        "longTasks": [
+          96,
+          71
+        ],
+        "navigation": [
+          {
+            "loadMs": 1538.9000000059605,
+            "domContentLoadedMs": 619.6000000238419
+          }
+        ],
+        "fonts": "loaded",
+        "images": [
+          {
+            "src": "/assets/img/murderbird-v2-icon-nav-96.png",
+            "complete": true,
+            "width": 96,
+            "displayedWidth": 40
+          },
+          {
+            "src": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+            "complete": true,
+            "width": 537,
+            "displayedWidth": 320
+          },
+          {
+            "src": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+            "complete": true,
+            "width": 1536,
+            "displayedWidth": 475
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "device": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "dpr": 1,
+      "cpu": 1,
+      "route": "/",
+      "trial": 3,
+      "cache": "warm",
+      "initial": {
+        "firstPartyBytes": 0,
+        "externalBytes": 0,
+        "cached": 1,
+        "failed": 0,
+        "incomplete": 0
+      },
+      "scrolled": {
+        "firstPartyBytes": 0,
+        "externalBytes": 0,
+        "cached": 1,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "initialRequests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": true,
+          "mime": "text/html",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "application/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/png",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/javascript",
+          "encodedBytes": 0
+        }
+      ],
+      "requests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": true,
+          "mime": "text/html",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "application/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/png",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "runtime": {
+        "longTasks": [],
+        "navigation": [
+          {
+            "loadMs": 120.69999998807907,
+            "domContentLoadedMs": 33.80000001192093
+          }
+        ],
+        "fonts": "loaded",
+        "images": [
+          {
+            "src": "/assets/img/murderbird-v2-icon-nav-96.png",
+            "complete": true,
+            "width": 96,
+            "displayedWidth": 40
+          },
+          {
+            "src": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+            "complete": true,
+            "width": 537,
+            "displayedWidth": 320
+          },
+          {
+            "src": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+            "complete": true,
+            "width": 1536,
+            "displayedWidth": 475
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "device": "phone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dpr": 3,
+      "cpu": 4,
+      "route": "/",
+      "trial": 1,
+      "cache": "cold",
+      "initial": {
+        "firstPartyBytes": 255553,
+        "externalBytes": 250487,
+        "cached": 0,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "scrolled": {
+        "firstPartyBytes": 2118448,
+        "externalBytes": 250487,
+        "cached": 0,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "initialRequests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/html",
+          "encodedBytes": 10140
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 1324
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 48317
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "application/javascript",
+          "encodedBytes": 174146
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/png",
+          "encodedBytes": 9136
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 37483
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 18355
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 173856
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/javascript",
+          "encodedBytes": 14104
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 19179
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "requests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/html",
+          "encodedBytes": 10140
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 1324
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 48317
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "application/javascript",
+          "encodedBytes": 174146
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/png",
+          "encodedBytes": 9136
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 37483
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 18355
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 173856
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/javascript",
+          "encodedBytes": 14104
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 19179
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 1862895
+        }
+      ],
+      "runtime": {
+        "longTasks": [
+          56,
+          147,
+          936,
+          714,
+          54,
+          138
+        ],
+        "navigation": [
+          {
+            "loadMs": 4376.200000017881,
+            "domContentLoadedMs": 1881
+          }
+        ],
+        "fonts": "loaded",
+        "images": [
+          {
+            "src": "/assets/img/murderbird-v2-icon-nav-96.png",
+            "complete": true,
+            "width": 96,
+            "displayedWidth": 40
+          },
+          {
+            "src": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+            "complete": true,
+            "width": 335,
+            "displayedWidth": 260
+          },
+          {
+            "src": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+            "complete": true,
+            "width": 1536,
+            "displayedWidth": 300.8125
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "device": "phone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dpr": 3,
+      "cpu": 4,
+      "route": "/",
+      "trial": 1,
+      "cache": "warm",
+      "initial": {
+        "firstPartyBytes": 0,
+        "externalBytes": 0,
+        "cached": 1,
+        "failed": 0,
+        "incomplete": 0
+      },
+      "scrolled": {
+        "firstPartyBytes": 0,
+        "externalBytes": 0,
+        "cached": 1,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "initialRequests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": true,
+          "mime": "text/html",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "application/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/png",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/javascript",
+          "encodedBytes": 0
+        }
+      ],
+      "requests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": true,
+          "mime": "text/html",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "application/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/png",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "runtime": {
+        "longTasks": [
+          228,
+          184,
+          135
+        ],
+        "navigation": [
+          {
+            "loadMs": 918.7999999821186,
+            "domContentLoadedMs": 462.40000000596046
+          }
+        ],
+        "fonts": "loaded",
+        "images": [
+          {
+            "src": "/assets/img/murderbird-v2-icon-nav-96.png",
+            "complete": true,
+            "width": 96,
+            "displayedWidth": 40
+          },
+          {
+            "src": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+            "complete": true,
+            "width": 335,
+            "displayedWidth": 260
+          },
+          {
+            "src": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+            "complete": true,
+            "width": 1536,
+            "displayedWidth": 300.8125
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "device": "phone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dpr": 3,
+      "cpu": 4,
+      "route": "/",
+      "trial": 2,
+      "cache": "cold",
+      "initial": {
+        "firstPartyBytes": 255553,
+        "externalBytes": 250486,
+        "cached": 0,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "scrolled": {
+        "firstPartyBytes": 2118448,
+        "externalBytes": 250486,
+        "cached": 0,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "initialRequests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/html",
+          "encodedBytes": 10140
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 1324
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 48317
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "application/javascript",
+          "encodedBytes": 174146
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/png",
+          "encodedBytes": 9136
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 37483
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 18354
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 173856
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/javascript",
+          "encodedBytes": 14104
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 19179
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "requests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/html",
+          "encodedBytes": 10140
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 1324
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 48317
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "application/javascript",
+          "encodedBytes": 174146
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/png",
+          "encodedBytes": 9136
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 37483
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 18354
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 173856
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/javascript",
+          "encodedBytes": 14104
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 19179
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 1862895
+        }
+      ],
+      "runtime": {
+        "longTasks": [
+          64,
+          667,
+          110,
+          572,
+          242
+        ],
+        "navigation": [
+          {
+            "loadMs": 3286,
+            "domContentLoadedMs": 3247.2999999821186
+          }
+        ],
+        "fonts": "loaded",
+        "images": [
+          {
+            "src": "/assets/img/murderbird-v2-icon-nav-96.png",
+            "complete": true,
+            "width": 96,
+            "displayedWidth": 40
+          },
+          {
+            "src": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+            "complete": true,
+            "width": 335,
+            "displayedWidth": 260
+          },
+          {
+            "src": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+            "complete": true,
+            "width": 1536,
+            "displayedWidth": 300.8125
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "device": "phone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dpr": 3,
+      "cpu": 4,
+      "route": "/",
+      "trial": 2,
+      "cache": "warm",
+      "initial": {
+        "firstPartyBytes": 0,
+        "externalBytes": 0,
+        "cached": 1,
+        "failed": 0,
+        "incomplete": 0
+      },
+      "scrolled": {
+        "firstPartyBytes": 0,
+        "externalBytes": 0,
+        "cached": 1,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "initialRequests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": true,
+          "mime": "text/html",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "application/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/png",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/javascript",
+          "encodedBytes": 0
+        }
+      ],
+      "requests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": true,
+          "mime": "text/html",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "application/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/png",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "runtime": {
+        "longTasks": [
+          112,
+          75,
+          267,
+          88,
+          153
+        ],
+        "navigation": [
+          {
+            "loadMs": 683.0999999940395,
+            "domContentLoadedMs": 54.80000001192093
+          }
+        ],
+        "fonts": "loaded",
+        "images": [
+          {
+            "src": "/assets/img/murderbird-v2-icon-nav-96.png",
+            "complete": true,
+            "width": 96,
+            "displayedWidth": 40
+          },
+          {
+            "src": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+            "complete": true,
+            "width": 335,
+            "displayedWidth": 260
+          },
+          {
+            "src": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+            "complete": true,
+            "width": 1536,
+            "displayedWidth": 300.8125
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "device": "phone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dpr": 3,
+      "cpu": 4,
+      "route": "/",
+      "trial": 3,
+      "cache": "cold",
+      "initial": {
+        "firstPartyBytes": 255553,
+        "externalBytes": 250485,
+        "cached": 0,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "scrolled": {
+        "firstPartyBytes": 2118448,
+        "externalBytes": 250485,
+        "cached": 0,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "initialRequests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/html",
+          "encodedBytes": 10140
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 1324
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 48317
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "application/javascript",
+          "encodedBytes": 174146
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/png",
+          "encodedBytes": 9136
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 173856
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/javascript",
+          "encodedBytes": 14104
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 37483
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 19178
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 18354
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "requests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/html",
+          "encodedBytes": 10140
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 1324
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/css",
+          "encodedBytes": 48317
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "application/javascript",
+          "encodedBytes": 174146
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/png",
+          "encodedBytes": 9136
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 173856
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "text/javascript",
+          "encodedBytes": 14104
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 37483
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 19178
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "font/woff2",
+          "encodedBytes": 18354
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "status": 200,
+          "cached": false,
+          "mime": "image/webp",
+          "encodedBytes": 1862895
+        }
+      ],
+      "runtime": {
+        "longTasks": [
+          120,
+          895,
+          730,
+          583
+        ],
+        "navigation": [
+          {
+            "loadMs": 2741.2999999821186,
+            "domContentLoadedMs": 1721.2999999821186
+          }
+        ],
+        "fonts": "loaded",
+        "images": [
+          {
+            "src": "/assets/img/murderbird-v2-icon-nav-96.png",
+            "complete": true,
+            "width": 96,
+            "displayedWidth": 40
+          },
+          {
+            "src": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+            "complete": true,
+            "width": 335,
+            "displayedWidth": 260
+          },
+          {
+            "src": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+            "complete": true,
+            "width": 1536,
+            "displayedWidth": 300.8125
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "device": "phone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dpr": 3,
+      "cpu": 4,
+      "route": "/",
+      "trial": 3,
+      "cache": "warm",
+      "initial": {
+        "firstPartyBytes": 0,
+        "externalBytes": 0,
+        "cached": 1,
+        "failed": 0,
+        "incomplete": 0
+      },
+      "scrolled": {
+        "firstPartyBytes": 0,
+        "externalBytes": 0,
+        "cached": 1,
+        "failed": 1,
+        "incomplete": 0
+      },
+      "initialRequests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": true,
+          "mime": "text/html",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "application/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/png",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/javascript",
+          "encodedBytes": 0
+        }
+      ],
+      "requests": [
+        {
+          "url": "/",
+          "firstParty": true,
+          "type": "Document",
+          "finished": true,
+          "status": 200,
+          "cached": true,
+          "mime": "text/html",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2",
+          "firstParty": false,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/css/theme.css",
+          "firstParty": true,
+          "type": "Stylesheet",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/css",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+          "firstParty": false,
+          "type": "Font",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "font/woff2",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.googletagmanager.com/gtag/js",
+          "firstParty": false,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "application/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/murderbird-v2-icon-nav-96.png",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/png",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+          "firstParty": true,
+          "type": "Image",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "image/webp",
+          "encodedBytes": 0
+        },
+        {
+          "url": "/assets/js/app.js",
+          "firstParty": true,
+          "type": "Script",
+          "finished": true,
+          "cached": false,
+          "status": 200,
+          "mime": "text/javascript",
+          "encodedBytes": 0
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "firstParty": false,
+          "type": "Fetch",
+          "finished": false,
+          "status": 204,
+          "cached": false,
+          "mime": "text/plain",
+          "failure": "net::ERR_ABORTED"
+        }
+      ],
+      "runtime": {
+        "longTasks": [
+          60,
+          128,
+          301,
+          172,
+          194
+        ],
+        "navigation": [
+          {
+            "loadMs": 1231.300000011921,
+            "domContentLoadedMs": 683
+          }
+        ],
+        "fonts": "loaded",
+        "images": [
+          {
+            "src": "/assets/img/murderbird-v2-icon-nav-96.png",
+            "complete": true,
+            "width": 96,
+            "displayedWidth": 40
+          },
+          {
+            "src": "/assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+            "complete": true,
+            "width": 335,
+            "displayedWidth": 260
+          },
+          {
+            "src": "/assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+            "complete": true,
+            "width": 1536,
+            "displayedWidth": 300.8125
+          }
+        ]
+      },
+      "errors": []
+    }
+  ]
+}
