@@ -103,8 +103,6 @@ read-only structural and index-freshness checks:
 python3 scripts/check-locale-links.py
 python3 scripts/check-regional-drafts.py
 python3 scripts/build-search-index.py --locale=fr --check
-python3 scripts/build-search-index.py --locale=de --check
-python3 scripts/build-search-index.py --locale=es --check
 python3 scripts/build-search-index.py --locale=en-gb --check
 python3 scripts/build-search-index.py --locale=es-mx --check
 ```
@@ -128,8 +126,15 @@ Useful commands:
 python3 scripts/build-site.py --check
 python3 scripts/build-search-index.py
 python3 scripts/build-search-index.py --locale=fr
-python3 scripts/build-search-index.py --locale=de
-python3 scripts/build-search-index.py --locale=es
+python3 scripts/build-search-index.py --locale=en-gb
+python3 scripts/build-search-index.py --locale=es-mx
+```
+
+`--locale=de` and `--locale=es` are intentionally unsupported for this site's
+`build-search-index.py` parser today. Do not use them for checks or generation.
+Use review-mode and release checks instead:
+
+```sh
 python3 scripts/check-locale-links.py
 python3 scripts/check-regional-drafts.py
 python3 scripts/check-i18n-release.py --mode report --format json
