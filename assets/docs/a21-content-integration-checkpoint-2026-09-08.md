@@ -114,3 +114,24 @@ applicable boundaries for this wave.
 A20 independent whole-candidate acceptance and hosted validation remain pending.
 No new PR, merge or deployment has occurred at this checkpoint. Optional
 status disclosure and both A14 alternatives remain outside the candidate.
+
+### Historical test contract adjudication
+
+The complete historical fallback test contains two assertions for English and
+French homepages: whole-page extracted text must equal `d112ca4e`, and every
+image alt/title pair must equal that revision. It also emits hashes; it does
+not inspect fallback URL/type or PNG bytes, nor original article text directly.
+
+Whole-page text equality FAILS for both pages, as expected from authorized
+A06/A11/A12/A13 content edits. That failure is retained, not turned into a pass.
+The image alt/title assertions still apply and independently PASS for both
+pages. Continuing protections also PASS: original ETCH PNG byte identity,
+exact decoded lossless derivative parity, four rendered image comparisons,
+and unchanged main text on all eight existing narrative HTML pages under
+writings (excluding the intentionally relabeled writings hub), plus manifesto,
+about and contact. The 11 text comparisons use explicit UTF-8 and CRLF-to-LF
+normalization; an initial unnormalized comparison found platform line endings,
+not a narrative change. See `assets/audit/a21-content-preservation-2026-09-08.json`
+for 14 passing continuing checks and two explicit historical text failures.
+A20 must independently adjudicate this scope; lack of a CI invocation is not
+used as the sole reason to disregard the historical premise.
