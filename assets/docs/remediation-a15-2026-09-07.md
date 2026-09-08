@@ -1,6 +1,6 @@
 # A15 reader orientation and contact handoff
 
-Prepared September 7; validated September 8, 2026. **PREPARED PENDING OWNER SELECTION AND INTEGRATION.** New copy is proposed, not an approved service offer or a deployed change.
+Prepared September 7; validated September 8, 2026. **PREPARED PENDING INTEGRATION AND ACCEPTANCE.** New copy is proposed, not an approved service offer or a deployed change.
 
 ## Baseline and source scope
 
@@ -42,10 +42,14 @@ NOT RUN: normal-motion regression of final integrated runtime; 320px/zoom matrix
 
 This commit intentionally carries authoritative source only, plus review tooling and this handoff. Generated HTML/search used for testing were restored to baseline afterward. Therefore freshness will intentionally fail until A21 regenerates the selected source candidate. Do not merge this branch directly or hand-merge generated files.
 
-1. Owner selects A14 presentation direction and optional copy treatment. A14 was still proposal-only at reviewed commit `d31d55075bbe4885f38658b16a12ac305094cfe2`; A11 status records are now on current main. Reviewed upstream content and selected layout have not been incorporated in this A15 baseline.
+1. Resolved September 8: the owner selected A14 Option A, Forge front door, in the A14 task. Selection is recorded at `366fc258`; the selected implementation is `d31d55075bbe4885f38658b16a12ac305094cfe2` on `codex/a14-original-proposals-preserved`. This resolves the A14 direction dependency. It does not select an unrelated proposal also labeled A. A21 should use the visible A15 source treatment as the prepared integration default and keep the compact treatment as a reviewed alternative; neither is a separate release approval. A11 status records are on current main. Reviewed upstream content and the selected layout have not been incorporated in this A15 baseline.
 2. A21 applies the selected authoritative sources on its reconciled candidate, then runs `python scripts/build-site.py` and `python scripts/build-search-index.py`. Run HTML/search/universe/CSP/cache freshness and required combined gates. No runtime fingerprint or CSP source change originates here.
 3. Translate the selected Contact additions with the applicable exact-pair skills; preserve regional noindex policy.
 4. Run the selected journey with A14 and final shared runtime, then A20 independent acceptance. Review actual rendered fonts and phone/zoom/dark-mode behavior.
 5. Complete the authorized GitHub integration and release through A21. A source proposal on GitHub does not close these dependencies or prove deployment.
 
 Reproduce browser review after generation with the existing Playwright dependency and a loopback preview on port 5155: `node tests/a15-reader-navigation.mjs`. Optional environment variables: `A15_BASE_URL` (include trailing slash), `A15_OUTPUT`, and `PLAYWRIGHT_MODULE` for an already installed dependency outside the worktree. The test blocks external network requests and never follows mailto.
+
+## September 8 coordination update
+
+A15 proposal `865025f4e6e38011a5d13396cdd0ed474e518cf0` was pushed and verified on GitHub. The owner selection above was verified from the actual A14 task message. A21 owns selected-source integration and A20 acceptance coordination. No further A14 direction choice is required from the owner; remaining work is integration, locale treatment, final validation, and the established release process.
