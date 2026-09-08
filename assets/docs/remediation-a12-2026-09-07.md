@@ -44,3 +44,33 @@ No new test file was added for this bounded copy correction. Existing metadata f
 2. Regenerate with `scripts/build-site.py`, then `scripts/build-search-index.py` (which invokes site/universe generation); rerun freshness and combined gates. Expected generated paths from A12 alone: `index.html`, `vault/index.html`, `projects/mac-studio-local-ai-workbench/index.html`, `assets/data/search-index.json`, `site-src/pages/universe/index.main.html`, `universe/index.html`. Workbench JSON-LD changes also alter CSP inline bytes; the site generator owns that output.
 3. Review the three changed homepage strings using each exact locale pair. Locale report identifies French/German/Spanish homepage staleness. Locale routes, indexing policy and source hashes were not altered to hide pending review. Run the full locale report; the route-filtered report spuriously labels excluded routes orphaned and must not be treated as nine confirmed removals.
 4. A21/A20 own final combined source, locale and rendered acceptance. No publication, sibling synchronization, protected writing or artwork change occurred.
+
+## Verified closeout: September 8, 2026
+
+The preparation status above is historical. Current GitHub main was fetched
+and verified at `f4a353c323fc1caa848e03f6f0aa1ea1e520210c`.
+PR #65 is merged (2026-09-08 12:10:12 UTC):
+https://github.com/OKHP3/OverKill-Hill/pull/65
+Its required Site Validation and i18n Page Sync checks both succeeded.
+
+A separate integrated A12 implementation satisfies this package's requirements:
+Featured labels, one-template Vault previews, historical Mac journal previews,
+A06/A11 consistency and combined generation/locale review. Verified source
+contracts are `assets/docs/a12-featured-descriptions-2026-09-07.md` and
+`assets/docs/a21-content-integration-checkpoint-2026-09-08.md` on main;
+PR #65 records the final candidate checks and independent acceptance with limits.
+A bounded independent small-model review also found no missing A12 requirement.
+
+The merged contract intentionally preserves non-description SoftwareApplication
+fields. This Mac task's Article alternative is optional and was not imposed on
+the integrated release. Real social-provider previews and owner indexing tools
+were not exercised by this task; no discoverability gain or broader manual
+accessibility completion is claimed. Broader program followups remain owned by
+the integration/closeout tasks and are not A12 implementation blockers.
+
+Original Mac source commit `e0fd2ed6cfc472e887a5179d73ad19b150ca581b`
+and this disposition are preserved on GitHub branch
+`codex/archive-a12-mac-20260908`. The similarly named remote feature branch
+belongs to the alternate integrated implementation and was not overwritten.
+Do not merge this old-baseline preservation branch into main.
+A12 is complete within its assigned scope and this task can be archived.
