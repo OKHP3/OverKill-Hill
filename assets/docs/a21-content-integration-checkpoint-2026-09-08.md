@@ -68,3 +68,49 @@ returns 404, and existing visibility/overflow assertions pass. Four independent
 image parity checks pass with exact geometry and at most 1/255 channel rounding.
 This supersedes the earlier fixture and layout-choice blocking statements;
 actual French/regional reconciliation remains required.
+
+### Combined locale and browser acceptance checkpoint
+
+English remains frozen at `a2f5f9196fd8e9bef6deeb039804882c40f17413` with
+existing presentation. A13 independently reviewed all four English/French pairs
+and delivered `befbfc8648b7a068b79aa31af85c2804ef8c1bf3`. A21 reviewed the
+provenance, imported it and adopted only its exact hashes through the guarded
+wrapper. Actual French freshness now passes; eight de/es advisories remain.
+The French condensed-scope omissions are explicitly retained in that record.
+
+A21 applied the en-US to en-GB and en-US to es-MX skills to changed units only:
+claims, Featured labels, status summaries, duplicate status-card removal and
+the lossless picture source. Existing prose outside those units and all page
+shell/canonical/noindex boundaries remain. Exact-pair records are under each
+locale's `content-wave-2026-09-08` directory. Inherited voice profiles remain
+provisional under the owner's bounded draft authorization; no profile approval,
+human/native review or publication promotion was invented. Source dates,
+versions, evidence links and uncertainty survive. About/contact normalized
+source hashes did not change. The regional receipt is updated only after those
+semantic and structure checks, with links to both review records.
+
+Both exact-pair validators and planners pass. Initial planner calls used its
+working-directory default and failed to find controls; rerunning with the
+explicit manifest base directory passes. Regional noindex/structure/freshness
+now passes for all eight pages. Eight regional browser samples pass exact
+status/source equality, noindex and overflow; the Mexican project shelf was
+visually inspected with cross-origin fonts blocked, so this is fallback-font
+layout evidence, not final native-language or typography acceptance.
+
+Combined local checks pass: 560 responsive samples; 56 phone routes; four
+representative accessibility samples plus all 56 public routes; 56 CSP routes
+with 21 diagrams; 23 release/performance/i18n unit tests; and source inventory,
+cache, generated HTML/search/universe, structural and locale-link gates noted
+above. A11's 32 public-byte/status cases and four image comparisons pass.
+
+An extra historical `tests/test-murderbird-fallback-editorial.py` invocation
+FAILS because it compares current homepage text to `d112ca4e` under a
+fallback-only premise. This explicitly authorized content wave changes that
+text. The test is absent from the active CI workflow; its historical assertion
+is left intact. Do not call it passing or use it to claim this was a
+fallback-only edit. Current source, locale and image checks establish the
+applicable boundaries for this wave.
+
+A20 independent whole-candidate acceptance and hosted validation remain pending.
+No new PR, merge or deployment has occurred at this checkpoint. Optional
+status disclosure and both A14 alternatives remain outside the candidate.

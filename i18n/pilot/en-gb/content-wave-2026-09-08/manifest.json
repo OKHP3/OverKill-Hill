@@ -1,0 +1,31 @@
+{
+  "schema_version": "2.0",
+  "project_id": "content-wave-en-us-en-gb",
+  "language_pair": {
+    "source_locale": "en-US",
+    "target_locale": "en-GB",
+    "direction": "one-way"
+  },
+  "source": {
+    "locale": "en-US",
+    "register_state": "plainspoken",
+    "root": "en",
+    "voice_profile": "voice-profile.en-us.json",
+    "register_mediation_record": null
+  },
+  "target": {
+    "locale": "en-GB",
+    "root": "en-gb",
+    "dictionary": "dictionary.en-us-en-uk.json",
+    "status": "draft",
+    "needs_native_review": true
+  },
+  "rules": {
+    "slug_policy": "stable",
+    "preserve_urls": true,
+    "default_status": "machine-drafted",
+    "allowed_extensions": [
+      ".json"
+    ]
+  }
+}
