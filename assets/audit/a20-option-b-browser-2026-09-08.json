@@ -1,0 +1,3683 @@
+{
+  "candidate": "5fde69f779326b0b2fee80e01b978d23ba35d79a",
+  "base": "http://127.0.0.1:58426",
+  "cases": [
+    {
+      "browser": "chromium",
+      "route": "/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "More from the forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "order": [
+        "Selected work",
+        "Featured from the Forge",
+        "How OverKill Hill thinks",
+        "Writing on the horizon",
+        "Projects from the forge",
+        "Let’s build something enduring.",
+        "Start with the work"
+      ],
+      "compactHero": {
+        "height": 705.359375,
+        "imageLoaded": true,
+        "h1": "Precision · Protocol · Promptcraft"
+      },
+      "realTabReachedDisclosure": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "chromium",
+      "route": "/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "More from the forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "order": [
+        "Selected work",
+        "Featured from the Forge",
+        "How OverKill Hill thinks",
+        "Writing on the horizon",
+        "Projects from the forge",
+        "Let’s build something enduring.",
+        "Start with the work"
+      ],
+      "compactHero": {
+        "height": 367.578125,
+        "imageLoaded": true,
+        "h1": "Precision · Protocol · Promptcraft"
+      },
+      "realTabReachedDisclosure": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "chromium",
+      "route": "/projects/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 16,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/projects/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 16,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/projects/skillz/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 1,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/projects/skillz/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 1,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/fr/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 4,
+      "keyboard": [
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "En savoir plus sur la forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "chromium",
+      "route": "/fr/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 4,
+      "keyboard": [
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "En savoir plus sur la forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "chromium",
+      "route": "/fr/projects/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 11,
+      "keyboard": [
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/fr/projects/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 11,
+      "keyboard": [
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/en-gb/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "More from the forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "chromium",
+      "route": "/en-gb/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "More from the forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "chromium",
+      "route": "/en-gb/projects/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 16,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/en-gb/projects/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 16,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/es-mx/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Más de la forja",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "chromium",
+      "route": "/es-mx/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Más de la forja",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "chromium",
+      "route": "/es-mx/projects/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 17,
+      "keyboard": [
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/es-mx/projects/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 17,
+      "keyboard": [
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "More from the forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "order": [
+        "Selected work",
+        "Featured from the Forge",
+        "How OverKill Hill thinks",
+        "Writing on the horizon",
+        "Projects from the forge",
+        "Let’s build something enduring.",
+        "Start with the work"
+      ],
+      "compactHero": {
+        "height": 695.6875,
+        "imageLoaded": true,
+        "h1": "Precision · Protocol · Promptcraft"
+      },
+      "realTabReachedDisclosure": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "chromium",
+      "route": "/projects/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 16,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/projects/skillz/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 1,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/fr/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 4,
+      "keyboard": [
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "En savoir plus sur la forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "chromium",
+      "route": "/fr/projects/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 11,
+      "keyboard": [
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/en-gb/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "More from the forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "chromium",
+      "route": "/en-gb/projects/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 16,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/es-mx/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Más de la forja",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "chromium",
+      "route": "/es-mx/projects/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 17,
+      "keyboard": [
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "More from the forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "order": [
+        "Selected work",
+        "Featured from the Forge",
+        "How OverKill Hill thinks",
+        "Writing on the horizon",
+        "Projects from the forge",
+        "Let’s build something enduring.",
+        "Start with the work"
+      ],
+      "compactHero": {
+        "height": 705.5166625976562,
+        "imageLoaded": true,
+        "h1": "Precision · Protocol · Promptcraft"
+      },
+      "realTabReachedDisclosure": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "firefox",
+      "route": "/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "More from the forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "order": [
+        "Selected work",
+        "Featured from the Forge",
+        "How OverKill Hill thinks",
+        "Writing on the horizon",
+        "Projects from the forge",
+        "Let’s build something enduring.",
+        "Start with the work"
+      ],
+      "compactHero": {
+        "height": 367.6666564941406,
+        "imageLoaded": true,
+        "h1": "Precision · Protocol · Promptcraft"
+      },
+      "realTabReachedDisclosure": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "firefox",
+      "route": "/projects/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 16,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/projects/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 16,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/projects/skillz/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 1,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/projects/skillz/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 1,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/fr/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 4,
+      "keyboard": [
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "En savoir plus sur la forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "firefox",
+      "route": "/fr/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 4,
+      "keyboard": [
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "En savoir plus sur la forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "firefox",
+      "route": "/fr/projects/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 11,
+      "keyboard": [
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/fr/projects/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 11,
+      "keyboard": [
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/en-gb/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "More from the forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "firefox",
+      "route": "/en-gb/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "More from the forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "firefox",
+      "route": "/en-gb/projects/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 16,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/en-gb/projects/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 16,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/es-mx/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Más de la forja",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "firefox",
+      "route": "/es-mx/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Más de la forja",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "firefox",
+      "route": "/es-mx/projects/",
+      "width": 390,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 17,
+      "keyboard": [
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/es-mx/projects/",
+      "width": 1280,
+      "javaScript": true,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 17,
+      "keyboard": [
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "More from the forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "order": [
+        "Selected work",
+        "Featured from the Forge",
+        "How OverKill Hill thinks",
+        "Writing on the horizon",
+        "Projects from the forge",
+        "Let’s build something enduring.",
+        "Start with the work"
+      ],
+      "compactHero": {
+        "height": 695.8333129882812,
+        "imageLoaded": true,
+        "h1": "Precision · Protocol · Promptcraft"
+      },
+      "realTabReachedDisclosure": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "firefox",
+      "route": "/projects/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 16,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/projects/skillz/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 1,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/fr/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 4,
+      "keyboard": [
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "En savoir plus sur la forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "firefox",
+      "route": "/fr/projects/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": false
+      },
+      "disclosures": 11,
+      "keyboard": [
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "État et source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/en-gb/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "More from the forge",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "firefox",
+      "route": "/en-gb/projects/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 16,
+      "keyboard": [
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Status and source",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/es-mx/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 6,
+      "keyboard": [
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Más de la forja",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": false,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": false
+    },
+    {
+      "browser": "firefox",
+      "route": "/es-mx/projects/",
+      "width": 390,
+      "javaScript": false,
+      "status": 200,
+      "manifest": true,
+      "metrics": {
+        "overflow": false,
+        "fonts": "loaded",
+        "noindex": true
+      },
+      "disclosures": 17,
+      "keyboard": [
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        },
+        {
+          "label": "Estado y fuente",
+          "opened": true,
+          "closed": true
+        }
+      ],
+      "briefsOutside": true,
+      "actionsOutside": true,
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "limits": [
+    "Automated Chromium/Firefox only; not native Safari, human AT, physical touch or language acceptance."
+  ],
+  "prototypeRequests": [
+    {
+      "path": "/proposals/",
+      "status": 404
+    },
+    {
+      "path": "/.local/a21-b/",
+      "status": 404
+    },
+    {
+      "path": "/site-src/pages/index.main.html",
+      "status": 404
+    }
+  ]
+}
