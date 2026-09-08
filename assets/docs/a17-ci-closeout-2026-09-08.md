@@ -1,13 +1,14 @@
 # A17 CI concurrency closeout
 
-Status: CLOSED AS DOCUMENTED, NOT FULLY ACCEPTED IN THIS CHECKOUT.
+Status: ACCEPTED WITH BOUNDED HOSTED EVIDENCE.
 Date: September 8, 2026.
 
 This closeout records the A17 concurrency and status-reporting work as it now
 stands after A21's later release integration and wave-one release closeout.
-It does not invent new hosted rerun evidence. The remaining acceptance items
-for actual full/deploy-only retry behavior still require direct A21-owned
-verification if the program wants them recorded as complete.
+The hosted evidence was executed by A21 and independently checked against its
+retained job, overlap, deployment, and live-edge records. This closeout does
+not claim queue contention, FIFO behavior, or an old-revision retry that was
+not tested.
 
 ## What is now confirmed
 
@@ -36,24 +37,27 @@ verification if the program wants them recorded as complete.
   successfully: validation job `102078124098` and deployment job
   `102079922030` both passed, including exact artifact identity, provenance,
   deployment, and live-edge verification.
+- The deployment-only retry was Pages run `34224582972`, attempt `3`, with
+  deployment job `102080399785`. It downloaded the producer artifact
+  `validated-site-f4a353c323fc1caa848e03f6f0aa1ea1e520210c-34224582972-2`
+  (artifact `10058127991`), verified the SHA-bound release bytes, uploaded
+  `github-pages-34224582972-3`, deployed successfully, and verified the live
+  SHA remained `f4a353c323fc1caa848e03f6f0aa1ea1e520210c`.
+- The retained summaries classify content delivery as `PASS` with `74`
+  sampled checks, edge policy as `PARTIAL` with `354` checks, and external
+  availability as `NOT RUN`. These are bounded evidence states, not a claim
+  that every hosting policy is enforced at the GitHub Pages edge.
 
-## What remains explicitly open
+## Bounded Limitations
 
-- Actual full-workflow and deploy-only rerun evidence remains unclaimed in the
-  wave-one closeout.
-- At this closeout revision, the overlapping validations and full Pages retry
-  are successful. No deployment-only attempt has started yet, so producer-
-  artifact reuse under an isolated deployment-only retry remains open.
-- The A17 status report correctly describes that local tests pass, but GitHub
-  scheduling acceptance is still bounded by hosted rerun evidence, not local
-  fixtures.
-- Any future claim that A17 is fully accepted should point to a concrete run
-  ID, attempt number, artifact identity, and summary evidence from the A21
-  release-integrator record.
+- No deploy-queue contention or FIFO/newest-SHA guarantee was claimed.
+- No old-revision retry was executed.
+- Edge policy remains `PARTIAL`, and third-party availability remains `NOT RUN`
+  in the retained summaries.
 
 ## Closeout summary
 
-A17 is now integrated and documented against the later wave-one release
-evidence, but the final hosted retry acceptance is still a separate A21-owned
-step. This file exists so the repository has a stable closeout record without
-conflating local concurrency tests with hosted scheduler behavior.
+A17 is integrated and accepted for the tested hosted behaviors: overlapping
+validation, successful full Pages release, and deployment-only reuse of the
+exact producer artifact. The explicit limitations above keep that acceptance
+from being generalized into untested scheduler or hosting guarantees.
