@@ -35,6 +35,8 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         manifest_commit: str = "a" * 40,
         hosting_headers: dict[str, str] | None = None,
         asset_fingerprint: str | None = None,
+        include_asset_fingerprint: bool = True,
+        asset_body: bytes | None = None,
     ) -> tuple[int, dict[str, object]]:
         """Run the full verifier against deterministic synthetic edge responses."""
         sitemap = verify_live_edge.canonical_text_bytes(verify_live_edge.SITEMAP)
@@ -61,7 +63,8 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         html_headers.update(hosting_headers or {})
         css_bytes = verify_live_edge.canonical_text_bytes(ROOT / "assets/css/theme.css")
         css_hash = asset_fingerprint or hashlib.sha256(css_bytes).hexdigest()[:8]
-        css_path = f"/assets/css/theme.css?v={css_hash}"
+        css_query = f"?v={css_hash}" if include_asset_fingerprint else ""
+        css_path = f"/assets/css/theme.css{css_query}"
         html = (
             '<!doctype html><meta name="robots" content="{robots}">'
             f'<link href="{css_path}" rel="stylesheet">'
@@ -113,7 +116,7 @@ class VerifyLiveEdgeTests(unittest.TestCase):
                     "content-type": "text/css",
                     "cache-control": "max-age=31536000, immutable",
                 },
-                "body": css_bytes,
+                "body": asset_body if asset_body is not None else css_bytes,
             },
         }
 
@@ -173,8 +176,39 @@ class VerifyLiveEdgeTests(unittest.TestCase):
     def test_wrong_asset_fingerprint_still_fails(self) -> None:
         return_code, report = self.run_live_edge_fixture(asset_fingerprint="00000000")
         self.assertEqual(return_code, 1)
-        self.assertTrue(any(item["status"] == "FAIL" and "fingerprint" in str(item)
-                            for item in report["checks"]))
+        self.assertEqual(report["status"], "FAILED")
+        checks = {item["check"]: item for item in report["checks"]}
+        asset_check = checks["asset /assets/css/theme.css"]
+        self.assertEqual(asset_check["status"], "FAIL")
+        self.assertIn("!= local", asset_check["evidence"])
+        self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
+
+    def test_missing_asset_fingerprint_fails_despite_pages_limitations(self) -> None:
+        return_code, report = self.run_live_edge_fixture(
+            include_asset_fingerprint=False
+        )
+
+        self.assertEqual(return_code, 1)
+        self.assertEqual(report["status"], "FAILED")
+        checks = {item["check"]: item for item in report["checks"]}
+        asset_check = checks["asset /assets/css/theme.css"]
+        self.assertEqual(asset_check["status"], "FAIL")
+        self.assertIn("missing 8-character", asset_check["evidence"])
+        self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
+
+    def test_changed_asset_response_fails_despite_pages_limitations(self) -> None:
+        css_bytes = verify_live_edge.canonical_text_bytes(ROOT / "assets/css/theme.css")
+        return_code, report = self.run_live_edge_fixture(
+            asset_body=css_bytes + b"\n/* stale live asset */\n"
+        )
+
+        self.assertEqual(return_code, 1)
+        self.assertEqual(report["status"], "FAILED")
+        checks = {item["check"]: item for item in report["checks"]}
+        asset_check = checks["asset /assets/css/theme.css"]
+        self.assertEqual(asset_check["status"], "FAIL")
+        self.assertIn("!= live", asset_check["evidence"])
+        self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
 
     def test_changed_hosting_path_fails_despite_pages_limitations(self) -> None:
         return_code, report = self.run_live_edge_fixture(
