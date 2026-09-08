@@ -1,11 +1,11 @@
 {
-  "source_revision": "git:a2f5f9196fd8e9bef6deeb039804882c40f17413",
-  "review_scope": "Bounded content-wave claims, status, featured labels, duplicate-card removal and lossless picture source. Unchanged regional editorial units retained. Pair records under content-wave-2026-09-08 preserve AI review and no human/native approval. About/contact normalized source hashes unchanged.",
+  "source_revision": "git:fbf3ac0a9f629216e9fefc98f400187d628944f4",
+  "review_scope": "Bounded Forge front-door content-wave claims, status, featured labels, selected-work insertion, and lossless picture source. Unchanged regional editorial units retained. Pair records under content-wave-2026-09-08 preserve AI review and no human/native approval. About/contact normalized source hashes unchanged.",
   "normalized_routes": {
-    "/": "c402a553270eb9b485590d57bc114d2d63d43e3378f27eb63af2033bddb61174",
+    "/": "ccfb487d9caaa47062a6af234a8c9afe0fdfebd26394cf6e827c71a5f2454b83",
     "/about/": "5a42603e7a5704b3a4d2642f83b0dfaaa2f570790ae372f4589dc5e92106bdb0",
-    "/projects/": "6f8633d29f44e6b6d6c6bf2e05ddbd9de0688e12f6cc307dcc09ee2aa6cf22a1",
-    "/contact/": "1b137f2356e4a352cb3a4a4201e6bc90e9f5aae1dce0c1b48030b1883076934a"
+    "/projects/": "d71f8d56b4a5a15e3a235183b271bb029a00b127d4afa7cd5b486e44ff9e94cb",
+    "/contact/": "9e6c173e860df22ae121c9c2c0695dce5c034320e5ec8e302a65db8ec41517e0"
   },
   "fallback_metadata_update": "PNG fallback only; unchanged editorial text verified against d112ca4e by tests/test-murderbird-fallback-editorial.py; prior review limitations retained.",
   "content_wave_update": {
