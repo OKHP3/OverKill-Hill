@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "status": "REVIEW_CANDIDATE",
+  "method": "2d-controlled-motion-study",
+  "source": "assets/img/library/murderbird-first-choice-opening-candidate-2026-09-06.png",
+  "sourceSha256": "c12874d1898dbee7617df22acaf39165b4453c5a9282091274c37ad6070ad5f6",
+  "outputSha256": "635f0e1552bac61699c03c8406157207f6230ea817bb1ecaeb3adbb3a7bf8613",
+  "width": 1280,
+  "height": 720,
+  "fps": 24,
+  "frames": 192,
+  "seconds": 8,
+  "audio": false,
+  "paidGenerationCredits": 0,
+  "preEncodeProtectedRegionMaxChannelDelta": 0,
+  "fullDecode": "PASS",
+  "limitations": [
+    "2D motion study, not a reconstructed 3D mechanism",
+    "Protected-region invariant is measured before lossy encoding",
+    "Human visual review and sound remain required before film acceptance"
+  ]
+}
