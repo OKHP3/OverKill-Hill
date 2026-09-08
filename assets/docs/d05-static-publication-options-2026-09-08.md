@@ -93,3 +93,19 @@ PR #83 merged the Replit Node 24 module at
 synchronized at that SHA, and a fresh shell reported Node 24.13.0 and npm
 11.6.2. The publication fix retains that runtime setting. Runtime tests and
 preview-boundary evidence remain in `qa-runtime-a08-2026-09-07.md`.
+
+## Post-publication reconciliation
+
+On September 8, Replit created an empty-tree `Published your App` checkpoint
+`065e75c0263a2e7a28799485c7a7fe08332e9274`. Its file tree matched the published
+source commit `1af9218fe22562800a6383c0271d67357c3f3318`; both diff statistics and
+changed-path inventory were empty. The checkpoint was preserved locally and
+pushed to `codex/replit-publication-checkpoint-20260908`. No reset, deletion,
+or authoring-source removal was used.
+
+Replit's local main was then recreated from the current remote main and
+verified clean, ahead/behind 0/0, at
+`bdd6bed1c737cf4d44e7cea5dae37afb33e18970`. This later source HEAD is distinct
+from the accepted Replit live release SHA, which remains
+`1af9218fe22562800a6383c0271d67357c3f3318`. Subsequent repository integration
+must not be represented as a Replit publication without a new verified publish.
