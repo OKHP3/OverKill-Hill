@@ -24,6 +24,8 @@ Independent live accessibility QA passed four representative interaction samples
 
 ## Scope and preserved limits
 
+Supersession note: This record is historical evidence. PR76 (A14 implementation) and PR68 (retry-closeout) later supersede portions of this closeout; this document is preserved as dated production-delivery evidence and is not rewritten as new acceptance.
+
 A06/A11/A12/A13/A16 content packages qualify unsupported claims, align registry/page/search status, label selected writing Featured, update reviewed French interaction/status copy, and add a lossless smaller WebP of the existing homepage illustration. Existing production presentation stays in use. Neither A14 layout choice nor optional status disclosures are activated.
 
 English source freeze and exact-pair French review provenance are recorded in the integration checkpoint. French remains AI-reviewed with human/native approval false and condensed-page omissions retained. Regional en-GB/es-MX pages remain drafts, noindex, human/native false and release-acceptance false. Eight existing de/es stale records remain advisory. Source-described status is not evidence of operational delivery.

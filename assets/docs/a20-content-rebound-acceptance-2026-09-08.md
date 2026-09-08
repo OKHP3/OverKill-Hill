@@ -36,3 +36,5 @@ Historical English/French homepage whole-text equality against the fallback-only
 French review remains AI-reviewed with human/native approval false and condensed-scope omissions retained. Regional pages remain machine-drafted, noindex, human/native false and release-acceptance false. Source-described project status does not become operational proof. Optional presentation/disclosure and other deferred work stay outside this acceptance.
 
 A21 reports hosted reruns launching; A20 has not independently checked their completion or deployed bytes. A21 retains responsibility for required hosted gates, authorization, publication and live acceptance. Any subsequent SHA/package must be rebound again, with affected tests rerun if served bytes change.
+
+Supersession note: This acceptance is historical. PR76 (A14 implementation) and PR68 (retry closeout) later supersede this record for implementation and retry scope; it is preserved as dated evidence and not re-authored as current acceptance.
