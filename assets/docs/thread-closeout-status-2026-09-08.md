@@ -35,7 +35,7 @@ are historical. Do not restore old runtime or translation bytes to match them.
 | A06/A11/A12/A13/A16 | Content wave incorporated in PR65 | Reconcile residual local work against the published implementation; do not merge entire old branches |
 | A14 | Rendered phone proposals in draft PR67 | Preserve proposal deliverable; production redesign requires a separate explicit selection |
 | A15 | Reader/contact proposal in draft PR66 | Preserve proposal deliverable; applying new content needs review against current source |
-| A17 | Implementation delivered; hosted evidence in PR68 | Finish normal CI/review and merge evidence |
+| A17 | Implementation delivered; hosted evidence PR68 merged at `b200c034` | Retain the dated evidence and superseded local variant |
 | A19/T05/W13 | Hosting, locale-policy and analytics proposal packages remain outside main | Preserve original artifacts and dated evidence without adopting policy or changing settings |
 | T02 | Reviewed-target integrity candidate is not incorporated | Port verified safeguards and negative tests to current main |
 | T03 | Translation package discovery candidate is not incorporated | Execute existing hyphenated test files and reject missing/zero-test suites |
@@ -50,6 +50,25 @@ PRs: [62](https://github.com/OKHP3/OverKill-Hill/pull/62),
 [68](https://github.com/OKHP3/OverKill-Hill/pull/68).
 
 ## Closeout assignments
+
+### Integration checkpoint
+
+PR74 is merged at `250f5f12`; owner main fast-forwarded to it cleanly, preserving
+the earlier local `11895417` commit. The isolated integration candidate combines
+reviewed PR66, PR67 and PR69-73 through ordinary branch merges. Their commits
+remain reachable; candidate inclusion is not a claim that the PRs have reached
+main. PR66/67 preserve the A15/A14 proposal artifacts only. T05/W13/A19 preserve
+the original dated policy packages without adopting settings or publication
+changes.
+
+Combined local validation passes: 59 translation skill tests, eight discovery
+regressions, 18 reviewed-target integrity regressions, four regional-generator
+regressions and five staging-header proposal tests. Generated HTML and search
+index freshness checks pass using the existing QA virtual environment. German
+and Spanish draft drift remains advisory under the current policy; no review
+hashes were adopted to hide it. Hosted checks and main integration remain
+required. A shared CI comparison-checkout exclusion and a stale legacy status
+fixture are being repaired as bounded integration dependencies.
 
 Five separate Codex tasks were created with requested model `gpt-5.4-mini` and
 low effort. Actual thread IDs and worktrees below were read back after setup.

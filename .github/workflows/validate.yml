@@ -141,6 +141,7 @@ jobs:
         run: |
           python3 scripts/check-project-status.py
           python3 tests/test-project-status.py
+          python3 tests/test_project_status.py
 
       - name: Check generated HTML is current
         run: python3 scripts/build-site.py --check
@@ -160,7 +161,9 @@ jobs:
         run: python3 scripts/check-locale-links.py
 
       - name: Check shared asset fingerprints
-        run: python3 scripts/cache-bust.py --check
+        run: |
+          python3 tests/test-cache-bust-boundary.py
+          python3 scripts/cache-bust.py --check
 
       - name: Check tracked site sources for unresolved merge markers
         run: python3 tests/test-template-conflict-markers.py

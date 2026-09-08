@@ -14,7 +14,7 @@ September 8, 2026. This note preserves the current state of the three bounded po
 
 - T05 and W13 remain proposal packages. They should be compared against current main as dated observations, not as adopted policy.
 - A19 remains a recommendation brief for response-header strategy. Its `_headers` discussion is proposal-only unless the owner explicitly authorizes a later implementation pass.
-- The repository closeout doc at [task-closeout-reconciliation-2026-09-08.md](task-closeout-reconciliation-2026-09-08.md) remains the current record for broader task cleanup and main-state reconciliation.
+- The current [thread closeout status](thread-closeout-status-2026-09-08.md) supersedes the historical [task reconciliation](task-closeout-reconciliation-2026-09-08.md) for broader task cleanup and main-state reconciliation.
 - No package in this note should be treated as completed, deployed, or owner-approved solely because it is listed here.
 
 ## Restored artifacts
