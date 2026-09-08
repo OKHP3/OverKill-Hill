@@ -1,7 +1,7 @@
 # A15 browser acceptance report
 
-Date: September 8, 2026  
-Base: local owned preview at `http://127.0.0.1:5016`  
+Date: September 8, 2026
+Base: local owned preview at `http://127.0.0.1:5016`
 Scope: Contact reader-orientation copy and the first-diagram-is-a-liar evidence route.
 
 ## Result
