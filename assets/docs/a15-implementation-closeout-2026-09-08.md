@@ -61,3 +61,9 @@ integration and publication ownership. Hosted CI and live readback must be
 verified on the merged revision before reporting release completion. No human
 assistive-technology session or native French certification is claimed. These
 program-wide limits are separate from the scoped automated browser checks.
+
+The Mexican-Spanish reviewed generator input also contains the exact addition.
+Both owning Contact render functions were executed twice: output is deterministic
+and the A15 block survives unchanged. UK output equals the committed page;
+Mexican output differs only in inherited CSP metadata, with no editorial delta.
+The released CSP is retained and verified separately.
