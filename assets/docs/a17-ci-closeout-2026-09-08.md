@@ -43,6 +43,10 @@ not tested.
   (artifact `10058127991`), verified the SHA-bound release bytes, uploaded
   `github-pages-34224582972-3`, deployed successfully, and verified the live
   SHA remained `f4a353c323fc1caa848e03f6f0aa1ea1e520210c`.
+- The canonical execution record and machine-readable evidence are preserved
+  in A21 commit [`b45b2611`](https://github.com/OKHP3/OverKill-Hill/tree/b45b2611)
+  as [`a21-hosted-retry-execution-2026-09-08.md`](https://github.com/OKHP3/OverKill-Hill/blob/b45b2611/assets/docs/a21-hosted-retry-execution-2026-09-08.md)
+  and [`a21-hosted-retry-execution-2026-09-08.json`](https://github.com/OKHP3/OverKill-Hill/blob/b45b2611/assets/audit/a21-hosted-retry-execution-2026-09-08.json).
 - The retained summaries classify content delivery as `PASS` with `74`
   sampled checks, edge policy as `PARTIAL` with `354` checks, and external
   availability as `NOT RUN`. These are bounded evidence states, not a claim
