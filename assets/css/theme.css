@@ -7963,3 +7963,20 @@ html[data-color-scheme="dark"] .glee-search-page__form, html[data-color-scheme="
   font-size: 0;
   min-height: 2rem;
 }
+
+/* Selected A14 editorial presentation: preserve the existing brand and card depth. */
+.a14-editorial-hero h1 { max-width: 17ch; }
+.a14-editorial-hero .hero-visual img { max-height: 380px; width: auto; max-width: 100%; object-fit: contain; }
+[data-status-presentation="disclosure"] ~ section .project-card,
+section[data-status-presentation="disclosure"] .project-card { border-top: 2px solid var(--okh-orange); }
+[data-project-status-disclosure] { margin: .6rem 0 1rem; }
+[data-project-status-brief] { font-size: .9rem; line-height: 1.5; }
+[data-project-status-disclosure] summary, .home-more-from-forge > details > summary { cursor: pointer; min-height: 44px; padding: .65rem 0; }
+[data-project-status-disclosure] summary:focus-visible, .home-more-from-forge summary:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.home-more-from-forge .hero-forge-card { max-width: none; }
+@media (max-width: 600px) {
+  .a14-editorial-hero .container { padding-left: 16px; padding-right: 16px; }
+  .a14-editorial-hero .hero-visual img { max-height: 260px; }
+  .a14-editorial-hero h1 { font-size: 1.9rem; }
+  .home-selected-work { padding-left: 16px; padding-right: 16px; }
+}
