@@ -94,12 +94,9 @@ class SEOFixtureTests(unittest.TestCase):
     def test_public_inventory_excludes_test_fixtures(self) -> None:
         pages = validator.find_html_files()
         self.assertIn(ROOT / "index.html", pages)
-        self.assertFalse(any("tests" in path.relative_to(ROOT).parts for path in pages))
-        for name in ("audit-site", "build-search-index", "check-links"):
-            spec = importlib.util.spec_from_file_location(name, ROOT / "scripts" / f"{name}.py")
-    def test_public_inventory_excludes_test_fixtures(self) -> None:
-        pages = validator.find_html_files()
-        self.assertIn(ROOT / "index.html", pages)
+        csp_fixtures = sorted((ROOT / "tests" / "fixtures" / "csp").glob("*.html"))
+        self.assertTrue(csp_fixtures, "expected committed CSP fixtures for this boundary check")
+        self.assertTrue(set(csp_fixtures).isdisjoint(pages))
         self.assertFalse(any("tests" in path.relative_to(ROOT).parts for path in pages))
         for name in ("audit-site", "build-search-index", "check-links"):
             spec = importlib.util.spec_from_file_location(name, ROOT / "scripts" / f"{name}.py")

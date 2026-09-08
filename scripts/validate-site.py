@@ -52,6 +52,9 @@ def configure_utf8_console() -> None:
 configure_utf8_console()
 
 ROOT = Path(__file__).resolve().parent.parent
+# Production-page discovery deliberately excludes checked-in test HTML.  Files
+# under tests/fixtures/ are served only by their dedicated test commands; they
+# are not published pages and must not inherit production SEO requirements.
 SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src", "tests", "i18n"}
 SITEMAP = ROOT / "sitemap.xml"
 SITE_ORIGIN = "https://overkillhill.com"
