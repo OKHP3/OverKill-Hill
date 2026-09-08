@@ -18,6 +18,11 @@
       "value": "image/jpeg"
     }
   ],
+  "social_image_parity": {
+    "route": "/",
+    "field": "meta:twitter:image",
+    "value": "https://overkillhill.com/assets/img/webp/murderbird-frontal-attack-2026-09-05-1024.webp"
+  },
   "missing_article_metadata": {
     "route": "/writings/first-diagram-is-a-liar/",
     "field": "meta:article:published_time"

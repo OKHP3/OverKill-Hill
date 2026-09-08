@@ -1,0 +1,177 @@
+{
+  "language_pair": "en-US -> fr-FR",
+  "skill": "okhp3-translation-en-us-fr-fr@1.1.0",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "source_revision": "git:daa3ebd84f7401e2e179dffa5ceee8307f34730f",
+  "baseline_revision": "git:98922aebf71d90b2b18ecc34c8b00a041fff51c7",
+  "reviewed_on": "2026-09-07",
+  "review_scope": "Independent exact Git-byte comparison of all four English/French pilot pairs. Only the two theme.css/app.js version fingerprints differ per file. After replacing only eight-hex fingerprint values for these exact asset paths, every remaining byte is identical. No translated prose, markup, link destination path, art, or locale policy changed. This is no-semantic-delta review only, not approval of runtime behavior or new translations.",
+  "hash_method": {
+    "implementation": ".agents/skills/okhp3-i18n-page-sync/scripts/i18n-page-sync.py:sha256_file",
+    "formula": "SHA-256 of page bytes with CRLF replaced by LF",
+    "verification": "Loaded and called the unchanged detector function on the exact frozen Git bytes; detector implementation is identical at baseline, candidate, and reviewer checkout."
+  },
+  "routes": [
+    {
+      "route": "/",
+      "locale": "fr",
+      "source_path": "index.html",
+      "source_sha256": "cbb5ab1d364f293e6ec65396868dadd81bf7f81fbef950df3713205589e3b64a",
+      "target_path": "fr/index.html",
+      "target_sha256": "8774a6e0410b5e8d6af077e4f0d9c7108b113b40534e0bd10e19355465aa97a9",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/about/",
+      "locale": "fr",
+      "source_path": "about/index.html",
+      "source_sha256": "d3930b28c15d22cfcfcb0a02f41484a1b627c10f46582c3a1c808d532e8be424",
+      "target_path": "fr/about/index.html",
+      "target_sha256": "bd3c6251577f1b8db7c068e5296f0c74c961066587cb5ec3cbf306b28955c6b9",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/projects/",
+      "locale": "fr",
+      "source_path": "projects/index.html",
+      "source_sha256": "daa277a1cdf6126e164488db3f4e8f0929e89a5376fd513e74de420fe0cd61e8",
+      "target_path": "fr/projects/index.html",
+      "target_sha256": "2517452ac8d28277bbc881c5ba4eaaf87c11715addca89c0c486fdbef3f38e80",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/contact/",
+      "locale": "fr",
+      "source_path": "contact/index.html",
+      "source_sha256": "dec8ff561d3062f2a194bb389bda5b09d84cb063ae53b226fbd278b58c1eb3dd",
+      "target_path": "fr/contact/index.html",
+      "target_sha256": "3ab659ba8bfe2bfe1251a5dea4421e135328465a35f2e050c662e57318180906",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    }
+  ],
+  "comparison_evidence": [
+    {
+      "path": "index.html",
+      "baseline_git_blob_sha256": "b991323b31156f8e383d9278669578fa6fc1ac01374fe0ceff76f9f94fdc834a",
+      "candidate_git_blob_sha256": "cbb5ab1d364f293e6ec65396868dadd81bf7f81fbef950df3713205589e3b64a",
+      "baseline_asset_urls": [
+        "/assets/css/theme.css?v=18ec9e5b",
+        "/assets/js/app.js?v=a825dbf7"
+      ],
+      "candidate_asset_urls": [
+        "/assets/css/theme.css?v=f0de78d0",
+        "/assets/js/app.js?v=af787b95"
+      ],
+      "remaining_bytes_identical": true
+    },
+    {
+      "path": "fr/index.html",
+      "baseline_git_blob_sha256": "f271f1200de03b3358bf300b7e40315cd7cf535dd316f6499f99277d5d3d55a6",
+      "candidate_git_blob_sha256": "8774a6e0410b5e8d6af077e4f0d9c7108b113b40534e0bd10e19355465aa97a9",
+      "baseline_asset_urls": [
+        "/assets/css/theme.css?v=18ec9e5b",
+        "/assets/js/app.js?v=a825dbf7"
+      ],
+      "candidate_asset_urls": [
+        "/assets/css/theme.css?v=f0de78d0",
+        "/assets/js/app.js?v=af787b95"
+      ],
+      "remaining_bytes_identical": true
+    },
+    {
+      "path": "about/index.html",
+      "baseline_git_blob_sha256": "b110068fc17c5c72a39df68d9ba3fb1dd1b62fc5052676050c2e2a25141ef1ac",
+      "candidate_git_blob_sha256": "d3930b28c15d22cfcfcb0a02f41484a1b627c10f46582c3a1c808d532e8be424",
+      "baseline_asset_urls": [
+        "/assets/css/theme.css?v=18ec9e5b",
+        "/assets/js/app.js?v=a825dbf7"
+      ],
+      "candidate_asset_urls": [
+        "/assets/css/theme.css?v=f0de78d0",
+        "/assets/js/app.js?v=af787b95"
+      ],
+      "remaining_bytes_identical": true
+    },
+    {
+      "path": "fr/about/index.html",
+      "baseline_git_blob_sha256": "52ee48e437d754c0d1a056631fc92e3d74f8899e69f38d56dc16e135da6b76a8",
+      "candidate_git_blob_sha256": "bd3c6251577f1b8db7c068e5296f0c74c961066587cb5ec3cbf306b28955c6b9",
+      "baseline_asset_urls": [
+        "/assets/css/theme.css?v=18ec9e5b",
+        "/assets/js/app.js?v=a825dbf7"
+      ],
+      "candidate_asset_urls": [
+        "/assets/css/theme.css?v=f0de78d0",
+        "/assets/js/app.js?v=af787b95"
+      ],
+      "remaining_bytes_identical": true
+    },
+    {
+      "path": "projects/index.html",
+      "baseline_git_blob_sha256": "50cf0a5226e838c098ca2c9d036eecf73025c4a4e7a6f86a753441236bc7d7d9",
+      "candidate_git_blob_sha256": "daa277a1cdf6126e164488db3f4e8f0929e89a5376fd513e74de420fe0cd61e8",
+      "baseline_asset_urls": [
+        "/assets/css/theme.css?v=18ec9e5b",
+        "/assets/js/app.js?v=a825dbf7"
+      ],
+      "candidate_asset_urls": [
+        "/assets/css/theme.css?v=f0de78d0",
+        "/assets/js/app.js?v=af787b95"
+      ],
+      "remaining_bytes_identical": true
+    },
+    {
+      "path": "fr/projects/index.html",
+      "baseline_git_blob_sha256": "5a91a8091623ab1d1fac6ef25ffd23177e7e231c14c20b14e0bc01dbf44204d9",
+      "candidate_git_blob_sha256": "2517452ac8d28277bbc881c5ba4eaaf87c11715addca89c0c486fdbef3f38e80",
+      "baseline_asset_urls": [
+        "/assets/css/theme.css?v=18ec9e5b",
+        "/assets/js/app.js?v=a825dbf7"
+      ],
+      "candidate_asset_urls": [
+        "/assets/css/theme.css?v=f0de78d0",
+        "/assets/js/app.js?v=af787b95"
+      ],
+      "remaining_bytes_identical": true
+    },
+    {
+      "path": "contact/index.html",
+      "baseline_git_blob_sha256": "c10b130a50588791ef53b2b002d003e333bab00ea7f686f52499629fdef7e773",
+      "candidate_git_blob_sha256": "dec8ff561d3062f2a194bb389bda5b09d84cb063ae53b226fbd278b58c1eb3dd",
+      "baseline_asset_urls": [
+        "/assets/css/theme.css?v=18ec9e5b",
+        "/assets/js/app.js?v=a825dbf7"
+      ],
+      "candidate_asset_urls": [
+        "/assets/css/theme.css?v=f0de78d0",
+        "/assets/js/app.js?v=af787b95"
+      ],
+      "remaining_bytes_identical": true
+    },
+    {
+      "path": "fr/contact/index.html",
+      "baseline_git_blob_sha256": "5197b4f2aaa0bdcaffdafb06f75c354b089ce7a937297d1177bbcdf394c86392",
+      "candidate_git_blob_sha256": "3ab659ba8bfe2bfe1251a5dea4421e135328465a35f2e050c662e57318180906",
+      "baseline_asset_urls": [
+        "/assets/css/theme.css?v=18ec9e5b",
+        "/assets/js/app.js?v=a825dbf7"
+      ],
+      "candidate_asset_urls": [
+        "/assets/css/theme.css?v=f0de78d0",
+        "/assets/js/app.js?v=af787b95"
+      ],
+      "remaining_bytes_identical": true
+    }
+  ],
+  "excluded_changes": [
+    "A13 interaction commit c1e56d54 is not present in the reviewed candidate.",
+    "A13 homepage claim commit 30e15711 is not present in the reviewed candidate.",
+    "No review of A06/A12 semantic content is asserted by this record."
+  ],
+  "limitations": [
+    "Existing French quality and omissions are retained, not re-certified.",
+    "No native or human language review was performed.",
+    "A21 must adopt only these exact hashes through its wrapper; a changed candidate requires a fresh review."
+  ]
+}

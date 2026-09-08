@@ -8,6 +8,7 @@
 - [GitHub workflow push auth](github-workflow-push-auth.md) — use the workflow-scoped PAT via Basic x-access-token transport; the attached OAuth connection may only have repo scope.
 - [Repository janitor SSH prompt](repo-janitor-ssh-prompts.md) — audit all transient Replit remotes noninteractively so stale SSH remotes cannot block branch inventory.
 - [SEO source/render boundary](seo-source-render-boundary.md) — validate manifest intent and rendered HTML separately when the build normalizes legacy metadata or excludes pilot locales.
+- [SEO fixture baselines](seo-fixture-baselines.md) — shared source/render mutations must differ from both baselines or one regression path can become a false pass.
 - [CSP enforcement boundary](csp-enforcement-boundary.md) — source policies can enforce via meta while live response headers still depend on a header-capable edge; keep builder serialization stable.
 - [Browser fixture process model](browser-fixture-process-model.md) — local HTTP fixture servers need asynchronous child-process tests so the Node event loop can keep serving browser requests.
 - [Notion editorial access](notion-editorial-access.md) — an authorized Notion connection may need binding before use; search titles, then fetch page content explicitly.

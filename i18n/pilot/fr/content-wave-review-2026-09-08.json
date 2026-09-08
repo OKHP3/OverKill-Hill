@@ -1,0 +1,174 @@
+{
+  "language_pair": "en-US -> fr-FR",
+  "skill": "okhp3-translation-en-us-fr-fr@1.1.0",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "reviewed_on": "2026-09-08",
+  "source_revision": "git:a2f5f9196fd8e9bef6deeb039804882c40f17413",
+  "baseline_revision": "git:c2d23f088d5c29cc3df5c2e8f1b5eb9d479da61a",
+  "prior_target_review_revision": "git:db082c387a391ba948776a0a7d67b74cda001aa7",
+  "review_scope": "Independent frozen-candidate review of all four English/French pilot pairs against baseline and the prior bounded translation records. Exact Git bytes inspected. Real source semantic changes are covered by the retained AI-reviewed units; unchanged source prose is retained. No new French correction was required. This record binds actual adoption hashes without claiming complete English/French page parity, native certification, or runtime delivery acceptance.",
+  "hash_method": {
+    "implementation": ".agents/skills/okhp3-i18n-page-sync/scripts/i18n-page-sync.py:sha256_file",
+    "formula": "SHA-256 after replacing CRLF bytes with LF",
+    "verification": "Called the detector on exact frozen Git bytes; local detector bytes match the frozen implementation."
+  },
+  "routes": [
+    {
+      "route": "/",
+      "locale": "fr",
+      "source_path": "index.html",
+      "source_sha256": "e32cb67d1c1b4527f60c8eae485fc142ebb94936ba6610d875145ea8565437fa",
+      "target_path": "fr/index.html",
+      "target_sha256": "cf4f587a6ef62533e3678354376b32c37625d71747b742fe124a2e4ac0c21549",
+      "disposition": "retained-ai-reviewed",
+      "review_scope": "Reviewed A06 goal qualification with plural agreement, A11 evidence intro and three applicable translated status summaries, removed unsupported status pills, and retained A13 control label. A12 featured section, A06 lower shelf, its A11 summaries, and A16 picture source belong to sections already omitted from the condensed French homepage.",
+      "source_baseline_sha256": "cbb5ab1d364f293e6ec65396868dadd81bf7f81fbef950df3713205589e3b64a",
+      "target_baseline_sha256": "8774a6e0410b5e8d6af077e4f0d9c7108b113b40534e0bd10e19355465aa97a9",
+      "target_matches_prior_review_except_fingerprints": true
+    },
+    {
+      "route": "/about/",
+      "locale": "fr",
+      "source_path": "about/index.html",
+      "source_sha256": "3ef6ff79b1b5a6786ec84be86d4753eed48609e7c3c18272b38bf2787e8c9bcd",
+      "target_path": "fr/about/index.html",
+      "target_sha256": "b25782a88b215d0e53e87f0d3d345537f9bb471d22a58ac9fd085fed74151003",
+      "disposition": "retained-ai-reviewed",
+      "review_scope": "English source has fingerprint-only changes. French additionally retains the previously reviewed Language -> Langue control label from c1e56d54; all other French bytes match the reviewed target apart from fingerprints.",
+      "source_baseline_sha256": "d3930b28c15d22cfcfcb0a02f41484a1b627c10f46582c3a1c808d532e8be424",
+      "target_baseline_sha256": "bd3c6251577f1b8db7c068e5296f0c74c961066587cb5ec3cbf306b28955c6b9",
+      "target_matches_prior_review_except_fingerprints": true
+    },
+    {
+      "route": "/projects/",
+      "locale": "fr",
+      "source_path": "projects/index.html",
+      "source_sha256": "15172405227fdf0b9a296d4d8f945ee54d7c14716ad89eea070d0c2e731f0d68",
+      "target_path": "fr/projects/index.html",
+      "target_sha256": "f4b928c55bebd31648abcc85b3cdeac261c0aa0decd3e4f291e81f63d94957af",
+      "disposition": "retained-ai-reviewed",
+      "review_scope": "Reviewed A11 shelf introduction, 11 applicable status summaries and exact evidence links, workbench readiness qualification, removal of duplicate verified-status cards, explicit English shelf fallback, and retained A13 control label. Three English shelf cards remain outside the existing French scope.",
+      "source_baseline_sha256": "daa277a1cdf6126e164488db3f4e8f0929e89a5376fd513e74de420fe0cd61e8",
+      "target_baseline_sha256": "2517452ac8d28277bbc881c5ba4eaaf87c11715addca89c0c486fdbef3f38e80",
+      "target_matches_prior_review_except_fingerprints": true
+    },
+    {
+      "route": "/contact/",
+      "locale": "fr",
+      "source_path": "contact/index.html",
+      "source_sha256": "f4b3e5453da96b40e0c219da7e5ac349ff3c812051aa569e349043a7a2e63b02",
+      "target_path": "fr/contact/index.html",
+      "target_sha256": "aea74371ce6f2d4a71eab6fd9a9424782c599628f2e56b03e59d1461c3cec1e2",
+      "disposition": "retained-ai-reviewed",
+      "review_scope": "English source has fingerprint-only changes. French additionally retains the previously reviewed Language -> Langue control label from c1e56d54; all other French bytes match the reviewed target apart from fingerprints.",
+      "source_baseline_sha256": "dec8ff561d3062f2a194bb389bda5b09d84cb063ae53b226fbd278b58c1eb3dd",
+      "target_baseline_sha256": "3ab659ba8bfe2bfe1251a5dea4421e135328465a35f2e050c662e57318180906",
+      "target_matches_prior_review_except_fingerprints": true
+    }
+  ],
+  "prior_records": [
+    {
+      "path": "i18n/pilot/fr/interactions/translation-record.json",
+      "sha256": "d37aa81725e5e8569e380c3c383cc3835ead721e75e97671e915be19fff46560",
+      "unchanged_from_reviewed_revision": true
+    },
+    {
+      "path": "i18n/pilot/fr/homepage-delta-2026-09-07/translation-record.json",
+      "sha256": "5b6f89b5389324341f2bf24178a7953cca185f6f32a2771be890b4002c2f3e11",
+      "unchanged_from_reviewed_revision": true
+    },
+    {
+      "path": "i18n/pilot/fr/project-status-delta-2026-09-07/translation-record.json",
+      "sha256": "95beab4bfbc75f8f224016bd92ecd5ab76af3a56451bf8c3c5d8b9219d1e1679",
+      "unchanged_from_reviewed_revision": true
+    }
+  ],
+  "status_summary_coverage": {
+    "index.html": [
+      "skillz",
+      "skillz",
+      "abrahamic-reference-engine",
+      "glee-fully",
+      "prompt-forge"
+    ],
+    "projects/index.html": [
+      "skillz",
+      "found-ry",
+      "mermaid-theme-builder",
+      "bpmn-for-mermaid",
+      "mac-studio-local-ai-workbench",
+      "prompt-forge",
+      "glee-fully-chai-chasers",
+      "abrahamic-reference-engine",
+      "first-diagram-is-a-liar",
+      "kierans-lifetrkr",
+      "telling-forward",
+      "glee-fully",
+      "askjamie",
+      "protocol-libraries"
+    ],
+    "fr/index.html": [
+      "skillz",
+      "skillz",
+      "abrahamic-reference-engine"
+    ],
+    "fr/projects/index.html": [
+      "skillz",
+      "found-ry",
+      "mermaid-theme-builder",
+      "bpmn-for-mermaid",
+      "mac-studio-local-ai-workbench",
+      "prompt-forge",
+      "glee-fully-chai-chasers",
+      "abrahamic-reference-engine",
+      "glee-fully",
+      "askjamie",
+      "protocol-libraries"
+    ]
+  },
+  "omissions_retained": [
+    {
+      "route": "/",
+      "units": [
+        "A12 latest-to-featured heading, intro, and badge",
+        "A06 lower project-shelf introduction",
+        "A11 lower-shelf Glee and Prompt Forge summaries",
+        "A16 added WebP picture source in the omitted featured image"
+      ],
+      "reason": "These sections and image are absent from the existing condensed French homepage. Existing French selected-work copy makes no latest claim. No scope expansion or new media parity claim."
+    },
+    {
+      "route": "/projects/",
+      "units": [
+        "first-diagram-is-a-liar",
+        "kierans-lifetrkr",
+        "telling-forward"
+      ],
+      "reason": "These cards are absent from the existing condensed French shelf; no new cards added."
+    }
+  ],
+  "mechanical_checks": {
+    "passed": true,
+    "checks": [
+      "All four frozen French pages match prior reviewed target bytes after masking only exact shared asset fingerprint values.",
+      "About/contact English bytes match baseline after the same narrow fingerprint masking.",
+      "Home/projects content outside main matches baseline after fingerprint masking.",
+      "All retained summary text and source URLs match exact en-US/fr-FR text-resource units; French summary counts are 3 and 11.",
+      "Prior translation records exactly match their reviewed revisions.",
+      "Wrapper provenance shape validated before commit."
+    ]
+  },
+  "linguistic_review": {
+    "provenance": "AI semantic review under owner-authorized exact-pair task",
+    "voice": "Existing plainspoken voice and vous retained.",
+    "delivery_boundary": "Delivery unknown remains Fonctionnement réel : non vérifié. Source dates describe source review, not operational or native acceptance.",
+    "new_semantic_gap_found": false
+  },
+  "adoption_boundary": "A21 may adopt only these exact frozen source and target hashes through the guarded wrapper. No sync-state or candidate page is changed by this commit. Subsequent page-byte changes require an exact follow-up review.",
+  "limitations": [
+    "No human/native approval, live release acceptance, or assistive-technology speech certification.",
+    "Previously recorded dictionary proposals remain AI-reviewed; no approval state is upgraded.",
+    "Regional drafts are outside this review and retain their separate release boundary."
+  ]
+}

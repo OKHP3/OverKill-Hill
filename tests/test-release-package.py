@@ -33,6 +33,77 @@ def accepted_murderbird_media() -> list[str]:
 
 
 class ReleasePackageTests(unittest.TestCase):
+    def test_retry_artifact_identity_follows_the_successful_producer(self) -> None:
+        validation = (ROOT / ".github/workflows/validate.yml").read_text(encoding="utf-8")
+        pages = (ROOT / ".github/workflows/pages.yml").read_text(encoding="utf-8")
+        producer = "validated-site-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}"
+        self.assertIn(f"release_artifact_name: {producer}", validation)
+        self.assertIn(f"name: {producer}", validation)
+        self.assertIn("value: ${{ jobs.validate.outputs.release_artifact_name }}", validation)
+        self.assertIn("name: ${{ needs.validate.outputs.release_artifact_name }}", pages)
+        self.assertLess(pages.index('run: test -n "$RELEASE_ARTIFACT_NAME"'), pages.index("uses: actions/download-artifact"))
+        package = "github-pages-${{ github.run_id }}-${{ github.run_attempt }}"
+        self.assertIn(f"name: {package}", pages)
+        self.assertIn(f"artifact_name: {package}", pages)
+        self.assertIn("name: live-edge-report-${{ github.run_id }}-${{ github.run_attempt }}", pages)
+        self.assertIn("--verify", pages)
+        # No wildcard/latest fallback or rebuild may replace the trusted artifact.
+        self.assertNotIn("pattern:", pages)
+        self.assertEqual(pages.count("scripts/build-release.py"), 1)
+
+    def test_committed_freshness_rejects_stale_files_without_repairing_them(self) -> None:
+        validation = (ROOT / ".github/workflows/validate.yml").read_text(encoding="utf-8")
+        preflight = validation.split("- name: Check committed generated output before regeneration\n", 1)[1].split("\n      - name:", 1)[0]
+        commands = re.findall(r"^          python3 (.+)$", preflight, re.MULTILINE)
+        self.assertEqual(commands, [
+            "scripts/build-site.py --check",
+            "scripts/build-search-index.py --check",
+            "scripts/sync-universe-map.py --check",
+        ])
+        for command in commands:
+            self.assertLess(validation.index(command), validation.index("- name: Regenerate indexed universe navigation"))
+
+        def text_inputs(directory, names):
+            return [name for name in names if name in (
+                ".git", ".local", "node_modules", "__pycache__", "img",
+            ) or (Path(directory, name).is_file() and Path(name).suffix not in (
+                ".py", ".html", ".json", ".css", ".js", ".mjs", ".xml", ".txt", ".md", ".mmd",
+            ))]
+
+        with tempfile.TemporaryDirectory() as temporary:
+            source = Path(temporary) / "source"
+            shutil.copytree(ROOT, source, ignore=text_inputs)
+
+            def run_preflight():
+                for command in commands:
+                    result = subprocess.run(
+                        [sys.executable, "-X", "utf8", *command.split()], cwd=source,
+                        text=True, encoding="utf-8", capture_output=True,
+                    )
+                    if result.returncode:
+                        return result
+                return result
+
+            clean = run_preflight()
+            self.assertEqual(clean.returncode, 0, clean.stdout + clean.stderr)
+            for relative, diagnostic in (
+                ("index.html", "Generated HTML is stale"),
+                ("assets/data/search-index.json", "Search index is stale"),
+            ):
+                with self.subTest(path=relative):
+                    target = source / relative
+                    original = target.read_bytes()
+                    target.write_bytes(original + b"\n ")
+                    before = {p.relative_to(source): hashlib.sha256(p.read_bytes()).hexdigest()
+                              for p in source.rglob("*") if p.is_file() and "__pycache__" not in p.parts}
+                    rejected = run_preflight()
+                    self.assertNotEqual(rejected.returncode, 0)
+                    self.assertIn(diagnostic, rejected.stdout + rejected.stderr)
+                    after = {p.relative_to(source): hashlib.sha256(p.read_bytes()).hexdigest()
+                             for p in source.rglob("*") if p.is_file() and "__pycache__" not in p.parts}
+                    self.assertEqual(before, after, "Freshness gate must not regenerate submitted files")
+                    target.write_bytes(original)
+
     def test_every_released_file_has_verified_bytes(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             source, output = Path(temporary) / "source", Path(temporary) / "release"

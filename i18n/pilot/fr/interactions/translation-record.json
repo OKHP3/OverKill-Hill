@@ -1,0 +1,250 @@
+{
+  "language_pair": {
+    "source_locale": "en-US",
+    "target_locale": "fr-FR",
+    "direction": "one-way"
+  },
+  "artifact_type": "text-resource",
+  "skill": "okhp3-translation-en-us-fr-fr@1.1.0",
+  "source": {
+    "path": "i18n/pilot/fr/interactions/en/copy.json",
+    "sha256": "2e69bca065fcc64ccfd593de1a920e859569df87aacc0c89bbd50bc6d058b93b",
+    "revision": "git:007787fd032679cc44ba3197f2e1779084fe1297",
+    "runtime_path": "assets/js/app.js",
+    "upstream_runtime_sha256": "3f7e6f51727b49569bb83bcf7ca379ca154749fefe25a4b24add993cbe915b6c",
+    "register_state": "plainspoken",
+    "register_mediation_record": null
+  },
+  "target": {
+    "path": "i18n/pilot/fr/interactions/fr/copy.json",
+    "sha256": "83b819d74c2d81d968a132991ffd0417425e9157e445770300c72632e1be2e3f",
+    "runtime_path": "assets/js/app.js"
+  },
+  "voice_profile": "voice-profile.en-us.json@1.0.0",
+  "dictionary": "dictionary.en-us-fr-fr.json@0.1.0",
+  "dictionary_sha256": "08e1b6e777696acbe5fc5d630f79ce29c82f57bb244ee18a1c1bd204d5480924",
+  "status": "machine-drafted",
+  "review_status": "ai-semantic-reviewed",
+  "review_authority": "A13 owner-authorized AI translation task",
+  "native_or_human_approval": false,
+  "needs_native_review": true,
+  "mechanical_checks": {
+    "passed": true,
+    "checks": [
+      "Exact-pair manifest, structure, and protected-token validator passed.",
+      "Planner: 1 source artifact, 0 missing French targets.",
+      "French browser regressions: 3 passed.",
+      "English/shared-brand search regressions: 14 passed.",
+      "JavaScript syntax passed."
+    ],
+    "limits": [
+      "Locale-index freshness requires A21 combined regeneration; generated outputs are intentionally not committed by A13.",
+      "Native speech and manual assistive-technology acceptance were not performed."
+    ]
+  },
+  "unresolved_terms": [
+    {
+      "source": "Switch to light mode",
+      "proposed_target": "Passer au mode clair",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Switch to dark mode",
+      "proposed_target": "Passer au mode sombre",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Switch to system mode",
+      "proposed_target": "Utiliser le thème du système",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Search OverKill Hill",
+      "proposed_target": "Rechercher sur OverKill Hill",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Search the Forge: articles, projects, ideas…",
+      "proposed_target": "Rechercher dans la forge : articles, projets, idées…",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Search across writings, projects, manifesto, and the Council archives.",
+      "proposed_target": "Recherchez parmi les pages disponibles en français. La recherche complète donne accès au contenu en anglais.",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Brand",
+      "proposed_target": "Marque",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Project",
+      "proposed_target": "Projet",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Projects",
+      "proposed_target": "Projets",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Page",
+      "proposed_target": "Page",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Live catalog entry",
+      "proposed_target": "Entrée du catalogue en ligne",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Beta",
+      "proposed_target": "Bêta",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Unavailable",
+      "proposed_target": "Indisponible",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Close search",
+      "proposed_target": "Fermer la recherche",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Esc",
+      "proposed_target": "Échap",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Search results",
+      "proposed_target": "Résultats de recherche",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "navigate",
+      "proposed_target": "parcourir",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "open",
+      "proposed_target": "ouvrir",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "close",
+      "proposed_target": "fermer",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Open full search →",
+      "proposed_target": "Ouvrir la recherche complète (contenu en anglais) →",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Loading search index…",
+      "proposed_target": "Chargement de l’index de recherche…",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Search could not load the index.",
+      "proposed_target": "La recherche n’a pas pu charger l’index.",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Retry search index",
+      "proposed_target": "Réessayer de charger l’index",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Search index failed to load.",
+      "proposed_target": "Impossible de charger l’index de recherche.",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Search ready. Enter a term or choose a suggested search.",
+      "proposed_target": "La recherche est prête. Saisissez un terme ou choisissez une suggestion.",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "No indexed pages are available.",
+      "proposed_target": "Aucune page indexée n’est disponible.",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "No matches for ",
+      "proposed_target": "Aucun résultat pour ",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Try ",
+      "proposed_target": "Essayez ",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "No search results for ",
+      "proposed_target": "Aucun résultat de recherche pour ",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": " result found for ",
+      "proposed_target": " résultat trouvé pour ",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": " results found for ",
+      "proposed_target": " résultats trouvés pour ",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Open search (",
+      "proposed_target": "Ouvrir la recherche (",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Check your connection, then try again.",
+      "proposed_target": "Vérifiez votre connexion, puis réessayez.",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Loading index…",
+      "proposed_target": "Chargement de l’index…",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "0 results",
+      "proposed_target": "0 résultat",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    },
+    {
+      "source": "Language: Français (France)",
+      "proposed_target": "Langue : Français (France)",
+      "status": "AI-drafted unit; not an approved dictionary entry"
+    }
+  ],
+  "assumptions": [
+    "Use vous consistently, as in the existing French review.",
+    "Fragments are joined with safely escaped queries and canonical counts; no result data is translated by string replacement.",
+    "French introduction adapts English scope to the existing French four-route catalog. Suggestions use projets, protocoles, contact, IA instead of English queries.",
+    "Full search remains /search/ and searches English content; its French label states that destination explicitly.",
+    "Language autonyms remain in their own declared languages.",
+    "Dedicated /search/ is English; no French full-search route or regional promotion is introduced."
+  ],
+  "protected_tokens": [
+    "URLs",
+    "category keys",
+    "publication state keys",
+    "shortcuts",
+    "brand names",
+    "query content"
+  ],
+  "routes": [
+    "/fr/",
+    "/fr/about/",
+    "/fr/projects/",
+    "/fr/contact/"
+  ],
+  "release_accepted": false
+}

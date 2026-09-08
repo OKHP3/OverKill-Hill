@@ -1,0 +1,17 @@
+{
+  "candidate": "23e78e0dae0c441a0b42f11d01a0af6748c1de1c",
+  "previousAcceptedCandidate": "6a122cad4126d52cbce3639e1fea70ff6488bd21",
+  "reviewedBrowserCandidate": "daa3ebd84f7401e2e179dffa5ceee8307f34730f",
+  "manifestSha256": "fdf39bd8e240ccd46122d75378011676ef1c798d71eda4745981e217ca070142",
+  "files": 371,
+  "identicalPayloadFiles": 370,
+  "changedPackageFiles": [
+    "assets/audit/release-manifest.json"
+  ],
+  "allPayloadDigestsVerified": true,
+  "changedGitFiles": [
+    ".github/workflows/validate.yml",
+    "assets/docs/release-integration-ledger-2026-09-07.md",
+    "tests/test-i18n-workflow.py"
+  ]
+}

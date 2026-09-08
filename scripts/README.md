@@ -31,6 +31,9 @@ follows the same convention as `askjamie/scripts/README.md`.
 | `phone-overflow-qa.mjs` | active | Phone-viewport overflow QA (`npm run test:*`) |
 | `toc-follow-qa.mjs` | active | All published sidebar menus: centered easing, footer clearance, keyboard reachability, breakpoint changes and reduced motion (`npm run test:toc`) |
 | `check-performance-budget.py` | active | Deterministic first-party asset-weight regression guard for three representative routes |
+| `measure-page-costs.mjs` | active | Manual cold/warm Chromium transfer experiment; gzip/cache fixture, live external costs, phone/desktop trials; writes `.local/a16/` |
+| `build-etch-webp.py` | active | Lossless ETCH-AI-SKETCH WebP derivative with exact RGBA validation; retains original PNG |
+| `check-etch-parity.mjs` | active | Phone/desktop light/dark image geometry and pixel comparison against PNG fallback; loopback preview required |
 | `post-merge.sh` | active | Post-merge rebuild and validation hook |
 | `responsive-qa.mjs` | active | Responsive QA entry point |
 | `screen-reader-tree-audit.mjs` | active | Screen-reader accessibility tree audit (`npm run test:*`) |
@@ -38,6 +41,7 @@ follows the same convention as `askjamie/scripts/README.md`.
 | `test-check-banner.py` | active | Focused regression checks for localized construction-banner validation |
 | `validate-site.py` | active | Structural site validation |
 | `verify-live-edge.py` | active | Live-edge deployment verification |
+| `write-actions-summary.py` | active | Compact Actions summaries from existing live-edge and external-runtime JSON; first-party failures remain distinct |
 
 The following scripts are **reference-only**. They may still be useful for a
 deliberately scoped maintenance or migration task, but they are not part of
@@ -123,3 +127,23 @@ updates only the owned universe source block. `--check` verifies freshness.
 The default search-index rebuild invokes it automatically, then rebuilds HTML.
 `tests/test-universe-integration.py` checks source stability and search exclusion;
 `tests/test-universe-browser.mjs` checks rendering and navigation.
+
+## Shipped-page QA output
+
+Functional phone, responsive, accessibility, and CSP loops consume
+`release-qa-inventory.mjs`, which reads `build-release.py`'s `load_public_pages`
+without generating a release. This includes shipped noindex drafts, review
+pages, redirect notices, and utilities. The helper logs total/tested counts and
+named exceptions; currently every shipped page is tested. Sitemap checks retain
+their separate indexing scope. Representative keyboard tasks remain a focused
+sample, not a full accessibility certification.
+
+Responsive QA requires Playwright and Chromium by default. Missing execution
+returns nonzero status and a `BLOCKED` report with browser acceptance `NOT RUN`.
+Use `--static` only for explicit structural lint; it cannot satisfy browser
+acceptance. `--report=<path>` selects the JSON output; the default is ignored
+`test-results/responsive-qa/results.json`, with failure screenshots alongside it.
+Reports include commit, environment, mode, inventory, and results. The static
+site audit's existing `--report <path>` flag remains supported; its default is
+now ignored `test-results/audit-site/report.md`. CI uploads both output folders.
+Historical reports under `assets/docs/` are retained and are no longer overwritten.
