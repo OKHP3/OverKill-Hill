@@ -6,9 +6,9 @@ September 8, 2026. This note preserves the current state of the three bounded po
 
 | Package | Branch | Source doc | Current status |
 | --- | --- | --- | --- |
-| T05 | `codex/t05-locale-policy-proposal` | [Unified locale policy proposal](../../docs/translation-analytics-task-dispatch-2026-09-07.md) | Documentation-only proposal. No locale publication state changes are authorized here. |
-| W13 | `codex/w13-analytics-decision` | [Analytics policy and disclosure review](../../docs/translation-analytics-task-dispatch-2026-09-07.md) | Documentation-only review. No consent UI, account, hosting, or disclosure setting changes are authorized here. |
-| A19 | `codex/a19-header-host-strategy` | [Response-header hosting decision](a19-response-header-hosting-decision-2026-09-07.md) | Decision brief only. No DNS, hosting, runtime, or deployment changes are authorized here. |
+| T05 | `codex/t05-locale-policy-proposal` | [T05 locale policy v2 proposal](../../docs/locale-policy-v2-proposal.md) | Documentation-only proposal. No locale publication state changes are authorized here. |
+| W13 | `codex/w13-analytics-decision` | [Analytics purpose and visitor-choice decision memo](analytics-decision-w13-2026-09-07.md) | Documentation-only review. No consent UI, account, hosting, or disclosure setting changes are authorized here. |
+| A19 | `codex/a19-header-host-strategy` | [A19 response-header host decision and handoff](remediation-a19-2026-09-07.md) | Decision brief only. No DNS, hosting, runtime, or deployment changes are authorized here. |
 
 ## Preservation notes
 
@@ -19,9 +19,9 @@ September 8, 2026. This note preserves the current state of the three bounded po
 
 ## Restored artifacts
 
-- T05 restored the original proposal text from `03af9b23` to [`docs/locale-policy-v2-proposal.md`](../../docs/locale-policy-v2-proposal.md).
-- W13 restored the decision memo and dated boundary evidence from `de46b64a` to [`assets/docs/analytics-decision-w13-2026-09-07.md`](analytics-decision-w13-2026-09-07.md) and [`assets/audit/analytics-boundary-2026-09-07.json`](../audit/analytics-boundary-2026-09-07.json).
-- A19 restored the host decision memo, dated host observation, proposal-only staging headers, and focused offline test from `b0240122` to [`assets/docs/remediation-a19-2026-09-07.md`](remediation-a19-2026-09-07.md), [`assets/audit/a19-host-observation-2026-09-07.json`](../audit/a19-host-observation-2026-09-07.json), [`config/hosting/cloudflare-staging/_headers`](../../config/hosting/cloudflare-staging/_headers), and [`tests/test-cloudflare-header-proposal.py`](../../tests/test-cloudflare-header-proposal.py).
+- T05 restored the original proposal text from `03af9b23` to [`docs/locale-policy-v2-proposal.md`](../../docs/locale-policy-v2-proposal.md), preserving the source SHA and September 7, 2026 date in the file header.
+- W13 restored the decision memo and dated boundary evidence from `de46b64a` to [`assets/docs/analytics-decision-w13-2026-09-07.md`](analytics-decision-w13-2026-09-07.md) and [`assets/audit/analytics-boundary-2026-09-07.json`](../audit/analytics-boundary-2026-09-07.json), preserving the source SHA and September 7, 2026 date in the file header.
+- A19 restored the host decision memo, dated host observation, proposal-only staging headers, and focused offline test from `b0240122` to [`assets/docs/remediation-a19-2026-09-07.md`](remediation-a19-2026-09-07.md), [`assets/audit/a19-host-observation-2026-09-07.json`](../audit/a19-host-observation-2026-09-07.json), [`config/hosting/cloudflare-staging/_headers`](../../config/hosting/cloudflare-staging/_headers), and [`tests/test-cloudflare-header-proposal.py`](../../tests/test-cloudflare-header-proposal.py), preserving the source SHA and September 7, 2026 date in the file header.
 
 ## Boundary reminder
 
