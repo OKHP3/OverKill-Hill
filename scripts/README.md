@@ -31,6 +31,9 @@ follows the same convention as `askjamie/scripts/README.md`.
 | `phone-overflow-qa.mjs` | active | Phone-viewport overflow QA (`npm run test:*`) |
 | `toc-follow-qa.mjs` | active | All published sidebar menus: centered easing, footer clearance, keyboard reachability, breakpoint changes and reduced motion (`npm run test:toc`) |
 | `check-performance-budget.py` | active | Deterministic first-party asset-weight regression guard for three representative routes |
+| `measure-page-costs.mjs` | active | Manual cold/warm Chromium transfer experiment; gzip/cache fixture, live external costs, phone/desktop trials; writes `.local/a16/` |
+| `build-etch-webp.py` | active | Lossless ETCH-AI-SKETCH WebP derivative with exact RGBA validation; retains original PNG |
+| `check-etch-parity.mjs` | active | Phone/desktop light/dark image geometry and pixel comparison against PNG fallback; loopback preview required |
 | `post-merge.sh` | active | Post-merge rebuild and validation hook |
 | `responsive-qa.mjs` | active | Responsive QA entry point |
 | `screen-reader-tree-audit.mjs` | active | Screen-reader accessibility tree audit (`npm run test:*`) |

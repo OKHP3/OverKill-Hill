@@ -1,0 +1,194 @@
+{
+  "language_pair": {
+    "source_locale": "en-US",
+    "target_locale": "fr-FR",
+    "direction": "one-way"
+  },
+  "skill": "okhp3-translation-en-us-fr-fr@1.1.0",
+  "artifact_type": "text-resource",
+  "source": {
+    "revision": "git:9bfe170badf3133fab8119643aafeb1f04d2d0c9",
+    "path": "i18n/pilot/fr/project-status-delta-2026-09-07/en/copy.json",
+    "sha256": "1cef32c041ab44fbe711308ed470a469ef3fe1ad5c2f806c53a7be919948cd09",
+    "register_state": "plainspoken",
+    "register_mediation_record": null
+  },
+  "source_artifacts": [
+    {
+      "path": "site-src/project-status.json",
+      "sha256": "8b294dcf7cd5b7273260088756b83304c9c9abc2a5d590c9130552c7d064457d"
+    },
+    {
+      "path": "scripts/project-status.py",
+      "sha256": "cc9760bc33d698149df1b0671864121485fd5ca3c27706ac8cbded8481e95fb2"
+    },
+    {
+      "path": "site-src/pages/index.main.html",
+      "sha256": "ad7c40da9fa490dd47306312073376b652af72844b1aa2f29626c80394f78b51"
+    },
+    {
+      "path": "site-src/pages/projects/index.main.html",
+      "sha256": "71a567ab0486508671fd89fd6b5ff4ee4070c946d5e9b95d37b045895156026e"
+    }
+  ],
+  "target": {
+    "path": "i18n/pilot/fr/project-status-delta-2026-09-07/fr/copy.json",
+    "sha256": "5b6ec49ad979d267d04e447281b83bf622c77434b40ec88dd928137584f27c7a",
+    "page_sha256_before_integration": {
+      "fr/index.html": "9c020cfc7dec8f3c3711e151e08f13ef06793aa6a80d67c78212a6925b36c4ac",
+      "fr/projects/index.html": "62e951bd1d0be74d9391873af392a2d46d333770534b8fced147531b0ed4b211"
+    }
+  },
+  "applied_routes": {
+    "fr/index.html": [
+      "skillz",
+      "skillz",
+      "abrahamic-reference-engine"
+    ],
+    "fr/projects/index.html": [
+      "skillz",
+      "found-ry",
+      "mermaid-theme-builder",
+      "bpmn-for-mermaid",
+      "mac-studio-local-ai-workbench",
+      "prompt-forge",
+      "glee-fully-chai-chasers",
+      "abrahamic-reference-engine",
+      "glee-fully",
+      "askjamie",
+      "protocol-libraries"
+    ]
+  },
+  "status": "machine-drafted",
+  "review_status": "ai-semantic-reviewed",
+  "needs_native_review": true,
+  "native_or_human_approval": false,
+  "release_accepted": false,
+  "voice_profile": "interactions/voice-profile.en-us.json@1.0.0",
+  "dictionary": "interactions/dictionary.en-us-fr-fr.json@0.1.0",
+  "unresolved_terms": [
+    {
+      "source": "Published project",
+      "proposed_target": "Projet publié",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "Published catalog project",
+      "proposed_target": "Projet de catalogue publié",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "Published build journal",
+      "proposed_target": "Journal de construction publié",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "Published resource hub",
+      "proposed_target": "Centre de ressources publié",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "External site link",
+      "proposed_target": "Lien vers un site externe",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "Access inquiry",
+      "proposed_target": "Demande d’accès",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "Reported active release v1.1",
+      "proposed_target": "Version active v1.1 annoncée",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "Prototype; not a production Mermaid plugin",
+      "proposed_target": "Prototype ; pas un plugin Mermaid pour la production",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "Browser workbench; maturity unverified",
+      "proposed_target": "Atelier dans le navigateur ; maturité non vérifiée",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "Browser game; maturity unverified",
+      "proposed_target": "Jeu dans le navigateur ; maturité non vérifiée",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "Dated build record; current readiness unverified",
+      "proposed_target": "Compte rendu de construction daté ; état de préparation actuel non vérifié",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "Reported release v0.6.1",
+      "proposed_target": "Version v0.6.1 annoncée",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "Active build; package maturity varies",
+      "proposed_target": "Construction active ; maturité variable selon les packages",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "Workshop resources; not a software release",
+      "proposed_target": "Ressources d’atelier ; pas une version logicielle",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "Unknown",
+      "proposed_target": "Inconnue",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "Source description only.",
+      "proposed_target": "Description dans la source uniquement.",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "Shelf reference only.",
+      "proposed_target": "Référence sur l’étagère des projets uniquement.",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    },
+    {
+      "source": "May 30 benchmark recorded; August 2 report leaves end-to-end RAG unverified.",
+      "proposed_target": "Mesure de performance consignée le 30 mai ; le rapport du 2 août laisse le fonctionnement de bout en bout du RAG non vérifié.",
+      "review_status": "AI-reviewed proposal; no approved dictionary extension"
+    }
+  ],
+  "assumptions": [
+    "The input is existing plainspoken reader-facing status copy. RAG and product/version identifiers remain protected; no specialist explanation is invented.",
+    "Delivery unknown describes unverified real operation, translated Fonctionnement réel : non vérifié, and is never rendered as deployed or accepted.",
+    "Source review date describes examination of a source record, not a native review or a verified runtime.",
+    "French remains a condensed four-route pilot. No omitted cards or new pages are introduced.",
+    "All source-record URLs exactly match A11 and are labeled as English. The former two-card status block is replaced by the A11 shelf-review link, with English destination explicit."
+  ],
+  "removed_units": [
+    "Homepage Skillz Active Build and ARE Active/v1.1 pills; replaced by separate availability/maturity/evidence summaries.",
+    "Homepage and shelf September 5 verified-current wording.",
+    "Duplicate two-record shelf status block.",
+    "Workbench production-grade/current readiness claim."
+  ],
+  "omitted_shelf_records": [
+    "first-diagram-is-a-liar",
+    "kierans-lifetrkr",
+    "telling-forward"
+  ],
+  "mechanical_checks": {
+    "passed": true,
+    "checks": [
+      "Exact-pair validator: manifest, structure and protected-token parity passed.",
+      "Planner: one source artifact, zero missing targets.",
+      "Chromium 390px: 3 homepage and 11 project-shelf summaries; every summary declares unverified real operation and an English source link; no horizontal overflow.",
+      "French interaction regressions: 3 passed.",
+      "Original art, canonical, alternate and robots attributes unchanged on both edited pages."
+    ],
+    "limits": [
+      "Combined English freeze, locale index/cache regeneration and exact-hash adoption remain with A21.",
+      "No native/human certification or live release acceptance."
+    ]
+  },
+  "freshness_scope": "Exact changed-unit review against A11 only. Do not adopt source hashes until the combined English candidate freezes; no whole-page freshness or release approval is asserted."
+}

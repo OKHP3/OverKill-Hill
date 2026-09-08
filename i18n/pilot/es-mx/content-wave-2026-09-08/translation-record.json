@@ -1,0 +1,81 @@
+{
+  "language_pair": {
+    "source_locale": "en-US",
+    "target_locale": "es-MX",
+    "direction": "one-way"
+  },
+  "source_revision": "git:a2f5f9196fd8e9bef6deeb039804882c40f17413",
+  "source_register": "plainspoken",
+  "artifact_type": "text-resource",
+  "source": {
+    "path": "en/copy.json",
+    "sha256": "c4290d492e2af17b42d308ea8b9b49a6cf5a81aeda7d7ce48905e851f97fd9f2",
+    "revision": "git:a2f5f9196fd8e9bef6deeb039804882c40f17413",
+    "register_state": "plainspoken",
+    "register_mediation_record": null
+  },
+  "target": {
+    "path": "es-mx/copy.json",
+    "sha256": "46de53f9ec8bf30c84e7b9bff72aad22235c9fdafeb494457651f9900ae4decf"
+  },
+  "voice_profile": "voice-profile.en-us.json",
+  "dictionary": "dictionary.en-us-es-mx.json",
+  "status": "machine-drafted",
+  "needs_native_review": true,
+  "review": {
+    "method": "AI semantic review of bounded source units",
+    "complete": true,
+    "native_or_human": false,
+    "release_accepted": false
+  },
+  "pages": [
+    {
+      "source_path": "index.html",
+      "source_sha256": "e32cb67d1c1b4527f60c8eae485fc142ebb94936ba6610d875145ea8565437fa",
+      "target_path": "es-mx/index.html",
+      "target_sha256": "e5e7d59326f1f9f25c47de70737a6f857889e73b45e277613556ded2b1da2aac",
+      "disposition": "changed units reviewed"
+    },
+    {
+      "source_path": "about/index.html",
+      "source_sha256": "3ef6ff79b1b5a6786ec84be86d4753eed48609e7c3c18272b38bf2787e8c9bcd",
+      "target_path": "es-mx/about/index.html",
+      "target_sha256": "6b48f199f1f0b16b022c743494dc4b29d4a3c44010002dfddca16d3d6c6747c8",
+      "disposition": "unchanged editorial units; runtime fingerprint only"
+    },
+    {
+      "source_path": "projects/index.html",
+      "source_sha256": "15172405227fdf0b9a296d4d8f945ee54d7c14716ad89eea070d0c2e731f0d68",
+      "target_path": "es-mx/projects/index.html",
+      "target_sha256": "a9a5b07e196153e5c54ac73d71b76e75fb8e86ddabd22ccf6e3fae24afe4da97",
+      "disposition": "changed units reviewed"
+    },
+    {
+      "source_path": "contact/index.html",
+      "source_sha256": "f4b3e5453da96b40e0c219da7e5ac349ff3c812051aa569e349043a7a2e63b02",
+      "target_path": "es-mx/contact/index.html",
+      "target_sha256": "e3b7fbec29a30010098b68d2ad6949ef625d4b91659279fa1dfe9258fc1ea53c",
+      "disposition": "unchanged editorial units; runtime fingerprint only"
+    }
+  ],
+  "mechanical_checks": {
+    "passed": true,
+    "checks": [
+      "Exact-pair manifest and structured protected-token validation",
+      "Canonical/target heading, article and image counts match",
+      "All status IDs and immutable source URLs match canonical source"
+    ],
+    "warnings": [
+      "AI-reviewed draft; provisional voice retained. No human/native approval."
+    ]
+  },
+  "unresolved_terms": [],
+  "assumptions": [
+    "Inherited provisional voice retained, not upgraded to owner-approved.",
+    "Unchanged locale prose and existing noindex/shell/route policy retained.",
+    "Old duplicate status cards removed to match canonical structure.",
+    "Original image alt, fallback PNG and link retained; lossless WebP source added.",
+    "Dates, versions, evidence URLs and uncertainty preserved.",
+    "No optional status disclosure or A14 proposal activated."
+  ]
+}

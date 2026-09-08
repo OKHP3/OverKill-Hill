@@ -1,5 +1,9 @@
 # Website remediation dispatch
 
+> Historical dispatch snapshot. IDs and original scopes remain useful; worktree,
+> branch, and completion states must be checked against current GitHub and
+> [the closeout ledger](../assets/docs/thread-closeout-status-2026-09-08.md).
+
 September 7, 2026. Architect thread: `01a07a50-71fc-7543-9c4b-55a51d91b663`.
 
 The owner requested one separate task/worktree per unresolved package. Nineteen task creations were accepted for A03 through A21, and nineteen new worktrees were observed at `98922aebf71d90b2b18ecc34c8b00a041fff51c7`. This commit now includes the assessment and A01/A02 repairs, superseding the assessment's historical uncommitted status. Production state has not been reverified in this dispatch.

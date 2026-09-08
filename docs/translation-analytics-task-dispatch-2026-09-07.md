@@ -1,5 +1,9 @@
 # Complementary translation and analytics task dispatch
 
+> Historical dispatch snapshot. IDs and original scopes remain useful; worktree,
+> branch, and completion states must be checked against current GitHub and
+> [the closeout ledger](../assets/docs/thread-closeout-status-2026-09-08.md).
+
 September 7, 2026. All seven task creations were accepted, and actual task IDs, isolated worktrees, and named branches were verified from local task records and Git. The native task listing had not yet indexed the new records at verification time.
 
 These tasks supplement the nineteen A03-A21 tasks in [the main dispatch](website-remediation-dispatch-2026-09-07.md). They do not duplicate that queue. The shared baseline is `98922aebf71d90b2b18ecc34c8b00a041fff51c7`, which includes the September 7 assessment and A01/A02 repairs. Old audit assertions must be reproduced against current source before changing it.

@@ -1,5 +1,12 @@
 # Task closeout reconciliation
 
+> Historical checkpoint. The observations below describe the earlier website
+> remediation queue at `c2d23f08`; they are not current status. FoundRy PR25 and
+> website PR64 subsequently completed the separate 26-task coop batch. Website
+> PR65 subsequently integrated the content wave. See
+> [the current closeout ledger](thread-closeout-status-2026-09-08.md) for the
+> verified completion boundary and remaining work.
+
 September 8, 2026. Result: INCOMPLETE. This is a fresh verification of the 26 tasks dispatched from this Architect thread and its complementary translation/analytics coordinator. Task creation, local deliverable completion, integration, publication and cleanup are separate states.
 
 ## Confirmed main state

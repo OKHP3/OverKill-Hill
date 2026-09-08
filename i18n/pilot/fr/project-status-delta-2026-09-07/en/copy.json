@@ -1,0 +1,63 @@
+{
+  "homepage-evidence-intro": "Project records distinguish published descriptions from verified operation.",
+  "shelf-intro": "Tools, prototypes, writing companions, and documented builds. Each record distinguishes page availability, maturity, and delivery evidence.",
+  "workbench-description": "A dated local AI build journal covering setup and benchmark records. End-to-end RAG verification remains unresolved in the cited readiness report.",
+  "shelf-review-link": "Review project availability, maturity, and evidence on the project shelf.",
+  "skillz": {
+    "summary": "Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "abrahamic-reference-engine": {
+    "summary": "Availability: Published project. Maturity: Reported active release v1.1. Evidence: Source description only. Delivery: unknown.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/abrahamic-reference-engine/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "found-ry": {
+    "summary": "Availability: Published project. Maturity: Browser workbench; maturity unverified. Evidence: Source description only. Delivery: unknown.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/found-ry/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "mermaid-theme-builder": {
+    "summary": "Availability: Published project. Maturity: Reported release v0.6.1. Evidence: Source description only. Delivery: unknown.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/mermaid-theme-builder/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "bpmn-for-mermaid": {
+    "summary": "Availability: Published project. Maturity: Prototype; not a production Mermaid plugin. Evidence: Source description only. Delivery: unknown.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/bpmn-for-mermaid/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "mac-studio-local-ai-workbench": {
+    "summary": "Availability: Published build journal. Maturity: Dated build record; current readiness unverified. Evidence: May 30 benchmark recorded; August 2 report leaves end-to-end RAG unverified. Delivery: unknown.",
+    "source_link": "https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/reports/openclaw-related-runtime-readiness-audit-2026-08-02.md",
+    "reviewed": "2026-09-07"
+  },
+  "prompt-forge": {
+    "summary": "Availability: Published resource hub. Maturity: Workshop resources; not a software release. Evidence: Shelf reference only. Delivery: unknown.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "glee-fully-chai-chasers": {
+    "summary": "Availability: Published project. Maturity: Browser game; maturity unverified. Evidence: Source description only. Delivery: unknown.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/glee-fully-chai-chasers/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "glee-fully": {
+    "summary": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "askjamie": {
+    "summary": "Availability: External site link. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "protocol-libraries": {
+    "summary": "Availability: Access inquiry. Maturity: Unknown. Evidence: Shelf reference only. Delivery: unknown.",
+    "source_link": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html",
+    "reviewed": "2026-09-07"
+  },
+  "source-label": "Source record",
+  "source-reviewed": "reviewed"
+}
