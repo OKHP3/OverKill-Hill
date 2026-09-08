@@ -40,6 +40,7 @@ RUNTIME_ASSET_RULES = (
     ("assets/downloads", None),
     ("assets/img", STATIC_EXTENSIONS),
     ("assets/js", {".js"}),
+    ("assets/video", {".mp4"}),
     ("assets/vendor", {".css", ".js", ".json", ".mjs", ".wasm"}),
     (".well-known", None),
 )
