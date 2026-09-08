@@ -49,8 +49,10 @@ The first hosted run failed `scripts/check-regional-drafts.py`: the new Contact
 heading changed canonical source freshness and h3 coverage in both regional
 drafts. The earlier four unit tests passed but did not cover this final source
 state. The correction adds the exact-pair inquiry text to both drafts and
-records reviewed source/target hashes without publishing them. Final gate
-results and baseline reconciliation are recorded with the release handoff.
+records reviewed source/target hashes without publishing them. Final `check-regional-drafts.py` passes for all eight regional routes. Exact
+prior regional Contact bytes were preserved outside the marked additions;
+noindex, no public alternates and zero public search entries pass. The
+normalized Contact source hash is recorded with both bounded review records.
 
 ## Release boundary
 
