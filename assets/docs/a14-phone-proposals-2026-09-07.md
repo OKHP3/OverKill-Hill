@@ -154,6 +154,8 @@ Reproduce from this checkout, with the repository's existing Playwright package
 or the already bundled runtime package available to Node:
 
 ```powershell
+# Fetch the preserved exact disclosure dependency if this is a fresh checkout:
+git fetch origin codex/a14-disclosure-contract
 py -3 scripts/build-phone-proposals.py
 py -3 scripts/serve-phone-proposals.py
 # In another terminal in this checkout:
@@ -165,6 +167,9 @@ Open `http://127.0.0.1:5145/proposals/a/` or the corresponding `b/` path.
 Only four routes per variant are previewed; other existing links lead to the
 staged release baseline. The "Current site" review link returns
 to the baseline. The A11 commit must be present in the local Git object store.
+The exact commit is preserved on GitHub at `codex/a14-disclosure-contract`,
+verified September 8, 2026. It is a reproducibility dependency, not a production
+activation branch or an instruction to merge that branch.
 Rebuild after updating the pinned contract to a reviewed integrated candidate;
 the builder intentionally expects these existing page structures. Shell metadata
 and shared runtime still come from this checkout's unchanged generated baseline.
