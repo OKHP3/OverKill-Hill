@@ -86,14 +86,11 @@ test("FoundRy embed controls are keyboard reachable and reload remains local to 
     await page.keyboard.press("Tab");
     assert.equal(await page.evaluate(() => document.activeElement?.getAttribute("href")), liveAppUrl);
 
-    let iframeLoads = 0;
-    page.on("framenavigated", (frame) => {
-      if (frame === page.mainFrame()) return;
-      if (frame.url() === liveAppUrl) iframeLoads += 1;
-    });
+    const iframeReload = page.locator("#foundry-tool-iframe").evaluate(
+      (iframe) => new Promise((resolve) => iframe.addEventListener("load", resolve, { once: true }))
+    );
     await page.locator("#foundry-reload-btn").click();
-    await page.waitForTimeout(100);
-    assert.ok(iframeLoads >= 1, "reload control should navigate the embedded frame only");
+    await iframeReload;
     assert.equal(page.url(), `${baseUrl}${pagePath}`);
   } finally {
     await browser.close();
