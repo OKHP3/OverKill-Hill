@@ -1,4 +1,5 @@
 """Clean-checkout dependencies and narrative placement for the accepted still release."""
+import hashlib
 import runpy
 import json
 import shutil
@@ -34,7 +35,25 @@ class MurderBirdStillTests(unittest.TestCase):
             self.assertTrue(figure.figcaption.get_text(strip=True))
         self.assertEqual('p', page.select_one('#media-maker').find_next_sibling().name)
         self.assertIn('morning of the demonstration', page.select_one('#media-maker').find_next_sibling().get_text())
-        self.assertFalse(page.select('video, audio'))
+        self.assertFalse(page.select('audio'))
+        self.assertEqual(1, len(page.select('video')))
+        figure = page.select_one('#media-first-choice')
+        self.assertEqual('the-builder', figure.parent['id'])
+        self.assertIn('before the support failed', figure.find_previous_sibling('p').get_text())
+        video = figure.video
+        self.assertTrue(video.has_attr('controls'))
+        self.assertTrue(video.has_attr('playsinline'))
+        self.assertFalse(video.has_attr('autoplay'))
+        self.assertFalse(video.has_attr('loop'))
+        self.assertEqual('none', video['preload'])
+        self.assertEqual('video/mp4', video.source['type'])
+        self.assertEqual('/assets/video/murderbird-first-choice-635f0e15.mp4', video.source['src'])
+        self.assertEqual('635f0e1552bac61699c03c8406157207f6230ea817bb1ecaeb3adbb3a7bf8613',
+                         hashlib.sha256((ROOT / video.source['src'].lstrip('/')).read_bytes()).hexdigest())
+        self.assertTrue((ROOT / video['poster'].lstrip('/')).is_file())
+        self.assertIn('silent', figure.figcaption.get_text())
+        for description_id in video['aria-describedby'].split():
+            self.assertTrue(page.find(id=description_id).get_text(strip=True))
 
     def test_exploratory_package_not_required(self):
         # Archived source may coexist in Git. Prove dependency independence in
