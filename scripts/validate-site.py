@@ -521,6 +521,36 @@ def validate_organization_nodes(location: str, parser: TagCounter) -> list[Findi
     return findings
 
 
+def validate_article_jsonld_dates(location: str, parser: TagCounter) -> list[Finding]:
+    """Reject malformed publication dates on Article JSON-LD nodes."""
+    objects, parse_errors = _jsonld_objects(parser)
+    findings = [
+        Finding("ERROR", location, f"invalid JSON-LD block: {error}")
+        for error in parse_errors
+    ]
+    for article in (item for item in objects if item.get("@type") == "Article"):
+        for field in ("datePublished", "dateModified"):
+            value = article.get(field)
+            if value is None:
+                continue
+            if not isinstance(value, str):
+                findings.append(Finding(
+                    "ERROR",
+                    location,
+                    f"article JSON-LD {field} is not ISO 8601: {value!r}",
+                ))
+                continue
+            try:
+                datetime.fromisoformat(value.replace("Z", "+00:00"))
+            except ValueError:
+                findings.append(Finding(
+                    "ERROR",
+                    location,
+                    f"article JSON-LD {field} is not ISO 8601: {value!r}",
+                ))
+    return findings
+
+
 def validate_organization_source() -> list[Finding]:
     """Validate the shared source head before checking rendered pages."""
     if not HEAD_PARTIAL.is_file():
@@ -528,6 +558,27 @@ def validate_organization_source() -> list[Finding]:
     parser = TagCounter()
     parser.feed(HEAD_PARTIAL.read_text(encoding="utf-8", errors="replace"))
     return validate_organization_nodes("assets/partials/head.html", parser)
+
+
+def validate_article_jsonld_source(pages: list[dict]) -> list[Finding]:
+    """Validate Article JSON-LD dates in source extras before rendering."""
+    findings: list[Finding] = []
+    for page in pages:
+        if not is_article_page(page):
+            continue
+        source_path = page.get("path")
+        if not isinstance(source_path, str):
+            continue
+        extras = (ROOT / "site-src" / "pages" / source_path).with_suffix(".extras.html")
+        if not extras.is_file():
+            continue
+        parser = TagCounter()
+        parser.feed(extras.read_text(encoding="utf-8", errors="replace"))
+        findings.extend(validate_article_jsonld_dates(
+            _path_location(extras),
+            parser,
+        ))
+    return findings
 
 
 def _manifest_metadata(page: dict) -> dict[str, str]:
@@ -702,6 +753,7 @@ def validate_generated_seo(
         findings.extend(validate_social_card_consistency(rel, values))
         findings.extend(validate_image_contract(rel, values))
     if is_article_page(manifest_page):
+        findings.extend(validate_article_jsonld_dates(rel, parser))
         if values.get("meta:og:type", "").lower() != "article":
             findings.append(Finding("ERROR", rel, "article generated page must use og:type=article"))
         published = values.get("meta:article:published_time", "")
@@ -1455,6 +1507,7 @@ def main() -> int:
     all_findings: list[Finding] = []
     all_findings.extend(manifest_findings)
     all_findings.extend(validate_source_seo_contract(manifest_pages))
+    all_findings.extend(validate_article_jsonld_source(manifest_pages))
     all_findings.extend(validate_organization_source())
     all_findings.extend(validate_heat_guide_chain(manifest_pages))
     all_findings.extend(

@@ -67,6 +67,17 @@ def mutate_meta(raw: str, field: str, value: str | None) -> str:
     return mutated
 
 
+def mutate_jsonld_field(raw: str, field: str, value: str) -> str:
+    pattern = re.compile(
+        rf'("{re.escape(field)}"\s*:\s*)"[^"]*"',
+        re.IGNORECASE,
+    )
+    mutated, count = pattern.subn(rf'\1"{value}"', raw, count=1)
+    if count != 1:
+        raise AssertionError(f"fixture JSON-LD field not found: {field}")
+    return mutated
+
+
 def mutate_navigation(raw: str, key: str, value: str) -> str:
     pattern = re.compile(
         rf'<link\b(?=[^>]*\brel=["\'][^"\']*\b{key}\b[^"\']*["\'])[^>]*>',
@@ -192,6 +203,37 @@ class SEOFixtureTests(unittest.TestCase):
                     if "expected_source" in mutation
                     else mutation["expected"],
                 )
+
+    def test_malformed_article_jsonld_dates_rejected_in_source_extras(self) -> None:
+        page = self.pages_by_route["/writings/first-diagram-is-a-liar/"]
+        path = (ROOT / "site-src" / "pages" / page["path"]).with_suffix(".extras.html")
+        original_raw = path.read_text(encoding="utf-8")
+        for mutation in self.fixture_data["malformed_article_jsonld_dates"]:
+            with self.subTest(mutation=mutation["id"]):
+                mutated_raw = mutate_jsonld_field(
+                    original_raw,
+                    mutation["field"],
+                    mutation["value"],
+                )
+                self.assertNotEqual(original_raw, mutated_raw)
+                self.assertIn(
+                    '"headline": "The First Diagram Is Usually a Liar"',
+                    mutated_raw,
+                )
+                self.assertIn(
+                    '"description": "From AutoCAD 10 and Visio trauma',
+                    mutated_raw,
+                )
+                self.assertEqual(
+                    "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+                    page.get("meta:robots"),
+                    "source fixture mutation changed the indexing boundary",
+                )
+                findings = validator.validate_article_jsonld_dates(
+                    path.relative_to(ROOT).as_posix(),
+                    parse_html(mutated_raw),
+                )
+                self.assert_rejected(findings, mutation["expected"])
 
     def test_same_as_drift_rejected_in_shared_head_source(self) -> None:
         mutation = self.fixture_data["organization_same_as_drift"]
@@ -342,6 +384,34 @@ class SEOFixtureTests(unittest.TestCase):
                     if "expected_generated" in mutation
                     else mutation["expected"],
                 )
+
+    def test_malformed_article_jsonld_dates_rejected_in_generated_metadata(self) -> None:
+        path = GENERATED_FIXTURE / "article.html.fixture"
+        original_raw = path.read_text(encoding="utf-8")
+        original_parser = parse_html(original_raw)
+        for mutation in self.fixture_data["malformed_article_jsonld_dates"]:
+            with self.subTest(mutation=mutation["id"]):
+                mutated_raw = mutate_jsonld_field(
+                    original_raw,
+                    mutation["field"],
+                    mutation["value"],
+                )
+                mutated_parser = parse_html(mutated_raw)
+                self.assertIn(
+                    "<article>Fixture article copy remains unchanged.</article>",
+                    mutated_raw,
+                )
+                self.assertEqual(
+                    original_parser.is_noindex,
+                    mutated_parser.is_noindex,
+                    "generated fixture mutation changed the indexing boundary",
+                )
+                findings = validator.validate_generated_seo(
+                    path,
+                    mutated_parser,
+                    self.pages_by_route[mutation["route"]],
+                )
+                self.assert_rejected(findings, mutation["expected"])
 
     def test_same_as_drift_rejected_in_generated_metadata(self) -> None:
         mutation = self.fixture_data["organization_same_as_drift"]

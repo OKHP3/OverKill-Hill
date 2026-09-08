@@ -61,6 +61,22 @@
       "expected_generated": "article generated page must use og:type=article"
     }
   ],
+  "malformed_article_jsonld_dates": [
+    {
+      "id": "invalid-jsonld-published-date",
+      "route": "/writings/first-diagram-is-a-liar/",
+      "field": "datePublished",
+      "value": "April 7, 2026",
+      "expected": "article JSON-LD datePublished is not ISO 8601"
+    },
+    {
+      "id": "invalid-jsonld-modified-date",
+      "route": "/writings/first-diagram-is-a-liar/",
+      "field": "dateModified",
+      "value": "May 24, 2026 at noon",
+      "expected": "article JSON-LD dateModified is not ISO 8601"
+    }
+  ],
   "organization_same_as_drift": {
     "from": "https://www.linkedin.com/company/overkillhillp3",
     "to": "https://example.com/not-the-verified-profile"
