@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Regression coverage for the Replit static publication boundary."""
 
+import importlib.util
 import json
 import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 
@@ -19,6 +21,47 @@ class ReplitStaticPublicationTests(unittest.TestCase):
         config = (ROOT / ".replit").read_text(encoding="utf-8")
         self.assertRegex(config, r'(?m)^deploymentTarget\s*=\s*"static"\s*$')
         self.assertRegex(config, r'(?m)^publicDir\s*=\s*"site-release"\s*$')
+        self.assertRegex(config, r'(?m)^build\s*=\s*"python3 scripts/build-replit-release\.py"\s*$')
+
+    def test_replit_builder_replaces_release_only_after_success(self) -> None:
+        spec = importlib.util.spec_from_file_location("replit_builder", ROOT / "scripts" / "build-replit-release.py")
+        wrapper = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(wrapper)
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            output = root / "site-release"
+            output.mkdir()
+            (output / "old.txt").write_text("old", encoding="utf-8")
+            def successful_build(command, cwd, check):
+                staged = Path(command[command.index("--output") + 1])
+                staged.mkdir()
+                (staged / "new.txt").write_text("new", encoding="utf-8")
+
+            with patch.object(wrapper, "ROOT", root), patch.object(wrapper, "OUTPUT", output), \
+                    patch.object(wrapper, "BUILDER", root / "builder.py"), \
+                    patch.object(wrapper.subprocess, "check_output", return_value="a" * 40), \
+                    patch.object(wrapper.subprocess, "run", side_effect=successful_build):
+                self.assertEqual(wrapper.main(), 0)
+            self.assertEqual((output / "new.txt").read_text(encoding="utf-8"), "new")
+            self.assertFalse((output / "old.txt").exists())
+            with patch.object(wrapper, "ROOT", root), patch.object(wrapper, "OUTPUT", output), \
+                    patch.object(wrapper, "BUILDER", root / "builder.py"), \
+                    patch.object(wrapper.subprocess, "check_output", return_value="c" * 40), \
+                    patch.object(wrapper.subprocess, "run", side_effect=successful_build):
+                self.assertEqual(wrapper.main(), 0)
+            self.assertEqual((output / "new.txt").read_text(encoding="utf-8"), "new")
+
+            def failed_build(*args, **kwargs):
+                raise subprocess.CalledProcessError(1, "builder")
+
+            (output / "keep.txt").write_text("keep", encoding="utf-8")
+            with patch.object(wrapper, "ROOT", root), patch.object(wrapper, "OUTPUT", output), \
+                    patch.object(wrapper, "BUILDER", root / "builder.py"), \
+                    patch.object(wrapper.subprocess, "check_output", return_value="b" * 40), \
+                    patch.object(wrapper.subprocess, "run", side_effect=failed_build):
+                with self.assertRaises(subprocess.CalledProcessError):
+                    wrapper.main()
+            self.assertEqual((output / "keep.txt").read_text(encoding="utf-8"), "keep")
 
     def test_allowlisted_release_excludes_private_source_paths(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
