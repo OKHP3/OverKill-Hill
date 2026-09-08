@@ -64,6 +64,9 @@ jobs:
         with:
           name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: site-release
+          # This directory already passed the public allowlist and byte checks.
+          # Preserve .well-known endpoints instead of dropping them during tar.
+          include-hidden-files: true
 
       - name: Deploy to GitHub Pages
         id: deployment
