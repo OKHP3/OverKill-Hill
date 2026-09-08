@@ -77,3 +77,28 @@ No queued content or proposal was appended to the deployed candidate.
 This evidence branch is based on the deployed revision and contains reports
 plus the reviewed publishing-guide correction. It is intentionally separate
 from the release and is ready for later documentation integration.
+
+## September 8 retirement update
+
+The architect reported retirement of completed A03, A04, A05 and A10 worker
+worktrees, deletion of their local worker branches, and archival of their tasks.
+Full tips remain under `refs/archive/2026-09-08/` with suffixes
+`a03-fail-open-reveal`, `a04-accessible-search`, `a05-skillz-install` and
+`a10-shipped-page-qa`. A04's additional generated-index checkpoint is retained
+by its archive ref; it was not imported as authoritative combined output.
+
+Accuracy correction: the architect did not separately copy A05's ignored
+`dist/a05-validation` or A10's ignored `.local/a10` and `test-results` before
+removing their worktrees. Those raw worker outputs were not preserved by the
+cleanup. Committed reports, Git source tips, external retained screenshots and
+A21's independent `.local/a21-evidence` remain the available evidence; do not
+claim complete raw-worker artifact retention. Regenerate evidence only if a
+remaining claim requires it.
+
+A07/A08/A09/A17/A18 were explicitly left untouched pending remaining-evidence
+and lifecycle accounting. Content, design selection, actual assistive technology,
+native macOS, Replit and retry work remain open. A21 performed no worker or
+primary-checkout cleanup. The current fetched main is
+`c2d23f088d5c29cc3df5c2e8f1b5eb9d479da61a`, three commits after wave one;
+its newer deployment evidence belongs to the architect's September 8 review,
+not to the September 7 release measurements above.
