@@ -17,6 +17,7 @@ Checks every production HTML page for:
   - placeholder hrefs ("#", "javascript:void(0)", empty href)
   - "P3" without superscript inside <title> or <meta> (brand violation)
   - old tagline "Precision. Power. Presence." anywhere (brand regression)
+  - Glee and AskJamie theme-color media variants and color-scheme metadata
   - current content-hashed references to shared CSS and JavaScript
   - SEO metadata contract (Organization, article dates, social-card assets)
     and the ordered v03 heat-guide chain
@@ -67,6 +68,23 @@ THEME_STYLESHEET = ROOT / THEME_STYLESHEET_PATH.lstrip("/")
 APP_SCRIPT_PATH = "/assets/js/app.js"
 MERMAID_INIT_SCRIPT_PATH = "/assets/js/mermaid-init.js"
 SHARED_SCRIPT_PATHS = (APP_SCRIPT_PATH, MERMAID_INIT_SCRIPT_PATH)
+BRAND_THEME_CONTRACT = {
+    "glee-main": {
+        "name": "Glee",
+        "light": "#d35b2d",
+        "dark": "#1e1b19",
+    },
+    "askjamie-main": {
+        "name": "AskJamie",
+        "light": "#f5efe1",
+        "dark": "#2c5e6f",
+    },
+}
+THEME_COLOR_MEDIA = {
+    "light": "(prefers-color-scheme: light)",
+    "dark": "(prefers-color-scheme: dark)",
+}
+EXPECTED_COLOR_SCHEME = "dark light"
 MERMAID_VENDOR_ROOT = ROOT / "assets/vendor/mermaid"
 MERMAID_VENDOR_ENTRY = MERMAID_VENDOR_ROOT / "mermaid.esm.min.mjs"
 MERMAID_VERSION_FILE = MERMAID_VENDOR_ROOT / "VERSION"
@@ -149,6 +167,8 @@ class TagCounter(HTMLParser):
         self.stylesheet_refs: list[str] = []
         self.script_refs: list[str] = []
         self.meta: dict[str, list[str]] = {}
+        self.body_classes: set[str] = set()
+        self.theme_colors: list[dict[str, str]] = []
         self.jsonld_blocks: list[str] = []
         self.navigation_links: dict[str, list[str]] = {"prev": [], "next": []}
         self._in_jsonld = False
@@ -158,6 +178,8 @@ class TagCounter(HTMLParser):
         attrs = {k: (v or "") for k, v in attrs_list}
         if tag == "title":
             self._in_title = True
+        elif tag == "body":
+            self.body_classes = set(attrs.get("class", "").split())
         elif tag == "h1":
             self.h1_count += 1
         elif tag == "meta":
@@ -167,6 +189,13 @@ class TagCounter(HTMLParser):
             key = name or prop
             if key:
                 self.meta.setdefault(key, []).append(content)
+            if name == "theme-color":
+                self.theme_colors.append(
+                    {
+                        "media": attrs.get("media", ""),
+                        "content": content,
+                    }
+                )
             if name == "description" and content.strip():
                 self.has_meta_description = True
             if name == "robots" and "noindex" in content.lower():
@@ -1302,6 +1331,99 @@ def check_em_dashes(path: Path, raw: str) -> list[Finding]:
     return findings
 
 
+def validate_brand_theme_metadata(location: str, parser: TagCounter) -> list[Finding]:
+    """Validate the head metadata used by the Glee and AskJamie controls."""
+    brand_classes = sorted(set(parser.body_classes) & set(BRAND_THEME_CONTRACT))
+    if not brand_classes:
+        return []
+
+    findings: list[Finding] = []
+    if len(brand_classes) > 1:
+        findings.append(
+            Finding(
+                "ERROR",
+                location,
+                "conflicting brand body classes: " + ", ".join(brand_classes),
+            )
+        )
+        return findings
+
+    brand_class = brand_classes[0]
+    contract = BRAND_THEME_CONTRACT[brand_class]
+    brand_name = contract["name"]
+    expected_by_media = {
+        THEME_COLOR_MEDIA["light"]: contract["light"],
+        THEME_COLOR_MEDIA["dark"]: contract["dark"],
+    }
+    entries_by_media: dict[str, list[dict[str, str]]] = {}
+    for entry in parser.theme_colors:
+        entries_by_media.setdefault(entry["media"].strip(), []).append(entry)
+
+    for media in THEME_COLOR_MEDIA.values():
+        entries = entries_by_media.get(media, [])
+        if not entries:
+            findings.append(
+                Finding(
+                    "ERROR",
+                    location,
+                    f"{brand_name} page missing theme-color metadata for media={media!r}",
+                )
+            )
+            continue
+        if len(entries) > 1:
+            findings.append(
+                Finding(
+                    "ERROR",
+                    location,
+                    f"{brand_name} page has {len(entries)} theme-color metadata entries for media={media!r}; expected exactly one",
+                )
+            )
+        expected = expected_by_media[media]
+        actual = entries[0]["content"].strip()
+        if actual.lower() != expected:
+            findings.append(
+                Finding(
+                    "ERROR",
+                    location,
+                    f"{brand_name} theme-color for media={media!r} is {actual!r}; expected {expected!r}",
+                )
+            )
+
+    unexpected_media = sorted(set(entries_by_media) - set(expected_by_media))
+    for media in unexpected_media:
+        for entry in entries_by_media[media]:
+            findings.append(
+                Finding(
+                    "ERROR",
+                    location,
+                    f"{brand_name} has unexpected theme-color metadata media={media!r} value={entry['content'].strip()!r}",
+                )
+            )
+
+    color_scheme_values = parser.meta.get("color-scheme", [])
+    if not color_scheme_values:
+        findings.append(
+            Finding(
+                "ERROR",
+                location,
+                f"{brand_name} page missing color-scheme metadata; expected {EXPECTED_COLOR_SCHEME!r}",
+            )
+        )
+    else:
+        normalized_schemes = [" ".join(value.split()) for value in color_scheme_values]
+        if len(normalized_schemes) != 1 or normalized_schemes[0] != EXPECTED_COLOR_SCHEME:
+            actual = ", ".join(repr(value) for value in color_scheme_values)
+            findings.append(
+                Finding(
+                    "ERROR",
+                    location,
+                    f"{brand_name} color-scheme metadata is {actual}; expected exactly {EXPECTED_COLOR_SCHEME!r}",
+                )
+            )
+
+    return findings
+
+
 def validate_page(
     path: Path,
     sitemap_urls: set[str],
@@ -1397,6 +1519,7 @@ def validate_page(
         findings.append(Finding("WARN", rel, f"HTML parser exception: {exc}"))
         return findings
 
+    findings.extend(validate_brand_theme_metadata(rel, parser))
     findings.extend(validate_generated_seo(path, parser, manifest_page, locale_page))
 
     if not parser.title:
