@@ -1,0 +1,23 @@
+{
+  "candidate": "b92c2a0673c66eac5598551e28cc6eb1961c5785",
+  "previousCandidate": "5fde69f779326b0b2fee80e01b978d23ba35d79a",
+  "manifestSha256": "97f69541b445bd7f1265a6cf1fc3665c949d384210c88014e53042a837e41518",
+  "identicalPayloads": 371,
+  "changedPayloads": [],
+  "nonservedGitDelta": [
+    "assets/audit/a20-content-details-2026-09-08.json",
+    "assets/audit/a20-content-integrity-preservation-2026-09-08.json",
+    "assets/audit/a20-content-rebind-2026-09-08.json",
+    "assets/audit/a20-content-tasks-2026-09-08.json",
+    "assets/audit/a21-content-hosted-integrity-2026-09-08.json",
+    "assets/audit/a21-content-live-browser-2026-09-08.json",
+    "assets/audit/a21-content-live-edge-2026-09-08.json",
+    "assets/audit/a21-content-live-parity-2026-09-08.json",
+    "assets/audit/a21-hosted-retry-execution-2026-09-08.json",
+    "assets/docs/a20-content-acceptance-2026-09-08.md",
+    "assets/docs/a20-content-rebound-acceptance-2026-09-08.md",
+    "assets/docs/a21-content-release-closeout-2026-09-08.md",
+    "assets/docs/a21-hosted-retry-execution-2026-09-08.md",
+    "tests/test_verify_live_edge.py"
+  ]
+}

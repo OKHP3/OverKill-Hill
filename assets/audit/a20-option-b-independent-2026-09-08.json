@@ -1,0 +1,2966 @@
+{
+  "candidate": "5fde69f779326b0b2fee80e01b978d23ba35d79a",
+  "baseline": "98e512d26d9f60a7f5a07a11404a5829e22fd317",
+  "manifestSha256": "8fbfac9efbb8c3103aebbfa3b68ce78cc60fda9cd9cc7d67c230f8747e82252d",
+  "fileCount": 372,
+  "integrity": [
+    {
+      "path": ".nojekyll",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": ".well-known/discord",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": ".well-known/security.txt",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "404.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "about/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/css/theme.css",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/data/performance-budget.json",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/data/search-index.de.json",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/data/search-index.en-gb.json",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/data/search-index.es-mx.json",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/data/search-index.es.json",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/data/search-index.fr.json",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/data/search-index.json",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/downloads/okh-prompt-protocol-template.md",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/AskJamie/BrandGuard/ask-jamie-gpt-icon-bfs01-bfs-framing-intelligent-futures-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/AskJamie/BrandGuard/ask-jamie-gpt-icon-bfs01-bfs-framing-intelligent-futures-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/etch-ai-sketch-claude-v2-lores.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/etch-ai-sketch-claude-v2-lores.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/etch-ai-sketch-copilot-v1-lores.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/etch-ai-sketch-copilot-v1-lores.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/etch-ai-sketch-using-a-council-to-design-at-velocity.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/android-chrome-192x192.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/android-chrome-512x512.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/apple-touch-icon.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/archive/favicon-legacy-2026-09-05.ico",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/favicon-16x16.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/favicon-32x32.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/favicon-48x48.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/favicon.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-browser-16.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-browser-32.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-browser-48.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-maskable-192.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-maskable-512.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-nav-96.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-opaque-180.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-opaque-192.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon-opaque-512.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/murderbird-v2-icon.ico",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-browser-16.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-browser-32.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-browser-48.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-contact-sheet-preview.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-head-master-draft-01.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-mask-evidence-preview.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-maskable-192.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-maskable-512.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-native-size-contact-preview.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-opaque-180.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-opaque-192.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-opaque-512.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-preview.ico",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/preview/murderbird-v2-icon-safe-margin-preview-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/favicons/source/favicon-source-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/ask-jamie-gpt-icon-bfs01-bfs-framing-intelligent-futures-square-1024-alt.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/ask-jamie-gpt-icon-bfs01-bfs-framing-intelligent-futures-square-1024-alt.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/ask-jamie-gpt-icon-bfs01-bfs-framing-intelligent-futures-square-1024-pre.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/ask-jamie-gpt-icon-bfs01-bfs-framing-intelligent-futures-square-1024-pre.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/etch-ai-sketch-using-a-council-to-design-at-velocity.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/murderbird-story-sentinel-portrait-2026-09-06.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-heart-candidate-2026-09-06.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-maker-clean-candidate-2026-09-06.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-master-candidate-03-2026-09-06.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-mechanic-candidate-2026-09-06.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-sentinel-candidate-2026-09-06.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/murderbird-unified-water-candidate-2026-09-06.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-wide-2256.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-wide-2256.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-wide-2390.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-wide-2390.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-wide-4096.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-background-wide-4096.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-left-error-explosion-background-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-left-error-explosion-background-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-left-error-explosion-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-left-under-construction-background-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-left-under-construction-background-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-left-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-left-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-right-wide-1536-alt.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-right-wide-1536-alt.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-right-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-bird-patrol-comp-right-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-comp-left-wide-2390.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-comp-left-wide-2390.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-comp-right-wide-2390.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-comp-right-wide-2390.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-comp-left-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-comp-left-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-comp-right-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-comp-right-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-desktop-left-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-desktop-left-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-desktop-left-title-right-wide-2390.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-desktop-left-title-right-wide-2390.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-desktop-right-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-desktop-right-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-laptop-left-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-laptop-left-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-laptop-right-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-logo-laptop-right-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-sentinel-attacking-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-sentinel-attacking-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-sentinel-warning-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-sentinel-warning-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-bot-bird-patrol-comp-right-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-bot-bird-patrol-comp-right-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-bot-bird-patrol-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-bot-bird-patrol-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-bot-bird-warn-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-bot-bird-warn-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-horiz-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-horiz-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-horz-background-wide-2256.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-horz-background-wide-2256.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-bot-bird-patrol-comp-right-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-bot-bird-patrol-comp-right-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-comp-right-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-comp-right-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-low-bird-warn-comp-right-wide-1992.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-low-bird-warn-comp-right-wide-1992.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-up-bird-waiting-comp-right-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-up-bird-waiting-comp-right-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-up-laptop-right-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-left-up-laptop-right-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-low-right-bird-perch-comp-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-low-right-bird-perch-comp-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-low-right-bird-perch-comp-square-192.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-low-right-bird-perch-comp-square-502.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-low-right-bird-perch-comp-square-502.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-low-right-bird-perch-comp-square-512.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-low-right-bird-perch-comp-square-512.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-mid-bird-patrol-comp-right-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-mid-bird-patrol-comp-right-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bird-patrol-wide-1536-alt.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bird-patrol-wide-1536-alt.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bird-patrol-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bird-patrol-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bot-bird-patrol-comp-left-wide-1536-alt.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bot-bird-patrol-comp-left-wide-1536-alt.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bot-bird-patrol-comp-left-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bot-bird-patrol-comp-left-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bot-bird-warn-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-bot-bird-warn-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-laptop-left-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-laptop-left-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-low-bird-crucible-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-low-bird-crucible-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-up-bird-patrol-comp-right-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-right-up-bird-patrol-comp-right-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-stack-left-up-laptop-right-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-stack-left-up-laptop-right-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-stacked-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-stacked-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-stacked-square-256.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-up-right-laptop-left-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/library/over-kill-hill-p3-title-up-right-laptop-left-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/murderbird-frontal-attack-2026-09-05.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/murderbird-v2-icon-nav-96.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/og/murderbird-story-share-2026-09-06.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-bird-patrol-comp-left-error-explosion-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-bird-patrol-comp-left-under-construction-wide-1536.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-bird-patrol-comp-left-under-construction-wide-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-sentinel-attacking-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-sentinel-warning-square-256.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/over-kill-hill-p3-title-horiz-square-256.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/projects/chai-chasers/social-1280.jpg",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/projects/found-ry/found-ry-hero-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/projects/found-ry/found-ry-hero-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/projects/found-ry/found-ry-screenshot-audit-mode.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/projects/found-ry/found-ry-screenshot-build-brief.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/projects/found-ry/found-ry-screenshot-platform-comparison.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/projects/telling-forward/telling-forward-hero-1024.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/projects/telling-forward/telling-forward-hero-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/projects/telling-forward/telling-forward-social-open-graph-1200x630.png",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/etch-ai-sketch-using-a-council-to-design-at-velocity-lossless.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-frontal-attack-2026-09-05-1024.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-frontal-attack-2026-09-05-512.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-heart-2026-09-06-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-heart-2026-09-06-480.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-heart-2026-09-06-960.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-maker-clean-2026-09-06-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-maker-clean-2026-09-06-480.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-maker-clean-2026-09-06-960.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-master-03-2026-09-06-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-master-03-2026-09-06-480.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-master-03-2026-09-06-960.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-mechanic-2026-09-06-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-mechanic-2026-09-06-480.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-mechanic-2026-09-06-960.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-sentinel-2026-09-06-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-sentinel-2026-09-06-480.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-sentinel-2026-09-06-960.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-water-2026-09-06-1536.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-water-2026-09-06-480.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/img/webp/murderbird-unified-water-2026-09-06-960.webp",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/js/app.js",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/js/mermaid-init.js",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/js/universe-map.js",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/abnfDiagram-PAR5IXJI.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/architecture-7GRP2DOG-M7G3SWCO.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/architectureDiagram-2PNWDENW.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/blockDiagram-PUWGUBOA.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/c4Diagram-3NLNHZP5.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-2NMSUPJH.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-32MCUW2P.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-3NPNU5GP.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-3SMGFRGC.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-4CAJECRU.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-4OADUZ5Q.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-5IMINLNL.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-5IQCK5RY.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-5MVFYWFU.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-AQ6EADP3.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-AZZRMDJM.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-CLS4B6BI.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-DZP67EKU.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-EICP7K5X.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-GDY2UAB4.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-H7VHZCWX.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-IJBDOHL6.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-JFFVMJIA.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-JQRUD6KW.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-JZGDI5JK.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-KD6SPIPN.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-NF366YI6.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-NUDPKBEF.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-OJINMHTS.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-Q6NGPIAH.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-QJSWEUOL.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-R7JDMUKV.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-RCXAM2GK.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-RT4MAWR3.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-SFMINX4W.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-SLDQ463B.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-STOV2HOB.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-T5OCTHI4.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-TCEHX7R3.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-VQC2EELJ.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-VRZKL3EH.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-VTHDQ7BV.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-VY2OSTJR.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-WUBWJARI.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-YBMQ5JGJ.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-YDMLL4PJ.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-Z6V44ARX.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-ZJJ7VQJP.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-ZNLK7HRR.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-ZQN7UHIL.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-ZS6VBONO.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/chunk-ZUNWM646.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/classDiagram-FGAMPOII.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/classDiagram-v2-AI5RJEK4.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/cose-bilkent-Q72C2OJ3.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/cynefin-OW5HDTMX-6OCTWOGG.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/cynefinDiagram-2OOWUY4M.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/dagre-MPVFI544.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/diagram-AE4NWXFW.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/diagram-BUJID5UG.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/diagram-C44CZ5NI.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/diagram-EYOLEXXS.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/diagram-P7B6PWOJ.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/ebnfDiagram-FTPZ3PV6.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/erDiagram-H3ERR26V.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/eventmodeling-NTZA5JFV-WKSWQHFS.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/flowDiagram-YHGXBVSY.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/ganttDiagram-RWFTB7ED.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/gitGraph-4MIJSDKK-JH2HKYUO.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/gitGraphDiagram-MAR6GKOP.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/info-A6RAGUB7-3TX3OFWW.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/infoDiagram-LV547AFH.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/ishikawaDiagram-PUJQGNDS.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/journeyDiagram-EW5QJT4W.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/kanban-definition-JSQERAZB.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/katex-CZ4GXH2S.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/mindmap-definition-VBJCLQLM.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/packet-AYTQ26CC-MKII6P3Y.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/pegDiagram-7WILOQTJ.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/pie-WAS4IAKB-6B4OPMJ5.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/pieDiagram-EFA7CBSB.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/quadrantDiagram-WARVYA7P.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/radar-RG4KPBEZ-UPTR3XUL.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/railroad-74A4TZTK-MEFUPFMS.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/railroad-abnf-HS5TGJTU-R5YG2S5D.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/railroad-ebnf-LZEXJU2U-G5QEX2L6.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/railroad-peg-WCYAUIDC-H5I2ZRY2.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/railroadDiagram-5NIQVNLQ.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/requirementDiagram-SXREGOKZ.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/sankeyDiagram-VV74M2VP.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/sequenceDiagram-52ZFIFDL.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/sizeCapture-FGA5AGYP.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/stateDiagram-3QAKPIVI.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/stateDiagram-v2-HN2P4RDZ.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/swimlanes-QLVP42QD.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/swimlanesDiagram-JKPDBFCN.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/timeline-definition-GS45XAXW.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/treemap-WGGIJYW6-K64VN5AS.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/treeView-Q6P3EWNA-ZRJGANNQ.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/vennDiagram-QIQU2ZRJ.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/wardley-WFR3VGLG-D67OWCCH.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/wardleyDiagram-U6YNM66N.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/chunks/mermaid.esm.min/xychartDiagram-XJAZEDNM.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "assets/vendor/mermaid/mermaid.esm.min.mjs",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "CNAME",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "contact/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "de/about/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "de/contact/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "de/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "de/projects/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "en-gb/about/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "en-gb/contact/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "en-gb/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "en-gb/projects/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "es/about/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "es/contact/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "es/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "es/projects/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "es-mx/about/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "es-mx/contact/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "es-mx/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "es-mx/projects/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "favicon.ico",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "favicon.svg",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "found-ry/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "fr/about/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "fr/contact/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "fr/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "fr/projects/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "humans.txt",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "legal/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "llms.txt",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "manifesto/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "projects/abrahamic-reference-engine/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "projects/bfs-framing-intelligent-futures/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "projects/bpmn-for-mermaid/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "projects/first-diagram-is-a-liar/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "projects/found-ry/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "projects/glee-fully-chai-chasers/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "projects/hometools/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "projects/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "projects/kierans-lifetrkr/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "projects/mac-studio-local-ai-workbench/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "projects/mermaid-theme-builder/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "projects/pathscrib-r/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "projects/skillz/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "projects/telling-forward/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "projects/un-nocked-truth/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "prompt-forge/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "robots.txt",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "search/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "site.webmanifest",
+      "digest": true,
+      "length": true,
+      "gitExact": true,
+      "gitNormalized": true
+    },
+    {
+      "path": "sitemap.xml",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "under-construction.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "universe/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "vault/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "writings/biases-as-constants/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v1-heat-a/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v1-heat-b/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v2-heat-a/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v2-heat-b/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "writings/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "writings/magnus-saga/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    },
+    {
+      "path": "writings/murderbird/index.html",
+      "digest": true,
+      "length": true,
+      "gitExact": false,
+      "gitNormalized": true
+    }
+  ],
+  "preservation": [
+    {
+      "path": "index.html",
+      "missingUrls": [],
+      "imageAttributesEqual": true,
+      "fullStatusFactsEqual": true,
+      "displacedCopyRetained": true,
+      "displacedParagraphs": 4
+    },
+    {
+      "path": "projects/index.html",
+      "missingUrls": [],
+      "imageAttributesEqual": true,
+      "fullStatusFactsEqual": true,
+      "displacedCopyRetained": true,
+      "displacedParagraphs": 0
+    },
+    {
+      "path": "projects/skillz/index.html",
+      "missingUrls": [],
+      "imageAttributesEqual": true,
+      "fullStatusFactsEqual": true,
+      "displacedCopyRetained": true,
+      "displacedParagraphs": 0
+    },
+    {
+      "path": "fr/index.html",
+      "missingUrls": [],
+      "imageAttributesEqual": true,
+      "fullStatusFactsEqual": true,
+      "displacedCopyRetained": true,
+      "displacedParagraphs": 4
+    },
+    {
+      "path": "fr/projects/index.html",
+      "missingUrls": [],
+      "imageAttributesEqual": true,
+      "fullStatusFactsEqual": true,
+      "displacedCopyRetained": true,
+      "displacedParagraphs": 0
+    },
+    {
+      "path": "en-gb/index.html",
+      "missingUrls": [],
+      "imageAttributesEqual": true,
+      "fullStatusFactsEqual": true,
+      "displacedCopyRetained": true,
+      "displacedParagraphs": 4
+    },
+    {
+      "path": "en-gb/projects/index.html",
+      "missingUrls": [],
+      "imageAttributesEqual": true,
+      "fullStatusFactsEqual": true,
+      "displacedCopyRetained": true,
+      "displacedParagraphs": 0
+    },
+    {
+      "path": "es-mx/index.html",
+      "missingUrls": [],
+      "imageAttributesEqual": true,
+      "fullStatusFactsEqual": true,
+      "displacedCopyRetained": true,
+      "displacedParagraphs": 4
+    },
+    {
+      "path": "es-mx/projects/index.html",
+      "missingUrls": [],
+      "imageAttributesEqual": true,
+      "fullStatusFactsEqual": true,
+      "displacedCopyRetained": true,
+      "displacedParagraphs": 0
+    }
+  ],
+  "protectedMain": [
+    {
+      "path": "404.html",
+      "mainEqual": true
+    },
+    {
+      "path": "about/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "contact/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "de/about/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "de/contact/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "de/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "de/projects/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "en-gb/about/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "en-gb/contact/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "es/about/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "es/contact/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "es/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "es/projects/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "es-mx/about/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "es-mx/contact/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "found-ry/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "fr/about/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "fr/contact/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "legal/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "manifesto/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "projects/abrahamic-reference-engine/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "projects/bfs-framing-intelligent-futures/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "projects/bpmn-for-mermaid/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "projects/first-diagram-is-a-liar/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "projects/found-ry/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "projects/glee-fully-chai-chasers/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "projects/hometools/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "projects/kierans-lifetrkr/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "projects/mac-studio-local-ai-workbench/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "projects/mermaid-theme-builder/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "projects/pathscrib-r/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "projects/telling-forward/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "projects/un-nocked-truth/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "prompt-forge/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "search/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "under-construction.html",
+      "mainEqual": true
+    },
+    {
+      "path": "universe/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "vault/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "writings/biases-as-constants/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v1-heat-a/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v1-heat-b/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v2-heat-a/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "writings/first-diagram-is-a-liar/v03/v2-heat-b/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "writings/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "writings/magnus-saga/index.html",
+      "mainEqual": true
+    },
+    {
+      "path": "writings/murderbird/index.html",
+      "mainEqual": true
+    }
+  ],
+  "noImageAssetChanges": true,
+  "registryUnchanged": true,
+  "prototypePayloads": [],
+  "allPriorNonLinkParagraphs": [
+    {
+      "path": "index.html",
+      "missingNonLinkParagraphs": []
+    },
+    {
+      "path": "projects/index.html",
+      "missingNonLinkParagraphs": []
+    },
+    {
+      "path": "projects/skillz/index.html",
+      "missingNonLinkParagraphs": []
+    },
+    {
+      "path": "fr/index.html",
+      "missingNonLinkParagraphs": []
+    },
+    {
+      "path": "fr/projects/index.html",
+      "missingNonLinkParagraphs": []
+    },
+    {
+      "path": "en-gb/index.html",
+      "missingNonLinkParagraphs": []
+    },
+    {
+      "path": "en-gb/projects/index.html",
+      "missingNonLinkParagraphs": []
+    },
+    {
+      "path": "es-mx/index.html",
+      "missingNonLinkParagraphs": []
+    },
+    {
+      "path": "es-mx/projects/index.html",
+      "missingNonLinkParagraphs": []
+    }
+  ],
+  "briefVisibilityAdjudication": [
+    {
+      "path": "index.html",
+      "allOutsideOwnStatusDetails": true,
+      "allDirectChildrenOfStatusContainer": true,
+      "contextBriefs": 1
+    },
+    {
+      "path": "projects/index.html",
+      "allOutsideOwnStatusDetails": true,
+      "allDirectChildrenOfStatusContainer": true,
+      "contextBriefs": 0
+    },
+    {
+      "path": "projects/skillz/index.html",
+      "allOutsideOwnStatusDetails": true,
+      "allDirectChildrenOfStatusContainer": true,
+      "contextBriefs": 0
+    },
+    {
+      "path": "fr/index.html",
+      "allOutsideOwnStatusDetails": true,
+      "allDirectChildrenOfStatusContainer": true,
+      "contextBriefs": 1
+    },
+    {
+      "path": "fr/projects/index.html",
+      "allOutsideOwnStatusDetails": true,
+      "allDirectChildrenOfStatusContainer": true,
+      "contextBriefs": 0
+    },
+    {
+      "path": "en-gb/index.html",
+      "allOutsideOwnStatusDetails": true,
+      "allDirectChildrenOfStatusContainer": true,
+      "contextBriefs": 1
+    },
+    {
+      "path": "en-gb/projects/index.html",
+      "allOutsideOwnStatusDetails": true,
+      "allDirectChildrenOfStatusContainer": true,
+      "contextBriefs": 0
+    },
+    {
+      "path": "es-mx/index.html",
+      "allOutsideOwnStatusDetails": true,
+      "allDirectChildrenOfStatusContainer": true,
+      "contextBriefs": 1
+    },
+    {
+      "path": "es-mx/projects/index.html",
+      "allOutsideOwnStatusDetails": true,
+      "allDirectChildrenOfStatusContainer": true,
+      "contextBriefs": 0
+    }
+  ]
+}

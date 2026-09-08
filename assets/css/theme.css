@@ -3778,6 +3778,20 @@ body:not(.glee-main):not(.askjamie-main) h3 {
 }
 
 /* For Home hero title (“Precision · Protocol · Promptcraft”) */
+/* A14 Option B: editorial project cards keep context visible while one clear
+   action carries each card forward. */
+.home-selected-work .project-card {
+  border-top: 3px solid var(--okh-orange);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.home-selected-work .project-card > p:last-child { margin-top: auto; }
+.home-selected-work .project-card .btn-primary { display: inline-flex; }
+@media (max-width: 600px) {
+  .home-selected-work .grid { grid-template-columns: 1fr; }
+  .home-selected-work .project-card { min-height: 0; }
+}
 body:not(.glee-main):not(.askjamie-main) .hero h1 {
   font-size: clamp(2.4rem, 3.6vw, 3.0rem);  /* Slightly smaller for readability */
   letter-spacing: 0.08em;     /* Further breathing room between letters */
@@ -7948,4 +7962,29 @@ html[data-color-scheme="dark"] .glee-search-page__form, html[data-color-scheme="
   visibility: hidden;
   font-size: 0;
   min-height: 2rem;
+}
+
+/* Selected A14 editorial presentation: preserve the existing brand and card depth. */
+.a14-editorial-hero h1 { max-width: 17ch; }
+.a14-editorial-hero .hero-visual img { max-height: 380px; width: auto; max-width: 100%; object-fit: contain; }
+[data-status-presentation="disclosure"] ~ section .project-card,
+section[data-status-presentation="disclosure"] .project-card { border-top: 2px solid var(--okh-orange); }
+[data-project-status-disclosure] { margin: .6rem 0 1rem; }
+[data-project-status-brief] { font-size: .9rem; line-height: 1.5; }
+[data-project-status-disclosure] summary, .home-more-from-forge > details > summary { cursor: pointer; min-height: 44px; padding: .65rem 0; }
+[data-project-status-disclosure] summary:focus-visible, .home-more-from-forge summary:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.home-more-from-forge .hero-forge-card { max-width: none; }
+@media (max-width: 600px) {
+  .a14-editorial-hero .container { padding-left: 16px; padding-right: 16px; }
+  .a14-editorial-hero .hero-visual img { max-height: 260px; }
+  .a14-editorial-hero h1 { font-size: 1.9rem; }
+  .home-selected-work { padding-left: 16px; padding-right: 16px; }
+}
+
+.a14-editorial-hero { min-height: 0; }
+.a14-editorial-hero .hero-inner { padding-top: 2rem; padding-bottom: 2rem; }
+@media (max-width: 600px) {
+ body:not(.glee-main):not(.askjamie-main) .a14-editorial-hero h1 { font-size: 1.9rem; }
+ .a14-editorial-hero .hero-inner { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+ .a14-editorial-hero .hero-grid { gap: .75rem; }
 }

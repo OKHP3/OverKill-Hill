@@ -1,0 +1,277 @@
+{
+  "reason": "Initial probe incorrectly prohibited briefs inside the intentionally collapsed More from the forge orientation block. The required boundary is outside each own Status and source disclosure; active card briefs must be visible.",
+  "checks": [
+    {
+      "browser": "chromium",
+      "route": "/",
+      "metrics": [
+        {
+          "text": "Active build; package maturity varies. Operation unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Reported active release v1.1. Operation unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "External site link. Maturity unknown. Delivery unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Workshop resources; not a software release. Delivery unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Active build; package maturity varies. Operation unverified.",
+          "ownStatusDetails": false,
+          "context": true,
+          "visible": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/fr/",
+      "metrics": [
+        {
+          "text": "Construction active ; maturité variable selon les packages. Fonctionnement réel : non vérifié.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Version active v1.1 annoncée. Fonctionnement réel : non vérifié.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Construction active ; maturité variable selon les packages. Fonctionnement réel : non vérifié.",
+          "ownStatusDetails": false,
+          "context": true,
+          "visible": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/en-gb/",
+      "metrics": [
+        {
+          "text": "Active build; package maturity varies. Delivery unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Reported active release v1.1. Delivery unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Unknown. Delivery unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Workshop resources; not a software release. Delivery unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Active build; package maturity varies. Delivery unverified.",
+          "ownStatusDetails": false,
+          "context": true,
+          "visible": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "browser": "chromium",
+      "route": "/es-mx/",
+      "metrics": [
+        {
+          "text": "En desarrollo activo; la madurez varía según el paquete. Entrega sin verificar.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Versión activa v1.1 según la fuente. Entrega sin verificar.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Desconocida. Entrega sin verificar.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Recursos de taller; no es una versión de software. Entrega sin verificar.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "En desarrollo activo; la madurez varía según el paquete. Entrega sin verificar.",
+          "ownStatusDetails": false,
+          "context": true,
+          "visible": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/",
+      "metrics": [
+        {
+          "text": "Active build; package maturity varies. Operation unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Reported active release v1.1. Operation unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "External site link. Maturity unknown. Delivery unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Workshop resources; not a software release. Delivery unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Active build; package maturity varies. Operation unverified.",
+          "ownStatusDetails": false,
+          "context": true,
+          "visible": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/fr/",
+      "metrics": [
+        {
+          "text": "Construction active ; maturité variable selon les packages. Fonctionnement réel : non vérifié.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Version active v1.1 annoncée. Fonctionnement réel : non vérifié.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Construction active ; maturité variable selon les packages. Fonctionnement réel : non vérifié.",
+          "ownStatusDetails": false,
+          "context": true,
+          "visible": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/en-gb/",
+      "metrics": [
+        {
+          "text": "Active build; package maturity varies. Delivery unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Reported active release v1.1. Delivery unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Unknown. Delivery unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Workshop resources; not a software release. Delivery unverified.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Active build; package maturity varies. Delivery unverified.",
+          "ownStatusDetails": false,
+          "context": true,
+          "visible": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "browser": "firefox",
+      "route": "/es-mx/",
+      "metrics": [
+        {
+          "text": "En desarrollo activo; la madurez varía según el paquete. Entrega sin verificar.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Versión activa v1.1 según la fuente. Entrega sin verificar.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Desconocida. Entrega sin verificar.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "Recursos de taller; no es una versión de software. Entrega sin verificar.",
+          "ownStatusDetails": false,
+          "context": false,
+          "visible": true
+        },
+        {
+          "text": "En desarrollo activo; la madurez varía según el paquete. Entrega sin verificar.",
+          "ownStatusDetails": false,
+          "context": true,
+          "visible": true
+        }
+      ],
+      "pass": true
+    }
+  ]
+}

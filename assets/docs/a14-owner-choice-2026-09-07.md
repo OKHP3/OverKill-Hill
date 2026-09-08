@@ -35,10 +35,10 @@ y681, and bring selected work from baseline y2332 to y1026. Forty-three scoped
 browser samples passed. These measurements include the visible proposal notice;
 they are not conversion or human task-success evidence.
 
-**Existing decision remains pending:** A, B, or an owner-directed revision.
-Selection authorizes preparation of that direction, not a claim that full
-accessibility, human task acceptance or production release checks are complete.
-A21 retains integration and release ownership.
+**Owner decision, 2026-09-08:** Option B, editorial cards, is selected for
+implementation. This authorizes preparation of the production direction; full
+accessibility, human task acceptance, and production release checks remain
+separate gates. A21 retains integration and release ownership.
 
 For interaction, run the dedicated loopback server described in the
 [complete proposal report](a14-phone-proposals-2026-09-07.md), then open

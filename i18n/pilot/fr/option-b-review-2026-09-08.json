@@ -1,0 +1,56 @@
+{
+  "language_pair": "en-US -> fr-FR",
+  "skill": "okhp3-translation-en-us-fr-fr@1.1.0",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "reviewed_on": "2026-09-08",
+  "source_revision": "git:eea06d01af978d37cb59113a2aac43ad82aa6a09",
+  "review_scope": "Option B compact hero and native disclosures adapted from English; original French prose, art, URLs and full source facts retained. About/contact only shared fingerprint changes. Existing condensed coverage retained without a full parity claim. The original build notice is retained in More from the forge; no copy was deleted.",
+  "routes": [
+    {
+      "route": "/",
+      "locale": "fr",
+      "source_path": "index.html",
+      "source_sha256": "bb27f4ce9a5cad4fc678537c67fe80e686b4725ba15b2cd02d076ba7b088a187",
+      "target_path": "fr/index.html",
+      "target_sha256": "f8618198e1a358bfc3691752f39c33e97a504927933763447ff246cd652e52f7",
+      "disposition": "retained-ai-reviewed",
+      "review_scope": "Changed English units and retained target copy reviewed; current markup/source facts preserved, no native approval."
+    },
+    {
+      "route": "/about/",
+      "locale": "fr",
+      "source_path": "about/index.html",
+      "source_sha256": "186fb4952396890e263d18275ff3ea7a20b09104b082172b142bf893414c1724",
+      "target_path": "fr/about/index.html",
+      "target_sha256": "6f9c5be2986b9344b4fdb8c23ca197dc951ea72823404f216805e829e1cf30b6",
+      "disposition": "retained-ai-reviewed",
+      "review_scope": "Changed English units and retained target copy reviewed; current markup/source facts preserved, no native approval."
+    },
+    {
+      "route": "/projects/",
+      "locale": "fr",
+      "source_path": "projects/index.html",
+      "source_sha256": "87a81ac6c85e59cda92ecd2969aa7461bf54a8f27ab2459ba097f857fa809e91",
+      "target_path": "fr/projects/index.html",
+      "target_sha256": "f4f4b6cf5934038b8e0e50b2d5a10e528a557d29372a10411b1dccad2b4fbd95",
+      "disposition": "retained-ai-reviewed",
+      "review_scope": "Changed English units and retained target copy reviewed; current markup/source facts preserved, no native approval."
+    },
+    {
+      "route": "/contact/",
+      "locale": "fr",
+      "source_path": "contact/index.html",
+      "source_sha256": "024fe1eaab4cee2c0abbf93d3db22473aec7e62c588a24a7dc15562e4b746559",
+      "target_path": "fr/contact/index.html",
+      "target_sha256": "b71da5360d1be909da5a46275ffe85db9503f8e3c8da0c86a85844cd7db04b82",
+      "disposition": "retained-ai-reviewed",
+      "review_scope": "Changed English units and retained target copy reviewed; current markup/source facts preserved, no native approval."
+    }
+  ],
+  "limitations": [
+    "AI review only; no human/native acceptance",
+    "German/Spanish advisory drafts excluded",
+    "Layout and byte freshness do not establish language certification"
+  ]
+}

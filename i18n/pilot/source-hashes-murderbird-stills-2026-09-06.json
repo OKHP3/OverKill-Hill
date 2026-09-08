@@ -1,10 +1,10 @@
 {
-  "source_revision": "git:fbf3ac0a9f629216e9fefc98f400187d628944f4",
-  "review_scope": "Bounded Forge front-door content-wave claims, status, featured labels, selected-work insertion, and lossless picture source. Unchanged regional editorial units retained. Pair records under content-wave-2026-09-08 preserve AI review and no human/native approval. About/contact normalized source hashes unchanged.",
+  "source_revision": "git:eea06d01af978d37cb59113a2aac43ad82aa6a09",
+  "review_scope": "Option B presentation and compact hero adaptation; unchanged full source facts, archived copy and draft publication restrictions retained. No human/native approval.",
   "normalized_routes": {
-    "/": "ccfb487d9caaa47062a6af234a8c9afe0fdfebd26394cf6e827c71a5f2454b83",
+    "/": "df5fd6d76273da8bd1badb7e7eba28dcdd8fec5f011a37b0e7cbd297b2479cce",
     "/about/": "5a42603e7a5704b3a4d2642f83b0dfaaa2f570790ae372f4589dc5e92106bdb0",
-    "/projects/": "d71f8d56b4a5a15e3a235183b271bb029a00b127d4afa7cd5b486e44ff9e94cb",
+    "/projects/": "fcd349bf885f88ee04be16d35aae4939253ce2f5607c289f4bd4bb2db951519b",
     "/contact/": "9e6c173e860df22ae121c9c2c0695dce5c034320e5ec8e302a65db8ec41517e0"
   },
   "fallback_metadata_update": "PNG fallback only; unchanged editorial text verified against d112ca4e by tests/test-murderbird-fallback-editorial.py; prior review limitations retained.",
@@ -21,5 +21,47 @@
     ],
     "scope": "Changed source units and structural changes reviewed; unchanged units retained. No human/native approval or publication promotion."
   },
-  "prior_source_revision": "2d7e92d23fcbe875c7421d4509109bffd22b0c48 plus isolated MurderBird still preview"
+  "prior_source_revision": "git:fbf3ac0a9f629216e9fefc98f400187d628944f4",
+  "option_b_review": {
+    "reviewed_on": "2026-09-08",
+    "status": "ai-reviewed-draft",
+    "records": [
+      {
+        "locale": "en-gb",
+        "route": "/",
+        "prior_target_sha256": "b92ed4118df23aef6e50e8909f389c674d633b06f0a83bdfc4168deb7f39f5fb",
+        "target_sha256": "4b6e24c28ed7db09f9a5444c129b17ebf0e26494b8eb6f2642cdfef0b7387ff4",
+        "scope": "Presentation adaptation and compact hero text; complete prior copy and source status retained in native disclosures",
+        "human_native_approved": false,
+        "release_accepted": false
+      },
+      {
+        "locale": "en-gb",
+        "route": "/projects/",
+        "prior_target_sha256": "69fcfb2f3ff254934b19955a6867583f99a1822de81ababe4d677511eb51452e",
+        "target_sha256": "52cfa7cb28b77bebbf052f2053cc189f465ed0a864e305f5ee3fdf2705855490",
+        "scope": "Presentation adaptation and compact hero text; complete prior copy and source status retained in native disclosures",
+        "human_native_approved": false,
+        "release_accepted": false
+      },
+      {
+        "locale": "es-mx",
+        "route": "/",
+        "prior_target_sha256": "238d2c86cd579adb8e63da8a47d5166084f023533868ec240c7957ac6cec78e3",
+        "target_sha256": "b46da427213ba6cab4c25630eaed601be50e849bd2021563f4cf22282c550d61",
+        "scope": "Presentation adaptation and compact hero text; complete prior copy and source status retained in native disclosures",
+        "human_native_approved": false,
+        "release_accepted": false
+      },
+      {
+        "locale": "es-mx",
+        "route": "/projects/",
+        "prior_target_sha256": "974c8ae0f8898806459b062900a1b924600a795eb35f11c60d13db16e8cc7536",
+        "target_sha256": "c963f34a74bd17d2fe8d95274090c6b1f830fbd25274db7c88d09d9c12cc4c90",
+        "scope": "Presentation adaptation and compact hero text; complete prior copy and source status retained in native disclosures",
+        "human_native_approved": false,
+        "release_accepted": false
+      }
+    ]
+  }
 }

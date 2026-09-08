@@ -1,0 +1,48 @@
+[
+  {
+    "width": 390,
+    "route": "/",
+    "disclosures": 5,
+    "overflow": false,
+    "keyboard": true
+  },
+  {
+    "width": 390,
+    "route": "/projects/",
+    "disclosures": 16,
+    "overflow": false,
+    "keyboard": true
+  },
+  {
+    "width": 390,
+    "route": "/projects/skillz/",
+    "disclosures": 1,
+    "overflow": false,
+    "keyboard": true
+  },
+  {
+    "width": 1280,
+    "route": "/",
+    "disclosures": 5,
+    "overflow": false,
+    "keyboard": true
+  },
+  {
+    "width": 1280,
+    "route": "/projects/",
+    "disclosures": 16,
+    "overflow": false,
+    "keyboard": true
+  },
+  {
+    "width": 1280,
+    "route": "/projects/skillz/",
+    "disclosures": 1,
+    "overflow": false,
+    "keyboard": true
+  },
+  {
+    "mode": "no-js",
+    "nativeDisclosure": true
+  }
+]
