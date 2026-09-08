@@ -1,0 +1,55 @@
+{
+  "commit": "f4a353c323fc1caa848e03f6f0aa1ea1e520210c",
+  "checks": [
+    {
+      "route": "/",
+      "exact_hosted_bytes": true,
+      "sha256": "e32cb67d1c1b4527f60c8eae485fc142ebb94936ba6610d875145ea8565437fa"
+    },
+    {
+      "route": "/projects/",
+      "exact_hosted_bytes": true,
+      "sha256": "15172405227fdf0b9a296d4d8f945ee54d7c14716ad89eea070d0c2e731f0d68"
+    },
+    {
+      "route": "/writings/",
+      "exact_hosted_bytes": true,
+      "sha256": "db80b060def8dafdfb9b8eab9bc04b52151007f1d5b77befd56d537d7dffc2ff"
+    },
+    {
+      "route": "/vault/",
+      "exact_hosted_bytes": true,
+      "sha256": "18d358881a6bd3ec9cda5c437aeeaf668279738ae9ac32a343698c19a81877c4"
+    },
+    {
+      "route": "/fr/",
+      "exact_hosted_bytes": true,
+      "sha256": "cf4f587a6ef62533e3678354376b32c37625d71747b742fe124a2e4ac0c21549"
+    },
+    {
+      "route": "/fr/projects/",
+      "exact_hosted_bytes": true,
+      "sha256": "f4b928c55bebd31648abcc85b3cdeac261c0aa0decd3e4f291e81f63d94957af"
+    },
+    {
+      "route": "/en-gb/",
+      "exact_hosted_bytes": true,
+      "sha256": "501de4fcb722d8b1a091a2c43a21b065fc5c31400c472d8af9184ef16c8b77f7"
+    },
+    {
+      "route": "/en-gb/projects/",
+      "exact_hosted_bytes": true,
+      "sha256": "527f10c36030a533cd2a568bed3de58892bf009fdf4897869d01b6ee276e8a6f"
+    },
+    {
+      "route": "/es-mx/",
+      "exact_hosted_bytes": true,
+      "sha256": "e5e7d59326f1f9f25c47de70737a6f857889e73b45e277613556ded2b1da2aac"
+    },
+    {
+      "route": "/es-mx/projects/",
+      "exact_hosted_bytes": true,
+      "sha256": "a9a5b07e196153e5c54ac73d71b76e75fb8e86ddabd22ccf6e3fae24afe4da97"
+    }
+  ]
+}
