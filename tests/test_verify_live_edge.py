@@ -4,11 +4,17 @@
 from __future__ import annotations
 
 import importlib.util
+import hashlib
+import io
+import json
 import shlex
+import sys
 import subprocess
 import tempfile
 import unittest
+from contextlib import redirect_stdout
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -22,6 +28,155 @@ spec.loader.exec_module(verify_live_edge)
 
 
 class VerifyLiveEdgeTests(unittest.TestCase):
+    def run_live_edge_fixture(
+        self,
+        *,
+        expected_commit: str | None = None,
+        manifest_commit: str = "a" * 40,
+        hosting_headers: dict[str, str] | None = None,
+    ) -> tuple[int, dict[str, object]]:
+        """Run the full verifier against deterministic synthetic edge responses."""
+        sitemap = verify_live_edge.canonical_text_bytes(verify_live_edge.SITEMAP)
+        search_index = verify_live_edge.canonical_text_bytes(verify_live_edge.SEARCH_INDEX)
+        manifest = json.dumps(
+            {
+                "commit": manifest_commit,
+                "artifacts": {
+                    "/sitemap.xml": {"sha256": hashlib.sha256(sitemap).hexdigest()},
+                    "/assets/data/search-index.json": {
+                        "sha256": hashlib.sha256(search_index).hexdigest()
+                    },
+                },
+            }
+        ).encode("utf-8")
+        html_headers = {
+            "content-type": "text/html; charset=utf-8",
+            "cache-control": "max-age=600",
+            "server": "GitHub.com",
+            "x-github-edge-region": "iad",
+            "x-github-request-id": "fixture-request",
+            "x-fastly-request-id": "fixture-fastly",
+        }
+        html_headers.update(hosting_headers or {})
+        html = (
+            '<!doctype html><meta name="robots" content="{robots}">'
+            '<link href="/assets/css/theme.css?v=f0de78d0" rel="stylesheet">'
+        )
+        responses = {
+            verify_live_edge.RELEASE_MANIFEST: {
+                "ok": True,
+                "status": 200,
+                "headers": {},
+                "body": manifest,
+            },
+            "/sitemap.xml": {
+                "ok": True,
+                "status": 200,
+                "headers": {"content-type": "application/xml", "cache-control": "max-age=600"},
+                "body": sitemap,
+            },
+            "/assets/data/search-index.json": {
+                "ok": True,
+                "status": 200,
+                "headers": {
+                    "content-type": "application/json",
+                    "cache-control": "max-age=300",
+                },
+                "body": search_index,
+            },
+            "/": {
+                "ok": True,
+                "status": 200,
+                "headers": html_headers,
+                "body": html.format(robots="index, follow").encode("utf-8"),
+            },
+            "/404.html": {
+                "ok": True,
+                "status": 200,
+                "headers": html_headers,
+                "body": html.format(robots="noindex").encode("utf-8"),
+            },
+            "/found-ry/": {
+                "ok": True,
+                "status": 200,
+                "headers": html_headers,
+                "body": html.format(robots="noindex").encode("utf-8"),
+            },
+            "/assets/css/theme.css?v=f0de78d0": {
+                "ok": True,
+                "status": 200,
+                "headers": {
+                    "content-type": "text/css",
+                    "cache-control": "max-age=31536000, immutable",
+                },
+                "body": (ROOT / "assets/css/theme.css").read_bytes(),
+            },
+        }
+
+        def fixture_fetch(_base: str, path: str, _timeout: float) -> dict[str, object]:
+            try:
+                return responses[path]
+            except KeyError as exc:
+                raise AssertionError(f"fixture did not define a response for {path}") from exc
+
+        argv = [
+            "verify-live-edge.py",
+            "--base",
+            "https://fixture.example",
+            "--hosting",
+            "github-pages",
+            "--accept-blocked",
+        ]
+        if expected_commit:
+            argv.extend(["--expected-commit", expected_commit])
+        with tempfile.TemporaryDirectory(prefix="live-edge-fixture-") as directory:
+            report_path = Path(directory) / "report.json"
+            argv.extend(["--report", str(report_path)])
+            output = io.StringIO()
+            with (
+                patch.object(verify_live_edge, "fetch", side_effect=fixture_fetch),
+                patch.object(verify_live_edge, "load_routes", return_value=(["/"], None)),
+                patch.object(sys, "argv", argv),
+                redirect_stdout(output),
+            ):
+                return_code = verify_live_edge.main()
+            return return_code, json.loads(report_path.read_text(encoding="utf-8"))
+
+    def test_direct_github_pages_limitations_are_partial_not_failures(self) -> None:
+        return_code, report = self.run_live_edge_fixture()
+
+        self.assertEqual(return_code, 0)
+        self.assertEqual(report["status"], "PARTIAL")
+        self.assertEqual(report["summary"]["failures"], 0)
+        self.assertGreater(report["summary"]["blocked"], 0)
+        checks = {item["check"]: item for item in report["checks"]}
+        self.assertEqual(checks["hosting path"]["status"], "PASS")
+        self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
+
+    def test_mismatched_release_manifest_fails_despite_pages_limitations(self) -> None:
+        return_code, report = self.run_live_edge_fixture(
+            expected_commit="b" * 40,
+            manifest_commit="c" * 40,
+        )
+
+        self.assertEqual(return_code, 1)
+        self.assertEqual(report["status"], "FAILED")
+        self.assertGreater(report["summary"]["failures"], 0)
+        checks = {item["check"]: item for item in report["checks"]}
+        self.assertEqual(checks["release manifest"]["status"], "FAIL")
+        self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
+
+    def test_changed_hosting_path_fails_despite_pages_limitations(self) -> None:
+        return_code, report = self.run_live_edge_fixture(
+            hosting_headers={"server": "cloudflare", "cf-ray": "fixture-ray"}
+        )
+
+        self.assertEqual(return_code, 1)
+        self.assertEqual(report["status"], "FAILED")
+        checks = {item["check"]: item for item in report["checks"]}
+        self.assertEqual(checks["hosting path"]["status"], "FAIL")
+        self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
+
     def test_github_pages_missing_headers_are_explicit_warnings(self) -> None:
         report: list[dict[str, object]] = []
         response = {
