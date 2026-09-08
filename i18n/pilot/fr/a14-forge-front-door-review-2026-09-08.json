@@ -1,0 +1,46 @@
+{
+  "language_pair": "en-US -> fr-FR",
+  "skill": "okhp3-translation-en-us-fr-fr@1.1.0",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "reviewed_on": "2026-09-08",
+  "source_revision": "git:e393b4da23683c397c3a4c363ecfed85879b8c16",
+  "review_scope": "Bounded review of the A14 Forge front door changes on the three blocking published routes. French CTA and shortcut additions retain the existing plainspoken voice. The condensed French project page retains its previously reviewed omission of the new English selected-work block; no parity claim is made for that omitted section.",
+  "routes": [
+    {
+      "route": "/",
+      "locale": "fr",
+      "source_path": "index.html",
+      "source_sha256": "8bb61561ec1c0ba620b2df38c4223ef60bafc8fe467426b617030159eee9b1d7",
+      "target_path": "fr/index.html",
+      "target_sha256": "0da78194aa78f2e5b54c0dc8636d67d4306573b0e3149fe50d8eb510eddfec67",
+      "disposition": "retained-ai-reviewed",
+      "review_scope": "Reviewed the French task-oriented hero actions and retained the existing French orientation, status, artwork, and condensed-page boundaries."
+    },
+    {
+      "route": "/contact/",
+      "locale": "fr",
+      "source_path": "contact/index.html",
+      "source_sha256": "07a973210636d00960a9c4e1bca908e3e0eed99ebdc72d8106d1ce0bbe6ac743",
+      "target_path": "fr/contact/index.html",
+      "target_sha256": "52dc8e1ba97378603aea9bce53c9f174c8d52a9817499e684ca9307310be211b",
+      "disposition": "retained-ai-reviewed",
+      "review_scope": "Reviewed the French email CTA and contact/support shortcuts against the existing translated contact body and anchors."
+    },
+    {
+      "route": "/projects/",
+      "locale": "fr",
+      "source_path": "projects/index.html",
+      "source_sha256": "b371570f852b850d6736b7af0b0b740da29dfba4e8c3357ff0bbc1fed5c00dc7",
+      "target_path": "fr/projects/index.html",
+      "target_sha256": "f4b928c55bebd31648abcc85b3cdeac261c0aa0decd3e4f291e81f63d94957af",
+      "disposition": "retained-ai-reviewed",
+      "review_scope": "Reviewed the English selected-work insertion as outside the existing condensed French shelf scope; retained the existing French project shelf without adding untranslated cards."
+    }
+  ],
+  "limitations": [
+    "No human or native-language approval is claimed.",
+    "German and Spanish remain advisory draft locales and are outside this adoption record.",
+    "Freshness adoption does not claim publication, runtime delivery, or complete locale parity."
+  ]
+}
