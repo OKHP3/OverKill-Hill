@@ -59,6 +59,11 @@ the current validation or release pipeline: `apply-modern-baseline.py`,
 `responsive-audit.py`, `sync-portfolio-stats.py`, `update-card-srcsets.py`,
 `update-image-refs.py`, and `update-placeholder-dimensions.py`.
 
+The locale drift detector that owns the translation operating guide lives in
+`.agents/skills/okhp3-i18n-page-sync/scripts/i18n-page-sync.py`. It is a
+skill-owned helper, not a top-level pipeline script, and its current interface
+is `--mode report`, `--mode check`, and `--mode adopt`.
+
 The following scripts are **retired**. They are preserved for history only
 and must not be run against overkill-hill: `activate-icons.py`,
 `add-toolbox-to-footer.py`, `convert-gpt-icons-webp.py`,
