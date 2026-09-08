@@ -3778,6 +3778,20 @@ body:not(.glee-main):not(.askjamie-main) h3 {
 }
 
 /* For Home hero title (“Precision · Protocol · Promptcraft”) */
+/* A14 Option B: editorial project cards keep context visible while one clear
+   action carries each card forward. */
+.home-selected-work .project-card {
+  border-top: 3px solid var(--okh-orange);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.home-selected-work .project-card > p:last-child { margin-top: auto; }
+.home-selected-work .project-card .btn-primary { display: inline-flex; }
+@media (max-width: 600px) {
+  .home-selected-work .grid { grid-template-columns: 1fr; }
+  .home-selected-work .project-card { min-height: 0; }
+}
 body:not(.glee-main):not(.askjamie-main) .hero h1 {
   font-size: clamp(2.4rem, 3.6vw, 3.0rem);  /* Slightly smaller for readability */
   letter-spacing: 0.08em;     /* Further breathing room between letters */
