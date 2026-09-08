@@ -58,6 +58,12 @@ async function runContext(label, options = {}) {
   check(`${label}: French Contact block`, frContact.includes('Qu’essayez-vous de démêler') && frContact.includes('contact@overkillhill.com'));
   check(`${label}: French mailto unchanged`, await page.locator('a[href^="mailto:"]').first().getAttribute('href') === 'mailto:contact@overkillhill.com');
   check(`${label}: French heading visible`, await page.getByRole('heading', { name: /Qu’essayez-vous de démêler/ }).isVisible());
+  for (const [locale, heading] of [['en-gb', 'What are you trying to untangle?'], ['es-mx', '¿Qué estás tratando de desenredar?']]) {
+    await page.goto(`${base}/${locale}/contact/`, { waitUntil: 'domcontentloaded' });
+    check(`${label}: ${locale} heading visible`, await page.getByRole('heading', { name: heading, exact: true }).isVisible());
+    check(`${label}: ${locale} remains noindex`, (await page.locator('meta[name="robots"]').getAttribute('content')).includes('noindex'));
+    check(`${label}: ${locale} no horizontal overflow`, await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1));
+  }
   if (options.blockApp) check(`${label}: script requests actually blocked`, blockedRequests >= 3);
   await context.close();
 }
