@@ -52,3 +52,19 @@ Retired worker Git refs and the known missing A05/A10 raw outputs are recorded
 in the wave-one closeout. Independent A21 evidence is preserved. This checkpoint
 does not mark content, presentation, translation, human/device or full-program
 work complete.
+
+### Content-only freeze clarification
+
+The architect confirmed the A14 choice does not block independently authorized
+content corrections. The existing production presentation stays in use; neither
+optional disclosure nor A/B proposal is activated. Freeze the combined English
+content for bounded locale review, then validate this content-only wave. Any
+later selected redesign will have its own source and locale review.
+
+Standalone A11 fixture correction `0a866b6c` is integrated. Independent browser
+execution now passes all 32 route/viewport cases: public response bytes match
+the candidate, status/source/date match the local registry, private registry
+returns 404, and existing visibility/overflow assertions pass. Four independent
+image parity checks pass with exact geometry and at most 1/255 channel rounding.
+This supersedes the earlier fixture and layout-choice blocking statements;
+actual French/regional reconciliation remains required.
