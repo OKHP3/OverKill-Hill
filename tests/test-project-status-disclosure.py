@@ -57,6 +57,12 @@ class DisclosureTests(unittest.TestCase):
         self.assertIsNone(soup.find('a', string='Inspect project').find_parent('details'))
         self.assertEqual(output, API['render'](output, '/projects/', RECORDS, disclosure=True))
 
+    def test_source_marker_preserves_native_disclosure_on_regeneration(self):
+        source = '<section data-status-presentation="disclosure"><h1>Project</h1><p>Original description.</p></section>'
+        output = API['render'](source, RECORDS[0]['route'], RECORDS)
+        self.assertIn('<details>', output)
+        self.assertEqual(output, API['render'](output, RECORDS[0]['route'], RECORDS))
+
 
 if __name__ == '__main__':
     unittest.main()

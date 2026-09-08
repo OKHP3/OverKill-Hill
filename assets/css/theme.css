@@ -7980,3 +7980,11 @@ section[data-status-presentation="disclosure"] .project-card { border-top: 2px s
   .a14-editorial-hero h1 { font-size: 1.9rem; }
   .home-selected-work { padding-left: 16px; padding-right: 16px; }
 }
+
+.a14-editorial-hero { min-height: 0; }
+.a14-editorial-hero .hero-inner { padding-top: 2rem; padding-bottom: 2rem; }
+@media (max-width: 600px) {
+ body:not(.glee-main):not(.askjamie-main) .a14-editorial-hero h1 { font-size: 1.9rem; }
+ .a14-editorial-hero .hero-inner { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+ .a14-editorial-hero .hero-grid { gap: .75rem; }
+}
