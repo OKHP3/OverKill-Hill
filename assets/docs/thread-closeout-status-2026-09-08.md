@@ -1,8 +1,8 @@
 # Thread closeout status
 
 September 8, 2026. Status: **INCOMPLETE for the broader website queue**.
-The original 26 coop-pertition deliverables are complete. PR75 and PR76 are
-merged on current `origin/main` at `bd6ceacc2ab1238020216ad010c485ad9e3e94b9`.
+The original 26 coop-pertition deliverables are complete. PR75 and PR76 have
+been merged into current `origin/main` at `bd6ceacc2ab1238020216ad010c485ad9e3e94b9`.
 This ledger separates that verified batch from the older website work
 referenced during its audit.
 
@@ -40,11 +40,11 @@ restore old runtime or translation bytes to match them.
 | A15 | Reader/contact proposal preserved through PR75 integration without adoption | Keep the proposal artifact and dated evidence; applying new content still needs source review |
 | A17 | Implementation delivered; hosted evidence PR68 merged at `b200c034` | Retain the dated evidence and superseded local variant |
 | A19/T05/W13 | Hosting, locale-policy and analytics proposal packages remain outside main | Preserve original artifacts and dated evidence without adopting policy or changing settings |
-| T02 | Reviewed-target integrity candidate is not incorporated | Port verified safeguards and negative tests to current main |
-| T03 | Translation package discovery candidate is not incorporated | Execute existing hyphenated test files and reject missing/zero-test suites |
-| T04 | Operating instructions candidate is not incorporated | Reconcile instructions with actual current and final T02/T03 interfaces |
-| T06 | Regional generator safeguards candidate is not incorporated | Preserve reviewed input and protected copy while adding focused regression coverage |
-| A20/A21 | Published acceptance exists; older Mac evidence and partial integration remain | Complete current-SHA acceptance mapping, preservation ledger and lifecycle cleanup |
+| T02 | Reviewed-target integrity safeguards incorporated through PR75 at `95230cf2` | Retain the closeout evidence; current-SHA and hosted acceptance remain separate gates |
+| T03 | Translation package discovery safeguards incorporated through PR75 at `95230cf2` | Retain the closeout evidence; current-SHA and hosted acceptance remain separate gates |
+| T04 | Translation operating documentation incorporated through PR75 at `95230cf2` | Retain the closeout evidence; current-SHA and hosted acceptance remain separate gates |
+| T06 | Regional generator safeguards incorporated through PR75 at `95230cf2` | Retain the closeout evidence; current-SHA and hosted acceptance remain separate gates |
+| A20/A21 | Published acceptance exists; current-SHA mapping, native/device validation and Replit parity remain open | Complete the acceptance mapping and preserve the evidence boundaries before lifecycle cleanup |
 
 PRs: [62](https://github.com/OKHP3/OverKill-Hill/pull/62),
 [65](https://github.com/OKHP3/OverKill-Hill/pull/65),
@@ -57,22 +57,23 @@ PRs: [62](https://github.com/OKHP3/OverKill-Hill/pull/62),
 ### Integration checkpoint
 
 PR74 is merged at `250f5f12`; owner main fast-forwarded to it cleanly, preserving
-the earlier local `11895417` commit. PR75 and PR76 are now merged on current
-main. The isolated integration candidate combines reviewed PR66, PR67 and PR69-73
-through ordinary branch merges. Their commits remain reachable; candidate
-inclusion is not a claim that the PRs have reached main. PR75 preserves the
-A15 proposal artifact and PR76 adopts the A14 Forge front door layout. T05/W13/A19
-preserve the original dated policy packages without adopting settings or
-publication changes.
+the earlier local `11895417` commit. PR75 and PR76 have now been merged into
+current main. PR75 incorporates the reviewed T02, T03, T04 and T06 safeguards
+and preserves the A15 proposal artifact; PR76 adopts the A14 Forge front door
+layout. The isolated integration candidate also combines reviewed PR66, PR67 and
+PR69-73 through ordinary branch merges, but candidate inclusion is not a claim
+that every proposal package was adopted. T05/W13/A19 preserve the original dated
+policy packages without adopting settings or publication changes.
 
 Combined local validation passes: 59 translation skill tests, eight discovery
 regressions, 18 reviewed-target integrity regressions, four regional-generator
 regressions and five staging-header proposal tests. Generated HTML and search
 index freshness checks pass using the existing QA virtual environment. German
 and Spanish draft drift remains advisory under the current policy; no review
-hashes were adopted to hide it. Hosted checks and main integration remain
-required. A shared CI comparison-checkout exclusion and a stale legacy status
-fixture are being repaired as bounded integration dependencies.
+hashes were adopted to hide it. Hosted checks, current-SHA acceptance, and
+native/device validation remain separate open gates. A shared CI
+comparison-checkout exclusion and a stale legacy status fixture are being
+repaired as bounded integration dependencies.
 
 Five separate Codex tasks were created with requested model `gpt-5.4-mini` and
 low effort. Actual thread IDs and worktrees below were read back after setup.
