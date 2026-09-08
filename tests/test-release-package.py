@@ -33,6 +33,12 @@ def accepted_murderbird_media() -> list[str]:
 
 
 class ReleasePackageTests(unittest.TestCase):
+    def test_pages_upload_preserves_allowlisted_public_dotfiles(self) -> None:
+        pages = (ROOT / ".github/workflows/pages.yml").read_text(encoding="utf-8")
+        upload = pages.split("- name: Upload site artifact\n", 1)[1].split("\n      - name:", 1)[0]
+        self.assertIn("path: site-release", upload)
+        self.assertIn("include-hidden-files: true", upload)
+
     def test_retry_artifact_identity_follows_the_successful_producer(self) -> None:
         validation = (ROOT / ".github/workflows/validate.yml").read_text(encoding="utf-8")
         pages = (ROOT / ".github/workflows/pages.yml").read_text(encoding="utf-8")
