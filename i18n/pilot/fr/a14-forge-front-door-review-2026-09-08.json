@@ -3,27 +3,37 @@
   "skill": "okhp3-translation-en-us-fr-fr@1.1.0",
   "review_status": "ai-reviewed",
   "native_or_human_approval": false,
-  "reviewed_on": "2026-09-08",
-  "source_revision": "git:e393b4da23683c397c3a4c363ecfed85879b8c16",
-  "review_scope": "Bounded review of the A14 Forge front door changes on the three blocking published routes. French CTA and shortcut additions retain the existing plainspoken voice. The condensed French project page retains its previously reviewed omission of the new English selected-work block; no parity claim is made for that omitted section.",
+  "reviewed_on": "2026-09-09",
+  "source_revision": "git:a588c76976368c53aa7b5a50c2598ad0b69dc807",
+  "review_scope": "Bounded AI review of the A14 Forge front door changes and generated cache-bust refresh on all four blocking published routes. French CTA and shortcut additions retain the existing plainspoken voice. The condensed French project page retains its previously reviewed omission of the new English selected-work block; no parity claim is made for that omitted section.",
   "routes": [
     {
       "route": "/",
       "locale": "fr",
       "source_path": "index.html",
-      "source_sha256": "8bb61561ec1c0ba620b2df38c4223ef60bafc8fe467426b617030159eee9b1d7",
+      "source_sha256": "112c43b647a4c66da58b4cf12d2de12bcc476a2ef6b7afa743a28e84a762f228",
       "target_path": "fr/index.html",
-      "target_sha256": "0da78194aa78f2e5b54c0dc8636d67d4306573b0e3149fe50d8eb510eddfec67",
+      "target_sha256": "d936f2b0c7029e0a087d369d287d9f51e6b202dfd3b3619b0aea376d835def5d",
       "disposition": "retained-ai-reviewed",
       "review_scope": "Reviewed the French task-oriented hero actions and retained the existing French orientation, status, artwork, and condensed-page boundaries."
+    },
+    {
+      "route": "/about/",
+      "locale": "fr",
+      "source_path": "about/index.html",
+      "source_sha256": "99928ea3f1ffe6d27c51b9fc19fe628008a14df984bcc5223f266fff1323c2ba",
+      "target_path": "fr/about/index.html",
+      "target_sha256": "c79e336849c3c019904993b4032d666e72c3bef6a211122a0ca83a0703432b39",
+      "disposition": "retained-ai-reviewed",
+      "review_scope": "Reviewed the generated cache-bust refresh against the unchanged French About content; no new translation claim is made."
     },
     {
       "route": "/contact/",
       "locale": "fr",
       "source_path": "contact/index.html",
-      "source_sha256": "07a973210636d00960a9c4e1bca908e3e0eed99ebdc72d8106d1ce0bbe6ac743",
+      "source_sha256": "4986d238298f859eb02ed49e5ce9ad3cd56b9d95b277f3691e4663715404a126",
       "target_path": "fr/contact/index.html",
-      "target_sha256": "52dc8e1ba97378603aea9bce53c9f174c8d52a9817499e684ca9307310be211b",
+      "target_sha256": "b6b20ce10066cbb0f01b2db73fbb1b0822a1dd1e1fe93b50b9c156c99d07f846",
       "disposition": "retained-ai-reviewed",
       "review_scope": "Reviewed the French email CTA and contact/support shortcuts against the existing translated contact body and anchors."
     },
@@ -31,9 +41,9 @@
       "route": "/projects/",
       "locale": "fr",
       "source_path": "projects/index.html",
-      "source_sha256": "b371570f852b850d6736b7af0b0b740da29dfba4e8c3357ff0bbc1fed5c00dc7",
+      "source_sha256": "afd2f14d5fa9281798f7136104ad0b64cccde6742dbecfb7d840e3e27d7d99b4",
       "target_path": "fr/projects/index.html",
-      "target_sha256": "f4b928c55bebd31648abcc85b3cdeac261c0aa0decd3e4f291e81f63d94957af",
+      "target_sha256": "ef5ce1bf18f34b84683e00206a53096d3fc4b490770a0151eb4c58c74ac0fa99",
       "disposition": "retained-ai-reviewed",
       "review_scope": "Reviewed the English selected-work insertion as outside the existing condensed French shelf scope; retained the existing French project shelf without adding untranslated cards."
     }
