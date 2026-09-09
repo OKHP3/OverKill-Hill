@@ -1,8 +1,9 @@
 # Thread closeout status
 
-September 8, 2026. Status: **INCOMPLETE for the broader website queue**.
-The original 26 coop-pertition deliverables are complete. PR75 and PR76 have
-been merged into current `origin/main` at `bd6ceacc2ab1238020216ad010c485ad9e3e94b9`.
+September 9, 2026. Status: **INCOMPLETE for the broader website queue; A14/A15
+implementation closeout is complete within its scoped automated acceptance**.
+The original 26 coop-pertition deliverables are complete. PR75, PR76, PR81,
+PR86 and PR77 have been merged into current `origin/main` at `99ba45f2`.
 This ledger separates that verified batch from the older website work
 referenced during its audit.
 
@@ -28,7 +29,7 @@ artifacts. They do not imply every proposed feature or policy was adopted.
 ## Earlier website queue
 
 Baseline for this reconciliation: website `origin/main`
-`bd6ceacc2ab1238020216ad010c485ad9e3e94b9`. Prior reports at `c2d23f08`
+`99ba45f2559c3a128ed35e1397a3a5049b09bf25`. Prior reports at `c2d23f08`
 and `f4a353c323fc1caa848e03f6f0aa1ea1e520210c` are historical. Do not
 restore old runtime or translation bytes to match them.
 
@@ -36,8 +37,8 @@ restore old runtime or translation bytes to match them.
 | --- | --- | --- |
 | A03/A04/A05/A07/A08/A09/A10/A18 and T01 | First-wave work incorporated in PR62, including superseding implementations | A21 compares and preserves remaining local variants before cleanup |
 | A06/A11/A12/A13/A16 | Content wave incorporated in PR65 | Reconcile residual local work against the published implementation; do not merge entire old branches |
-| A14 | Option A Forge front door layout implemented in PR76 at `bd6ceacc2ab1238020216ad010c485ad9e3e94b9` | Preserve Option A as current production; Option B editorial dimensional cards are authorized and pending implementation, release, and acceptance |
-| A15 | Reader/contact proposal preserved through PR75 integration without adoption | Keep the proposal artifact and dated evidence; applying new content still needs source review |
+| A14 | Owner-selected Option B editorial dimensional cards implemented and independently reviewed through PR81 | Scoped automated acceptance is recorded; human/device, hosted/live and full-program acceptance remain separate |
+| A15 | Reader/contact implementation merged through PR86 after the A14 selection | Scoped browser and source-preservation acceptance is recorded; human/device, hosted/live and native-language acceptance remain separate |
 | A17 | Implementation delivered; hosted evidence PR68 merged at `b200c034` | Retain the dated evidence and superseded local variant |
 | A19/T05/W13 | Proposal artifacts preserved through PR75 without policy, hosting, analytics, or locale-publication adoption | Preserve the dated evidence and require a fresh owner decision before any future adoption |
 | T02 | Reviewed-target integrity safeguards incorporated through PR75 at `95230cf2` | Retain the closeout evidence; current-SHA and hosted acceptance remain separate gates |
@@ -57,15 +58,14 @@ PRs: [62](https://github.com/OKHP3/OverKill-Hill/pull/62),
 ### Integration checkpoint
 
 PR74 is merged at `250f5f12`; owner main fast-forwarded to it cleanly, preserving
-the earlier local `11895417` commit. PR75 and PR76 have now been merged into
-current main. PR75 incorporates the reviewed T02, T03, T04 and T06 safeguards
-and preserves the A15 proposal artifact; PR76 adopts the A14 Option A Forge front
-door layout. A14 Option B editorial dimensional cards are authorized for a
-future implementation and release, not yet current production. The isolated
-integration candidate also combines reviewed PR66, PR67 and PR69-73 through
-ordinary branch merges, but candidate inclusion is not a claim that every
-proposal package was adopted. T05/W13/A19 preserve the original dated policy
-packages without adopting settings or publication changes.
+the earlier local `11895417` commit. PR75, PR76, PR81, PR86 and PR77 have now
+been merged into current main. PR75 incorporates the reviewed T02, T03, T04 and
+T06 safeguards and preserves the A15 proposal artifact; PR81 implements the
+owner-selected A14 Option B; PR86 implements the A15 reader/contact additions
+after that selection. The isolated integration candidate also combines reviewed
+PR66, PR67 and PR69-73 through ordinary branch merges, but candidate inclusion
+is not a claim that every proposal package was adopted. T05/W13/A19 preserve the
+original dated policy packages without adopting settings or publication changes.
 
 Combined local validation passes: 59 translation skill tests, eight discovery
 regressions, 18 reviewed-target integrity regressions, four regional-generator
@@ -118,7 +118,9 @@ No response is treated as approval for a redesign or policy change.
 Do not archive the broader closeout effort as fully complete until accepted
 package PRs are merged, applicable CI and deployment evidence matches the final
 SHA, local main is reconciled, and completed workers are archived after their
-work and recovery material have been verified. Never remove dirty worktrees to
+work and recovery material have been verified. A14/A15 can be archived as
+implemented, scoped, and evidence-bounded work; they do not certify the
+remaining program-wide gates. Never remove dirty worktrees to
 make this ledger appear clear. A20 reports that actual screen-reader and physical-phone sessions from its
 original full acceptance criteria remain unperformed. Its owner must provide
 the minimal protocol and retain that gate until real execution evidence exists.
