@@ -1,8 +1,8 @@
 {
   "generated": "2026-09-09",
-  "pages_scanned": 60,
-  "internal_links": 2388,
-  "external_links": 1492,
+  "pages_scanned": 56,
+  "internal_links": 2280,
+  "external_links": 1432,
   "broken_links": [],
   "style_issues": [],
   "sitemap": {
@@ -93,11 +93,6 @@
       {
         "page": "found-ry/index.html",
         "url": "https://overkillhill.com/found-ry/",
-        "reason": "robots meta declares noindex"
-      },
-      {
-        "page": "i18n/pilot/es-mx/reviewed/index.html",
-        "url": "https://overkillhill.com/i18n/pilot/es-mx/reviewed/",
         "reason": "robots meta declares noindex"
       },
       {
@@ -252,26 +247,6 @@
       "path": "fr/projects/index.html",
       "internal_links": 25,
       "external_links": 22
-    },
-    {
-      "path": "i18n/pilot/es-mx/reviewed/about-index.html",
-      "internal_links": 18,
-      "external_links": 6
-    },
-    {
-      "path": "i18n/pilot/es-mx/reviewed/contact-index.html",
-      "internal_links": 19,
-      "external_links": 7
-    },
-    {
-      "path": "i18n/pilot/es-mx/reviewed/index.html",
-      "internal_links": 37,
-      "external_links": 18
-    },
-    {
-      "path": "i18n/pilot/es-mx/reviewed/projects-index.html",
-      "internal_links": 34,
-      "external_links": 29
     },
     {
       "path": "index.html",
