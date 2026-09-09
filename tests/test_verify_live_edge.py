@@ -36,6 +36,7 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         hosting_headers: dict[str, str] | None = None,
         asset_fingerprint: str | None = None,
         include_asset_fingerprint: bool = True,
+        asset_kind: str = "css",
         asset_body: bytes | None = None,
     ) -> tuple[int, dict[str, object]]:
         """Run the full verifier against deterministic synthetic edge responses."""
@@ -61,13 +62,28 @@ class VerifyLiveEdgeTests(unittest.TestCase):
             "x-fastly-request-id": "fixture-fastly",
         }
         html_headers.update(hosting_headers or {})
-        css_bytes = verify_live_edge.canonical_text_bytes(ROOT / "assets/css/theme.css")
-        css_hash = asset_fingerprint or hashlib.sha256(css_bytes).hexdigest()[:8]
-        css_query = f"?v={css_hash}" if include_asset_fingerprint else ""
-        css_path = f"/assets/css/theme.css{css_query}"
+        asset_details = {
+            "css": {
+                "path": "/assets/css/theme.css",
+                "reference": '<link href="{url}" rel="stylesheet">',
+                "content_type": "text/css",
+            },
+            "js": {
+                "path": "/assets/js/app.js",
+                "reference": '<script src="{url}"></script>',
+                "content_type": "text/javascript",
+            },
+        }.get(asset_kind)
+        if asset_details is None:
+            raise ValueError(f"unsupported fixture asset kind: {asset_kind}")
+        asset_path = asset_details["path"]
+        asset_bytes = verify_live_edge.canonical_text_bytes(ROOT / asset_path.lstrip("/"))
+        asset_hash = asset_fingerprint or hashlib.sha256(asset_bytes).hexdigest()[:8]
+        asset_query = f"?v={asset_hash}" if include_asset_fingerprint else ""
+        asset_url = f"{asset_path}{asset_query}"
         html = (
             '<!doctype html><meta name="robots" content="{robots}">'
-            f'<link href="{css_path}" rel="stylesheet">'
+            f'{asset_details["reference"].format(url=asset_url)}'
         )
         responses = {
             verify_live_edge.RELEASE_MANIFEST: {
@@ -109,14 +125,14 @@ class VerifyLiveEdgeTests(unittest.TestCase):
                 "headers": html_headers,
                 "body": html.format(robots="noindex").encode("utf-8"),
             },
-            css_path: {
+            asset_url: {
                 "ok": True,
                 "status": 200,
                 "headers": {
-                    "content-type": "text/css",
+                    "content-type": asset_details["content_type"],
                     "cache-control": "max-age=31536000, immutable",
                 },
-                "body": asset_body if asset_body is not None else css_bytes,
+                "body": asset_body if asset_body is not None else asset_bytes,
             },
         }
 
@@ -206,6 +222,21 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         self.assertEqual(report["status"], "FAILED")
         checks = {item["check"]: item for item in report["checks"]}
         asset_check = checks["asset /assets/css/theme.css"]
+        self.assertEqual(asset_check["status"], "FAIL")
+        self.assertIn("!= live", asset_check["evidence"])
+        self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
+
+    def test_changed_javascript_asset_response_fails_despite_pages_limitations(self) -> None:
+        js_bytes = verify_live_edge.canonical_text_bytes(ROOT / "assets/js/app.js")
+        return_code, report = self.run_live_edge_fixture(
+            asset_kind="js",
+            asset_body=js_bytes + b"\n// stale live asset\n",
+        )
+
+        self.assertEqual(return_code, 1)
+        self.assertEqual(report["status"], "FAILED")
+        checks = {item["check"]: item for item in report["checks"]}
+        asset_check = checks["asset /assets/js/app.js"]
         self.assertEqual(asset_check["status"], "FAIL")
         self.assertIn("!= live", asset_check["evidence"])
         self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
