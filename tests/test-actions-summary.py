@@ -1,4 +1,6 @@
 """Regression coverage for operator summaries, including mixed failures."""
+import copy
+import importlib.util
 import json
 from pathlib import Path
 import subprocess
@@ -8,11 +10,39 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / 'scripts/write-actions-summary.py'
+FIXTURE_DIRECTORY = ROOT / 'tests/fixtures/actions-summary'
+VERIFY_SPEC = importlib.util.spec_from_file_location(
+    'verify_live_edge', ROOT / 'scripts/verify-live-edge.py'
+)
+if VERIFY_SPEC is None or VERIFY_SPEC.loader is None:
+    raise RuntimeError('could not load scripts/verify-live-edge.py')
+VERIFY = importlib.util.module_from_spec(VERIFY_SPEC)
+VERIFY_SPEC.loader.exec_module(VERIFY)
 
 
 class SummaryTests(unittest.TestCase):
     def load_fixture(self, name):
-        return json.loads((ROOT / 'tests/fixtures/actions-summary' / name).read_text())
+        return json.loads((FIXTURE_DIRECTORY / name).read_text(encoding='utf-8'))
+
+    def test_committed_live_edge_fixtures_match_verifier_report_shape(self):
+        fixtures = sorted(FIXTURE_DIRECTORY.glob('live-edge-*.json'))
+        self.assertTrue(fixtures, 'expected at least one live-edge summary fixture')
+        for fixture in fixtures:
+            with self.subTest(fixture=fixture.name):
+                try:
+                    VERIFY.validate_report_shape(self.load_fixture(fixture.name))
+                except ValueError as exc:
+                    self.fail(f'{fixture.name} is not a live-edge report: {exc}')
+
+    def test_malformed_live_edge_fixture_has_a_clear_shape_error(self):
+        report = self.load_fixture('live-edge-failure.json')
+        malformed = copy.deepcopy(report)
+        del malformed['checks'][0]['evidence']
+
+        with self.assertRaisesRegex(
+            ValueError, r'checks\[0\] is missing required field\(s\): evidence'
+        ):
+            VERIFY.validate_report_shape(malformed)
 
     def run_summary(self, report, kind='edge'):
         with tempfile.TemporaryDirectory() as directory:

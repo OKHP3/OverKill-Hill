@@ -2,6 +2,7 @@
   "verifier": "verify-live-edge.py",
   "run_at": "2026-09-08T00:00:00+00:00",
   "base": "https://fixture.example",
+  "timeout_seconds": 10.0,
   "hosting": "github-pages",
   "expected_commit": null,
   "status": "PARTIAL",
