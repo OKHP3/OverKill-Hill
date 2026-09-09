@@ -88,6 +88,7 @@ jobs:
 
       - name: Upload live-edge release evidence
         if: always()
+        id: upload-live-edge-report
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: live-edge-report-${{ github.run_id }}-${{ github.run_attempt }}
@@ -97,4 +98,4 @@ jobs:
 
       - name: Summarize content delivery and edge policy
         if: always()
-        run: python3 scripts/write-actions-summary.py --kind edge --report assets/audit/live-edge-report.json
+        run: python3 scripts/write-actions-summary.py --kind edge --report assets/audit/live-edge-report.json --artifact-url "${{ steps.upload-live-edge-report.outputs.artifact-url }}"

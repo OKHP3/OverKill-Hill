@@ -96,6 +96,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--kind', choices=('edge', 'external'), required=True)
     parser.add_argument('--report', type=Path, required=True)
+    parser.add_argument(
+        '--artifact-url',
+        default=os.environ.get('ACTIONS_ARTIFACT_URL', ''),
+        help='Direct URL for the uploaded report artifact',
+    )
     parser.add_argument('--summary', type=Path, default=os.environ.get('GITHUB_STEP_SUMMARY'))
     args = parser.parse_args()
     lines = ['## Site delivery evidence', '',
@@ -111,7 +116,11 @@ def main():
     except (OSError, ValueError) as exc:
         failed = True
         lines.append(row('Evidence', 'UNKNOWN', f'No usable {args.kind} report: {exc}'))
-    lines += ['', f'Full route evidence file: {cell(args.report.name)}. Check the upload step for artifact availability.', '']
+    if args.artifact_url:
+        evidence = f'[{cell(args.report.name)}]({cell(args.artifact_url)})'
+        lines += ['', f'Full route evidence artifact: {evidence}', '']
+    else:
+        lines += ['', f'Full route evidence file: {cell(args.report.name)}. Check the upload step for artifact availability.', '']
     rendered = '\n'.join(lines)
     if args.summary:
         with args.summary.open('a', encoding='utf-8') as output:

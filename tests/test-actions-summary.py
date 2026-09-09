@@ -44,13 +44,16 @@ class SummaryTests(unittest.TestCase):
         ):
             VERIFY.validate_report_shape(malformed)
 
-    def run_summary(self, report, kind='edge'):
+    def run_summary(self, report, kind='edge', artifact_url=None):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / 'report.json'
             output = Path(directory) / 'summary.md'
             source.write_text(json.dumps(report), encoding='utf-8')
-            result = subprocess.run([sys.executable, str(SCRIPT), '--kind', kind,
-                                     '--report', str(source), '--summary', str(output)],
+            command = [sys.executable, str(SCRIPT), '--kind', kind,
+                       '--report', str(source), '--summary', str(output)]
+            if artifact_url:
+                command.extend(['--artifact-url', artifact_url])
+            result = subprocess.run(command,
                                     capture_output=True, text=True)
             return result.returncode, output.read_text(encoding='utf-8') if output.exists() else ''
 
@@ -82,6 +85,28 @@ class SummaryTests(unittest.TestCase):
         self.assertIn('x-frame-options', summary)
         self.assertIn('confirmed policy failures remain visible', summary)
 
+    def test_confirmed_failure_links_to_uploaded_report_artifact(self):
+        artifact_url = 'https://github.com/example/site/actions/runs/123/artifacts/456'
+        code, summary = self.run_summary(
+            self.load_fixture('live-edge-failure.json'), artifact_url=artifact_url
+        )
+
+        self.assertEqual(code, 1)
+        self.assertIn(
+            f'Full route evidence artifact: [report.json]({artifact_url})',
+            summary,
+        )
+
+    def test_live_edge_workflows_pass_uploaded_artifact_url_to_summary(self):
+        for workflow in ('.github/workflows/validate.yml', '.github/workflows/pages.yml'):
+            with self.subTest(workflow=workflow):
+                source = (ROOT / workflow).read_text(encoding='utf-8')
+                self.assertIn('id: upload-live-edge-report', source)
+                self.assertIn(
+                    'steps.upload-live-edge-report.outputs.artifact-url',
+                    source,
+                )
+
     def test_pages_only_blocked_fixture_is_partial_and_not_enforcement_proof(self):
         code, summary = self.run_summary(self.load_fixture('live-edge-pages-blocked.json'))
 
@@ -90,6 +115,18 @@ class SummaryTests(unittest.TestCase):
         self.assertIn('| Edge policy | PARTIAL |', summary)
         self.assertIn('do not prove enforcement', summary)
         self.assertNotIn('| Edge policy | FAILED |', summary)
+
+    def test_pages_only_partial_report_links_to_uploaded_report_artifact(self):
+        artifact_url = 'https://github.com/example/site/actions/runs/123/artifacts/789'
+        code, summary = self.run_summary(
+            self.load_fixture('live-edge-pages-blocked.json'), artifact_url=artifact_url
+        )
+
+        self.assertEqual(code, 0)
+        self.assertIn(
+            f'Full route evidence artifact: [report.json]({artifact_url})',
+            summary,
+        )
 
     def test_transport_block_is_unknown_not_external_outage(self):
         code, summary = self.run_summary({'checks': [{'check': 'route /', 'status': 'BLOCKED', 'evidence': 'timeout'}]})
