@@ -18,7 +18,7 @@ Conventions:
 - Hash is the first 8 chars of sha256 of each shared asset's canonical text
   bytes (LF line endings, independent of the checkout platform).
 - Relative and legacy query-string references are rewritten to the canonical URL.
-- Skips _replit/, .local/, attached_assets/, node_modules/.
+- Skips _replit/, .local/, .ci/, attached_assets/, node_modules/.
 """
 
 from __future__ import annotations
@@ -30,7 +30,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-EXCLUDE_DIRS = {"_replit", ".local", ".pr-head", "attached_assets", "node_modules", ".git", "i18n"}
+EXCLUDE_DIRS = {"_replit", ".local", ".pr-head", ".ci", "attached_assets", "node_modules", ".git", "i18n"}
 SHARED_ASSET_PATHS = (
     "/assets/css/theme.css",
     "/assets/js/app.js",
