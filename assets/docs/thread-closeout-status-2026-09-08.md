@@ -3,7 +3,7 @@
 September 9, 2026. Status: **INCOMPLETE for the broader website queue; A14/A15
 implementation closeout is complete within its scoped automated acceptance**.
 The original 26 coop-pertition deliverables are complete. PR75, PR76, PR81,
-PR86 and PR77 have been merged into current `origin/main` at `99ba45f2`.
+PR86 and PR77 have been merged into current `origin/main` at `9511ee8d`.
 This ledger separates that verified batch from the older website work
 referenced during its audit.
 
@@ -29,7 +29,7 @@ artifacts. They do not imply every proposed feature or policy was adopted.
 ## Earlier website queue
 
 Baseline for this reconciliation: website `origin/main`
-`99ba45f2559c3a128ed35e1397a3a5049b09bf25`. Prior reports at `c2d23f08`
+`9511ee8d338ff270d00e6a9507ffdc06114ce80a`. Prior reports at `c2d23f08`
 and `f4a353c323fc1caa848e03f6f0aa1ea1e520210c` are historical. Do not
 restore old runtime or translation bytes to match them.
 
