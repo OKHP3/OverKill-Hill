@@ -97,6 +97,12 @@
     "value": "2026-04-08",
     "expected": "article JSON-LD datePublished does not match article:published_time"
   },
+  "article_og_date_mismatch": {
+    "route": "/writings/first-diagram-is-a-liar/",
+    "field": "meta:article:published_time",
+    "value": "2026-04-08",
+    "expected": "article JSON-LD datePublished does not match article:published_time"
+  },
   "duplicate_article_date_mismatch": {
     "route": "/writings/first-diagram-is-a-liar/",
     "value": "2026-04-08",

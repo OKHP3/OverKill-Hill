@@ -509,6 +509,45 @@ class SEOFixtureTests(unittest.TestCase):
         )
         self.assert_rejected(findings, mutation["expected"])
 
+    def test_article_og_date_mismatch_rejected_in_source_manifest(self) -> None:
+        mutation = self.fixture_data["article_og_date_mismatch"]
+        original = page_for_route(self.source_pages, mutation["route"])
+        mutated = copy.deepcopy(original)
+        mutated[mutation["field"]] = mutation["value"]
+        mutated_pages = [
+            mutated if page is original else page
+            for page in self.source_pages
+        ]
+        self.assertEqual(
+            original.get("meta:robots"),
+            mutated.get("meta:robots"),
+            "source fixture mutation changed the indexing boundary",
+        )
+        self.assertEqual(
+            {
+                key: value
+                for key, value in original.items()
+                if not key.startswith("meta:")
+            },
+            {
+                key: value
+                for key, value in mutated.items()
+                if not key.startswith("meta:")
+            },
+            "source fixture mutation changed editorial or routing fields",
+        )
+        source_path = (ROOT / "site-src" / "pages" / original["path"]).with_suffix(
+            ".extras.html"
+        )
+        source_raw = source_path.read_text(encoding="utf-8")
+        self.assertIn('"datePublished": "2026-04-07"', source_raw)
+        self.assertFalse(
+            validator.validate_source_seo_contract(mutated_pages),
+            "valid ISO 8601 Open Graph mutation should reach date-parity validation",
+        )
+        findings = validator.validate_article_jsonld_source(mutated_pages)
+        self.assert_rejected(findings, mutation["expected"])
+
     def test_duplicate_article_jsonld_dates_rejected_in_source_extras(self) -> None:
         mutation = self.fixture_data["duplicate_article_date_mismatch"]
         page = self.pages_by_route[mutation["route"]]
@@ -747,6 +786,39 @@ class SEOFixtureTests(unittest.TestCase):
         self.assertIn(
             "<article>Fixture article copy remains unchanged.</article>",
             mutated_raw,
+        )
+        self.assertEqual(
+            original_parser.is_noindex,
+            mutated_parser.is_noindex,
+            "generated fixture mutation changed the indexing boundary",
+        )
+        findings = validator.validate_generated_seo(
+            path,
+            mutated_parser,
+            self.pages_by_route[mutation["route"]],
+        )
+        self.assert_rejected(findings, mutation["expected"])
+
+    def test_article_og_date_mismatch_rejected_in_generated_metadata(self) -> None:
+        mutation = self.fixture_data["article_og_date_mismatch"]
+        path = GENERATED_FIXTURE / "article.html.fixture"
+        original_raw = path.read_text(encoding="utf-8")
+        original_parser = parse_html(original_raw)
+        mutated_raw = mutate_meta(
+            original_raw,
+            mutation["field"],
+            mutation["value"],
+        )
+        mutated_parser = parse_html(mutated_raw)
+        self.assertIn('"datePublished": "2026-04-07"', mutated_raw)
+        self.assertIn(
+            "<article>Fixture article copy remains unchanged.</article>",
+            mutated_raw,
+        )
+        self.assertEqual(
+            original_raw.split("<body>", 1)[1],
+            mutated_raw.split("<body>", 1)[1],
+            "generated fixture mutation changed editorial content",
         )
         self.assertEqual(
             original_parser.is_noindex,
