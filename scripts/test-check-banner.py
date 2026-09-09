@@ -45,13 +45,20 @@ def check_main_case(
     banner_path: str,
     anchor: str,
     expected_message_parts: tuple[str, ...],
+    *,
+    source_article: str | None = None,
+    generated_article: str | None = None,
 ) -> None:
     with tempfile.TemporaryDirectory() as temp_dir:
         root = Path(temp_dir)
-        article = "<span>Article v0.6: Council-Assisted Scoring</span>"
-        for relative_path in (
-            check_banner.FEATURED_ARTICLE_SOURCE,
-            check_banner.FEATURED_ARTICLE_GENERATED,
+        valid_article = "<span>Article v0.6: Council-Assisted Scoring</span>"
+        source_article = valid_article if source_article is None else source_article
+        generated_article = (
+            valid_article if generated_article is None else generated_article
+        )
+        for relative_path, article in (
+            (check_banner.FEATURED_ARTICLE_SOURCE, source_article),
+            (check_banner.FEATURED_ARTICLE_GENERATED, generated_article),
         ):
             article_path = root / relative_path
             article_path.parent.mkdir(parents=True, exist_ok=True)
@@ -59,7 +66,9 @@ def check_main_case(
 
         banner = root / banner_path
         banner.parent.mkdir(parents=True, exist_ok=True)
-        banner_content = article if banner_path == check_banner.FEATURED_ARTICLE_GENERATED else ""
+        banner_content = (
+            generated_article if banner_path == check_banner.FEATURED_ARTICLE_GENERATED else ""
+        )
         banner.write_text(banner_content + anchor, encoding="utf-8")
 
         output = StringIO()
@@ -104,6 +113,54 @@ def main() -> int:
         f'<a class="site-specials-link" href="{featured}">{check_banner.CANONICAL_BANNER}</a>',
         stale_generated_failure,
     )
+    malformed_article_cases = (
+        (
+            "missing source article label reports route and source path",
+            check_banner.SOURCE_BANNER,
+            check_banner.FEATURED_ARTICLE_SOURCE,
+            {"source_article": ""},
+        ),
+        (
+            "ambiguous source article labels report route and source path",
+            check_banner.SOURCE_BANNER,
+            check_banner.FEATURED_ARTICLE_SOURCE,
+            {
+                "source_article": (
+                    "<span>Article v0.6: Council-Assisted Scoring</span>"
+                    "<span>Article v0.7: Council-Assisted Scoring</span>"
+                )
+            },
+        ),
+        (
+            "missing generated article label reports route and generated path",
+            check_banner.FEATURED_ARTICLE_GENERATED,
+            check_banner.FEATURED_ARTICLE_GENERATED,
+            {"generated_article": ""},
+        ),
+        (
+            "ambiguous generated article labels report route and generated path",
+            check_banner.FEATURED_ARTICLE_GENERATED,
+            check_banner.FEATURED_ARTICLE_GENERATED,
+            {
+                "generated_article": (
+                    "<span>Article v0.6: Council-Assisted Scoring</span>"
+                    "<span>Article v0.7: Council-Assisted Scoring</span>"
+                )
+            },
+        ),
+    )
+    for name, banner_path, article_path, malformed_fixture in malformed_article_cases:
+        check_main_case(
+            name,
+            banner_path,
+            f'<a class="site-specials-link" href="{featured}">{check_banner.CANONICAL_BANNER}</a>',
+            (
+                "current featured article release is missing or ambiguous",
+                check_banner.FEATURED_ARTICLE_ROUTE,
+                article_path,
+            ),
+            **malformed_fixture,
+        )
     check_case(
         "other article banner retains the allow-list behavior",
         '<a class="site-specials-link" href="/writings/another-article/">'
