@@ -23,9 +23,11 @@ const geometry = (requireConvergence = false) => {
   const matrix = new DOMMatrixReadOnly(getComputedStyle(toc).transform);
   const natural = r.top + scrollY - matrix.m42;
   const footer = document.querySelector('.site-footer').getBoundingClientRect();
+  const stop = document.getElementById(toc.dataset.tocStopBefore)?.getBoundingClientRect();
+  const boundaryTop = Math.min(footer.top, stop?.top ?? footer.top);
   const gap = Math.max(112, (document.querySelector('.site-header')?.getBoundingClientRect().height || 0) + 16);
   const desiredTop = Math.max(gap, (innerHeight - r.height) / 2);
-  const maximum = Math.max(0, footer.top + scrollY - 32 - natural - r.height);
+  const maximum = Math.max(0, boundaryTop + scrollY - 32 - natural - r.height);
   const expected = natural - scrollY + Math.min(Math.max(0, scrollY + desiredTop - natural), maximum);
   const error = Math.abs(r.top - expected);
   return requireConvergence ? error < 2 : { top: r.top, bottom: r.bottom, height: r.height, expected, error, footer: footer.top, natural, scroll: scrollY, maxScroll: document.documentElement.scrollHeight - innerHeight };
@@ -69,6 +71,8 @@ try {
       await page.evaluate(() => document.documentElement.style.setProperty('scroll-behavior', 'auto', 'important'));
       await page.waitForTimeout(200);
       assert.equal(await page.locator('#toc-widget').count(), 1, 'Exactly one shared sidebar hook');
+      await page.waitForFunction(() => document.getElementById('toc-widget').classList.contains('toc-follow-active'),
+        null, { polling: 'raf', timeout: 10000 });
       const structure = await page.evaluate(() => {
         const t = document.getElementById('toc-widget');
         const sticky = [];
@@ -126,6 +130,19 @@ try {
       await page.evaluate(waitForStableLayoutFrames);
       const bottom = await page.evaluate(geometry);
       assert(bottom.bottom <= bottom.footer - 30, `Sidebar must clear footer: ${JSON.stringify(bottom)}`);
+      if (route === '/writings/murderbird/') {
+        for (const width of [1024, 1440]) {
+          await page.setViewportSize({ width, height: 900 });
+          await page.locator('#visual-record').scrollIntoViewIfNeeded();
+          await page.evaluate(waitForStableLayoutFrames);
+          const boundary = await page.evaluate(() => ({
+            tocBottom: document.getElementById('toc-widget').getBoundingClientRect().bottom,
+            galleryTop: document.getElementById('visual-record').getBoundingClientRect().top,
+          }));
+          assert(boundary.tocBottom <= boundary.galleryTop - 30,
+            `TOC must stop before full-width visual record at ${width}px: ${JSON.stringify(boundary)}`);
+        }
+      }
       console.log(`PASS ${route}`);
     } catch (error) {
       failures++;
