@@ -548,6 +548,25 @@ class SEOFixtureTests(unittest.TestCase):
         findings = validator.validate_article_jsonld_source(mutated_pages)
         self.assert_rejected(findings, mutation["expected"])
 
+    def test_article_sitemap_lastmod_contract_rejected_in_source(self) -> None:
+        route = "/writings/first-diagram-is-a-liar/"
+        page = self.pages_by_route[route]
+        sitemap_url = page["canonical"]
+        baseline = validator.load_sitemap_entries()
+        self.assertEqual(baseline[sitemap_url], "2026-05-24")
+        for lastmod, expected in (
+            (None, "article sitemap lastmod is missing"),
+            ("2026-05-23", "article JSON-LD dateModified does not match sitemap lastmod"),
+        ):
+            with self.subTest(lastmod=lastmod):
+                entries = dict(baseline)
+                entries[sitemap_url] = lastmod
+                findings = validator.validate_article_jsonld_source(
+                    self.source_pages,
+                    entries,
+                )
+                self.assert_rejected(findings, expected)
+
     def test_duplicate_article_jsonld_dates_rejected_in_source_extras(self) -> None:
         mutation = self.fixture_data["duplicate_article_date_mismatch"]
         page = self.pages_by_route[mutation["route"]]
@@ -831,6 +850,27 @@ class SEOFixtureTests(unittest.TestCase):
             self.pages_by_route[mutation["route"]],
         )
         self.assert_rejected(findings, mutation["expected"])
+
+    def test_article_sitemap_lastmod_contract_rejected_in_generated_metadata(self) -> None:
+        route = "/writings/first-diagram-is-a-liar/"
+        page = self.pages_by_route[route]
+        path = GENERATED_FIXTURE / "article.html.fixture"
+        baseline = validator.load_sitemap_entries()
+        self.assertEqual(baseline[page["canonical"]], "2026-05-24")
+        for lastmod, expected in (
+            (None, "article sitemap lastmod is missing"),
+            ("2026-05-23", "article JSON-LD dateModified does not match sitemap lastmod"),
+        ):
+            with self.subTest(lastmod=lastmod):
+                entries = dict(baseline)
+                entries[page["canonical"]] = lastmod
+                findings = validator.validate_generated_seo(
+                    path,
+                    parse_html(path.read_text(encoding="utf-8")),
+                    page,
+                    sitemap_entries=entries,
+                )
+                self.assert_rejected(findings, expected)
 
     def test_duplicate_article_jsonld_dates_rejected_in_generated_metadata(self) -> None:
         mutation = self.fixture_data["duplicate_article_date_mismatch"]

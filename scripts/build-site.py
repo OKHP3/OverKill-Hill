@@ -24,6 +24,8 @@ PROJECT_STATUS = runpy.run_path(str(ROOT / "scripts/project-status.py"))
 SRC = ROOT / "site-src"
 PARTIALS = ROOT / "assets" / "partials"
 MANIFEST = SRC / "pages.json"
+SITEMAP = ROOT / "sitemap.xml"
+SITE_ORIGIN = "https://overkillhill.com"
 EXCLUDED = ("assets/", ".agents/", ".local/", "node_modules/", "site-src/")
 APP_RE = re.compile(r"/assets/js/app\.js(?:\?[^\"']*)?")
 # The French pilot only covers these four routes. The shared header must not
@@ -481,6 +483,86 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
     )
 
 
+def is_indexable_article(page: dict) -> bool:
+    """Use the same published Article route boundary as the site validator."""
+    route = page.get("route", "")
+    robots = str(page.get("meta:robots", "")).lower()
+    return (
+        "noindex" not in robots
+        and (
+            str(page.get("meta:og:type", "")).lower() == "article"
+            or route == "/manifesto/"
+            or (str(route).startswith("/writings/") and route != "/writings/")
+        )
+    )
+
+
+def article_lastmods(pages: list[dict]) -> dict[str, str]:
+    """Read published Article dateModified values for sitemap generation."""
+    lastmods: dict[str, str] = {}
+    for page in pages:
+        if not is_indexable_article(page):
+            continue
+        source = (SRC / "pages" / page["path"]).with_suffix(".extras.html")
+        if not source.is_file():
+            continue
+        soup = BeautifulSoup(source.read_text(encoding="utf-8"), "html.parser")
+        dates: list[str] = []
+        for script in soup.find_all("script", {"type": "application/ld+json"}):
+            try:
+                value = json.loads(script.string or script.get_text())
+            except json.JSONDecodeError:
+                continue
+            nodes = value if isinstance(value, list) else [value]
+            for node in nodes:
+                if (
+                    isinstance(node, dict)
+                    and node.get("@type") == "Article"
+                    and isinstance(node.get("dateModified"), str)
+                    and node["dateModified"]
+                ):
+                    dates.append(node["dateModified"])
+        if dates:
+            lastmods[str(page.get("canonical") or SITE_ORIGIN + page["route"])] = dates[0]
+    return lastmods
+
+
+def render_sitemap(pages: list[dict], raw: str) -> str:
+    """Maintain sitemap lastmod only for the published Article route boundary."""
+    lastmods = article_lastmods(pages)
+
+    def update_entry(match: re.Match[str]) -> str:
+        block = match.group(0)
+        loc_match = re.search(r"<loc\b[^>]*>([^<]+)</loc>", block, flags=re.IGNORECASE)
+        if not loc_match:
+            return block
+        loc = loc_match.group(1).strip()
+        lastmod = lastmods.get(loc)
+        if lastmod is None:
+            return block
+        replacement = f"<lastmod>{html.escape(lastmod)}</lastmod>"
+        if re.search(r"<lastmod\b[^>]*>[^<]*</lastmod>", block, flags=re.IGNORECASE):
+            return re.sub(
+                r"<lastmod\b[^>]*>[^<]*</lastmod>",
+                replacement,
+                block,
+                count=1,
+                flags=re.IGNORECASE,
+            )
+        return block.replace(
+            loc_match.group(0),
+            loc_match.group(0) + "\n    " + replacement,
+            1,
+        )
+
+    return re.sub(
+        r"<url\b[^>]*>.*?</url>",
+        update_entry,
+        raw,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+
+
 def build(check: bool) -> int:
     if not MANIFEST.exists():
         print("Missing site-src/pages.json. Run: python3 scripts/build-site.py --bootstrap", file=sys.stderr)
@@ -496,6 +578,14 @@ def build(check: bool) -> int:
                 failures.append(page["path"])
         else:
             output.write_text(rendered, encoding="utf-8")
+    if SITEMAP.exists():
+        sitemap_raw = SITEMAP.read_text(encoding="utf-8")
+        rendered_sitemap = render_sitemap(data["pages"], sitemap_raw)
+        if check:
+            if sitemap_raw != rendered_sitemap:
+                failures.append("sitemap.xml")
+        else:
+            SITEMAP.write_text(rendered_sitemap, encoding="utf-8")
     if failures:
         print("Generated HTML is stale:")
         print("\n".join(f"  {path}" for path in failures))
