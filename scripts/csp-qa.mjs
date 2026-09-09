@@ -395,7 +395,12 @@ async function checkExternalRoute(browser, path) {
     }
   });
   page.on("requestfailed", (request) => {
-    if (isLocalUrl(request.url())) {
+    const dependency = getExternalDependency(dependencies, request);
+    if (dependency) {
+      dependency.failures.push({
+        errorText: request.failure()?.errorText || "unknown failure",
+      });
+    } else if (isLocalUrl(request.url())) {
       localErrors.add(
         `local request failed: ${request.url()} ` +
         `(${request.failure()?.errorText || "unknown failure"})`,
@@ -558,7 +563,11 @@ async function runExternalHealth() {
     `${report.summary.localFailures} local route failure(s).`,
   );
   externalOutages.forEach((dependency) => {
-    console.log(`  EXTERNAL OUTAGE: ${dependency.url} (${dependency.state})`);
+    const failureReasons = dependency.failures
+      .map(({ errorText }) => errorText)
+      .filter(Boolean);
+    const diagnostic = failureReasons.length ? `: ${failureReasons.join(", ")}` : "";
+    console.log(`  EXTERNAL OUTAGE: ${dependency.url} (${dependency.state})${diagnostic}`);
   });
   if (cspDiagnostics.length) {
     console.log("  CSP diagnostics were observed during the availability check.");

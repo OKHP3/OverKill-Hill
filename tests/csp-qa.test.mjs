@@ -16,6 +16,7 @@ const fixtureFiles = new Map([
   ["/page-error.html", "page-error.html"],
   ["/missing-resource.html", "missing-resource.html"],
   ["/unrendered-mermaid.html", "unrendered-mermaid.html"],
+  ["/external-network-failure.html", "external-network-failure.html"],
   ["/external-csp-blocked.html", "external-csp-blocked.html"],
   ["/external-csp-and-outage.html", "external-csp-and-outage.html"],
 ]);
@@ -85,6 +86,10 @@ before(async () => {
     if (path === "/outage.png") {
       response.writeHead(503, { "content-type": "text/plain" });
       response.end("fixture dependency intentionally unavailable");
+      return;
+    }
+    if (path === "/aborted.png") {
+      request.socket.destroy();
       return;
     }
     if (path === "/blocked.png") {
@@ -245,6 +250,33 @@ test("reports external outages separately from the local CSP gate", async () => 
     assert.ok(healthy.requestCount >= 1);
     assert.ok(outage.requestCount >= 1);
     assert.deepEqual(outage.routes, ["/external-health.html"]);
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("preserves the browser failure reason for an aborted external request", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-network-failure-"));
+  const reportPath = join(reportDirectory, "report.json");
+  try {
+    const result = await runCspQa("/external-network-failure.html", [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /EXTERNAL OUTAGE:/);
+    assert.match(result.output, /net::ERR_/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.equal(report.summary.externalOutages, 1);
+
+    const aborted = report.dependencies.find(({ url }) => url.endsWith("/aborted.png"));
+    assert.ok(aborted, JSON.stringify(report, null, 2));
+    assert.equal(aborted.state, "unavailable");
+    assert.equal(aborted.responses.length, 0);
+    assert.equal(aborted.failures.length, 1);
+    assert.match(aborted.failures[0].errorText, /^net::ERR_/);
   } finally {
     await rm(reportDirectory, { recursive: true, force: true });
   }
