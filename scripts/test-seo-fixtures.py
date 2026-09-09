@@ -78,6 +78,17 @@ def mutate_jsonld_field(raw: str, field: str, value: str) -> str:
     return mutated
 
 
+def remove_jsonld_field(raw: str, field: str) -> str:
+    pattern = re.compile(
+        rf'\s*"{re.escape(field)}"\s*:\s*"[^"]*"\s*,?',
+        re.IGNORECASE,
+    )
+    mutated, count = pattern.subn("", raw, count=1)
+    if count != 1:
+        raise AssertionError(f"fixture JSON-LD field not found: {field}")
+    return mutated
+
+
 def mutate_navigation(raw: str, key: str, value: str) -> str:
     pattern = re.compile(
         rf'<link\b(?=[^>]*\brel=["\'][^"\']*\b{key}\b[^"\']*["\'])[^>]*>',
@@ -163,6 +174,24 @@ class SEOFixtureTests(unittest.TestCase):
             ),
             "noindex locale pilots should remain exempt until promotion",
         )
+
+    def test_noindex_article_jsonld_date_contract_remains_exempt(self) -> None:
+        page = self.pages_by_route["/writings/biases-as-constants/"]
+        source_path = (ROOT / "site-src" / "pages" / page["path"]).with_suffix(".extras.html")
+        generated_path = ROOT / page["path"]
+        self.assertFalse(
+            validator.validate_article_jsonld_source([page]),
+            "noindex source drafts should remain outside the published date contract",
+        )
+        self.assertFalse(
+            validator.validate_generated_seo(
+                generated_path,
+                parse_html(generated_path.read_text(encoding="utf-8")),
+                page,
+            ),
+            "noindex generated drafts should remain outside the published date contract",
+        )
+        self.assertIn('"@type": "Article"', source_path.read_text(encoding="utf-8"))
 
     def assert_rejected(self, findings: list, expected: str) -> None:
         self.assertTrue(findings, "mutation unexpectedly passed")
@@ -270,6 +299,25 @@ class SEOFixtureTests(unittest.TestCase):
                 findings = validator.validate_article_jsonld_dates(
                     path.relative_to(ROOT).as_posix(),
                     parse_html(mutated_raw),
+                )
+                self.assert_rejected(findings, mutation["expected"])
+
+    def test_missing_article_jsonld_dates_rejected_in_source_extras(self) -> None:
+        page = self.pages_by_route["/writings/first-diagram-is-a-liar/"]
+        path = (ROOT / "site-src" / "pages" / page["path"]).with_suffix(".extras.html")
+        original_raw = path.read_text(encoding="utf-8")
+        for mutation in self.fixture_data["missing_article_jsonld_dates"]:
+            with self.subTest(mutation=mutation["id"]):
+                mutated_raw = remove_jsonld_field(original_raw, mutation["field"])
+                self.assertNotEqual(original_raw, mutated_raw)
+                self.assertIn(
+                    '"headline": "The First Diagram Is Usually a Liar"',
+                    mutated_raw,
+                )
+                findings = validator.validate_article_jsonld_dates(
+                    path.relative_to(ROOT).as_posix(),
+                    parse_html(mutated_raw),
+                    page["meta:article:published_time"],
                 )
                 self.assert_rejected(findings, mutation["expected"])
 
@@ -464,6 +512,30 @@ class SEOFixtureTests(unittest.TestCase):
                     mutation["field"],
                     mutation["value"],
                 )
+                mutated_parser = parse_html(mutated_raw)
+                self.assertIn(
+                    "<article>Fixture article copy remains unchanged.</article>",
+                    mutated_raw,
+                )
+                self.assertEqual(
+                    original_parser.is_noindex,
+                    mutated_parser.is_noindex,
+                    "generated fixture mutation changed the indexing boundary",
+                )
+                findings = validator.validate_generated_seo(
+                    path,
+                    mutated_parser,
+                    self.pages_by_route[mutation["route"]],
+                )
+                self.assert_rejected(findings, mutation["expected"])
+
+    def test_missing_article_jsonld_dates_rejected_in_generated_metadata(self) -> None:
+        path = GENERATED_FIXTURE / "article.html.fixture"
+        original_raw = path.read_text(encoding="utf-8")
+        original_parser = parse_html(original_raw)
+        for mutation in self.fixture_data["missing_article_jsonld_dates"]:
+            with self.subTest(mutation=mutation["id"]):
+                mutated_raw = remove_jsonld_field(original_raw, mutation["field"])
                 mutated_parser = parse_html(mutated_raw)
                 self.assertIn(
                     "<article>Fixture article copy remains unchanged.</article>",

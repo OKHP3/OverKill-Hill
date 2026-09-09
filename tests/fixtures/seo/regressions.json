@@ -77,6 +77,20 @@
       "expected": "article JSON-LD dateModified is not ISO 8601"
     }
   ],
+  "missing_article_jsonld_dates": [
+    {
+      "id": "missing-jsonld-published-date",
+      "route": "/writings/first-diagram-is-a-liar/",
+      "field": "datePublished",
+      "expected": "article JSON-LD datePublished is missing"
+    },
+    {
+      "id": "missing-jsonld-modified-date",
+      "route": "/writings/first-diagram-is-a-liar/",
+      "field": "dateModified",
+      "expected": "article JSON-LD dateModified is missing"
+    }
+  ],
   "article_date_mismatch": {
     "route": "/writings/first-diagram-is-a-liar/",
     "field": "datePublished",

@@ -578,7 +578,7 @@ def validate_article_jsonld_dates(
     parser: TagCounter,
     published_time: str | None = None,
 ) -> list[Finding]:
-    """Reject malformed or unsynchronized Article JSON-LD publication dates."""
+    """Require complete, valid, and synchronized dates on Article JSON-LD nodes."""
     objects, parse_errors = _jsonld_objects(parser)
     findings = [
         Finding("ERROR", location, f"invalid JSON-LD block: {error}")
@@ -587,7 +587,12 @@ def validate_article_jsonld_dates(
     for article in (item for item in objects if item.get("@type") == "Article"):
         for field in ("datePublished", "dateModified"):
             value = article.get(field)
-            if value is None:
+            if field not in article or value in (None, ""):
+                findings.append(Finding(
+                    "ERROR",
+                    location,
+                    f"article JSON-LD {field} is missing",
+                ))
                 continue
             if not isinstance(value, str):
                 findings.append(Finding(
@@ -628,10 +633,12 @@ def validate_organization_source() -> list[Finding]:
 
 
 def validate_article_jsonld_source(pages: list[dict]) -> list[Finding]:
-    """Validate Article JSON-LD dates in source extras before rendering."""
+    """Validate Article JSON-LD dates on indexable source pages before rendering."""
     findings: list[Finding] = []
     for page in pages:
-        if not is_article_page(page):
+        # Noindex writing drafts are intentionally outside the published Article
+        # date contract until their manifest boundary is promoted.
+        if not is_indexable_page(page):
             continue
         source_path = page.get("path")
         if not isinstance(source_path, str):
@@ -644,7 +651,11 @@ def validate_article_jsonld_source(pages: list[dict]) -> list[Finding]:
         findings.extend(validate_article_jsonld_dates(
             _path_location(extras),
             parser,
-            str(page.get("meta:article:published_time", "")) or None,
+            (
+                str(page.get("meta:article:published_time", "")) or None
+                if is_article_page(page)
+                else None
+            ),
         ))
     return findings
 
@@ -867,11 +878,19 @@ def validate_generated_seo(
     findings = validate_organization_nodes(rel, parser)
     if is_indexable_page(manifest_page):
         findings.extend(validate_indexable_social_card(rel, values, "generated"))
+        findings.extend(validate_article_jsonld_dates(
+            rel,
+            parser,
+            (
+                values.get("meta:article:published_time", "") or None
+                if is_article_page(manifest_page)
+                else None
+            ),
+        ))
     if is_article_page(manifest_page):
         if values.get("meta:og:type", "").lower() != "article":
             findings.append(Finding("ERROR", rel, "article generated page must use og:type=article"))
         published = values.get("meta:article:published_time", "")
-        findings.extend(validate_article_jsonld_dates(rel, parser, published or None))
         if not published:
             findings.append(Finding("ERROR", rel, "article generated page is missing article:published_time"))
         else:
