@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { createServer } from "node:http";
-import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { after, before, test } from "node:test";
 import { spawn } from "node:child_process";
@@ -23,6 +23,9 @@ let server;
 let externalServer;
 let baseUrl;
 let externalBaseUrl;
+let focusedReportDirectory;
+let focusedReportNumber = 0;
+const focusedResults = [];
 
 async function serveFixture(request, response) {
   const path = new URL(request.url, "http://csp-fixture").pathname;
@@ -67,6 +70,7 @@ async function serveFixture(request, response) {
 }
 
 before(async () => {
+  focusedReportDirectory = await mkdtemp(join(tmpdir(), "csp-focused-results-"));
   externalServer = createServer((request, response) => {
     const path = new URL(request.url, "http://external-fixture").pathname;
     if (path === "/healthy.png") {
@@ -112,13 +116,36 @@ after(async () => {
   await new Promise((resolve, reject) => server.close((error) => error ? reject(error) : resolve()));
   await new Promise((resolve, reject) =>
     externalServer.close((error) => error ? reject(error) : resolve()));
+  const reportPath = process.env.CSP_FIXTURE_REPORT;
+  if (reportPath) {
+    try {
+      await writeFile(reportPath, `${JSON.stringify({
+        version: 1,
+        mode: "csp-fixtures",
+        fixtures: focusedResults,
+      }, null, 2)}\n`);
+    } catch (error) {
+      console.error(`Could not write CSP fixture report: ${error.message}`);
+    }
+  }
+  await rm(focusedReportDirectory, { recursive: true, force: true });
 });
 
 function runCspQa(path, flags = []) {
   return new Promise((resolve, reject) => {
+    const focused = !flags.includes("--external-health") && !flags.includes("--check-external");
+    const reportPath = focused
+      ? join(focusedReportDirectory, `${focusedReportNumber++}.json`)
+      : null;
     const child = spawn(
       process.execPath,
-      [cspQaScript, `--base-url=${baseUrl}`, `--paths=${path}`, ...flags],
+      [
+        cspQaScript,
+        `--base-url=${baseUrl}`,
+        `--paths=${path}`,
+        ...(reportPath ? [`--report=${reportPath}`] : []),
+        ...flags,
+      ],
       { cwd: repositoryRoot },
     );
     let stdout = "";
@@ -136,11 +163,26 @@ function runCspQa(path, flags = []) {
     });
     child.on("close", (status, signal) => {
       clearTimeout(timeout);
-      resolve({
+      const result = {
         output: `${stdout}\n${stderr}`,
         status,
         signal,
-      });
+      };
+      if (reportPath) {
+        readFile(reportPath, "utf8")
+          .then((content) => {
+            const report = JSON.parse(content);
+            focusedResults.push({
+              path,
+              pass: report.results?.[0]?.pass ?? status === 0,
+              errors: report.results?.[0]?.errors ?? [],
+            });
+            resolve({ ...result, report });
+          })
+          .catch(reject);
+        return;
+      }
+      resolve(result);
     });
   });
 }

@@ -244,7 +244,19 @@ jobs:
           npm run test:csp -- --base-url=http://127.0.0.1:5000
 
       - name: Run CSP fixture regressions
+        id: csp-fixtures
+        continue-on-error: true
+        env:
+          CSP_FIXTURE_REPORT: csp-fixture-report.json
         run: npm run test:csp:regressions
+
+      - name: Summarize failed CSP fixture regressions
+        if: always() && steps.csp-fixtures.outcome == 'failure'
+        run: node scripts/csp-qa.mjs --fixture-summary=csp-fixture-report.json
+
+      - name: Preserve CSP fixture regression failure
+        if: always() && steps.csp-fixtures.outcome == 'failure'
+        run: exit 1
 
       - name: Run shared theme-control regressions
         run: npm run test:theme-controls
