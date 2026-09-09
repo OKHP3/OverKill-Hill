@@ -35,10 +35,16 @@ A20/A21 acceptance remains with its existing acceptance and integration tasks.
 These are continuing tasks, not new delegates or claims of completed human
 acceptance. Closing this batch task does not certify the whole website queue.
 
-## September 9 current checkpoint
+A fresh September 9 check verified all 26 worker commits remain reachable from
+their owning `origin/main`, the FoundRy checkout is clean and in parity, and no
+`coop/` branches remain in the website repository. PR75 and PR76 remain merged.
+This ledger update changes no application source or acceptance criteria.
 
-Current `origin/main` is `99ba45f2559c3a128ed35e1397a3a5049b09bf25`
-(`99ba45f`). Its current checks are failing:
+## September 9 release checkpoint at 99ba45f
+
+At this checkpoint, `origin/main` was `99ba45f2559c3a128ed35e1397a3a5049b09bf25`
+(`99ba45f`). The following run results are historical snapshots; later repair
+PRs and release evidence supersede them:
 
 | Check | Run | State | Implication |
 | --- | --- | --- | --- |
@@ -46,10 +52,10 @@ Current `origin/main` is `99ba45f2559c3a128ed35e1397a3a5049b09bf25`
 | i18n Page Sync | [34362860115](https://github.com/OKHP3/OverKill-Hill/actions/runs/34362860115) | failure | French translation freshness/review repair remains open |
 | Publish GitHub Pages | [34362860559](https://github.com/OKHP3/OverKill-Hill/actions/runs/34362860559) | failure | No current-main deployment acceptance |
 
-Open PR [89](https://github.com/OKHP3/OverKill-Hill/pull/89) covers generated
+At this checkpoint, open PR [89](https://github.com/OKHP3/OverKill-Hill/pull/89) covers generated
 search and sub-navigation follow-up. Open PR
 [90](https://github.com/OKHP3/OverKill-Hill/pull/90) covers stale shared asset
-fingerprints. Both remain blocked and require the existing owner repair path,
+fingerprints. Both were blocked and required the existing owner repair path,
 including French review where applicable.
 
 ## Package disposition
