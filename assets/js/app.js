@@ -528,6 +528,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
   const rail = toc.closest(".sidebar-rail, .manifesto-sidebar");
   const header = document.querySelector(".site-header");
+  const stopBefore = toc.dataset.tocStopBefore
+    ? document.getElementById(toc.dataset.tocStopBefore)
+    : null;
   let position = 0;
   let frame = 0;
   let previousTime = 0;
@@ -558,13 +561,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const centered = Math.max(topGap, (window.innerHeight - box.height) / 2);
     const footerTop = footer.getBoundingClientRect().top + window.scrollY;
     const maximum = Math.max(0, footerTop - 32 - naturalTop - box.height);
-    const target = Math.min(Math.max(0, window.scrollY + centered - naturalTop), maximum);
+    const stopMaximum = stopBefore
+      ? stopBefore.getBoundingClientRect().top + window.scrollY - 30 - naturalTop - box.height
+      : maximum;
+    const upperBound = Math.min(maximum, stopMaximum);
+    const target = Math.min(Math.max(0, window.scrollY + centered - naturalTop), upperBound);
     // Preserve the Mac Studio 8%-per-frame feel at 60 Hz on faster displays too.
     const elapsed = previousTime ? Math.min(64, time - previousTime) : 1000 / 60;
     const blend = reduced.matches ? 1 : 1 - Math.pow(0.92, elapsed / (1000 / 60));
     position += (target - position) * blend;
     // Clamp immediately at the footer even during a fast fling toward the bottom.
-    position = Math.min(position, maximum);
+    position = Math.min(position, upperBound);
     if (Math.abs(target - position) < 0.1) position = target;
     toc.style.transform = `translateY(${position}px)`;
     previousTime = time;
