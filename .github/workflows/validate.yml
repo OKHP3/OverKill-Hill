@@ -85,6 +85,9 @@ jobs:
       - name: Run audit portability regressions
         run: python3 tests/test-audit-site-portability.py
 
+      - name: Check the shared public-page boundary
+        run: python3 tests/test-public-page-boundary.py
+
       - name: Test the Pages release boundary
         run: python3 tests/test-release-package.py
 

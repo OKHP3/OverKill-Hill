@@ -31,20 +31,14 @@ from urllib.parse import urlsplit
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parent.parent
-SKIP_DIRS = {
-    "node_modules",
-    ".local",
-    ".git",
-    "attached_assets",
-    "assets",
-    ".pythonlibs",
-    ".cache",
-    ".agents",
-    ".pr-head",
-    "_replit",
-    "dist",
-    "site-src", "tests",
-}
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
+from public_page_boundary import PUBLIC_PAGE_EXCLUDED_DIRS, iter_public_html_files
+
+# Link reports intentionally cover site pages, not the asset tree.
+SKIP_DIRS = set(PUBLIC_PAGE_EXCLUDED_DIRS) | {"assets"}
 SITE = "https://overkillhill.com"
 REPORT_DATE = date.today().isoformat()
 ARTICLE_ARCHIVE_PAGE = (
@@ -238,6 +232,16 @@ def sitemap_exclusion(path: Path) -> dict | None:
     }
 
 
+def iter_html_files(scan_root: Path | None = None):
+    """Yield site pages after shared and link-audit-specific exclusions."""
+    scan_root = Path(scan_root) if scan_root is not None else ROOT
+    for path in iter_public_html_files(scan_root):
+        relative = path.relative_to(scan_root)
+        if any(part in SKIP_DIRS for part in relative.parts):
+            continue
+        yield path
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -255,10 +259,8 @@ def main() -> int:
     broken: list[dict] = []
     style_issues: list[dict] = []
 
-    for path in sorted(ROOT.rglob("*.html")):
+    for path in iter_html_files():
         rel = path.relative_to(ROOT)
-        if any(s in rel.parts for s in SKIP_DIRS):
-            continue
         html = path.read_text(encoding="utf-8", errors="replace")
         n_int = n_ext = 0
         for m in re.finditer(r'href=["\']([^"\']+)["\']', html):
@@ -303,10 +305,10 @@ def main() -> int:
 
     file_urls = set()
     excluded_from_sitemap: list[dict] = []
-    for p in sorted(ROOT.rglob("index.html")):
-        rel = p.relative_to(ROOT)
-        if any(s in rel.parts for s in SKIP_DIRS):
+    for p in iter_html_files():
+        if p.name != "index.html":
             continue
+        rel = p.relative_to(ROOT)
         exclusion = sitemap_exclusion(p)
         if exclusion:
             excluded_from_sitemap.append(exclusion)

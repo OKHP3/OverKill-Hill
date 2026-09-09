@@ -74,9 +74,14 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 from xml.etree import ElementTree as ET
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
 ROOT = Path(__file__).resolve().parent.parent
-EXCLUDE_DIRS = {".local", ".agents", "attached_assets", "node_modules", ".cache", ".git",
-                ".pr-head", "_replit", "templates", "site-src", "tests"}
+from public_page_boundary import PUBLIC_PAGE_EXCLUDED_DIRS, iter_public_html_files
+
+EXCLUDE_DIRS = set(PUBLIC_PAGE_EXCLUDED_DIRS)
 EXCLUDE_FROM_SITEMAP = {"404.html", "under-construction.html"}
 
 # Title / description recommended length budgets
@@ -95,9 +100,7 @@ except (AttributeError, OSError, ValueError):
 
 def iter_html_files() -> List[Path]:
     out: List[Path] = []
-    for p in ROOT.rglob("*.html"):
-        if any(part in EXCLUDE_DIRS for part in p.parts):
-            continue
+    for p in iter_public_html_files(ROOT):
         if p.relative_to(ROOT).as_posix().startswith("assets/partials/"):
             continue
         out.append(p)

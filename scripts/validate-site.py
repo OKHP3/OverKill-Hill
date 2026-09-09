@@ -40,7 +40,12 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
 from csp import build_policies, page_class, sha256_source
+from public_page_boundary import PUBLIC_PAGE_EXCLUDED_DIRS, iter_public_html_files
 
 
 def configure_utf8_console() -> None:
@@ -56,7 +61,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # Production-page discovery deliberately excludes checked-in test HTML.  Files
 # under tests/fixtures/ are served only by their dedicated test commands; they
 # are not published pages and must not inherit production SEO requirements.
-SKIP_DIRS = {"_replit", ".local", ".git", ".pr-head", "node_modules", "attached_assets", "dist", "templates", ".agents", "site-src", "tests", "i18n"}
+SKIP_DIRS = set(PUBLIC_PAGE_EXCLUDED_DIRS)
 SITEMAP = ROOT / "sitemap.xml"
 SITE_ORIGIN = "https://overkillhill.com"
 MANIFEST = ROOT / "site-src/pages.json"
@@ -257,14 +262,10 @@ class TagCounter(HTMLParser):
 
 def find_html_files() -> list[Path]:
     files: list[Path] = []
-    for path in ROOT.rglob("*.html"):
-        rel = path.relative_to(ROOT)
-        parts = set(rel.parts)
-        if parts & SKIP_DIRS:
-            continue
+    for path in iter_public_html_files(ROOT):
         # /assets/templates/ holds stripped template scaffolds with [PLACEHOLDER]
         # tokens — not live pages. They're parsed separately by extract-templates.py.
-        rel_posix = rel.as_posix()
+        rel_posix = path.relative_to(ROOT).as_posix()
         if rel_posix.startswith(("assets/templates/", "assets/partials/")):
             continue
         files.append(path)

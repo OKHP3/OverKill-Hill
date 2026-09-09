@@ -30,6 +30,12 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
+from public_page_boundary import PUBLIC_PAGE_EXCLUDED_DIRS, is_public_page_path
+
 PROJECT_STATUS = runpy.run_path(str(ROOT / "scripts/project-status.py"))
 OUT = ROOT / "assets" / "data" / "search-index.json"
 SITE = "https://overkillhill.com"
@@ -38,9 +44,7 @@ SKIP_FILES = {
     "404.html",
     "under-construction.html",
 }
-SKIP_DIR_PARTS = {".git", ".local", ".cache", ".vscode", ".github", ".pr-head", "partials",
-                  ".config", ".canvas", ".agents", "attached_assets",
-                   "node_modules", "_replit", "templates", "site-src", "tests"}
+SKIP_DIR_PARTS = set(PUBLIC_PAGE_EXCLUDED_DIRS)
 
 CATEGORY_RULES = [
     ("/writings/first-diagram-is-a-liar/v03/", "Field Guide"),
@@ -65,6 +69,14 @@ def categorise(url_path: str) -> str:
         if url_path.startswith(prefix):
             return label
     return "Page"
+
+
+def iter_html_files(scan_root: Path | None = None):
+    """Yield index candidates inside the shared published-page boundary."""
+    scan_root = Path(scan_root) if scan_root is not None else ROOT
+    for path in sorted(scan_root.rglob("*.html")):
+        if is_public_page_path(path, ROOT):
+            yield path
 
 
 class TextExtractor(HTMLParser):
@@ -525,11 +537,7 @@ def process_file(path: Path, locale: str = "") -> list[dict]:
 def build_payload(scan_root: Path = ROOT, locale: str = "") -> dict:
     """Build the deterministic search-index payload without writing to disk."""
     entries: list[dict] = []
-    for path in sorted(scan_root.rglob("*.html")):
-        # Filter directories
-        rel_parts = path.relative_to(ROOT).parts
-        if any(p in SKIP_DIR_PARTS for p in rel_parts):
-            continue
+    for path in iter_html_files(scan_root):
         entries.extend(process_file(path, locale=locale))
 
     # Stable sort: Home → Brand → Writing/Article → Article Section → Project → Page
