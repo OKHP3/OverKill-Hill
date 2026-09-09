@@ -1,6 +1,6 @@
 # Thread closeout status
 
-September 9, 2026. Status: **INCOMPLETE for the broader website queue**.
+September 9, 2026. The original delegated batch is complete; the broader website queue remains open in its existing tasks.
 The original 26 coop-pertition deliverables and the historical PR75 technical
 batch remain verified. Later A14, A15, Replit, and Pages work is recorded below
 with current merge and acceptance boundaries. Past deployment evidence does
@@ -24,6 +24,16 @@ Evidence: [FoundRy PR25](https://github.com/OKHP3/OverKill-Hill-FoundRy/pull/25)
 [committed batch closeout](https://github.com/OKHP3/OverKill-Hill-FoundRy/blob/7d2d964/docs/handoffs/coop-pertition-2026-09-07/closeout-2026-09-08.md).
 Prototype/design and copy-proposal assignments are complete as contracted
 artifacts; they do not imply that every proposal was adopted.
+
+## Task scope confirmed September 9
+
+The owner directed each existing task to close its own work, without further
+delegation. This task owns the completed F01-F20/W01-W06 batch, its historical
+integration and cleanup evidence, and this corrected ledger. The broader site
+release repair is tracked in existing task **Sync, test, and fix site issues**;
+A20/A21 acceptance remains with its existing acceptance and integration tasks.
+These are continuing tasks, not new delegates or claims of completed human
+acceptance. Closing this batch task does not certify the whole website queue.
 
 ## September 9 current checkpoint
 
