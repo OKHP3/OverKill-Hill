@@ -12,22 +12,12 @@ import { createHash } from "node:crypto";
 const testsDirectory = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = join(testsDirectory, "..");
 const appScript = await readFile(join(repositoryRoot, "assets", "js", "app.js"), "utf8");
+const brandThemeContract = JSON.parse(
+  await readFile(join(repositoryRoot, "config", "brand-theme-contract.json"), "utf8"),
+);
 const execFileAsync = promisify(execFile);
 
-const BRAND_EXPECTATIONS = {
-  glee: {
-    bodyClass: "glee-main",
-    storageKey: "glee-color-scheme",
-    light: "#d35b2d",
-    dark: "#1e1b19",
-  },
-  askjamie: {
-    bodyClass: "askjamie-main",
-    storageKey: "askjamie-color-scheme",
-    light: "#f5efe1",
-    dark: "#2c5e6f",
-  },
-};
+const BRAND_EXPECTATIONS = brandThemeContract.brands;
 
 let browser;
 
@@ -201,6 +191,26 @@ test("Glee and AskJamie keep their light baseline and update theme-color metadat
     } finally {
       await page.close();
     }
+  }
+});
+
+test("brand control colors stay aligned with the reviewed theme contract", () => {
+  for (const expected of Object.values(BRAND_EXPECTATIONS)) {
+    assert.match(
+      appScript,
+      new RegExp(`light:\\s*["']${expected.light}["']`),
+      `${expected.name} light color`,
+    );
+    assert.match(
+      appScript,
+      new RegExp(`dark:\\s*["']${expected.dark}["']`),
+      `${expected.name} dark color`,
+    );
+    assert.match(
+      appScript,
+      new RegExp(`${expected.storageKey}`),
+      `${expected.name} storage key`,
+    );
   }
 });
 

@@ -4,11 +4,15 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import sys
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+BRAND_THEME_CONTRACT = json.loads(
+    (ROOT / "config" / "brand-theme-contract.json").read_text(encoding="utf-8")
+)["brands"]
 sys.path.insert(0, str(ROOT / "scripts"))
 validator_spec = importlib.util.spec_from_file_location(
     "validate_site", ROOT / "scripts" / "validate-site.py"
@@ -24,7 +28,12 @@ def parse_html(raw: str):
     return parser
 
 
-def brand_page(brand: str, light: str, dark: str, color_scheme: str = "dark light") -> str:
+def brand_page(
+    brand: str,
+    light: str,
+    dark: str,
+    color_scheme: str,
+) -> str:
     return f"""<!doctype html>
 <html><head>
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="{light}">
@@ -35,21 +44,31 @@ def brand_page(brand: str, light: str, dark: str, color_scheme: str = "dark ligh
 
 class BrandThemeMetadataTests(unittest.TestCase):
     def test_valid_brand_metadata_passes(self) -> None:
-        for brand, light, dark in (
-            ("glee-main", "#d35b2d", "#1e1b19"),
-            ("askjamie-main", "#f5efe1", "#2c5e6f"),
-        ):
-            with self.subTest(brand=brand):
+        for expected in BRAND_THEME_CONTRACT.values():
+            with self.subTest(brand=expected["name"]):
                 self.assertEqual(
                     validator.validate_brand_theme_metadata(
-                        f"{brand}/index.html",
-                        parse_html(brand_page(brand, light, dark)),
+                        f"{expected['bodyClass']}/index.html",
+                        parse_html(
+                            brand_page(
+                                expected["bodyClass"],
+                                expected["light"],
+                                expected["dark"],
+                                expected["colorScheme"],
+                            )
+                        ),
                     ),
                     [],
                 )
 
     def test_missing_media_variant_names_page_and_media(self) -> None:
-        raw = brand_page("glee-main", "#d35b2d", "#1e1b19").replace(
+        glee = BRAND_THEME_CONTRACT["glee"]
+        raw = brand_page(
+            glee["bodyClass"],
+            glee["light"],
+            glee["dark"],
+            glee["colorScheme"],
+        ).replace(
             'media="(prefers-color-scheme: dark)"', "", 1
         )
         findings = validator.validate_brand_theme_metadata(
@@ -65,29 +84,53 @@ class BrandThemeMetadataTests(unittest.TestCase):
         )
 
     def test_wrong_color_and_color_scheme_report_values(self) -> None:
-        raw = brand_page("askjamie-main", "#wrong", "#2c5e6f", "light dark")
+        askjamie = BRAND_THEME_CONTRACT["askjamie"]
+        raw = brand_page(
+            askjamie["bodyClass"],
+            "#wrong",
+            askjamie["dark"],
+            "light dark",
+        )
         findings = validator.validate_brand_theme_metadata(
             "index.html", parse_html(raw)
         )
         messages = "\n".join(finding.msg for finding in findings)
-        self.assertIn("is '#wrong'; expected '#f5efe1'", messages)
-        self.assertIn("is 'light dark'; expected exactly 'dark light'", messages)
+        self.assertIn(
+            f"is '#wrong'; expected '{askjamie['light']}'",
+            messages,
+        )
+        self.assertIn(
+            f"is 'light dark'; expected exactly '{askjamie['colorScheme']}'",
+            messages,
+        )
 
     def test_missing_color_scheme_reports_expected_value(self) -> None:
-        raw = brand_page("glee-main", "#d35b2d", "#1e1b19").replace(
-            '<meta name="color-scheme" content="dark light">', "", 1
+        glee = BRAND_THEME_CONTRACT["glee"]
+        raw = brand_page(
+            glee["bodyClass"],
+            glee["light"],
+            glee["dark"],
+            glee["colorScheme"],
+        ).replace(
+            f'<meta name="color-scheme" content="{glee["colorScheme"]}">', "", 1
         )
         findings = validator.validate_brand_theme_metadata(
             "glee/index.html", parse_html(raw)
         )
         messages = "\n".join(finding.msg for finding in findings)
         self.assertIn("missing color-scheme metadata", messages)
-        self.assertIn("expected 'dark light'", messages)
+        self.assertIn(f"expected '{glee['colorScheme']}'", messages)
 
     def test_duplicate_or_unexpected_theme_color_is_rejected(self) -> None:
-        raw = brand_page("glee-main", "#d35b2d", "#1e1b19").replace(
+        glee = BRAND_THEME_CONTRACT["glee"]
+        raw = brand_page(
+            glee["bodyClass"],
+            glee["light"],
+            glee["dark"],
+            glee["colorScheme"],
+        ).replace(
             "</head>",
-            '<meta name="theme-color" content="#d35b2d"></head>',
+            f'<meta name="theme-color" content="{glee["light"]}"></head>',
             1,
         )
         findings = validator.validate_brand_theme_metadata(

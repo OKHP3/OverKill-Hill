@@ -73,23 +73,21 @@ THEME_STYLESHEET = ROOT / THEME_STYLESHEET_PATH.lstrip("/")
 APP_SCRIPT_PATH = "/assets/js/app.js"
 MERMAID_INIT_SCRIPT_PATH = "/assets/js/mermaid-init.js"
 SHARED_SCRIPT_PATHS = (APP_SCRIPT_PATH, MERMAID_INIT_SCRIPT_PATH)
-BRAND_THEME_CONTRACT = {
-    "glee-main": {
-        "name": "Glee",
-        "light": "#d35b2d",
-        "dark": "#1e1b19",
-    },
-    "askjamie-main": {
-        "name": "AskJamie",
-        "light": "#f5efe1",
-        "dark": "#2c5e6f",
-    },
-}
+BRAND_THEME_CONTRACT_PATH = ROOT / "config/brand-theme-contract.json"
+
+
+def load_brand_theme_contract() -> dict[str, dict[str, str]]:
+    """Load the reviewed brand metadata contract used by release checks."""
+    raw_contract = json.loads(BRAND_THEME_CONTRACT_PATH.read_text(encoding="utf-8"))
+    brands = raw_contract["brands"]
+    return {brand["bodyClass"]: brand for brand in brands.values()}
+
+
+BRAND_THEME_CONTRACT = load_brand_theme_contract()
 THEME_COLOR_MEDIA = {
     "light": "(prefers-color-scheme: light)",
     "dark": "(prefers-color-scheme: dark)",
 }
-EXPECTED_COLOR_SCHEME = "dark light"
 MERMAID_VENDOR_ROOT = ROOT / "assets/vendor/mermaid"
 MERMAID_VENDOR_ENTRY = MERMAID_VENDOR_ROOT / "mermaid.esm.min.mjs"
 MERMAID_VERSION_FILE = MERMAID_VENDOR_ROOT / "VERSION"
@@ -1471,18 +1469,18 @@ def validate_brand_theme_metadata(location: str, parser: TagCounter) -> list[Fin
             Finding(
                 "ERROR",
                 location,
-                f"{brand_name} page missing color-scheme metadata; expected {EXPECTED_COLOR_SCHEME!r}",
+                f"{brand_name} page missing color-scheme metadata; expected {contract['colorScheme']!r}",
             )
         )
     else:
         normalized_schemes = [" ".join(value.split()) for value in color_scheme_values]
-        if len(normalized_schemes) != 1 or normalized_schemes[0] != EXPECTED_COLOR_SCHEME:
+        if len(normalized_schemes) != 1 or normalized_schemes[0] != contract["colorScheme"]:
             actual = ", ".join(repr(value) for value in color_scheme_values)
             findings.append(
                 Finding(
                     "ERROR",
                     location,
-                    f"{brand_name} color-scheme metadata is {actual}; expected exactly {EXPECTED_COLOR_SCHEME!r}",
+                    f"{brand_name} color-scheme metadata is {actual}; expected exactly {contract['colorScheme']!r}",
                 )
             )
 
