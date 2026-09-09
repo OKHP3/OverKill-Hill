@@ -51,6 +51,10 @@ were not independently hashed.
 
 The current authority and production hierarchy is [`docs/murderbird-unified-direction.md`](../../docs/murderbird-unified-direction.md), not any one historical thread extract. The reimagining extract remains preserved for provenance and semantic cross-checking; it is not a second canon or a competing asset register. Its `completeness: partial` boundary is material: source-independent semantic extraction is usable, but unavailable Copilot-generated image payloads are not recovered or reproducible from the extract. The focused extracts above and the unified direction brief must be read for current decisions, acceptance state, and release ownership.
 
+## 2026-09-08 story-page closeout scope
+
+The MurderBird story-page closeout covers the accepted stills, the eight-second silent study, and the TOC/sidebar correction. Per owner direction, the longer film and soundtrack remain separate follow-up work; this note does not claim multimedia completion.
+
 ## Conventions
 
 - Filenames are lowercase and hyphenated, derived from the artifact's primary
