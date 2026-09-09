@@ -46,7 +46,7 @@ class HeadMetadata(HTMLParser):
         self.lang = ""
         self.canonical = ""
         self.og_url = ""
-        self.meta: dict[str, str] = {}
+        self.meta: dict[str, list[str]] = {}
         self.alternates: dict[str, set[str]] = {}
         self.is_noindex = False
         self._in_html = False
@@ -67,8 +67,8 @@ class HeadMetadata(HTMLParser):
         elif tag == "meta":
             key = (attrs.get("name") or attrs.get("property") or "").lower()
             content = attrs.get("content", "").strip()
-            if key and key not in self.meta:
-                self.meta[key] = content
+            if key:
+                self.meta.setdefault(key, []).append(content)
             if key == "robots":
                 self.is_noindex = "noindex" in content.lower()
             elif key == "og:url":
@@ -314,11 +314,18 @@ def validate_locale(
                 fail(findings, f"indexable locale page must not be noindex: {target_path}")
             if site_validator is None:
                 site_validator = load_site_validator()
+            duplicate_findings = site_validator.validate_duplicate_social_card_metadata(
+                target_path,
+                target_meta.meta,
+            )
             social_findings = site_validator.validate_indexable_social_card(
                 target_path,
-                {f"meta:{key}": value for key, value in target_meta.meta.items()},
+                {
+                    f"meta:{key}": values[0] if values else ""
+                    for key, values in target_meta.meta.items()
+                },
             )
-            for finding in social_findings:
+            for finding in duplicate_findings + social_findings:
                 fail(findings, f"{finding.page}: {finding.msg}")
         else:
             if not target_meta.is_noindex:

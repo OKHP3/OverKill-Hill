@@ -116,6 +116,15 @@ MERMAID_HEAT_TARGETS = {
 # partial. Keep the non-editorial contract here so a content edit cannot
 # silently weaken the published head.
 RETIRED_SOCIAL_IMAGE = "/assets/img/over-kill-hill-p3-sentinel-waiting-square-1024.png"
+SOCIAL_CARD_META_KEYS = (
+    "og:image",
+    "og:image:alt",
+    "og:image:width",
+    "og:image:height",
+    "og:image:type",
+    "twitter:image",
+    "twitter:image:alt",
+)
 ARTICLE_ROUTE_PREFIX = "/writings/"
 FEATURED_WRITING_ROUTE = "/writings/first-diagram-is-a-liar/"
 FEATURED_WRITING_SOURCE = ROOT / "site-src/pages/writings/index.main.html"
@@ -514,6 +523,24 @@ def validate_social_image_parity(location: str, values: dict[str, str]) -> list[
     return []
 
 
+def validate_duplicate_social_card_metadata(
+    location: str,
+    metadata: dict[str, list[str]],
+) -> list[Finding]:
+    """Reject conflicting duplicate image metadata before consumers choose differently."""
+    findings: list[Finding] = []
+    for key in SOCIAL_CARD_META_KEYS:
+        values = metadata.get(key, [])
+        if len(values) > 1 and len(set(values)) > 1:
+            findings.append(Finding(
+                "ERROR",
+                location,
+                f"conflicting duplicate social-card metadata for meta:{key}: "
+                f"{values!r}",
+            ))
+    return findings
+
+
 def _jsonld_objects(parser: TagCounter) -> tuple[list[dict], list[str]]:
     objects: list[dict] = []
     errors: list[str] = []
@@ -857,7 +884,8 @@ def validate_generated_seo(
                     "meta:" + key: entries[0] if entries else ""
                     for key, entries in parser.meta.items()
                 }
-                findings = validate_indexable_social_card(rel, values)
+                findings = validate_duplicate_social_card_metadata(rel, parser.meta)
+                findings.extend(validate_indexable_social_card(rel, values))
                 if locale_page.get("metadata_source") != "localized-page":
                     findings.append(Finding(
                         "ERROR",
@@ -878,6 +906,7 @@ def validate_generated_seo(
     }
     findings = validate_organization_nodes(rel, parser)
     if is_indexable_page(manifest_page):
+        findings.extend(validate_duplicate_social_card_metadata(rel, parser.meta))
         findings.extend(validate_indexable_social_card(rel, values, "generated"))
         findings.extend(validate_article_jsonld_dates(
             rel,

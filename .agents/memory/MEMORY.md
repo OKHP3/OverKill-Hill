@@ -13,3 +13,4 @@
 - [Browser fixture process model](browser-fixture-process-model.md) — local HTTP fixture servers need asynchronous child-process tests so the Node event loop can keep serving browser requests.
 - [Notion editorial access](notion-editorial-access.md) — an authorized Notion connection may need binding before use; search titles, then fetch page content explicitly.
 - [Cross-site foundation review](cross-site-foundation-review.md) — theme parity needs immutable reviewed revisions plus each site's actual markup; sibling checkouts may be absent locally.
+- [Generated head editing](generated-head-editing.md) — generated pages may pack CSP and metadata into one very long line; preserve it with narrowly scoped literal edits.
