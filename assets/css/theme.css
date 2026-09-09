@@ -2405,6 +2405,7 @@ body.construction-dismissed .construction-overlay,
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 3rem; align-items: start; margin: 2rem 0;
 }
+#visual-record { scroll-margin-top: 8rem; }
 .murderbird-img-wrap img {
   width: 100%; border-radius: 0.75rem;
   border: 1px solid rgba(196,106,44,0.3); display: block;

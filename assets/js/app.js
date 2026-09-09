@@ -523,6 +523,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const toc = document.getElementById("toc-widget");
   const footer = document.querySelector(".site-footer");
   if (!toc || !footer) return;
+  const stopBefore = toc.dataset.tocStopBefore
+    ? document.getElementById(toc.dataset.tocStopBefore)
+    : null;
 
   const wide = window.matchMedia("(min-width: 1024px)");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -557,9 +560,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const naturalTop = box.top + window.scrollY - position;
     const centered = Math.max(topGap, (window.innerHeight - box.height) / 2);
     const footerTop = footer.getBoundingClientRect().top + window.scrollY;
-    const stop = document.getElementById(toc.dataset.tocStopBefore);
-    const stopTop = stop ? stop.getBoundingClientRect().top + window.scrollY : footerTop;
-    const boundaryTop = Math.min(footerTop, stopTop);
+    const boundaryTop = Math.min(
+      footerTop,
+      stopBefore ? stopBefore.getBoundingClientRect().top + window.scrollY : footerTop,
+    );
     const maximum = Math.max(0, boundaryTop - 32 - naturalTop - box.height);
     const target = Math.min(Math.max(0, window.scrollY + centered - naturalTop), maximum);
     // Preserve the Mac Studio 8%-per-frame feel at 60 Hz on faster displays too.
