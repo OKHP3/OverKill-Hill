@@ -1,0 +1,42 @@
+{
+  "language_pair": "en-US -> fr-FR",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "reviewed_on": "2026-09-08",
+  "review_scope": "All four source and French target files were byte-compared against HEAD after removing only the app.js query fingerprint and normalizing CRLF. No prose, markup, translation, or publication status changed. This receipt preserves existing language review; it does not claim new native review.",
+  "source_revision": "94224fc4d9505d4c3c99da388c1e7bf00ee00bd2",
+  "routes": [
+    {
+      "route": "/",
+      "locale": "fr",
+      "target_path": "fr/index.html",
+      "source_sha256": "399c6e989be6c16cbd5c6be298bb27cee75b95c4192c62c5f7ba0f0cc36e779f",
+      "target_sha256": "2d6a9ca0b0eb802dfc2b6140de506d0c4587adba7c26e8bb52716764a1daeb3c",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/about/",
+      "locale": "fr",
+      "target_path": "fr/about/index.html",
+      "source_sha256": "ebd0b55320357149af83eec4bfbfde54a82b291214de1d1571cddafe712b97e7",
+      "target_sha256": "fd6b3f0723115cce8c760dbb8bfb9b2259a3ce02f1ad834ff1602a8e723d87ae",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/contact/",
+      "locale": "fr",
+      "target_path": "fr/contact/index.html",
+      "source_sha256": "86fffecaf7becf6f97ffce7ca59d581041a9fd4329577798594981dbf826ef11",
+      "target_sha256": "0792ff06338be318b50937b79522b915b4a75dd17e1d9ce94d991f8a1abebd43",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/projects/",
+      "locale": "fr",
+      "target_path": "fr/projects/index.html",
+      "source_sha256": "e8b9e0a37aae2120d626b2e0b24d2e086a50f449a964060d4c0ecc907ea22080",
+      "target_sha256": "7235079aa0fe449826ddb537a908d076fbcebc411e25ff5d483ad0731ef80d2e",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    }
+  ]
+}
