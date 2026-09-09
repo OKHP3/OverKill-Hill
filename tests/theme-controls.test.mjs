@@ -266,12 +266,10 @@ function configuredSiteInputs() {
     }));
   }
 
-  const available = DEFAULT_SITE_ROOTS.filter((site) => site.root && directoryExists(site.root));
-  if (available.length === 0) return [];
-  if (available.length !== DEFAULT_SITE_ROOTS.length) {
-    throw new Error(`Theme-control sync requires all three site checkouts; found ${available.map(({ name }) => name).join(", ")}`);
-  }
-  return available;
+  // Cross-site comparisons require reviewed immutable revisions. Mounted sibling
+  // checkouts may be stale or independently in progress, so do not auto-enable
+  // this audit from their presence on disk.
+  return [];
 }
 
 function directoryExists(path) {
