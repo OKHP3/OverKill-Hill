@@ -610,7 +610,21 @@ def validate_article_jsonld_dates(
         Finding("ERROR", location, f"invalid JSON-LD block: {error}")
         for error in parse_errors
     ]
-    for article in (item for item in objects if item.get("@type") == "Article"):
+    articles = [item for item in objects if item.get("@type") == "Article"]
+    published_dates = [
+        article["datePublished"]
+        for article in articles
+        if isinstance(article.get("datePublished"), str)
+        and article["datePublished"]
+    ]
+    if len(published_dates) > 1 and len(set(published_dates)) > 1:
+        findings.append(Finding(
+            "ERROR",
+            location,
+            "conflicting duplicate Article JSON-LD datePublished values: "
+            f"{published_dates!r}",
+        ))
+    for article in articles:
         for field in ("datePublished", "dateModified"):
             value = article.get(field)
             if field not in article or value in (None, ""):
