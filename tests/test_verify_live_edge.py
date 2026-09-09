@@ -37,6 +37,7 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         asset_fingerprint: str | None = None,
         include_asset_fingerprint: bool = True,
         asset_kind: str = "css",
+        asset_content_type: str | None = None,
         asset_body: bytes | None = None,
     ) -> tuple[int, dict[str, object]]:
         """Run the full verifier against deterministic synthetic edge responses."""
@@ -76,6 +77,8 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         }.get(asset_kind)
         if asset_details is None:
             raise ValueError(f"unsupported fixture asset kind: {asset_kind}")
+        if asset_content_type is not None:
+            asset_details["content_type"] = asset_content_type
         asset_path = asset_details["path"]
         asset_bytes = verify_live_edge.canonical_text_bytes(ROOT / asset_path.lstrip("/"))
         asset_hash = asset_fingerprint or hashlib.sha256(asset_bytes).hexdigest()[:8]
@@ -240,6 +243,45 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         self.assertEqual(asset_check["status"], "FAIL")
         self.assertIn("!= live", asset_check["evidence"])
         self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
+
+    def test_wrong_css_content_type_fails_with_explicit_mime_evidence(self) -> None:
+        return_code, report = self.run_live_edge_fixture(asset_content_type="text/html")
+
+        self.assertEqual(return_code, 1)
+        self.assertEqual(report["status"], "FAILED")
+        checks = {item["check"]: item for item in report["checks"]}
+        content_type_check = checks["asset /assets/css/theme.css content type"]
+        self.assertEqual(content_type_check["status"], "FAIL")
+        self.assertIn("text/html", content_type_check["evidence"])
+        self.assertIn("text/css", content_type_check["evidence"])
+        self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
+
+    def test_wrong_javascript_content_type_fails_with_explicit_mime_evidence(self) -> None:
+        return_code, report = self.run_live_edge_fixture(
+            asset_kind="js",
+            asset_content_type="text/css",
+        )
+
+        self.assertEqual(return_code, 1)
+        self.assertEqual(report["status"], "FAILED")
+        checks = {item["check"]: item for item in report["checks"]}
+        content_type_check = checks["asset /assets/js/app.js content type"]
+        self.assertEqual(content_type_check["status"], "FAIL")
+        self.assertIn("text/css", content_type_check["evidence"])
+        self.assertIn("application/javascript", content_type_check["evidence"])
+        self.assertIn("text/javascript", content_type_check["evidence"])
+        self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
+
+    def test_javascript_content_type_with_parameters_is_accepted(self) -> None:
+        return_code, report = self.run_live_edge_fixture(
+            asset_kind="js",
+            asset_content_type="application/javascript; charset=utf-8",
+        )
+
+        self.assertEqual(return_code, 0)
+        checks = {item["check"]: item for item in report["checks"]}
+        content_type_check = checks["asset /assets/js/app.js content type"]
+        self.assertEqual(content_type_check["status"], "PASS")
 
     def test_changed_hosting_path_fails_despite_pages_limitations(self) -> None:
         return_code, report = self.run_live_edge_fixture(

@@ -59,6 +59,10 @@ REVALIDATE_RE = re.compile(r"\bmust-revalidate\b", re.I)
 IMMUTABLE_RE = re.compile(r"\bimmutable\b", re.I)
 FINGERPRINT_RE = re.compile(r"(?:^|&)v=([0-9a-f]{8})(?:&|$)", re.I)
 COMMIT_RE = re.compile(r"[0-9a-f]{40}", re.I)
+ASSET_CONTENT_TYPES = {
+    ".css": frozenset({"text/css"}),
+    ".js": frozenset({"application/javascript", "text/javascript"}),
+}
 ASSET_RE = re.compile(
     r"""(?:href|src)=(['"])(?P<url>/assets/(?:css|js)/[^'"?#]+(?:\?[^'"#]*)?)\1""",
     re.I,
@@ -87,6 +91,34 @@ def result(check: str, status: str, evidence: str, **extra: Any) -> dict[str, An
 def transport_status(response: dict[str, Any]) -> str:
     """Keep network/timeout limits distinct from an HTTP deployment failure."""
     return "BLOCKED" if response.get("status") is None else "FAIL"
+
+
+def check_asset_content_type(
+    report: list[dict[str, Any]], path: str, response: dict[str, Any]
+) -> None:
+    """Require a browser-compatible MIME type for each first-party asset."""
+    expected = ASSET_CONTENT_TYPES.get(Path(path).suffix.lower())
+    if expected is None or not response.get("ok") or response.get("status") != 200:
+        return
+
+    received = response["headers"].get("content-type", "")
+    media_type = received.split(";", 1)[0].strip().lower()
+    accepted = ", ".join(sorted(expected))
+    status = "PASS" if media_type in expected else "FAIL"
+    evidence = (
+        f"received {received!r}; accepted: {accepted}"
+        if status == "PASS"
+        else f"received {received!r}; expected one of: {accepted}"
+    )
+    report.append(
+        result(
+            f"asset {path} content type",
+            status,
+            evidence,
+            content_type=received,
+            accepted_content_types=sorted(expected),
+        )
+    )
 
 
 def fetch(base: str, path: str, timeout: float = TIMEOUT) -> dict[str, Any]:
@@ -598,6 +630,8 @@ def main() -> int:
             else None
         )
         response = fetch(args.base, asset_url, args.timeout)
+        if response.get("ok") and response.get("status") == 200:
+            check_asset_content_type(report, path, response)
         if not fingerprint:
             report.append(result(f"asset {path}", "FAIL", "missing 8-character ?v= fingerprint"))
             continue
