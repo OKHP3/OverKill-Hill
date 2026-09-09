@@ -520,8 +520,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const toc = document.getElementById("toc-widget");
   const footer = document.querySelector(".site-footer");
   if (!toc || !footer) return;
-  // Full-width sections below an article must remain clear of its sidebar.
-  const stopBefore = document.getElementById(toc.dataset.tocStopBefore);
 
   const wide = window.matchMedia("(min-width: 1024px)");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -556,16 +554,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const naturalTop = box.top + window.scrollY - position;
     const centered = Math.max(topGap, (window.innerHeight - box.height) / 2);
     const footerTop = footer.getBoundingClientRect().top + window.scrollY;
-    const boundaryTop = stopBefore
-      ? Math.min(footerTop, stopBefore.getBoundingClientRect().top + window.scrollY)
-      : footerTop;
-    const maximum = Math.max(0, boundaryTop - 32 - naturalTop - box.height);
+    const maximum = Math.max(0, footerTop - 32 - naturalTop - box.height);
     const target = Math.min(Math.max(0, window.scrollY + centered - naturalTop), maximum);
     // Preserve the Mac Studio 8%-per-frame feel at 60 Hz on faster displays too.
     const elapsed = previousTime ? Math.min(64, time - previousTime) : 1000 / 60;
     const blend = reduced.matches ? 1 : 1 - Math.pow(0.92, elapsed / (1000 / 60));
     position += (target - position) * blend;
-    // Clamp immediately at the boundary even during a fast fling toward the bottom.
+    // Clamp immediately at the footer even during a fast fling toward the bottom.
     position = Math.min(position, maximum);
     if (Math.abs(target - position) < 0.1) position = target;
     toc.style.transform = `translateY(${position}px)`;
