@@ -1,0 +1,42 @@
+{
+  "language_pair": "en-US -> fr-FR",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "source_revision": "git:a588c76976368c53aa7b5a50c2598ad0b69dc807",
+  "reviewed_on": "2026-09-09",
+  "review_scope": "Exact comparison of the four blocking French routes after PR #89 generation confirms only shared cache-busted asset references and navigation sub-nav markers changed. French prose, alt text, translation choices, and publication boundaries were retained. No human or native-speaker approval is claimed.",
+  "routes": [
+    {
+      "route": "/",
+      "locale": "fr",
+      "source_sha256": "112c43b647a4c66da58b4cf12d2de12bcc476a2ef6b7afa743a28e84a762f228",
+      "target_path": "fr/index.html",
+      "target_sha256": "d936f2b0c7029e0a087d369d287d9f51e6b202dfd3b3619b0aea376d835def5d",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/about/",
+      "locale": "fr",
+      "source_sha256": "99928ea3f1ffe6d27c51b9fc19fe628008a14df984bcc5223f266fff1323c2ba",
+      "target_path": "fr/about/index.html",
+      "target_sha256": "c79e336849c3c019904993b4032d666e72c3bef6a211122a0ca83a0703432b39",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/contact/",
+      "locale": "fr",
+      "source_sha256": "4986d238298f859eb02ed49e5ce9ad3cd56b9d95b277f3691e4663715404a126",
+      "target_path": "fr/contact/index.html",
+      "target_sha256": "b6b20ce10066cbb0f01b2db73fbb1b0822a1dd1e1fe93b50b9c156c99d07f846",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    },
+    {
+      "route": "/projects/",
+      "locale": "fr",
+      "source_sha256": "afd2f14d5fa9281798f7136104ad0b64cccde6742dbecfb7d840e3e27d7d99b4",
+      "target_path": "fr/projects/index.html",
+      "target_sha256": "ef5ce1bf18f34b84683e00206a53096d3fc4b490770a0151eb4c58c74ac0fa99",
+      "disposition": "no-semantic-delta-ai-reviewed"
+    }
+  ]
+}

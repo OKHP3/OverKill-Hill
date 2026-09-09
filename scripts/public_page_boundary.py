@@ -21,6 +21,7 @@ PUBLIC_PAGE_EXCLUDED_DIRS = frozenset(
         ".agents",
         ".cache",
         ".canvas",
+        ".ci",
         ".config",
         ".github",
         ".git",
