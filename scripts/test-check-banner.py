@@ -48,6 +48,8 @@ def check_main_case(
     *,
     source_article: str | None = None,
     generated_article: str | None = None,
+    mode: str | None = None,
+    expect_files_unchanged: bool = False,
 ) -> None:
     with tempfile.TemporaryDirectory() as temp_dir:
         root = Path(temp_dir)
@@ -70,11 +72,15 @@ def check_main_case(
             generated_article if banner_path == check_banner.FEATURED_ARTICLE_GENERATED else ""
         )
         banner.write_text(banner_content + anchor, encoding="utf-8")
+        before = {
+            path: path.read_text(encoding="utf-8")
+            for path in root.rglob("*.html")
+        }
 
         output = StringIO()
         with (
             patch.object(check_banner, "__file__", str(root / "scripts/check-banner.py")),
-            patch("sys.argv", ["check-banner.py"]),
+            patch("sys.argv", ["check-banner.py"] + ([mode] if mode else [])),
             redirect_stdout(output),
         ):
             try:
@@ -84,6 +90,21 @@ def check_main_case(
                     raise AssertionError(f"{name}: expected exit 1, got {exc.code}")
             else:
                 raise AssertionError(f"{name}: expected a mismatch")
+
+        if expect_files_unchanged:
+            after = {
+                path: path.read_text(encoding="utf-8")
+                for path in root.rglob("*.html")
+            }
+            if after != before:
+                changed = sorted(
+                    str(path.relative_to(root))
+                    for path in set(before) | set(after)
+                    if before.get(path) != after.get(path)
+                )
+                raise AssertionError(
+                    f"{name}: expected no files to change, changed {changed}"
+                )
 
     report = output.getvalue()
     for part in expected_message_parts:
@@ -113,6 +134,20 @@ def main() -> int:
         f'<a class="site-specials-link" href="{featured}">{check_banner.CANONICAL_BANNER}</a>',
         stale_generated_failure,
     )
+    for mode in ("--update", "--dry-run"):
+        for banner_path, label in (
+            (check_banner.SOURCE_BANNER, "source partial"),
+            (check_banner.FEATURED_ARTICLE_GENERATED, "generated article"),
+        ):
+            check_main_case(
+                f"{mode} preserves {label} release drift",
+                banner_path,
+                f'<a class="site-specials-link" href="{featured}">'
+                f"{check_banner.OLD_BANNERS[0]}</a>",
+                release_failure + (banner_path,),
+                mode=mode,
+                expect_files_unchanged=True,
+            )
     malformed_article_cases = (
         (
             "missing source article label reports route and source path",
