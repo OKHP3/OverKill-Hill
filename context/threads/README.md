@@ -26,7 +26,7 @@ decision.
 | [`murderbird-visual-canon-generation-brief.md`](murderbird-visual-canon-generation-brief.md) | Synthesis of both threads, the manifesto, two Notion pages, and the repository image tree | Reconciled visual canon, measured asset audit with hex values, drift assessment, generation-ready prompts, deliverable matrix, and acceptance tests. **Contains no generated imagery by design.** | public-safe |
 | [`murderbird-posture-states-transparent-subject-asset-canon.md`](murderbird-posture-states-transparent-subject-asset-canon.md) | ChatGPT, "Edit bird image", 2026-07-29, plus two Notion canon pages | Posture-state delta for reference, assessment, and foe/menace renders; subject-isolation rules; image lineage; and a blocked binary-asset recovery handoff. | redacted |
 | [`murderbird-crt-perch-composition-asset-recovery.md`](murderbird-crt-perch-composition-asset-recovery.md) | ChatGPT supplied image-edit excerpt, one attached visual, and two Notion sidecars | CRT lockup composition, subject/scene/presentation layer separation, canon boundary, acceptance tests, and source-image recovery handoff. | redacted |
-| [`murderbird-reimagining-canon-image-generation-context.md`](murderbird-reimagining-canon-image-generation-context.md) | Same two Copilot threads, plus Notion and repository sidecars | Parallel extraction of the same source material, produced 2026-07-30T03:52Z. Adds a character bible, a three-era construction map, a 58-file local asset atlas, and a Notion routing report. **Overlaps heavily with the three MurderBird artifacts above and should be merged or superseded.** | needs-review |
+| [`murderbird-reimagining-canon-image-generation-context.md`](murderbird-reimagining-canon-image-generation-context.md) | Same two Copilot threads, plus Notion and repository sidecars | Historical parallel extraction, produced 2026-07-30T03:52Z. It overlaps the focused canon/brief extracts; its 58-file atlas and routing details remain useful historical provenance only. It is superseded for authority by [`docs/murderbird-unified-direction.md`](../../docs/murderbird-unified-direction.md). | redacted |
 | [`three-generation-overkill-hill-ethos-leverage-architecture.md`](three-generation-overkill-hill-ethos-leverage-architecture.md) | Claude | Family provenance of the OverKill Hill ethos and the shift from hours-as-currency to leverage-as-architecture. | **private-only**, contains personal family history, pending privacy review |
 
 ## Reading order for the MurderBird set
@@ -49,7 +49,11 @@ were not independently hashed.
 - `assets/brightened-blueprint-murderbird-crt-portrait-olive.png` — 1024×1024 RGB PNG.
 - `assets/murderbird-visual-asset-series/murderbird-crt-portrait-green-monitor-2026-07-29-2347.png` — 1024×1536 RGB PNG; SHA-256 is recorded in the visual asset-series extract.
 
-Then resolve the overlap with `murderbird-reimagining-canon-image-generation-context.md` before treating any single file as canonical.
+The current authority and production hierarchy is [`docs/murderbird-unified-direction.md`](../../docs/murderbird-unified-direction.md), not any one historical thread extract. The reimagining extract remains preserved for provenance and semantic cross-checking; it is not a second canon or a competing asset register. Its `completeness: partial` boundary is material: source-independent semantic extraction is usable, but unavailable Copilot-generated image payloads are not recovered or reproducible from the extract. The focused extracts above and the unified direction brief must be read for current decisions, acceptance state, and release ownership.
+
+## 2026-09-08 story-page closeout scope
+
+The MurderBird story-page closeout covers the accepted stills, the eight-second silent study, and the TOC/sidebar correction. Per owner direction, the longer film and soundtrack remain separate follow-up work; this note does not claim multimedia completion.
 
 ## Conventions
 
