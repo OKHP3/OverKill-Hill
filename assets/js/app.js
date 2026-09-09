@@ -618,7 +618,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ── 5. OKH Search — overlay + dedicated /search/ page ──────────────────────
 // Consolidated from search.js (2026-05-03). All 26 production pages load this.
-// Index: /assets/data/search-index.json?v=da80a5d5  Styles: inlined into theme.css (2026-05-04)
+// Index: /assets/data/search-index.json  Styles: inlined into theme.css (2026-05-04)
 // Keyboard: Ctrl/Cmd+K or "/" to open · Esc to close · ↑/↓ navigate · ↵ follow
 (function () {
   "use strict";
@@ -628,7 +628,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // English catalog until their publication gate explicitly promotes them.
   const SEARCH_INDEXES = { fr: "/assets/data/search-index.fr.json" };
   const pageLocale = (document.documentElement.lang || "en").toLowerCase().split("-", 1)[0];
-  const INDEX_URL = SEARCH_INDEXES[pageLocale] || "/assets/data/search-index.json?v=da80a5d5";
+  const INDEX_URL = SEARCH_INDEXES[pageLocale] || "/assets/data/search-index.json";
   const usesEnglishFallback = pageLocale === "de" || pageLocale === "es";
   const scopeNotice = usesEnglishFallback ? " Search English content." : "";
   const isGlee = () => document.body.classList.contains("glee-main");
