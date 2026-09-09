@@ -8,3 +8,9 @@ The cross-site theme audit must compare the shared foundation bytes and exercise
 **Why:** The three repositories can drift independently, and a local OverKill Hill checkout alone cannot prove what Glee or AskJamie publish.
 
 **How to apply:** Use the reviewed revision input for release evidence; require site name, revision, asset fingerprint, and markup-hook context in any drift failure.
+
+The shared `app.js` search-index URL must remain stable across sites; cache-busting belongs in each site's published HTML and service-worker references rather than in the byte-identical runtime.
+
+**Why:** Glee's site-specific cache-buster and the cross-site browser fixtures otherwise disagree about the runtime URL, creating either foundation drift or false loading failures.
+
+**How to apply:** Keep the shared runtime URL unversioned, version generated page/worker references, and test both the stable runtime contract and the site-specific generated references.
