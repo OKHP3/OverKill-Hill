@@ -1,0 +1,20 @@
+{
+  "brands": {
+    "glee": {
+      "name": "Glee",
+      "bodyClass": "glee-main",
+      "storageKey": "glee-color-scheme",
+      "light": "#d35b2d",
+      "dark": "#1e1b19",
+      "colorScheme": "dark light"
+    },
+    "askjamie": {
+      "name": "AskJamie",
+      "bodyClass": "askjamie-main",
+      "storageKey": "askjamie-color-scheme",
+      "light": "#f5efe1",
+      "dark": "#2c5e6f",
+      "colorScheme": "dark light"
+    }
+  }
+}

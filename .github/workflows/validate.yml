@@ -23,6 +23,10 @@ jobs:
     timeout-minutes: 20
     name: Validate site HTML, links, and structure
     if: github.event_name != 'schedule'
+    env:
+      THEME_CONTROL_OKH_REVISION: 0ee6bc875a183ca2e065448d01fe97da62fc1ff7
+      THEME_CONTROL_GLEE_REVISION: f5689fe4852b72e5d584db9d8f87cac9121b87c4
+      THEME_CONTROL_ASKJAMIE_REVISION: e800d4aebf0dc2543c5ced295ec78d10ba192473
     outputs:
       release_artifact_name: validated-site-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
     # Cancel obsolete PR validation only. Caller names separate reusable runs;
@@ -41,6 +45,35 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           path: .pr-head
+
+      - name: Record reviewed theme-control revisions
+        run: |
+          cat <<EOF | tee theme-control-revisions.txt
+          Theme-control audit foundation revisions
+          OKH       ${THEME_CONTROL_OKH_REVISION}  (OKHP3/OverKill-Hill)
+          Glee      ${THEME_CONTROL_GLEE_REVISION}  (OKHP3/Glee-fullyTools)
+          AskJamie  ${THEME_CONTROL_ASKJAMIE_REVISION}  (OKHP3/AskJamie)
+          EOF
+          cat theme-control-revisions.txt >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Fetch reviewed OKH foundation revision
+        run: git fetch --no-tags --depth=1 origin "$THEME_CONTROL_OKH_REVISION"
+
+      - name: Checkout reviewed Glee foundation revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: OKHP3/Glee-fullyTools
+          ref: ${{ env.THEME_CONTROL_GLEE_REVISION }}
+          path: .ci/theme-sites/glee-fullytools
+          fetch-depth: 1
+
+      - name: Checkout reviewed AskJamie foundation revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: OKHP3/AskJamie
+          ref: ${{ env.THEME_CONTROL_ASKJAMIE_REVISION }}
+          path: .ci/theme-sites/askjamie
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
@@ -85,6 +118,9 @@ jobs:
       - name: Run audit portability regressions
         run: python3 tests/test-audit-site-portability.py
 
+      - name: Check the shared public-page boundary
+        run: python3 tests/test-public-page-boundary.py
+
       - name: Test the Pages release boundary
         run: python3 tests/test-release-package.py
 
@@ -102,7 +138,7 @@ jobs:
           python3 tests/test-actions-summary.py
           python3 tests/test-ci-concurrency.py
 
-      - name: Run live-edge and post-merge regression tests
+      - name: Run live-edge MIME, fingerprint, and post-merge regression tests
         run: python3 -m unittest tests/test_verify_live_edge.py
 
       - name: Run shared-foundation sync safety regressions
@@ -244,10 +280,36 @@ jobs:
           npm run test:csp -- --base-url=http://127.0.0.1:5000
 
       - name: Run CSP fixture regressions
+        id: csp-fixtures
+        continue-on-error: true
+        env:
+          CSP_FIXTURE_REPORT: csp-fixture-report.json
         run: npm run test:csp:regressions
 
+      - name: Summarize failed CSP fixture regressions
+        if: always() && steps.csp-fixtures.outcome == 'failure'
+        run: node scripts/csp-qa.mjs --fixture-summary=csp-fixture-report.json
+
+      - name: Preserve CSP fixture regression failure
+        if: always() && steps.csp-fixtures.outcome == 'failure'
+        run: exit 1
+
       - name: Run shared theme-control regressions
+        env:
+          THEME_CONTROL_SITES: >-
+            [{"name":"OKH","root":".","revision":"0ee6bc875a183ca2e065448d01fe97da62fc1ff7"},
+            {"name":"Glee","root":".ci/theme-sites/glee-fullytools","revision":"f5689fe4852b72e5d584db9d8f87cac9121b87c4"},
+            {"name":"AskJamie","root":".ci/theme-sites/askjamie","revision":"e800d4aebf0dc2543c5ced295ec78d10ba192473"}]
         run: npm run test:theme-controls
+
+      - name: Upload theme-control revision evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: theme-control-revisions-${{ github.run_id }}
+          path: theme-control-revisions.txt
+          if-no-files-found: error
+          retention-days: 30
 
       - name: Run search and embedded-app regressions
         run: |
@@ -401,6 +463,7 @@ jobs:
 
       - name: Upload live-edge monitoring report
         if: always()
+        id: upload-live-edge-report
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: live-edge-monitor-${{ github.run_id }}
@@ -410,4 +473,4 @@ jobs:
 
       - name: Summarize content delivery and edge policy
         if: always()
-        run: python3 scripts/write-actions-summary.py --kind edge --report assets/audit/live-edge-report.json
+        run: python3 scripts/write-actions-summary.py --kind edge --report assets/audit/live-edge-report.json --artifact-url "${{ steps.upload-live-edge-report.outputs.artifact-url }}"

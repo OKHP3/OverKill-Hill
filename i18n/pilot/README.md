@@ -13,9 +13,9 @@ the detector and regional generator.
 
 | Locale root | Exact-pair skill suffix | Current boundary | Ledger/checker |
 | --- | --- | --- | --- |
-| `fr/` (`fr-FR`) | `fr-fr` | Released, indexable, in sitemap | `manifest.json`; freshness failures block |
-| `de/` (`de-DE`) | `de-de` | Draft, noindex, outside sitemap | `manifest.json`; source drift advisory |
-| `es/` (`es-ES`) | `es-es` | Draft, noindex, outside sitemap | `manifest.json`; source drift advisory |
+| `fr/` (`fr-FR`) | `fr-fr` | Released, indexable, in sitemap | `manifest.json`; localized page metadata; freshness failures block |
+| `de/` (`de-DE`) | `de-de` | Draft, noindex, outside sitemap | `manifest.json`; localized page metadata; source drift advisory |
+| `es/` (`es-ES`) | `es-es` | Draft, noindex, outside sitemap | `manifest.json`; localized page metadata; source drift advisory |
 | `en-gb/` (`en-GB`) | `en-uk` | Regional draft, noindex, outside sitemap | `regional-drafts-manifest.json`; regional checker |
 | `es-mx/` (`es-MX`) | `es-mx` | Regional draft, noindex, outside sitemap | `regional-drafts-manifest.json`; regional checker |
 
@@ -115,9 +115,12 @@ noindex pages are excluded; generating an index does not publish a locale.
 
 Each in-scope locale page must use its locale HTML language, locale-specific
 canonical URL, reciprocal `hreflang` links to English and the configured
-locales, and the correct indexability state. French is released and listed in
-the sitemap. German and Spanish remain drafts, `noindex`, and absent from the
-sitemap. Locale indexes are generated separately as
+locales, and the correct indexability state declared by the locale's
+`indexable` contract field. The `metadata_source` field identifies the owner of
+social-card metadata; `localized-page` means the target HTML owns its
+Open Graph/Twitter image, dimensions, type, and alt-text parity. French is
+released and listed in the sitemap. German and Spanish remain drafts,
+`noindex`, and absent from the sitemap. Locale indexes are generated separately as
 `assets/data/search-index.<locale>.json`.
 
 Useful commands:

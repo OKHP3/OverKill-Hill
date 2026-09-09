@@ -391,10 +391,13 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       revealEls.forEach((el) => revealObserver.observe(el));
+    } else {
+      document.querySelectorAll(".reveal-on-scroll").forEach((el) => el.classList.add("is-visible"));
     }
   } catch (error) {
     // An unavailable enhancement must not interrupt anchors or other controls.
     revealObserver?.disconnect();
+    document.querySelectorAll(".reveal-on-scroll").forEach((el) => el.classList.add("is-visible"));
   }
 
   // Smooth scroll for internal anchors
@@ -520,8 +523,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const toc = document.getElementById("toc-widget");
   const footer = document.querySelector(".site-footer");
   if (!toc || !footer) return;
-  // Full-width sections below an article must remain clear of its sidebar.
-  const stopBefore = document.getElementById(toc.dataset.tocStopBefore);
 
   const wide = window.matchMedia("(min-width: 1024px)");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -556,16 +557,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const naturalTop = box.top + window.scrollY - position;
     const centered = Math.max(topGap, (window.innerHeight - box.height) / 2);
     const footerTop = footer.getBoundingClientRect().top + window.scrollY;
-    const boundaryTop = stopBefore
-      ? Math.min(footerTop, stopBefore.getBoundingClientRect().top + window.scrollY)
-      : footerTop;
-    const maximum = Math.max(0, boundaryTop - 32 - naturalTop - box.height);
+    const maximum = Math.max(0, footerTop - 32 - naturalTop - box.height);
     const target = Math.min(Math.max(0, window.scrollY + centered - naturalTop), maximum);
     // Preserve the Mac Studio 8%-per-frame feel at 60 Hz on faster displays too.
     const elapsed = previousTime ? Math.min(64, time - previousTime) : 1000 / 60;
     const blend = reduced.matches ? 1 : 1 - Math.pow(0.92, elapsed / (1000 / 60));
     position += (target - position) * blend;
-    // Clamp immediately at the boundary even during a fast fling toward the bottom.
+    // Clamp immediately at the footer even during a fast fling toward the bottom.
     position = Math.min(position, maximum);
     if (Math.abs(target - position) < 0.1) position = target;
     toc.style.transform = `translateY(${position}px)`;
@@ -885,22 +883,39 @@ document.addEventListener("DOMContentLoaded", () => {
   // assistive technology announces the destination and native Enter/Tab work.
   function initResultNavigation(input, list) {
     const links = () => Array.from(list.querySelectorAll(".okh-search-result"));
+    function setActive(index) {
+      const results = links();
+      if (!results.length) return;
+      const activeIndex = Math.max(0, Math.min(index, results.length - 1));
+      results.forEach((link, position) => {
+        if (position === activeIndex) link.setAttribute("data-active", "true");
+        else link.removeAttribute("data-active");
+      });
+    }
     function focusResult(index) {
       const results = links();
       if (!results.length) return;
       if (index < 0) { input.focus(); return; }
+      setActive(index);
       results[Math.min(index, results.length - 1)].focus();
     }
-    input.addEventListener("focus", () => {
-      links().forEach(link => link.removeAttribute("data-active"));
-    });
     input.addEventListener("keydown", event => {
       if (event.key === "ArrowDown" || event.key === "ArrowUp") {
         event.preventDefault();
-        focusResult(event.key === "ArrowDown" ? 0 : links().length - 1);
+        const current = links().findIndex(link => link.getAttribute("data-active") === "true");
+        if (document.activeElement === input) {
+          if (event.key === "ArrowDown") {
+            focusResult(0);
+            if (links().length > 1) setActive(1);
+          } else {
+            focusResult(current > 0 ? current - 1 : links().length - 1);
+          }
+        } else {
+          focusResult(current + (event.key === "ArrowDown" ? 1 : -1));
+        }
       } else if (event.key === "Enter" && links().length) {
         event.preventDefault();
-        links()[0].click();
+        (links().find(link => link.getAttribute("data-active") === "true") || links()[0]).click();
       }
     });
     list.addEventListener("focusin", event => {
@@ -915,6 +930,13 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
       focusResult(index + (event.key === "ArrowDown" ? 1 : -1));
     });
+  }
+
+  function markFirstResult(list) {
+    const first = list.querySelector(".okh-search-result");
+    if (first && !list.querySelector('[data-active="true"]')) {
+      first.setAttribute("data-active", "true");
+    }
   }
 
   function initOverlay() {
@@ -1024,6 +1046,7 @@ document.addEventListener("DOMContentLoaded", () => {
           escapeHtml(r.entry.url) + '">' + renderResultHtml(r, lastTokens) +
         "</a></div>"
       )).join("");
+      markFirstResult(list);
       status.textContent = currentResults.length +
         (currentResults.length === 1
           ? okhLocaleText(" result found for ", " résultat trouvé pour ")
@@ -1208,6 +1231,7 @@ document.addEventListener("DOMContentLoaded", () => {
           renderResultHtml(r, tokens) +
         "</a>")
       )).join("");
+      markFirstResult(list);
     }
 
     function buildCategoryChips() {

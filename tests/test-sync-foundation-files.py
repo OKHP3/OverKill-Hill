@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import importlib.util
 import io
+import json
 import os
 import shutil
 import stat
@@ -114,6 +115,36 @@ class SyncFoundationSafetyTests(unittest.TestCase):
         result = self.invoke("--apply", "--file", "theme.css")
         self.assertEqual(result.returncode, 4, result.stdout + result.stderr)
         self.assertIn("writes require", result.stdout)
+
+    def test_dry_run_reports_each_site_revision_and_fingerprint(self):
+        result = self.invoke("--json")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        report = json.loads(result.stdout)
+        inspection = report["inspection"]
+        self.assertEqual(len(inspection), len(FILES))
+        for file_report in inspection:
+            self.assertEqual(file_report["status"], "in-sync")
+            self.assertEqual(set(file_report["sites"]), set(self.repos))
+            for name, site in file_report["sites"].items():
+                self.assertEqual(site["site"], {"overkill-hill": "OKH", "glee-fullytools": "Glee", "askjamie": "AskJamie"}[name])
+                self.assertEqual(site["revision"], git(self.repos[name], "rev-parse", "HEAD"))
+                self.assertEqual(len(site["sha256"]), 64)
+
+    def test_dry_run_identifies_drift_site_and_revision(self):
+        target = self.repos["askjamie"] / FILES[0]
+        target.write_text("drifted\n", encoding="utf-8")
+        git(self.repos["askjamie"], "add", FILES[0])
+        git(self.repos["askjamie"], "commit", "-m", "drift")
+        revision = git(self.repos["askjamie"], "rev-parse", "HEAD")
+
+        result = self.invoke("--json")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        report = json.loads(result.stdout)
+        theme_report = next(item for item in report["inspection"] if item["file"] == FILES[0])
+        self.assertEqual(theme_report["status"], "diverged")
+        self.assertIn("askjamie", theme_report["groups"][theme_report["sites"]["askjamie"]["sha256"]])
+        self.assertEqual(theme_report["sites"]["askjamie"]["site"], "AskJamie")
+        self.assertEqual(theme_report["sites"]["askjamie"]["revision"], revision)
 
     def test_failing_hook_prevents_commit_and_accounts_for_output(self):
         module = load_module()

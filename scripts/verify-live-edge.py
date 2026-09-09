@@ -59,6 +59,10 @@ REVALIDATE_RE = re.compile(r"\bmust-revalidate\b", re.I)
 IMMUTABLE_RE = re.compile(r"\bimmutable\b", re.I)
 FINGERPRINT_RE = re.compile(r"(?:^|&)v=([0-9a-f]{8})(?:&|$)", re.I)
 COMMIT_RE = re.compile(r"[0-9a-f]{40}", re.I)
+ASSET_CONTENT_TYPES = {
+    ".css": frozenset({"text/css"}),
+    ".js": frozenset({"application/javascript", "text/javascript"}),
+}
 ASSET_RE = re.compile(
     r"""(?:href|src)=(['"])(?P<url>/assets/(?:css|js)/[^'"?#]+(?:\?[^'"#]*)?)\1""",
     re.I,
@@ -67,6 +71,21 @@ ROBOTS_RE = re.compile(
     r"""<meta\b(?=[^>]*\bname=["']robots["'])(?=[^>]*\bcontent=["']([^"']+)["'])[^>]*>""",
     re.I,
 )
+LIVE_EDGE_CHECK_STATUSES = frozenset({"PASS", "FAIL", "WARN", "BLOCKED"})
+LIVE_EDGE_REPORT_STATUSES = frozenset({"PASS", "PARTIAL", "FAILED"})
+LIVE_EDGE_REPORT_FIELDS = (
+    "verifier",
+    "run_at",
+    "base",
+    "timeout_seconds",
+    "expected_commit",
+    "hosting",
+    "status",
+    "summary",
+    "checks",
+)
+LIVE_EDGE_SUMMARY_FIELDS = ("checks", "failures", "blocked", "warnings")
+LIVE_EDGE_CHECK_FIELDS = ("check", "status", "evidence")
 
 
 def canonical_text_bytes(path: Path) -> bytes:
@@ -84,9 +103,133 @@ def result(check: str, status: str, evidence: str, **extra: Any) -> dict[str, An
     return item
 
 
+def validate_report_shape(report: Any) -> None:
+    """Reject reports that cannot have been emitted by this verifier."""
+    if not isinstance(report, dict):
+        raise ValueError("live-edge report must be a JSON object")
+
+    missing = [field for field in LIVE_EDGE_REPORT_FIELDS if field not in report]
+    if missing:
+        raise ValueError(
+            "live-edge report is missing required field(s): " + ", ".join(missing)
+        )
+    if report["verifier"] != "verify-live-edge.py":
+        raise ValueError("live-edge report.verifier must be 'verify-live-edge.py'")
+    for field in ("run_at", "base"):
+        if not isinstance(report[field], str) or not report[field]:
+            raise ValueError(f"live-edge report.{field} must be a non-empty string")
+    if (
+        isinstance(report["timeout_seconds"], bool)
+        or not isinstance(report["timeout_seconds"], (int, float))
+        or report["timeout_seconds"] <= 0
+    ):
+        raise ValueError("live-edge report.timeout_seconds must be a positive number")
+    if report["expected_commit"] is not None and not isinstance(
+        report["expected_commit"], str
+    ):
+        raise ValueError("live-edge report.expected_commit must be a string or null")
+    if (
+        not isinstance(report["hosting"], str)
+        or report["hosting"] not in {"strict", "github-pages"}
+    ):
+        raise ValueError(
+            "live-edge report.hosting must be 'strict' or 'github-pages'"
+        )
+    if (
+        not isinstance(report["status"], str)
+        or report["status"] not in LIVE_EDGE_REPORT_STATUSES
+    ):
+        raise ValueError(
+            "live-edge report.status must be one of "
+            + ", ".join(sorted(LIVE_EDGE_REPORT_STATUSES))
+        )
+
+    summary = report["summary"]
+    if not isinstance(summary, dict):
+        raise ValueError("live-edge report.summary must be an object")
+    missing = [field for field in LIVE_EDGE_SUMMARY_FIELDS if field not in summary]
+    if missing:
+        raise ValueError(
+            "live-edge report.summary is missing required field(s): "
+            + ", ".join(missing)
+        )
+    for field in LIVE_EDGE_SUMMARY_FIELDS:
+        value = summary[field]
+        if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+            raise ValueError(
+                f"live-edge report.summary.{field} must be a non-negative integer"
+            )
+
+    checks = report["checks"]
+    if not isinstance(checks, list) or not checks:
+        raise ValueError("live-edge report.checks must be a non-empty array")
+    for index, item in enumerate(checks):
+        location = f"live-edge report.checks[{index}]"
+        if not isinstance(item, dict):
+            raise ValueError(f"{location} must be an object")
+        missing = [field for field in LIVE_EDGE_CHECK_FIELDS if field not in item]
+        if missing:
+            raise ValueError(
+                f"{location} is missing required field(s): " + ", ".join(missing)
+            )
+        if not isinstance(item["check"], str) or not item["check"]:
+            raise ValueError(f"{location}.check must be a non-empty string")
+        if (
+            not isinstance(item["status"], str)
+            or item["status"] not in LIVE_EDGE_CHECK_STATUSES
+        ):
+            raise ValueError(
+                f"{location}.status must be one of "
+                + ", ".join(sorted(LIVE_EDGE_CHECK_STATUSES))
+            )
+        if not isinstance(item["evidence"], str):
+            raise ValueError(f"{location}.evidence must be a string")
+
+    expected_counts = {
+        "checks": len(checks),
+        "failures": sum(item["status"] == "FAIL" for item in checks),
+        "blocked": sum(item["status"] == "BLOCKED" for item in checks),
+        "warnings": sum(item["status"] == "WARN" for item in checks),
+    }
+    for field, expected in expected_counts.items():
+        if summary[field] != expected:
+            raise ValueError(
+                f"live-edge report.summary.{field} is {summary[field]}, "
+                f"expected {expected} from checks"
+            )
+
+
 def transport_status(response: dict[str, Any]) -> str:
     """Keep network/timeout limits distinct from an HTTP deployment failure."""
     return "BLOCKED" if response.get("status") is None else "FAIL"
+
+
+def check_asset_content_type(
+    report: list[dict[str, Any]], path: str, response: dict[str, Any]
+) -> None:
+    """Require a browser-compatible MIME type for each first-party asset."""
+    expected = ASSET_CONTENT_TYPES.get(Path(path).suffix.lower())
+    if expected is None or not response.get("ok") or response.get("status") != 200:
+        return
+
+    received = response["headers"].get("content-type", "")
+    media_type = received.split(";", 1)[0].strip().lower()
+    accepted = ", ".join(sorted(expected))
+    status = "PASS" if media_type in expected else "FAIL"
+    evidence = (
+        f"received {received!r}; accepted: {accepted}"
+        if status == "PASS"
+        else f"received {received!r}; expected one of: {accepted}"
+    )
+    report.append(
+        result(
+            f"asset {path} content type",
+            status,
+            evidence,
+            content_type=received,
+            accepted_content_types=sorted(expected),
+        )
+    )
 
 
 def fetch(base: str, path: str, timeout: float = TIMEOUT) -> dict[str, Any]:
@@ -598,6 +741,8 @@ def main() -> int:
             else None
         )
         response = fetch(args.base, asset_url, args.timeout)
+        if response.get("ok") and response.get("status") == 200:
+            check_asset_content_type(report, path, response)
         if not fingerprint:
             report.append(result(f"asset {path}", "FAIL", "missing 8-character ?v= fingerprint"))
             continue
@@ -640,6 +785,7 @@ def main() -> int:
         "summary": {"checks": len(report), "failures": failures, "blocked": blocked, "warnings": warnings},
         "checks": report,
     }
+    validate_report_shape(payload)
     encoded = json.dumps(payload, indent=2, sort_keys=False) + "\n"
     print(encoded, end="")
     if args.report:

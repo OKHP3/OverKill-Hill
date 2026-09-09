@@ -1,0 +1,32 @@
+{
+  "verifier": "verify-live-edge.py",
+  "run_at": "2026-09-08T00:00:00+00:00",
+  "base": "https://fixture.example",
+  "timeout_seconds": 10.0,
+  "hosting": "github-pages",
+  "expected_commit": null,
+  "status": "PARTIAL",
+  "summary": {
+    "checks": 3,
+    "failures": 0,
+    "blocked": 2,
+    "warnings": 0
+  },
+  "checks": [
+    {
+      "check": "route /",
+      "status": "PASS",
+      "evidence": "HTTP 200; text/html; charset=utf-8"
+    },
+    {
+      "check": "route / cache policy",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    },
+    {
+      "check": "route / security header x-frame-options",
+      "status": "BLOCKED",
+      "evidence": "GitHub Pages serves this response but does not apply repository _headers; configure the custom edge proxy before treating this policy as enforced"
+    }
+  ]
+}

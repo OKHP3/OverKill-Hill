@@ -5,7 +5,10 @@ from __future__ import annotations
 
 import importlib.util
 import tempfile
+from contextlib import redirect_stdout
+from io import StringIO
 from pathlib import Path
+from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,19 +19,191 @@ check_banner = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(check_banner)
 
 
-def check_case(name: str, anchor: str, expected_status: str) -> None:
+def check_case(
+    name: str,
+    anchor: str,
+    expected_status: str,
+    *,
+    expected_release: str = "v0.5",
+    relative_path: str = "index.html",
+    expected_message_parts: tuple[str, ...] = (),
+) -> None:
     with tempfile.TemporaryDirectory() as temp_dir:
-        page = Path(temp_dir) / "index.html"
+        page = Path(temp_dir) / relative_path
+        page.parent.mkdir(parents=True, exist_ok=True)
         page.write_text(f"<main>{anchor}</main>", encoding="utf-8")
-        status, _ = check_banner.check_file(
-            str(page), expected_release="v0.5"
-        )
+        status, message = check_banner.check_file(str(page), expected_release=expected_release)
     if status != expected_status:
         raise AssertionError(f"{name}: expected {expected_status}, got {status}")
+    for part in expected_message_parts:
+        if message is None or part not in message:
+            raise AssertionError(f"{name}: expected {part!r} in {message!r}")
+
+
+def check_main_case(
+    name: str,
+    banner_path: str,
+    anchor: str,
+    expected_message_parts: tuple[str, ...],
+    *,
+    source_article: str | None = None,
+    generated_article: str | None = None,
+    mode: str | None = None,
+    expect_files_unchanged: bool = False,
+) -> None:
+    with tempfile.TemporaryDirectory() as temp_dir:
+        root = Path(temp_dir)
+        valid_article = "<span>Article v0.6: Council-Assisted Scoring</span>"
+        source_article = valid_article if source_article is None else source_article
+        generated_article = (
+            valid_article if generated_article is None else generated_article
+        )
+        for relative_path, article in (
+            (check_banner.FEATURED_ARTICLE_SOURCE, source_article),
+            (check_banner.FEATURED_ARTICLE_GENERATED, generated_article),
+        ):
+            article_path = root / relative_path
+            article_path.parent.mkdir(parents=True, exist_ok=True)
+            article_path.write_text(article, encoding="utf-8")
+
+        banner = root / banner_path
+        banner.parent.mkdir(parents=True, exist_ok=True)
+        banner_content = (
+            generated_article if banner_path == check_banner.FEATURED_ARTICLE_GENERATED else ""
+        )
+        banner.write_text(banner_content + anchor, encoding="utf-8")
+        before = {
+            path: path.read_text(encoding="utf-8")
+            for path in root.rglob("*.html")
+        }
+
+        output = StringIO()
+        with (
+            patch.object(check_banner, "__file__", str(root / "scripts/check-banner.py")),
+            patch("sys.argv", ["check-banner.py"] + ([mode] if mode else [])),
+            redirect_stdout(output),
+        ):
+            try:
+                check_banner.main()
+            except SystemExit as exc:
+                if exc.code != 1:
+                    raise AssertionError(f"{name}: expected exit 1, got {exc.code}")
+            else:
+                raise AssertionError(f"{name}: expected a mismatch")
+
+        if expect_files_unchanged:
+            after = {
+                path: path.read_text(encoding="utf-8")
+                for path in root.rglob("*.html")
+            }
+            if after != before:
+                changed = sorted(
+                    str(path.relative_to(root))
+                    for path in set(before) | set(after)
+                    if before.get(path) != after.get(path)
+                )
+                raise AssertionError(
+                    f"{name}: expected no files to change, changed {changed}"
+                )
+
+    report = output.getvalue()
+    for part in expected_message_parts:
+        if part not in report:
+            raise AssertionError(f"{name}: expected {part!r} in {report!r}")
 
 
 def main() -> int:
     featured = "/writings/first-diagram-is-a-liar/#council-scoring"
+    stale_release = "v0.6"
+    release_failure = (
+        f"banner release mismatch for {check_banner.FEATURED_ARTICLE_ROUTE}",
+        f"expected {stale_release}",
+        "found v0.5",
+    )
+    stale_source_failure = release_failure + (check_banner.SOURCE_BANNER,)
+    check_main_case(
+        "stale source partial reports featured route and expected release",
+        check_banner.SOURCE_BANNER,
+        f'<a class="site-specials-link" href="{featured}">{check_banner.CANONICAL_BANNER}</a>',
+        stale_source_failure,
+    )
+    stale_generated_failure = release_failure + (check_banner.FEATURED_ARTICLE_GENERATED,)
+    check_main_case(
+        "stale generated banner reports featured route and expected release",
+        check_banner.FEATURED_ARTICLE_GENERATED,
+        f'<a class="site-specials-link" href="{featured}">{check_banner.CANONICAL_BANNER}</a>',
+        stale_generated_failure,
+    )
+    for mode in ("--update", "--dry-run"):
+        for banner_path, label in (
+            (check_banner.SOURCE_BANNER, "source partial"),
+            (check_banner.FEATURED_ARTICLE_GENERATED, "generated article"),
+        ):
+            check_main_case(
+                f"{mode} preserves {label} release drift",
+                banner_path,
+                f'<a class="site-specials-link" href="{featured}">'
+                f"{check_banner.OLD_BANNERS[0]}</a>",
+                release_failure + (banner_path,),
+                mode=mode,
+                expect_files_unchanged=True,
+            )
+    malformed_article_cases = (
+        (
+            "missing source article label reports route and source path",
+            check_banner.SOURCE_BANNER,
+            check_banner.FEATURED_ARTICLE_SOURCE,
+            {"source_article": ""},
+        ),
+        (
+            "ambiguous source article labels report route and source path",
+            check_banner.SOURCE_BANNER,
+            check_banner.FEATURED_ARTICLE_SOURCE,
+            {
+                "source_article": (
+                    "<span>Article v0.6: Council-Assisted Scoring</span>"
+                    "<span>Article v0.7: Council-Assisted Scoring</span>"
+                )
+            },
+        ),
+        (
+            "missing generated article label reports route and generated path",
+            check_banner.FEATURED_ARTICLE_GENERATED,
+            check_banner.FEATURED_ARTICLE_GENERATED,
+            {"generated_article": ""},
+        ),
+        (
+            "ambiguous generated article labels report route and generated path",
+            check_banner.FEATURED_ARTICLE_GENERATED,
+            check_banner.FEATURED_ARTICLE_GENERATED,
+            {
+                "generated_article": (
+                    "<span>Article v0.6: Council-Assisted Scoring</span>"
+                    "<span>Article v0.7: Council-Assisted Scoring</span>"
+                )
+            },
+        ),
+    )
+    for name, banner_path, article_path, malformed_fixture in malformed_article_cases:
+        check_main_case(
+            name,
+            banner_path,
+            f'<a class="site-specials-link" href="{featured}">{check_banner.CANONICAL_BANNER}</a>',
+            (
+                "current featured article release is missing or ambiguous",
+                check_banner.FEATURED_ARTICLE_ROUTE,
+                article_path,
+            ),
+            **malformed_fixture,
+        )
+    check_case(
+        "other article banner retains the allow-list behavior",
+        '<a class="site-specials-link" href="/writings/another-article/">'
+        "v0.4 is live: Another article"
+        "</a>",
+        "ok",
+        expected_release=stale_release,
+    )
     check_case(
         "localized marker matches release",
         f'<a class="site-specials-link" data-banner-localized="true" data-banner-release="v0.5" href="{featured}">La versión 0.5 ya está en línea</a>',

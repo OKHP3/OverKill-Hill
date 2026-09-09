@@ -18,13 +18,15 @@
  *   npm run test:csp
  *   node scripts/csp-qa.mjs --base-url=http://127.0.0.1:5000
  *   node scripts/csp-qa.mjs --base-url=http://127.0.0.1:5000 --paths=/fixture.html
+ *   node scripts/csp-qa.mjs --base-url=http://127.0.0.1:5000 --paths=/fixture.html --report=fixture.json
  *   node scripts/csp-qa.mjs --external-health --base-url=https://overkillhill.com
  *   node scripts/csp-qa.mjs --external-health --report=third-party-report.json
+ *   node scripts/csp-qa.mjs --fixture-summary=fixture-results.json
  */
 
 import { loadFunctionalPaths } from './release-qa-inventory.mjs';
 import { chromium } from "playwright";
-import { writeFileSync } from "node:fs";
+import { appendFileSync, readFileSync, writeFileSync } from "node:fs";
 
 const DEFAULT_BASE_URL = "http://127.0.0.1:5000";
 const baseArg = process.argv.find((arg) => arg.startsWith("--base-url="));
@@ -33,11 +35,13 @@ const baseUrl = (baseArg ? baseArg.slice("--base-url=".length) : DEFAULT_BASE_UR
 const baseOrigin = new URL(baseUrl).origin;
 const pathsArg = process.argv.find((arg) => arg.startsWith("--paths="));
 const reportArg = process.argv.find((arg) => arg.startsWith("--report="));
+const fixtureSummaryArg = process.argv.find((arg) => arg.startsWith("--fixture-summary="));
+const summaryArg = process.argv.find((arg) => arg.startsWith("--summary="));
 const externalHealthMode =
   process.argv.includes("--external-health") || process.argv.includes("--check-external");
 
-if (reportArg && !externalHealthMode) {
-  throw new Error("--report requires --external-health");
+if (reportArg && !externalHealthMode && !pathsArg) {
+  throw new Error("--report requires --external-health or --paths");
 }
 
 function loadPublicPaths() {
@@ -59,7 +63,7 @@ function loadPublicPaths() {
   return loadFunctionalPaths();
 }
 
-const PUBLIC_PATHS = loadPublicPaths();
+const PUBLIC_PATHS = fixtureSummaryArg ? [] : loadPublicPaths();
 const CSP_DIAGNOSTIC = /content security policy|violates the following.*policy|refused to .* policy/i;
 const MERMAID_RENDER_ERROR = /^\[mermaid-init\] render error/i;
 const INTENTIONAL_EXTERNAL_FAILURE = "Failed to load resource: net::ERR_FAILED";
@@ -79,6 +83,99 @@ function isLocalUrl(value) {
 function formatConsoleMessage(message) {
   const location = message.location?.url ? ` (${message.location.url})` : "";
   return `${message.type.toUpperCase()}: ${message.text}${location}`;
+}
+
+function reportPathFromArgument(argument, name) {
+  const path = argument?.slice(`--${name}=`.length);
+  if (!path) throw new Error(`--${name} must contain a file path`);
+  return path;
+}
+
+function writeFocusedReport(results) {
+  if (!reportArg) return;
+  const reportPath = reportPathFromArgument(reportArg, "report");
+  const failures = results.filter((result) => !result.pass);
+  writeFileSync(reportPath, `${JSON.stringify({
+    version: 1,
+    mode: "focused",
+    baseUrl,
+    routes: PUBLIC_PATHS,
+    results,
+    summary: {
+      routes: results.length,
+      failures: failures.length,
+    },
+  }, null, 2)}\n`);
+}
+
+function markdownCell(value) {
+  return String(value ?? "")
+    .replaceAll("|", "\\|")
+    .replaceAll("\r", " ")
+    .replaceAll("\n", " ");
+}
+
+const DIAGNOSTIC_CATEGORY = /^(CSP|PAGEERROR|CONSOLE|LOCAL REQUEST FAILED|LOCAL HTTP ERROR|MERMAID):/;
+
+function fixtureDiagnostics(errors) {
+  const categories = new Set();
+  const evidence = [];
+  for (const error of errors) {
+    const text = String(error).replace(/^\s*→\s*/, "");
+    const category = text.match(DIAGNOSTIC_CATEGORY)?.[1];
+    if (category) categories.add(category);
+    evidence.push(text);
+  }
+  return {
+    categories: [...categories].join(", ") || "none observed",
+    evidence: evidence.slice(0, 2).join(" / ") || "No browser diagnostic was captured.",
+  };
+}
+
+function writeFixtureSummary(reportPath) {
+  let report;
+  try {
+    report = JSON.parse(readFileSync(reportPath, "utf8"));
+  } catch (error) {
+    report = {
+      mode: "csp-fixtures",
+      fixtures: [],
+      error: `Could not read focused CSP fixture report: ${error.message}`,
+    };
+  }
+
+  const fixtures = Array.isArray(report.fixtures) ? report.fixtures : [];
+  const lines = [
+    "## CSP fixture diagnostics",
+    "",
+    "Focused CSP fixture regressions failed. The full browser output remains in the check log.",
+    "",
+    "| Fixture | Diagnostic categories | Key browser diagnostic |",
+    "| --- | --- | --- |",
+  ];
+  if (fixtures.length) {
+    for (const fixture of fixtures) {
+      const diagnostics = fixtureDiagnostics(
+        Array.isArray(fixture.errors) ? fixture.errors : [],
+      );
+      lines.push(
+        `| ${markdownCell(fixture.path)} | ${markdownCell(diagnostics.categories)} | ` +
+        `${markdownCell(diagnostics.evidence)} |`,
+      );
+    }
+  } else {
+    lines.push(
+      `| unavailable | unknown | ${markdownCell(report.error || "No fixture results were recorded.")} |`,
+    );
+  }
+  lines.push("");
+
+  const rendered = `${lines.join("\n")}\n`;
+  const summaryPath = summaryArg
+    ? reportPathFromArgument(summaryArg, "summary")
+    : process.env.GITHUB_STEP_SUMMARY;
+  if (summaryPath) appendFileSync(summaryPath, rendered);
+  console.log(rendered);
 }
 
 async function checkRoute(browser, path) {
@@ -298,7 +395,12 @@ async function checkExternalRoute(browser, path) {
     }
   });
   page.on("requestfailed", (request) => {
-    if (isLocalUrl(request.url())) {
+    const dependency = getExternalDependency(dependencies, request);
+    if (dependency) {
+      dependency.failures.push({
+        errorText: request.failure()?.errorText || "unknown failure",
+      });
+    } else if (isLocalUrl(request.url())) {
       localErrors.add(
         `local request failed: ${request.url()} ` +
         `(${request.failure()?.errorText || "unknown failure"})`,
@@ -461,7 +563,11 @@ async function runExternalHealth() {
     `${report.summary.localFailures} local route failure(s).`,
   );
   externalOutages.forEach((dependency) => {
-    console.log(`  EXTERNAL OUTAGE: ${dependency.url} (${dependency.state})`);
+    const failureReasons = dependency.failures
+      .map(({ errorText }) => errorText)
+      .filter(Boolean);
+    const diagnostic = failureReasons.length ? `: ${failureReasons.join(", ")}` : "";
+    console.log(`  EXTERNAL OUTAGE: ${dependency.url} (${dependency.state})${diagnostic}`);
   });
   if (cspDiagnostics.length) {
     console.log("  CSP diagnostics were observed during the availability check.");
@@ -520,6 +626,7 @@ async function main() {
     (total, result) => total + result.diagrams.rendered,
     0,
   );
+  writeFocusedReport(results);
   console.log(
     `\nCSP QA: ${results.length} routes, ${renderedDiagrams} Mermaid diagram(s), ` +
     `${failures.length} route failure(s).`,
@@ -527,7 +634,16 @@ async function main() {
   if (failures.length) process.exitCode = 1;
 }
 
-main().catch((error) => {
-  console.error(`CSP QA could not run: ${error.stack || error.message}`);
-  process.exitCode = 1;
-});
+if (fixtureSummaryArg) {
+  try {
+    writeFixtureSummary(reportPathFromArgument(fixtureSummaryArg, "fixture-summary"));
+  } catch (error) {
+    console.error(`CSP fixture summary could not be written: ${error.stack || error.message}`);
+    process.exitCode = 1;
+  }
+} else {
+  main().catch((error) => {
+    console.error(`CSP QA could not run: ${error.stack || error.message}`);
+    process.exitCode = 1;
+  });
+}

@@ -1,0 +1,47 @@
+{
+  "status": "pilot-ready",
+  "target_locales": [
+    "fr"
+  ],
+  "locales": {
+    "fr": {
+      "status": "translated",
+      "indexable": true,
+      "metadata_source": "localized-page",
+      "pages": [
+        {
+          "source_route": "/",
+          "target_route": "/fr/",
+          "source_path": "index.html",
+          "target_path": "fr/index.html",
+          "status": "translated",
+          "indexable": true
+        },
+        {
+          "source_route": "/about/",
+          "target_route": "/fr/about/",
+          "source_path": "about/index.html",
+          "target_path": "fr/about/index.html",
+          "status": "translated",
+          "indexable": true
+        },
+        {
+          "source_route": "/projects/",
+          "target_route": "/fr/projects/",
+          "source_path": "projects/index.html",
+          "target_path": "fr/projects/index.html",
+          "status": "translated",
+          "indexable": true
+        },
+        {
+          "source_route": "/contact/",
+          "target_route": "/fr/contact/",
+          "source_path": "contact/index.html",
+          "target_path": "fr/contact/index.html",
+          "status": "translated",
+          "indexable": false
+        }
+      ]
+    }
+  }
+}
