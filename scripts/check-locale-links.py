@@ -123,10 +123,11 @@ def sitemap_urls(path: Path) -> set[str]:
 
 def check_search_index(
     index_path: Path,
-    target_routes: set[str],
+    required_routes: set[str],
     locale: str,
     findings: list[str],
     *,
+    draft_routes: set[str],
     require_routes: bool,
 ) -> None:
     if not index_path.is_file():
@@ -146,13 +147,12 @@ def check_search_index(
     urls = [entry.get("url") for entry in entries if isinstance(entry, dict)]
     indexed_routes = set(urls)
     if require_routes:
-        missing = sorted(target_routes - indexed_routes)
+        missing = sorted(required_routes - indexed_routes)
         if missing:
             fail(findings, f"locale search index is missing routes: {', '.join(missing)}")
-    else:
-        indexed_drafts = sorted(target_routes & indexed_routes)
-        if indexed_drafts:
-            fail(findings, f"draft locale routes appear in the search index: {', '.join(indexed_drafts)}")
+    indexed_drafts = sorted(draft_routes & indexed_routes)
+    if indexed_drafts:
+        fail(findings, f"draft locale routes appear in the search index: {', '.join(indexed_drafts)}")
     if len(urls) != len(set(urls)):
         fail(findings, "locale search index contains duplicate URLs")
     if payload.get("count") != len(entries):
@@ -334,7 +334,14 @@ def validate_locale(
                 fail(findings, f"draft locale route is in sitemap.xml: {target_route}")
 
     if is_unpublished:
-        check_search_index(index_path, set(), locale, findings, require_routes=False)
+        check_search_index(
+            index_path,
+            set(),
+            locale,
+            findings,
+            draft_routes=set(),
+            require_routes=False,
+        )
         return
 
     for route in sorted(source_routes):
@@ -343,7 +350,14 @@ def validate_locale(
     for route in sorted(indexable_routes):
         if route_url(route) not in urls:
             fail(findings, f"indexable locale route is missing from sitemap.xml: {route}")
-    check_search_index(index_path, target_routes, locale, findings, require_routes=bool(indexable))
+    check_search_index(
+        index_path,
+        indexable_routes,
+        locale,
+        findings,
+        draft_routes=target_routes - indexable_routes,
+        require_routes=bool(indexable_routes),
+    )
     run_index_freshness_check(index_path, locale, findings)
 
 

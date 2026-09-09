@@ -32,6 +32,13 @@ if validator_spec is None or validator_spec.loader is None:
     raise RuntimeError("could not load scripts/validate-site.py")
 validator = importlib.util.module_from_spec(validator_spec)
 validator_spec.loader.exec_module(validator)
+locale_checker_spec = importlib.util.spec_from_file_location(
+    "check_locale_links", ROOT / "scripts" / "check-locale-links.py"
+)
+if locale_checker_spec is None or locale_checker_spec.loader is None:
+    raise RuntimeError("could not load scripts/check-locale-links.py")
+locale_checker = importlib.util.module_from_spec(locale_checker_spec)
+locale_checker_spec.loader.exec_module(locale_checker)
 
 
 def findings_text(findings: list) -> str:
@@ -102,6 +109,143 @@ def mutate_navigation(raw: str, key: str, value: str) -> str:
 
 
 class SEOFixtureTests(unittest.TestCase):
+    def _write_mixed_locale_fixture(
+        self,
+        root: Path,
+        sitemap_routes: set[str],
+        index_routes: set[str],
+    ) -> tuple[Path, Path, Path]:
+        manifest_path = root / "manifest.json"
+        shutil.copy2(FIXTURE_ROOT / "locale-mixed-manifest.json", manifest_path)
+
+        for relative_path in (
+            "index.html",
+            "about/index.html",
+            "projects/index.html",
+            "contact/index.html",
+        ):
+            source = ROOT / relative_path
+            source_target = root / relative_path
+            source_target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, source_target)
+
+            locale_relative = f"fr/{relative_path}"
+            target = root / locale_relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            raw = (ROOT / locale_relative).read_text(encoding="utf-8")
+            if relative_path == "contact/index.html":
+                raw = raw.replace(
+                    'name="robots" content="index, follow"',
+                    'name="robots" content="noindex, follow"',
+                    1,
+                )
+            target.write_text(raw, encoding="utf-8")
+
+        sitemap_path = root / "sitemap.xml"
+        locs = "\n".join(
+            f"    <url><loc>{locale_checker.route_url(route)}</loc></url>"
+            for route in sorted(sitemap_routes)
+        )
+        sitemap_path.write_text(
+            '<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            f"{locs}\n"
+            "</urlset>\n",
+            encoding="utf-8",
+        )
+
+        index_path = root / "search-index.fr.json"
+        entries = [{"url": route} for route in sorted(index_routes)]
+        index_path.write_text(
+            json.dumps(
+                {
+                    "site": "https://overkillhill.com",
+                    "locale": "fr",
+                    "generated": "fixture",
+                    "count": len(entries),
+                    "entries": entries,
+                }
+            ),
+            encoding="utf-8",
+        )
+        return manifest_path, sitemap_path, index_path
+
+    def test_mixed_locale_requires_promoted_routes_and_excludes_drafts(self) -> None:
+        source_routes = {"/", "/about/", "/projects/", "/contact/"}
+        promoted_routes = {"/fr/", "/fr/about/", "/fr/projects/"}
+        draft_routes = {"/fr/contact/"}
+        sitemap_routes = source_routes | promoted_routes
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+
+            manifest_path, sitemap_path, index_path = self._write_mixed_locale_fixture(
+                root,
+                sitemap_routes,
+                promoted_routes,
+            )
+            self.assertFalse(
+                locale_checker.validate(
+                    manifest_path=manifest_path,
+                    sitemap_path=sitemap_path,
+                    index_path=index_path,
+                    root=root,
+                ),
+                "mixed locale fixture should pass when promoted routes have complete coverage",
+            )
+
+            _, missing_sitemap, valid_index = self._write_mixed_locale_fixture(
+                root,
+                sitemap_routes - {"/fr/projects/"},
+                promoted_routes,
+            )
+            findings = locale_checker.validate(
+                manifest_path=manifest_path,
+                sitemap_path=missing_sitemap,
+                index_path=valid_index,
+                root=root,
+            )
+            self.assertIn(
+                "indexable locale route is missing from sitemap.xml: /fr/projects/",
+                findings,
+            )
+
+            _, valid_sitemap, missing_index = self._write_mixed_locale_fixture(
+                root,
+                sitemap_routes,
+                promoted_routes - {"/fr/about/"},
+            )
+            findings = locale_checker.validate(
+                manifest_path=manifest_path,
+                sitemap_path=valid_sitemap,
+                index_path=missing_index,
+                root=root,
+            )
+            self.assertIn(
+                "locale search index is missing routes: /fr/about/",
+                findings,
+            )
+
+            _, draft_sitemap, draft_index = self._write_mixed_locale_fixture(
+                root,
+                sitemap_routes | draft_routes,
+                promoted_routes | draft_routes,
+            )
+            findings = locale_checker.validate(
+                manifest_path=manifest_path,
+                sitemap_path=draft_sitemap,
+                index_path=draft_index,
+                root=root,
+            )
+            self.assertIn(
+                "draft locale route is in sitemap.xml: /fr/contact/",
+                findings,
+            )
+            self.assertIn(
+                "draft locale routes appear in the search index: /fr/contact/",
+                findings,
+            )
+
     def test_public_inventory_excludes_test_fixtures(self) -> None:
         pages = validator.find_html_files()
         self.assertIn(ROOT / "index.html", pages)
