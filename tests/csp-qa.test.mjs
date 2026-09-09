@@ -17,6 +17,7 @@ const fixtureFiles = new Map([
   ["/missing-resource.html", "missing-resource.html"],
   ["/unrendered-mermaid.html", "unrendered-mermaid.html"],
   ["/external-csp-blocked.html", "external-csp-blocked.html"],
+  ["/external-csp-and-outage.html", "external-csp-and-outage.html"],
 ]);
 
 let server;
@@ -272,6 +273,42 @@ test("reports CSP-blocked dependencies separately from external outages", async 
     assert.ok(blocked, JSON.stringify(report, null, 2));
     assert.equal(blocked.state, "blocked-by-csp");
     assert.equal(blocked.cspBlocked, true);
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("keeps an external outage visible alongside a CSP-blocked dependency", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-mixed-health-"));
+  const reportPath = join(reportDirectory, "report.json");
+  try {
+    const result = await runCspQa("/external-csp-and-outage.html", [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /EXTERNAL OUTAGE:/);
+    assert.match(result.output, /CSP diagnostics were observed/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.mode, "external-health");
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.equal(report.summary.dependencies, 2);
+    assert.equal(report.summary.externalOutages, 1);
+    assert.equal(report.summary.cspDiagnostics, 1);
+    assert.equal(report.summary.localFailures, 0);
+    assert.equal(report.externalOutages.length, 1);
+    assert.equal(report.cspDiagnostics.length, 1);
+
+    const blocked = report.dependencies.find(({ url }) => url.endsWith("/blocked.png"));
+    const outage = report.dependencies.find(({ url }) => url.endsWith("/outage.png"));
+    assert.ok(blocked, JSON.stringify(report, null, 2));
+    assert.ok(outage, JSON.stringify(report, null, 2));
+    assert.equal(blocked.state, "blocked-by-csp");
+    assert.equal(blocked.cspBlocked, true);
+    assert.equal(outage.state, "unavailable");
+    assert.equal(outage.cspBlocked, false);
+    assert.ok(outage.responses.some(({ status }) => status === 503));
   } finally {
     await rm(reportDirectory, { recursive: true, force: true });
   }

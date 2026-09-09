@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src __EXTERNAL_BASE_URL__; script-src 'self'"
+    >
+    <title>Mixed external health fixture</title>
+  </head>
+  <body>
+    <main>
+      <h1>Mixed external health fixture</h1>
+      <img src="__EXTERNAL_BASE_URL__/outage.png" alt="unavailable dependency">
+    </main>
+    <script src="__EXTERNAL_BASE_URL__/blocked.png"></script>
+  </body>
+</html>
