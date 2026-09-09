@@ -58,7 +58,15 @@ function fixtureMarkup(bodyClass = "") {
 }
 
 function withFoundation(markup, css, script) {
-  const withoutScripts = markup.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
+  // The browser fixture injects the reviewed external script as inline text.
+  // Remove production CSP metadata so Chromium can execute that fixture code;
+  // CSP enforcement is covered by the dedicated CSP audit.
+  const withoutScripts = markup
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "")
+    .replace(
+      /<meta\b[^>]*http-equiv\s*=\s*["']Content-Security-Policy["'][^>]*>/gi,
+      "",
+    );
   const withStyles = css ? withoutScripts.replace("</head>", `<style>${css}</style>\n</head>`) : withoutScripts;
   const injected = `<script>${script}</script>`;
   return withStyles.includes("</body>") ? withStyles.replace("</body>", `${injected}</body>`) : `${withStyles}${injected}`;
@@ -234,6 +242,14 @@ const DEFAULT_SITE_ROOTS = [
 function configuredSiteInputs() {
   if (process.env.THEME_CONTROL_SITES) {
     const configured = JSON.parse(process.env.THEME_CONTROL_SITES);
+    assert.ok(Array.isArray(configured), "THEME_CONTROL_SITES must be a JSON array");
+    for (const site of configured) {
+      assert.match(
+        site.revision || "",
+        /^[0-9a-f]{40}$/,
+        `${site.name || "configured site"} must provide an immutable full commit SHA`,
+      );
+    }
     return configured.map((site) => ({
       ...site,
       root: resolve(repositoryRoot, site.root),
@@ -317,6 +333,11 @@ test("configured sites keep foundation bytes and run against actual markup hooks
   }
   assert.equal(inputs.length, 3, "exactly OKH, Glee, and AskJamie must be configured");
 
+  console.log(
+    `Theme-control audit inputs: ${inputs.map(({ name, root, revision }) => (
+      `${name}@${revision} (${root})`
+    )).join(", ")}`,
+  );
   const sites = await Promise.all(inputs.map(loadConfiguredSite));
   const byName = new Map(sites.map((site) => [site.name, site]));
   for (const expectedName of ["OKH", "Glee", "AskJamie"]) {
