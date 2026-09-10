@@ -89,6 +89,28 @@ class CacheBustBoundaryTests(unittest.TestCase):
         result, output = self.run_main("--check")
         self.assertEqual(result, 0, output)
 
+    def test_changed_assets_update_authoring_inputs_before_rebuild(self) -> None:
+        sources = {
+            "assets/partials/head.html": "/assets/css/theme.css",
+            "site-src/pages/universe/index.extras.html": "/assets/js/universe-map.js",
+            "site-src/pages/writings/example/index.extras.html": "/assets/js/mermaid-init.js",
+        }
+        for relative, asset in sources.items():
+            source = self.root / relative
+            source.parent.mkdir(parents=True, exist_ok=True)
+            old_hash = cache_bust.file_hash(self.root / asset.lstrip("/"))
+            source.write_text(f'<script src="{asset}?v={old_hash}"></script>\n', encoding="utf-8")
+            with (self.root / asset.lstrip("/")).open("a", encoding="utf-8") as changed:
+                changed.write("/* changed */\n")
+
+        self.run_main()
+
+        for relative, asset in sources.items():
+            current_hash = cache_bust.file_hash(self.root / asset.lstrip("/"))
+            self.assertIn(f"{asset}?v={current_hash}", (self.root / relative).read_text(encoding="utf-8"))
+        result, output = self.run_main("--check")
+        self.assertEqual(result, 0, output)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
