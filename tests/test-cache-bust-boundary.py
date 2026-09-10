@@ -61,7 +61,7 @@ class CacheBustBoundaryTests(unittest.TestCase):
         result, output = self.run_main("--check")
         self.assertEqual(result, 1)
         self.assertIn("index.html", output)
-        self.assertNotIn(".pr-head/stale.html", output)
+        self.assertNotIn(str(Path(".pr-head/stale.html")), output)
         self.assertEqual(self.nested.read_text(encoding="utf-8"), '<script src="/assets/js/app.js"></script>\n')
 
     def test_shared_boundary_excludes_fixtures_and_generic_templates(self) -> None:
@@ -74,7 +74,7 @@ class CacheBustBoundaryTests(unittest.TestCase):
     def test_asset_templates_remain_cache_bust_inputs(self) -> None:
         result, output = self.run_main("--check")
         self.assertEqual(result, 1)
-        self.assertIn("assets/templates/source.html", output)
+        self.assertIn(str(Path("assets/templates/source.html")), output)
 
         self.run_main()
         expected = cache_bust.file_hash(self.root / "assets/js/app.js")
