@@ -337,6 +337,20 @@ def validate_locale(
             if expected_target in urls:
                 fail(findings, f"draft locale route is in sitemap.xml: {target_route}")
 
+    locale_prefix = f"{SITE_ORIGIN}/{locale}/"
+    sitemap_locale_routes = {
+        url.removeprefix(SITE_ORIGIN)
+        for url in urls
+        if url.startswith(locale_prefix)
+    }
+    undeclared_sitemap_routes = sorted(sitemap_locale_routes - target_routes)
+    if undeclared_sitemap_routes:
+        fail(
+            findings,
+            "locale sitemap contains undeclared routes: "
+            + ", ".join(undeclared_sitemap_routes),
+        )
+
     if is_unpublished:
         check_search_index(
             index_path,
