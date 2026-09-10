@@ -62,13 +62,30 @@ COMMIT_RE = re.compile(r"[0-9a-f]{40}", re.I)
 ASSET_CONTENT_TYPES = {
     ".css": frozenset({"text/css"}),
     ".js": frozenset({"application/javascript", "text/javascript"}),
+    ".png": frozenset({"image/png"}),
+    ".jpg": frozenset({"image/jpeg"}),
+    ".jpeg": frozenset({"image/jpeg"}),
+    ".webp": frozenset({"image/webp"}),
+    ".gif": frozenset({"image/gif"}),
+    ".svg": frozenset({"image/svg+xml"}),
+    ".ico": frozenset({"image/x-icon", "image/vnd.microsoft.icon"}),
+    ".woff": frozenset({"font/woff"}),
+    ".woff2": frozenset({"font/woff2"}),
+    ".ttf": frozenset({"font/ttf"}),
+    ".otf": frozenset({"font/otf"}),
+    ".eot": frozenset({"application/vnd.ms-fontobject"}),
 }
+FINGERPRINTED_ASSET_SUFFIXES = frozenset({".css", ".js"})
 FIRST_PARTY_CONTENT_TYPES = {
     "/sitemap.xml": frozenset({"application/xml", "text/xml"}),
     "/assets/data/search-index.json": frozenset({"application/json"}),
 }
-ASSET_RE = re.compile(
-    r"""(?:href|src)=(['"])(?P<url>/assets/(?:css|js)/[^'"?#]+(?:\?[^'"#]*)?)\1""",
+HTML_ASSET_RE = re.compile(
+    r"""(?<![A-Za-z0-9_:/])(?P<url>/assets/(?:css|js|img|fonts)/[^'"<>\s,?#]+(?:\?[^'"<>\s,]*)?)""",
+    re.I,
+)
+CSS_ASSET_RE = re.compile(
+    r"""url\(\s*['"]?(?P<url>/assets/(?:img|fonts)/[^)'"\s,?#]+(?:\?[^)'"\s,]*)?)['"]?\s*\)""",
     re.I,
 )
 ROBOTS_RE = re.compile(
@@ -752,54 +769,67 @@ def main() -> int:
             report.append(result("sitemap cache policy", cache_status, GITHUB_PAGES_POLICY_NOTE if args.hosting == "github-pages" else (cache or "Cache-Control absent")))
         check_headers(report, f"generated {kind}", response, args.hosting)
 
-    # Every shared CSS/JS asset referenced by fetched HTML must carry its
-    # content hash and be served immutable at the live edge.
+    # Every first-party CSS/JS/image/font asset referenced by fetched HTML or
+    # CSS must carry its content hash and be served immutable at the live edge.
     assets: dict[str, str] = {}
     for body in bodies.values():
-        for match in ASSET_RE.finditer(body):
+        for match in HTML_ASSET_RE.finditer(body):
             assets[match.group("url").split("#", 1)[0]] = match.group("url")
     if not assets:
-        report.append(result("fingerprinted shared assets", "FAIL", "no CSS/JS references found in fetched HTML"))
-    for asset_url in sorted(assets):
-        parsed = urllib.parse.urlparse(asset_url)
-        fingerprint = FINGERPRINT_RE.search(parsed.query)
-        path = parsed.path
-        local_path = ROOT / path.lstrip("/")
-        expected_hash = (
-            hashlib.sha256(canonical_text_bytes(local_path)).hexdigest()[:8]
-            if local_path.is_file()
-            else None
-        )
-        response = fetch(args.base, asset_url, args.timeout)
-        if response.get("ok") and response.get("status") == 200:
-            check_asset_content_type(report, path, response)
-        if not fingerprint:
-            report.append(result(f"asset {path}", "FAIL", "missing 8-character ?v= fingerprint"))
-            continue
-        if expected_hash and fingerprint.group(1).lower() != expected_hash.lower():
-            report.append(result(f"asset {path}", "FAIL", f"URL fingerprint {fingerprint.group(1)} != local {expected_hash}"))
-        elif not response.get("ok") or response.get("status") != 200:
-            report.append(result(f"asset {path}", transport_status(response),
-                                 response.get("error", f"HTTP {response.get('status')}")))
-        else:
-            remote_hash = hashlib.sha256(
-                response["body"].replace(b"\r\n", b"\n")
-            ).hexdigest()[:8]
-            if fingerprint.group(1).lower() != remote_hash.lower():
-                report.append(
-                    result(
-                        f"asset {path}",
-                        "FAIL",
-                        f"URL fingerprint {fingerprint.group(1)} != live {remote_hash}",
-                    )
-                )
+        report.append(result("fingerprinted first-party assets", "FAIL", "no CSS/JS/image/font references found in fetched HTML"))
+
+    checked_assets: set[str] = set()
+    while pending_assets := sorted(set(assets) - checked_assets):
+        for asset_url in pending_assets:
+            checked_assets.add(asset_url)
+            parsed = urllib.parse.urlparse(asset_url)
+            fingerprint = FINGERPRINT_RE.search(parsed.query)
+            path = parsed.path
+            local_path = ROOT / path.lstrip("/")
+            expected_hash = (
+                hashlib.sha256(canonical_text_bytes(local_path)).hexdigest()[:8]
+                if local_path.is_file()
+                else None
+            )
+            response = fetch(args.base, asset_url, args.timeout)
+            if response.get("ok") and response.get("status") == 200:
+                check_asset_content_type(report, path, response)
+                if Path(path).suffix.lower() == ".css":
+                    css_body = response["body"].decode("utf-8", errors="replace")
+                    for match in CSS_ASSET_RE.finditer(css_body):
+                        discovered_url = match.group("url").split("#", 1)[0]
+                        assets[discovered_url] = match.group("url")
+            if not fingerprint:
+                if Path(path).suffix.lower() in FINGERPRINTED_ASSET_SUFFIXES:
+                    report.append(result(f"asset {path}", "FAIL", "missing 8-character ?v= fingerprint"))
+                elif not response.get("ok") or response.get("status") != 200:
+                    report.append(result(f"asset {path}", transport_status(response),
+                                         response.get("error", f"HTTP {response.get('status')}")))
                 continue
-            cache = response["headers"].get("cache-control", "")
-            passed = bool(IMMUTABLE_RE.search(cache)) and bool(re.search(r"max-age=(?:[0-9]{8,}|31536000)\b", cache, re.I))
-            asset_status = "PASS" if passed else "FAIL"
-            if args.hosting == "github-pages":
-                asset_status = "BLOCKED"
-            report.append(result(f"asset {path}", asset_status, GITHUB_PAGES_POLICY_NOTE if args.hosting == "github-pages" else f"HTTP 200; {cache or 'Cache-Control absent'}"))
+            if expected_hash and fingerprint.group(1).lower() != expected_hash.lower():
+                report.append(result(f"asset {path}", "FAIL", f"URL fingerprint {fingerprint.group(1)} != local {expected_hash}"))
+            elif not response.get("ok") or response.get("status") != 200:
+                report.append(result(f"asset {path}", transport_status(response),
+                                     response.get("error", f"HTTP {response.get('status')}")))
+            else:
+                remote_hash = hashlib.sha256(
+                    response["body"].replace(b"\r\n", b"\n")
+                ).hexdigest()[:8]
+                if fingerprint.group(1).lower() != remote_hash.lower():
+                    report.append(
+                        result(
+                            f"asset {path}",
+                            "FAIL",
+                            f"URL fingerprint {fingerprint.group(1)} != live {remote_hash}",
+                        )
+                    )
+                    continue
+                cache = response["headers"].get("cache-control", "")
+                passed = bool(IMMUTABLE_RE.search(cache)) and bool(re.search(r"max-age=(?:[0-9]{8,}|31536000)\b", cache, re.I))
+                asset_status = "PASS" if passed else "FAIL"
+                if args.hosting == "github-pages":
+                    asset_status = "BLOCKED"
+                report.append(result(f"asset {path}", asset_status, GITHUB_PAGES_POLICY_NOTE if args.hosting == "github-pages" else f"HTTP 200; {cache or 'Cache-Control absent'}"))
 
     failures = sum(item["status"] == "FAIL" for item in report)
     blocked = sum(item["status"] == "BLOCKED" for item in report)

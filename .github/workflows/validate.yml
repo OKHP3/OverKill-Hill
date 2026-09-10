@@ -138,7 +138,7 @@ jobs:
           python3 tests/test-actions-summary.py
           python3 tests/test-ci-concurrency.py
 
-      - name: Run live-edge asset and data-feed MIME, fingerprint, and post-merge regression tests
+      - name: Run live-edge asset, image/font MIME, and data-feed regression tests
         run: python3 -m unittest tests/test_verify_live_edge.py
 
       - name: Run shared-foundation sync safety regressions

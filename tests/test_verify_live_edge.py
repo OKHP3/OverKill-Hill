@@ -40,9 +40,11 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         asset_kinds: tuple[str, ...] | None = None,
         stale_asset_kind: str | None = None,
         asset_content_type: str | None = None,
+        asset_content_types: dict[str, str] | None = None,
         asset_body: bytes | None = None,
         sitemap_content_type: str = "application/xml",
         search_index_content_type: str = "application/json",
+        css_asset_kinds: tuple[str, ...] = (),
     ) -> tuple[int, dict[str, object]]:
         """Run the full verifier against deterministic synthetic edge responses."""
         sitemap = verify_live_edge.canonical_text_bytes(verify_live_edge.SITEMAP)
@@ -83,28 +85,64 @@ class VerifyLiveEdgeTests(unittest.TestCase):
                 "reference": '<script src="{url}" type="module"></script>',
                 "content_type": "text/javascript",
             },
+            "image": {
+                "path": "/assets/img/favicons/murderbird-v2-icon-browser-32.png",
+                "reference": '<img src="{url}" alt="fixture image">',
+                "content_type": "image/png",
+            },
+            "font": {
+                "path": "/assets/fonts/live-edge-fixture.woff2",
+                "reference": '<link href="{url}" rel="preload" as="font">',
+                "content_type": "font/woff2",
+                "body": b"live-edge fixture font",
+            },
+            "css-fixture": {
+                "path": "/assets/css/live-edge-fixture.css",
+                "reference": '<link href="{url}" rel="stylesheet">',
+                "content_type": "text/css",
+            },
         }
         selected_kinds = asset_kinds or (asset_kind,)
-        if not selected_kinds or any(kind not in asset_catalog for kind in selected_kinds):
+        all_kinds = (*selected_kinds, *css_asset_kinds)
+        if not selected_kinds or any(kind not in asset_catalog for kind in all_kinds):
             raise ValueError(f"unsupported fixture asset kinds: {selected_kinds}")
         if stale_asset_kind is not None and stale_asset_kind not in selected_kinds:
             raise ValueError(f"stale asset kind is not selected: {stale_asset_kind}")
+        if css_asset_kinds and "css-fixture" not in selected_kinds:
+            raise ValueError("CSS fixture dependencies require the css-fixture asset")
+        asset_content_types = asset_content_types or {}
+        if any(kind not in all_kinds for kind in asset_content_types):
+            raise ValueError("content type override is for an unselected asset kind")
 
-        assets = []
-        for kind in selected_kinds:
+        def build_asset(kind: str) -> dict[str, object]:
             asset_details = dict(asset_catalog[kind])
-            if asset_content_type is not None and len(selected_kinds) == 1:
+            if kind in asset_content_types:
+                asset_details["content_type"] = asset_content_types[kind]
+            elif asset_content_type is not None and len(selected_kinds) == 1:
                 asset_details["content_type"] = asset_content_type
             asset_path = asset_details["path"]
-            asset_bytes = verify_live_edge.canonical_text_bytes(ROOT / asset_path.lstrip("/"))
+            asset_bytes = asset_details.pop("body", None)
+            if asset_bytes is None:
+                asset_bytes = verify_live_edge.canonical_text_bytes(ROOT / asset_path.lstrip("/"))
             asset_hash = asset_fingerprint or hashlib.sha256(asset_bytes).hexdigest()[:8]
             asset_query = f"?v={asset_hash}" if include_asset_fingerprint else ""
-            assets.append({
+            return {
                 "kind": kind,
                 "details": asset_details,
                 "bytes": asset_bytes,
                 "url": f"{asset_path}{asset_query}",
-            })
+            }
+
+        css_assets = [build_asset(kind) for kind in css_asset_kinds]
+        if css_assets:
+            dependency_rules = []
+            for asset in css_assets:
+                dependency_rules.append(
+                    f'.fixture {{ background-image: url("{asset["url"]}"); }}'
+                )
+            asset_catalog["css-fixture"]["body"] = "\n".join(dependency_rules).encode("utf-8")
+        assets = [build_asset(kind) for kind in selected_kinds]
+        all_assets = assets + css_assets
 
         html = '<!doctype html><meta name="robots" content="{robots}">' + "".join(
             asset["details"]["reference"].format(url=asset["url"]) for asset in assets
@@ -153,7 +191,7 @@ class VerifyLiveEdgeTests(unittest.TestCase):
                 "body": html.format(robots="noindex").encode("utf-8"),
             },
         }
-        for asset in assets:
+        for asset in all_assets:
             responses[asset["url"]] = {
                 "ok": True,
                 "status": 200,
@@ -359,6 +397,94 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         checks = {item["check"]: item for item in report["checks"]}
         content_type_check = checks["asset /assets/js/app.js content type"]
         self.assertEqual(content_type_check["status"], "PASS")
+
+    def test_wrong_image_content_type_fails_with_explicit_mime_evidence(self) -> None:
+        return_code, report = self.run_live_edge_fixture(
+            asset_kind="image",
+            asset_content_type="text/html",
+        )
+
+        self.assertEqual(return_code, 1)
+        self.assertEqual(report["status"], "FAILED")
+        checks = {item["check"]: item for item in report["checks"]}
+        content_type_check = checks[
+            "asset /assets/img/favicons/murderbird-v2-icon-browser-32.png content type"
+        ]
+        self.assertEqual(content_type_check["status"], "FAIL")
+        self.assertIn("text/html", content_type_check["evidence"])
+        self.assertIn("image/png", content_type_check["evidence"])
+
+    def test_unfingerprinted_image_still_reports_wrong_content_type(self) -> None:
+        return_code, report = self.run_live_edge_fixture(
+            asset_kind="image",
+            include_asset_fingerprint=False,
+            asset_content_type="text/html",
+        )
+
+        self.assertEqual(return_code, 1)
+        checks = {item["check"]: item for item in report["checks"]}
+        content_type_check = checks[
+            "asset /assets/img/favicons/murderbird-v2-icon-browser-32.png content type"
+        ]
+        self.assertEqual(content_type_check["status"], "FAIL")
+        self.assertIn("text/html", content_type_check["evidence"])
+
+    def test_wrong_font_content_type_fails_with_explicit_mime_evidence(self) -> None:
+        return_code, report = self.run_live_edge_fixture(
+            asset_kind="font",
+            asset_content_type="text/plain",
+        )
+
+        self.assertEqual(return_code, 1)
+        self.assertEqual(report["status"], "FAILED")
+        checks = {item["check"]: item for item in report["checks"]}
+        content_type_check = checks[
+            "asset /assets/fonts/live-edge-fixture.woff2 content type"
+        ]
+        self.assertEqual(content_type_check["status"], "FAIL")
+        self.assertIn("text/plain", content_type_check["evidence"])
+        self.assertIn("font/woff2", content_type_check["evidence"])
+
+    def test_css_discovered_image_and_font_content_types_fail_explicitly(self) -> None:
+        return_code, report = self.run_live_edge_fixture(
+            asset_kind="css-fixture",
+            css_asset_kinds=("image", "font"),
+            asset_content_types={"image": "text/html", "font": "text/plain"},
+        )
+
+        self.assertEqual(return_code, 1)
+        self.assertEqual(report["status"], "FAILED")
+        checks = {item["check"]: item for item in report["checks"]}
+        image_check = checks[
+            "asset /assets/img/favicons/murderbird-v2-icon-browser-32.png content type"
+        ]
+        font_check = checks["asset /assets/fonts/live-edge-fixture.woff2 content type"]
+        self.assertEqual(image_check["status"], "FAIL")
+        self.assertEqual(font_check["status"], "FAIL")
+        self.assertIn("text/html", image_check["evidence"])
+        self.assertIn("text/plain", font_check["evidence"])
+
+    def test_image_and_font_content_types_with_parameters_are_accepted(self) -> None:
+        return_code, report = self.run_live_edge_fixture(
+            asset_kinds=("image", "font"),
+            asset_content_types={
+                "image": "image/png; charset=binary",
+                "font": "font/woff2; charset=utf-8",
+            },
+        )
+
+        self.assertEqual(return_code, 0)
+        checks = {item["check"]: item for item in report["checks"]}
+        self.assertEqual(
+            checks[
+                "asset /assets/img/favicons/murderbird-v2-icon-browser-32.png content type"
+            ]["status"],
+            "PASS",
+        )
+        self.assertEqual(
+            checks["asset /assets/fonts/live-edge-fixture.woff2 content type"]["status"],
+            "PASS",
+        )
 
     def test_wrong_sitemap_content_type_fails_with_explicit_mime_evidence(self) -> None:
         return_code, report = self.run_live_edge_fixture(
