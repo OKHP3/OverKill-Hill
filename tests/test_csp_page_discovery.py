@@ -28,10 +28,26 @@ class CspPageDiscoveryTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory).resolve()
             (root / "site-src").mkdir()
+            (root / "tests" / "fixtures").mkdir(parents=True)
+            (root / "i18n" / "pilot" / "es-mx" / "reviewed").mkdir(parents=True)
             (root / "new-story.html").write_text("<main>Story</main>", encoding="utf-8")
-            (root / "unrelated.html").write_text("<main>Draft</main>", encoding="utf-8")
+            (root / "tests" / "fixtures" / "declared.html").write_text(
+                "<main>Fixture</main>", encoding="utf-8"
+            )
+            (root / "i18n" / "pilot" / "es-mx" / "reviewed" / "declared.html").write_text(
+                "<main>Translation evidence</main>", encoding="utf-8"
+            )
             (root / "site-src" / "pages.json").write_text(
-                json.dumps({"pages": [{"path": "new-story.html"}]}), encoding="utf-8"
+                json.dumps(
+                    {
+                        "pages": [
+                            {"path": "new-story.html"},
+                            {"path": "tests/fixtures/declared.html"},
+                            {"path": "i18n/pilot/es-mx/reviewed/declared.html"},
+                        ]
+                    }
+                ),
+                encoding="utf-8",
             )
             with patch.object(csp, "ROOT", root), patch.object(
                 csp.subprocess, "run", return_value=SimpleNamespace(stdout="index.html\n")
@@ -44,6 +60,7 @@ class CspPageDiscoveryTests(unittest.TestCase):
 
         self.assertIn("index.html", pages)
         self.assertFalse(any(page.startswith("tests/fixtures/") for page in pages))
+        self.assertFalse(any(page.startswith("i18n/") for page in pages))
 
     def test_translation_evidence_is_not_a_live_asset_consumer(self) -> None:
         # Saved reviews retain their original hashes; actual locale routes must
