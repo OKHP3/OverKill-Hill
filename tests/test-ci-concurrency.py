@@ -3,6 +3,7 @@
 This is a bounded expression fixture, not a GitHub scheduler simulation.
 Live cancellation, deployment ordering, and retry acceptance remain CI checks.
 """
+import json
 from pathlib import Path
 import re
 import unittest
@@ -17,6 +18,30 @@ def job(source, name):
     if not match:
         raise AssertionError(f'missing job {name}')
     return match[1]
+
+
+def step(source, name):
+    match = re.search(
+        rf'^      - name: {re.escape(name)}\n(.*?)(?=^      - name:|\Z)',
+        source,
+        re.M | re.S,
+    )
+    if not match:
+        raise AssertionError(f'missing step {name}')
+    return match[1]
+
+
+def artifact_name(source, step_name, context):
+    upload_step = step(source, step_name)
+    match = re.search(r'(?m)^\s+name: (.+)$', upload_step)
+    if not match:
+        raise AssertionError(f'missing artifact name in step {step_name}')
+    template = match[1]
+    return re.sub(
+        r'\$\{\{\s*github\.(run_id|run_attempt)\s*\}\}',
+        lambda found: context[found[1]],
+        template,
+    )
 
 
 def group(source, context):
@@ -50,6 +75,105 @@ def context(workflow='Site Validation', event_name='push', ref='refs/heads/main'
 
 
 class ConcurrencyTests(unittest.TestCase):
+    def test_theme_control_sites_use_all_reviewed_checkout_revisions(self):
+        source = job(VALIDATE, 'validate')
+        theme_step = step(source, 'Run shared theme-control regressions')
+        configured_match = re.search(
+            r'THEME_CONTROL_SITES: >-\n(?P<json>.*?)\n\s+run:',
+            theme_step,
+            re.S,
+        )
+        if configured_match is None:
+            self.fail('missing THEME_CONTROL_SITES configuration')
+        configured = {
+            site['name']: site
+            for site in json.loads(
+                ''.join(line.strip() for line in configured_match['json'].splitlines())
+            )
+        }
+
+        sites = (
+            ('OKH', '.', 'THEME_CONTROL_OKH_REVISION', 'Checkout repository', None),
+            ('Glee', '.ci/theme-sites/glee-fullytools', 'THEME_CONTROL_GLEE_REVISION',
+             'Checkout reviewed Glee foundation revision', 'OKHP3/Glee-fullyTools'),
+            ('AskJamie', '.ci/theme-sites/askjamie', 'THEME_CONTROL_ASKJAMIE_REVISION',
+             'Checkout reviewed AskJamie foundation revision', 'OKHP3/AskJamie'),
+        )
+        for name, expected_path, revision_variable, checkout_name, expected_repository in sites:
+            with self.subTest(site=name):
+                configured_site = configured.get(name)
+                self.assertIsNotNone(
+                    configured_site,
+                    f'{name} expected THEME_CONTROL_SITES root {expected_path}',
+                )
+                self.assertEqual(
+                    configured_site.get('root') if configured_site else None,
+                    expected_path,
+                    f'{name} expected THEME_CONTROL_SITES root {expected_path}',
+                )
+
+                revision_match = re.search(
+                    rf'(?m)^      {re.escape(revision_variable)}: (?P<revision>[0-9a-f]{{40}})$',
+                    source,
+                )
+                self.assertIsNotNone(
+                    revision_match,
+                    f'{name} expected full-SHA {revision_variable} for {expected_path}',
+                )
+                revision = revision_match['revision'] if revision_match else None
+                self.assertEqual(
+                    configured_site.get('revision') if configured_site else None,
+                    revision,
+                    f'{name} expected THEME_CONTROL_SITES revision from {revision_variable} '
+                    f'for {expected_path}',
+                )
+                if configured_site:
+                    self.assertRegex(
+                        configured_site.get('revision', ''),
+                        r'^[0-9a-f]{40}$',
+                        f'{name} expected a full-SHA THEME_CONTROL_SITES revision for {expected_path}',
+                    )
+
+                try:
+                    checkout_step = step(source, checkout_name)
+                except AssertionError:
+                    self.fail(
+                        f'{name} expected checkout path {expected_path} and '
+                        f'full-SHA revision {revision_variable}',
+                    )
+                checkout_path_match = re.search(r'(?m)^\s+path: (.+)$', checkout_step)
+                checkout_path = checkout_path_match[1] if checkout_path_match else '.'
+                self.assertEqual(
+                    checkout_path,
+                    expected_path,
+                    f'{name} expected checkout path {expected_path}',
+                )
+
+                if name == 'OKH':
+                    try:
+                        fetch_step = step(source, 'Fetch reviewed OKH foundation revision')
+                    except AssertionError:
+                        self.fail(
+                            f'{name} expected fetched full-SHA revision for {expected_path}',
+                        )
+                    self.assertRegex(
+                        fetch_step,
+                        r'git fetch --no-tags --depth=1 origin "\$THEME_CONTROL_OKH_REVISION"',
+                        f'{name} expected fetched full-SHA revision for {expected_path}',
+                    )
+                else:
+                    self.assertIn(
+                        f'repository: {expected_repository}',
+                        checkout_step,
+                        f'{name} expected repository {expected_repository} at {expected_path}',
+                    )
+                    expected_ref = '${{ env.' + revision_variable + ' }}'
+                    self.assertIn(
+                        f'ref: {expected_ref}',
+                        checkout_step,
+                        f'{name} expected checkout ref {revision_variable} for {expected_path}',
+                    )
+
     def test_workflow_cancellation_cannot_reach_deployment(self):
         self.assertNotRegex(VALIDATE, r'(?m)^concurrency:')
         self.assertNotRegex(PAGES, r'(?m)^concurrency:')
@@ -99,6 +223,36 @@ class ConcurrencyTests(unittest.TestCase):
                              (job(VALIDATE, 'monitor-live-edge'), 'edge'),
                              (job(VALIDATE, 'monitor-third-party-runtime'), 'external')):
             self.assertRegex(source, rf'if: always\(\)\n        run: python3 scripts/write-actions-summary.py --kind {kind}')
+
+    def test_monitor_artifacts_separate_first_attempts_from_retries(self):
+        cases = (
+            (
+                'monitor-third-party-runtime',
+                'Upload third-party runtime inventory',
+                'Summarize external availability and first-party failures',
+                'upload-third-party-runtime-report',
+            ),
+            (
+                'monitor-live-edge',
+                'Upload live-edge monitoring report',
+                'Summarize content delivery and edge policy',
+                'upload-live-edge-report',
+            ),
+        )
+        first_attempt = context(run_id='100', run_attempt='1')
+        retry = context(run_id='100', run_attempt='2')
+        for job_name, upload_step, summary_step, upload_id in cases:
+            with self.subTest(job=job_name):
+                source = job(VALIDATE, job_name)
+                first_name = artifact_name(source, upload_step, first_attempt)
+                retry_name = artifact_name(source, upload_step, retry)
+                self.assertIn('100-1', first_name)
+                self.assertIn('100-2', retry_name)
+                self.assertNotEqual(first_name, retry_name)
+                self.assertIn(
+                    f'steps.{upload_id}.outputs.artifact-url',
+                    step(source, summary_step),
+                )
 
 
 if __name__ == '__main__':

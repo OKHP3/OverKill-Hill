@@ -113,7 +113,9 @@ jobs:
         run: python3 scripts/validate-site.py
 
       - name: Run committed SEO regression fixtures
-        run: python3 scripts/test-seo-fixtures.py
+        run: |
+          python3 scripts/test-seo-fixtures.py
+          python3 tests/test-social-card-duplicates.py
 
       - name: Run audit portability regressions
         run: python3 tests/test-audit-site-portability.py
@@ -138,7 +140,7 @@ jobs:
           python3 tests/test-actions-summary.py
           python3 tests/test-ci-concurrency.py
 
-      - name: Run live-edge MIME, fingerprint, and post-merge regression tests
+      - name: Run live-edge asset, image/font MIME, and data-feed regression tests
         run: python3 -m unittest tests/test_verify_live_edge.py
 
       - name: Run shared-foundation sync safety regressions
@@ -290,6 +292,15 @@ jobs:
         if: always() && steps.csp-fixtures.outcome == 'failure'
         run: node scripts/csp-qa.mjs --fixture-summary=csp-fixture-report.json
 
+      - name: Upload failed CSP fixture report
+        if: always() && steps.csp-fixtures.outcome == 'failure'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: csp-fixture-regressions-${{ github.run_id }}-${{ github.run_attempt }}
+          path: csp-fixture-report.json
+          if-no-files-found: warn
+          retention-days: 7
+
       - name: Preserve CSP fixture regression failure
         if: always() && steps.csp-fixtures.outcome == 'failure'
         run: exit 1
@@ -421,16 +432,17 @@ jobs:
 
       - name: Upload third-party runtime inventory
         if: always()
+        id: upload-third-party-runtime-report
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: third-party-runtime-${{ github.run_id }}
+          name: third-party-runtime-${{ github.run_id }}-${{ github.run_attempt }}
           path: third-party-runtime-report.json
           if-no-files-found: error
           retention-days: 30
 
       - name: Summarize external availability and first-party failures
         if: always()
-        run: python3 scripts/write-actions-summary.py --kind external --report third-party-runtime-report.json
+        run: python3 scripts/write-actions-summary.py --kind external --report third-party-runtime-report.json --artifact-url "${{ steps.upload-third-party-runtime-report.outputs.artifact-url }}"
 
   monitor-live-edge:
     name: Monitor production security and cache policies
@@ -466,7 +478,7 @@ jobs:
         id: upload-live-edge-report
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: live-edge-monitor-${{ github.run_id }}
+          name: live-edge-monitor-${{ github.run_id }}-${{ github.run_attempt }}
           path: assets/audit/live-edge-report.json
           if-no-files-found: error
           retention-days: 30

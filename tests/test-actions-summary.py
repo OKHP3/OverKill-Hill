@@ -2,6 +2,7 @@
 import copy
 import importlib.util
 import json
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -10,7 +11,11 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / 'scripts/write-actions-summary.py'
+FIXTURE_GENERATOR = ROOT / 'scripts/generate-actions-summary-fixtures.py'
 FIXTURE_DIRECTORY = ROOT / 'tests/fixtures/actions-summary'
+ARCHIVED_LIVE_EDGE_REPORTS = {
+    ROOT / 'assets/audit/assessment-2026-09-07/delivery/live-edge.json': 'current',
+}
 VERIFY_SPEC = importlib.util.spec_from_file_location(
     'verify_live_edge', ROOT / 'scripts/verify-live-edge.py'
 )
@@ -23,6 +28,18 @@ VERIFY_SPEC.loader.exec_module(VERIFY)
 class SummaryTests(unittest.TestCase):
     def load_fixture(self, name):
         return json.loads((FIXTURE_DIRECTORY / name).read_text(encoding='utf-8'))
+
+    def test_committed_live_edge_fixtures_are_current(self):
+        result = subprocess.run(
+            [sys.executable, str(FIXTURE_GENERATOR), '--check'],
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(
+            result.returncode,
+            0,
+            result.stdout + result.stderr,
+        )
 
     def test_committed_live_edge_fixtures_match_verifier_report_shape(self):
         fixtures = sorted(FIXTURE_DIRECTORY.glob('live-edge-*.json'))
@@ -57,8 +74,45 @@ class SummaryTests(unittest.TestCase):
                                     capture_output=True, text=True)
             return result.returncode, output.read_text(encoding='utf-8') if output.exists() else ''
 
+    def assert_archived_report_contract(self, path, report):
+        contract = ARCHIVED_LIVE_EDGE_REPORTS.get(path)
+        self.assertIn(
+            contract,
+            {'current', 'legacy'},
+            f'{path} must be explicitly classified as current or legacy',
+        )
+        if contract == 'current':
+            try:
+                VERIFY.validate_report_shape(report)
+            except ValueError as exc:
+                self.fail(
+                    f'{path} is classified as current but no longer matches the '
+                    f'verifier contract: {exc}. Migrate the archived report or '
+                    'declare and test legacy compatibility.'
+                )
+
+    def test_archived_live_edge_reports_have_an_explicit_contract(self):
+        for path, contract in ARCHIVED_LIVE_EDGE_REPORTS.items():
+            with self.subTest(report=path):
+                report = json.loads(path.read_text(encoding='utf-8'))
+                self.assert_archived_report_contract(path, report)
+                self.assertIn(contract, {'current', 'legacy'})
+
+    def test_archived_contract_drift_has_an_actionable_failure(self):
+        path = next(iter(ARCHIVED_LIVE_EDGE_REPORTS))
+        report = json.loads(path.read_text(encoding='utf-8'))
+        del report['summary']['warnings']
+
+        with self.assertRaisesRegex(
+            AssertionError,
+            r'Migrate the archived report or declare and test legacy compatibility',
+        ):
+            self.assert_archived_report_contract(path, report)
+
     def test_historical_partial_is_not_an_outage_or_full_policy_pass(self):
-        report = json.loads((ROOT / 'assets/audit/assessment-2026-09-07/delivery/live-edge.json').read_text())
+        path = ROOT / 'assets/audit/assessment-2026-09-07/delivery/live-edge.json'
+        report = json.loads(path.read_text())
+        self.assert_archived_report_contract(path, report)
         code, summary = self.run_summary(report)
         self.assertEqual(code, 0)
         self.assertIn('| Content delivery | PASS |', summary)
@@ -66,6 +120,12 @@ class SummaryTests(unittest.TestCase):
         self.assertIn('| External availability | NOT RUN |', summary)
         self.assertIn('ca38d5b9fc46746ea8b41e2ba32e39685c53f511', summary)
         self.assertLess(len(summary.splitlines()), 45)
+
+    def test_generated_pass_fixture_renders_as_a_full_pass(self):
+        code, summary = self.run_summary(self.load_fixture('live-edge-pass.json'))
+        self.assertEqual(code, 0)
+        self.assertIn('| Content delivery | PASS |', summary)
+        self.assertIn('| Edge policy | PASS |', summary)
 
     def test_first_party_failure_remains_distinct(self):
         code, summary = self.run_summary({'checks': [
@@ -107,6 +167,42 @@ class SummaryTests(unittest.TestCase):
                     source,
                 )
 
+    def test_external_workflow_passes_uploaded_artifact_url_to_summary(self):
+        source = (ROOT / '.github/workflows/validate.yml').read_text(encoding='utf-8')
+        self.assertIn('id: upload-third-party-runtime-report', source)
+        self.assertIn(
+            'steps.upload-third-party-runtime-report.outputs.artifact-url',
+            source,
+        )
+
+    def test_failed_csp_fixtures_upload_only_the_short_lived_focused_report(self):
+        workflow = (ROOT / '.github/workflows/validate.yml').read_text(encoding='utf-8')
+        match = re.search(
+            r'(?ms)^      - name: Upload failed CSP fixture report\n'
+            r'(.*?)(?=^      - name: )',
+            workflow,
+        )
+        self.assertIsNotNone(match, 'missing focused CSP fixture report upload step')
+        upload = match.group(1)
+        self.assertIn(
+            "if: always() && steps.csp-fixtures.outcome == 'failure'",
+            upload,
+        )
+        self.assertIn('uses: actions/upload-artifact@', upload)
+        self.assertIn('path: csp-fixture-report.json', upload)
+        self.assertIn('if-no-files-found: warn', upload)
+        self.assertIn('retention-days: 7', upload)
+        self.assertNotIn('third-party-runtime-report.json', upload)
+        self.assertNotIn('site-release', upload)
+
+        fixture_step = re.search(
+            r'(?ms)^      - name: Run CSP fixture regressions\n'
+            r'(.*?)(?=^      - name: )',
+            workflow,
+        )
+        self.assertIsNotNone(fixture_step, 'missing CSP fixture regression step')
+        self.assertIn('continue-on-error: true', fixture_step.group(1))
+
     def test_pages_only_blocked_fixture_is_partial_and_not_enforcement_proof(self):
         code, summary = self.run_summary(self.load_fixture('live-edge-pages-blocked.json'))
 
@@ -147,6 +243,36 @@ class SummaryTests(unittest.TestCase):
             'externalOutages': 2, 'localFailures': 0, 'cspDiagnostics': 0}}, 'external')
         self.assertEqual(code, 0)
         self.assertIn('DEGRADED', summary)
+
+    def test_external_degraded_summary_links_to_uploaded_report(self):
+        artifact_url = 'https://github.com/example/site/actions/runs/123/artifacts/987'
+        code, summary = self.run_summary(
+            {'summary': {'routes': 3, 'dependencies': 4, 'available': 2,
+                         'externalOutages': 2, 'localFailures': 0, 'cspDiagnostics': 0}},
+            'external',
+            artifact_url=artifact_url,
+        )
+        self.assertEqual(code, 0)
+        self.assertIn('| External availability | DEGRADED |', summary)
+        self.assertIn(
+            f'Full route evidence artifact: [report.json]({artifact_url})',
+            summary,
+        )
+
+    def test_external_local_failure_summary_links_to_uploaded_report(self):
+        artifact_url = 'https://github.com/example/site/actions/runs/123/artifacts/988'
+        code, summary = self.run_summary(
+            {'summary': {'routes': 3, 'dependencies': 4, 'available': 4,
+                         'externalOutages': 0, 'localFailures': 1, 'cspDiagnostics': 0}},
+            'external',
+            artifact_url=artifact_url,
+        )
+        self.assertEqual(code, 1)
+        self.assertIn('| Content delivery | FAILED |', summary)
+        self.assertIn(
+            f'Full route evidence artifact: [report.json]({artifact_url})',
+            summary,
+        )
 
     def test_invalid_reports_fail_closed(self):
         for report in ({}, {'checks': []}, {'checks': [{'status': 'MAYBE'}]}, []):

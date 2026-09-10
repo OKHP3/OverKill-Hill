@@ -127,6 +127,7 @@ def check_search_index(
     locale: str,
     findings: list[str],
     *,
+    declared_routes: set[str],
     draft_routes: set[str],
     require_routes: bool,
 ) -> None:
@@ -146,6 +147,9 @@ def check_search_index(
         return
     urls = [entry.get("url") for entry in entries if isinstance(entry, dict)]
     indexed_routes = set(urls)
+    undeclared = sorted(indexed_routes - declared_routes)
+    if undeclared:
+        fail(findings, f"locale search index contains undeclared routes: {', '.join(undeclared)}")
     if require_routes:
         missing = sorted(required_routes - indexed_routes)
         if missing:
@@ -333,12 +337,27 @@ def validate_locale(
             if expected_target in urls:
                 fail(findings, f"draft locale route is in sitemap.xml: {target_route}")
 
+    locale_prefix = f"{SITE_ORIGIN}/{locale}/"
+    sitemap_locale_routes = {
+        url.removeprefix(SITE_ORIGIN)
+        for url in urls
+        if url.startswith(locale_prefix)
+    }
+    undeclared_sitemap_routes = sorted(sitemap_locale_routes - target_routes)
+    if undeclared_sitemap_routes:
+        fail(
+            findings,
+            "locale sitemap contains undeclared routes: "
+            + ", ".join(undeclared_sitemap_routes),
+        )
+
     if is_unpublished:
         check_search_index(
             index_path,
             set(),
             locale,
             findings,
+            declared_routes=target_routes,
             draft_routes=set(),
             require_routes=False,
         )
@@ -355,6 +374,7 @@ def validate_locale(
         indexable_routes,
         locale,
         findings,
+        declared_routes=target_routes,
         draft_routes=target_routes - indexable_routes,
         require_routes=bool(indexable_routes),
     )

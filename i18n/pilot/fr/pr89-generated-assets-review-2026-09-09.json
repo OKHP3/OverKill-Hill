@@ -2,40 +2,40 @@
   "language_pair": "en-US -> fr-FR",
   "review_status": "ai-reviewed",
   "native_or_human_approval": false,
-  "source_revision": "git:a588c76976368c53aa7b5a50c2598ad0b69dc807",
-  "reviewed_on": "2026-09-09",
-  "review_scope": "Exact comparison of the four blocking French routes after PR #89 generation confirms only shared cache-busted asset references and navigation sub-nav markers changed. French prose, alt text, translation choices, and publication boundaries were retained. No human or native-speaker approval is claimed.",
+  "source_revision": "git:6dc98cf2e1aa1ac533bcd70a1f8b7e2174f810a0",
+  "reviewed_on": "2026-09-10",
+  "review_scope": "Exact byte comparison of English and French pages confirms only shared app.js fingerprint changes for the reveal fallback repair. French prose, alt text, translation choices, and publication boundaries are unchanged. No human or native-speaker approval is claimed.",
   "routes": [
     {
       "route": "/",
       "locale": "fr",
-      "source_sha256": "112c43b647a4c66da58b4cf12d2de12bcc476a2ef6b7afa743a28e84a762f228",
+      "source_sha256": "d0662998f005968141d1da0bb50630a6b50912e0213a536b77446c98dfa6e146",
       "target_path": "fr/index.html",
-      "target_sha256": "d936f2b0c7029e0a087d369d287d9f51e6b202dfd3b3619b0aea376d835def5d",
+      "target_sha256": "38de0d6a4ccda7d60ee83b94f7c6d868ce4ba01489778f368eaaf7d3e3008fbd",
       "disposition": "no-semantic-delta-ai-reviewed"
     },
     {
       "route": "/about/",
       "locale": "fr",
-      "source_sha256": "99928ea3f1ffe6d27c51b9fc19fe628008a14df984bcc5223f266fff1323c2ba",
+      "source_sha256": "92894ee468b3c75e7a9a53160890108c043134eb747749c0883fb17123a7c55f",
       "target_path": "fr/about/index.html",
-      "target_sha256": "c79e336849c3c019904993b4032d666e72c3bef6a211122a0ca83a0703432b39",
+      "target_sha256": "5f57ccca59508ac7ff05aa49419a74f479c01f6b1151a06971440ec652e6fd21",
       "disposition": "no-semantic-delta-ai-reviewed"
     },
     {
       "route": "/contact/",
       "locale": "fr",
-      "source_sha256": "4986d238298f859eb02ed49e5ce9ad3cd56b9d95b277f3691e4663715404a126",
+      "source_sha256": "836bfc771ecdd8916549fd1df69e1b865a0b7bb3a2d659b92d448eaa3be1fa82",
       "target_path": "fr/contact/index.html",
-      "target_sha256": "b6b20ce10066cbb0f01b2db73fbb1b0822a1dd1e1fe93b50b9c156c99d07f846",
+      "target_sha256": "76e3d4305d237fd79e3afc082c8b4b9960084214128b47bc60dd847e4c29194e",
       "disposition": "no-semantic-delta-ai-reviewed"
     },
     {
       "route": "/projects/",
       "locale": "fr",
-      "source_sha256": "afd2f14d5fa9281798f7136104ad0b64cccde6742dbecfb7d840e3e27d7d99b4",
+      "source_sha256": "b87b3b23792ed8ec048bf2a644ffd07e74237ee785e75fd5b044448c28ad4e2a",
       "target_path": "fr/projects/index.html",
-      "target_sha256": "ef5ce1bf18f34b84683e00206a53096d3fc4b490770a0151eb4c58c74ac0fa99",
+      "target_sha256": "329e1762dab05a1a68077ed0f1ef1f182ddf6b4c0d5a3bf3bb3cf52ffd9b5840",
       "disposition": "no-semantic-delta-ai-reviewed"
     }
   ]

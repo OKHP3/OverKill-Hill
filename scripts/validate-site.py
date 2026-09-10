@@ -36,6 +36,7 @@ import struct
 import subprocess
 import sys
 from datetime import datetime
+from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
@@ -279,11 +280,33 @@ def find_html_files() -> list[Path]:
     return sorted(files)
 
 
-def load_sitemap_urls() -> set[str]:
+def load_sitemap_entries() -> dict[str, str | None]:
+    """Load sitemap locations together with their optional last-modified date."""
     if not SITEMAP.exists():
-        return set()
+        return {}
     text = SITEMAP.read_text(encoding="utf-8")
-    return set(re.findall(r"<loc>([^<]+)</loc>", text))
+    entries: dict[str, str | None] = {}
+    for block in re.findall(r"<url\b[^>]*>(.*?)</url>", text, flags=re.IGNORECASE | re.DOTALL):
+        loc_match = re.search(r"<loc\b[^>]*>([^<]+)</loc>", block, flags=re.IGNORECASE)
+        if not loc_match:
+            continue
+        lastmod_match = re.search(
+            r"<lastmod\b[^>]*>([^<]*)</lastmod>",
+            block,
+            flags=re.IGNORECASE,
+        )
+        loc = unescape(loc_match.group(1).strip())
+        entries[loc] = (
+            unescape(lastmod_match.group(1).strip())
+            if lastmod_match is not None
+            else None
+        )
+    return entries
+
+
+def load_sitemap_urls() -> set[str]:
+    """Load sitemap locations while preserving the existing inventory API."""
+    return set(load_sitemap_entries())
 
 
 def validate_sitemap_inventory(sitemap_urls: set[str]) -> list[Finding]:
@@ -610,7 +633,21 @@ def validate_article_jsonld_dates(
         Finding("ERROR", location, f"invalid JSON-LD block: {error}")
         for error in parse_errors
     ]
-    for article in (item for item in objects if item.get("@type") == "Article"):
+    articles = [item for item in objects if item.get("@type") == "Article"]
+    published_dates = [
+        article["datePublished"]
+        for article in articles
+        if isinstance(article.get("datePublished"), str)
+        and article["datePublished"]
+    ]
+    if len(published_dates) > 1 and len(set(published_dates)) > 1:
+        findings.append(Finding(
+            "ERROR",
+            location,
+            "conflicting duplicate Article JSON-LD datePublished values: "
+            f"{published_dates!r}",
+        ))
+    for article in articles:
         for field in ("datePublished", "dateModified"):
             value = article.get(field)
             if field not in article or value in (None, ""):
@@ -649,6 +686,60 @@ def validate_article_jsonld_dates(
     return findings
 
 
+def validate_article_sitemap_dates(
+    location: str,
+    parser: TagCounter,
+    sitemap_url: str,
+    sitemap_lastmod: str | None,
+) -> list[Finding]:
+    """Keep indexable Article JSON-LD dateModified aligned with sitemap lastmod."""
+    objects, _ = _jsonld_objects(parser)
+    articles = [item for item in objects if item.get("@type") == "Article"]
+    if not articles:
+        return []
+
+    findings: list[Finding] = []
+    if sitemap_lastmod in (None, ""):
+        findings.append(
+            Finding(
+                "ERROR",
+                location,
+                f"article sitemap lastmod is missing for {sitemap_url}",
+            )
+        )
+        return findings
+
+    try:
+        datetime.fromisoformat(sitemap_lastmod.replace("Z", "+00:00"))
+    except ValueError:
+        findings.append(
+            Finding(
+                "ERROR",
+                location,
+                f"article sitemap lastmod is not ISO 8601: {sitemap_lastmod!r}",
+            )
+        )
+        return findings
+
+    structured_dates = {
+        article.get("dateModified")
+        for article in articles
+        if isinstance(article.get("dateModified"), str)
+        and article.get("dateModified")
+    }
+    for structured_date in sorted(structured_dates):
+        if structured_date != sitemap_lastmod:
+            findings.append(
+                Finding(
+                    "ERROR",
+                    location,
+                    "article JSON-LD dateModified does not match sitemap "
+                    f"lastmod: {structured_date!r} != {sitemap_lastmod!r}",
+                )
+            )
+    return findings
+
+
 def validate_organization_source() -> list[Finding]:
     """Validate the shared source head before checking rendered pages."""
     if not HEAD_PARTIAL.is_file():
@@ -658,7 +749,10 @@ def validate_organization_source() -> list[Finding]:
     return validate_organization_nodes("assets/partials/head.html", parser)
 
 
-def validate_article_jsonld_source(pages: list[dict]) -> list[Finding]:
+def validate_article_jsonld_source(
+    pages: list[dict],
+    sitemap_entries: dict[str, str | None] | None = None,
+) -> list[Finding]:
     """Validate Article JSON-LD dates on indexable source pages before rendering."""
     findings: list[Finding] = []
     for page in pages:
@@ -683,6 +777,15 @@ def validate_article_jsonld_source(pages: list[dict]) -> list[Finding]:
                 else None
             ),
         ))
+        if sitemap_entries is not None and is_article_page(page):
+            sitemap_url = str(page.get("canonical") or SITE_ORIGIN + page.get("route", ""))
+            if sitemap_url in sitemap_entries:
+                findings.extend(validate_article_sitemap_dates(
+                    _path_location(extras),
+                    parser,
+                    sitemap_url,
+                    sitemap_entries[sitemap_url],
+                ))
     return findings
 
 
@@ -871,6 +974,7 @@ def validate_generated_seo(
     parser: TagCounter,
     manifest_page: dict | None,
     locale_page: dict | None = None,
+    sitemap_entries: dict[str, str | None] | None = None,
 ) -> list[Finding]:
     """Ensure rendered metadata still agrees with the source contract."""
     path = path.resolve()
@@ -926,6 +1030,15 @@ def validate_generated_seo(
                 datetime.fromisoformat(published.replace("Z", "+00:00"))
             except ValueError:
                 findings.append(Finding("ERROR", rel, f"article:published_time is not ISO 8601: {published!r}"))
+        if sitemap_entries is not None:
+            sitemap_url = str(manifest_page.get("canonical") or SITE_ORIGIN + html_to_route(path))
+            if sitemap_url in sitemap_entries:
+                findings.extend(validate_article_sitemap_dates(
+                    rel,
+                    parser,
+                    sitemap_url,
+                    sitemap_entries[sitemap_url],
+                ))
     return findings
 
 
@@ -1490,6 +1603,7 @@ def validate_brand_theme_metadata(location: str, parser: TagCounter) -> list[Fin
 def validate_page(
     path: Path,
     sitemap_urls: set[str],
+    sitemap_entries: dict[str, str | None],
     expected_theme_url: str | None,
     expected_script_urls: dict[str, str | None],
     manifest_page: dict | None = None,
@@ -1583,7 +1697,13 @@ def validate_page(
         return findings
 
     findings.extend(validate_brand_theme_metadata(rel, parser))
-    findings.extend(validate_generated_seo(path, parser, manifest_page, locale_page))
+    findings.extend(validate_generated_seo(
+        path,
+        parser,
+        manifest_page,
+        locale_page,
+        sitemap_entries,
+    ))
 
     if not parser.title:
         findings.append(Finding("ERROR", rel, "missing <title>"))
@@ -1748,7 +1868,8 @@ def run_voice_lint() -> int:
     return result.returncode
 
 def main() -> int:
-    sitemap_urls = load_sitemap_urls()
+    sitemap_entries = load_sitemap_entries()
+    sitemap_urls = set(sitemap_entries)
     if not sitemap_urls:
         print("WARN: sitemap.xml not found or empty.")
 
@@ -1766,7 +1887,7 @@ def main() -> int:
     all_findings.extend(manifest_findings)
     all_findings.extend(locale_findings)
     all_findings.extend(validate_source_seo_contract(manifest_pages))
-    all_findings.extend(validate_article_jsonld_source(manifest_pages))
+    all_findings.extend(validate_article_jsonld_source(manifest_pages, sitemap_entries))
     all_findings.extend(validate_organization_source())
     all_findings.extend(validate_heat_guide_chain(manifest_pages))
     all_findings.extend(
@@ -1813,6 +1934,7 @@ def main() -> int:
             validate_page(
                 path,
                 sitemap_urls,
+                sitemap_entries,
                 expected_theme_url,
                 expected_script_urls,
                 manifest_by_path.get(path.relative_to(ROOT).as_posix()),

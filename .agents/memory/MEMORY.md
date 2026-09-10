@@ -14,3 +14,5 @@
 - [Notion editorial access](notion-editorial-access.md) — an authorized Notion connection may need binding before use; search titles, then fetch page content explicitly.
 - [Cross-site foundation review](cross-site-foundation-review.md) — theme parity needs immutable reviewed revisions plus each site's actual markup; sibling checkouts may be absent locally.
 - [Generated head editing](generated-head-editing.md) — generated pages may pack CSP and metadata into one very long line; preserve it with narrowly scoped literal edits.
+- [External health CSP merge](external-health-csp-merge.md) — browser CSP request failures must not mask HTTP outage evidence when dependency results merge across routes.
+- [Banner release parity](banner-release-parity.md) — compare source and generated featured-article releases before any banner repair mode can write.

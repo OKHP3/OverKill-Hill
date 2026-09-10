@@ -8,7 +8,14 @@ import html
 import json
 import re
 import subprocess
+import sys
 from pathlib import Path
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
+from public_page_boundary import is_public_page_path
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY_FILE = ROOT / "config" / "csp-policies.json"
@@ -69,6 +76,14 @@ def inline_sources(path: Path) -> tuple[set[str], set[str]]:
 
 
 def all_pages() -> list[Path]:
+    """Return published pages plus manifest-declared generated routes.
+
+    The manifest is a deliberate CSP-specific addition to the shared public
+    page boundary: a generated route must receive a CSP before it is tracked
+    by git.  Every tracked and manifest candidate still passes
+    ``is_public_page_path`` so source templates, fixtures, and translation
+    evidence cannot become CSP pages by accident.
+    """
     tracked = subprocess.run(
         ["git", "ls-files", "*.html"],
         cwd=ROOT,
@@ -88,15 +103,7 @@ def all_pages() -> list[Path]:
     return sorted(
         ROOT / name
         for name in names
-        if not name.startswith(
-            (
-                "assets/templates/",
-                "assets/partials/",
-                "site-src/",
-                "tests/fixtures/",
-                "i18n/",
-            )
-        )
+        if is_public_page_path(ROOT / name, ROOT)
     )
 
 

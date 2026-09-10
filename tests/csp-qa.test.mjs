@@ -17,8 +17,13 @@ const fixtureFiles = new Map([
   ["/missing-resource.html", "missing-resource.html"],
   ["/unrendered-mermaid.html", "unrendered-mermaid.html"],
   ["/external-network-failure.html", "external-network-failure.html"],
+  ["/external-network-failure-shared.html", "external-network-failure-shared.html"],
+  ["/external-repeated-network-failure.html", "external-repeated-network-failure.html"],
   ["/external-csp-blocked.html", "external-csp-blocked.html"],
   ["/external-csp-and-outage.html", "external-csp-and-outage.html"],
+  ["/external-csp-shared.html", "external-csp-shared.html"],
+  ["/external-outage-shared.html", "external-outage-shared.html"],
+  ["/external-delayed-outage.html", "external-delayed-outage.html"],
 ]);
 
 let server;
@@ -98,6 +103,18 @@ before(async () => {
         "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=",
         "base64",
       ));
+      return;
+    }
+    if (path === "/shared.png") {
+      response.writeHead(503, { "content-type": "text/plain" });
+      response.end("shared fixture dependency intentionally unavailable");
+      return;
+    }
+    if (path === "/delayed-outage.png") {
+      setTimeout(() => {
+        response.writeHead(503, { "content-type": "text/plain" });
+        response.end("delayed fixture dependency intentionally unavailable");
+      }, 1400);
       return;
     }
     response.writeHead(404, { "content-type": "text/plain" });
@@ -193,6 +210,107 @@ function runCspQa(path, flags = []) {
   });
 }
 
+function runFixtureSummary(reportPath, summaryPath) {
+  return new Promise((resolve, reject) => {
+    const child = spawn(
+      process.execPath,
+      [
+        cspQaScript,
+        `--fixture-summary=${reportPath}`,
+        `--summary=${summaryPath}`,
+      ],
+      { cwd: repositoryRoot },
+    );
+    let stdout = "";
+    let stderr = "";
+    const timeout = setTimeout(() => {
+      child.kill("SIGKILL");
+      reject(new Error("CSP fixture summary timed out"));
+    }, 10000);
+
+    child.stdout.on("data", (chunk) => { stdout += chunk; });
+    child.stderr.on("data", (chunk) => { stderr += chunk; });
+    child.on("error", (error) => {
+      clearTimeout(timeout);
+      reject(error);
+    });
+    child.on("close", (status, signal) => {
+      clearTimeout(timeout);
+      resolve({
+        output: `${stdout}\n${stderr}`,
+        status,
+        signal,
+      });
+    });
+  });
+}
+
+test("keeps every browser diagnostic category visible in the focused summary", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-summary-"));
+  const reportPath = join(reportDirectory, "fixture-report.json");
+  const summaryPath = join(reportDirectory, "summary.md");
+  const diagnostics = [
+    ["csp", "CSP", "CSP: blocked | policy\nwith a second line"],
+    ["page-error", "PAGEERROR", "PAGEERROR: Error: page exploded"],
+    ["console", "CONSOLE", "CONSOLE: ERROR: console exploded"],
+    [
+      "local-request",
+      "LOCAL REQUEST FAILED",
+      "LOCAL REQUEST FAILED: /app.js (net::ERR_FAILED)",
+    ],
+    [
+      "local-http",
+      "LOCAL HTTP ERROR",
+      "LOCAL HTTP ERROR: 404 /missing.png",
+    ],
+    ["mermaid", "MERMAID", "MERMAID: ERROR: render failed"],
+  ];
+  const fixtures = diagnostics.map(([name, category, message]) => ({
+    path: `/${name}.html`,
+    errors: [message],
+    category,
+  }));
+  fixtures.push({
+    path: "/unknown.html",
+    errors: ["NETWORK: new browser diagnostic | preserve this"],
+  });
+
+  try {
+    await writeFile(reportPath, `${JSON.stringify({
+      version: 1,
+      mode: "csp-fixtures",
+      fixtures,
+    })}\n`);
+
+    const result = await runFixtureSummary(reportPath, summaryPath);
+    assert.equal(result.status, 0, result.output);
+    const summary = await readFile(summaryPath, "utf8");
+
+    for (const [name, category] of diagnostics) {
+      assert.match(
+        summary,
+        new RegExp(`\\| /${name}\\.html \\| ${category} \\|`),
+        `missing focused summary category ${category}`,
+      );
+      assert.doesNotMatch(
+        summary,
+        new RegExp(`\\| /${name}\\.html \\| none observed \\|`),
+        `recognized category ${category} was rendered as none observed`,
+      );
+    }
+    assert.match(
+      summary,
+      /\| \/csp\.html \| CSP \| CSP: blocked \\| policy with a second line \|/,
+    );
+    assert.match(
+      summary,
+      /\| \/unknown\.html \| none observed \| NETWORK: new browser diagnostic \\| preserve this \|/,
+    );
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
 test("fails on a browser CSP console violation", async () => {
   const result = await runCspQa("/console-violation.html");
   assert.notEqual(result.status, 0, result.output);
@@ -276,6 +394,74 @@ test("preserves the browser failure reason for an aborted external request", asy
     assert.equal(aborted.state, "unavailable");
     assert.equal(aborted.responses.length, 0);
     assert.equal(aborted.failures.length, 1);
+    assert.equal(aborted.failures[0].route, "/external-network-failure.html");
+    assert.match(aborted.failures[0].errorText, /^net::ERR_/);
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("attributes repeated external failures to every public route", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-failure-routes-"));
+  const reportPath = join(reportDirectory, "report.json");
+  const paths = "/external-network-failure.html,/external-network-failure-shared.html";
+  try {
+    const result = await runCspQa(paths, [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /EXTERNAL OUTAGE:/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.equal(report.summary.externalOutages, 1);
+
+    const aborted = report.dependencies.find(({ url }) => url.endsWith("/aborted.png"));
+    assert.ok(aborted, JSON.stringify(report, null, 2));
+    assert.equal(aborted.state, "unavailable");
+    assert.deepEqual(aborted.routes, [
+      "/external-network-failure-shared.html",
+      "/external-network-failure.html",
+    ].sort());
+    assert.deepEqual(
+      aborted.failures.map(({ route }) => route).sort(),
+      [
+        "/external-network-failure-shared.html",
+        "/external-network-failure.html",
+      ].sort(),
+    );
+    assert.ok(aborted.failures.every(({ errorText }) => /^net::ERR_/.test(errorText)));
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("groups repeated failures for one dependency without losing the browser reason", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-repeated-failures-"));
+  const reportPath = join(reportDirectory, "report.json");
+  try {
+    const result = await runCspQa("/external-repeated-network-failure.html", [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /EXTERNAL OUTAGE:/);
+    assert.match(result.output, /2 occurrences/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.equal(report.summary.externalOutages, 1);
+
+    const aborted = report.dependencies.find(({ url }) => url.endsWith("/aborted.png"));
+    assert.ok(aborted, JSON.stringify(report, null, 2));
+    assert.equal(aborted.state, "unavailable");
+    assert.equal(aborted.failures.length, 1);
+    assert.deepEqual(aborted.failures[0], {
+      route: "/external-repeated-network-failure.html",
+      errorText: aborted.failures[0].errorText,
+      count: 2,
+    });
     assert.match(aborted.failures[0].errorText, /^net::ERR_/);
   } finally {
     await rm(reportDirectory, { recursive: true, force: true });
@@ -305,6 +491,7 @@ test("reports CSP-blocked dependencies separately from external outages", async 
     assert.ok(blocked, JSON.stringify(report, null, 2));
     assert.equal(blocked.state, "blocked-by-csp");
     assert.equal(blocked.cspBlocked, true);
+    assert.equal(blocked.failures[0].route, "/external-csp-blocked.html");
   } finally {
     await rm(reportDirectory, { recursive: true, force: true });
   }
@@ -341,6 +528,73 @@ test("keeps an external outage visible alongside a CSP-blocked dependency", asyn
     assert.equal(outage.state, "unavailable");
     assert.equal(outage.cspBlocked, false);
     assert.ok(outage.responses.some(({ status }) => status === 503));
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("keeps a shared-route outage visible when another route blocks the same URL with CSP", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-shared-health-"));
+  const reportPath = join(reportDirectory, "report.json");
+  const paths = "/external-csp-shared.html,/external-outage-shared.html";
+  try {
+    const result = await runCspQa(paths, [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /EXTERNAL OUTAGE:/);
+    assert.match(result.output, /CSP diagnostics were observed/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.deepEqual(report.routes, [
+      "/external-csp-shared.html",
+      "/external-outage-shared.html",
+    ]);
+    assert.equal(report.summary.dependencies, 1);
+    assert.equal(report.summary.externalOutages, 1);
+    assert.equal(report.summary.cspDiagnostics, 1);
+
+    const shared = report.dependencies.find(({ url }) => url.endsWith("/shared.png"));
+    assert.ok(shared, JSON.stringify(report, null, 2));
+    assert.deepEqual(shared.routes, [
+      "/external-csp-shared.html",
+      "/external-outage-shared.html",
+    ]);
+    assert.equal(shared.cspBlocked, true);
+    assert.equal(shared.state, "unavailable");
+    assert.ok(shared.responses.some(({ status }) => status === 503));
+
+    const outage = report.externalOutages.find(({ url }) => url.endsWith("/shared.png"));
+    assert.ok(outage, JSON.stringify(report, null, 2));
+    assert.deepEqual(outage.routes, shared.routes);
+    assert.ok(outage.responses.some(({ status }) => status === 503));
+    assert.equal(outage.state, "unavailable");
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("waits for a delayed external response before classifying the dependency", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-delayed-health-"));
+  const reportPath = join(reportDirectory, "report.json");
+  try {
+    const result = await runCspQa("/external-delayed-outage.html", [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /EXTERNAL OUTAGE:/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.equal(report.summary.externalOutages, 1);
+
+    const delayed = report.dependencies.find(({ url }) => url.endsWith("/delayed-outage.png"));
+    assert.ok(delayed, JSON.stringify(report, null, 2));
+    assert.equal(delayed.state, "unavailable");
+    assert.ok(delayed.responses.some(({ status }) => status === 503));
   } finally {
     await rm(reportDirectory, { recursive: true, force: true });
   }

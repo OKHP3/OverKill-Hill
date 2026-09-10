@@ -67,6 +67,9 @@ const PUBLIC_PATHS = fixtureSummaryArg ? [] : loadPublicPaths();
 const CSP_DIAGNOSTIC = /content security policy|violates the following.*policy|refused to .* policy/i;
 const MERMAID_RENDER_ERROR = /^\[mermaid-init\] render error/i;
 const INTENTIONAL_EXTERNAL_FAILURE = "Failed to load resource: net::ERR_FAILED";
+const CSP_REQUEST_FAILURE = "csp";
+const EXTERNAL_SETTLE_TIMEOUT_MS = 5000;
+const EXTERNAL_QUIET_WINDOW_MS = 250;
 
 function isHttpUrl(value) {
   return value.protocol === "http:" || value.protocol === "https:";
@@ -350,12 +353,14 @@ function extractHttpUrls(text) {
 
 function serialiseExternalDependency(dependency, cspBlockedUrls) {
   const hasHttpError = dependency.responses.some(({ status }) => status >= 400);
-  const hasFailure = dependency.failures.length > 0;
+  const hasNonCspFailure = dependency.failures.some(
+    ({ errorText }) => errorText !== CSP_REQUEST_FAILURE,
+  );
   const hasResponse = dependency.responses.length > 0;
   const cspBlocked = cspBlockedUrls.has(dependency.url);
   let state = "available";
   if (cspBlocked) state = "blocked-by-csp";
-  else if (hasHttpError || hasFailure) state = "unavailable";
+  else if (hasHttpError || hasNonCspFailure) state = "unavailable";
   else if (!hasResponse) state = "no-response";
 
   return {
@@ -371,9 +376,41 @@ function serialiseExternalDependency(dependency, cspBlockedUrls) {
   };
 }
 
+function groupFailureRecords(failures) {
+  const grouped = new Map();
+  for (const failure of failures) {
+    const route = failure.route || "";
+    const errorText = failure.errorText || "unknown failure";
+    const key = JSON.stringify([route, errorText]);
+    const existing = grouped.get(key);
+    if (existing) {
+      existing.count += failure.count || 1;
+    } else {
+      grouped.set(key, { route, errorText, count: failure.count || 1 });
+    }
+  }
+  return [...grouped.values()];
+}
+
+async function waitForExternalRequestsToSettle(page, pendingRequests) {
+  const deadline = Date.now() + EXTERNAL_SETTLE_TIMEOUT_MS;
+  let quietSince = null;
+  while (Date.now() < deadline) {
+    if (pendingRequests.size) {
+      quietSince = null;
+    } else if (quietSince === null) {
+      quietSince = Date.now();
+    } else if (Date.now() - quietSince >= EXTERNAL_QUIET_WINDOW_MS) {
+      return;
+    }
+    await page.waitForTimeout(50);
+  }
+}
+
 async function checkExternalRoute(browser, path) {
   const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
   const dependencies = new Map();
+  const pendingExternalRequests = new Set();
   const cspDiagnostics = [];
   const localErrors = new Set();
 
@@ -389,6 +426,7 @@ async function checkExternalRoute(browser, path) {
   page.on("request", (request) => {
     const dependency = getExternalDependency(dependencies, request);
     if (dependency) {
+      pendingExternalRequests.add(request);
       dependency.requestCount += 1;
       dependency.resourceTypes.add(request.resourceType());
       dependency.routes.add(path);
@@ -397,7 +435,9 @@ async function checkExternalRoute(browser, path) {
   page.on("requestfailed", (request) => {
     const dependency = getExternalDependency(dependencies, request);
     if (dependency) {
+      pendingExternalRequests.delete(request);
       dependency.failures.push({
+        route: path,
         errorText: request.failure()?.errorText || "unknown failure",
       });
     } else if (isLocalUrl(request.url())) {
@@ -411,6 +451,7 @@ async function checkExternalRoute(browser, path) {
     const request = response.request();
     const dependency = getExternalDependency(dependencies, request);
     if (dependency) {
+      pendingExternalRequests.delete(request);
       dependency.responses.push({
         status: response.status(),
         statusText: response.statusText(),
@@ -442,6 +483,10 @@ async function checkExternalRoute(browser, path) {
     localErrors.add(`navigation failed: ${error.message.split("\n")[0]}`);
   }
 
+  // Wait for terminal response/failure events instead of closing after a fixed
+  // sleep. The quiet window catches deferred requests without allowing a
+  // hanging third-party request to hold the health check forever.
+  await waitForExternalRequestsToSettle(page, pendingExternalRequests);
   await page.close();
   const cspBlockedUrls = new Set(cspDiagnostics.flatMap(extractHttpUrls));
   return {
@@ -476,15 +521,21 @@ function mergeExternalDependencies(results) {
       existing.responses.push(...dependency.responses);
       existing.failures.push(...dependency.failures);
       existing.cspBlocked = existing.cspBlocked || dependency.cspBlocked;
-      existing.state = existing.cspBlocked
-        ? "blocked-by-csp"
-        : existing.failures.length ||
-        existing.responses.some(({ status }) => status >= 400)
+      const hasHttpError = existing.responses.some(({ status }) => status >= 400);
+      const hasNonCspFailure = existing.failures.some(
+        ({ errorText }) => errorText !== CSP_REQUEST_FAILURE,
+      );
+      existing.state = hasHttpError || hasNonCspFailure
         ? "unavailable"
-        : existing.responses.length
-          ? "available"
-          : "no-response";
+        : existing.cspBlocked
+          ? "blocked-by-csp"
+          : existing.responses.length
+            ? "available"
+            : "no-response";
     }
+  }
+  for (const dependency of merged.values()) {
+    dependency.failures = groupFailureRecords(dependency.failures);
   }
   return [...merged.values()].sort((left, right) => left.url.localeCompare(right.url));
 }
@@ -563,8 +614,12 @@ async function runExternalHealth() {
     `${report.summary.localFailures} local route failure(s).`,
   );
   externalOutages.forEach((dependency) => {
-    const failureReasons = dependency.failures
-      .map(({ errorText }) => errorText)
+    const failureCounts = new Map();
+    dependency.failures.forEach(({ errorText, count = 1 }) => {
+      failureCounts.set(errorText, (failureCounts.get(errorText) || 0) + count);
+    });
+    const failureReasons = [...failureCounts.entries()]
+      .map(([errorText, count]) => count > 1 ? `${errorText} (${count} occurrences)` : errorText)
       .filter(Boolean);
     const diagnostic = failureReasons.length ? `: ${failureReasons.join(", ")}` : "";
     console.log(`  EXTERNAL OUTAGE: ${dependency.url} (${dependency.state})${diagnostic}`);

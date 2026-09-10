@@ -96,6 +96,20 @@ def remove_jsonld_field(raw: str, field: str) -> str:
     return mutated
 
 
+def duplicate_article_jsonld(raw: str, date_published: str) -> str:
+    pattern = re.compile(
+        r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>.*?</script>',
+        re.IGNORECASE | re.DOTALL,
+    )
+    for match in pattern.finditer(raw):
+        block = match.group(0)
+        if '"@type": "Article"' not in block:
+            continue
+        duplicate = mutate_jsonld_field(block, "datePublished", date_published)
+        return raw[:match.end()] + duplicate + raw[match.end():]
+    raise AssertionError("fixture Article JSON-LD block not found")
+
+
 def mutate_navigation(raw: str, key: str, value: str) -> str:
     pattern = re.compile(
         rf'<link\b(?=[^>]*\brel=["\'][^"\']*\b{key}\b[^"\']*["\'])[^>]*>',
@@ -246,6 +260,67 @@ class SEOFixtureTests(unittest.TestCase):
                 findings,
             )
 
+    def test_mixed_locale_rejects_undeclared_search_index_routes(self) -> None:
+        source_routes = {"/", "/about/", "/projects/", "/contact/"}
+        promoted_routes = {"/fr/", "/fr/about/", "/fr/projects/"}
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            _, sitemap_path, index_path = self._write_mixed_locale_fixture(
+                root,
+                source_routes | promoted_routes,
+                promoted_routes | {"/fr/retired/"},
+            )
+            findings = locale_checker.validate(
+                manifest_path=root / "manifest.json",
+                sitemap_path=sitemap_path,
+                index_path=index_path,
+                root=root,
+            )
+
+            self.assertIn(
+                "locale search index contains undeclared routes: /fr/retired/",
+                findings,
+            )
+
+    def test_mixed_locale_rejects_undeclared_sitemap_routes_but_keeps_english_routes(self) -> None:
+        source_routes = {"/", "/about/", "/projects/", "/contact/"}
+        promoted_routes = {"/fr/", "/fr/about/", "/fr/projects/"}
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            _, valid_sitemap, valid_index = self._write_mixed_locale_fixture(
+                root,
+                source_routes | promoted_routes,
+                promoted_routes,
+            )
+            self.assertFalse(
+                locale_checker.validate(
+                    manifest_path=root / "manifest.json",
+                    sitemap_path=valid_sitemap,
+                    index_path=valid_index,
+                    root=root,
+                ),
+                "valid English source routes must not be treated as undeclared locale routes",
+            )
+
+            _, invalid_sitemap, invalid_index = self._write_mixed_locale_fixture(
+                root,
+                source_routes | promoted_routes | {"/fr/retired/"},
+                promoted_routes,
+            )
+            findings = locale_checker.validate(
+                manifest_path=root / "manifest.json",
+                sitemap_path=invalid_sitemap,
+                index_path=invalid_index,
+                root=root,
+            )
+
+            self.assertIn(
+                "locale sitemap contains undeclared routes: /fr/retired/",
+                findings,
+            )
+
     def test_public_inventory_excludes_test_fixtures(self) -> None:
         pages = validator.find_html_files()
         self.assertIn(ROOT / "index.html", pages)
@@ -336,6 +411,56 @@ class SEOFixtureTests(unittest.TestCase):
             "noindex generated drafts should remain outside the published date contract",
         )
         self.assertIn('"@type": "Article"', source_path.read_text(encoding="utf-8"))
+
+    def test_draft_article_promotion_requires_complete_dates(self) -> None:
+        mutation = self.fixture_data["draft_article_promotion"]
+        draft_page = page_for_route(self.source_pages, mutation["route"])
+        source_path = (ROOT / "site-src" / "pages" / draft_page["path"]).with_suffix(
+            ".extras.html"
+        )
+        generated_path = ROOT / draft_page["path"]
+        generated_raw = generated_path.read_text(encoding="utf-8")
+
+        self.assertFalse(
+            validator.validate_article_jsonld_source([draft_page]),
+            "noindex source drafts should remain exempt before promotion",
+        )
+        draft_parser = parse_html(generated_raw)
+        self.assertTrue(
+            draft_parser.is_noindex,
+            "generated Article fixture should remain noindex while it is a draft",
+        )
+        self.assertFalse(
+            validator.validate_generated_seo(
+                generated_path,
+                draft_parser,
+                draft_page,
+            ),
+            "noindex generated drafts should remain exempt before promotion",
+        )
+        self.assertIn('"@type": "Article"', source_path.read_text(encoding="utf-8"))
+
+        promoted_page = copy.deepcopy(draft_page)
+        promoted_page[mutation["field"]] = mutation["value"]
+        self.assertTrue(
+            validator.is_indexable_page(promoted_page),
+            "promotion fixture must change the manifest indexing boundary",
+        )
+        self.assertEqual(
+            draft_page.get("meta:robots"),
+            "noindex, nofollow",
+            "draft fixture baseline must remain noindex",
+        )
+
+        source_findings = validator.validate_article_jsonld_source([promoted_page])
+        self.assert_rejected(source_findings, mutation["expected"])
+
+        generated_findings = validator.validate_generated_seo(
+            generated_path,
+            draft_parser,
+            promoted_page,
+        )
+        self.assert_rejected(generated_findings, mutation["expected"])
 
     def assert_rejected(self, findings: list, expected: str) -> None:
         self.assertTrue(findings, "mutation unexpectedly passed")
@@ -481,6 +606,86 @@ class SEOFixtureTests(unittest.TestCase):
         )
         self.assertIn(
             '"description": "From AutoCAD 10 and Visio trauma',
+            mutated_raw,
+        )
+        self.assertEqual(
+            page.get("meta:robots"),
+            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+            "source fixture mutation changed the indexing boundary",
+        )
+        findings = validator.validate_article_jsonld_dates(
+            path.relative_to(ROOT).as_posix(),
+            parse_html(mutated_raw),
+            page["meta:article:published_time"],
+        )
+        self.assert_rejected(findings, mutation["expected"])
+
+    def test_article_og_date_mismatch_rejected_in_source_manifest(self) -> None:
+        mutation = self.fixture_data["article_og_date_mismatch"]
+        original = page_for_route(self.source_pages, mutation["route"])
+        mutated = copy.deepcopy(original)
+        mutated[mutation["field"]] = mutation["value"]
+        mutated_pages = [
+            mutated if page is original else page
+            for page in self.source_pages
+        ]
+        self.assertEqual(
+            original.get("meta:robots"),
+            mutated.get("meta:robots"),
+            "source fixture mutation changed the indexing boundary",
+        )
+        self.assertEqual(
+            {
+                key: value
+                for key, value in original.items()
+                if not key.startswith("meta:")
+            },
+            {
+                key: value
+                for key, value in mutated.items()
+                if not key.startswith("meta:")
+            },
+            "source fixture mutation changed editorial or routing fields",
+        )
+        source_path = (ROOT / "site-src" / "pages" / original["path"]).with_suffix(
+            ".extras.html"
+        )
+        source_raw = source_path.read_text(encoding="utf-8")
+        self.assertIn('"datePublished": "2026-04-07"', source_raw)
+        self.assertFalse(
+            validator.validate_source_seo_contract(mutated_pages),
+            "valid ISO 8601 Open Graph mutation should reach date-parity validation",
+        )
+        findings = validator.validate_article_jsonld_source(mutated_pages)
+        self.assert_rejected(findings, mutation["expected"])
+
+    def test_article_sitemap_lastmod_contract_rejected_in_source(self) -> None:
+        route = "/writings/first-diagram-is-a-liar/"
+        page = self.pages_by_route[route]
+        sitemap_url = page["canonical"]
+        baseline = validator.load_sitemap_entries()
+        self.assertEqual(baseline[sitemap_url], "2026-05-24")
+        for lastmod, expected in (
+            (None, "article sitemap lastmod is missing"),
+            ("2026-05-23", "article JSON-LD dateModified does not match sitemap lastmod"),
+        ):
+            with self.subTest(lastmod=lastmod):
+                entries = dict(baseline)
+                entries[sitemap_url] = lastmod
+                findings = validator.validate_article_jsonld_source(
+                    self.source_pages,
+                    entries,
+                )
+                self.assert_rejected(findings, expected)
+
+    def test_duplicate_article_jsonld_dates_rejected_in_source_extras(self) -> None:
+        mutation = self.fixture_data["duplicate_article_date_mismatch"]
+        page = self.pages_by_route[mutation["route"]]
+        path = (ROOT / "site-src" / "pages" / page["path"]).with_suffix(".extras.html")
+        original_raw = path.read_text(encoding="utf-8")
+        mutated_raw = duplicate_article_jsonld(original_raw, mutation["value"])
+        self.assertIn(
+            '"headline": "The First Diagram Is Usually a Liar"',
             mutated_raw,
         )
         self.assertEqual(
@@ -707,6 +912,83 @@ class SEOFixtureTests(unittest.TestCase):
             mutation["field"],
             mutation["value"],
         )
+        mutated_parser = parse_html(mutated_raw)
+        self.assertIn(
+            "<article>Fixture article copy remains unchanged.</article>",
+            mutated_raw,
+        )
+        self.assertEqual(
+            original_parser.is_noindex,
+            mutated_parser.is_noindex,
+            "generated fixture mutation changed the indexing boundary",
+        )
+        findings = validator.validate_generated_seo(
+            path,
+            mutated_parser,
+            self.pages_by_route[mutation["route"]],
+        )
+        self.assert_rejected(findings, mutation["expected"])
+
+    def test_article_og_date_mismatch_rejected_in_generated_metadata(self) -> None:
+        mutation = self.fixture_data["article_og_date_mismatch"]
+        path = GENERATED_FIXTURE / "article.html.fixture"
+        original_raw = path.read_text(encoding="utf-8")
+        original_parser = parse_html(original_raw)
+        mutated_raw = mutate_meta(
+            original_raw,
+            mutation["field"],
+            mutation["value"],
+        )
+        mutated_parser = parse_html(mutated_raw)
+        self.assertIn('"datePublished": "2026-04-07"', mutated_raw)
+        self.assertIn(
+            "<article>Fixture article copy remains unchanged.</article>",
+            mutated_raw,
+        )
+        self.assertEqual(
+            original_raw.split("<body>", 1)[1],
+            mutated_raw.split("<body>", 1)[1],
+            "generated fixture mutation changed editorial content",
+        )
+        self.assertEqual(
+            original_parser.is_noindex,
+            mutated_parser.is_noindex,
+            "generated fixture mutation changed the indexing boundary",
+        )
+        findings = validator.validate_generated_seo(
+            path,
+            mutated_parser,
+            self.pages_by_route[mutation["route"]],
+        )
+        self.assert_rejected(findings, mutation["expected"])
+
+    def test_article_sitemap_lastmod_contract_rejected_in_generated_metadata(self) -> None:
+        route = "/writings/first-diagram-is-a-liar/"
+        page = self.pages_by_route[route]
+        path = GENERATED_FIXTURE / "article.html.fixture"
+        baseline = validator.load_sitemap_entries()
+        self.assertEqual(baseline[page["canonical"]], "2026-05-24")
+        for lastmod, expected in (
+            (None, "article sitemap lastmod is missing"),
+            ("2026-05-23", "article JSON-LD dateModified does not match sitemap lastmod"),
+        ):
+            with self.subTest(lastmod=lastmod):
+                entries = dict(baseline)
+                entries[page["canonical"]] = lastmod
+                findings = validator.validate_generated_seo(
+                    path,
+                    parse_html(path.read_text(encoding="utf-8")),
+                    page,
+                    sitemap_entries=entries,
+                )
+                self.assert_rejected(findings, expected)
+
+    def test_duplicate_article_jsonld_dates_rejected_in_generated_metadata(self) -> None:
+        mutation = self.fixture_data["duplicate_article_date_mismatch"]
+        path = GENERATED_FIXTURE / "article.html.fixture"
+        original_raw = path.read_text(encoding="utf-8")
+        original_parser = parse_html(original_raw)
+        mutated_raw = duplicate_article_jsonld(original_raw, mutation["value"])
         mutated_parser = parse_html(mutated_raw)
         self.assertIn(
             "<article>Fixture article copy remains unchanged.</article>",

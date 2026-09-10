@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import importlib.util
+import sys
 import tempfile
 import unittest
 from contextlib import redirect_stdout
@@ -13,6 +14,7 @@ from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "cache-bust.py"
+sys.path.insert(0, str(SCRIPT.parent))
 SPEC = importlib.util.spec_from_file_location("cache_bust", SCRIPT)
 assert SPEC is not None and SPEC.loader is not None
 cache_bust = importlib.util.module_from_spec(SPEC)
@@ -27,10 +29,22 @@ class CacheBustBoundaryTests(unittest.TestCase):
             asset = self.root / relative.lstrip("/")
             asset.parent.mkdir(parents=True, exist_ok=True)
             asset.write_text(f"/* {relative} */\n", encoding="utf-8")
+        stale = '<script src="/assets/js/app.js"></script>\n'
         self.production = self.root / "index.html"
         self.nested = self.root / ".pr-head" / "stale.html"
         self.nested.parent.mkdir()
-        stale = '<script src="/assets/js/app.js"></script>\n'
+        self.tests_fixture = self.root / "tests" / "fixtures.html"
+        self.tests_fixture.parent.mkdir()
+        self.tests_fixture.write_text(stale, encoding="utf-8")
+        self.i18n_fixture = self.root / "i18n" / "pilot" / "reviewed.html"
+        self.i18n_fixture.parent.mkdir(parents=True)
+        self.i18n_fixture.write_text(stale, encoding="utf-8")
+        self.generic_template = self.root / "templates" / "source.html"
+        self.generic_template.parent.mkdir()
+        self.generic_template.write_text(stale, encoding="utf-8")
+        self.asset_template = self.root / "assets" / "templates" / "source.html"
+        self.asset_template.parent.mkdir(parents=True)
+        self.asset_template.write_text(stale, encoding="utf-8")
         self.production.write_text(stale, encoding="utf-8")
         self.nested.write_text(stale, encoding="utf-8")
         self.patch = patch.object(cache_bust, "ROOT", self.root)
@@ -47,8 +61,24 @@ class CacheBustBoundaryTests(unittest.TestCase):
         result, output = self.run_main("--check")
         self.assertEqual(result, 1)
         self.assertIn("index.html", output)
-        self.assertNotIn(".pr-head/stale.html", output)
+        self.assertNotIn(str(Path(".pr-head/stale.html")), output)
         self.assertEqual(self.nested.read_text(encoding="utf-8"), '<script src="/assets/js/app.js"></script>\n')
+
+    def test_shared_boundary_excludes_fixtures_and_generic_templates(self) -> None:
+        self.run_main()
+
+        stale = '<script src="/assets/js/app.js"></script>\n'
+        for path in (self.nested, self.tests_fixture, self.i18n_fixture, self.generic_template):
+            self.assertEqual(path.read_text(encoding="utf-8"), stale)
+
+    def test_asset_templates_remain_cache_bust_inputs(self) -> None:
+        result, output = self.run_main("--check")
+        self.assertEqual(result, 1)
+        self.assertIn(str(Path("assets/templates/source.html")), output)
+
+        self.run_main()
+        expected = cache_bust.file_hash(self.root / "assets/js/app.js")
+        self.assertIn(f"/assets/js/app.js?v={expected}", self.asset_template.read_text(encoding="utf-8"))
 
     def test_stale_production_page_is_updated_and_fresh_check_passes(self) -> None:
         result, _ = self.run_main()
@@ -56,6 +86,28 @@ class CacheBustBoundaryTests(unittest.TestCase):
         expected = cache_bust.file_hash(self.root / "assets/js/app.js")
         self.assertIn(f"/assets/js/app.js?v={expected}", self.production.read_text(encoding="utf-8"))
         self.assertEqual(self.nested.read_text(encoding="utf-8"), '<script src="/assets/js/app.js"></script>\n')
+        result, output = self.run_main("--check")
+        self.assertEqual(result, 0, output)
+
+    def test_changed_assets_update_authoring_inputs_before_rebuild(self) -> None:
+        sources = {
+            "assets/partials/head.html": "/assets/css/theme.css",
+            "site-src/pages/universe/index.extras.html": "/assets/js/universe-map.js",
+            "site-src/pages/writings/example/index.extras.html": "/assets/js/mermaid-init.js",
+        }
+        for relative, asset in sources.items():
+            source = self.root / relative
+            source.parent.mkdir(parents=True, exist_ok=True)
+            old_hash = cache_bust.file_hash(self.root / asset.lstrip("/"))
+            source.write_text(f'<script src="{asset}?v={old_hash}"></script>\n', encoding="utf-8")
+            with (self.root / asset.lstrip("/")).open("a", encoding="utf-8") as changed:
+                changed.write("/* changed */\n")
+
+        self.run_main()
+
+        for relative, asset in sources.items():
+            current_hash = cache_bust.file_hash(self.root / asset.lstrip("/"))
+            self.assertIn(f"{asset}?v={current_hash}", (self.root / relative).read_text(encoding="utf-8"))
         result, output = self.run_main("--check")
         self.assertEqual(result, 0, output)
 
