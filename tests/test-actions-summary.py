@@ -13,6 +13,9 @@ ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / 'scripts/write-actions-summary.py'
 FIXTURE_GENERATOR = ROOT / 'scripts/generate-actions-summary-fixtures.py'
 FIXTURE_DIRECTORY = ROOT / 'tests/fixtures/actions-summary'
+ARCHIVED_LIVE_EDGE_REPORTS = {
+    ROOT / 'assets/audit/assessment-2026-09-07/delivery/live-edge.json': 'current',
+}
 VERIFY_SPEC = importlib.util.spec_from_file_location(
     'verify_live_edge', ROOT / 'scripts/verify-live-edge.py'
 )
@@ -71,8 +74,45 @@ class SummaryTests(unittest.TestCase):
                                     capture_output=True, text=True)
             return result.returncode, output.read_text(encoding='utf-8') if output.exists() else ''
 
+    def assert_archived_report_contract(self, path, report):
+        contract = ARCHIVED_LIVE_EDGE_REPORTS.get(path)
+        self.assertIn(
+            contract,
+            {'current', 'legacy'},
+            f'{path} must be explicitly classified as current or legacy',
+        )
+        if contract == 'current':
+            try:
+                VERIFY.validate_report_shape(report)
+            except ValueError as exc:
+                self.fail(
+                    f'{path} is classified as current but no longer matches the '
+                    f'verifier contract: {exc}. Migrate the archived report or '
+                    'declare and test legacy compatibility.'
+                )
+
+    def test_archived_live_edge_reports_have_an_explicit_contract(self):
+        for path, contract in ARCHIVED_LIVE_EDGE_REPORTS.items():
+            with self.subTest(report=path):
+                report = json.loads(path.read_text(encoding='utf-8'))
+                self.assert_archived_report_contract(path, report)
+                self.assertIn(contract, {'current', 'legacy'})
+
+    def test_archived_contract_drift_has_an_actionable_failure(self):
+        path = next(iter(ARCHIVED_LIVE_EDGE_REPORTS))
+        report = json.loads(path.read_text(encoding='utf-8'))
+        del report['summary']['warnings']
+
+        with self.assertRaisesRegex(
+            AssertionError,
+            r'Migrate the archived report or declare and test legacy compatibility',
+        ):
+            self.assert_archived_report_contract(path, report)
+
     def test_historical_partial_is_not_an_outage_or_full_policy_pass(self):
-        report = json.loads((ROOT / 'assets/audit/assessment-2026-09-07/delivery/live-edge.json').read_text())
+        path = ROOT / 'assets/audit/assessment-2026-09-07/delivery/live-edge.json'
+        report = json.loads(path.read_text())
+        self.assert_archived_report_contract(path, report)
         code, summary = self.run_summary(report)
         self.assertEqual(code, 0)
         self.assertIn('| Content delivery | PASS |', summary)
