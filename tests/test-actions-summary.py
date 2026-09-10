@@ -11,6 +11,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / 'scripts/write-actions-summary.py'
+FIXTURE_GENERATOR = ROOT / 'scripts/generate-actions-summary-fixtures.py'
 FIXTURE_DIRECTORY = ROOT / 'tests/fixtures/actions-summary'
 VERIFY_SPEC = importlib.util.spec_from_file_location(
     'verify_live_edge', ROOT / 'scripts/verify-live-edge.py'
@@ -24,6 +25,18 @@ VERIFY_SPEC.loader.exec_module(VERIFY)
 class SummaryTests(unittest.TestCase):
     def load_fixture(self, name):
         return json.loads((FIXTURE_DIRECTORY / name).read_text(encoding='utf-8'))
+
+    def test_committed_live_edge_fixtures_are_current(self):
+        result = subprocess.run(
+            [sys.executable, str(FIXTURE_GENERATOR), '--check'],
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(
+            result.returncode,
+            0,
+            result.stdout + result.stderr,
+        )
 
     def test_committed_live_edge_fixtures_match_verifier_report_shape(self):
         fixtures = sorted(FIXTURE_DIRECTORY.glob('live-edge-*.json'))
@@ -67,6 +80,12 @@ class SummaryTests(unittest.TestCase):
         self.assertIn('| External availability | NOT RUN |', summary)
         self.assertIn('ca38d5b9fc46746ea8b41e2ba32e39685c53f511', summary)
         self.assertLess(len(summary.splitlines()), 45)
+
+    def test_generated_pass_fixture_renders_as_a_full_pass(self):
+        code, summary = self.run_summary(self.load_fixture('live-edge-pass.json'))
+        self.assertEqual(code, 0)
+        self.assertIn('| Content delivery | PASS |', summary)
+        self.assertIn('| Edge policy | PASS |', summary)
 
     def test_first_party_failure_remains_distinct(self):
         code, summary = self.run_summary({'checks': [
