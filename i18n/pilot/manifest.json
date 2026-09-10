@@ -5,7 +5,7 @@
     "de",
     "es"
   ],
-  "translation_policy": "human-reviewed-required",
+  "translation_policy": "ai-reviewed-accepted; native-certification-optional",
   "source_of_truth": "site-src/pages.json",
   "routes": [
     "/",

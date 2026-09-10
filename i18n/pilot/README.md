@@ -163,7 +163,10 @@ pair, locale, target path, accepted review status and route disposition, plus
 matching current source and target SHA-256 values. Accepted review statuses
 are `ai-reviewed` and `approved`; accepted route dispositions are
 `retained-ai-reviewed`, `approved`, and `no-semantic-delta-ai-reviewed`. An
-`ai-reviewed` record cannot claim `native_or_human_approval: true`.
+`ai-reviewed` records are accepted for this project without native or human
+certification. They must continue to state `native_or_human_approval: false`;
+native certification remains optional supplemental evidence, not a release
+blocker.
 
 Adoption writes `i18n/sync-state.json`; it does not edit translated HTML or
 change indexability. Target-only edits require the reviewed-target integrity

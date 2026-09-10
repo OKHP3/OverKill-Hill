@@ -75,7 +75,7 @@ class I18nReleaseTests(unittest.TestCase):
                 REGIONAL_BUILDER_MODULE.canonical_text_hash(changed_visible_version),
             )
 
-    def test_full_report_preserves_all_pairs_and_blocks_only_french(self):
+    def test_full_report_preserves_all_pairs_without_blocking_locale(self):
         report = {
             "missing": [{"route": f"/missing-{index}/", "locale": "fr"} for index in range(4)]
             + [{"route": f"/missing-{index}/", "locale": "de"} for index in range(4)],
@@ -88,10 +88,10 @@ class I18nReleaseTests(unittest.TestCase):
         with patch.object(MODULE, "run_detector", return_value=report), patch.object(MODULE, "page_hash", return_value=None):
             result = MODULE.load_results(config)
         self.assertEqual(12, sum(len(result[key]) for key in ("missing", "stale", "needs_baseline")))
-        self.assertEqual({"fr"}, {item["locale"] for item in result["policy"]["blocking_items"]})
-        self.assertEqual({"de", "es"}, {item["locale"] for item in result["policy"]["advisory_items"]})
-        self.assertEqual(4, len(result["policy"]["blocking_items"]))
-        self.assertEqual(8, len(result["policy"]["advisory_items"]))
+        self.assertEqual(set(), {item["locale"] for item in result["policy"]["blocking_items"]})
+        self.assertEqual({"de", "es", "fr"}, {item["locale"] for item in result["policy"]["advisory_items"]})
+        self.assertEqual(0, len(result["policy"]["blocking_items"]))
+        self.assertEqual(12, len(result["policy"]["advisory_items"]))
 
     def test_all_current_blocking_locale_is_not_blocked(self):
         report = {
