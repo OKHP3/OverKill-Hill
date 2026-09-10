@@ -210,6 +210,25 @@ def main() -> int:
                 expect_files_unchanged=True,
                 **malformed_fixture,
             )
+    disagreement_parts = (
+        "featured article release disagreement",
+        check_banner.FEATURED_ARTICLE_ROUTE,
+        check_banner.FEATURED_ARTICLE_SOURCE,
+        check_banner.FEATURED_ARTICLE_GENERATED,
+        "v0.6",
+        "v0.7",
+    )
+    for mode in (None, "--update", "--dry-run"):
+        check_main_case(
+            f"{mode or 'check'} rejects source/generated release disagreement",
+            check_banner.SOURCE_BANNER,
+            f'<a class="site-specials-link" href="{featured}">{check_banner.OLD_BANNERS[0]}</a>',
+            disagreement_parts,
+            source_article="<span>Article v0.6: Council-Assisted Scoring</span>",
+            generated_article="<span>Article v0.7: Council-Assisted Scoring</span>",
+            mode=mode,
+            expect_files_unchanged=True,
+        )
     check_case(
         "other article banner retains the allow-list behavior",
         '<a class="site-specials-link" href="/writings/another-article/">'

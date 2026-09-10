@@ -251,6 +251,14 @@ def main():
         if generated_error:
             print(f"  MISMATCH: {generated_error}")
         sys.exit(1)
+    if source_release != generated_release:
+        print(
+            f"  MISMATCH: featured article release disagreement for "
+            f"{FEATURED_ARTICLE_ROUTE}: {FEATURED_ARTICLE_SOURCE} has "
+            f"{source_release}, but {FEATURED_ARTICLE_GENERATED} has "
+            f"{generated_release}"
+        )
+        sys.exit(1)
 
     for path in find_html_files(root):
         rel = os.path.relpath(path, root)
