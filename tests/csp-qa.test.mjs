@@ -193,6 +193,107 @@ function runCspQa(path, flags = []) {
   });
 }
 
+function runFixtureSummary(reportPath, summaryPath) {
+  return new Promise((resolve, reject) => {
+    const child = spawn(
+      process.execPath,
+      [
+        cspQaScript,
+        `--fixture-summary=${reportPath}`,
+        `--summary=${summaryPath}`,
+      ],
+      { cwd: repositoryRoot },
+    );
+    let stdout = "";
+    let stderr = "";
+    const timeout = setTimeout(() => {
+      child.kill("SIGKILL");
+      reject(new Error("CSP fixture summary timed out"));
+    }, 10000);
+
+    child.stdout.on("data", (chunk) => { stdout += chunk; });
+    child.stderr.on("data", (chunk) => { stderr += chunk; });
+    child.on("error", (error) => {
+      clearTimeout(timeout);
+      reject(error);
+    });
+    child.on("close", (status, signal) => {
+      clearTimeout(timeout);
+      resolve({
+        output: `${stdout}\n${stderr}`,
+        status,
+        signal,
+      });
+    });
+  });
+}
+
+test("keeps every browser diagnostic category visible in the focused summary", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-summary-"));
+  const reportPath = join(reportDirectory, "fixture-report.json");
+  const summaryPath = join(reportDirectory, "summary.md");
+  const diagnostics = [
+    ["csp", "CSP", "CSP: blocked | policy\nwith a second line"],
+    ["page-error", "PAGEERROR", "PAGEERROR: Error: page exploded"],
+    ["console", "CONSOLE", "CONSOLE: ERROR: console exploded"],
+    [
+      "local-request",
+      "LOCAL REQUEST FAILED",
+      "LOCAL REQUEST FAILED: /app.js (net::ERR_FAILED)",
+    ],
+    [
+      "local-http",
+      "LOCAL HTTP ERROR",
+      "LOCAL HTTP ERROR: 404 /missing.png",
+    ],
+    ["mermaid", "MERMAID", "MERMAID: ERROR: render failed"],
+  ];
+  const fixtures = diagnostics.map(([name, category, message]) => ({
+    path: `/${name}.html`,
+    errors: [message],
+    category,
+  }));
+  fixtures.push({
+    path: "/unknown.html",
+    errors: ["NETWORK: new browser diagnostic | preserve this"],
+  });
+
+  try {
+    await writeFile(reportPath, `${JSON.stringify({
+      version: 1,
+      mode: "csp-fixtures",
+      fixtures,
+    })}\n`);
+
+    const result = await runFixtureSummary(reportPath, summaryPath);
+    assert.equal(result.status, 0, result.output);
+    const summary = await readFile(summaryPath, "utf8");
+
+    for (const [name, category] of diagnostics) {
+      assert.match(
+        summary,
+        new RegExp(`\\| /${name}\\.html \\| ${category} \\|`),
+        `missing focused summary category ${category}`,
+      );
+      assert.doesNotMatch(
+        summary,
+        new RegExp(`\\| /${name}\\.html \\| none observed \\|`),
+        `recognized category ${category} was rendered as none observed`,
+      );
+    }
+    assert.match(
+      summary,
+      /\| \/csp\.html \| CSP \| CSP: blocked \\| policy with a second line \|/,
+    );
+    assert.match(
+      summary,
+      /\| \/unknown\.html \| none observed \| NETWORK: new browser diagnostic \\| preserve this \|/,
+    );
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
 test("fails on a browser CSP console violation", async () => {
   const result = await runCspQa("/console-violation.html");
   assert.notEqual(result.status, 0, result.output);
