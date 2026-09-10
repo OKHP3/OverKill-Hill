@@ -430,6 +430,7 @@ jobs:
 
       - name: Upload third-party runtime inventory
         if: always()
+        id: upload-third-party-runtime-report
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: third-party-runtime-${{ github.run_id }}
@@ -439,7 +440,7 @@ jobs:
 
       - name: Summarize external availability and first-party failures
         if: always()
-        run: python3 scripts/write-actions-summary.py --kind external --report third-party-runtime-report.json
+        run: python3 scripts/write-actions-summary.py --kind external --report third-party-runtime-report.json --artifact-url "${{ steps.upload-third-party-runtime-report.outputs.artifact-url }}"
 
   monitor-live-edge:
     name: Monitor production security and cache policies

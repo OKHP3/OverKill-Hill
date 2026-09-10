@@ -167,6 +167,14 @@ class SummaryTests(unittest.TestCase):
                     source,
                 )
 
+    def test_external_workflow_passes_uploaded_artifact_url_to_summary(self):
+        source = (ROOT / '.github/workflows/validate.yml').read_text(encoding='utf-8')
+        self.assertIn('id: upload-third-party-runtime-report', source)
+        self.assertIn(
+            'steps.upload-third-party-runtime-report.outputs.artifact-url',
+            source,
+        )
+
     def test_failed_csp_fixtures_upload_only_the_short_lived_focused_report(self):
         workflow = (ROOT / '.github/workflows/validate.yml').read_text(encoding='utf-8')
         match = re.search(
@@ -235,6 +243,36 @@ class SummaryTests(unittest.TestCase):
             'externalOutages': 2, 'localFailures': 0, 'cspDiagnostics': 0}}, 'external')
         self.assertEqual(code, 0)
         self.assertIn('DEGRADED', summary)
+
+    def test_external_degraded_summary_links_to_uploaded_report(self):
+        artifact_url = 'https://github.com/example/site/actions/runs/123/artifacts/987'
+        code, summary = self.run_summary(
+            {'summary': {'routes': 3, 'dependencies': 4, 'available': 2,
+                         'externalOutages': 2, 'localFailures': 0, 'cspDiagnostics': 0}},
+            'external',
+            artifact_url=artifact_url,
+        )
+        self.assertEqual(code, 0)
+        self.assertIn('| External availability | DEGRADED |', summary)
+        self.assertIn(
+            f'Full route evidence artifact: [report.json]({artifact_url})',
+            summary,
+        )
+
+    def test_external_local_failure_summary_links_to_uploaded_report(self):
+        artifact_url = 'https://github.com/example/site/actions/runs/123/artifacts/988'
+        code, summary = self.run_summary(
+            {'summary': {'routes': 3, 'dependencies': 4, 'available': 4,
+                         'externalOutages': 0, 'localFailures': 1, 'cspDiagnostics': 0}},
+            'external',
+            artifact_url=artifact_url,
+        )
+        self.assertEqual(code, 1)
+        self.assertIn('| Content delivery | FAILED |', summary)
+        self.assertIn(
+            f'Full route evidence artifact: [report.json]({artifact_url})',
+            summary,
+        )
 
     def test_invalid_reports_fail_closed(self):
         for report in ({}, {'checks': []}, {'checks': [{'status': 'MAYBE'}]}, []):
