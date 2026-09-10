@@ -37,6 +37,8 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         asset_fingerprint: str | None = None,
         include_asset_fingerprint: bool = True,
         asset_kind: str = "css",
+        asset_kinds: tuple[str, ...] | None = None,
+        stale_asset_kind: str | None = None,
         asset_content_type: str | None = None,
         asset_body: bytes | None = None,
     ) -> tuple[int, dict[str, object]]:
@@ -63,7 +65,7 @@ class VerifyLiveEdgeTests(unittest.TestCase):
             "x-fastly-request-id": "fixture-fastly",
         }
         html_headers.update(hosting_headers or {})
-        asset_details = {
+        asset_catalog = {
             "css": {
                 "path": "/assets/css/theme.css",
                 "reference": '<link href="{url}" rel="stylesheet">',
@@ -79,19 +81,31 @@ class VerifyLiveEdgeTests(unittest.TestCase):
                 "reference": '<script src="{url}" type="module"></script>',
                 "content_type": "text/javascript",
             },
-        }.get(asset_kind)
-        if asset_details is None:
-            raise ValueError(f"unsupported fixture asset kind: {asset_kind}")
-        if asset_content_type is not None:
-            asset_details["content_type"] = asset_content_type
-        asset_path = asset_details["path"]
-        asset_bytes = verify_live_edge.canonical_text_bytes(ROOT / asset_path.lstrip("/"))
-        asset_hash = asset_fingerprint or hashlib.sha256(asset_bytes).hexdigest()[:8]
-        asset_query = f"?v={asset_hash}" if include_asset_fingerprint else ""
-        asset_url = f"{asset_path}{asset_query}"
-        html = (
-            '<!doctype html><meta name="robots" content="{robots}">'
-            f'{asset_details["reference"].format(url=asset_url)}'
+        }
+        selected_kinds = asset_kinds or (asset_kind,)
+        if not selected_kinds or any(kind not in asset_catalog for kind in selected_kinds):
+            raise ValueError(f"unsupported fixture asset kinds: {selected_kinds}")
+        if stale_asset_kind is not None and stale_asset_kind not in selected_kinds:
+            raise ValueError(f"stale asset kind is not selected: {stale_asset_kind}")
+
+        assets = []
+        for kind in selected_kinds:
+            asset_details = dict(asset_catalog[kind])
+            if asset_content_type is not None and len(selected_kinds) == 1:
+                asset_details["content_type"] = asset_content_type
+            asset_path = asset_details["path"]
+            asset_bytes = verify_live_edge.canonical_text_bytes(ROOT / asset_path.lstrip("/"))
+            asset_hash = asset_fingerprint or hashlib.sha256(asset_bytes).hexdigest()[:8]
+            asset_query = f"?v={asset_hash}" if include_asset_fingerprint else ""
+            assets.append({
+                "kind": kind,
+                "details": asset_details,
+                "bytes": asset_bytes,
+                "url": f"{asset_path}{asset_query}",
+            })
+
+        html = '<!doctype html><meta name="robots" content="{robots}">' + "".join(
+            asset["details"]["reference"].format(url=asset["url"]) for asset in assets
         )
         responses = {
             verify_live_edge.RELEASE_MANIFEST: {
@@ -133,16 +147,22 @@ class VerifyLiveEdgeTests(unittest.TestCase):
                 "headers": html_headers,
                 "body": html.format(robots="noindex").encode("utf-8"),
             },
-            asset_url: {
+        }
+        for asset in assets:
+            responses[asset["url"]] = {
                 "ok": True,
                 "status": 200,
                 "headers": {
-                    "content-type": asset_details["content_type"],
+                    "content-type": asset["details"]["content_type"],
                     "cache-control": "max-age=31536000, immutable",
                 },
-                "body": asset_body if asset_body is not None else asset_bytes,
-            },
-        }
+                "body": (
+                    asset_body
+                    if asset_body is not None
+                    and (stale_asset_kind is None or stale_asset_kind == asset["kind"])
+                    else asset["bytes"]
+                ),
+            }
 
         def fixture_fetch(_base: str, path: str, _timeout: float) -> dict[str, object]:
             try:
@@ -262,6 +282,38 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         asset_check = checks["asset /assets/js/mermaid-init.js"]
         self.assertEqual(asset_check["status"], "FAIL")
         self.assertIn("!= live", asset_check["evidence"])
+        self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
+
+    def test_mixed_assets_report_stale_css_as_named_failure(self) -> None:
+        css_bytes = verify_live_edge.canonical_text_bytes(ROOT / "assets/css/theme.css")
+        return_code, report = self.run_live_edge_fixture(
+            asset_kinds=("css", "js"),
+            stale_asset_kind="css",
+            asset_body=css_bytes + b"\n/* stale mixed-page stylesheet */\n",
+        )
+
+        self.assertEqual(return_code, 1)
+        self.assertEqual(report["status"], "FAILED")
+        checks = {item["check"]: item for item in report["checks"]}
+        self.assertEqual(checks["asset /assets/css/theme.css"]["status"], "FAIL")
+        self.assertIn("!= live", checks["asset /assets/css/theme.css"]["evidence"])
+        self.assertEqual(checks["asset /assets/js/app.js"]["status"], "BLOCKED")
+        self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
+
+    def test_mixed_assets_report_stale_javascript_as_named_failure(self) -> None:
+        js_bytes = verify_live_edge.canonical_text_bytes(ROOT / "assets/js/app.js")
+        return_code, report = self.run_live_edge_fixture(
+            asset_kinds=("css", "js"),
+            stale_asset_kind="js",
+            asset_body=js_bytes + b"\n// stale mixed-page script\n",
+        )
+
+        self.assertEqual(return_code, 1)
+        self.assertEqual(report["status"], "FAILED")
+        checks = {item["check"]: item for item in report["checks"]}
+        self.assertEqual(checks["asset /assets/css/theme.css"]["status"], "BLOCKED")
+        self.assertEqual(checks["asset /assets/js/app.js"]["status"], "FAIL")
+        self.assertIn("!= live", checks["asset /assets/js/app.js"]["evidence"])
         self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
 
     def test_wrong_css_content_type_fails_with_explicit_mime_evidence(self) -> None:
