@@ -392,12 +392,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       revealEls.forEach((el) => revealObserver.observe(el));
     } else {
-      document.querySelectorAll(".reveal-on-scroll").forEach((el) => el.classList.add("is-visible"));
+      document.querySelectorAll(".reveal-on-scroll").forEach((el) => el.classList.remove("is-visible"));
     }
   } catch (error) {
     // An unavailable enhancement must not interrupt anchors or other controls.
     revealObserver?.disconnect();
-    document.querySelectorAll(".reveal-on-scroll").forEach((el) => el.classList.add("is-visible"));
+    document.querySelectorAll(".reveal-on-scroll").forEach((el) => el.classList.remove("is-visible"));
   }
 
   // Smooth scroll for internal anchors
