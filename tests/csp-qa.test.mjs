@@ -17,6 +17,7 @@ const fixtureFiles = new Map([
   ["/missing-resource.html", "missing-resource.html"],
   ["/unrendered-mermaid.html", "unrendered-mermaid.html"],
   ["/external-network-failure.html", "external-network-failure.html"],
+  ["/external-network-failure-shared.html", "external-network-failure-shared.html"],
   ["/external-csp-blocked.html", "external-csp-blocked.html"],
   ["/external-csp-and-outage.html", "external-csp-and-outage.html"],
   ["/external-csp-shared.html", "external-csp-shared.html"],
@@ -392,7 +393,44 @@ test("preserves the browser failure reason for an aborted external request", asy
     assert.equal(aborted.state, "unavailable");
     assert.equal(aborted.responses.length, 0);
     assert.equal(aborted.failures.length, 1);
+    assert.equal(aborted.failures[0].route, "/external-network-failure.html");
     assert.match(aborted.failures[0].errorText, /^net::ERR_/);
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("attributes repeated external failures to every public route", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-failure-routes-"));
+  const reportPath = join(reportDirectory, "report.json");
+  const paths = "/external-network-failure.html,/external-network-failure-shared.html";
+  try {
+    const result = await runCspQa(paths, [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /EXTERNAL OUTAGE:/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.equal(report.summary.externalOutages, 1);
+
+    const aborted = report.dependencies.find(({ url }) => url.endsWith("/aborted.png"));
+    assert.ok(aborted, JSON.stringify(report, null, 2));
+    assert.equal(aborted.state, "unavailable");
+    assert.deepEqual(aborted.routes, [
+      "/external-network-failure-shared.html",
+      "/external-network-failure.html",
+    ].sort());
+    assert.deepEqual(
+      aborted.failures.map(({ route }) => route).sort(),
+      [
+        "/external-network-failure-shared.html",
+        "/external-network-failure.html",
+      ].sort(),
+    );
+    assert.ok(aborted.failures.every(({ errorText }) => /^net::ERR_/.test(errorText)));
   } finally {
     await rm(reportDirectory, { recursive: true, force: true });
   }
@@ -421,6 +459,7 @@ test("reports CSP-blocked dependencies separately from external outages", async 
     assert.ok(blocked, JSON.stringify(report, null, 2));
     assert.equal(blocked.state, "blocked-by-csp");
     assert.equal(blocked.cspBlocked, true);
+    assert.equal(blocked.failures[0].route, "/external-csp-blocked.html");
   } finally {
     await rm(reportDirectory, { recursive: true, force: true });
   }

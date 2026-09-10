@@ -421,6 +421,7 @@ async function checkExternalRoute(browser, path) {
     if (dependency) {
       pendingExternalRequests.delete(request);
       dependency.failures.push({
+        route: path,
         errorText: request.failure()?.errorText || "unknown failure",
       });
     } else if (isLocalUrl(request.url())) {
