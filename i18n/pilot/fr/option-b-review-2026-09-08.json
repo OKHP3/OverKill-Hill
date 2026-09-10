@@ -3,17 +3,17 @@
   "skill": "okhp3-translation-en-us-fr-fr@1.1.0",
   "review_status": "ai-reviewed",
   "native_or_human_approval": false,
-  "reviewed_on": "2026-09-08",
-  "source_revision": "git:eea06d01af978d37cb59113a2aac43ad82aa6a09",
-  "review_scope": "Option B compact hero and native disclosures adapted from English; original French prose, art, URLs and full source facts retained. About/contact only shared fingerprint changes. Existing condensed coverage retained without a full parity claim. The original build notice is retained in More from the forge; no copy was deleted.",
+  "reviewed_on": "2026-09-09",
+  "source_revision": "git:99ba45f2559c3a128ed35e1397a3a5049b09bf25",
+  "review_scope": "Option B compact hero and native disclosures adapted from English; original French prose, art, URLs and full source facts retained. The current rebind covers generated cache-bust and sub-navigation marker changes without a semantic translation change. Existing condensed coverage retained without a full parity claim. The original build notice is retained in More from the forge; no copy was deleted.",
   "routes": [
     {
       "route": "/",
       "locale": "fr",
       "source_path": "index.html",
-      "source_sha256": "bb27f4ce9a5cad4fc678537c67fe80e686b4725ba15b2cd02d076ba7b088a187",
+      "source_sha256": "112c43b647a4c66da58b4cf12d2de12bcc476a2ef6b7afa743a28e84a762f228",
       "target_path": "fr/index.html",
-      "target_sha256": "f8618198e1a358bfc3691752f39c33e97a504927933763447ff246cd652e52f7",
+      "target_sha256": "d936f2b0c7029e0a087d369d287d9f51e6b202dfd3b3619b0aea376d835def5d",
       "disposition": "retained-ai-reviewed",
       "review_scope": "Changed English units and retained target copy reviewed; current markup/source facts preserved, no native approval."
     },
@@ -21,9 +21,9 @@
       "route": "/about/",
       "locale": "fr",
       "source_path": "about/index.html",
-      "source_sha256": "186fb4952396890e263d18275ff3ea7a20b09104b082172b142bf893414c1724",
+      "source_sha256": "99928ea3f1ffe6d27c51b9fc19fe628008a14df984bcc5223f266fff1323c2ba",
       "target_path": "fr/about/index.html",
-      "target_sha256": "6f9c5be2986b9344b4fdb8c23ca197dc951ea72823404f216805e829e1cf30b6",
+      "target_sha256": "c79e336849c3c019904993b4032d666e72c3bef6a211122a0ca83a0703432b39",
       "disposition": "retained-ai-reviewed",
       "review_scope": "Changed English units and retained target copy reviewed; current markup/source facts preserved, no native approval."
     },
@@ -31,9 +31,9 @@
       "route": "/projects/",
       "locale": "fr",
       "source_path": "projects/index.html",
-      "source_sha256": "87a81ac6c85e59cda92ecd2969aa7461bf54a8f27ab2459ba097f857fa809e91",
+      "source_sha256": "007875c818b7e167553a0320004cfff880b54750597e3e81facefab1c2e0ce07",
       "target_path": "fr/projects/index.html",
-      "target_sha256": "f4f4b6cf5934038b8e0e50b2d5a10e528a557d29372a10411b1dccad2b4fbd95",
+      "target_sha256": "ef5ce1bf18f34b84683e00206a53096d3fc4b490770a0151eb4c58c74ac0fa99",
       "disposition": "retained-ai-reviewed",
       "review_scope": "Changed English units and retained target copy reviewed; current markup/source facts preserved, no native approval."
     },
@@ -41,9 +41,9 @@
       "route": "/contact/",
       "locale": "fr",
       "source_path": "contact/index.html",
-      "source_sha256": "024fe1eaab4cee2c0abbf93d3db22473aec7e62c588a24a7dc15562e4b746559",
+      "source_sha256": "937e275bb905f424f72d426da34d9761ed6a53c9c82938aebcbfa3a177e07b7b",
       "target_path": "fr/contact/index.html",
-      "target_sha256": "b71da5360d1be909da5a46275ffe85db9503f8e3c8da0c86a85844cd7db04b82",
+      "target_sha256": "b6b20ce10066cbb0f01b2db73fbb1b0822a1dd1e1fe93b50b9c156c99d07f846",
       "disposition": "retained-ai-reviewed",
       "review_scope": "Changed English units and retained target copy reviewed; current markup/source facts preserved, no native approval."
     }
