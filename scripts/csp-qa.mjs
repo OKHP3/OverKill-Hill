@@ -376,6 +376,22 @@ function serialiseExternalDependency(dependency, cspBlockedUrls) {
   };
 }
 
+function groupFailureRecords(failures) {
+  const grouped = new Map();
+  for (const failure of failures) {
+    const route = failure.route || "";
+    const errorText = failure.errorText || "unknown failure";
+    const key = JSON.stringify([route, errorText]);
+    const existing = grouped.get(key);
+    if (existing) {
+      existing.count += failure.count || 1;
+    } else {
+      grouped.set(key, { route, errorText, count: failure.count || 1 });
+    }
+  }
+  return [...grouped.values()];
+}
+
 async function waitForExternalRequestsToSettle(page, pendingRequests) {
   const deadline = Date.now() + EXTERNAL_SETTLE_TIMEOUT_MS;
   let quietSince = null;
@@ -518,6 +534,9 @@ function mergeExternalDependencies(results) {
             : "no-response";
     }
   }
+  for (const dependency of merged.values()) {
+    dependency.failures = groupFailureRecords(dependency.failures);
+  }
   return [...merged.values()].sort((left, right) => left.url.localeCompare(right.url));
 }
 
@@ -595,8 +614,12 @@ async function runExternalHealth() {
     `${report.summary.localFailures} local route failure(s).`,
   );
   externalOutages.forEach((dependency) => {
-    const failureReasons = dependency.failures
-      .map(({ errorText }) => errorText)
+    const failureCounts = new Map();
+    dependency.failures.forEach(({ errorText, count = 1 }) => {
+      failureCounts.set(errorText, (failureCounts.get(errorText) || 0) + count);
+    });
+    const failureReasons = [...failureCounts.entries()]
+      .map(([errorText, count]) => count > 1 ? `${errorText} (${count} occurrences)` : errorText)
       .filter(Boolean);
     const diagnostic = failureReasons.length ? `: ${failureReasons.join(", ")}` : "";
     console.log(`  EXTERNAL OUTAGE: ${dependency.url} (${dependency.state})${diagnostic}`);

@@ -18,6 +18,7 @@ const fixtureFiles = new Map([
   ["/unrendered-mermaid.html", "unrendered-mermaid.html"],
   ["/external-network-failure.html", "external-network-failure.html"],
   ["/external-network-failure-shared.html", "external-network-failure-shared.html"],
+  ["/external-repeated-network-failure.html", "external-repeated-network-failure.html"],
   ["/external-csp-blocked.html", "external-csp-blocked.html"],
   ["/external-csp-and-outage.html", "external-csp-and-outage.html"],
   ["/external-csp-shared.html", "external-csp-shared.html"],
@@ -431,6 +432,37 @@ test("attributes repeated external failures to every public route", async () => 
       ].sort(),
     );
     assert.ok(aborted.failures.every(({ errorText }) => /^net::ERR_/.test(errorText)));
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("groups repeated failures for one dependency without losing the browser reason", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-repeated-failures-"));
+  const reportPath = join(reportDirectory, "report.json");
+  try {
+    const result = await runCspQa("/external-repeated-network-failure.html", [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /EXTERNAL OUTAGE:/);
+    assert.match(result.output, /2 occurrences/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.equal(report.summary.externalOutages, 1);
+
+    const aborted = report.dependencies.find(({ url }) => url.endsWith("/aborted.png"));
+    assert.ok(aborted, JSON.stringify(report, null, 2));
+    assert.equal(aborted.state, "unavailable");
+    assert.equal(aborted.failures.length, 1);
+    assert.deepEqual(aborted.failures[0], {
+      route: "/external-repeated-network-failure.html",
+      errorText: aborted.failures[0].errorText,
+      count: 2,
+    });
+    assert.match(aborted.failures[0].errorText, /^net::ERR_/);
   } finally {
     await rm(reportDirectory, { recursive: true, force: true });
   }

@@ -14,3 +14,9 @@ External-health route checks should track each external request until its respon
 **Why:** A fixed post-load sleep can close the page before a delayed HTTP failure arrives, turning a real outage into an incomplete no-response record.
 
 **How to apply:** Use terminal browser events for classification and keep the settle timeout bounded so slow or hanging third-party resources cannot make monitoring unbounded.
+
+Repeated external failures should be grouped by public route and browser reason with an occurrence count; console output should aggregate repeated reasons while the JSON report preserves route-specific groups.
+
+**Why:** Retaining every identical event makes incident output noisy, while collapsing across routes removes the attribution needed to identify affected pages.
+
+**How to apply:** Normalize dependency URLs before grouping, keep distinct route/reason combinations as separate records, and include the count in each grouped failure record.
