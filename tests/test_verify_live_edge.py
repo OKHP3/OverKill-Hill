@@ -74,6 +74,11 @@ class VerifyLiveEdgeTests(unittest.TestCase):
                 "reference": '<script src="{url}"></script>',
                 "content_type": "text/javascript",
             },
+            "module": {
+                "path": "/assets/js/mermaid-init.js",
+                "reference": '<script src="{url}" type="module"></script>',
+                "content_type": "text/javascript",
+            },
         }.get(asset_kind)
         if asset_details is None:
             raise ValueError(f"unsupported fixture asset kind: {asset_kind}")
@@ -240,6 +245,21 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         self.assertEqual(report["status"], "FAILED")
         checks = {item["check"]: item for item in report["checks"]}
         asset_check = checks["asset /assets/js/app.js"]
+        self.assertEqual(asset_check["status"], "FAIL")
+        self.assertIn("!= live", asset_check["evidence"])
+        self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
+
+    def test_changed_module_javascript_asset_response_fails_despite_pages_limitations(self) -> None:
+        module_bytes = verify_live_edge.canonical_text_bytes(ROOT / "assets/js/mermaid-init.js")
+        return_code, report = self.run_live_edge_fixture(
+            asset_kind="module",
+            asset_body=module_bytes + b"\n// stale live module asset\n",
+        )
+
+        self.assertEqual(return_code, 1)
+        self.assertEqual(report["status"], "FAILED")
+        checks = {item["check"]: item for item in report["checks"]}
+        asset_check = checks["asset /assets/js/mermaid-init.js"]
         self.assertEqual(asset_check["status"], "FAIL")
         self.assertIn("!= live", asset_check["evidence"])
         self.assertEqual(checks["route / cache policy"]["status"], "BLOCKED")
