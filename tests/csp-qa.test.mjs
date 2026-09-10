@@ -19,6 +19,8 @@ const fixtureFiles = new Map([
   ["/external-network-failure.html", "external-network-failure.html"],
   ["/external-csp-blocked.html", "external-csp-blocked.html"],
   ["/external-csp-and-outage.html", "external-csp-and-outage.html"],
+  ["/external-csp-shared.html", "external-csp-shared.html"],
+  ["/external-outage-shared.html", "external-outage-shared.html"],
 ]);
 
 let server;
@@ -98,6 +100,11 @@ before(async () => {
         "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=",
         "base64",
       ));
+      return;
+    }
+    if (path === "/shared.png") {
+      response.writeHead(503, { "content-type": "text/plain" });
+      response.end("shared fixture dependency intentionally unavailable");
       return;
     }
     response.writeHead(404, { "content-type": "text/plain" });
@@ -442,6 +449,49 @@ test("keeps an external outage visible alongside a CSP-blocked dependency", asyn
     assert.equal(outage.state, "unavailable");
     assert.equal(outage.cspBlocked, false);
     assert.ok(outage.responses.some(({ status }) => status === 503));
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("keeps a shared-route outage visible when another route blocks the same URL with CSP", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-shared-health-"));
+  const reportPath = join(reportDirectory, "report.json");
+  const paths = "/external-csp-shared.html,/external-outage-shared.html";
+  try {
+    const result = await runCspQa(paths, [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /EXTERNAL OUTAGE:/);
+    assert.match(result.output, /CSP diagnostics were observed/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.deepEqual(report.routes, [
+      "/external-csp-shared.html",
+      "/external-outage-shared.html",
+    ]);
+    assert.equal(report.summary.dependencies, 1);
+    assert.equal(report.summary.externalOutages, 1);
+    assert.equal(report.summary.cspDiagnostics, 1);
+
+    const shared = report.dependencies.find(({ url }) => url.endsWith("/shared.png"));
+    assert.ok(shared, JSON.stringify(report, null, 2));
+    assert.deepEqual(shared.routes, [
+      "/external-csp-shared.html",
+      "/external-outage-shared.html",
+    ]);
+    assert.equal(shared.cspBlocked, true);
+    assert.equal(shared.state, "unavailable");
+    assert.ok(shared.responses.some(({ status }) => status === 503));
+
+    const outage = report.externalOutages.find(({ url }) => url.endsWith("/shared.png"));
+    assert.ok(outage, JSON.stringify(report, null, 2));
+    assert.deepEqual(outage.routes, shared.routes);
+    assert.ok(outage.responses.some(({ status }) => status === 503));
+    assert.equal(outage.state, "unavailable");
   } finally {
     await rm(reportDirectory, { recursive: true, force: true });
   }

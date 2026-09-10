@@ -67,6 +67,7 @@ const PUBLIC_PATHS = fixtureSummaryArg ? [] : loadPublicPaths();
 const CSP_DIAGNOSTIC = /content security policy|violates the following.*policy|refused to .* policy/i;
 const MERMAID_RENDER_ERROR = /^\[mermaid-init\] render error/i;
 const INTENTIONAL_EXTERNAL_FAILURE = "Failed to load resource: net::ERR_FAILED";
+const CSP_REQUEST_FAILURE = "csp";
 
 function isHttpUrl(value) {
   return value.protocol === "http:" || value.protocol === "https:";
@@ -350,12 +351,14 @@ function extractHttpUrls(text) {
 
 function serialiseExternalDependency(dependency, cspBlockedUrls) {
   const hasHttpError = dependency.responses.some(({ status }) => status >= 400);
-  const hasFailure = dependency.failures.length > 0;
+  const hasNonCspFailure = dependency.failures.some(
+    ({ errorText }) => errorText !== CSP_REQUEST_FAILURE,
+  );
   const hasResponse = dependency.responses.length > 0;
   const cspBlocked = cspBlockedUrls.has(dependency.url);
   let state = "available";
   if (cspBlocked) state = "blocked-by-csp";
-  else if (hasHttpError || hasFailure) state = "unavailable";
+  else if (hasHttpError || hasNonCspFailure) state = "unavailable";
   else if (!hasResponse) state = "no-response";
 
   return {
@@ -476,14 +479,17 @@ function mergeExternalDependencies(results) {
       existing.responses.push(...dependency.responses);
       existing.failures.push(...dependency.failures);
       existing.cspBlocked = existing.cspBlocked || dependency.cspBlocked;
-      existing.state = existing.cspBlocked
-        ? "blocked-by-csp"
-        : existing.failures.length ||
-        existing.responses.some(({ status }) => status >= 400)
+      const hasHttpError = existing.responses.some(({ status }) => status >= 400);
+      const hasNonCspFailure = existing.failures.some(
+        ({ errorText }) => errorText !== CSP_REQUEST_FAILURE,
+      );
+      existing.state = hasHttpError || hasNonCspFailure
         ? "unavailable"
-        : existing.responses.length
-          ? "available"
-          : "no-response";
+        : existing.cspBlocked
+          ? "blocked-by-csp"
+          : existing.responses.length
+            ? "available"
+            : "no-response";
     }
   }
   return [...merged.values()].sort((left, right) => left.url.localeCompare(right.url));
