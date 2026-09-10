@@ -31,6 +31,19 @@ def step(source, name):
     return match[1]
 
 
+def artifact_name(source, step_name, context):
+    upload_step = step(source, step_name)
+    match = re.search(r'(?m)^\s+name: (.+)$', upload_step)
+    if not match:
+        raise AssertionError(f'missing artifact name in step {step_name}')
+    template = match[1]
+    return re.sub(
+        r'\$\{\{\s*github\.(run_id|run_attempt)\s*\}\}',
+        lambda found: context[found[1]],
+        template,
+    )
+
+
 def group(source, context):
     template = re.search(r'^      group: (.+)$', source, re.M).group(1)
 
@@ -210,6 +223,36 @@ class ConcurrencyTests(unittest.TestCase):
                              (job(VALIDATE, 'monitor-live-edge'), 'edge'),
                              (job(VALIDATE, 'monitor-third-party-runtime'), 'external')):
             self.assertRegex(source, rf'if: always\(\)\n        run: python3 scripts/write-actions-summary.py --kind {kind}')
+
+    def test_monitor_artifacts_separate_first_attempts_from_retries(self):
+        cases = (
+            (
+                'monitor-third-party-runtime',
+                'Upload third-party runtime inventory',
+                'Summarize external availability and first-party failures',
+                'upload-third-party-runtime-report',
+            ),
+            (
+                'monitor-live-edge',
+                'Upload live-edge monitoring report',
+                'Summarize content delivery and edge policy',
+                'upload-live-edge-report',
+            ),
+        )
+        first_attempt = context(run_id='100', run_attempt='1')
+        retry = context(run_id='100', run_attempt='2')
+        for job_name, upload_step, summary_step, upload_id in cases:
+            with self.subTest(job=job_name):
+                source = job(VALIDATE, job_name)
+                first_name = artifact_name(source, upload_step, first_attempt)
+                retry_name = artifact_name(source, upload_step, retry)
+                self.assertIn('100-1', first_name)
+                self.assertIn('100-2', retry_name)
+                self.assertNotEqual(first_name, retry_name)
+                self.assertIn(
+                    f'steps.{upload_id}.outputs.artifact-url',
+                    step(source, summary_step),
+                )
 
 
 if __name__ == '__main__':
