@@ -769,14 +769,15 @@ def main() -> int:
             report.append(result("sitemap cache policy", cache_status, GITHUB_PAGES_POLICY_NOTE if args.hosting == "github-pages" else (cache or "Cache-Control absent")))
         check_headers(report, f"generated {kind}", response, args.hosting)
 
-    # Every first-party CSS/JS/image/font asset referenced by fetched HTML or
-    # CSS must carry its content hash and be served immutable at the live edge.
+    # Check availability and MIME types for discovered first-party assets.
+    # CSS/JS require fingerprints; verify hashes and cache policy whenever a
+    # discovered asset supplies a fingerprint.
     assets: dict[str, str] = {}
     for body in bodies.values():
         for match in HTML_ASSET_RE.finditer(body):
             assets[match.group("url").split("#", 1)[0]] = match.group("url")
     if not assets:
-        report.append(result("fingerprinted first-party assets", "FAIL", "no CSS/JS/image/font references found in fetched HTML"))
+        report.append(result("first-party assets", "FAIL", "no first-party asset references found in fetched HTML"))
 
     checked_assets: set[str] = set()
     while pending_assets := sorted(set(assets) - checked_assets):

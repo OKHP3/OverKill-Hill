@@ -113,7 +113,9 @@ jobs:
         run: python3 scripts/validate-site.py
 
       - name: Run committed SEO regression fixtures
-        run: python3 scripts/test-seo-fixtures.py
+        run: |
+          python3 scripts/test-seo-fixtures.py
+          python3 tests/test-social-card-duplicates.py
 
       - name: Run audit portability regressions
         run: python3 tests/test-audit-site-portability.py
