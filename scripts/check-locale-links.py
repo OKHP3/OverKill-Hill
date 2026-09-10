@@ -127,6 +127,7 @@ def check_search_index(
     locale: str,
     findings: list[str],
     *,
+    declared_routes: set[str],
     draft_routes: set[str],
     require_routes: bool,
 ) -> None:
@@ -146,6 +147,9 @@ def check_search_index(
         return
     urls = [entry.get("url") for entry in entries if isinstance(entry, dict)]
     indexed_routes = set(urls)
+    undeclared = sorted(indexed_routes - declared_routes)
+    if undeclared:
+        fail(findings, f"locale search index contains undeclared routes: {', '.join(undeclared)}")
     if require_routes:
         missing = sorted(required_routes - indexed_routes)
         if missing:
@@ -339,6 +343,7 @@ def validate_locale(
             set(),
             locale,
             findings,
+            declared_routes=target_routes,
             draft_routes=set(),
             require_routes=False,
         )
@@ -355,6 +360,7 @@ def validate_locale(
         indexable_routes,
         locale,
         findings,
+        declared_routes=target_routes,
         draft_routes=target_routes - indexable_routes,
         require_routes=bool(indexable_routes),
     )

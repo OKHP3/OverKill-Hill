@@ -260,6 +260,29 @@ class SEOFixtureTests(unittest.TestCase):
                 findings,
             )
 
+    def test_mixed_locale_rejects_undeclared_search_index_routes(self) -> None:
+        source_routes = {"/", "/about/", "/projects/", "/contact/"}
+        promoted_routes = {"/fr/", "/fr/about/", "/fr/projects/"}
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            _, sitemap_path, index_path = self._write_mixed_locale_fixture(
+                root,
+                source_routes | promoted_routes,
+                promoted_routes | {"/fr/retired/"},
+            )
+            findings = locale_checker.validate(
+                manifest_path=root / "manifest.json",
+                sitemap_path=sitemap_path,
+                index_path=index_path,
+                root=root,
+            )
+
+            self.assertIn(
+                "locale search index contains undeclared routes: /fr/retired/",
+                findings,
+            )
+
     def test_public_inventory_excludes_test_fixtures(self) -> None:
         pages = validator.find_html_files()
         self.assertIn(ROOT / "index.html", pages)
