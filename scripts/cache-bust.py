@@ -18,7 +18,8 @@ Conventions:
 - Hash is the first 8 chars of sha256 of each shared asset's canonical text
   bytes (LF line endings, independent of the checkout platform).
 - Relative and legacy query-string references are rewritten to the canonical URL.
-- Skips _replit/, .local/, attached_assets/, node_modules/.
+- Uses the shared published-page boundary, while also scanning the maintained
+  ``assets/templates/`` inputs.
 """
 
 from __future__ import annotations
@@ -29,8 +30,9 @@ import re
 import sys
 from pathlib import Path
 
+from public_page_boundary import is_public_page_path, iter_public_html_files
+
 ROOT = Path(__file__).resolve().parent.parent
-EXCLUDE_DIRS = {"_replit", ".local", ".pr-head", "attached_assets", "node_modules", ".git", "i18n"}
 SHARED_ASSET_PATHS = (
     "/assets/css/theme.css",
     "/assets/js/app.js",
@@ -56,11 +58,23 @@ def file_hash(path: Path) -> str | None:
 
 
 def iter_html_files(root: Path):
-    for p in root.rglob("*.html"):
-        rel = p.relative_to(root)
-        if any(part in EXCLUDE_DIRS for part in rel.parts):
-            continue
-        yield p
+    """Yield published pages plus the maintained asset template inputs.
+
+    ``assets/templates`` is intentionally outside the public-page boundary:
+    those files are build inputs rather than served routes. Cache-busting still
+    has to update them so later generated pages inherit current fingerprints.
+    All other paths must pass through the shared boundary.
+    """
+    root = Path(root)
+    public_pages = set(iter_public_html_files(root))
+    asset_templates = root / "assets" / "templates"
+    if asset_templates.is_dir():
+        public_pages.update(asset_templates.rglob("*.html"))
+    yield from sorted(
+        path for path in public_pages
+        if is_public_page_path(path, root)
+        or path.relative_to(root).parts[:2] == ("assets", "templates")
+    )
 
 
 def rewrite_one(html: str, fingerprints: dict[str, str]) -> tuple[str, int]:
