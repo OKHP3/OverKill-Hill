@@ -2,6 +2,7 @@
 import copy
 import importlib.util
 import json
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -106,6 +107,34 @@ class SummaryTests(unittest.TestCase):
                     'steps.upload-live-edge-report.outputs.artifact-url',
                     source,
                 )
+
+    def test_failed_csp_fixtures_upload_only_the_short_lived_focused_report(self):
+        workflow = (ROOT / '.github/workflows/validate.yml').read_text(encoding='utf-8')
+        match = re.search(
+            r'(?ms)^      - name: Upload failed CSP fixture report\n'
+            r'(.*?)(?=^      - name: )',
+            workflow,
+        )
+        self.assertIsNotNone(match, 'missing focused CSP fixture report upload step')
+        upload = match.group(1)
+        self.assertIn(
+            "if: always() && steps.csp-fixtures.outcome == 'failure'",
+            upload,
+        )
+        self.assertIn('uses: actions/upload-artifact@', upload)
+        self.assertIn('path: csp-fixture-report.json', upload)
+        self.assertIn('if-no-files-found: warn', upload)
+        self.assertIn('retention-days: 7', upload)
+        self.assertNotIn('third-party-runtime-report.json', upload)
+        self.assertNotIn('site-release', upload)
+
+        fixture_step = re.search(
+            r'(?ms)^      - name: Run CSP fixture regressions\n'
+            r'(.*?)(?=^      - name: )',
+            workflow,
+        )
+        self.assertIsNotNone(fixture_step, 'missing CSP fixture regression step')
+        self.assertIn('continue-on-error: true', fixture_step.group(1))
 
     def test_pages_only_blocked_fixture_is_partial_and_not_enforcement_proof(self):
         code, summary = self.run_summary(self.load_fixture('live-edge-pages-blocked.json'))

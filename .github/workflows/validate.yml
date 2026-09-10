@@ -290,6 +290,15 @@ jobs:
         if: always() && steps.csp-fixtures.outcome == 'failure'
         run: node scripts/csp-qa.mjs --fixture-summary=csp-fixture-report.json
 
+      - name: Upload failed CSP fixture report
+        if: always() && steps.csp-fixtures.outcome == 'failure'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: csp-fixture-regressions-${{ github.run_id }}-${{ github.run_attempt }}
+          path: csp-fixture-report.json
+          if-no-files-found: warn
+          retention-days: 7
+
       - name: Preserve CSP fixture regression failure
         if: always() && steps.csp-fixtures.outcome == 'failure'
         run: exit 1
