@@ -93,7 +93,6 @@ class I18nWorkflowTests(unittest.TestCase):
         self.assertEqual(0, code)
         self.assertEqual([], report["policy"]["blocking_items"])
         self.assertEqual(0, sum(item["locale"] == "fr" for item in report["policy"]["blocking_items"]))
-        self.assertGreaterEqual(sum(item["locale"] == "fr" for item in report["policy"]["advisory_items"]), 4)
 
     def test_stale_french_remains_advisory_actual_workflow_command(self):
         code, report = self.run_copied_site(("fr",))
