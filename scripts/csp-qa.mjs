@@ -68,6 +68,8 @@ const CSP_DIAGNOSTIC = /content security policy|violates the following.*policy|r
 const MERMAID_RENDER_ERROR = /^\[mermaid-init\] render error/i;
 const INTENTIONAL_EXTERNAL_FAILURE = "Failed to load resource: net::ERR_FAILED";
 const CSP_REQUEST_FAILURE = "csp";
+const EXTERNAL_SETTLE_TIMEOUT_MS = 5000;
+const EXTERNAL_QUIET_WINDOW_MS = 250;
 
 function isHttpUrl(value) {
   return value.protocol === "http:" || value.protocol === "https:";
@@ -374,9 +376,25 @@ function serialiseExternalDependency(dependency, cspBlockedUrls) {
   };
 }
 
+async function waitForExternalRequestsToSettle(page, pendingRequests) {
+  const deadline = Date.now() + EXTERNAL_SETTLE_TIMEOUT_MS;
+  let quietSince = null;
+  while (Date.now() < deadline) {
+    if (pendingRequests.size) {
+      quietSince = null;
+    } else if (quietSince === null) {
+      quietSince = Date.now();
+    } else if (Date.now() - quietSince >= EXTERNAL_QUIET_WINDOW_MS) {
+      return;
+    }
+    await page.waitForTimeout(50);
+  }
+}
+
 async function checkExternalRoute(browser, path) {
   const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
   const dependencies = new Map();
+  const pendingExternalRequests = new Set();
   const cspDiagnostics = [];
   const localErrors = new Set();
 
@@ -392,6 +410,7 @@ async function checkExternalRoute(browser, path) {
   page.on("request", (request) => {
     const dependency = getExternalDependency(dependencies, request);
     if (dependency) {
+      pendingExternalRequests.add(request);
       dependency.requestCount += 1;
       dependency.resourceTypes.add(request.resourceType());
       dependency.routes.add(path);
@@ -400,6 +419,7 @@ async function checkExternalRoute(browser, path) {
   page.on("requestfailed", (request) => {
     const dependency = getExternalDependency(dependencies, request);
     if (dependency) {
+      pendingExternalRequests.delete(request);
       dependency.failures.push({
         errorText: request.failure()?.errorText || "unknown failure",
       });
@@ -414,6 +434,7 @@ async function checkExternalRoute(browser, path) {
     const request = response.request();
     const dependency = getExternalDependency(dependencies, request);
     if (dependency) {
+      pendingExternalRequests.delete(request);
       dependency.responses.push({
         status: response.status(),
         statusText: response.statusText(),
@@ -445,6 +466,10 @@ async function checkExternalRoute(browser, path) {
     localErrors.add(`navigation failed: ${error.message.split("\n")[0]}`);
   }
 
+  // Wait for terminal response/failure events instead of closing after a fixed
+  // sleep. The quiet window catches deferred requests without allowing a
+  // hanging third-party request to hold the health check forever.
+  await waitForExternalRequestsToSettle(page, pendingExternalRequests);
   await page.close();
   const cspBlockedUrls = new Set(cspDiagnostics.flatMap(extractHttpUrls));
   return {

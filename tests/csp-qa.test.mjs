@@ -21,6 +21,7 @@ const fixtureFiles = new Map([
   ["/external-csp-and-outage.html", "external-csp-and-outage.html"],
   ["/external-csp-shared.html", "external-csp-shared.html"],
   ["/external-outage-shared.html", "external-outage-shared.html"],
+  ["/external-delayed-outage.html", "external-delayed-outage.html"],
 ]);
 
 let server;
@@ -105,6 +106,13 @@ before(async () => {
     if (path === "/shared.png") {
       response.writeHead(503, { "content-type": "text/plain" });
       response.end("shared fixture dependency intentionally unavailable");
+      return;
+    }
+    if (path === "/delayed-outage.png") {
+      setTimeout(() => {
+        response.writeHead(503, { "content-type": "text/plain" });
+        response.end("delayed fixture dependency intentionally unavailable");
+      }, 1400);
       return;
     }
     response.writeHead(404, { "content-type": "text/plain" });
@@ -492,6 +500,30 @@ test("keeps a shared-route outage visible when another route blocks the same URL
     assert.deepEqual(outage.routes, shared.routes);
     assert.ok(outage.responses.some(({ status }) => status === 503));
     assert.equal(outage.state, "unavailable");
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("waits for a delayed external response before classifying the dependency", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-delayed-health-"));
+  const reportPath = join(reportDirectory, "report.json");
+  try {
+    const result = await runCspQa("/external-delayed-outage.html", [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /EXTERNAL OUTAGE:/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.equal(report.summary.externalOutages, 1);
+
+    const delayed = report.dependencies.find(({ url }) => url.endsWith("/delayed-outage.png"));
+    assert.ok(delayed, JSON.stringify(report, null, 2));
+    assert.equal(delayed.state, "unavailable");
+    assert.ok(delayed.responses.some(({ status }) => status === 503));
   } finally {
     await rm(reportDirectory, { recursive: true, force: true });
   }
