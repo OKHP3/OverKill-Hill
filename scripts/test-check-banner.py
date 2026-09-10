@@ -106,7 +106,7 @@ def check_main_case(
                     f"{name}: expected no files to change, changed {changed}"
                 )
 
-    report = output.getvalue()
+    report = output.getvalue().replace("\\", "/")
     for part in expected_message_parts:
         if part not in report:
             raise AssertionError(f"{name}: expected {part!r} in {report!r}")
