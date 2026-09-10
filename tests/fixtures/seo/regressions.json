@@ -108,6 +108,12 @@
     "value": "2026-04-08",
     "expected": "conflicting duplicate Article JSON-LD datePublished values"
   },
+  "draft_article_promotion": {
+    "route": "/writings/biases-as-constants/",
+    "field": "meta:robots",
+    "value": "index, follow",
+    "expected": "article JSON-LD dateModified is missing"
+  },
   "organization_same_as_drift": {
     "from": "https://www.linkedin.com/company/overkillhillp3",
     "to": "https://example.com/not-the-verified-profile"

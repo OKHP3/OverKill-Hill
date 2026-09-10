@@ -351,6 +351,56 @@ class SEOFixtureTests(unittest.TestCase):
         )
         self.assertIn('"@type": "Article"', source_path.read_text(encoding="utf-8"))
 
+    def test_draft_article_promotion_requires_complete_dates(self) -> None:
+        mutation = self.fixture_data["draft_article_promotion"]
+        draft_page = page_for_route(self.source_pages, mutation["route"])
+        source_path = (ROOT / "site-src" / "pages" / draft_page["path"]).with_suffix(
+            ".extras.html"
+        )
+        generated_path = ROOT / draft_page["path"]
+        generated_raw = generated_path.read_text(encoding="utf-8")
+
+        self.assertFalse(
+            validator.validate_article_jsonld_source([draft_page]),
+            "noindex source drafts should remain exempt before promotion",
+        )
+        draft_parser = parse_html(generated_raw)
+        self.assertTrue(
+            draft_parser.is_noindex,
+            "generated Article fixture should remain noindex while it is a draft",
+        )
+        self.assertFalse(
+            validator.validate_generated_seo(
+                generated_path,
+                draft_parser,
+                draft_page,
+            ),
+            "noindex generated drafts should remain exempt before promotion",
+        )
+        self.assertIn('"@type": "Article"', source_path.read_text(encoding="utf-8"))
+
+        promoted_page = copy.deepcopy(draft_page)
+        promoted_page[mutation["field"]] = mutation["value"]
+        self.assertTrue(
+            validator.is_indexable_page(promoted_page),
+            "promotion fixture must change the manifest indexing boundary",
+        )
+        self.assertEqual(
+            draft_page.get("meta:robots"),
+            "noindex, nofollow",
+            "draft fixture baseline must remain noindex",
+        )
+
+        source_findings = validator.validate_article_jsonld_source([promoted_page])
+        self.assert_rejected(source_findings, mutation["expected"])
+
+        generated_findings = validator.validate_generated_seo(
+            generated_path,
+            draft_parser,
+            promoted_page,
+        )
+        self.assert_rejected(generated_findings, mutation["expected"])
+
     def assert_rejected(self, findings: list, expected: str) -> None:
         self.assertTrue(findings, "mutation unexpectedly passed")
         self.assertIn(expected, findings_text(findings))
