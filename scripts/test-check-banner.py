@@ -196,6 +196,20 @@ def main() -> int:
             ),
             **malformed_fixture,
         )
+        for mode in ("--update", "--dry-run"):
+            check_main_case(
+                f"{mode} {name}",
+                banner_path,
+                f'<a class="site-specials-link" href="{featured}">{check_banner.OLD_BANNERS[0]}</a>',
+                (
+                    "current featured article release is missing or ambiguous",
+                    check_banner.FEATURED_ARTICLE_ROUTE,
+                    article_path,
+                ),
+                mode=mode,
+                expect_files_unchanged=True,
+                **malformed_fixture,
+            )
     check_case(
         "other article banner retains the allow-list behavior",
         '<a class="site-specials-link" href="/writings/another-article/">'
