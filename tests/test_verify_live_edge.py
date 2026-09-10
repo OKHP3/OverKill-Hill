@@ -41,6 +41,8 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         stale_asset_kind: str | None = None,
         asset_content_type: str | None = None,
         asset_body: bytes | None = None,
+        sitemap_content_type: str = "application/xml",
+        search_index_content_type: str = "application/json",
     ) -> tuple[int, dict[str, object]]:
         """Run the full verifier against deterministic synthetic edge responses."""
         sitemap = verify_live_edge.canonical_text_bytes(verify_live_edge.SITEMAP)
@@ -117,14 +119,17 @@ class VerifyLiveEdgeTests(unittest.TestCase):
             "/sitemap.xml": {
                 "ok": True,
                 "status": 200,
-                "headers": {"content-type": "application/xml", "cache-control": "max-age=600"},
+                "headers": {
+                    "content-type": sitemap_content_type,
+                    "cache-control": "max-age=600",
+                },
                 "body": sitemap,
             },
             "/assets/data/search-index.json": {
                 "ok": True,
                 "status": 200,
                 "headers": {
-                    "content-type": "application/json",
+                    "content-type": search_index_content_type,
                     "cache-control": "max-age=300",
                 },
                 "body": search_index,
@@ -354,6 +359,44 @@ class VerifyLiveEdgeTests(unittest.TestCase):
         checks = {item["check"]: item for item in report["checks"]}
         content_type_check = checks["asset /assets/js/app.js content type"]
         self.assertEqual(content_type_check["status"], "PASS")
+
+    def test_wrong_sitemap_content_type_fails_with_explicit_mime_evidence(self) -> None:
+        return_code, report = self.run_live_edge_fixture(
+            sitemap_content_type="text/html; charset=utf-8",
+        )
+
+        self.assertEqual(return_code, 1)
+        self.assertEqual(report["status"], "FAILED")
+        checks = {item["check"]: item for item in report["checks"]}
+        content_type_check = checks["generated sitemap content type"]
+        self.assertEqual(content_type_check["status"], "FAIL")
+        self.assertIn("text/html", content_type_check["evidence"])
+        self.assertIn("application/xml", content_type_check["evidence"])
+        self.assertIn("text/xml", content_type_check["evidence"])
+
+    def test_wrong_search_index_content_type_fails_with_explicit_mime_evidence(self) -> None:
+        return_code, report = self.run_live_edge_fixture(
+            search_index_content_type="text/html; charset=utf-8",
+        )
+
+        self.assertEqual(return_code, 1)
+        self.assertEqual(report["status"], "FAILED")
+        checks = {item["check"]: item for item in report["checks"]}
+        content_type_check = checks["generated search index content type"]
+        self.assertEqual(content_type_check["status"], "FAIL")
+        self.assertIn("text/html", content_type_check["evidence"])
+        self.assertIn("application/json", content_type_check["evidence"])
+
+    def test_data_feed_content_types_with_parameters_are_accepted(self) -> None:
+        return_code, report = self.run_live_edge_fixture(
+            sitemap_content_type="application/xml; charset=utf-8",
+            search_index_content_type="application/json; charset=utf-8",
+        )
+
+        self.assertEqual(return_code, 0)
+        checks = {item["check"]: item for item in report["checks"]}
+        self.assertEqual(checks["generated sitemap content type"]["status"], "PASS")
+        self.assertEqual(checks["generated search index content type"]["status"], "PASS")
 
     def test_changed_hosting_path_fails_despite_pages_limitations(self) -> None:
         return_code, report = self.run_live_edge_fixture(

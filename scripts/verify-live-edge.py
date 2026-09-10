@@ -63,6 +63,10 @@ ASSET_CONTENT_TYPES = {
     ".css": frozenset({"text/css"}),
     ".js": frozenset({"application/javascript", "text/javascript"}),
 }
+FIRST_PARTY_CONTENT_TYPES = {
+    "/sitemap.xml": frozenset({"application/xml", "text/xml"}),
+    "/assets/data/search-index.json": frozenset({"application/json"}),
+}
 ASSET_RE = re.compile(
     r"""(?:href|src)=(['"])(?P<url>/assets/(?:css|js)/[^'"?#]+(?:\?[^'"#]*)?)\1""",
     re.I,
@@ -204,12 +208,14 @@ def transport_status(response: dict[str, Any]) -> str:
     return "BLOCKED" if response.get("status") is None else "FAIL"
 
 
-def check_asset_content_type(
-    report: list[dict[str, Any]], path: str, response: dict[str, Any]
+def check_content_type(
+    report: list[dict[str, Any]],
+    label: str,
+    expected: frozenset[str],
+    response: dict[str, Any],
 ) -> None:
-    """Require a browser-compatible MIME type for each first-party asset."""
-    expected = ASSET_CONTENT_TYPES.get(Path(path).suffix.lower())
-    if expected is None or not response.get("ok") or response.get("status") != 200:
+    """Require an accepted media type for a successful first-party response."""
+    if not response.get("ok") or response.get("status") != 200:
         return
 
     received = response["headers"].get("content-type", "")
@@ -223,13 +229,36 @@ def check_asset_content_type(
     )
     report.append(
         result(
-            f"asset {path} content type",
+            f"{label} content type",
             status,
             evidence,
             content_type=received,
             accepted_content_types=sorted(expected),
         )
     )
+
+
+def check_asset_content_type(
+    report: list[dict[str, Any]], path: str, response: dict[str, Any]
+) -> None:
+    """Require a browser-compatible MIME type for each first-party asset."""
+    expected = ASSET_CONTENT_TYPES.get(Path(path).suffix.lower())
+    if expected is not None:
+        check_content_type(report, f"asset {path}", expected, response)
+
+
+def check_first_party_content_type(
+    report: list[dict[str, Any]], path: str, response: dict[str, Any]
+) -> None:
+    """Require the declared media type for each generated data feed."""
+    expected = FIRST_PARTY_CONTENT_TYPES.get(path)
+    if expected is None:
+        return
+    label = {
+        "/sitemap.xml": "generated sitemap",
+        "/assets/data/search-index.json": "generated search index",
+    }[path]
+    check_content_type(report, label, expected, response)
 
 
 def fetch(base: str, path: str, timeout: float = TIMEOUT) -> dict[str, Any]:
@@ -659,6 +688,7 @@ def main() -> int:
             report.append(result(f"generated {kind}", transport_status(response),
                                  response.get("error", f"HTTP {response.get('status')}")))
             continue
+        check_first_party_content_type(report, path, response)
         remote_hash = hashlib.sha256(response["body"]).hexdigest()
         local_hash = (
             hashlib.sha256(canonical_text_bytes(local_path)).hexdigest()
