@@ -124,6 +124,18 @@ class I18nReleaseTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 MODULE.run_detector(Path("missing-config.json"))
 
+    def test_malformed_adopted_item_fails_before_field_indexing(self):
+        config = {
+            "schema_version": "1.0",
+            "target_locales": {"fr": {"locale": "fr-FR", "root": "fr"}},
+            "state_file": "i18n/sync-state.json",
+        }
+        with patch.object(MODULE, "load_provenance", return_value={"routes": []}), patch.object(
+            MODULE, "run_detector", return_value={"adopted": [{}]}
+        ):
+            with self.assertRaisesRegex(ValueError, "missing or empty fields"):
+                MODULE.adopt(["fr"], ["/"], Path("review.json"), config)
+
     def test_real_adoption_updates_only_french_ledger_entries(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

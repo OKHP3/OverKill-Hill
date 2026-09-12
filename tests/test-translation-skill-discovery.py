@@ -11,9 +11,9 @@ import unittest
 
 RUNNER = Path(__file__).resolve().parents[1] / "scripts/test-translation-skills.py"
 SPEC = importlib.util.spec_from_file_location("translation_runner", RUNNER)
-MODULE = importlib.util.module_from_spec(SPEC)
 if SPEC is None or SPEC.loader is None:
     raise RuntimeError(f"Could not load translation runner: {RUNNER}")
+MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
 
 

@@ -161,8 +161,21 @@ def adopt(locales: List[str], routes: List[str], provenance: Path, config: Dict[
             outcome = run_detector(temp_config, mode="adopt")
             if not isinstance(outcome, dict) or not isinstance(outcome.get("adopted"), list):
                 raise ValueError("portable i18n detector returned malformed adopt output")
-            if not all(isinstance(item, dict) for item in outcome["adopted"]):
-                raise ValueError("portable i18n detector returned malformed adopted items")
+            adopted = outcome["adopted"]
+            required_fields = ("route", "locale", "source_path", "target_path")
+            if not all(
+                isinstance(item, dict)
+                and all(isinstance(item.get(field), str) and item[field].strip() for field in required_fields)
+                for item in adopted
+            ):
+                raise ValueError("portable i18n detector returned adopted items with missing or empty fields")
+            adopted_routes = [item["route"] for item in adopted]
+            if len(set(adopted_routes)) != len(adopted_routes):
+                raise ValueError("portable i18n detector returned duplicate adopted routes")
+            if any(item["locale"] != locales[0] for item in adopted):
+                raise ValueError("portable i18n detector returned an unexpected adopted locale")
+            if not set(routes) <= set(adopted_routes):
+                raise ValueError("portable i18n detector did not adopt every requested route")
             by_route = {item["route"]: item for item in record["routes"]}
             state = json.loads(temp_state.read_text(encoding="utf-8"))
             for route in routes:
