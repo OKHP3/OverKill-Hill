@@ -1,10 +1,10 @@
 # Thread closeout status
 
-September 11, 2026. Status: **INCOMPLETE for the broader website queue; A14/A15
-implementation closeout is complete within its scoped automated acceptance**.
+September 12, 2026. Status: **INCOMPLETE for the broader website queue; this
+task's technical closeout is complete within its scoped automated acceptance**.
 The original 26 coop-pertition deliverables are complete. PR75, PR76, PR81,
-PR86, PR77, PR89, PR92, and PR97 have been merged into current `origin/main`
-at `1bddac10`.
+PR86, PR77, PR89, PR92, PR97, and PR98 have been merged into current
+`origin/main` at `0b14c4e6`.
 This ledger separates that verified batch from the older website work
 referenced during its audit.
 
@@ -30,7 +30,7 @@ artifacts. They do not imply every proposed feature or policy was adopted.
 ## Earlier website queue
 
 Baseline for this reconciliation: website `origin/main`
-`9511ee8d338ff270d00e6a9507ffdc06114ce80a`. Prior reports at `c2d23f08`
+`0b14c4e67ef9ae28983d5bbfce0fe94a652be124`. Prior reports at `c2d23f08`
 and `f4a353c323fc1caa848e03f6f0aa1ea1e520210c` are historical. Do not
 restore old runtime or translation bytes to match them.
 
@@ -46,7 +46,7 @@ restore old runtime or translation bytes to match them.
 | T03 | Translation package discovery safeguards incorporated through PR75 at `95230cf2` | Retain the closeout evidence; current-SHA and hosted acceptance remain separate gates |
 | T04 | Translation operating documentation incorporated through PR75 at `95230cf2` | Retain the closeout evidence; current-SHA and hosted acceptance remain separate gates |
 | T06 | Regional generator safeguards incorporated through PR75 at `95230cf2` | Retain the closeout evidence; current-SHA and hosted acceptance remain separate gates |
-| A20/A21 | Published acceptance exists; current-SHA mapping, native/device validation and Replit parity remain open | Complete the acceptance mapping and preserve the evidence boundaries before lifecycle cleanup |
+| A20/A21 | Published acceptance exists; current-SHA mapping and Replit parity remain open | Preserve the evidence boundaries; human/device acceptance remains outside this technical closeout |
 
 PRs: [62](https://github.com/OKHP3/OverKill-Hill/pull/62),
 [65](https://github.com/OKHP3/OverKill-Hill/pull/65),
@@ -70,11 +70,11 @@ original dated policy packages without adopting settings or publication changes.
 
 Combined local validation passes: 59 translation skill tests, eight discovery
 regressions, 18 reviewed-target integrity regressions, four regional-generator
-regressions and five staging-header proposal tests. Generated HTML and search
-index freshness checks pass using the existing QA virtual environment. German
-and Spanish draft drift remains advisory under the current policy; no review
-hashes were adopted to hide it. Hosted checks, current-SHA acceptance, and
-native/device validation remain separate open gates.
+regressions and five staging-header proposal tests. Current HTML, search-index,
+locale release, Site Validation, and GitHub Pages deployment checks pass at
+`0b14c4e6`. PR98 makes AI-reviewed locale release explicit; native certification
+remains optional and is not claimed by this record. Hosted live behavior and
+native/device validation remain separate evidence boundaries.
 
 Five separate Codex tasks were created with requested model `gpt-5.4-mini` and
 low effort. Actual thread IDs and worktrees below were read back after setup.
@@ -128,17 +128,14 @@ ledger:
 2. **Replit parity:** compare the live Replit checkout with the accepted
    release/source SHA and record any divergence. Local Git evidence does not
    establish live Replit parity.
-3. **French language gate:** obtain native-language review if French publication
-   quality is required. The current exact-pair evidence is AI-reviewed only and
-   does not claim native approval.
-4. **Lifecycle closeout:** once items 1-3 are evidenced, reconcile local main
-   to the accepted remote SHA, preserve required recovery refs, and archive
-   completed tasks only after ancestry and recovery checks. Do not delete
-   proposal history or unverified worktrees as part of this thread.
+3. **Lifecycle closeout:** if the broader program is later closed, preserve
+   required recovery refs and archive completed tasks only after ancestry and
+   recovery checks. Do not delete proposal history or unverified worktrees as
+   part of this thread.
 
-Items 1-4 depend on live Replit state, human testing, or owner-controlled
+Items 1-3 depend on live Replit state, human testing, or broader owner-controlled
 lifecycle actions. The technical deployment and GitHub lifecycle gates are
-already verified as of `1bddac10`.
+verified as of `0b14c4e6`.
 
 Do not archive the broader closeout effort as fully complete until accepted
 package PRs are merged, applicable CI and deployment evidence matches the final
