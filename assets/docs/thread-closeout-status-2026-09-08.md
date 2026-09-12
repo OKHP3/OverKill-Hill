@@ -4,7 +4,7 @@ September 12, 2026. Status: **INCOMPLETE for the broader website queue; this
 task's technical closeout is complete within its scoped automated acceptance**.
 The original 26 coop-pertition deliverables are complete. PR75, PR76, PR81,
 PR86, PR77, PR89, PR92, PR97, and PR98 have been merged into current
-`origin/main` at `0b14c4e6`.
+`origin/main` at `15106ed7`.
 This ledger separates that verified batch from the older website work
 referenced during its audit.
 
@@ -72,7 +72,7 @@ Combined local validation passes: 59 translation skill tests, eight discovery
 regressions, 18 reviewed-target integrity regressions, four regional-generator
 regressions and five staging-header proposal tests. Current HTML, search-index,
 locale release, Site Validation, and GitHub Pages deployment checks pass at
-`0b14c4e6`. PR98 makes AI-reviewed locale release explicit; native certification
+`15106ed7`. PR98 makes AI-reviewed locale release explicit; native certification
 remains optional and is not claimed by this record. Hosted live behavior and
 native/device validation remain separate evidence boundaries.
 
@@ -135,7 +135,7 @@ ledger:
 
 Items 1-3 depend on live Replit state, human testing, or broader owner-controlled
 lifecycle actions. The technical deployment and GitHub lifecycle gates are
-verified as of `0b14c4e6`.
+verified as of `15106ed7`.
 
 Do not archive the broader closeout effort as fully complete until accepted
 package PRs are merged, applicable CI and deployment evidence matches the final
