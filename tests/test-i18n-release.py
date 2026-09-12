@@ -88,10 +88,10 @@ class I18nReleaseTests(unittest.TestCase):
         with patch.object(MODULE, "run_detector", return_value=report), patch.object(MODULE, "page_hash", return_value=None):
             result = MODULE.load_results(config)
         self.assertEqual(12, sum(len(result[key]) for key in ("missing", "stale", "needs_baseline")))
-        self.assertEqual({"fr"}, {item["locale"] for item in result["policy"]["blocking_items"]})
-        self.assertEqual({"de", "es"}, {item["locale"] for item in result["policy"]["advisory_items"]})
-        self.assertEqual(4, len(result["policy"]["blocking_items"]))
-        self.assertEqual(8, len(result["policy"]["advisory_items"]))
+        self.assertEqual(set(), {item["locale"] for item in result["policy"]["blocking_items"]})
+        self.assertEqual({"de", "es", "fr"}, {item["locale"] for item in result["policy"]["advisory_items"]})
+        self.assertEqual(0, len(result["policy"]["blocking_items"]))
+        self.assertEqual(12, len(result["policy"]["advisory_items"]))
 
     def test_all_current_blocking_locale_is_not_blocked(self):
         report = {
