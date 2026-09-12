@@ -1,9 +1,10 @@
 # Thread closeout status
 
-September 9, 2026. Status: **INCOMPLETE for the broader website queue; A14/A15
+September 11, 2026. Status: **INCOMPLETE for the broader website queue; A14/A15
 implementation closeout is complete within its scoped automated acceptance**.
 The original 26 coop-pertition deliverables are complete. PR75, PR76, PR81,
-PR86 and PR77 have been merged into current `origin/main` at `78a30608`.
+PR86, PR77, PR89, PR92, and PR97 have been merged into current `origin/main`
+at `1bddac10`.
 This ledger separates that verified batch from the older website work
 referenced during its audit.
 
@@ -120,31 +121,24 @@ No response is treated as approval for a redesign or policy change.
 The following checklist is the complete remaining work identified by this
 ledger:
 
-1. **PR89 technical release:** wait for the in-progress Site Validation job,
-   confirm it passes against the final PR SHA, and merge PR89 through the normal
-   protected-main path. The local deterministic gates already pass; no source
-   repair remains in this worktree.
-2. **Current-main deployment:** after merge, confirm the Pages workflow completes
-   for that exact SHA and verify the published routes and well-known endpoints
-   against the deployed release.
-3. **A20 human acceptance:** execute the original Safari VoiceOver, NVDA, and
+1. **A20 human acceptance:** execute the original Safari VoiceOver, NVDA, and
    physical-phone protocol against the deployed release, recording device,
    browser, route, result, and any defect. This cannot be certified from local
    automation or inferred from A09's 14 native-Mac tests.
-4. **Replit parity:** compare the live Replit checkout with the accepted
+2. **Replit parity:** compare the live Replit checkout with the accepted
    release/source SHA and record any divergence. Local Git evidence does not
    establish live Replit parity.
-5. **French language gate:** obtain native-language review if French publication
+3. **French language gate:** obtain native-language review if French publication
    quality is required. The current exact-pair evidence is AI-reviewed only and
    does not claim native approval.
-6. **Lifecycle closeout:** once items 1-5 are evidenced, reconcile local main
+4. **Lifecycle closeout:** once items 1-3 are evidenced, reconcile local main
    to the accepted remote SHA, preserve required recovery refs, and archive
    completed tasks only after ancestry and recovery checks. Do not delete
    proposal history or unverified worktrees as part of this thread.
 
-Items 2-6 depend on external deployment, live Replit state, human testing, or
-owner-controlled lifecycle actions. They are documented here as explicit gates,
-not silently treated as complete.
+Items 1-4 depend on live Replit state, human testing, or owner-controlled
+lifecycle actions. The technical deployment and GitHub lifecycle gates are
+already verified as of `1bddac10`.
 
 Do not archive the broader closeout effort as fully complete until accepted
 package PRs are merged, applicable CI and deployment evidence matches the final
