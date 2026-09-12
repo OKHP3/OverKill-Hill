@@ -152,6 +152,9 @@ jobs:
       - name: Test regional locale draft protections
         run: python3 -m unittest tests/test-locale-drafts.py
 
+      - name: Test Cloudflare proposal contract
+        run: python3 tests/test-cloudflare-header-proposal.py
+
       - name: Test the Pages translation freshness dependency
         run: python3 tests/test-i18n-workflow.py
 

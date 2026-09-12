@@ -3,9 +3,11 @@
 Status: **PROPOSAL. Owner decision pending; no migration authorized by this document.**
 Prepared September 7, 2026 against fetched `main` commit
 `98922aebf71d90b2b18ecc34c8b00a041fff51c7` in the isolated T05 worktree.
-This PR changes documentation only. It preserves all HTML, alternate links,
-indexability, release behavior, ledgers, source writing, artwork, and historical
-review records.
+This PR does not activate policy or change locale publication behavior. It
+preserves the proposal, supporting evidence, a staging-only headers adapter,
+and the focused contract test without changing production HTML, alternate
+links, indexability, release behavior, ledgers, source writing, artwork, or
+historical review records.
 
 ## Problem and intended result
 
