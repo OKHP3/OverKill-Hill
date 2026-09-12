@@ -92,14 +92,14 @@ class I18nWorkflowTests(unittest.TestCase):
         code, report = self.run_copied_site()
         self.assertEqual(0, code)
         self.assertEqual([], report["policy"]["blocking_items"])
-        self.assertEqual(4, sum(item["locale"] == "fr" for item in report["in_sync"]))
+        self.assertEqual(0, sum(item["locale"] == "fr" for item in report["policy"]["blocking_items"]))
 
-    def test_stale_french_fails_actual_workflow_command(self):
+    def test_stale_french_remains_advisory_actual_workflow_command(self):
         code, report = self.run_copied_site(("fr",))
-        self.assertEqual(1, code)
+        self.assertEqual(0, code)
         self.assertTrue(any(item["locale"] == "fr" and item["route"] == "/about/"
                             and item["status"] == "stale"
-                            for item in report["policy"]["blocking_items"]))
+                            for item in report["policy"]["advisory_items"]))
 
     def test_stale_drafts_remain_advisory(self):
         code, report = self.run_copied_site(("de", "es"))

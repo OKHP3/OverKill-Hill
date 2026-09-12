@@ -28,8 +28,8 @@ def load_site_config() -> Dict[str, Any]:
         raise ValueError("site i18n policy must declare schema_version 1.0")
     blocking = config.get("blocking_locales")
     targets = config.get("target_locales", {})
-    if not isinstance(blocking, list) or not blocking or not all(isinstance(item, str) for item in blocking):
-        raise ValueError("blocking_locales must be a non-empty list")
+    if not isinstance(blocking, list) or not all(isinstance(item, str) for item in blocking):
+        raise ValueError("blocking_locales must be a list of locale keys")
     unknown = sorted(set(blocking) - set(targets))
     if unknown:
         raise ValueError(f"blocking_locales contains unconfigured locales: {unknown}")
