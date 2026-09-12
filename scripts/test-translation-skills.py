@@ -55,7 +55,7 @@ def main() -> int:
     args = parser.parse_args()
     try:
         suite = collect(args.root.resolve())
-    except (ValueError, ImportError) as error:
+    except Exception as error:
         parser.exit(1, f"Translation suite discovery failed: {error}\n")
     result = unittest.TextTestRunner(verbosity=2).run(suite)
     return 0 if result.wasSuccessful() else 1

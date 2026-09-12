@@ -18,7 +18,7 @@ SPEC.loader.exec_module(MODULE)
 
 
 class LocaleDraftBuilderTests(unittest.TestCase):
-    def test_es_mx_requires_reviewed_input_and_keeps_the_reviewed_file_untouched(self):
+    def test_es_mx_uses_reviewed_input_and_keeps_the_reviewed_file_untouched(self):
         canonical = (ROOT / "index.html").read_text(encoding="utf-8")
         reviewed_path = ROOT / "i18n" / "pilot" / "es-mx" / "reviewed" / "index.html"
         reviewed_before = reviewed_path.read_text(encoding="utf-8")

@@ -55,7 +55,7 @@ def run_detector(config_path: Path, mode: str = "report") -> Dict[str, Any]:
 
 
 def page_hash(path: Path) -> str:
-    """Match ledger v1 hashes while preserving all visible HTML content."""
+    """Match ledger v1 hashes after only CRLF-to-LF normalization."""
     return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
@@ -159,6 +159,10 @@ def adopt(locales: List[str], routes: List[str], provenance: Path, config: Dict[
             temp_config = Path(handle.name)
         try:
             outcome = run_detector(temp_config, mode="adopt")
+            if not isinstance(outcome, dict) or not isinstance(outcome.get("adopted"), list):
+                raise ValueError("portable i18n detector returned malformed adopt output")
+            if not all(isinstance(item, dict) for item in outcome["adopted"]):
+                raise ValueError("portable i18n detector returned malformed adopted items")
             by_route = {item["route"]: item for item in record["routes"]}
             state = json.loads(temp_state.read_text(encoding="utf-8"))
             for route in routes:

@@ -12,7 +12,8 @@ import unittest
 RUNNER = Path(__file__).resolve().parents[1] / "scripts/test-translation-skills.py"
 SPEC = importlib.util.spec_from_file_location("translation_runner", RUNNER)
 MODULE = importlib.util.module_from_spec(SPEC)
-assert SPEC.loader is not None
+if SPEC is None or SPEC.loader is None:
+    raise RuntimeError(f"Could not load translation runner: {RUNNER}")
 SPEC.loader.exec_module(MODULE)
 
 
@@ -38,7 +39,8 @@ class DiscoveryGuardTests(unittest.TestCase):
         self.assertIn(message, result.stdout + result.stderr)
 
     def test_complete_inventory_runs_all_tests(self):
-        self.run_guard(True, "Ran 59 tests")
+        expected = sum(minimum for _package, _filename, minimum in MODULE.SUITES)
+        self.run_guard(True, f"Ran {expected} tests")
 
     def test_missing_translation_suite_fails(self):
         self.files[0].unlink()
