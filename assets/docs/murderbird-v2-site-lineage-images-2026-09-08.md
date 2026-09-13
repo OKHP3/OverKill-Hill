@@ -34,6 +34,30 @@ Composition references were respectively the existing `over-kill-hill-p3-sentine
 
 ## Generator outputs
 
+## Site integration under September 12 execution authorization
+
+Jamie authorized completion of this task, including scoped integration, validation,
+normal push, reviewed squash merge, and deployment verification. That instruction
+supersedes the pending-integration status above for the following selection; it
+does not assert new human anatomy testing or exact geometric identity.
+
+- Legal: the original three-quarter guardian; the frontal alternate remains rejected.
+- Contact: anatomy revision 02 with compact wings and tail.
+- Construction: anatomy revision 02 with the corrected upright neck.
+- 404: reassembly revision 04, moderating revision 03's excessive neck length.
+- Sharing: the v2 CRT background with real typeset brand text in a 1200 × 630 card.
+
+The two build scripts listed in `scripts/README.md` produce proportional public
+delivery copies. English sources, localized image references, sharing metadata,
+and article badges use v2 assets. Historical sigil galleries remain explicitly
+historical. Production originals and rejected/superseded revisions remain outside
+the Pages release. The previously released eight-second MurderBird clip remains
+in place; the deferred longer film and audio are not part of this closeout.
+
+`tests/test-murderbird-site-lineage.py` guards the public route inventory against
+retired branding and rejected production sources. French provenance records the
+bounded asset/metadata review without claiming native or human approval.
+
 ### Error illustration revision 04: moderated neck length
 
 Jamie found revision 03's neck too long. Revision 04 shortens that neck toward a midpoint between revisions 02 and 03, retaining upright posture and the 404 disassembly scene. Saved `assets/murderbird/production/images/murderbird-v2-404-reassembly-revision-04-wide-1536-2026-09-08.png` from generator output `exec-3e00f026-2b3a-4ff0-9e3c-74aac65251c0.png`. Visual review confirms a lower head and shorter exposed neck than revision 03; exact percentage reduction and unchanged surrounding pixels are not certified. 1536 × 1024 RGB, decoded and copy hash verified. Earlier revisions remain preserved. Candidate for review, not deployed.

@@ -1,0 +1,46 @@
+{
+  "language_pair": "en-US -> fr-FR",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "source_revision": "git:5f9e0fff755f1a6982241e50a2bf5bd29e53a76b",
+  "reviewed_on": "2026-09-12",
+  "review_scope": "Reviewed English/French diffs for four existing routes: v2 asset URLs, responsive image candidates, sharing dimensions/descriptions, and generated CSP hashes. French Contact sharing description reuses the existing French homepage brand/computer description. Article and interface prose, navigation, and locale publication status are unchanged. No new native or human approval.",
+  "routes": [
+    {
+      "route": "/",
+      "locale": "fr",
+      "source_path": "index.html",
+      "target_path": "fr/index.html",
+      "source_sha256": "7909b88593ae379286b9393f1610908f18473acec7898c25eaa74d33b68862dd",
+      "target_sha256": "ef656e1e04b3a4faa52914378d01544b10813842a23be3ac1f605b78790272da",
+      "disposition": "retained-ai-reviewed"
+    },
+    {
+      "route": "/about/",
+      "locale": "fr",
+      "source_path": "about/index.html",
+      "target_path": "fr/about/index.html",
+      "source_sha256": "eb270474688f71f20fc1705b06dd0a1fb010c3564a091c79b8bdc5b4dd2f1473",
+      "target_sha256": "84f44cf2d59310b47698fb5f3c7cef9bf8d3449578d2bab97b898291c9424a96",
+      "disposition": "retained-ai-reviewed"
+    },
+    {
+      "route": "/contact/",
+      "locale": "fr",
+      "source_path": "contact/index.html",
+      "target_path": "fr/contact/index.html",
+      "source_sha256": "176d0c92175454243f43cf392c57ff73dfc6e04ca30e368631d1beb11d1fcb95",
+      "target_sha256": "6dfc4e3ba26f1c062479fabc14c84603700555efc028a6aa11ea2a510e9f26db",
+      "disposition": "retained-ai-reviewed"
+    },
+    {
+      "route": "/projects/",
+      "locale": "fr",
+      "source_path": "projects/index.html",
+      "target_path": "fr/projects/index.html",
+      "source_sha256": "12a3640857f5c58c94d7aef6a72a4ead106c58f68648c936f75aa9808cda4091",
+      "target_sha256": "68c9d104e15efaee401c5a065f54c73c5e660422707d332da7128565d879e18e",
+      "disposition": "retained-ai-reviewed"
+    }
+  ]
+}
