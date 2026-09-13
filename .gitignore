@@ -45,3 +45,6 @@ attached_assets/
 attached-assets/
 _unused/
 unused/
+
+# ADR-0007: generated audit output is not tracked
+assets/audit/

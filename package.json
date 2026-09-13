@@ -4,7 +4,7 @@
   "description": "**Precision · Protocol · Promptcraft**",
   "private": true,
   "engines": {
-    "node": ">=24 <25"
+    "node": "22.19.0"
   },
   "scripts": {
     "test:accessibility": "node scripts/accessibility-qa.mjs",
@@ -15,9 +15,12 @@
     "test:phone-overflow": "node scripts/phone-overflow-qa.mjs",
     "test:toc": "node scripts/toc-follow-qa.mjs",
     "test:theme-controls": "node --test tests/theme-controls.test.mjs",
-    "test:responsive": "node scripts/responsive-qa.mjs --base=http://127.0.0.1:5000"
+    "test:responsive": "node scripts/responsive-qa.mjs --base=http://127.0.0.1:5000",
+    "check:stack": "python3 scripts/check-stack-conformance.py",
+    "serve": "python3 scripts/serve-site.py"
   },
   "dependencies": {
-    "playwright": "^1.62.1"
+    "playwright": "1.60.0",
+    "lighthouse": "13.4.1"
   }
 }

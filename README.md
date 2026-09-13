@@ -14,8 +14,14 @@ The public site and source materials for **OverKill Hill P³™** — the digita
 ## What this repo is
 
 A static HTML/CSS/JS site, hand-authored, hosted on GitHub Pages with an
-intended Cloudflare-fronted custom domain (`overkillhill.com`). No build step.
-No framework. No tracking beyond the analytics declared on the relevant pages.
+intended Cloudflare-fronted custom domain (`overkillhill.com`). No framework.
+No tracking beyond the analytics declared on the relevant pages.
+
+There is a build step. `scripts/build-site.py` generates page content from
+`site-src/pages.json`, and `.replit` defines a separate release build
+(`scripts/build-replit-release.py`, output `.local/site-release`). Check
+`build-site.py` before hand-editing generated page HTML, or a later build may
+overwrite the edit.
 
 The repo also serves as the public artifact archive for OverKill Hill P³ writings, projects, and the surrounding ecosystem (AskJamie™, Glee-fully Personalizable Tools™, Mermaid Theme Builder, Prompt Forge).
 
@@ -179,20 +185,20 @@ diagram grids that escape the viewport.
 
 ## Build / maintenance scripts
 
-All scripts in `scripts/` are pure Python, dependency-light (Pillow + bs4 + lxml), and **idempotent** — re-running them on an already-processed repo is a no-op. Each supports `--check` where documented.
+`scripts/` holds Python and Node runners. The Python helpers are dependency-light (`beautifulsoup4`, `Pillow`, `soupsieve`, `typing-extensions` — see `requirements-qa.txt`; there is no `lxml` dependency) and **idempotent** — re-running them on an already-processed repo is a no-op. Each supports `--check` where documented.
+
+Retired one-shot scripts live in `scripts/archive/` and are not part of any pipeline. Read a script's header before adapting one.
 
 | Script | Purpose |
 |---|---|
+| `build-site.py` | Generates page content from `site-src/pages.json` |
+| `build-replit-release.py` | Assembles the Replit static release into `.local/site-release` |
 | `validate-site.py` | Editorial + structural validator (run before every commit) |
-| `png-to-webp.py` | Bulk PNG → WebP conversion (q=82, method=6) for assets ≥ 200 KB |
-| `picture-upgrade.py` | Wraps `<img src=".png">` in `<picture>` with a `<source type="image/webp">` sibling |
 | `cache-bust.py` | Appends `?v=<sha256[:8]>` to local CSS/JS refs in HTML |
-| `extract-templates.py` | Derives stripped layout templates into `/assets/templates/` from one donor per layout; requires `beautifulsoup4` locally |
 | `build-search-index.py` | Refreshes `/assets/data/search-index.json` from live HTML. `--check` compares the expected index in memory and exits non-zero when stale without writing the JSON. |
-| `modernize-pages.py` | Idempotently injects 2026 baselines into every page: `color-scheme` meta, skip-link, Speculation Rules API prefetch, and local Mermaid `modulepreload` (Mermaid pages only); `--check` for CI |
-| `move-orphans-to-library.py` | Moves any unreferenced asset under `assets/img/` into `assets/img/library/` (preserves the file as a media-kit archive, removes from deploy hot path); `--check` for CI |
+| `check-stack-conformance.py` | Asserts the ADR-0007 canonical OKHP3 stack; `--fix` repairs mechanical items only |
 
-Templates produced by `extract-templates.py` are **scaffolds, not pages** — they're disallowed in `robots.txt` and skipped by `validate-site.py`.
+Templates under `/assets/templates/` are **scaffolds, not pages** — they're disallowed in `robots.txt` and skipped by `validate-site.py`. The script that derived them is archived and is not re-run.
 
 ### Continuous integration
 
@@ -293,7 +299,7 @@ VoiceOver+Safari) session on the home, article, project, and utility pages.
 
 ## Known limitations
 
-- Image-format optimization is script-based rather than automatic: use the PNG-to-WebP and picture-upgrade scripts, then review the generated diff.
+- Image-format optimization is **not currently running**. The PNG-to-WebP and picture-upgrade scripts are in `scripts/archive/`, and `assets/img/` still holds PNGs above 1 MB with no WebP sibling. Restore the scripts to `scripts/` and run them, or drop the optimization claim.
 - `_headers` declares a report-only CSP and related security/cache headers for
   the intended edge. The August 22, 2026 live check found those headers absent
   and observed `Cache-Control: max-age=600` on the canonical domain, so
