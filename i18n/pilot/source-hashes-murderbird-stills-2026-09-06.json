@@ -2,10 +2,10 @@
   "source_revision": "git:eea06d01af978d37cb59113a2aac43ad82aa6a09",
   "review_scope": "Option B presentation and compact hero adaptation; unchanged full source facts, archived copy and draft publication restrictions retained. No human/native approval.",
   "normalized_routes": {
-    "/": "df5fd6d76273da8bd1badb7e7eba28dcdd8fec5f011a37b0e7cbd297b2479cce",
-    "/about/": "5a42603e7a5704b3a4d2642f83b0dfaaa2f570790ae372f4589dc5e92106bdb0",
-    "/projects/": "0feab25ad6031f68b8f145ce91f8ecee88af3c1840a873d87e12a1a62a17e96e",
-    "/contact/": "68e8068ff793245258b9a5d2f78b3a1ac9a79c158f8b0cf3a7fef4925f8c88e0"
+    "/": "f039751a54869fad434c951f0c9770a8858bc0f291e923a196a0c9babc8039bd",
+    "/about/": "4c83dc52777562bba635de25e32a072bb4c402a7aa99a60c68a2bc9ae0d9d404",
+    "/projects/": "b40228f94b073e4f2dafb6be697b0b1f229307efeef84be14ac2aa34ab0fcc17",
+    "/contact/": "d0682c3cb7795af31d7f3de32f18def82d173008fa22b167597f0c74c3b23d34"
   },
   "fallback_metadata_update": "PNG fallback only; unchanged editorial text verified against d112ca4e by tests/test-murderbird-fallback-editorial.py; prior review limitations retained.",
   "content_wave_update": {
@@ -84,6 +84,52 @@
         "record": "i18n/pilot/es-mx/a15-contact-translation-2026-09-08.json",
         "human_native_approved": false,
         "release_accepted": false
+      }
+    ]
+  },
+  "site_lineage_review": {
+    "reviewed_on": "2026-09-12",
+    "scope": "V2 image paths, responsive delivery and generic sharing metadata only. Existing regional prose and draft/noindex boundary retained; no human/native approval.",
+    "records": [
+      {
+        "locale": "en-gb",
+        "route": "/",
+        "target_sha256": "53dcbcc399aa7aee982b369c358eb37e9b34e33c783f864aa70ffdf6af48f406"
+      },
+      {
+        "locale": "en-gb",
+        "route": "/about/",
+        "target_sha256": "0e7665100a38c7dd4e2dd42a0df594ac1a191dc79b312bab9cb14b8389c3323f"
+      },
+      {
+        "locale": "en-gb",
+        "route": "/projects/",
+        "target_sha256": "2ded52aee6fbd5025f971024287fd9856dc44c6fc00e3071a7fe5f944b3ca973"
+      },
+      {
+        "locale": "en-gb",
+        "route": "/contact/",
+        "target_sha256": "82e451f926a18190002b8554a767dec443d62ce46993816fb9922f9e81c82c1a"
+      },
+      {
+        "locale": "es-mx",
+        "route": "/",
+        "target_sha256": "c348452adbf540bd79b2182155e2882673d434db45fec882cd4c70eb224a81c7"
+      },
+      {
+        "locale": "es-mx",
+        "route": "/about/",
+        "target_sha256": "4d4ac4261c6bf00f628637fbfe5904efdd7955a526e28eb5a4c38eb6f37c1082"
+      },
+      {
+        "locale": "es-mx",
+        "route": "/projects/",
+        "target_sha256": "b6d14650d458e5edde42c2f8af459340c63603943aa82635e3394da61bf1d18b"
+      },
+      {
+        "locale": "es-mx",
+        "route": "/contact/",
+        "target_sha256": "4cbce288e6f309c913a6e7c24250a6901119806dfa2374cf168f126995e8f592"
       }
     ]
   }

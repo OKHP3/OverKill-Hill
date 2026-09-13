@@ -12,6 +12,8 @@ follows the same convention as `askjamie/scripts/README.md`.
 | --- | --- | --- |
 | `build-murderbird-hero.py` | active | Hash-locked proportional delivery for six accepted still sources |
 | `build-murderbird-story-social.mjs` | active | Full-art story social raster with real fonts; local-only review HTML |
+| `build-murderbird-site-assets.py` | active | Proportional PNG/WebP delivery copies of the corrected site-lineage images |
+| `build-murderbird-brand-share.mjs` | active | Typeset 1200 × 630 generic v2 brand sharing card |
 | `build-murderbird-release-register.py` | active | Derived accepted subset and built-release dependency checks |
 | `murderbird-integration-qa.mjs` | active | Six-homepage and five-scene local browser checks; translation fallback receipt |
 | `accessibility-qa.mjs` | active | Accessibility QA (`npm run test:*`) |
