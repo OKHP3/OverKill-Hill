@@ -78,20 +78,6 @@ class ConcurrencyTests(unittest.TestCase):
     def test_theme_control_sites_use_all_reviewed_checkout_revisions(self):
         source = job(VALIDATE, 'validate')
         theme_step = step(source, 'Run shared theme-control regressions')
-        configured_match = re.search(
-            r'THEME_CONTROL_SITES: >-\n(?P<json>.*?)\n\s+run:',
-            theme_step,
-            re.S,
-        )
-        if configured_match is None:
-            self.fail('missing THEME_CONTROL_SITES configuration')
-        configured = {
-            site['name']: site
-            for site in json.loads(
-                ''.join(line.strip() for line in configured_match['json'].splitlines())
-            )
-        }
-
         sites = (
             ('OKH', '.', 'THEME_CONTROL_OKH_REVISION', 'Checkout repository', None),
             ('Glee', '.ci/theme-sites/glee-fullytools', 'THEME_CONTROL_GLEE_REVISION',
@@ -99,6 +85,40 @@ class ConcurrencyTests(unittest.TestCase):
             ('AskJamie', '.ci/theme-sites/askjamie', 'THEME_CONTROL_ASKJAMIE_REVISION',
              'Checkout reviewed AskJamie foundation revision', 'OKHP3/AskJamie'),
         )
+        configured_match = re.search(
+            r'THEME_CONTROL_SITES: >-\n(?P<json>.*?)\n\s+run:',
+            theme_step,
+            re.S,
+        )
+        if configured_match is None:
+            self.fail('missing THEME_CONTROL_SITES configuration')
+        configured_entries = json.loads(
+            ''.join(line.strip() for line in configured_match['json'].splitlines())
+        )
+        expected_paths = {name: expected_path for name, expected_path, *_ in sites}
+        configured = {}
+        for site in configured_entries:
+            name = site.get('name')
+            if name in configured:
+                expected_path = expected_paths.get(name, site.get('root', '<unknown>'))
+                self.fail(
+                    f'duplicate THEME_CONTROL_SITES site {name!r}; '
+                    f'expected checkout path {expected_path}',
+                )
+            configured[name] = site
+
+        expected_names = {name for name, *_ in sites}
+        self.assertEqual(
+            len(configured_entries),
+            len(expected_names),
+            'THEME_CONTROL_SITES must contain exactly the three reviewed sites',
+        )
+        self.assertEqual(
+            set(configured),
+            expected_names,
+            'THEME_CONTROL_SITES must contain exactly OKH, Glee, and AskJamie',
+        )
+
         for name, expected_path, revision_variable, checkout_name, expected_repository in sites:
             with self.subTest(site=name):
                 configured_site = configured.get(name)
