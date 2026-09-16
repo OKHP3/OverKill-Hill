@@ -564,6 +564,14 @@ def render_sitemap(pages: list[dict], raw: str) -> str:
 
 
 def build(check: bool) -> int:
+    theme_generator = ROOT / "scripts" / "generate-theme-controls.py"
+    theme_command = [sys.executable, str(theme_generator)]
+    if check:
+        theme_command.append("--check")
+    theme_result = subprocess.run(theme_command, cwd=ROOT)
+    if theme_result.returncode:
+        return theme_result.returncode
+
     if not MANIFEST.exists():
         print("Missing site-src/pages.json. Run: python3 scripts/build-site.py --bootstrap", file=sys.stderr)
         return 1

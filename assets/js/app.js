@@ -17,6 +17,27 @@ function okhLocaleText(english, french) {
 //                 (search.js consolidated here 2026-05-03)
 // ════════════════════════════════════════════════════════════════════════════
 
+// BEGIN GENERATED BRAND THEME CONFIG. Do not edit this block.
+const BRAND_THEME_CONFIG = Object.freeze({
+  "glee": {
+    "name": "Glee",
+    "bodyClass": "glee-main",
+    "storageKey": "glee-color-scheme",
+    "light": "#d35b2d",
+    "dark": "#1e1b19",
+    "colorScheme": "dark light"
+  },
+  "askjamie": {
+    "name": "AskJamie",
+    "bodyClass": "askjamie-main",
+    "storageKey": "askjamie-color-scheme",
+    "light": "#f5efe1",
+    "dark": "#2c5e6f",
+    "colorScheme": "dark light"
+  }
+});
+// END GENERATED BRAND THEME CONFIG.
+
 // ── 1. Reading progress bar ─────────────────────────────────────────────────
 (function () {
   const bar = document.getElementById("reading-progress");
@@ -168,9 +189,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Brand sites keep data-theme="light" for shared rules while their
   // auto/light/dark preference is expressed through data-color-scheme.
-  const brandLocked =
-    body.classList.contains("glee-main") ||
-    body.classList.contains("askjamie-main");
+  const brandConfig = Object.values(BRAND_THEME_CONFIG).find(({ bodyClass }) =>
+    body.classList.contains(bodyClass)
+  );
+  const brandLocked = Boolean(brandConfig);
 
   const readStorage = (key) => {
     try {
@@ -257,12 +279,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // while their optional dark scheme is controlled independently.
     document.documentElement.setAttribute("data-theme", "light");
 
-    const isGlee = body.classList.contains("glee-main");
-    const schemeKey = isGlee ? "glee-color-scheme" : "askjamie-color-scheme";
+    const schemeKey = brandConfig.storageKey;
     const schemeStates = ["auto", "light", "dark"];
-    const schemeColors = isGlee
-      ? { light: "#d35b2d", dark: "#1e1b19" }
-      : { light: "#f5efe1", dark: "#2c5e6f" };
+    const schemeColors = {
+      light: brandConfig.light,
+      dark: brandConfig.dark,
+    };
     const schemeIcons = {
       auto: '<svg class="tt-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
       light: '<svg class="tt-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>',

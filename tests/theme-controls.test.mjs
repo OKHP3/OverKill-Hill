@@ -198,20 +198,28 @@ test("brand control colors stay aligned with the reviewed theme contract", () =>
   for (const expected of Object.values(BRAND_EXPECTATIONS)) {
     assert.match(
       appScript,
-      new RegExp(`light:\\s*["']${expected.light}["']`),
+      new RegExp(`"light":\\s*["']${expected.light}["']`),
       `${expected.name} light color`,
     );
     assert.match(
       appScript,
-      new RegExp(`dark:\\s*["']${expected.dark}["']`),
+      new RegExp(`"dark":\\s*["']${expected.dark}["']`),
       `${expected.name} dark color`,
     );
     assert.match(
       appScript,
-      new RegExp(`${expected.storageKey}`),
+      new RegExp(`"storageKey":\\s*["']${expected.storageKey}["']`),
       `${expected.name} storage key`,
     );
   }
+});
+
+test("browser theme constants are generated from the reviewed contract", async () => {
+  await assert.doesNotReject(
+    () => execFileAsync("python3", ["scripts/generate-theme-controls.py", "--check"], {
+      cwd: repositoryRoot,
+    }),
+  );
 });
 
 test("all three theme controls survive disabled storage", async () => {

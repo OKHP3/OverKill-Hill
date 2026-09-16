@@ -18,6 +18,7 @@ follows the same convention as `askjamie/scripts/README.md`.
 | `audit-site.py` | active | Site audit |
 | `build-search-index.py` | active | Rebuild the generated search index |
 | `build-site.py` | active | Regenerate HTML from `site-src/` sources |
+| `generate-theme-controls.py` | active | Generate browser theme constants from the reviewed brand contract |
 | `cache-bust.py` | active | Cache-busting query params |
 | `check-banner.py` | active | Construction-banner consistency check (invoked by `validate-site.py`) |
 | `check-csp.py` | active | CI guard against CSP drift |
