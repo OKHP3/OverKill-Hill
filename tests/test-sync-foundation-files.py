@@ -146,6 +146,20 @@ class SyncFoundationSafetyTests(unittest.TestCase):
         self.assertEqual(theme_report["sites"]["askjamie"]["site"], "AskJamie")
         self.assertEqual(theme_report["sites"]["askjamie"]["revision"], revision)
 
+    def test_relative_repo_path_overrides_resolve_from_checkout_root(self):
+        pins = [f"{name}={git(repo, 'rev-parse', 'HEAD')}" for name, repo in self.repos.items()]
+        result = self.invoke(
+            "--verify",
+            "--source-repo", "overkill-hill",
+            "--source-revision", git(self.repos["overkill-hill"], "rev-parse", "HEAD"),
+            "--repo-path", "overkill-hill=.",
+            "--repo-path", "glee-fullytools=../glee-fullytools",
+            "--repo-path", "askjamie=../askjamie",
+            *sum((["--site-revision", pin] for pin in pins), []),
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(json.loads(result.stdout)["verification"]["status"], "passed")
+
     def test_verify_reads_all_assets_from_pinned_revisions(self):
         pins = [f"{name}={git(repo, 'rev-parse', 'HEAD')}" for name, repo in self.repos.items()]
         # A working-tree edit must not affect immutable revision verification.
