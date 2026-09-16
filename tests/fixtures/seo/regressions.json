@@ -108,6 +108,11 @@
     "value": "2026-04-08",
     "expected": "conflicting duplicate Article JSON-LD datePublished values"
   },
+  "duplicate_article_modified_date_mismatch": {
+    "route": "/writings/first-diagram-is-a-liar/",
+    "value": "2026-05-23",
+    "expected": "conflicting duplicate Article JSON-LD dateModified values"
+  },
   "draft_article_promotion": {
     "route": "/writings/biases-as-constants/",
     "field": "meta:robots",

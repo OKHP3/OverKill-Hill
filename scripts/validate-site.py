@@ -641,6 +641,19 @@ def validate_article_jsonld_dates(
             "conflicting duplicate Article JSON-LD datePublished values: "
             f"{published_dates!r}",
         ))
+    modified_dates = [
+        article["dateModified"]
+        for article in articles
+        if isinstance(article.get("dateModified"), str)
+        and article["dateModified"]
+    ]
+    if len(modified_dates) > 1 and len(set(modified_dates)) > 1:
+        findings.append(Finding(
+            "ERROR",
+            location,
+            "conflicting duplicate Article JSON-LD dateModified values: "
+            f"{modified_dates!r}",
+        ))
     for article in articles:
         for field in ("datePublished", "dateModified"):
             value = article.get(field)

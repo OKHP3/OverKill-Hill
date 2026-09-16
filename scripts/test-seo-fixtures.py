@@ -96,7 +96,7 @@ def remove_jsonld_field(raw: str, field: str) -> str:
     return mutated
 
 
-def duplicate_article_jsonld(raw: str, date_published: str) -> str:
+def duplicate_article_jsonld(raw: str, field: str, value: str) -> str:
     pattern = re.compile(
         r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>.*?</script>',
         re.IGNORECASE | re.DOTALL,
@@ -105,7 +105,7 @@ def duplicate_article_jsonld(raw: str, date_published: str) -> str:
         block = match.group(0)
         if '"@type": "Article"' not in block:
             continue
-        duplicate = mutate_jsonld_field(block, "datePublished", date_published)
+        duplicate = mutate_jsonld_field(block, field, value)
         return raw[:match.end()] + duplicate + raw[match.end():]
     raise AssertionError("fixture Article JSON-LD block not found")
 
@@ -683,9 +683,39 @@ class SEOFixtureTests(unittest.TestCase):
         page = self.pages_by_route[mutation["route"]]
         path = (ROOT / "site-src" / "pages" / page["path"]).with_suffix(".extras.html")
         original_raw = path.read_text(encoding="utf-8")
-        mutated_raw = duplicate_article_jsonld(original_raw, mutation["value"])
+        mutated_raw = duplicate_article_jsonld(
+            original_raw, "datePublished", mutation["value"]
+        )
         self.assertIn(
             '"headline": "The First Diagram Is Usually a Liar"',
+            mutated_raw,
+        )
+        self.assertEqual(
+            page.get("meta:robots"),
+            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+            "source fixture mutation changed the indexing boundary",
+        )
+        findings = validator.validate_article_jsonld_dates(
+            path.relative_to(ROOT).as_posix(),
+            parse_html(mutated_raw),
+            page["meta:article:published_time"],
+        )
+        self.assert_rejected(findings, mutation["expected"])
+
+    def test_duplicate_article_jsonld_modified_date_rejected_in_source_extras(self) -> None:
+        mutation = self.fixture_data["duplicate_article_modified_date_mismatch"]
+        page = self.pages_by_route[mutation["route"]]
+        path = (ROOT / "site-src" / "pages" / page["path"]).with_suffix(".extras.html")
+        original_raw = path.read_text(encoding="utf-8")
+        mutated_raw = duplicate_article_jsonld(
+            original_raw, "dateModified", mutation["value"]
+        )
+        self.assertIn(
+            '"headline": "The First Diagram Is Usually a Liar"',
+            mutated_raw,
+        )
+        self.assertIn(
+            '"description": "From AutoCAD 10 and Visio trauma',
             mutated_raw,
         )
         self.assertEqual(
@@ -988,7 +1018,34 @@ class SEOFixtureTests(unittest.TestCase):
         path = GENERATED_FIXTURE / "article.html.fixture"
         original_raw = path.read_text(encoding="utf-8")
         original_parser = parse_html(original_raw)
-        mutated_raw = duplicate_article_jsonld(original_raw, mutation["value"])
+        mutated_raw = duplicate_article_jsonld(
+            original_raw, "datePublished", mutation["value"]
+        )
+        mutated_parser = parse_html(mutated_raw)
+        self.assertIn(
+            "<article>Fixture article copy remains unchanged.</article>",
+            mutated_raw,
+        )
+        self.assertEqual(
+            original_parser.is_noindex,
+            mutated_parser.is_noindex,
+            "generated fixture mutation changed the indexing boundary",
+        )
+        findings = validator.validate_generated_seo(
+            path,
+            mutated_parser,
+            self.pages_by_route[mutation["route"]],
+        )
+        self.assert_rejected(findings, mutation["expected"])
+
+    def test_duplicate_article_jsonld_modified_date_rejected_in_generated_metadata(self) -> None:
+        mutation = self.fixture_data["duplicate_article_modified_date_mismatch"]
+        path = GENERATED_FIXTURE / "article.html.fixture"
+        original_raw = path.read_text(encoding="utf-8")
+        original_parser = parse_html(original_raw)
+        mutated_raw = duplicate_article_jsonld(
+            original_raw, "dateModified", mutation["value"]
+        )
         mutated_parser = parse_html(mutated_raw)
         self.assertIn(
             "<article>Fixture article copy remains unchanged.</article>",
