@@ -35,7 +35,7 @@ import re
 import struct
 import subprocess
 import sys
-from datetime import datetime
+from datetime import date, datetime, timezone
 from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
@@ -616,6 +616,46 @@ def validate_organization_nodes(location: str, parser: TagCounter) -> list[Findi
     return findings
 
 
+def _article_date_values_match(article_date: str, published_time: str) -> bool:
+    """Compare Article dates without losing either calendar or instant meaning.
+
+    Date-only values are calendar dates and must match as exact contract
+    strings.  Timezone-qualified ISO 8601 date-times represent instants, so
+    equivalent values with different offsets match after UTC normalization.
+    A date-only value, a timezone-less date-time, and a timezone-qualified
+    date-time are not interchangeable; values outside those exact or
+    normalized matches fail parity.
+    """
+    if article_date == published_time:
+        return True
+
+    def is_date_only(value: str) -> bool:
+        try:
+            date.fromisoformat(value)
+        except ValueError:
+            return False
+        return "T" not in value and "t" not in value
+
+    if is_date_only(article_date) or is_date_only(published_time):
+        return False
+
+    try:
+        article_datetime = datetime.fromisoformat(article_date.replace("Z", "+00:00"))
+        published_datetime = datetime.fromisoformat(published_time.replace("Z", "+00:00"))
+    except ValueError:
+        return False
+
+    article_offset = article_datetime.utcoffset()
+    published_offset = published_datetime.utcoffset()
+    if article_offset is None or published_offset is None:
+        return False
+
+    return (
+        article_datetime.astimezone(timezone.utc)
+        == published_datetime.astimezone(timezone.utc)
+    )
+
+
 def validate_article_jsonld_dates(
     location: str,
     parser: TagCounter,
@@ -682,7 +722,7 @@ def validate_article_jsonld_dates(
         if (
             published_time
             and isinstance(article.get("datePublished"), str)
-            and article["datePublished"] != published_time
+            and not _article_date_values_match(article["datePublished"], published_time)
         ):
             findings.append(Finding(
                 "ERROR",

@@ -659,6 +659,53 @@ class SEOFixtureTests(unittest.TestCase):
         findings = validator.validate_article_jsonld_source(mutated_pages)
         self.assert_rejected(findings, mutation["expected"])
 
+    def test_timezone_qualified_article_dates_compare_as_documented_in_source(self) -> None:
+        page = self.pages_by_route["/writings/first-diagram-is-a-liar/"]
+        path = (ROOT / "site-src" / "pages" / page["path"]).with_suffix(".extras.html")
+        original_raw = path.read_text(encoding="utf-8")
+        for case_name, mutation in self.fixture_data["article_timezone_date_parity"].items():
+            with self.subTest(case_name=case_name):
+                mutated_raw = mutate_jsonld_field(
+                    original_raw,
+                    "datePublished",
+                    mutation["jsonld_value"],
+                )
+                self.assertIn(
+                    '"headline": "The First Diagram Is Usually a Liar"',
+                    mutated_raw,
+                )
+                self.assertIn(
+                    '"description": "From AutoCAD 10 and Visio trauma',
+                    mutated_raw,
+                )
+                mutated_page = copy.deepcopy(page)
+                mutated_page["meta:article:published_time"] = mutation["published_time"]
+                self.assertEqual(
+                    page.get("meta:robots"),
+                    mutated_page.get("meta:robots"),
+                    "timezone fixture changed the source indexing boundary",
+                )
+                self.assertEqual(
+                    {
+                        key: value for key, value in page.items()
+                        if not key.startswith("meta:")
+                    },
+                    {
+                        key: value for key, value in mutated_page.items()
+                        if not key.startswith("meta:")
+                    },
+                    "timezone fixture changed source editorial or routing fields",
+                )
+                findings = validator.validate_article_jsonld_dates(
+                    path.relative_to(ROOT).as_posix(),
+                    parse_html(mutated_raw),
+                    mutated_page["meta:article:published_time"],
+                )
+                if mutation["valid"]:
+                    self.assertFalse(findings, findings_text(findings))
+                else:
+                    self.assert_rejected(findings, mutation["expected"])
+
     def test_article_sitemap_lastmod_contract_rejected_in_source(self) -> None:
         route = "/writings/first-diagram-is-a-liar/"
         page = self.pages_by_route[route]
@@ -897,6 +944,11 @@ class SEOFixtureTests(unittest.TestCase):
                     mutated_raw,
                 )
                 self.assertEqual(
+                    original_raw.split("<body>", 1)[1],
+                    mutated_raw.split("<body>", 1)[1],
+                    "timezone fixture changed generated editorial content",
+                )
+                self.assertEqual(
                     original_parser.is_noindex,
                     mutated_parser.is_noindex,
                     "generated fixture mutation changed the indexing boundary",
@@ -991,6 +1043,42 @@ class SEOFixtureTests(unittest.TestCase):
             self.pages_by_route[mutation["route"]],
         )
         self.assert_rejected(findings, mutation["expected"])
+
+    def test_timezone_qualified_article_dates_compare_as_documented_in_generated_metadata(self) -> None:
+        path = GENERATED_FIXTURE / "article.html.fixture"
+        original_raw = path.read_text(encoding="utf-8")
+        original_parser = parse_html(original_raw)
+        page = self.pages_by_route["/writings/first-diagram-is-a-liar/"]
+        for case_name, mutation in self.fixture_data["article_timezone_date_parity"].items():
+            with self.subTest(case_name=case_name):
+                mutated_raw = mutate_meta(
+                    mutate_jsonld_field(
+                        original_raw,
+                        "datePublished",
+                        mutation["jsonld_value"],
+                    ),
+                    "meta:article:published_time",
+                    mutation["published_time"],
+                )
+                mutated_parser = parse_html(mutated_raw)
+                self.assertIn(
+                    "<article>Fixture article copy remains unchanged.</article>",
+                    mutated_raw,
+                )
+                self.assertEqual(
+                    original_parser.is_noindex,
+                    mutated_parser.is_noindex,
+                    "timezone fixture changed the generated indexing boundary",
+                )
+                findings = validator.validate_generated_seo(
+                    path,
+                    mutated_parser,
+                    page,
+                )
+                if mutation["valid"]:
+                    self.assertFalse(findings, findings_text(findings))
+                else:
+                    self.assert_rejected(findings, mutation["expected"])
 
     def test_article_sitemap_lastmod_contract_rejected_in_generated_metadata(self) -> None:
         route = "/writings/first-diagram-is-a-liar/"

@@ -103,6 +103,21 @@
     "value": "2026-04-08",
     "expected": "article JSON-LD datePublished does not match article:published_time"
   },
+  "article_timezone_date_parity": {
+    "matching_instant_different_offsets": {
+      "route": "/writings/first-diagram-is-a-liar/",
+      "jsonld_value": "2026-04-07T00:00:00Z",
+      "published_time": "2026-04-06T20:00:00-04:00",
+      "valid": true
+    },
+    "mismatching_instant_same_calendar_date": {
+      "route": "/writings/first-diagram-is-a-liar/",
+      "jsonld_value": "2026-04-07T00:00:00Z",
+      "published_time": "2026-04-07T01:00:00+00:00",
+      "valid": false,
+      "expected": "article JSON-LD datePublished does not match article:published_time"
+    }
+  },
   "duplicate_article_date_mismatch": {
     "route": "/writings/first-diagram-is-a-liar/",
     "value": "2026-04-08",
