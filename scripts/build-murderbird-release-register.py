@@ -86,14 +86,17 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true')
     parser.add_argument('--package', type=Path)
+    parser.add_argument('--output', type=Path, default=OUTPUT)
     args = parser.parse_args()
     payload = record()
     rendered = json.dumps(payload, indent=2, ensure_ascii=False) + '\n'
+    output = args.output if args.output.is_absolute() else ROOT / args.output
     if args.check:
-        if OUTPUT.read_text(encoding='utf-8') != rendered:
+        if output.read_text(encoding='utf-8') != rendered:
             raise SystemExit('Accepted subset record is stale.')
     else:
-        OUTPUT.write_text(rendered, encoding='utf-8')
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(rendered, encoding='utf-8')
     if args.package:
         verify_package(args.package.resolve(), payload)
     print('Accepted subset verified: 6 masters, 18 WebPs, 1 social raster; exploratory inputs not required.')
