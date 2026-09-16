@@ -75,6 +75,59 @@ def context(workflow='Site Validation', event_name='push', ref='refs/heads/main'
 
 
 class ConcurrencyTests(unittest.TestCase):
+    def test_theme_control_fetches_pinned_foundations_before_reviewed_checkouts(self):
+        source = job(VALIDATE, 'validate')
+        fetch_step = step(source, 'Verify pinned theme-control foundation revisions are fetchable')
+        self.assertIn(
+            'git -C "$probe_dir" fetch --no-tags --depth=1 --filter=tree:0',
+            fetch_step,
+        )
+        self.assertIn('git remote get-url origin', fetch_step)
+        self.assertIn('https://github.com/OKHP3/Glee-fullyTools.git', fetch_step)
+        self.assertIn('https://github.com/OKHP3/AskJamie.git', fetch_step)
+        self.assertIn(
+            'foundation revision could not be fetched from',
+            fetch_step,
+        )
+        self.assertIn(
+            'fetched unexpected revision',
+            fetch_step,
+        )
+        for site, revision_variable in (
+            ('OKH', 'THEME_CONTROL_OKH_REVISION'),
+            ('Glee', 'THEME_CONTROL_GLEE_REVISION'),
+            ('AskJamie', 'THEME_CONTROL_ASKJAMIE_REVISION'),
+        ):
+            with self.subTest(site=site):
+                self.assertRegex(
+                    fetch_step,
+                    rf'"{re.escape(site)}"\s+\\\n\s+"{re.escape(revision_variable)}"',
+                )
+                self.assertIn(
+                    revision_variable,
+                    fetch_step,
+                    f'{site} fetch gate must use {revision_variable}',
+                )
+
+        fetch_position = source.index(
+            '- name: Verify pinned theme-control foundation revisions are fetchable',
+        )
+        for checkout_name in (
+            'Checkout reviewed Glee foundation revision',
+            'Checkout reviewed AskJamie foundation revision',
+        ):
+            with self.subTest(checkout=checkout_name):
+                self.assertLess(
+                    fetch_position,
+                    source.index(f'- name: {checkout_name}'),
+                    'pinned revision fetches must fail before reviewed checkouts',
+                )
+        self.assertLess(
+            fetch_position,
+            source.index('- name: Run shared theme-control regressions'),
+            'pinned revision fetches must fail before the browser audit',
+        )
+
     def test_theme_control_sites_use_all_reviewed_checkout_revisions(self):
         source = job(VALIDATE, 'validate')
         theme_step = step(source, 'Run shared theme-control regressions')
