@@ -217,7 +217,7 @@ class ReleasePackageTests(unittest.TestCase):
                 self.assertFalse((output / relative).exists(), relative)
 
     def test_archived_source_bytes_match_preservation_receipt(self) -> None:
-        receipt = json.loads((ROOT / "assets/audit/murderbird-source-preservation.json").read_text(encoding="utf-8"))
+        receipt = json.loads((ROOT / "tests/fixtures/murderbird-source-preservation.json").read_text(encoding="utf-8"))
         policy = json.loads((ROOT / ARCHIVE_POLICY).read_text(encoding="utf-8"))
         entries = {entry["path"]: entry for entry in receipt["files"]}
         actual = {path.relative_to(ROOT).as_posix() for path in (ROOT / "assets/murderbird/v2").rglob("*") if path.is_file() and "__pycache__" not in path.parts}
