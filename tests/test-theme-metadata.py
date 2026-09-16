@@ -7,6 +7,7 @@ import importlib.util
 import json
 import sys
 import unittest
+from copy import deepcopy
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -43,6 +44,51 @@ def brand_page(
 
 
 class BrandThemeMetadataTests(unittest.TestCase):
+    def test_reviewed_contract_shape_passes(self) -> None:
+        self.assertIsNone(
+            validator.validate_brand_theme_contract(
+                {"brands": BRAND_THEME_CONTRACT}
+            )
+        )
+
+    def test_contract_reports_missing_required_field_by_brand(self) -> None:
+        contract = deepcopy(BRAND_THEME_CONTRACT)
+        del contract["glee"]["storageKey"]
+
+        with self.assertRaisesRegex(
+            ValueError, r"brand 'glee'.*storageKey"
+        ):
+            validator.validate_brand_theme_contract({"brands": contract})
+
+    def test_contract_rejects_invalid_color_with_brand_name(self) -> None:
+        contract = deepcopy(BRAND_THEME_CONTRACT)
+        contract["askjamie"]["dark"] = "#not-a-color"
+
+        with self.assertRaisesRegex(
+            ValueError, r"brand 'askjamie'.*dark.*#not-a-color"
+        ):
+            validator.validate_brand_theme_contract({"brands": contract})
+
+    def test_contract_rejects_invalid_color_scheme_with_brand_name(self) -> None:
+        contract = deepcopy(BRAND_THEME_CONTRACT)
+        contract["glee"]["colorScheme"] = "solarized"
+
+        with self.assertRaisesRegex(
+            ValueError, r"brand 'glee'.*colorScheme.*solarized"
+        ):
+            validator.validate_brand_theme_contract({"brands": contract})
+
+    def test_contract_rejects_duplicate_brand_and_body_class_identifiers(self) -> None:
+        contract = deepcopy(BRAND_THEME_CONTRACT)
+        contract["other"] = deepcopy(contract["glee"])
+
+        with self.assertRaisesRegex(ValueError, r"brand 'other'.*brand name"):
+            validator.validate_brand_theme_contract({"brands": contract})
+
+        contract["other"]["name"] = "Other"
+        with self.assertRaisesRegex(ValueError, r"brand 'other'.*body class"):
+            validator.validate_brand_theme_contract({"brands": contract})
+
     def test_valid_brand_metadata_passes(self) -> None:
         for expected in BRAND_THEME_CONTRACT.values():
             with self.subTest(brand=expected["name"]):
