@@ -133,11 +133,10 @@ def sitemap_urls(path: Path) -> set[str]:
 
 def check_search_index(
     index_path: Path,
-    required_routes: set[str],
+    promoted_routes: set[str],
     locale: str,
     findings: list[str],
     *,
-    declared_routes: set[str],
     draft_routes: set[str],
     require_routes: bool,
 ) -> None:
@@ -157,11 +156,12 @@ def check_search_index(
         return
     urls = [entry.get("url") for entry in entries if isinstance(entry, dict)]
     indexed_routes = set(urls)
+    declared_routes = promoted_routes | draft_routes
     undeclared = sorted(indexed_routes - declared_routes)
     if undeclared:
         fail(findings, f"locale search index contains undeclared routes: {', '.join(undeclared)}")
     if require_routes:
-        missing = sorted(required_routes - indexed_routes)
+        missing = sorted(promoted_routes - indexed_routes)
         if missing:
             fail(findings, f"locale search index is missing routes: {', '.join(missing)}")
     indexed_drafts = sorted(draft_routes & indexed_routes)
@@ -250,7 +250,7 @@ def validate_locale(
         fail(findings, f"locale {locale!r} must declare metadata_source='localized-page'")
     source_routes: set[str] = set()
     target_routes: set[str] = set()
-    indexable_routes: set[str] = set()
+    promoted_routes: set[str] = set()
     site_validator = None
     for page in pages:
         if not isinstance(page, dict):
@@ -273,7 +273,7 @@ def validate_locale(
         if page_metadata_source not in {"localized-page"}:
             fail(findings, f"locale page {target_path} must declare metadata_source='localized-page'")
         if page_indexable:
-            indexable_routes.add(target_route)
+            promoted_routes.add(target_route)
         source_file = root / source_path
         target_file = root / target_path
         if not source_file.is_file():
@@ -372,7 +372,9 @@ def validate_locale(
         for url in urls
         if url.startswith(locale_prefix)
     }
-    undeclared_sitemap_routes = sorted(sitemap_locale_routes - target_routes)
+    draft_routes = target_routes - promoted_routes
+    declared_routes = promoted_routes | draft_routes
+    undeclared_sitemap_routes = sorted(sitemap_locale_routes - declared_routes)
     if undeclared_sitemap_routes:
         fail(
             findings,
@@ -386,7 +388,6 @@ def validate_locale(
             set(),
             locale,
             findings,
-            declared_routes=target_routes,
             draft_routes=target_routes,
             require_routes=False,
         )
@@ -395,17 +396,16 @@ def validate_locale(
     for route in sorted(source_routes):
         if route_url(route) not in urls:
             fail(findings, f"source route is missing from sitemap.xml: {route}")
-    for route in sorted(indexable_routes):
+    for route in sorted(promoted_routes):
         if route_url(route) not in urls:
             fail(findings, f"indexable locale route is missing from sitemap.xml: {route}")
     check_search_index(
         index_path,
-        indexable_routes,
+        promoted_routes,
         locale,
         findings,
-        declared_routes=target_routes,
-        draft_routes=target_routes - indexable_routes,
-        require_routes=bool(indexable_routes),
+        draft_routes=draft_routes,
+        require_routes=bool(promoted_routes),
     )
     run_index_freshness_check(index_path, locale, findings)
 
