@@ -1,0 +1,48 @@
+{
+  "language_pair": "en-US -> de-DE",
+  "review_scope": "Current German draft pages for all four configured routes; retained advisory content, protected links and names, route metadata, noindex boundary, and current source/target freshness reviewed.",
+  "review_status": "ai-reviewed",
+  "native_or_human_approval": false,
+  "publication_status": "noindex draft; sync adoption is freshness evidence, not publication",
+  "source_revision": "git:c83d6b87894e6675bea8f6ad10d4e6659c3447ae",
+  "reviewed_on": "2026-09-16",
+  "review_notes": [
+    "Retained German copy reads as Germany German and preserves the direct, practical source voice.",
+    "Protected project names, routes, external links, contact address, technical values, and route metadata were retained.",
+    "All four pages remain noindex advisory drafts; no native certification or publication approval is claimed."
+  ],
+  "routes": [
+    {
+      "route": "/",
+      "locale": "de",
+      "source_sha256": "4061e619ce4cab85c31049d6f0f5da99215899c9f27164b35a2a15a58a5e2b51",
+      "target_path": "de/index.html",
+      "target_sha256": "c98b751c4155f7f0813fd02f65579b0b1b4f2ea29f428f3ad63b04d9dc0488fd",
+      "disposition": "retained-ai-reviewed"
+    },
+    {
+      "route": "/about/",
+      "locale": "de",
+      "source_sha256": "4036e1ab8e4c33cc58f32bf7977946fbae35f787ce2de5cd6deaa73a2d5b07b6",
+      "target_path": "de/about/index.html",
+      "target_sha256": "010cfa52074003c3031bb9f2dd89370a85d44c777e755c0dbf806e064590a951",
+      "disposition": "retained-ai-reviewed"
+    },
+    {
+      "route": "/contact/",
+      "locale": "de",
+      "source_sha256": "21261a4eabad82a9f08e88ebe0a0576cfdba00018e5f624188ec570f874bb427",
+      "target_path": "de/contact/index.html",
+      "target_sha256": "8a27e56764344d7de76f1d2422c178df75f867364250ed191dbd877af1ef0176",
+      "disposition": "retained-ai-reviewed"
+    },
+    {
+      "route": "/projects/",
+      "locale": "de",
+      "source_sha256": "6d1e8cee4ecd6a47fe779ae46b87306df58a912fbc01f382daf4737261ba3a7b",
+      "target_path": "de/projects/index.html",
+      "target_sha256": "0de1ff9a2d2ee9f9e574e14ef1f54181e4452d35dc440c97cd1be33d40b50cdf",
+      "disposition": "retained-ai-reviewed"
+    }
+  ]
+}
