@@ -321,6 +321,57 @@ class SEOFixtureTests(unittest.TestCase):
                 findings,
             )
 
+    def test_duplicate_sitemap_locations_are_rejected_with_conflicting_dates(self) -> None:
+        location = "https://overkillhill.com/writings/example/"
+        with tempfile.TemporaryDirectory() as directory:
+            sitemap_path = Path(directory) / "sitemap.xml"
+            sitemap_path.write_text(
+                "<urlset>"
+                f"<url><loc>{location}</loc><lastmod>2026-05-24</lastmod></url>"
+                f"<url><loc>{location}</loc><lastmod>2026-05-28</lastmod></url>"
+                f"<url><loc>{location}</loc><lastmod>2026-05-28</lastmod></url>"
+                "</urlset>",
+                encoding="utf-8",
+            )
+
+            findings = validator.validate_sitemap_duplicates(sitemap_path)
+            text = findings_text(findings)
+            self.assertIn(
+                f"duplicate sitemap location: {location} appears 3 times",
+                text,
+            )
+            self.assertIn(
+                f"conflicting duplicate sitemap lastmod values for {location}",
+                text,
+            )
+            self.assertIn("2026-05-24", text)
+            self.assertIn("2026-05-28", text)
+            self.assertEqual(
+                validator.load_sitemap_entries(sitemap_path)[location],
+                "2026-05-24",
+                "duplicate parsing must not let a later lastmod silently win",
+            )
+
+    def test_identical_duplicate_sitemap_locations_are_rejected(self) -> None:
+        location = "https://overkillhill.com/about/"
+        with tempfile.TemporaryDirectory() as directory:
+            sitemap_path = Path(directory) / "sitemap.xml"
+            sitemap_path.write_text(
+                "<urlset>"
+                f"<url><loc>{location}</loc><lastmod>2026-05-28</lastmod></url>"
+                f"<url><loc>{location}</loc><lastmod>2026-05-28</lastmod></url>"
+                "</urlset>",
+                encoding="utf-8",
+            )
+
+            findings = validator.validate_sitemap_duplicates(sitemap_path)
+            text = findings_text(findings)
+            self.assertIn(
+                f"duplicate sitemap location: {location} appears 2 times",
+                text,
+            )
+            self.assertNotIn("conflicting duplicate sitemap lastmod values", text)
+
     def test_public_inventory_excludes_test_fixtures(self) -> None:
         pages = validator.find_html_files()
         self.assertIn(ROOT / "index.html", pages)

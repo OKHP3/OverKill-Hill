@@ -274,12 +274,12 @@ def find_html_files() -> list[Path]:
     return sorted(files)
 
 
-def load_sitemap_entries() -> dict[str, str | None]:
-    """Load sitemap locations together with their optional last-modified date."""
-    if not SITEMAP.exists():
-        return {}
-    text = SITEMAP.read_text(encoding="utf-8")
-    entries: dict[str, str | None] = {}
+def _sitemap_entries_from_path(sitemap_path: Path) -> list[tuple[str, str | None]]:
+    """Read sitemap location/date pairs without collapsing duplicate locations."""
+    if not sitemap_path.exists():
+        return []
+    text = sitemap_path.read_text(encoding="utf-8")
+    entries: list[tuple[str, str | None]] = []
     for block in re.findall(r"<url\b[^>]*>(.*?)</url>", text, flags=re.IGNORECASE | re.DOTALL):
         loc_match = re.search(r"<loc\b[^>]*>([^<]+)</loc>", block, flags=re.IGNORECASE)
         if not loc_match:
@@ -290,12 +290,51 @@ def load_sitemap_entries() -> dict[str, str | None]:
             flags=re.IGNORECASE,
         )
         loc = unescape(loc_match.group(1).strip())
-        entries[loc] = (
+        entries.append((
+            loc,
             unescape(lastmod_match.group(1).strip())
             if lastmod_match is not None
-            else None
-        )
+            else None,
+        ))
     return entries
+
+
+def load_sitemap_entries(sitemap_path: Path = SITEMAP) -> dict[str, str | None]:
+    """Load sitemap locations with the first date for each location.
+
+    Duplicate locations are reported separately by
+    :func:`validate_sitemap_duplicates`; retaining the first value here keeps
+    callers deterministic without allowing a later duplicate to silently win.
+    """
+    entries: dict[str, str | None] = {}
+    for loc, lastmod in _sitemap_entries_from_path(sitemap_path):
+        entries.setdefault(loc, lastmod)
+    return entries
+
+
+def validate_sitemap_duplicates(sitemap_path: Path = SITEMAP) -> list[Finding]:
+    """Reject duplicate sitemap locations before consumers build a date map."""
+    occurrences: dict[str, list[str | None]] = {}
+    for loc, lastmod in _sitemap_entries_from_path(sitemap_path):
+        occurrences.setdefault(loc, []).append(lastmod)
+
+    findings: list[Finding] = []
+    for loc in sorted(occurrences):
+        values = occurrences[loc]
+        if len(values) < 2:
+            continue
+        findings.append(Finding(
+            "ERROR",
+            "sitemap.xml",
+            f"duplicate sitemap location: {loc} appears {len(values)} times",
+        ))
+        if len(set(values)) > 1:
+            findings.append(Finding(
+                "ERROR",
+                "sitemap.xml",
+                f"conflicting duplicate sitemap lastmod values for {loc}: {values!r}",
+            ))
+    return findings
 
 
 def load_sitemap_urls() -> set[str]:
@@ -1958,6 +1997,7 @@ def main() -> int:
     all_findings.extend(validate_generated_theme_controls())
     all_findings.extend(manifest_findings)
     all_findings.extend(locale_findings)
+    all_findings.extend(validate_sitemap_duplicates())
     all_findings.extend(validate_source_seo_contract(manifest_pages))
     all_findings.extend(validate_article_jsonld_source(manifest_pages, sitemap_entries))
     all_findings.extend(validate_organization_source())
