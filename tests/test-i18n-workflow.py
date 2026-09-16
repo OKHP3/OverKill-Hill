@@ -56,9 +56,9 @@ class I18nWorkflowTests(unittest.TestCase):
         self.assertLess(validation.index(command), validation.index("path: site-release"))
         self.assertIn("run: python3 tests/test-i18n-workflow.py", validation)
 
-    def run_copied_site(self, stale_locales=()):
+    def run_copied_site(self, stale_locales=(), mutate_french_target=False, blocking_locales=None):
         # Copy only the detector's real inputs. No source, review, or ledger writes
-        # reach the checkout, and the wrapper runs without mocks or altered policy.
+        # reach the checkout, and the wrapper runs without mocks.
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             config = json.loads((ROOT / "i18n/sync.config.json").read_text())
@@ -76,14 +76,22 @@ class I18nWorkflowTests(unittest.TestCase):
                 target = root / relative
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(ROOT / relative, target)
+            if blocking_locales is not None:
+                config["blocking_locales"] = list(blocking_locales)
+                (root / "i18n/sync.config.json").write_text(json.dumps(config))
             ledger = root / config["state_file"]
             state = json.loads(ledger.read_text())
             for locale in stale_locales:
                 state["pages"]["/about/"]["targets"][locale]["synced_source_sha256"] = "0" * 64
             ledger.write_text(json.dumps(state))
+            if mutate_french_target:
+                target = root / f"{config['target_locales']['fr']['root']}/about/index.html"
+                target.write_bytes(target.read_bytes() + b"\n<!-- reviewed target drift -->\n")
+            ledger_before = ledger.read_bytes()
             before = {path: path.read_bytes() for path in root.rglob("*") if path.is_file()}
             result = subprocess.run(shlex.split(gate_command()), cwd=root,
                                     capture_output=True, text=True, timeout=30)
+            self.assertEqual(ledger_before, ledger.read_bytes())
             self.assertEqual(before, {path: path.read_bytes() for path in root.rglob("*") if path.is_file()})
             self.assertIn(result.returncode, (0, 1), result.stderr)
             return result.returncode, json.loads(result.stdout)
@@ -100,6 +108,16 @@ class I18nWorkflowTests(unittest.TestCase):
         self.assertTrue(any(item["locale"] == "fr" and item["route"] == "/about/"
                             and item["status"] == "stale"
                             for item in report["policy"]["advisory_items"]))
+
+    def test_reviewed_french_target_drift_blocks_actual_workflow_command(self):
+        code, report = self.run_copied_site(
+            mutate_french_target=True,
+            blocking_locales=("fr",),
+        )
+        self.assertEqual(1, code)
+        self.assertTrue(any(item["locale"] == "fr" and item["route"] == "/about/"
+                            and item["status"] == "target_changed"
+                            for item in report["policy"]["blocking_items"]))
 
     def test_stale_drafts_remain_advisory(self):
         code, report = self.run_copied_site(("de", "es"))
