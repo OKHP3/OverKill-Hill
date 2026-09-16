@@ -26,10 +26,12 @@ const fixtureFiles = new Map([
   ["/external-csp-network-shared.html", "external-csp-network-shared.html"],
   ["/external-network-failure-network-shared.html", "external-network-failure-network-shared.html"],
   ["/external-delayed-outage.html", "external-delayed-outage.html"],
+  ["/external-timeout.html", "external-timeout.html"],
 ]);
 
 let server;
 let externalServer;
+const pendingExternalSockets = new Set();
 let baseUrl;
 let externalBaseUrl;
 let focusedReportDirectory;
@@ -123,6 +125,11 @@ before(async () => {
       }, 1400);
       return;
     }
+    if (path === "/pending.png") {
+      pendingExternalSockets.add(request.socket);
+      request.socket.once("close", () => pendingExternalSockets.delete(request.socket));
+      return;
+    }
     response.writeHead(404, { "content-type": "text/plain" });
     response.end("external fixture route not found");
   });
@@ -142,6 +149,7 @@ before(async () => {
 });
 
 after(async () => {
+  for (const socket of pendingExternalSockets) socket.destroy();
   await new Promise((resolve, reject) => server.close((error) => error ? reject(error) : resolve()));
   await new Promise((resolve, reject) =>
     externalServer.close((error) => error ? reject(error) : resolve()));
@@ -281,6 +289,7 @@ test("links the focused CSP summary to its uploaded artifact", async () => {
     await rm(reportDirectory, { recursive: true, force: true });
   }
 });
+
 
 test("keeps the focused CSP summary useful without an uploaded artifact", async () => {
   const reportDirectory = await mkdtemp(join(tmpdir(), "csp-summary-missing-"));
@@ -710,6 +719,53 @@ test("waits for a delayed external response before classifying the dependency", 
     assert.ok(delayed, JSON.stringify(report, null, 2));
     assert.equal(delayed.state, "unavailable");
     assert.ok(delayed.responses.some(({ status }) => status === 503));
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("identifies external requests that remain pending through the settle timeout", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-timeout-health-"));
+  const reportPath = join(reportDirectory, "report.json");
+  try {
+    const result = await runCspQa("/external-timeout.html", [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /EXTERNAL OUTAGE: .*pending\.png \(no-response\)/);
+    assert.match(result.output, /EXTERNAL TIMEOUT: \/external-timeout\.html .*pending\.png/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.equal(report.summary.externalOutages, 1);
+    assert.equal(report.summary.timeouts, 1);
+    assert.deepEqual(report.timeouts, [{
+      route: "/external-timeout.html",
+      url: report.timeouts[0].url,
+    }]);
+
+    const pending = report.dependencies.find(({ url }) => url.endsWith("/pending.png"));
+    assert.ok(pending, JSON.stringify(report, null, 2));
+    assert.equal(pending.state, "no-response");
+    assert.equal(pending.responses.length, 0);
+    assert.equal(pending.failures.length, 0);
+    assert.deepEqual(pending.timeouts, [{
+      route: "/external-timeout.html",
+      url: pending.url,
+    }]);
+    assert.deepEqual(pending.routeOutcomes, [{
+      route: "/external-timeout.html",
+      state: "no-response",
+      cspBlocked: false,
+      responses: [],
+      failures: [],
+      timeouts: [{
+        route: "/external-timeout.html",
+        url: pending.url,
+      }],
+      cspEvidence: [],
+    }]);
   } finally {
     await rm(reportDirectory, { recursive: true, force: true });
   }

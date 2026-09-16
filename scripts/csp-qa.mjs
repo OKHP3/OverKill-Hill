@@ -368,6 +368,7 @@ function getExternalDependency(dependencies, request) {
       requestCount: 0,
       responses: [],
       failures: [],
+      timeouts: [],
       cspEvidence: [],
     });
   }
@@ -389,6 +390,9 @@ function serialiseExternalDependency(dependency, cspEvidence) {
       const routeFailures = dependency.failures.filter(
         (failure) => failure.route === route,
       );
+      const routeTimeouts = dependency.timeouts.filter(
+        (timeout) => timeout.route === route,
+      );
       return {
         route,
         state: classifyExternalDependency({
@@ -399,6 +403,7 @@ function serialiseExternalDependency(dependency, cspEvidence) {
         cspBlocked: routeCspEvidence.length > 0,
         responses: dependency.responses,
         failures: routeFailures,
+        timeouts: routeTimeouts,
         cspEvidence: routeCspEvidence,
       };
     });
@@ -411,6 +416,7 @@ function serialiseExternalDependency(dependency, cspEvidence) {
     requestCount: dependency.requestCount,
     responses: dependency.responses,
     failures: dependency.failures,
+    timeouts: dependency.timeouts,
     cspEvidence: dependencyCspEvidence,
     cspBlocked: dependencyCspEvidence.length > 0,
     state: classifyExternalDependency({
@@ -449,6 +455,7 @@ async function waitForExternalRequestsToSettle(page, pendingRequests) {
     }
     await page.waitForTimeout(50);
   }
+  return pendingRequests.size > 0;
 }
 
 async function checkExternalRoute(browser, path) {
@@ -549,7 +556,20 @@ async function checkExternalRoute(browser, path) {
   // Wait for terminal response/failure events instead of closing after a fixed
   // sleep. The quiet window catches deferred requests without allowing a
   // hanging third-party request to hold the health check forever.
-  await waitForExternalRequestsToSettle(page, pendingExternalRequests);
+  const externalRequestsTimedOut = await waitForExternalRequestsToSettle(
+    page,
+    pendingExternalRequests,
+  );
+  if (externalRequestsTimedOut) {
+    for (const request of pendingExternalRequests) {
+      const dependency = getExternalDependency(dependencies, request);
+      if (!dependency || dependency.timeouts.some(({ route }) => route === path)) continue;
+      dependency.timeouts.push({
+        route: path,
+        url: dependency.url,
+      });
+    }
+  }
   const cspEvidence = await page.evaluate(() => (
     Array.isArray(window.__cspViolationEvidence)
       ? window.__cspViolationEvidence
@@ -592,6 +612,7 @@ function mergeExternalDependencies(results) {
           resourceTypes: [],
           responses: [],
           failures: [],
+          timeouts: [],
           cspEvidence: [],
           cspBlocked: false,
         });
@@ -605,6 +626,7 @@ function mergeExternalDependencies(results) {
       existing.requestCount += dependency.requestCount;
       existing.responses.push(...dependency.responses);
       existing.failures.push(...dependency.failures);
+      existing.timeouts.push(...dependency.timeouts);
       existing.cspEvidence.push(...dependency.cspEvidence);
       existing.cspBlocked = existing.cspBlocked || dependency.cspBlocked;
       existing.state = classifyExternalDependency(existing);
@@ -619,12 +641,14 @@ function mergeExternalDependencies(results) {
         routeOutcomes.set(outcome.route, {
           ...outcome,
           failures: [...outcome.failures],
+          timeouts: [...outcome.timeouts],
           cspEvidence: [...outcome.cspEvidence],
         });
         continue;
       }
       existing.responses.push(...outcome.responses);
       existing.failures.push(...outcome.failures);
+      existing.timeouts.push(...outcome.timeouts);
       existing.cspEvidence.push(...outcome.cspEvidence);
       existing.cspBlocked = existing.cspBlocked || outcome.cspBlocked;
       existing.state = classifyExternalDependency({
@@ -637,8 +661,20 @@ function mergeExternalDependencies(results) {
       .map((outcome) => ({
         ...outcome,
         failures: groupFailureRecords(outcome.failures),
+        timeouts: [...new Map(
+          outcome.timeouts.map((timeout) => [
+            JSON.stringify([timeout.route, timeout.url]),
+            timeout,
+          ]),
+        ).values()],
       }))
       .sort((left, right) => left.route.localeCompare(right.route));
+    dependency.timeouts = [...new Map(
+      dependency.timeouts.map((timeout) => [
+        JSON.stringify([timeout.route, timeout.url]),
+        timeout,
+      ]),
+    ).values()];
   }
   return [...merged.values()].sort((left, right) => left.url.localeCompare(right.url));
 }
@@ -681,6 +717,7 @@ async function runExternalHealth() {
     messages.map((message) => ({ path, message })),
   );
   const cspEvidence = results.flatMap(({ cspEvidence: evidence }) => evidence);
+  const timeouts = dependencies.flatMap(({ timeouts: evidence }) => evidence);
   const localFailures = results.flatMap(({ path, localErrors }) =>
     localErrors.map((error) => ({ path, error })),
   );
@@ -693,6 +730,7 @@ async function runExternalHealth() {
     externalOutages,
     cspDiagnostics,
     cspEvidence,
+    timeouts,
     localFailures,
     summary: {
       routes: results.length,
@@ -701,6 +739,7 @@ async function runExternalHealth() {
       externalOutages: externalOutages.length,
       cspDiagnostics: cspDiagnostics.length,
       cspEvidence: cspEvidence.length,
+      timeouts: timeouts.length,
       localFailures: localFailures.length,
     },
     status: externalOutages.length
@@ -717,6 +756,7 @@ async function runExternalHealth() {
     `${report.summary.available} available, ` +
     `${report.summary.externalOutages} external outage(s), ` +
     `${report.summary.cspDiagnostics} CSP diagnostic(s), ` +
+    `${report.summary.timeouts} timed-out request(s), ` +
     `${report.summary.localFailures} local route failure(s).`,
   );
   externalOutages.forEach((dependency) => {
@@ -729,6 +769,9 @@ async function runExternalHealth() {
       .filter(Boolean);
     const diagnostic = failureReasons.length ? `: ${failureReasons.join(", ")}` : "";
     console.log(`  EXTERNAL OUTAGE: ${dependency.url} (${dependency.state})${diagnostic}`);
+  });
+  timeouts.forEach(({ route, url }) => {
+    console.log(`  EXTERNAL TIMEOUT: ${route} ${url}`);
   });
   if (cspDiagnostics.length || cspEvidence.length) {
     console.log("  CSP diagnostics were observed during the availability check.");
