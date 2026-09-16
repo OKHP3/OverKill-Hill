@@ -1093,6 +1093,17 @@ def validate_generated_seo(
         for key, entries in parser.meta.items()
     }
     findings = validate_organization_nodes(rel, parser)
+    manifest_boundary = "indexable" if is_indexable_page(manifest_page) else "noindex"
+    rendered_boundary = "noindex" if parser.is_noindex else "indexable"
+    if rendered_boundary != manifest_boundary:
+        findings.append(
+            Finding(
+                "ERROR",
+                rel,
+                "robots indexing boundary mismatch: "
+                f"manifest={manifest_boundary}, rendered={rendered_boundary}",
+            )
+        )
     if is_indexable_page(manifest_page):
         findings.extend(validate_duplicate_social_card_metadata(rel, parser.meta))
         findings.extend(validate_indexable_social_card(rel, values, "generated"))

@@ -133,6 +133,8 @@
     "field": "meta:robots",
     "value": "index, follow",
     "expected": "article JSON-LD dateModified is missing",
+    "expected_boundary": "robots indexing boundary mismatch: manifest=indexable, rendered=noindex",
+    "reverse_boundary": "robots indexing boundary mismatch: manifest=noindex, rendered=indexable",
     "og_type": {
       "field": "meta:og:type",
       "value": "website",

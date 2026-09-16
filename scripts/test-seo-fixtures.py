@@ -516,6 +516,17 @@ class SEOFixtureTests(unittest.TestCase):
             promoted_page,
         )
         self.assert_rejected(generated_findings, mutation["expected"])
+        self.assert_rejected(generated_findings, mutation["expected_boundary"])
+
+        indexable_parser = parse_html(
+            mutate_meta(generated_raw, mutation["field"], mutation["value"])
+        )
+        reverse_findings = validator.validate_generated_seo(
+            generated_path,
+            indexable_parser,
+            draft_page,
+        )
+        self.assert_rejected(reverse_findings, mutation["reverse_boundary"])
 
         og_type = mutation["og_type"]
         promoted_page[og_type["field"]] = og_type["value"]
