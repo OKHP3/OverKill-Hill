@@ -19,6 +19,7 @@ const fixtureFiles = new Map([
   ["/external-network-failure.html", "external-network-failure.html"],
   ["/external-network-failure-shared.html", "external-network-failure-shared.html"],
   ["/external-repeated-network-failure.html", "external-repeated-network-failure.html"],
+  ["/external-different-network-failures.html", "external-different-network-failures.html"],
   ["/external-csp-blocked.html", "external-csp-blocked.html"],
   ["/external-csp-and-outage.html", "external-csp-and-outage.html"],
   ["/external-csp-shared.html", "external-csp-shared.html"],
@@ -99,6 +100,19 @@ before(async () => {
     }
     if (path === "/aborted.png") {
       request.socket.destroy();
+      return;
+    }
+    if (path === "/different-failure.png") {
+      const variant = new URL(request.url, "http://external-fixture").searchParams.get("variant");
+      if (variant === "truncated") {
+        response.writeHead(200, {
+          "content-type": "image/png",
+          "content-length": "64",
+        });
+        response.end(Buffer.from("truncated"));
+      } else {
+        request.socket.destroy();
+      }
       return;
     }
     if (path === "/network-shared.png") {
@@ -562,6 +576,58 @@ test("groups repeated failures for one dependency without losing the browser rea
       count: 2,
     });
     assert.match(aborted.failures[0].errorText, /^net::ERR_/);
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("keeps different browser failure reasons separate for one normalized dependency", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-different-failures-"));
+  const reportPath = join(reportDirectory, "report.json");
+  try {
+    const result = await runCspQa("/external-different-network-failures.html", [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /EXTERNAL OUTAGE:/);
+    assert.equal((result.output.match(/net::ERR_EMPTY_RESPONSE/g) || []).length, 1, result.output);
+    assert.equal(
+      (result.output.match(/net::ERR_CONTENT_LENGTH_MISMATCH/g) || []).length,
+      1,
+      result.output,
+    );
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assertExternalFailureReportContract(report);
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.equal(report.summary.externalOutages, 1);
+
+    const dependency = report.dependencies.find(({ url }) =>
+      url.endsWith("/different-failure.png"),
+    );
+    assert.ok(dependency, JSON.stringify(report, null, 2));
+    assert.deepEqual(dependency.routes, ["/external-different-network-failures.html"]);
+    assert.equal(dependency.failures.length, 2);
+    assert.deepEqual(
+      dependency.failures.map(({ route, errorText, count }) => ({
+        route,
+        errorText,
+        count,
+      })).sort((left, right) => left.errorText.localeCompare(right.errorText)),
+      [
+        {
+          route: "/external-different-network-failures.html",
+          errorText: "net::ERR_CONTENT_LENGTH_MISMATCH",
+          count: 1,
+        },
+        {
+          route: "/external-different-network-failures.html",
+          errorText: "net::ERR_EMPTY_RESPONSE",
+          count: 1,
+        },
+      ],
+    );
   } finally {
     await rm(reportDirectory, { recursive: true, force: true });
   }
