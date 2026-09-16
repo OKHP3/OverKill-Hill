@@ -146,6 +146,18 @@ jobs:
       - name: Run shared-foundation sync safety regressions
         run: python3 -m unittest tests/test-sync-foundation-files.py
 
+      - name: Verify pinned cross-site foundation fingerprints
+        run: |
+          python3 scripts/sync-foundation-files.py --verify \
+            --source-repo overkill-hill \
+            --source-revision "$THEME_CONTROL_OKH_REVISION" \
+            --repo-path overkill-hill=. \
+            --repo-path glee-fullytools=.ci/theme-sites/glee-fullytools \
+            --repo-path askjamie=.ci/theme-sites/askjamie \
+            --site-revision "overkill-hill=$THEME_CONTROL_OKH_REVISION" \
+            --site-revision "glee-fullytools=$THEME_CONTROL_GLEE_REVISION" \
+            --site-revision "askjamie=$THEME_CONTROL_ASKJAMIE_REVISION"
+
       - name: Run published-locale release-gate regressions
         run: python3 -m unittest tests/test-i18n-release.py
 

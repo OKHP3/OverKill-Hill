@@ -146,6 +146,46 @@ class SyncFoundationSafetyTests(unittest.TestCase):
         self.assertEqual(theme_report["sites"]["askjamie"]["site"], "AskJamie")
         self.assertEqual(theme_report["sites"]["askjamie"]["revision"], revision)
 
+    def test_verify_reads_all_assets_from_pinned_revisions(self):
+        pins = [f"{name}={git(repo, 'rev-parse', 'HEAD')}" for name, repo in self.repos.items()]
+        # A working-tree edit must not affect immutable revision verification.
+        (self.repos["askjamie"] / FILES[0]).write_text("uncommitted drift\n", encoding="utf-8")
+        result = self.invoke(
+            "--verify",
+            "--source-repo", "overkill-hill",
+            "--source-revision", git(self.repos["overkill-hill"], "rev-parse", "HEAD"),
+            *sum((["--site-revision", pin] for pin in pins), []),
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        report = json.loads(result.stdout)
+        self.assertEqual(report["verification"]["status"], "passed")
+        self.assertEqual(len(report["verification"]["fingerprints"]), len(FILES))
+        for fingerprint in report["verification"]["fingerprints"]:
+            self.assertEqual(set(fingerprint["sites"]), set(self.repos))
+            expected = fingerprint["expected"]["sha256"]
+            self.assertTrue(all(site["sha256"] == expected for site in fingerprint["sites"].values()))
+
+    def test_verify_names_pinned_site_revision_asset_and_fingerprint(self):
+        askjamie = self.repos["askjamie"]
+        (askjamie / FILES[0]).write_text("diverged\n", encoding="utf-8")
+        git(askjamie, "add", FILES[0])
+        git(askjamie, "commit", "-m", "diverged foundation")
+        pins = [f"{name}={git(repo, 'rev-parse', 'HEAD')}" for name, repo in self.repos.items()]
+        result = self.invoke(
+            "--verify",
+            "--source-repo", "overkill-hill",
+            "--source-revision", git(self.repos["overkill-hill"], "rev-parse", "HEAD"),
+            *sum((["--site-revision", pin] for pin in pins), []),
+        )
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        report = json.loads(result.stdout)
+        mismatch = report["verification"]["mismatches"][0]
+        self.assertEqual(mismatch["site"], "AskJamie")
+        self.assertEqual(mismatch["revision"], pins[2].split("=", 1)[1])
+        self.assertEqual(mismatch["asset"], FILES[0])
+        self.assertNotEqual(mismatch["actual_fingerprint"], mismatch["expected_fingerprint"])
+        self.assertIn("AskJamie revision", result.stdout)
+
     def test_failing_hook_prevents_commit_and_accounts_for_output(self):
         module = load_module()
         glee = self.repos["glee-fullytools"]

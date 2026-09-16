@@ -37,7 +37,7 @@ follows the same convention as `askjamie/scripts/README.md`.
 | `post-merge.sh` | active | Post-merge rebuild and validation hook |
 | `responsive-qa.mjs` | active | Responsive QA entry point |
 | `screen-reader-tree-audit.mjs` | active | Screen-reader accessibility tree audit (`npm run test:*`) |
-| `sync-foundation-files.py` | active | Audit-first, explicit-revision sync of theme.css/app.js/mermaid-init.js across the three sibling repos |
+| `sync-foundation-files.py` | active | Read-only audit/verification and explicit-revision sync of theme.css/app.js/mermaid-init.js across the three sibling repos |
 | `test-check-banner.py` | active | Focused regression checks for localized construction-banner validation |
 | `validate-site.py` | active | Structural site validation |
 | `verify-live-edge.py` | active | Live-edge deployment verification |
@@ -129,6 +129,31 @@ cross-site mode is enabled. The test reads all three files from that immutable
 revision instead of the working tree, and prints every site and revision before
 the browser audit so a failed run preserves its exact evidence. The default
 browser fixtures remain available when the sibling repositories are absent.
+
+### Immutable cross-site verification
+
+CI can verify an approved source revision and the exact commit pin used for each
+remote sibling without selecting a checkout from timestamps or reading mutable
+working-tree files:
+
+```bash
+python3 scripts/sync-foundation-files.py --verify \
+  --source-repo overkill-hill \
+  --source-revision APPROVED_SOURCE_SHA \
+  --repo-path overkill-hill=. \
+  --repo-path glee-fullytools=.ci/theme-sites/glee-fullytools \
+  --repo-path askjamie=.ci/theme-sites/askjamie \
+  --site-revision overkill-hill=OKH_PIN_SHA \
+  --site-revision glee-fullytools=GLEE_PIN_SHA \
+  --site-revision askjamie=ASKJAMIE_PIN_SHA
+```
+
+`--site-revision` is required for all three sites and must contain full
+40-character commit SHAs. The verifier reads every asset with `git show` at its
+pin, compares it with the approved source revision, and exits nonzero on drift.
+Its JSON report includes the site, pinned revision, asset, expected fingerprint,
+and actual fingerprint for every mismatch. `--verify` cannot be combined with
+`--apply` or `--commit`, so it cannot rewrite sibling repositories.
 
 ### Universe map integration
 

@@ -88,7 +88,10 @@ brand scopes; it is not split into per-site files.
 Before a foundation release is accepted:
 
 1. `scripts/sync-foundation-files.py` dry-run reports no unresolved conflict.
-2. Every sibling copy has the same normalized-content fingerprint and every
-   generated page points at the current cache fingerprint.
+2. `scripts/sync-foundation-files.py --verify` reads all three foundation files
+   from the approved source revision and the exact pinned commit for each remote
+   sibling; it reports the site, revision, asset, expected fingerprint, and
+   actual fingerprint for every mismatch. It must not select a revision from
+   commit timestamps or working-tree state.
 3. Site validation covers navigation, search, Mermaid security, CSP alignment,
    and the site's existing responsive/accessibility checks.

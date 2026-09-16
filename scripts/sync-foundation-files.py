@@ -1,13 +1,22 @@
 #!/usr/bin/env python3
-"""Safely synchronize the three byte-identical cross-site foundation files.
+"""Safely synchronize and verify the three byte-identical cross-site foundation files.
 
 This tool is deliberately an audit by default. It never chooses a winner from
 commit dates, file mtimes, or the hub repository. To write, name both a source
 checkout and the exact 40-character source commit:
 
     python3 scripts/sync-foundation-files.py
+    python3 scripts/sync-foundation-files.py --verify --source-repo overkill-hill --source-revision <full-commit-sha> \
+        --site-revision overkill-hill=<full-commit-sha> \
+        --site-revision glee-fullytools=<full-commit-sha> \
+        --site-revision askjamie=<full-commit-sha>
     python3 scripts/sync-foundation-files.py --apply --source-repo overkill-hill --source-revision <full-commit-sha>
     python3 scripts/sync-foundation-files.py --commit --source-repo overkill-hill --source-revision <full-commit-sha>
+
+Verification reads every foundation asset from the named immutable revisions and
+fails when any pinned site differs from the approved source fingerprint. Use
+--repo-path name=path when CI checks out a site outside the default sibling
+layout. Verification and the default audit never write sibling repositories.
 
 Before any write it fails closed when any sibling checkout is dirty, staged,
 untracked, or has a Git lock. Locks are reported only; this script never
@@ -47,6 +56,22 @@ def mirror_root() -> Path:
 
 def discover_repos(root: Path) -> dict[str, Path]:
     return {name: root / name for name in REPO_DIRS}
+
+
+def parse_named_value(value: str, option: str) -> tuple[str, str]:
+    name, separator, setting = value.partition("=")
+    if not separator or name not in REPO_DIRS or not setting:
+        raise ValueError(f"{option} must use name=value for one of: {', '.join(REPO_DIRS)}")
+    return name, setting
+
+
+def configured_repos(root: Path, overrides: list[str]) -> dict[str, Path]:
+    repos = discover_repos(root)
+    for value in overrides:
+        name, path = parse_named_value(value, "--repo-path")
+        candidate = Path(path)
+        repos[name] = candidate if candidate.is_absolute() else root / candidate
+    return repos
 
 
 def git_dir(repo: Path) -> Path | None:
@@ -155,6 +180,114 @@ def inspect(files: list[str], repos: dict[str, Path]) -> list[dict]:
     return report
 
 
+def verify_revisions(
+    files: list[str],
+    repos: dict[str, Path],
+    source_name: str,
+    source_revision: str,
+    site_revisions: dict[str, str],
+) -> tuple[dict, list[str]]:
+    """Compare pinned revision bytes without consulting any working tree files."""
+    report = {
+        "source": {
+            "site": SITE_LABELS[source_name],
+            "repository": source_name,
+            "revision": source_revision,
+        },
+        "sites": {},
+        "fingerprints": [],
+        "mismatches": [],
+    }
+    problems: list[str] = []
+    resolved_revisions: dict[str, str] = {}
+
+    for name in REPO_DIRS:
+        revision = site_revisions.get(name)
+        if revision is None:
+            problems.append(f"{SITE_LABELS[name]}: missing pinned commit revision")
+            continue
+        resolved, error = resolve_revision(repos[name], revision)
+        if error:
+            problems.append(f"{SITE_LABELS[name]} revision {revision}: {error}")
+            continue
+        resolved_revisions[name] = resolved
+        report["sites"][name] = {
+            "site": SITE_LABELS[name],
+            "revision": resolved,
+            "pinned_revision": revision,
+            "files": {},
+        }
+
+    source_resolved, source_error = resolve_revision(repos[source_name], source_revision)
+    if source_error:
+        problems.append(f"approved source {SITE_LABELS[source_name]} revision {source_revision}: {source_error}")
+        return report, problems
+    report["source"]["revision"] = source_resolved
+
+    for relpath in files:
+        content, error = source_bytes(repos[source_name], source_resolved, relpath)
+        if error:
+            problems.append(
+                f"approved source {SITE_LABELS[source_name]} revision {source_resolved}: "
+                f"{relpath}: {error}"
+            )
+            continue
+        expected_fingerprint = hashlib.sha256(content).hexdigest()
+        fingerprint_report = {
+            "asset": relpath,
+            "expected": {
+                "site": SITE_LABELS[source_name],
+                "revision": source_resolved,
+                "sha256": expected_fingerprint,
+                "bytes": len(content),
+            },
+            "sites": {},
+        }
+        for name in REPO_DIRS:
+            site_report = report["sites"].get(name)
+            if site_report is None:
+                continue
+            pinned_content, read_error = source_bytes(repos[name], resolved_revisions[name], relpath)
+            if read_error:
+                actual_fingerprint = "missing"
+                problems.append(
+                    f"{SITE_LABELS[name]} revision {resolved_revisions[name]} asset {relpath}: "
+                    f"{read_error}"
+                )
+                bytes_count = None
+            else:
+                actual_fingerprint = hashlib.sha256(pinned_content).hexdigest()
+                bytes_count = len(pinned_content)
+            site_report["files"][relpath] = {
+                "sha256": actual_fingerprint,
+                "bytes": bytes_count,
+            }
+            fingerprint_report["sites"][name] = {
+                "site": SITE_LABELS[name],
+                "revision": resolved_revisions[name],
+                "sha256": actual_fingerprint,
+                "bytes": bytes_count,
+            }
+            if actual_fingerprint != expected_fingerprint:
+                mismatch = {
+                    "site": SITE_LABELS[name],
+                    "revision": resolved_revisions[name],
+                    "asset": relpath,
+                    "expected_fingerprint": expected_fingerprint,
+                    "actual_fingerprint": actual_fingerprint,
+                }
+                report["mismatches"].append(mismatch)
+                problems.append(
+                    f"{mismatch['site']} revision {mismatch['revision']} asset {mismatch['asset']} "
+                    f"fingerprint {mismatch['actual_fingerprint']} diverges from "
+                    f"{mismatch['expected_fingerprint']}"
+                )
+        report["fingerprints"].append(fingerprint_report)
+
+    report["status"] = "passed" if not problems and not report["mismatches"] else "diverged"
+    return report, problems
+
+
 def apply(files: list[str], repos: dict[str, Path], source_name: str, revision: str, hooks: bool) -> tuple[dict, list[str]]:
     selected, errors = {}, []
     for relpath in files:
@@ -205,17 +338,26 @@ def emit(report: dict) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--verify", action="store_true", help="verify pinned immutable revisions without reading or writing working-tree files")
     parser.add_argument("--apply", action="store_true", help="write from an explicitly selected immutable source commit")
     parser.add_argument("--commit", action="store_true", help="write and commit every accounted change (implies --apply)")
     parser.add_argument("--source-repo", choices=REPO_DIRS, help="checkout containing the approved source commit")
     parser.add_argument("--source-revision", help="approved full 40-character source commit SHA")
+    parser.add_argument("--site-revision", action="append", default=[], help="pinned site revision as name=full-commit-sha; repeat for all three sites")
+    parser.add_argument("--repo-path", action="append", default=[], help="checkout path as name=path; repeat to override sibling layout")
     parser.add_argument("--no-hooks", action="store_true", help="explicitly skip configured post-write generators")
     parser.add_argument("--file", action="append", dest="requested_files", help="foundation basename or path; repeatable")
     parser.add_argument("--json", action="store_true", help="emit machine-readable report")
     args = parser.parse_args()
     writing = args.apply or args.commit
+    if args.verify and writing:
+        parser.error("--verify cannot be combined with --apply or --commit")
     root = mirror_root()
-    repos = discover_repos(root)
+    try:
+        repos = configured_repos(root, args.repo_path)
+        site_revisions = dict(parse_named_value(value, "--site-revision") for value in args.site_revision)
+    except ValueError as error:
+        parser.error(str(error))
     problems = validate_repos(repos)
     if problems:
         emit({"error": "invalid repository configuration", "problems": problems})
@@ -226,7 +368,24 @@ def main() -> int:
         files = [path for path in FOUNDATION_FILES if path in wanted or Path(path).name in wanted]
         if not files:
             parser.error("--file did not match a foundation file")
-    report = {"mirror_root": str(root), "mode": "commit" if args.commit else "apply" if args.apply else "dry-run", "foundation_contract": FOUNDATION_CONTRACT, "inspection": inspect(files, repos)}
+    mode = "verify" if args.verify else "commit" if args.commit else "apply" if args.apply else "dry-run"
+    report = {"mirror_root": str(root), "mode": mode, "foundation_contract": FOUNDATION_CONTRACT}
+    if args.verify:
+        if not args.source_repo or not args.source_revision:
+            report["error"] = "--verify requires --source-repo and --source-revision"
+            emit(report)
+            return 4
+        verification, verification_problems = verify_revisions(
+            files, repos, args.source_repo, args.source_revision, site_revisions
+        )
+        report["verification"] = verification
+        if verification_problems:
+            report.update({"error": "pinned foundation verification failed", "problems": verification_problems})
+            emit(report)
+            return 1
+        emit(report)
+        return 0
+    report["inspection"] = inspect(files, repos)
     if not writing:
         report["next_step"] = "Audit only. Supply --apply/--commit with --source-repo and an approved full --source-revision SHA to write."
         emit(report)
