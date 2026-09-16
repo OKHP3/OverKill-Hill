@@ -68,7 +68,6 @@ const PUBLIC_PATHS = fixtureSummaryArg ? [] : loadPublicPaths();
 const CSP_DIAGNOSTIC = /content security policy|violates the following.*policy|refused to .* policy/i;
 const MERMAID_RENDER_ERROR = /^\[mermaid-init\] render error/i;
 const INTENTIONAL_EXTERNAL_FAILURE = "Failed to load resource: net::ERR_FAILED";
-const CSP_REQUEST_FAILURE = "csp";
 const EXTERNAL_SETTLE_TIMEOUT_MS = 5000;
 const EXTERNAL_QUIET_WINDOW_MS = 250;
 
@@ -87,6 +86,35 @@ function isLocalUrl(value) {
 function formatConsoleMessage(message) {
   const location = message.location?.url ? ` (${message.location.url})` : "";
   return `${message.type.toUpperCase()}: ${message.text}${location}`;
+}
+
+function normaliseHttpUrl(value) {
+  try {
+    const url = new URL(value);
+    if (!isHttpUrl(url)) return null;
+    url.search = "";
+    url.hash = "";
+    return url.href;
+  } catch {
+    return null;
+  }
+}
+
+function classifyExternalDependency(dependency) {
+  const hasHttpError = dependency.responses.some(({ status }) => status >= 400);
+  const cspEvidence = dependency.cspEvidence || [];
+  const cspBlocked = cspEvidence.length > 0;
+  const hasNonCspFailure = dependency.failures.some(
+    (failure) => !cspEvidence.some(
+      (evidence) => evidence.route === failure.route &&
+        evidence.blockedURI === dependency.url,
+    ),
+  );
+
+  if (hasHttpError || hasNonCspFailure) return "unavailable";
+  if (cspBlocked) return "blocked-by-csp";
+  if (dependency.responses.length) return "available";
+  return "no-response";
 }
 
 function reportPathFromArgument(argument, name) {
@@ -340,41 +368,17 @@ function getExternalDependency(dependencies, request) {
       requestCount: 0,
       responses: [],
       failures: [],
+      cspEvidence: [],
     });
   }
   const dependency = dependencies.get(key);
   return dependency;
 }
 
-function extractHttpUrls(text) {
-  // Chromium includes the blocked resource URL in CSP console diagnostics.
-  // Normalise it the same way as dependency inventory keys for correlation.
-  return [...text.matchAll(/https?:\/\/[^\s'"]+/g)]
-    .map(([url]) => {
-      try {
-        const value = new URL(url);
-        value.search = "";
-        value.hash = "";
-        return value.href;
-      } catch {
-        return null;
-      }
-    })
-    .filter(Boolean);
-}
-
-function serialiseExternalDependency(dependency, cspBlockedUrls) {
-  const hasHttpError = dependency.responses.some(({ status }) => status >= 400);
-  const hasNonCspFailure = dependency.failures.some(
-    ({ errorText }) => errorText !== CSP_REQUEST_FAILURE,
+function serialiseExternalDependency(dependency, cspEvidence) {
+  const dependencyCspEvidence = cspEvidence.filter(
+    ({ blockedURI }) => blockedURI === dependency.url,
   );
-  const hasResponse = dependency.responses.length > 0;
-  const cspBlocked = cspBlockedUrls.has(dependency.url);
-  let state = "available";
-  if (cspBlocked) state = "blocked-by-csp";
-  else if (hasHttpError || hasNonCspFailure) state = "unavailable";
-  else if (!hasResponse) state = "no-response";
-
   return {
     url: dependency.url,
     origin: dependency.origin,
@@ -383,8 +387,12 @@ function serialiseExternalDependency(dependency, cspBlockedUrls) {
     requestCount: dependency.requestCount,
     responses: dependency.responses,
     failures: dependency.failures,
-    cspBlocked,
-    state,
+    cspEvidence: dependencyCspEvidence,
+    cspBlocked: dependencyCspEvidence.length > 0,
+    state: classifyExternalDependency({
+      ...dependency,
+      cspEvidence: dependencyCspEvidence,
+    }),
   };
 }
 
@@ -425,6 +433,25 @@ async function checkExternalRoute(browser, path) {
   const pendingExternalRequests = new Set();
   const cspDiagnostics = [];
   const localErrors = new Set();
+
+  // The DOM event exposes structured CSP evidence independently of
+  // browser-specific request failure text.
+  await page.addInitScript(() => {
+    window.__cspViolationEvidence = [];
+    document.addEventListener("securitypolicyviolation", (event) => {
+      window.__cspViolationEvidence.push({
+        blockedURI: event.blockedURI,
+        effectiveDirective: event.effectiveDirective,
+        violatedDirective: event.violatedDirective,
+        disposition: event.disposition,
+        documentURI: event.documentURI,
+        sourceFile: event.sourceFile,
+        lineNumber: event.lineNumber,
+        columnNumber: event.columnNumber,
+        statusCode: event.statusCode,
+      });
+    }, true);
+  });
 
   page.on("console", (message) => {
     if (CSP_DIAGNOSTIC.test(message.text())) {
@@ -499,13 +526,32 @@ async function checkExternalRoute(browser, path) {
   // sleep. The quiet window catches deferred requests without allowing a
   // hanging third-party request to hold the health check forever.
   await waitForExternalRequestsToSettle(page, pendingExternalRequests);
+  const cspEvidence = await page.evaluate(() => (
+    Array.isArray(window.__cspViolationEvidence)
+      ? window.__cspViolationEvidence
+      : []
+  )).catch(() => []);
+  const externalCspEvidence = cspEvidence
+    .map((evidence) => ({
+      route: path,
+      blockedURI: normaliseHttpUrl(evidence.blockedURI),
+      effectiveDirective: evidence.effectiveDirective || "",
+      violatedDirective: evidence.violatedDirective || "",
+      disposition: evidence.disposition || "",
+      documentURI: evidence.documentURI || "",
+      sourceFile: evidence.sourceFile || "",
+      lineNumber: evidence.lineNumber || 0,
+      columnNumber: evidence.columnNumber || 0,
+      statusCode: evidence.statusCode || 0,
+    }))
+    .filter(({ blockedURI }) => blockedURI);
   await page.close();
-  const cspBlockedUrls = new Set(cspDiagnostics.flatMap(extractHttpUrls));
   return {
     path,
     dependencies: [...dependencies.values()]
-      .map((dependency) => serialiseExternalDependency(dependency, cspBlockedUrls)),
+      .map((dependency) => serialiseExternalDependency(dependency, externalCspEvidence)),
     cspDiagnostics,
+    cspEvidence: externalCspEvidence,
     localErrors: [...localErrors],
   };
 }
@@ -521,6 +567,7 @@ function mergeExternalDependencies(results) {
           resourceTypes: [],
           responses: [],
           failures: [],
+          cspEvidence: [],
           cspBlocked: false,
         });
       }
@@ -532,18 +579,9 @@ function mergeExternalDependencies(results) {
       existing.requestCount += dependency.requestCount;
       existing.responses.push(...dependency.responses);
       existing.failures.push(...dependency.failures);
+      existing.cspEvidence.push(...dependency.cspEvidence);
       existing.cspBlocked = existing.cspBlocked || dependency.cspBlocked;
-      const hasHttpError = existing.responses.some(({ status }) => status >= 400);
-      const hasNonCspFailure = existing.failures.some(
-        ({ errorText }) => errorText !== CSP_REQUEST_FAILURE,
-      );
-      existing.state = hasHttpError || hasNonCspFailure
-        ? "unavailable"
-        : existing.cspBlocked
-          ? "blocked-by-csp"
-          : existing.responses.length
-            ? "available"
-            : "no-response";
+      existing.state = classifyExternalDependency(existing);
     }
   }
   for (const dependency of merged.values()) {
@@ -589,6 +627,7 @@ async function runExternalHealth() {
   const cspDiagnostics = results.flatMap(({ path, cspDiagnostics: messages }) =>
     messages.map((message) => ({ path, message })),
   );
+  const cspEvidence = results.flatMap(({ cspEvidence: evidence }) => evidence);
   const localFailures = results.flatMap(({ path, localErrors }) =>
     localErrors.map((error) => ({ path, error })),
   );
@@ -600,6 +639,7 @@ async function runExternalHealth() {
     dependencies,
     externalOutages,
     cspDiagnostics,
+    cspEvidence,
     localFailures,
     summary: {
       routes: results.length,
@@ -607,11 +647,12 @@ async function runExternalHealth() {
       available: dependencies.filter(({ state }) => state === "available").length,
       externalOutages: externalOutages.length,
       cspDiagnostics: cspDiagnostics.length,
+      cspEvidence: cspEvidence.length,
       localFailures: localFailures.length,
     },
     status: externalOutages.length
       ? "EXTERNAL_OUTAGE"
-      : cspDiagnostics.length
+      : cspDiagnostics.length || cspEvidence.length
         ? "CSP_BLOCKED"
         : localFailures.length
           ? "LOCAL_FAILURE"
@@ -636,7 +677,7 @@ async function runExternalHealth() {
     const diagnostic = failureReasons.length ? `: ${failureReasons.join(", ")}` : "";
     console.log(`  EXTERNAL OUTAGE: ${dependency.url} (${dependency.state})${diagnostic}`);
   });
-  if (cspDiagnostics.length) {
+  if (cspDiagnostics.length || cspEvidence.length) {
     console.log("  CSP diagnostics were observed during the availability check.");
   }
   if (localFailures.length) {
@@ -650,7 +691,7 @@ async function runExternalHealth() {
     console.log(`Report: ${reportPath}`);
   }
 
-  if (externalOutages.length || cspDiagnostics.length || localFailures.length) {
+  if (externalOutages.length || cspDiagnostics.length || cspEvidence.length || localFailures.length) {
     process.exitCode = 1;
   }
 }
