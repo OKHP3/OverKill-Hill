@@ -23,22 +23,55 @@ LOCALE_SPEC.loader.exec_module(LOCALE_MODULE)
 
 SOCIAL_IMAGE = "https://overkillhill.com/assets/img/etch-ai-sketch-using-a-council-to-design-at-velocity.png"
 CONFLICTING_SOCIAL_IMAGE = "https://example.test/conflicting-card.png"
+SOCIAL_CARD_DUPLICATE_KEYS = (
+    "og:image",
+    "og:image:alt",
+    "og:image:width",
+    "og:image:height",
+    "og:image:type",
+    "twitter:image",
+    "twitter:image:alt",
+)
+CONFLICTING_SOCIAL_VALUES = {
+    "og:image": CONFLICTING_SOCIAL_IMAGE,
+    "og:image:alt": "Conflicting fixture social preview",
+    "og:image:width": "1200",
+    "og:image:height": "630",
+    "og:image:type": "image/jpeg",
+    "twitter:image": CONFLICTING_SOCIAL_IMAGE,
+    "twitter:image:alt": "Conflicting fixture social preview",
+}
 
 
 def social_card_tags(*, duplicate: str | None = None) -> str:
-    tags = [
-        f'<meta property="og:image" content="{SOCIAL_IMAGE}">',
-        '<meta property="og:image:alt" content="Fixture social preview">',
-        '<meta property="og:image:width" content="1536">',
-        '<meta property="og:image:height" content="1024">',
-        '<meta property="og:image:type" content="image/png">',
-        f'<meta name="twitter:image" content="{SOCIAL_IMAGE}">',
-        '<meta name="twitter:image:alt" content="Fixture social preview">',
+    fields = [
+        ("og:image", f'<meta property="og:image" content="{SOCIAL_IMAGE}">'),
+        ("og:image:alt", '<meta property="og:image:alt" content="Fixture social preview">'),
+        ("og:image:width", '<meta property="og:image:width" content="1536">'),
+        ("og:image:height", '<meta property="og:image:height" content="1024">'),
+        ("og:image:type", '<meta property="og:image:type" content="image/png">'),
+        ("twitter:image", f'<meta name="twitter:image" content="{SOCIAL_IMAGE}">'),
+        ("twitter:image:alt", '<meta name="twitter:image:alt" content="Fixture social preview">'),
     ]
-    if duplicate == "conflict":
-        tags.insert(1, f'<meta property="og:image" content="{CONFLICTING_SOCIAL_IMAGE}">')
-    elif duplicate == "identical":
-        tags.insert(1, f'<meta property="og:image" content="{SOCIAL_IMAGE}">')
+    duplicate_mode = duplicate
+    duplicate_key = "og:image" if duplicate in {"conflict", "identical"} else duplicate
+    if duplicate_key is not None:
+        keys = [key for key, _ in fields]
+        if duplicate_key not in keys:
+            raise ValueError(f"unknown social-card duplicate key: {duplicate_key}")
+        index = keys.index(duplicate_key)
+        value = (
+            SOCIAL_IMAGE
+            if duplicate_mode == "identical"
+            else CONFLICTING_SOCIAL_VALUES[duplicate_key]
+        )
+        if duplicate_key.startswith("og:"):
+            prefix = f'property="{duplicate_key}"'
+        else:
+            prefix = f'name="{duplicate_key}"'
+        duplicate_tag = f'<meta {prefix} content="{value}">'
+        fields.insert(index + 1, (duplicate_key, duplicate_tag))
+    tags = [tag for _, tag in fields]
     return "\n".join(tags)
 
 
@@ -228,16 +261,18 @@ class SocialCardDuplicateTests(unittest.TestCase):
             return exit_code, stdout.getvalue(), stderr.getvalue()
 
     def test_site_release_command_reports_conflicting_duplicate_page_and_key(self):
-        exit_code, stdout, stderr = self._run_site_command(
-            duplicate="conflict",
-            noindex=False,
-        )
+        for key in SOCIAL_CARD_DUPLICATE_KEYS:
+            with self.subTest(key=key):
+                exit_code, stdout, stderr = self._run_site_command(
+                    duplicate=key,
+                    noindex=False,
+                )
 
-        self.assertEqual(1, exit_code)
-        output = stdout + stderr
-        self.assertIn("index.html", output)
-        self.assertIn("meta:og:image", output)
-        self.assertIn("conflicting duplicate social-card metadata", output)
+                self.assertEqual(1, exit_code)
+                output = stdout + stderr
+                self.assertIn("index.html", output)
+                self.assertIn(f"meta:{key}", output)
+                self.assertIn("conflicting duplicate social-card metadata", output)
 
     def test_site_release_command_allows_identical_duplicates(self):
         exit_code, stdout, stderr = self._run_site_command(
@@ -336,15 +371,17 @@ class SocialCardDuplicateTests(unittest.TestCase):
             return exit_code, stdout.getvalue() + stderr.getvalue()
 
     def test_locale_release_command_reports_conflicting_duplicate_page_and_key(self):
-        exit_code, output = self._run_locale_command(
-            duplicate="conflict",
-            noindex=False,
-        )
+        for key in SOCIAL_CARD_DUPLICATE_KEYS:
+            with self.subTest(key=key):
+                exit_code, output = self._run_locale_command(
+                    duplicate=key,
+                    noindex=False,
+                )
 
-        self.assertEqual(1, exit_code)
-        self.assertIn("index.html", output)
-        self.assertIn("meta:og:image", output)
-        self.assertIn("conflicting duplicate social-card metadata", output)
+                self.assertEqual(1, exit_code)
+                self.assertIn("index.html", output)
+                self.assertIn(f"meta:{key}", output)
+                self.assertIn("conflicting duplicate social-card metadata", output)
 
     def test_locale_release_command_allows_identical_duplicates(self):
         exit_code, output = self._run_locale_command(
