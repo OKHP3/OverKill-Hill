@@ -70,7 +70,10 @@ def configured_repos(root: Path, overrides: list[str]) -> dict[str, Path]:
     for value in overrides:
         name, path = parse_named_value(value, "--repo-path")
         candidate = Path(path)
-        repos[name] = candidate if candidate.is_absolute() else root / candidate
+        # Explicit relative paths are CLI paths and therefore resolve from the
+        # current checkout, as in CI's ``--repo-path overkill-hill=.``. The
+        # default sibling layout continues to resolve from ``mirror_root()``.
+        repos[name] = candidate if candidate.is_absolute() else Path.cwd() / candidate
     return repos
 
 

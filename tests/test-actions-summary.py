@@ -14,7 +14,7 @@ SCRIPT = ROOT / 'scripts/write-actions-summary.py'
 FIXTURE_GENERATOR = ROOT / 'scripts/generate-actions-summary-fixtures.py'
 FIXTURE_DIRECTORY = ROOT / 'tests/fixtures/actions-summary'
 ARCHIVED_LIVE_EDGE_REPORTS = {
-    ROOT / 'assets/audit/assessment-2026-09-07/delivery/live-edge.json': 'current',
+    ROOT / 'tests/fixtures/actions-summary/archived-live-edge-2026-09-07.json': 'current',
 }
 VERIFY_SPEC = importlib.util.spec_from_file_location(
     'verify_live_edge', ROOT / 'scripts/verify-live-edge.py'
@@ -110,7 +110,7 @@ class SummaryTests(unittest.TestCase):
             self.assert_archived_report_contract(path, report)
 
     def test_historical_partial_is_not_an_outage_or_full_policy_pass(self):
-        path = ROOT / 'assets/audit/assessment-2026-09-07/delivery/live-edge.json'
+        path = ROOT / 'tests/fixtures/actions-summary/archived-live-edge-2026-09-07.json'
         report = json.loads(path.read_text())
         self.assert_archived_report_contract(path, report)
         code, summary = self.run_summary(report)
