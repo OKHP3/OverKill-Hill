@@ -132,7 +132,13 @@
     "route": "/writings/biases-as-constants/",
     "field": "meta:robots",
     "value": "index, follow",
-    "expected": "article JSON-LD dateModified is missing"
+    "expected": "article JSON-LD dateModified is missing",
+    "og_type": {
+      "field": "meta:og:type",
+      "value": "website",
+      "expected_source": "article source page must use og:type=article",
+      "expected_generated": "article generated page must use og:type=article"
+    }
   },
   "organization_same_as_drift": {
     "from": "https://www.linkedin.com/company/overkillhillp3",

@@ -463,7 +463,7 @@ class SEOFixtureTests(unittest.TestCase):
         )
         self.assertIn('"@type": "Article"', source_path.read_text(encoding="utf-8"))
 
-    def test_draft_article_promotion_requires_complete_dates(self) -> None:
+    def test_draft_article_promotion_requires_article_metadata(self) -> None:
         mutation = self.fixture_data["draft_article_promotion"]
         draft_page = page_for_route(self.source_pages, mutation["route"])
         source_path = (ROOT / "site-src" / "pages" / draft_page["path"]).with_suffix(
@@ -475,6 +475,10 @@ class SEOFixtureTests(unittest.TestCase):
         self.assertFalse(
             validator.validate_article_jsonld_source([draft_page]),
             "noindex source drafts should remain exempt before promotion",
+        )
+        self.assertFalse(
+            validator.validate_source_seo_contract([draft_page]),
+            "noindex source drafts should remain exempt from Article metadata checks",
         )
         draft_parser = parse_html(generated_raw)
         self.assertTrue(
@@ -512,6 +516,31 @@ class SEOFixtureTests(unittest.TestCase):
             promoted_page,
         )
         self.assert_rejected(generated_findings, mutation["expected"])
+
+        og_type = mutation["og_type"]
+        promoted_page[og_type["field"]] = og_type["value"]
+        self.assertEqual(
+            promoted_page.get(og_type["field"]),
+            og_type["value"],
+            "promotion fixture must retain the draft's website-level og:type",
+        )
+        source_metadata_findings = validator.validate_source_seo_contract(
+            [promoted_page]
+        )
+        self.assert_rejected(source_metadata_findings, og_type["expected_source"])
+
+        promoted_parser = parse_html(
+            mutate_meta(generated_raw, og_type["field"], og_type["value"])
+        )
+        generated_metadata_findings = validator.validate_generated_seo(
+            generated_path,
+            promoted_parser,
+            promoted_page,
+        )
+        self.assert_rejected(
+            generated_metadata_findings,
+            og_type["expected_generated"],
+        )
 
     def assert_rejected(self, findings: list, expected: str) -> None:
         self.assertTrue(findings, "mutation unexpectedly passed")
