@@ -250,30 +250,26 @@ test("keeps every browser diagnostic category visible in the focused summary", a
   const reportPath = join(reportDirectory, "fixture-report.json");
   const summaryPath = join(reportDirectory, "summary.md");
   const diagnostics = [
-    ["csp", "CSP", "CSP: blocked | policy\nwith a second line"],
-    ["page-error", "PAGEERROR", "PAGEERROR: Error: page exploded"],
-    ["console", "CONSOLE", "CONSOLE: ERROR: console exploded"],
+    ["CSP", "CSP: blocked | policy\nwith a second line"],
+    ["PAGEERROR", "PAGEERROR: Error: page exploded"],
+    ["CONSOLE", "CONSOLE: ERROR: console exploded"],
     [
-      "local-request",
       "LOCAL REQUEST FAILED",
       "LOCAL REQUEST FAILED: /app.js (net::ERR_FAILED)",
     ],
     [
-      "local-http",
       "LOCAL HTTP ERROR",
       "LOCAL HTTP ERROR: 404 /missing.png",
     ],
-    ["mermaid", "MERMAID", "MERMAID: ERROR: render failed"],
+    ["MERMAID", "MERMAID: ERROR: render failed"],
   ];
-  const fixtures = diagnostics.map(([name, category, message]) => ({
-    path: `/${name}.html`,
-    errors: [message],
-    category,
-  }));
-  fixtures.push({
+  const fixtures = [{
+    path: "/combined.html",
+    errors: diagnostics.map(([, message]) => message),
+  }, {
     path: "/unknown.html",
     errors: ["NETWORK: new browser diagnostic | preserve this"],
-  });
+  }];
 
   try {
     await writeFile(reportPath, `${JSON.stringify({
@@ -286,21 +282,20 @@ test("keeps every browser diagnostic category visible in the focused summary", a
     assert.equal(result.status, 0, result.output);
     const summary = await readFile(summaryPath, "utf8");
 
-    for (const [name, category] of diagnostics) {
-      assert.match(
-        summary,
-        new RegExp(`\\| /${name}\\.html \\| ${category} \\|`),
-        `missing focused summary category ${category}`,
-      );
-      assert.doesNotMatch(
-        summary,
-        new RegExp(`\\| /${name}\\.html \\| none observed \\|`),
-        `recognized category ${category} was rendered as none observed`,
-      );
-    }
-    assert.match(
-      summary,
-      /\| \/csp\.html \| CSP \| CSP: blocked \\| policy with a second line \|/,
+    const combinedRow = summary
+      .split("\n")
+      .find((line) => line.startsWith("| /combined.html |"));
+    assert.equal(
+      combinedRow,
+      "| /combined.html | CSP, PAGEERROR, CONSOLE, LOCAL REQUEST FAILED, " +
+      "LOCAL HTTP ERROR, MERMAID | " +
+      "CSP: blocked \\| policy with a second line / " +
+      "PAGEERROR: Error: page exploded / " +
+      "CONSOLE: ERROR: console exploded / " +
+      "LOCAL REQUEST FAILED: /app.js (net::ERR_FAILED) / " +
+      "LOCAL HTTP ERROR: 404 /missing.png / " +
+      "MERMAID: ERROR: render failed |",
+      "combined browser diagnostics were not retained in one focused summary row",
     );
     assert.match(
       summary,

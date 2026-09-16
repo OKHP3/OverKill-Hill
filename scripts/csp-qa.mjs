@@ -131,7 +131,7 @@ function fixtureDiagnostics(errors) {
   }
   return {
     categories: [...categories].join(", ") || "none observed",
-    evidence: evidence.slice(0, 2).join(" / ") || "No browser diagnostic was captured.",
+    evidence: evidence.join(" / ") || "No browser diagnostic was captured.",
   };
 }
 
