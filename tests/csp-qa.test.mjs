@@ -210,15 +210,17 @@ function runCspQa(path, flags = []) {
   });
 }
 
-function runFixtureSummary(reportPath, summaryPath) {
+function runFixtureSummary(reportPath, summaryPath, artifactUrl = null) {
+  const args = [
+    cspQaScript,
+    `--fixture-summary=${reportPath}`,
+    `--summary=${summaryPath}`,
+  ];
+  if (artifactUrl) args.push(`--artifact-url=${artifactUrl}`);
   return new Promise((resolve, reject) => {
     const child = spawn(
       process.execPath,
-      [
-        cspQaScript,
-        `--fixture-summary=${reportPath}`,
-        `--summary=${summaryPath}`,
-      ],
+      args,
       { cwd: repositoryRoot },
     );
     let stdout = "";
@@ -244,6 +246,55 @@ function runFixtureSummary(reportPath, summaryPath) {
     });
   });
 }
+
+test("links the focused CSP summary to its uploaded artifact", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-summary-link-"));
+  const reportPath = join(reportDirectory, "fixture-report.json");
+  const summaryPath = join(reportDirectory, "summary.md");
+  const artifactUrl = "https://github.com/example/site/actions/runs/123/artifacts/456";
+
+  try {
+    await writeFile(reportPath, `${JSON.stringify({
+      version: 1,
+      mode: "csp-fixtures",
+      fixtures: [{ path: "/blocked.html", errors: ["CSP: blocked"] }],
+    })}\n`);
+
+    const result = await runFixtureSummary(reportPath, summaryPath, artifactUrl);
+    assert.equal(result.status, 0, result.output);
+    const summary = await readFile(summaryPath, "utf8");
+    assert.match(
+      summary,
+      new RegExp(
+        String.raw`Focused CSP evidence artifact: \[csp-fixture-report\.json\]\(` +
+        artifactUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") +
+        String.raw`\)`,
+      ),
+    );
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("keeps the focused CSP summary useful without an uploaded artifact", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-summary-missing-"));
+  const reportPath = join(reportDirectory, "missing-report.json");
+  const summaryPath = join(reportDirectory, "summary.md");
+
+  try {
+    const result = await runFixtureSummary(reportPath, summaryPath);
+    assert.equal(result.status, 0, result.output);
+    const summary = await readFile(summaryPath, "utf8");
+    assert.match(summary, /\| unavailable \| unknown \| Could not read focused CSP fixture report:/);
+    assert.match(
+      summary,
+      /Focused CSP evidence artifact: unavailable; check the upload step for a warning or missing report\./,
+    );
+    assert.doesNotMatch(summary, /Focused CSP evidence artifact: \[/);
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
 
 test("keeps every browser diagnostic category visible in the focused summary", async () => {
   const reportDirectory = await mkdtemp(join(tmpdir(), "csp-summary-"));

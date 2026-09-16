@@ -188,12 +188,34 @@ class SummaryTests(unittest.TestCase):
             "if: always() && steps.csp-fixtures.outcome == 'failure'",
             upload,
         )
+        self.assertIn('id: upload-csp-fixture-report', upload)
         self.assertIn('uses: actions/upload-artifact@', upload)
         self.assertIn('path: csp-fixture-report.json', upload)
         self.assertIn('if-no-files-found: warn', upload)
         self.assertIn('retention-days: 7', upload)
         self.assertNotIn('third-party-runtime-report.json', upload)
         self.assertNotIn('site-release', upload)
+
+        summary_step = re.search(
+            r'(?ms)^      - name: Summarize failed CSP fixture regressions\n'
+            r'(.*?)(?=^      - name: )',
+            workflow,
+        )
+        self.assertIsNotNone(summary_step, 'missing focused CSP fixture summary step')
+        summary = summary_step.group(1)
+        self.assertIn('node scripts/csp-qa.mjs', summary)
+        self.assertIn('--fixture-summary=csp-fixture-report.json', summary)
+        self.assertIn(
+            '--artifact-url="${{ steps.upload-csp-fixture-report.outputs.artifact-url }}"',
+            summary,
+        )
+        self.assertNotIn('third-party-runtime-report.json', summary)
+        self.assertNotIn('site-release', summary)
+        self.assertLess(
+            workflow.index('Upload failed CSP fixture report'),
+            workflow.index('Summarize failed CSP fixture regressions'),
+            'focused summary must run after the focused report upload',
+        )
 
         fixture_step = re.search(
             r'(?ms)^      - name: Run CSP fixture regressions\n'

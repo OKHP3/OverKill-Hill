@@ -37,6 +37,7 @@ const pathsArg = process.argv.find((arg) => arg.startsWith("--paths="));
 const reportArg = process.argv.find((arg) => arg.startsWith("--report="));
 const fixtureSummaryArg = process.argv.find((arg) => arg.startsWith("--fixture-summary="));
 const summaryArg = process.argv.find((arg) => arg.startsWith("--summary="));
+const artifactUrlArg = process.argv.find((arg) => arg.startsWith("--artifact-url="));
 const externalHealthMode =
   process.argv.includes("--external-health") || process.argv.includes("--check-external");
 
@@ -169,6 +170,17 @@ function writeFixtureSummary(reportPath) {
   } else {
     lines.push(
       `| unavailable | unknown | ${markdownCell(report.error || "No fixture results were recorded.")} |`,
+    );
+  }
+  lines.push("");
+  const artifactUrl = artifactUrlArg?.slice("--artifact-url=".length);
+  if (artifactUrl) {
+    lines.push(
+      `Focused CSP evidence artifact: [csp-fixture-report.json](${markdownCell(artifactUrl)})`,
+    );
+  } else {
+    lines.push(
+      "Focused CSP evidence artifact: unavailable; check the upload step for a warning or missing report.",
     );
   }
   lines.push("");
