@@ -379,10 +379,34 @@ function serialiseExternalDependency(dependency, cspEvidence) {
   const dependencyCspEvidence = cspEvidence.filter(
     ({ blockedURI }) => blockedURI === dependency.url,
   );
+  const routeOutcomes = [...dependency.routes]
+    .filter(Boolean)
+    .sort()
+    .map((route) => {
+      const routeCspEvidence = dependencyCspEvidence.filter(
+        (evidence) => evidence.route === route,
+      );
+      const routeFailures = dependency.failures.filter(
+        (failure) => failure.route === route,
+      );
+      return {
+        route,
+        state: classifyExternalDependency({
+          ...dependency,
+          failures: routeFailures,
+          cspEvidence: routeCspEvidence,
+        }),
+        cspBlocked: routeCspEvidence.length > 0,
+        responses: dependency.responses,
+        failures: routeFailures,
+        cspEvidence: routeCspEvidence,
+      };
+    });
   return {
     url: dependency.url,
     origin: dependency.origin,
     routes: [...dependency.routes].filter(Boolean).sort(),
+    routeOutcomes,
     resourceTypes: [...dependency.resourceTypes].sort(),
     requestCount: dependency.requestCount,
     responses: dependency.responses,
@@ -564,6 +588,7 @@ function mergeExternalDependencies(results) {
         merged.set(dependency.url, {
           ...dependency,
           routes: [],
+          routeOutcomes: [],
           resourceTypes: [],
           responses: [],
           failures: [],
@@ -573,6 +598,7 @@ function mergeExternalDependencies(results) {
       }
       const existing = merged.get(dependency.url);
       existing.routes = [...new Set([...existing.routes, ...dependency.routes])].sort();
+      existing.routeOutcomes.push(...(dependency.routeOutcomes || []));
       existing.resourceTypes = [
         ...new Set([...existing.resourceTypes, ...dependency.resourceTypes]),
       ].sort();
@@ -586,6 +612,33 @@ function mergeExternalDependencies(results) {
   }
   for (const dependency of merged.values()) {
     dependency.failures = groupFailureRecords(dependency.failures);
+    const routeOutcomes = new Map();
+    for (const outcome of dependency.routeOutcomes) {
+      const existing = routeOutcomes.get(outcome.route);
+      if (!existing) {
+        routeOutcomes.set(outcome.route, {
+          ...outcome,
+          failures: [...outcome.failures],
+          cspEvidence: [...outcome.cspEvidence],
+        });
+        continue;
+      }
+      existing.responses.push(...outcome.responses);
+      existing.failures.push(...outcome.failures);
+      existing.cspEvidence.push(...outcome.cspEvidence);
+      existing.cspBlocked = existing.cspBlocked || outcome.cspBlocked;
+      existing.state = classifyExternalDependency({
+        responses: existing.responses,
+        failures: existing.failures,
+        cspEvidence: existing.cspEvidence,
+      });
+    }
+    dependency.routeOutcomes = [...routeOutcomes.values()]
+      .map((outcome) => ({
+        ...outcome,
+        failures: groupFailureRecords(outcome.failures),
+      }))
+      .sort((left, right) => left.route.localeCompare(right.route));
   }
   return [...merged.values()].sort((left, right) => left.url.localeCompare(right.url));
 }

@@ -654,6 +654,29 @@ test("keeps a shared-route outage visible when another route blocks the same URL
       "/external-csp-shared.html",
       "/external-outage-shared.html",
     ]);
+    assert.deepEqual(
+      shared.routeOutcomes.map(({ route, state }) => ({ route, state })),
+      [
+        {
+          route: "/external-csp-shared.html",
+          state: "blocked-by-csp",
+        },
+        {
+          route: "/external-outage-shared.html",
+          state: "unavailable",
+        },
+      ],
+    );
+    const cspRoute = shared.routeOutcomes.find(
+      ({ route }) => route === "/external-csp-shared.html",
+    );
+    const outageRoute = shared.routeOutcomes.find(
+      ({ route }) => route === "/external-outage-shared.html",
+    );
+    assert.ok(cspRoute.cspEvidence.some(({ blockedURI }) => blockedURI === shared.url));
+    assert.equal(cspRoute.responses.length, 0);
+    assert.ok(outageRoute.responses.some(({ status }) => status === 503));
+    assert.equal(outageRoute.cspEvidence.length, 0);
     assert.equal(shared.cspBlocked, true);
     assert.equal(shared.state, "unavailable");
     assert.ok(shared.responses.some(({ status }) => status === 503));
