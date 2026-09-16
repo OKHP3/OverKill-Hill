@@ -853,12 +853,11 @@ async function runExternalHealth() {
     `${report.summary.localFailures} local route failure(s).`,
   );
   externalOutages.forEach((dependency) => {
-    const failureCounts = new Map();
-    dependency.failures.forEach(({ errorText, count = 1 }) => {
-      failureCounts.set(errorText, (failureCounts.get(errorText) || 0) + count);
-    });
-    const failureReasons = [...failureCounts.entries()]
-      .map(([errorText, count]) => count > 1 ? `${errorText} (${count} occurrences)` : errorText)
+    const failureReasons = dependency.failures
+      .map(({ route, errorText, count = 1 }) => {
+        const occurrences = count > 1 ? ` (${count} occurrences)` : "";
+        return `${route || "unknown route"}: ${errorText}${occurrences}`;
+      })
       .filter(Boolean);
     const diagnostic = failureReasons.length ? `: ${failureReasons.join(", ")}` : "";
     console.log(`  EXTERNAL OUTAGE: ${dependency.url} (${dependency.state})${diagnostic}`);

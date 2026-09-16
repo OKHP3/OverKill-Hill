@@ -444,6 +444,7 @@ test("preserves the browser failure reason for an aborted external request", asy
     ]);
     assert.notEqual(result.status, 0, result.output);
     assert.match(result.output, /EXTERNAL OUTAGE:/);
+    assert.match(result.output, /\/external-network-failure\.html: net::ERR_/);
     assert.match(result.output, /net::ERR_/);
 
     const report = JSON.parse(await readFile(reportPath, "utf8"));
@@ -473,6 +474,8 @@ test("attributes repeated external failures to every public route", async () => 
     ]);
     assert.notEqual(result.status, 0, result.output);
     assert.match(result.output, /EXTERNAL OUTAGE:/);
+    assert.match(result.output, /\/external-network-failure\.html: net::ERR_/);
+    assert.match(result.output, /\/external-network-failure-shared\.html: net::ERR_/);
 
     const report = JSON.parse(await readFile(reportPath, "utf8"));
     assert.equal(report.status, "EXTERNAL_OUTAGE");
