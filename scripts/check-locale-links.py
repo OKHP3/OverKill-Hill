@@ -363,7 +363,7 @@ def validate_locale(
             locale,
             findings,
             declared_routes=target_routes,
-            draft_routes=set(),
+            draft_routes=target_routes,
             require_routes=False,
         )
         return

@@ -184,6 +184,64 @@ class SEOFixtureTests(unittest.TestCase):
         )
         return manifest_path, sitemap_path, index_path
 
+    def _write_unpublished_locale_fixture(
+        self,
+        root: Path,
+        index_routes: set[str],
+    ) -> tuple[Path, Path, Path]:
+        manifest = json.loads(
+            (FIXTURE_ROOT / "locale-mixed-manifest.json").read_text(encoding="utf-8")
+        )
+        locale_spec = manifest["locales"]["fr"]
+        locale_spec["status"] = "unpublished-scaffold"
+        locale_spec["indexable"] = False
+        for page in locale_spec["pages"]:
+            page["status"] = "unpublished-scaffold"
+            page["indexable"] = False
+
+        manifest_path = root / "manifest.json"
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+        source_routes = {"/", "/about/", "/projects/", "/contact/"}
+        for relative_path in (
+            "index.html",
+            "about/index.html",
+            "projects/index.html",
+            "contact/index.html",
+        ):
+            source_target = root / relative_path
+            source_target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ROOT / relative_path, source_target)
+
+        sitemap_path = root / "sitemap.xml"
+        locs = "\n".join(
+            f"    <url><loc>{locale_checker.route_url(route)}</loc></url>"
+            for route in sorted(source_routes)
+        )
+        sitemap_path.write_text(
+            '<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            f"{locs}\n"
+            "</urlset>\n",
+            encoding="utf-8",
+        )
+
+        index_path = root / "search-index.fr.json"
+        entries = [{"url": route} for route in sorted(index_routes)]
+        index_path.write_text(
+            json.dumps(
+                {
+                    "site": "https://overkillhill.com",
+                    "locale": "fr",
+                    "generated": "fixture",
+                    "count": len(entries),
+                    "entries": entries,
+                }
+            ),
+            encoding="utf-8",
+        )
+        return manifest_path, sitemap_path, index_path
+
     def test_mixed_locale_requires_promoted_routes_and_excludes_drafts(self) -> None:
         source_routes = {"/", "/about/", "/projects/", "/contact/"}
         promoted_routes = {"/fr/", "/fr/about/", "/fr/projects/"}
@@ -257,6 +315,44 @@ class SEOFixtureTests(unittest.TestCase):
             )
             self.assertIn(
                 "draft locale routes appear in the search index: /fr/contact/",
+                findings,
+            )
+
+    def test_unpublished_locale_rejects_stale_search_index_routes(self) -> None:
+        declared_route = "/fr/about/"
+        unrelated_route = "/fr/retired/"
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            manifest_path, sitemap_path, valid_index = (
+                self._write_unpublished_locale_fixture(root, set())
+            )
+            self.assertFalse(
+                locale_checker.validate(
+                    manifest_path=manifest_path,
+                    sitemap_path=sitemap_path,
+                    index_path=valid_index,
+                    root=root,
+                ),
+                "unpublished locale fixture should pass with an empty search index",
+            )
+
+            _, _, stale_index = self._write_unpublished_locale_fixture(
+                root,
+                {declared_route, unrelated_route},
+            )
+            findings = locale_checker.validate(
+                manifest_path=manifest_path,
+                sitemap_path=sitemap_path,
+                index_path=stale_index,
+                root=root,
+            )
+            self.assertIn(
+                f"draft locale routes appear in the search index: {declared_route}",
+                findings,
+            )
+            self.assertIn(
+                f"locale search index contains undeclared routes: {unrelated_route}",
                 findings,
             )
 
