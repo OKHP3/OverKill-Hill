@@ -11,6 +11,7 @@ locale search-index coverage, and social-card metadata when promoted.
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import importlib.util
 import json
 import os
@@ -114,16 +115,20 @@ def load_manifest(path: Path) -> dict:
     return manifest
 
 
-def sitemap_urls(path: Path) -> set[str]:
+def sitemap_locations(path: Path) -> list[str]:
     try:
         root = ElementTree.fromstring(path.read_text(encoding="utf-8"))
     except (OSError, ElementTree.ParseError) as exc:
         raise ValueError(f"cannot read sitemap {path}: {exc}") from exc
-    return {
+    return [
         element.text.strip()
         for element in root.iter()
         if element.tag.rsplit("}", 1)[-1] == "loc" and element.text and element.text.strip()
-    }
+    ]
+
+
+def sitemap_urls(path: Path) -> set[str]:
+    return set(sitemap_locations(path))
 
 
 def check_search_index(
@@ -229,6 +234,7 @@ def validate_locale(
     pages: list,
     status: str,
     urls: set[str],
+    sitemap_locations: list[str],
     root: Path,
     index_path: Path,
     findings: list[str],
@@ -343,6 +349,24 @@ def validate_locale(
                 fail(findings, f"draft locale route is in sitemap.xml: {target_route}")
 
     locale_prefix = f"{SITE_ORIGIN}/{locale}/"
+    locale_sitemap_routes = [
+        url.removeprefix(SITE_ORIGIN)
+        for url in sitemap_locations
+        if url.startswith(locale_prefix)
+    ]
+    locale_sitemap_counts = Counter(locale_sitemap_routes)
+    duplicate_sitemap_routes = sorted(
+        route for route, count in locale_sitemap_counts.items() if count > 1
+    )
+    if duplicate_sitemap_routes:
+        fail(
+            findings,
+            "locale sitemap contains duplicate routes: "
+            + ", ".join(
+                f"{route} (appears {locale_sitemap_counts[route]} times)"
+                for route in duplicate_sitemap_routes
+            ),
+        )
     sitemap_locale_routes = {
         url.removeprefix(SITE_ORIGIN)
         for url in urls
@@ -395,9 +419,11 @@ def validate(
     manifest = load_manifest(manifest_path)
     findings: list[str] = []
     try:
-        urls = sitemap_urls(sitemap_path)
+        locations = sitemap_locations(sitemap_path)
+        urls = set(locations)
     except ValueError as exc:
         fail(findings, str(exc))
+        locations = []
         urls = set()
 
     try:
@@ -414,6 +440,7 @@ def validate(
             spec["pages"],
             spec["status"],
             urls,
+            locations,
             root,
             locale_index,
             findings,

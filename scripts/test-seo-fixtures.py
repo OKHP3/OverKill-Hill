@@ -16,6 +16,7 @@ import shutil
 import sys
 import tempfile
 import unittest
+from collections.abc import Iterable
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -126,7 +127,7 @@ class SEOFixtureTests(unittest.TestCase):
     def _write_mixed_locale_fixture(
         self,
         root: Path,
-        sitemap_routes: set[str],
+        sitemap_routes: Iterable[str],
         index_routes: set[str],
     ) -> tuple[Path, Path, Path]:
         manifest_path = root / "manifest.json"
@@ -415,6 +416,62 @@ class SEOFixtureTests(unittest.TestCase):
             self.assertIn(
                 "locale sitemap contains undeclared routes: /fr/retired/",
                 findings,
+            )
+
+    def test_mixed_locale_rejects_duplicate_localized_sitemap_routes(self) -> None:
+        source_routes = {"/", "/about/", "/projects/", "/contact/"}
+        promoted_routes = {"/fr/", "/fr/about/", "/fr/projects/"}
+        unique_routes = sorted(source_routes | promoted_routes)
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            manifest_path, sitemap_path, index_path = self._write_mixed_locale_fixture(
+                root,
+                unique_routes,
+                promoted_routes,
+            )
+            self.assertFalse(
+                locale_checker.validate(
+                    manifest_path=manifest_path,
+                    sitemap_path=sitemap_path,
+                    index_path=index_path,
+                    root=root,
+                ),
+                "unique mixed-locale sitemap should pass",
+            )
+
+            _, duplicate_sitemap, duplicate_index = self._write_mixed_locale_fixture(
+                root,
+                unique_routes + ["/fr/about/"],
+                promoted_routes,
+            )
+            findings = locale_checker.validate(
+                manifest_path=manifest_path,
+                sitemap_path=duplicate_sitemap,
+                index_path=duplicate_index,
+                root=root,
+            )
+            self.assertIn(
+                "locale sitemap contains duplicate routes: /fr/about/ (appears 2 times)",
+                findings,
+            )
+
+            _, english_duplicate_sitemap, english_duplicate_index = (
+                self._write_mixed_locale_fixture(
+                    root,
+                    unique_routes + ["/about/"],
+                    promoted_routes,
+                )
+            )
+            findings = locale_checker.validate(
+                manifest_path=manifest_path,
+                sitemap_path=english_duplicate_sitemap,
+                index_path=english_duplicate_index,
+                root=root,
+            )
+            self.assertFalse(
+                findings,
+                "English source route duplicates must stay outside the localized check",
             )
 
     def test_duplicate_sitemap_locations_are_rejected_with_conflicting_dates(self) -> None:
