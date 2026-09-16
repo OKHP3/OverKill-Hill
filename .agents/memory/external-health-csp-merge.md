@@ -20,3 +20,9 @@ Repeated external failures should be grouped by public route and browser reason 
 **Why:** Retaining every identical event makes incident output noisy, while collapsing across routes removes the attribution needed to identify affected pages.
 
 **How to apply:** Normalize dependency URLs before grouping, keep distinct route/reason combinations as separate records, and include the count in each grouped failure record.
+
+New external-health reports require each failure record to carry a checked public route and non-empty browser error text. Readers of older v1 reports may encounter no route attribution and should display that record as an unknown route rather than reject the whole report.
+
+**Why:** Route attribution was added additively to an existing report shape; strict validation protects new reports while the display fallback keeps historical evidence usable.
+
+**How to apply:** Validate generated records before writing them, and retain an explicit unknown-route fallback wherever legacy reports are rendered.

@@ -261,6 +261,39 @@ function runFixtureSummary(reportPath, summaryPath, artifactUrl = null) {
   });
 }
 
+function assertExternalFailureReportContract(report) {
+  assert.equal(report.version, 1);
+  assert.equal(report.mode, "external-health");
+  assert.ok(Array.isArray(report.routes));
+  assert.equal(typeof report.status, "string");
+  assert.ok(report.summary && typeof report.summary === "object");
+
+  const failures = [
+    ...report.dependencies.flatMap(({ failures = [] }) => failures),
+    ...report.dependencies.flatMap(({ routeOutcomes = [] }) =>
+      routeOutcomes.flatMap(({ failures = [] }) => failures),
+    ),
+    ...report.externalOutages.flatMap(({ failures = [] }) => failures),
+    ...report.externalOutages.flatMap(({ routeOutcomes = [] }) =>
+      routeOutcomes.flatMap(({ failures = [] }) => failures),
+    ),
+  ];
+
+  for (const failure of failures) {
+    assert.equal(
+      typeof failure.route,
+      "string",
+      "current external failure records must include route attribution",
+    );
+    assert.ok(
+      report.routes.includes(failure.route),
+      `external failure route is not a public checked route: ${failure.route}`,
+    );
+    assert.equal(typeof failure.errorText, "string");
+    assert.ok(failure.errorText.trim(), "external failure error text must be non-empty");
+  }
+}
+
 test("links the focused CSP summary to its uploaded artifact", async () => {
   const reportDirectory = await mkdtemp(join(tmpdir(), "csp-summary-link-"));
   const reportPath = join(reportDirectory, "fixture-report.json");
@@ -448,6 +481,7 @@ test("preserves the browser failure reason for an aborted external request", asy
     assert.match(result.output, /net::ERR_/);
 
     const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assertExternalFailureReportContract(report);
     assert.equal(report.status, "EXTERNAL_OUTAGE");
     assert.equal(report.summary.externalOutages, 1);
 
@@ -478,6 +512,7 @@ test("attributes repeated external failures to every public route", async () => 
     assert.match(result.output, /\/external-network-failure-shared\.html: net::ERR_/);
 
     const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assertExternalFailureReportContract(report);
     assert.equal(report.status, "EXTERNAL_OUTAGE");
     assert.equal(report.summary.externalOutages, 1);
 

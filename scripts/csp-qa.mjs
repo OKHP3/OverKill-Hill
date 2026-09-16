@@ -444,11 +444,19 @@ function serialiseExternalDependency(dependency, cspEvidence) {
   };
 }
 
-function groupFailureRecords(failures) {
+function groupFailureRecords(failures, publicRoutes = null) {
   const grouped = new Map();
   for (const failure of failures) {
     const route = failure.route || "";
     const errorText = failure.errorText || "unknown failure";
+    if (publicRoutes && !publicRoutes.has(route)) {
+      throw new Error(
+        `External failure route must match a checked public route: ${route || "(missing)"}`,
+      );
+    }
+    if (typeof errorText !== "string" || !errorText.trim()) {
+      throw new Error("External failure must include non-empty error text");
+    }
     const key = JSON.stringify([route, errorText]);
     const existing = grouped.get(key);
     if (existing) {
@@ -663,6 +671,7 @@ async function checkExternalRoute(browser, path, overallDeadline) {
 
 function mergeExternalDependencies(results) {
   const merged = new Map();
+  const publicRoutes = new Set(results.map(({ path }) => path));
   for (const result of results) {
     for (const dependency of result.dependencies) {
       if (!merged.has(dependency.url)) {
@@ -694,7 +703,7 @@ function mergeExternalDependencies(results) {
     }
   }
   for (const dependency of merged.values()) {
-    dependency.failures = groupFailureRecords(dependency.failures);
+    dependency.failures = groupFailureRecords(dependency.failures, publicRoutes);
     const routeOutcomes = new Map();
     for (const outcome of dependency.routeOutcomes) {
       const existing = routeOutcomes.get(outcome.route);
@@ -721,7 +730,7 @@ function mergeExternalDependencies(results) {
     dependency.routeOutcomes = [...routeOutcomes.values()]
       .map((outcome) => ({
         ...outcome,
-        failures: groupFailureRecords(outcome.failures),
+        failures: groupFailureRecords(outcome.failures, publicRoutes),
         timeouts: [...new Map(
           outcome.timeouts.map((timeout) => [
             JSON.stringify([timeout.route, timeout.url]),
@@ -856,6 +865,8 @@ async function runExternalHealth() {
     const failureReasons = dependency.failures
       .map(({ route, errorText, count = 1 }) => {
         const occurrences = count > 1 ? ` (${count} occurrences)` : "";
+        // Reports written before route attribution may omit `route`; keep those
+        // legacy v1 reports readable while current reports enforce public routes.
         return `${route || "unknown route"}: ${errorText}${occurrences}`;
       })
       .filter(Boolean);
