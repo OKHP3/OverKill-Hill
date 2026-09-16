@@ -316,6 +316,7 @@ jobs:
             test-results/responsive-qa/
             test-results/audit-site/
           if-no-files-found: warn
+          retention-days: 7
 
       - name: Run accessibility QA gate
         run: |
