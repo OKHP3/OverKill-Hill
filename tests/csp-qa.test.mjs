@@ -770,3 +770,32 @@ test("identifies external requests that remain pending through the settle timeou
     await rm(reportDirectory, { recursive: true, force: true });
   }
 });
+
+test("enforces one external-health budget across routes and reports affected routes", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-budget-health-"));
+  const reportPath = join(reportDirectory, "report.json");
+  const paths = "/external-timeout.html,/external-delayed-outage.html";
+  try {
+    const result = await runCspQa(paths, [
+      "--external-health",
+      "--external-budget-ms=1500",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /ROUTE CUT SHORT BY OVERALL BUDGET: \/external-timeout\.html/);
+    assert.match(result.output, /ROUTE SKIPPED BY OVERALL BUDGET: \/external-delayed-outage\.html/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.equal(report.timeBudget.limitMs, 1500);
+    assert.equal(report.timeBudget.exceeded, true);
+    assert.deepEqual(report.timeBudget.routesCutShort, ["/external-timeout.html"]);
+    assert.deepEqual(report.timeBudget.routesSkipped, ["/external-delayed-outage.html"]);
+    assert.equal(report.summary.routes, 1);
+    assert.equal(report.summary.budgetExceeded, true);
+    assert.equal(report.summary.routesCutShortByBudget, 1);
+    assert.equal(report.summary.routesSkippedByBudget, 1);
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});

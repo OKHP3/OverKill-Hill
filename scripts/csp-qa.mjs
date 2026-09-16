@@ -21,6 +21,7 @@
  *   node scripts/csp-qa.mjs --base-url=http://127.0.0.1:5000 --paths=/fixture.html --report=fixture.json
  *   node scripts/csp-qa.mjs --external-health --base-url=https://overkillhill.com
  *   node scripts/csp-qa.mjs --external-health --report=third-party-report.json
+ *   node scripts/csp-qa.mjs --external-health --external-budget-ms=120000
  *   node scripts/csp-qa.mjs --fixture-summary=fixture-results.json
  */
 
@@ -38,6 +39,7 @@ const reportArg = process.argv.find((arg) => arg.startsWith("--report="));
 const fixtureSummaryArg = process.argv.find((arg) => arg.startsWith("--fixture-summary="));
 const summaryArg = process.argv.find((arg) => arg.startsWith("--summary="));
 const artifactUrlArg = process.argv.find((arg) => arg.startsWith("--artifact-url="));
+const externalBudgetArg = process.argv.find((arg) => arg.startsWith("--external-budget-ms="));
 const externalHealthMode =
   process.argv.includes("--external-health") || process.argv.includes("--check-external");
 
@@ -70,6 +72,22 @@ const MERMAID_RENDER_ERROR = /^\[mermaid-init\] render error/i;
 const INTENTIONAL_EXTERNAL_FAILURE = "Failed to load resource: net::ERR_FAILED";
 const EXTERNAL_SETTLE_TIMEOUT_MS = 5000;
 const EXTERNAL_QUIET_WINDOW_MS = 250;
+const DEFAULT_EXTERNAL_HEALTH_BUDGET_MS = 120000;
+
+function parsePositiveIntegerArgument(argument, name, defaultValue) {
+  if (!argument) return defaultValue;
+  const value = Number(argument.slice(`--${name}=`.length));
+  if (!Number.isInteger(value) || value <= 0) {
+    throw new Error(`--${name} must be a positive integer number of milliseconds`);
+  }
+  return value;
+}
+
+const externalHealthBudgetMs = parsePositiveIntegerArgument(
+  externalBudgetArg,
+  "external-budget-ms",
+  DEFAULT_EXTERNAL_HEALTH_BUDGET_MS,
+);
 
 function isHttpUrl(value) {
   return value.protocol === "http:" || value.protocol === "https:";
@@ -442,28 +460,40 @@ function groupFailureRecords(failures) {
   return [...grouped.values()];
 }
 
-async function waitForExternalRequestsToSettle(page, pendingRequests) {
-  const deadline = Date.now() + EXTERNAL_SETTLE_TIMEOUT_MS;
+async function waitForExternalRequestsToSettle(page, pendingRequests, overallDeadline) {
+  const settleDeadline = Date.now() + EXTERNAL_SETTLE_TIMEOUT_MS;
   let quietSince = null;
-  while (Date.now() < deadline) {
+  while (Date.now() < settleDeadline && Date.now() < overallDeadline) {
     if (pendingRequests.size) {
       quietSince = null;
     } else if (quietSince === null) {
       quietSince = Date.now();
     } else if (Date.now() - quietSince >= EXTERNAL_QUIET_WINDOW_MS) {
-      return;
+      return {
+        requestsTimedOut: false,
+        budgetExceeded: false,
+      };
     }
-    await page.waitForTimeout(50);
+    const remainingMs = Math.min(
+      50,
+      settleDeadline - Date.now(),
+      overallDeadline - Date.now(),
+    );
+    if (remainingMs > 0) await page.waitForTimeout(remainingMs);
   }
-  return pendingRequests.size > 0;
+  return {
+    requestsTimedOut: pendingRequests.size > 0,
+    budgetExceeded: Date.now() >= overallDeadline,
+  };
 }
 
-async function checkExternalRoute(browser, path) {
+async function checkExternalRoute(browser, path, overallDeadline) {
   const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
   const dependencies = new Map();
   const pendingExternalRequests = new Set();
   const cspDiagnostics = [];
   const localErrors = new Set();
+  let budgetExceeded = false;
 
   // The DOM event exposes structured CSP evidence independently of
   // browser-specific request failure text.
@@ -532,35 +562,65 @@ async function checkExternalRoute(browser, path) {
   });
 
   try {
-    const response = await page.goto(`${baseUrl}${path}`, {
-      waitUntil: "commit",
-      timeout: 30000,
-    });
-    if (!response) {
-      localErrors.add("navigation returned no response");
-    } else if (response.status() >= 400) {
-      localErrors.add(`navigation returned HTTP ${response.status()}`);
+    const navigationTimeout = Math.min(30000, overallDeadline - Date.now());
+    if (navigationTimeout <= 0) {
+      budgetExceeded = true;
+    } else {
+      const response = await page.goto(`${baseUrl}${path}`, {
+        waitUntil: "commit",
+        timeout: navigationTimeout,
+      });
+      if (!response) {
+        localErrors.add("navigation returned no response");
+      } else if (response.status() >= 400) {
+        localErrors.add(`navigation returned HTTP ${response.status()}`);
+      }
     }
-    try {
-      await page.waitForLoadState("domcontentloaded", { timeout: 5000 });
-    } catch {
-      localErrors.add("DOMContentLoaded was not observed within 5s");
+    if (!budgetExceeded) {
+      const loadStateTimeout = Math.min(5000, overallDeadline - Date.now());
+      if (loadStateTimeout <= 0) {
+        budgetExceeded = true;
+      } else {
+        try {
+          await page.waitForLoadState("domcontentloaded", { timeout: loadStateTimeout });
+        } catch {
+          if (Date.now() >= overallDeadline) {
+            budgetExceeded = true;
+          } else {
+            localErrors.add("DOMContentLoaded was not observed within 5s");
+          }
+        }
+      }
     }
-    // Give deferred analytics, fonts, embeds, and images a short, bounded
-    // window to make their requests without making monitoring hang on them.
-    await page.waitForTimeout(1000);
+    if (!budgetExceeded) {
+      // Give deferred analytics, fonts, embeds, and images a short, bounded
+      // window to make their requests without making monitoring hang on them.
+      const deferredWaitMs = Math.min(1000, overallDeadline - Date.now());
+      if (deferredWaitMs <= 0) {
+        budgetExceeded = true;
+      } else {
+        await page.waitForTimeout(deferredWaitMs);
+        budgetExceeded = Date.now() >= overallDeadline;
+      }
+    }
   } catch (error) {
-    localErrors.add(`navigation failed: ${error.message.split("\n")[0]}`);
+    if (Date.now() >= overallDeadline) {
+      budgetExceeded = true;
+    } else {
+      localErrors.add(`navigation failed: ${error.message.split("\n")[0]}`);
+    }
   }
 
   // Wait for terminal response/failure events instead of closing after a fixed
   // sleep. The quiet window catches deferred requests without allowing a
   // hanging third-party request to hold the health check forever.
-  const externalRequestsTimedOut = await waitForExternalRequestsToSettle(
+  const settleResult = await waitForExternalRequestsToSettle(
     page,
     pendingExternalRequests,
+    overallDeadline,
   );
-  if (externalRequestsTimedOut) {
+  budgetExceeded = budgetExceeded || settleResult.budgetExceeded;
+  if (settleResult.requestsTimedOut) {
     for (const request of pendingExternalRequests) {
       const dependency = getExternalDependency(dependencies, request);
       if (!dependency || dependency.timeouts.some(({ route }) => route === path)) continue;
@@ -592,6 +652,7 @@ async function checkExternalRoute(browser, path) {
   await page.close();
   return {
     path,
+    budgetExceeded,
     dependencies: [...dependencies.values()]
       .map((dependency) => serialiseExternalDependency(dependency, externalCspEvidence)),
     cspDiagnostics,
@@ -680,6 +741,8 @@ function mergeExternalDependencies(results) {
 }
 
 async function runExternalHealth() {
+  const startedAt = Date.now();
+  const overallDeadline = startedAt + externalHealthBudgetMs;
   console.log("OverKill Hill third-party runtime health");
   console.log("=".repeat(40));
   console.log(`Base URL: ${baseUrl}`);
@@ -691,24 +754,48 @@ async function runExternalHealth() {
   console.log(
     "External outages, CSP diagnostics, and local route failures are reported separately.\n",
   );
+  console.log(
+    `Overall time budget: ${externalHealthBudgetMs}ms; ` +
+    `per-route settle limit: ${EXTERNAL_SETTLE_TIMEOUT_MS}ms.\n`,
+  );
 
   const browser = await chromium.launch({ headless: true });
   const results = [];
+  const routesCutShortByBudget = [];
+  const routesSkippedByBudget = [];
   try {
-    for (const path of PUBLIC_PATHS) {
-      const result = await checkExternalRoute(browser, path);
+    for (const [index, path] of PUBLIC_PATHS.entries()) {
+      if (Date.now() >= overallDeadline) {
+        routesSkippedByBudget.push(...PUBLIC_PATHS.slice(index));
+        break;
+      }
+      const result = await checkExternalRoute(browser, path, overallDeadline);
       results.push(result);
+      if (result.budgetExceeded) {
+        routesCutShortByBudget.push(path);
+      }
       console.log(
         `${result.localErrors.length ? "FAIL" : "CHECK"} ${path} ` +
         `(${result.dependencies.length} external request(s))`,
       );
       result.localErrors.forEach((error) => console.log(`      LOCAL: ${error}`));
       result.cspDiagnostics.forEach((message) => console.log(`      CSP: ${message}`));
+      if (result.budgetExceeded) {
+        routesSkippedByBudget.push(...PUBLIC_PATHS.slice(index + 1));
+        break;
+      }
     }
   } finally {
     await browser.close();
   }
 
+  const timeBudget = {
+    limitMs: externalHealthBudgetMs,
+    elapsedMs: Date.now() - startedAt,
+    exceeded: routesCutShortByBudget.length > 0 || routesSkippedByBudget.length > 0,
+    routesCutShort: routesCutShortByBudget,
+    routesSkipped: routesSkippedByBudget,
+  };
   const dependencies = mergeExternalDependencies(results);
   const externalOutages = dependencies.filter(
     ({ state }) => state === "unavailable" || state === "no-response",
@@ -732,6 +819,7 @@ async function runExternalHealth() {
     cspEvidence,
     timeouts,
     localFailures,
+    timeBudget,
     summary: {
       routes: results.length,
       dependencies: dependencies.length,
@@ -741,6 +829,9 @@ async function runExternalHealth() {
       cspEvidence: cspEvidence.length,
       timeouts: timeouts.length,
       localFailures: localFailures.length,
+      budgetExceeded: timeBudget.exceeded,
+      routesCutShortByBudget: routesCutShortByBudget.length,
+      routesSkippedByBudget: routesSkippedByBudget.length,
     },
     status: externalOutages.length
       ? "EXTERNAL_OUTAGE"
@@ -748,7 +839,9 @@ async function runExternalHealth() {
         ? "CSP_BLOCKED"
         : localFailures.length
           ? "LOCAL_FAILURE"
-          : "PASS",
+          : timeBudget.exceeded
+            ? "TIME_BUDGET_EXCEEDED"
+            : "PASS",
   };
 
   console.log(
@@ -773,6 +866,17 @@ async function runExternalHealth() {
   timeouts.forEach(({ route, url }) => {
     console.log(`  EXTERNAL TIMEOUT: ${route} ${url}`);
   });
+  if (timeBudget.exceeded) {
+    console.log(
+      `  EXTERNAL HEALTH TIME BUDGET: ${externalHealthBudgetMs}ms overall limit reached.`,
+    );
+    routesCutShortByBudget.forEach((route) => {
+      console.log(`  ROUTE CUT SHORT BY OVERALL BUDGET: ${route}`);
+    });
+    routesSkippedByBudget.forEach((route) => {
+      console.log(`  ROUTE SKIPPED BY OVERALL BUDGET: ${route}`);
+    });
+  }
   if (cspDiagnostics.length || cspEvidence.length) {
     console.log("  CSP diagnostics were observed during the availability check.");
   }
@@ -787,7 +891,13 @@ async function runExternalHealth() {
     console.log(`Report: ${reportPath}`);
   }
 
-  if (externalOutages.length || cspDiagnostics.length || cspEvidence.length || localFailures.length) {
+  if (
+    externalOutages.length ||
+    cspDiagnostics.length ||
+    cspEvidence.length ||
+    localFailures.length ||
+    timeBudget.exceeded
+  ) {
     process.exitCode = 1;
   }
 }
