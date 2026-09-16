@@ -319,6 +319,35 @@ class SEOFixtureTests(unittest.TestCase):
                 findings,
             )
 
+    def test_locale_search_index_rejects_malformed_entries(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            index_path = Path(directory) / "search-index.fr.json"
+            for entry in (None, "invalid", {}, {"url": None}, {"url": 7},
+                          {"url": []}, {"url": {}}, {"url": ""}, {"url": " "}):
+                with self.subTest(entry=entry):
+                    index_path.write_text(json.dumps({
+                        "locale": "fr", "count": 2,
+                        "entries": [entry, {"url": "/fr/retired/"}],
+                    }), encoding="utf-8")
+                    findings = []
+                    locale_checker.check_search_index(
+                        index_path, set(), "fr", findings,
+                        draft_routes=set(), require_routes=False,
+                    )
+                    self.assertIn("locale search index entry 0 must have a non-empty string URL", findings)
+                    self.assertIn("locale search index contains undeclared routes: /fr/retired/", findings)
+
+    def test_locale_search_index_rejects_non_object_payload(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            index_path = Path(directory) / "search-index.fr.json"
+            index_path.write_text("[]", encoding="utf-8")
+            findings = []
+            locale_checker.check_search_index(
+                index_path, set(), "fr", findings,
+                draft_routes=set(), require_routes=False,
+            )
+            self.assertIn("locale search index must be an object", findings)
+
     def test_unpublished_locale_rejects_stale_search_index_routes(self) -> None:
         declared_route = "/fr/about/"
         unrelated_route = "/fr/retired/"

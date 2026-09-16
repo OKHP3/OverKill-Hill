@@ -106,7 +106,7 @@ function formatConsoleMessage(message) {
   return `${message.type.toUpperCase()}: ${message.text}${location}`;
 }
 
-function normaliseHttpUrl(value) {
+function normalizeHttpUrl(value) {
   try {
     const url = new URL(value);
     if (!isHttpUrl(url)) return null;
@@ -646,7 +646,7 @@ async function checkExternalRoute(browser, path, overallDeadline) {
   const externalCspEvidence = cspEvidence
     .map((evidence) => ({
       route: path,
-      blockedURI: normaliseHttpUrl(evidence.blockedURI),
+      blockedURI: normalizeHttpUrl(evidence.blockedURI),
       effectiveDirective: evidence.effectiveDirective || "",
       violatedDirective: evidence.violatedDirective || "",
       disposition: evidence.disposition || "",

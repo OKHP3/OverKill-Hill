@@ -148,13 +148,22 @@ def check_search_index(
     except (OSError, json.JSONDecodeError) as exc:
         fail(findings, f"locale search index is not valid JSON: {exc}")
         return
+    if not isinstance(payload, dict):
+        fail(findings, "locale search index must be an object")
+        return
     if payload.get("locale") != locale:
         fail(findings, f"locale search index has locale {payload.get('locale')!r}, expected {locale!r}")
     entries = payload.get("entries")
     if not isinstance(entries, list):
         fail(findings, "locale search index entries must be a list")
         return
-    urls = [entry.get("url") for entry in entries if isinstance(entry, dict)]
+    urls = []
+    for position, entry in enumerate(entries):
+        url = entry.get("url") if isinstance(entry, dict) else None
+        if not isinstance(url, str) or not url.strip():
+            fail(findings, f"locale search index entry {position} must have a non-empty string URL")
+            continue
+        urls.append(url)
     indexed_routes = set(urls)
     declared_routes = promoted_routes | draft_routes
     undeclared = sorted(indexed_routes - declared_routes)
