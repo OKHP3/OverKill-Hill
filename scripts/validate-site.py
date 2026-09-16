@@ -59,7 +59,12 @@ def configure_utf8_console() -> None:
 
 configure_utf8_console()
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(
+    os.environ.get(
+        "OKHP3_VALIDATION_ROOT",
+        str(Path(__file__).resolve().parent.parent),
+    )
+).resolve()
 # Production-page discovery deliberately excludes checked-in test HTML.  Files
 # under tests/fixtures/ are served only by their dedicated test commands; they
 # are not published pages and must not inherit production SEO requirements.

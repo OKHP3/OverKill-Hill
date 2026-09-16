@@ -116,6 +116,7 @@ jobs:
         run: |
           python3 scripts/test-seo-fixtures.py
           python3 tests/test-social-card-duplicates.py
+          python3 tests/test-release-entrypoints.py
 
       - name: Run audit portability regressions
         run: python3 tests/test-audit-site-portability.py

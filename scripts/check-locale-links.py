@@ -20,7 +20,12 @@ from html.parser import HTMLParser
 from pathlib import Path
 from xml.etree import ElementTree
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(
+    os.environ.get(
+        "OKHP3_VALIDATION_ROOT",
+        str(Path(__file__).resolve().parents[1]),
+    )
+).resolve()
 SITE_ORIGIN = "https://overkillhill.com"
 DEFAULT_MANIFEST = ROOT / "i18n" / "pilot" / "manifest.json"
 DEFAULT_SITEMAP = ROOT / "sitemap.xml"
