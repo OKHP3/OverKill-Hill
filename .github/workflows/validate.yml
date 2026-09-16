@@ -56,6 +56,53 @@ jobs:
           EOF
           cat theme-control-revisions.txt >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Verify pinned theme-control foundation revisions are fetchable
+        run: |
+          set -euo pipefail
+
+          verify_revision() {
+            local site="$1"
+            local revision_variable="$2"
+            local repository="$3"
+            local revision="$4"
+            local probe_dir="$RUNNER_TEMP/theme-control-fetch/$site"
+
+            rm -rf "$probe_dir"
+            mkdir -p "$probe_dir"
+            git -C "$probe_dir" init --quiet
+            printf 'Fetching %s (%s=%s) from %s\n' \
+              "$site" "$revision_variable" "$revision" "$repository"
+            if ! git -C "$probe_dir" fetch --no-tags --depth=1 --filter=tree:0 "$repository" "$revision"; then
+              printf 'ERROR: %s (%s=%s) foundation revision could not be fetched from %s.\n' \
+                "$site" "$revision_variable" "$revision" "$repository" >&2
+              return 1
+            fi
+
+            local fetched_revision
+            fetched_revision="$(git -C "$probe_dir" rev-parse FETCH_HEAD)"
+            if [[ "$fetched_revision" != "$revision" ]]; then
+              printf 'ERROR: %s (%s=%s) fetched unexpected revision %s from %s.\n' \
+                "$site" "$revision_variable" "$revision" "$fetched_revision" "$repository" >&2
+              return 1
+            fi
+          }
+
+          verify_revision \
+            "OKH" \
+            "THEME_CONTROL_OKH_REVISION" \
+            "$(git remote get-url origin)" \
+            "$THEME_CONTROL_OKH_REVISION"
+          verify_revision \
+            "Glee" \
+            "THEME_CONTROL_GLEE_REVISION" \
+            "https://github.com/OKHP3/Glee-fullyTools.git" \
+            "$THEME_CONTROL_GLEE_REVISION"
+          verify_revision \
+            "AskJamie" \
+            "THEME_CONTROL_ASKJAMIE_REVISION" \
+            "https://github.com/OKHP3/AskJamie.git" \
+            "$THEME_CONTROL_ASKJAMIE_REVISION"
+
       - name: Fetch reviewed OKH foundation revision
         run: git fetch --no-tags --depth=1 origin "$THEME_CONTROL_OKH_REVISION"
 
@@ -116,6 +163,7 @@ jobs:
         run: |
           python3 scripts/test-seo-fixtures.py
           python3 tests/test-social-card-duplicates.py
+          python3 tests/test-release-entrypoints.py
 
       - name: Run audit portability regressions
         run: python3 tests/test-audit-site-portability.py
@@ -268,6 +316,7 @@ jobs:
             test-results/responsive-qa/
             test-results/audit-site/
           if-no-files-found: warn
+          retention-days: 7
 
       - name: Run accessibility QA gate
         run: |
@@ -304,18 +353,22 @@ jobs:
           CSP_FIXTURE_REPORT: csp-fixture-report.json
         run: npm run test:csp:regressions
 
-      - name: Summarize failed CSP fixture regressions
-        if: always() && steps.csp-fixtures.outcome == 'failure'
-        run: node scripts/csp-qa.mjs --fixture-summary=csp-fixture-report.json
-
       - name: Upload failed CSP fixture report
         if: always() && steps.csp-fixtures.outcome == 'failure'
+        id: upload-csp-fixture-report
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: csp-fixture-regressions-${{ github.run_id }}-${{ github.run_attempt }}
           path: csp-fixture-report.json
           if-no-files-found: warn
           retention-days: 7
+
+      - name: Summarize failed CSP fixture regressions
+        if: always() && steps.csp-fixtures.outcome == 'failure'
+        run: >-
+          node scripts/csp-qa.mjs
+          --fixture-summary=csp-fixture-report.json
+          --artifact-url="${{ steps.upload-csp-fixture-report.outputs.artifact-url }}"
 
       - name: Preserve CSP fixture regression failure
         if: always() && steps.csp-fixtures.outcome == 'failure'

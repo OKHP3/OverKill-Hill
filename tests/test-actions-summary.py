@@ -175,6 +175,43 @@ class SummaryTests(unittest.TestCase):
             source,
         )
 
+    def test_validation_evidence_uploads_declare_retention_and_file_policy(self):
+        for workflow in ('.github/workflows/validate.yml', '.github/workflows/pages.yml'):
+            source = (ROOT / workflow).read_text(encoding='utf-8')
+            upload_steps = re.findall(
+                r'(?ms)^      - name: [^\n]+\n'
+                r'(.*?)(?=^      - name: |\Z)',
+                source,
+            )
+            artifact_steps = [
+                step for step in upload_steps
+                if 'uses: actions/upload-artifact@' in step
+            ]
+            self.assertTrue(artifact_steps, f'{workflow} has no diagnostic artifact uploads')
+            for step in artifact_steps:
+                self.assertRegex(
+                    step,
+                    r'(?m)^          if-no-files-found: (?:warn|error)$',
+                )
+                self.assertRegex(
+                    step,
+                    r'(?m)^          retention-days: [1-9][0-9]*$',
+                )
+
+        workflow = (ROOT / '.github/workflows/validate.yml').read_text(encoding='utf-8')
+        local_qa = re.search(
+            r'(?ms)^      - name: Upload local QA reports\n'
+            r'(.*?)(?=^      - name: |\Z)',
+            workflow,
+        )
+        self.assertIsNotNone(local_qa, 'missing local QA evidence upload step')
+        self.assertIn('if-no-files-found: warn', local_qa.group(1))
+        self.assertIn('retention-days: 7', local_qa.group(1))
+        self.assertIn('test-results/responsive-qa/', local_qa.group(1))
+        self.assertIn('test-results/audit-site/', local_qa.group(1))
+        self.assertNotIn('site-release', local_qa.group(1))
+        self.assertNotIn('third-party-runtime-report.json', local_qa.group(1))
+
     def test_failed_csp_fixtures_upload_only_the_short_lived_focused_report(self):
         workflow = (ROOT / '.github/workflows/validate.yml').read_text(encoding='utf-8')
         match = re.search(
@@ -188,12 +225,34 @@ class SummaryTests(unittest.TestCase):
             "if: always() && steps.csp-fixtures.outcome == 'failure'",
             upload,
         )
+        self.assertIn('id: upload-csp-fixture-report', upload)
         self.assertIn('uses: actions/upload-artifact@', upload)
         self.assertIn('path: csp-fixture-report.json', upload)
         self.assertIn('if-no-files-found: warn', upload)
         self.assertIn('retention-days: 7', upload)
         self.assertNotIn('third-party-runtime-report.json', upload)
         self.assertNotIn('site-release', upload)
+
+        summary_step = re.search(
+            r'(?ms)^      - name: Summarize failed CSP fixture regressions\n'
+            r'(.*?)(?=^      - name: )',
+            workflow,
+        )
+        self.assertIsNotNone(summary_step, 'missing focused CSP fixture summary step')
+        summary = summary_step.group(1)
+        self.assertIn('node scripts/csp-qa.mjs', summary)
+        self.assertIn('--fixture-summary=csp-fixture-report.json', summary)
+        self.assertIn(
+            '--artifact-url="${{ steps.upload-csp-fixture-report.outputs.artifact-url }}"',
+            summary,
+        )
+        self.assertNotIn('third-party-runtime-report.json', summary)
+        self.assertNotIn('site-release', summary)
+        self.assertLess(
+            workflow.index('Upload failed CSP fixture report'),
+            workflow.index('Summarize failed CSP fixture regressions'),
+            'focused summary must run after the focused report upload',
+        )
 
         fixture_step = re.search(
             r'(?ms)^      - name: Run CSP fixture regressions\n'

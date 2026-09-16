@@ -19,15 +19,20 @@ const fixtureFiles = new Map([
   ["/external-network-failure.html", "external-network-failure.html"],
   ["/external-network-failure-shared.html", "external-network-failure-shared.html"],
   ["/external-repeated-network-failure.html", "external-repeated-network-failure.html"],
+  ["/external-different-network-failures.html", "external-different-network-failures.html"],
   ["/external-csp-blocked.html", "external-csp-blocked.html"],
   ["/external-csp-and-outage.html", "external-csp-and-outage.html"],
   ["/external-csp-shared.html", "external-csp-shared.html"],
   ["/external-outage-shared.html", "external-outage-shared.html"],
+  ["/external-csp-network-shared.html", "external-csp-network-shared.html"],
+  ["/external-network-failure-network-shared.html", "external-network-failure-network-shared.html"],
   ["/external-delayed-outage.html", "external-delayed-outage.html"],
+  ["/external-timeout.html", "external-timeout.html"],
 ]);
 
 let server;
 let externalServer;
+const pendingExternalSockets = new Set();
 let baseUrl;
 let externalBaseUrl;
 let focusedReportDirectory;
@@ -97,6 +102,23 @@ before(async () => {
       request.socket.destroy();
       return;
     }
+    if (path === "/different-failure.png") {
+      const variant = new URL(request.url, "http://external-fixture").searchParams.get("variant");
+      if (variant === "truncated") {
+        response.writeHead(200, {
+          "content-type": "image/png",
+          "content-length": "64",
+        });
+        response.end(Buffer.from("truncated"));
+      } else {
+        request.socket.destroy();
+      }
+      return;
+    }
+    if (path === "/network-shared.png") {
+      request.socket.destroy();
+      return;
+    }
     if (path === "/blocked.png") {
       response.writeHead(200, { "content-type": "image/png" });
       response.end(Buffer.from(
@@ -115,6 +137,11 @@ before(async () => {
         response.writeHead(503, { "content-type": "text/plain" });
         response.end("delayed fixture dependency intentionally unavailable");
       }, 1400);
+      return;
+    }
+    if (path === "/pending.png") {
+      pendingExternalSockets.add(request.socket);
+      request.socket.once("close", () => pendingExternalSockets.delete(request.socket));
       return;
     }
     response.writeHead(404, { "content-type": "text/plain" });
@@ -136,6 +163,7 @@ before(async () => {
 });
 
 after(async () => {
+  for (const socket of pendingExternalSockets) socket.destroy();
   await new Promise((resolve, reject) => server.close((error) => error ? reject(error) : resolve()));
   await new Promise((resolve, reject) =>
     externalServer.close((error) => error ? reject(error) : resolve()));
@@ -210,15 +238,17 @@ function runCspQa(path, flags = []) {
   });
 }
 
-function runFixtureSummary(reportPath, summaryPath) {
+function runFixtureSummary(reportPath, summaryPath, artifactUrl = null) {
+  const args = [
+    cspQaScript,
+    `--fixture-summary=${reportPath}`,
+    `--summary=${summaryPath}`,
+  ];
+  if (artifactUrl) args.push(`--artifact-url=${artifactUrl}`);
   return new Promise((resolve, reject) => {
     const child = spawn(
       process.execPath,
-      [
-        cspQaScript,
-        `--fixture-summary=${reportPath}`,
-        `--summary=${summaryPath}`,
-      ],
+      args,
       { cwd: repositoryRoot },
     );
     let stdout = "";
@@ -244,6 +274,89 @@ function runFixtureSummary(reportPath, summaryPath) {
     });
   });
 }
+
+function assertExternalFailureReportContract(report) {
+  assert.equal(report.version, 1);
+  assert.equal(report.mode, "external-health");
+  assert.ok(Array.isArray(report.routes));
+  assert.equal(typeof report.status, "string");
+  assert.ok(report.summary && typeof report.summary === "object");
+
+  const failures = [
+    ...report.dependencies.flatMap(({ failures = [] }) => failures),
+    ...report.dependencies.flatMap(({ routeOutcomes = [] }) =>
+      routeOutcomes.flatMap(({ failures = [] }) => failures),
+    ),
+    ...report.externalOutages.flatMap(({ failures = [] }) => failures),
+    ...report.externalOutages.flatMap(({ routeOutcomes = [] }) =>
+      routeOutcomes.flatMap(({ failures = [] }) => failures),
+    ),
+  ];
+
+  for (const failure of failures) {
+    assert.equal(
+      typeof failure.route,
+      "string",
+      "current external failure records must include route attribution",
+    );
+    assert.ok(
+      report.routes.includes(failure.route),
+      `external failure route is not a public checked route: ${failure.route}`,
+    );
+    assert.equal(typeof failure.errorText, "string");
+    assert.ok(failure.errorText.trim(), "external failure error text must be non-empty");
+  }
+}
+
+test("links the focused CSP summary to its uploaded artifact", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-summary-link-"));
+  const reportPath = join(reportDirectory, "fixture-report.json");
+  const summaryPath = join(reportDirectory, "summary.md");
+  const artifactUrl = "https://github.com/example/site/actions/runs/123/artifacts/456";
+
+  try {
+    await writeFile(reportPath, `${JSON.stringify({
+      version: 1,
+      mode: "csp-fixtures",
+      fixtures: [{ path: "/blocked.html", errors: ["CSP: blocked"] }],
+    })}\n`);
+
+    const result = await runFixtureSummary(reportPath, summaryPath, artifactUrl);
+    assert.equal(result.status, 0, result.output);
+    const summary = await readFile(summaryPath, "utf8");
+    assert.match(
+      summary,
+      new RegExp(
+        String.raw`Focused CSP evidence artifact: \[csp-fixture-report\.json\]\(` +
+        artifactUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") +
+        String.raw`\)`,
+      ),
+    );
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+
+test("keeps the focused CSP summary useful without an uploaded artifact", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-summary-missing-"));
+  const reportPath = join(reportDirectory, "missing-report.json");
+  const summaryPath = join(reportDirectory, "summary.md");
+
+  try {
+    const result = await runFixtureSummary(reportPath, summaryPath);
+    assert.equal(result.status, 0, result.output);
+    const summary = await readFile(summaryPath, "utf8");
+    assert.match(summary, /\| unavailable \| unknown \| Could not read focused CSP fixture report:/);
+    assert.match(
+      summary,
+      /Focused CSP evidence artifact: unavailable; check the upload step for a warning or missing report\./,
+    );
+    assert.doesNotMatch(summary, /Focused CSP evidence artifact: \[/);
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
 
 test("keeps every browser diagnostic category visible in the focused summary", async () => {
   const reportDirectory = await mkdtemp(join(tmpdir(), "csp-summary-"));
@@ -378,9 +491,11 @@ test("preserves the browser failure reason for an aborted external request", asy
     ]);
     assert.notEqual(result.status, 0, result.output);
     assert.match(result.output, /EXTERNAL OUTAGE:/);
+    assert.match(result.output, /\/external-network-failure\.html: net::ERR_/);
     assert.match(result.output, /net::ERR_/);
 
     const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assertExternalFailureReportContract(report);
     assert.equal(report.status, "EXTERNAL_OUTAGE");
     assert.equal(report.summary.externalOutages, 1);
 
@@ -407,8 +522,11 @@ test("attributes repeated external failures to every public route", async () => 
     ]);
     assert.notEqual(result.status, 0, result.output);
     assert.match(result.output, /EXTERNAL OUTAGE:/);
+    assert.match(result.output, /\/external-network-failure\.html: net::ERR_/);
+    assert.match(result.output, /\/external-network-failure-shared\.html: net::ERR_/);
 
     const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assertExternalFailureReportContract(report);
     assert.equal(report.status, "EXTERNAL_OUTAGE");
     assert.equal(report.summary.externalOutages, 1);
 
@@ -463,6 +581,58 @@ test("groups repeated failures for one dependency without losing the browser rea
   }
 });
 
+test("keeps different browser failure reasons separate for one normalized dependency", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-different-failures-"));
+  const reportPath = join(reportDirectory, "report.json");
+  try {
+    const result = await runCspQa("/external-different-network-failures.html", [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /EXTERNAL OUTAGE:/);
+    assert.equal((result.output.match(/net::ERR_EMPTY_RESPONSE/g) || []).length, 1, result.output);
+    assert.equal(
+      (result.output.match(/net::ERR_CONTENT_LENGTH_MISMATCH/g) || []).length,
+      1,
+      result.output,
+    );
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assertExternalFailureReportContract(report);
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.equal(report.summary.externalOutages, 1);
+
+    const dependency = report.dependencies.find(({ url }) =>
+      url.endsWith("/different-failure.png"),
+    );
+    assert.ok(dependency, JSON.stringify(report, null, 2));
+    assert.deepEqual(dependency.routes, ["/external-different-network-failures.html"]);
+    assert.equal(dependency.failures.length, 2);
+    assert.deepEqual(
+      dependency.failures.map(({ route, errorText, count }) => ({
+        route,
+        errorText,
+        count,
+      })).sort((left, right) => left.errorText.localeCompare(right.errorText)),
+      [
+        {
+          route: "/external-different-network-failures.html",
+          errorText: "net::ERR_CONTENT_LENGTH_MISMATCH",
+          count: 1,
+        },
+        {
+          route: "/external-different-network-failures.html",
+          errorText: "net::ERR_EMPTY_RESPONSE",
+          count: 1,
+        },
+      ],
+    );
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
 test("reports CSP-blocked dependencies separately from external outages", async () => {
   const reportDirectory = await mkdtemp(join(tmpdir(), "csp-blocked-health-"));
   const reportPath = join(reportDirectory, "report.json");
@@ -487,6 +657,12 @@ test("reports CSP-blocked dependencies separately from external outages", async 
     assert.equal(blocked.state, "blocked-by-csp");
     assert.equal(blocked.cspBlocked, true);
     assert.equal(blocked.failures[0].route, "/external-csp-blocked.html");
+    assert.equal(blocked.cspEvidence.length, 1);
+    assert.equal(blocked.cspEvidence[0].route, "/external-csp-blocked.html");
+    assert.equal(blocked.cspEvidence[0].blockedURI, blocked.url);
+    assert.equal(blocked.cspEvidence[0].effectiveDirective, "img-src");
+    assert.equal(blocked.cspEvidence[0].violatedDirective, "img-src");
+    assert.equal(blocked.cspEvidence[0].disposition, "enforce");
   } finally {
     await rm(reportDirectory, { recursive: true, force: true });
   }
@@ -528,6 +704,40 @@ test("keeps an external outage visible alongside a CSP-blocked dependency", asyn
   }
 });
 
+test("keeps a genuine network failure visible when another route blocks the same URL with CSP", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-network-shared-health-"));
+  const reportPath = join(reportDirectory, "report.json");
+  const paths = "/external-csp-network-shared.html,/external-network-failure-network-shared.html";
+  try {
+    const result = await runCspQa(paths, [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /EXTERNAL OUTAGE:/);
+    assert.match(result.output, /CSP diagnostics were observed/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.equal(report.summary.externalOutages, 1);
+    assert.equal(report.summary.cspEvidence, 1);
+
+    const shared = report.dependencies.find(({ url }) => url.endsWith("/network-shared.png"));
+    assert.ok(shared, JSON.stringify(report, null, 2));
+    assert.equal(shared.state, "unavailable");
+    assert.equal(shared.cspBlocked, true);
+    assert.deepEqual(shared.cspEvidence.map(({ route }) => route), [
+      "/external-csp-network-shared.html",
+    ]);
+    assert.deepEqual(shared.failures.map(({ route }) => route), [
+      "/external-csp-network-shared.html",
+      "/external-network-failure-network-shared.html",
+    ].sort());
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
 test("keeps a shared-route outage visible when another route blocks the same URL with CSP", async () => {
   const reportDirectory = await mkdtemp(join(tmpdir(), "csp-shared-health-"));
   const reportPath = join(reportDirectory, "report.json");
@@ -557,6 +767,29 @@ test("keeps a shared-route outage visible when another route blocks the same URL
       "/external-csp-shared.html",
       "/external-outage-shared.html",
     ]);
+    assert.deepEqual(
+      shared.routeOutcomes.map(({ route, state }) => ({ route, state })),
+      [
+        {
+          route: "/external-csp-shared.html",
+          state: "blocked-by-csp",
+        },
+        {
+          route: "/external-outage-shared.html",
+          state: "unavailable",
+        },
+      ],
+    );
+    const cspRoute = shared.routeOutcomes.find(
+      ({ route }) => route === "/external-csp-shared.html",
+    );
+    const outageRoute = shared.routeOutcomes.find(
+      ({ route }) => route === "/external-outage-shared.html",
+    );
+    assert.ok(cspRoute.cspEvidence.some(({ blockedURI }) => blockedURI === shared.url));
+    assert.equal(cspRoute.responses.length, 0);
+    assert.ok(outageRoute.responses.some(({ status }) => status === 503));
+    assert.equal(outageRoute.cspEvidence.length, 0);
     assert.equal(shared.cspBlocked, true);
     assert.equal(shared.state, "unavailable");
     assert.ok(shared.responses.some(({ status }) => status === 503));
@@ -590,6 +823,82 @@ test("waits for a delayed external response before classifying the dependency", 
     assert.ok(delayed, JSON.stringify(report, null, 2));
     assert.equal(delayed.state, "unavailable");
     assert.ok(delayed.responses.some(({ status }) => status === 503));
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("identifies external requests that remain pending through the settle timeout", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-timeout-health-"));
+  const reportPath = join(reportDirectory, "report.json");
+  try {
+    const result = await runCspQa("/external-timeout.html", [
+      "--external-health",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /EXTERNAL OUTAGE: .*pending\.png \(no-response\)/);
+    assert.match(result.output, /EXTERNAL TIMEOUT: \/external-timeout\.html .*pending\.png/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.equal(report.summary.externalOutages, 1);
+    assert.equal(report.summary.timeouts, 1);
+    assert.deepEqual(report.timeouts, [{
+      route: "/external-timeout.html",
+      url: report.timeouts[0].url,
+    }]);
+
+    const pending = report.dependencies.find(({ url }) => url.endsWith("/pending.png"));
+    assert.ok(pending, JSON.stringify(report, null, 2));
+    assert.equal(pending.state, "no-response");
+    assert.equal(pending.responses.length, 0);
+    assert.equal(pending.failures.length, 0);
+    assert.deepEqual(pending.timeouts, [{
+      route: "/external-timeout.html",
+      url: pending.url,
+    }]);
+    assert.deepEqual(pending.routeOutcomes, [{
+      route: "/external-timeout.html",
+      state: "no-response",
+      cspBlocked: false,
+      responses: [],
+      failures: [],
+      timeouts: [{
+        route: "/external-timeout.html",
+        url: pending.url,
+      }],
+      cspEvidence: [],
+    }]);
+  } finally {
+    await rm(reportDirectory, { recursive: true, force: true });
+  }
+});
+
+test("enforces one external-health budget across routes and reports affected routes", async () => {
+  const reportDirectory = await mkdtemp(join(tmpdir(), "csp-budget-health-"));
+  const reportPath = join(reportDirectory, "report.json");
+  const paths = "/external-timeout.html,/external-delayed-outage.html";
+  try {
+    const result = await runCspQa(paths, [
+      "--external-health",
+      "--external-budget-ms=1500",
+      `--report=${reportPath}`,
+    ]);
+    assert.notEqual(result.status, 0, result.output);
+    assert.match(result.output, /ROUTE CUT SHORT BY OVERALL BUDGET: \/external-timeout\.html/);
+    assert.match(result.output, /ROUTE SKIPPED BY OVERALL BUDGET: \/external-delayed-outage\.html/);
+
+    const report = JSON.parse(await readFile(reportPath, "utf8"));
+    assert.equal(report.status, "EXTERNAL_OUTAGE");
+    assert.equal(report.timeBudget.limitMs, 1500);
+    assert.equal(report.timeBudget.exceeded, true);
+    assert.deepEqual(report.timeBudget.routesCutShort, ["/external-timeout.html"]);
+    assert.deepEqual(report.timeBudget.routesSkipped, ["/external-delayed-outage.html"]);
+    assert.equal(report.summary.routes, 1);
+    assert.equal(report.summary.budgetExceeded, true);
+    assert.equal(report.summary.routesCutShortByBudget, 1);
+    assert.equal(report.summary.routesSkippedByBudget, 1);
   } finally {
     await rm(reportDirectory, { recursive: true, force: true });
   }

@@ -21,6 +21,7 @@
  *   node scripts/csp-qa.mjs --base-url=http://127.0.0.1:5000 --paths=/fixture.html --report=fixture.json
  *   node scripts/csp-qa.mjs --external-health --base-url=https://overkillhill.com
  *   node scripts/csp-qa.mjs --external-health --report=third-party-report.json
+ *   node scripts/csp-qa.mjs --external-health --external-budget-ms=120000
  *   node scripts/csp-qa.mjs --fixture-summary=fixture-results.json
  */
 
@@ -37,6 +38,8 @@ const pathsArg = process.argv.find((arg) => arg.startsWith("--paths="));
 const reportArg = process.argv.find((arg) => arg.startsWith("--report="));
 const fixtureSummaryArg = process.argv.find((arg) => arg.startsWith("--fixture-summary="));
 const summaryArg = process.argv.find((arg) => arg.startsWith("--summary="));
+const artifactUrlArg = process.argv.find((arg) => arg.startsWith("--artifact-url="));
+const externalBudgetArg = process.argv.find((arg) => arg.startsWith("--external-budget-ms="));
 const externalHealthMode =
   process.argv.includes("--external-health") || process.argv.includes("--check-external");
 
@@ -67,9 +70,24 @@ const PUBLIC_PATHS = fixtureSummaryArg ? [] : loadPublicPaths();
 const CSP_DIAGNOSTIC = /content security policy|violates the following.*policy|refused to .* policy/i;
 const MERMAID_RENDER_ERROR = /^\[mermaid-init\] render error/i;
 const INTENTIONAL_EXTERNAL_FAILURE = "Failed to load resource: net::ERR_FAILED";
-const CSP_REQUEST_FAILURE = "csp";
 const EXTERNAL_SETTLE_TIMEOUT_MS = 5000;
 const EXTERNAL_QUIET_WINDOW_MS = 250;
+const DEFAULT_EXTERNAL_HEALTH_BUDGET_MS = 120000;
+
+function parsePositiveIntegerArgument(argument, name, defaultValue) {
+  if (!argument) return defaultValue;
+  const value = Number(argument.slice(`--${name}=`.length));
+  if (!Number.isInteger(value) || value <= 0) {
+    throw new Error(`--${name} must be a positive integer number of milliseconds`);
+  }
+  return value;
+}
+
+const externalHealthBudgetMs = parsePositiveIntegerArgument(
+  externalBudgetArg,
+  "external-budget-ms",
+  DEFAULT_EXTERNAL_HEALTH_BUDGET_MS,
+);
 
 function isHttpUrl(value) {
   return value.protocol === "http:" || value.protocol === "https:";
@@ -86,6 +104,35 @@ function isLocalUrl(value) {
 function formatConsoleMessage(message) {
   const location = message.location?.url ? ` (${message.location.url})` : "";
   return `${message.type.toUpperCase()}: ${message.text}${location}`;
+}
+
+function normalizeHttpUrl(value) {
+  try {
+    const url = new URL(value);
+    if (!isHttpUrl(url)) return null;
+    url.search = "";
+    url.hash = "";
+    return url.href;
+  } catch {
+    return null;
+  }
+}
+
+function classifyExternalDependency(dependency) {
+  const hasHttpError = dependency.responses.some(({ status }) => status >= 400);
+  const cspEvidence = dependency.cspEvidence || [];
+  const cspBlocked = cspEvidence.length > 0;
+  const hasNonCspFailure = dependency.failures.some(
+    (failure) => !cspEvidence.some(
+      (evidence) => evidence.route === failure.route &&
+        evidence.blockedURI === dependency.url,
+    ),
+  );
+
+  if (hasHttpError || hasNonCspFailure) return "unavailable";
+  if (cspBlocked) return "blocked-by-csp";
+  if (dependency.responses.length) return "available";
+  return "no-response";
 }
 
 function reportPathFromArgument(argument, name) {
@@ -169,6 +216,17 @@ function writeFixtureSummary(reportPath) {
   } else {
     lines.push(
       `| unavailable | unknown | ${markdownCell(report.error || "No fixture results were recorded.")} |`,
+    );
+  }
+  lines.push("");
+  const artifactUrl = artifactUrlArg?.slice("--artifact-url=".length);
+  if (artifactUrl) {
+    lines.push(
+      `Focused CSP evidence artifact: [csp-fixture-report.json](${markdownCell(artifactUrl)})`,
+    );
+  } else {
+    lines.push(
+      "Focused CSP evidence artifact: unavailable; check the upload step for a warning or missing report.",
     );
   }
   lines.push("");
@@ -328,59 +386,77 @@ function getExternalDependency(dependencies, request) {
       requestCount: 0,
       responses: [],
       failures: [],
+      timeouts: [],
+      cspEvidence: [],
     });
   }
   const dependency = dependencies.get(key);
   return dependency;
 }
 
-function extractHttpUrls(text) {
-  // Chromium includes the blocked resource URL in CSP console diagnostics.
-  // Normalise it the same way as dependency inventory keys for correlation.
-  return [...text.matchAll(/https?:\/\/[^\s'"]+/g)]
-    .map(([url]) => {
-      try {
-        const value = new URL(url);
-        value.search = "";
-        value.hash = "";
-        return value.href;
-      } catch {
-        return null;
-      }
-    })
-    .filter(Boolean);
-}
-
-function serialiseExternalDependency(dependency, cspBlockedUrls) {
-  const hasHttpError = dependency.responses.some(({ status }) => status >= 400);
-  const hasNonCspFailure = dependency.failures.some(
-    ({ errorText }) => errorText !== CSP_REQUEST_FAILURE,
+function serialiseExternalDependency(dependency, cspEvidence) {
+  const dependencyCspEvidence = cspEvidence.filter(
+    ({ blockedURI }) => blockedURI === dependency.url,
   );
-  const hasResponse = dependency.responses.length > 0;
-  const cspBlocked = cspBlockedUrls.has(dependency.url);
-  let state = "available";
-  if (cspBlocked) state = "blocked-by-csp";
-  else if (hasHttpError || hasNonCspFailure) state = "unavailable";
-  else if (!hasResponse) state = "no-response";
-
+  const routeOutcomes = [...dependency.routes]
+    .filter(Boolean)
+    .sort()
+    .map((route) => {
+      const routeCspEvidence = dependencyCspEvidence.filter(
+        (evidence) => evidence.route === route,
+      );
+      const routeFailures = dependency.failures.filter(
+        (failure) => failure.route === route,
+      );
+      const routeTimeouts = dependency.timeouts.filter(
+        (timeout) => timeout.route === route,
+      );
+      return {
+        route,
+        state: classifyExternalDependency({
+          ...dependency,
+          failures: routeFailures,
+          cspEvidence: routeCspEvidence,
+        }),
+        cspBlocked: routeCspEvidence.length > 0,
+        responses: dependency.responses,
+        failures: routeFailures,
+        timeouts: routeTimeouts,
+        cspEvidence: routeCspEvidence,
+      };
+    });
   return {
     url: dependency.url,
     origin: dependency.origin,
     routes: [...dependency.routes].filter(Boolean).sort(),
+    routeOutcomes,
     resourceTypes: [...dependency.resourceTypes].sort(),
     requestCount: dependency.requestCount,
     responses: dependency.responses,
     failures: dependency.failures,
-    cspBlocked,
-    state,
+    timeouts: dependency.timeouts,
+    cspEvidence: dependencyCspEvidence,
+    cspBlocked: dependencyCspEvidence.length > 0,
+    state: classifyExternalDependency({
+      ...dependency,
+      cspEvidence: dependencyCspEvidence,
+    }),
   };
 }
 
-function groupFailureRecords(failures) {
+function groupFailureRecords(failures, publicRoutes = null) {
   const grouped = new Map();
   for (const failure of failures) {
     const route = failure.route || "";
     const errorText = failure.errorText || "unknown failure";
+    if (publicRoutes && !publicRoutes.has(route)) {
+      throw new Error(
+        `External failure route must match a checked public route: ${route || "(missing)"}`,
+      );
+    }
+    if (typeof errorText !== "string" || !errorText.trim()) {
+      throw new Error("External failure must include non-empty error text");
+    }
     const key = JSON.stringify([route, errorText]);
     const existing = grouped.get(key);
     if (existing) {
@@ -392,27 +468,59 @@ function groupFailureRecords(failures) {
   return [...grouped.values()];
 }
 
-async function waitForExternalRequestsToSettle(page, pendingRequests) {
-  const deadline = Date.now() + EXTERNAL_SETTLE_TIMEOUT_MS;
+async function waitForExternalRequestsToSettle(page, pendingRequests, overallDeadline) {
+  const settleDeadline = Date.now() + EXTERNAL_SETTLE_TIMEOUT_MS;
   let quietSince = null;
-  while (Date.now() < deadline) {
+  while (Date.now() < settleDeadline && Date.now() < overallDeadline) {
     if (pendingRequests.size) {
       quietSince = null;
     } else if (quietSince === null) {
       quietSince = Date.now();
     } else if (Date.now() - quietSince >= EXTERNAL_QUIET_WINDOW_MS) {
-      return;
+      return {
+        requestsTimedOut: false,
+        budgetExceeded: false,
+      };
     }
-    await page.waitForTimeout(50);
+    const remainingMs = Math.min(
+      50,
+      settleDeadline - Date.now(),
+      overallDeadline - Date.now(),
+    );
+    if (remainingMs > 0) await page.waitForTimeout(remainingMs);
   }
+  return {
+    requestsTimedOut: pendingRequests.size > 0,
+    budgetExceeded: Date.now() >= overallDeadline,
+  };
 }
 
-async function checkExternalRoute(browser, path) {
+async function checkExternalRoute(browser, path, overallDeadline) {
   const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
   const dependencies = new Map();
   const pendingExternalRequests = new Set();
   const cspDiagnostics = [];
   const localErrors = new Set();
+  let budgetExceeded = false;
+
+  // The DOM event exposes structured CSP evidence independently of
+  // browser-specific request failure text.
+  await page.addInitScript(() => {
+    window.__cspViolationEvidence = [];
+    document.addEventListener("securitypolicyviolation", (event) => {
+      window.__cspViolationEvidence.push({
+        blockedURI: event.blockedURI,
+        effectiveDirective: event.effectiveDirective,
+        violatedDirective: event.violatedDirective,
+        disposition: event.disposition,
+        documentURI: event.documentURI,
+        sourceFile: event.sourceFile,
+        lineNumber: event.lineNumber,
+        columnNumber: event.columnNumber,
+        statusCode: event.statusCode,
+      });
+    }, true);
+  });
 
   page.on("console", (message) => {
     if (CSP_DIAGNOSTIC.test(message.text())) {
@@ -462,85 +570,188 @@ async function checkExternalRoute(browser, path) {
   });
 
   try {
-    const response = await page.goto(`${baseUrl}${path}`, {
-      waitUntil: "commit",
-      timeout: 30000,
-    });
-    if (!response) {
-      localErrors.add("navigation returned no response");
-    } else if (response.status() >= 400) {
-      localErrors.add(`navigation returned HTTP ${response.status()}`);
+    const navigationTimeout = Math.min(30000, overallDeadline - Date.now());
+    if (navigationTimeout <= 0) {
+      budgetExceeded = true;
+    } else {
+      const response = await page.goto(`${baseUrl}${path}`, {
+        waitUntil: "commit",
+        timeout: navigationTimeout,
+      });
+      if (!response) {
+        localErrors.add("navigation returned no response");
+      } else if (response.status() >= 400) {
+        localErrors.add(`navigation returned HTTP ${response.status()}`);
+      }
     }
-    try {
-      await page.waitForLoadState("domcontentloaded", { timeout: 5000 });
-    } catch {
-      localErrors.add("DOMContentLoaded was not observed within 5s");
+    if (!budgetExceeded) {
+      const loadStateTimeout = Math.min(5000, overallDeadline - Date.now());
+      if (loadStateTimeout <= 0) {
+        budgetExceeded = true;
+      } else {
+        try {
+          await page.waitForLoadState("domcontentloaded", { timeout: loadStateTimeout });
+        } catch {
+          if (Date.now() >= overallDeadline) {
+            budgetExceeded = true;
+          } else {
+            localErrors.add("DOMContentLoaded was not observed within 5s");
+          }
+        }
+      }
     }
-    // Give deferred analytics, fonts, embeds, and images a short, bounded
-    // window to make their requests without making monitoring hang on them.
-    await page.waitForTimeout(1000);
+    if (!budgetExceeded) {
+      // Give deferred analytics, fonts, embeds, and images a short, bounded
+      // window to make their requests without making monitoring hang on them.
+      const deferredWaitMs = Math.min(1000, overallDeadline - Date.now());
+      if (deferredWaitMs <= 0) {
+        budgetExceeded = true;
+      } else {
+        await page.waitForTimeout(deferredWaitMs);
+        budgetExceeded = Date.now() >= overallDeadline;
+      }
+    }
   } catch (error) {
-    localErrors.add(`navigation failed: ${error.message.split("\n")[0]}`);
+    if (Date.now() >= overallDeadline) {
+      budgetExceeded = true;
+    } else {
+      localErrors.add(`navigation failed: ${error.message.split("\n")[0]}`);
+    }
   }
 
   // Wait for terminal response/failure events instead of closing after a fixed
   // sleep. The quiet window catches deferred requests without allowing a
   // hanging third-party request to hold the health check forever.
-  await waitForExternalRequestsToSettle(page, pendingExternalRequests);
+  const settleResult = await waitForExternalRequestsToSettle(
+    page,
+    pendingExternalRequests,
+    overallDeadline,
+  );
+  budgetExceeded = budgetExceeded || settleResult.budgetExceeded;
+  if (settleResult.requestsTimedOut) {
+    for (const request of pendingExternalRequests) {
+      const dependency = getExternalDependency(dependencies, request);
+      if (!dependency || dependency.timeouts.some(({ route }) => route === path)) continue;
+      dependency.timeouts.push({
+        route: path,
+        url: dependency.url,
+      });
+    }
+  }
+  const cspEvidence = await page.evaluate(() => (
+    Array.isArray(window.__cspViolationEvidence)
+      ? window.__cspViolationEvidence
+      : []
+  )).catch(() => []);
+  const externalCspEvidence = cspEvidence
+    .map((evidence) => ({
+      route: path,
+      blockedURI: normalizeHttpUrl(evidence.blockedURI),
+      effectiveDirective: evidence.effectiveDirective || "",
+      violatedDirective: evidence.violatedDirective || "",
+      disposition: evidence.disposition || "",
+      documentURI: evidence.documentURI || "",
+      sourceFile: evidence.sourceFile || "",
+      lineNumber: evidence.lineNumber || 0,
+      columnNumber: evidence.columnNumber || 0,
+      statusCode: evidence.statusCode || 0,
+    }))
+    .filter(({ blockedURI }) => blockedURI);
   await page.close();
-  const cspBlockedUrls = new Set(cspDiagnostics.flatMap(extractHttpUrls));
   return {
     path,
+    budgetExceeded,
     dependencies: [...dependencies.values()]
-      .map((dependency) => serialiseExternalDependency(dependency, cspBlockedUrls)),
+      .map((dependency) => serialiseExternalDependency(dependency, externalCspEvidence)),
     cspDiagnostics,
+    cspEvidence: externalCspEvidence,
     localErrors: [...localErrors],
   };
 }
 
 function mergeExternalDependencies(results) {
   const merged = new Map();
+  const publicRoutes = new Set(results.map(({ path }) => path));
   for (const result of results) {
     for (const dependency of result.dependencies) {
       if (!merged.has(dependency.url)) {
         merged.set(dependency.url, {
           ...dependency,
           routes: [],
+          routeOutcomes: [],
           resourceTypes: [],
           responses: [],
           failures: [],
+          timeouts: [],
+          cspEvidence: [],
           cspBlocked: false,
         });
       }
       const existing = merged.get(dependency.url);
       existing.routes = [...new Set([...existing.routes, ...dependency.routes])].sort();
+      existing.routeOutcomes.push(...(dependency.routeOutcomes || []));
       existing.resourceTypes = [
         ...new Set([...existing.resourceTypes, ...dependency.resourceTypes]),
       ].sort();
       existing.requestCount += dependency.requestCount;
       existing.responses.push(...dependency.responses);
       existing.failures.push(...dependency.failures);
+      existing.timeouts.push(...dependency.timeouts);
+      existing.cspEvidence.push(...dependency.cspEvidence);
       existing.cspBlocked = existing.cspBlocked || dependency.cspBlocked;
-      const hasHttpError = existing.responses.some(({ status }) => status >= 400);
-      const hasNonCspFailure = existing.failures.some(
-        ({ errorText }) => errorText !== CSP_REQUEST_FAILURE,
-      );
-      existing.state = hasHttpError || hasNonCspFailure
-        ? "unavailable"
-        : existing.cspBlocked
-          ? "blocked-by-csp"
-          : existing.responses.length
-            ? "available"
-            : "no-response";
+      existing.state = classifyExternalDependency(existing);
     }
   }
   for (const dependency of merged.values()) {
-    dependency.failures = groupFailureRecords(dependency.failures);
+    dependency.failures = groupFailureRecords(dependency.failures, publicRoutes);
+    const routeOutcomes = new Map();
+    for (const outcome of dependency.routeOutcomes) {
+      const existing = routeOutcomes.get(outcome.route);
+      if (!existing) {
+        routeOutcomes.set(outcome.route, {
+          ...outcome,
+          failures: [...outcome.failures],
+          timeouts: [...outcome.timeouts],
+          cspEvidence: [...outcome.cspEvidence],
+        });
+        continue;
+      }
+      existing.responses.push(...outcome.responses);
+      existing.failures.push(...outcome.failures);
+      existing.timeouts.push(...outcome.timeouts);
+      existing.cspEvidence.push(...outcome.cspEvidence);
+      existing.cspBlocked = existing.cspBlocked || outcome.cspBlocked;
+      existing.state = classifyExternalDependency({
+        responses: existing.responses,
+        failures: existing.failures,
+        cspEvidence: existing.cspEvidence,
+      });
+    }
+    dependency.routeOutcomes = [...routeOutcomes.values()]
+      .map((outcome) => ({
+        ...outcome,
+        failures: groupFailureRecords(outcome.failures, publicRoutes),
+        timeouts: [...new Map(
+          outcome.timeouts.map((timeout) => [
+            JSON.stringify([timeout.route, timeout.url]),
+            timeout,
+          ]),
+        ).values()],
+      }))
+      .sort((left, right) => left.route.localeCompare(right.route));
+    dependency.timeouts = [...new Map(
+      dependency.timeouts.map((timeout) => [
+        JSON.stringify([timeout.route, timeout.url]),
+        timeout,
+      ]),
+    ).values()];
   }
   return [...merged.values()].sort((left, right) => left.url.localeCompare(right.url));
 }
 
 async function runExternalHealth() {
+  const startedAt = Date.now();
+  const overallDeadline = startedAt + externalHealthBudgetMs;
   console.log("OverKill Hill third-party runtime health");
   console.log("=".repeat(40));
   console.log(`Base URL: ${baseUrl}`);
@@ -552,24 +763,48 @@ async function runExternalHealth() {
   console.log(
     "External outages, CSP diagnostics, and local route failures are reported separately.\n",
   );
+  console.log(
+    `Overall time budget: ${externalHealthBudgetMs}ms; ` +
+    `per-route settle limit: ${EXTERNAL_SETTLE_TIMEOUT_MS}ms.\n`,
+  );
 
   const browser = await chromium.launch({ headless: true });
   const results = [];
+  const routesCutShortByBudget = [];
+  const routesSkippedByBudget = [];
   try {
-    for (const path of PUBLIC_PATHS) {
-      const result = await checkExternalRoute(browser, path);
+    for (const [index, path] of PUBLIC_PATHS.entries()) {
+      if (Date.now() >= overallDeadline) {
+        routesSkippedByBudget.push(...PUBLIC_PATHS.slice(index));
+        break;
+      }
+      const result = await checkExternalRoute(browser, path, overallDeadline);
       results.push(result);
+      if (result.budgetExceeded) {
+        routesCutShortByBudget.push(path);
+      }
       console.log(
         `${result.localErrors.length ? "FAIL" : "CHECK"} ${path} ` +
         `(${result.dependencies.length} external request(s))`,
       );
       result.localErrors.forEach((error) => console.log(`      LOCAL: ${error}`));
       result.cspDiagnostics.forEach((message) => console.log(`      CSP: ${message}`));
+      if (result.budgetExceeded) {
+        routesSkippedByBudget.push(...PUBLIC_PATHS.slice(index + 1));
+        break;
+      }
     }
   } finally {
     await browser.close();
   }
 
+  const timeBudget = {
+    limitMs: externalHealthBudgetMs,
+    elapsedMs: Date.now() - startedAt,
+    exceeded: routesCutShortByBudget.length > 0 || routesSkippedByBudget.length > 0,
+    routesCutShort: routesCutShortByBudget,
+    routesSkipped: routesSkippedByBudget,
+  };
   const dependencies = mergeExternalDependencies(results);
   const externalOutages = dependencies.filter(
     ({ state }) => state === "unavailable" || state === "no-response",
@@ -577,6 +812,8 @@ async function runExternalHealth() {
   const cspDiagnostics = results.flatMap(({ path, cspDiagnostics: messages }) =>
     messages.map((message) => ({ path, message })),
   );
+  const cspEvidence = results.flatMap(({ cspEvidence: evidence }) => evidence);
+  const timeouts = dependencies.flatMap(({ timeouts: evidence }) => evidence);
   const localFailures = results.flatMap(({ path, localErrors }) =>
     localErrors.map((error) => ({ path, error })),
   );
@@ -588,22 +825,32 @@ async function runExternalHealth() {
     dependencies,
     externalOutages,
     cspDiagnostics,
+    cspEvidence,
+    timeouts,
     localFailures,
+    timeBudget,
     summary: {
       routes: results.length,
       dependencies: dependencies.length,
       available: dependencies.filter(({ state }) => state === "available").length,
       externalOutages: externalOutages.length,
       cspDiagnostics: cspDiagnostics.length,
+      cspEvidence: cspEvidence.length,
+      timeouts: timeouts.length,
       localFailures: localFailures.length,
+      budgetExceeded: timeBudget.exceeded,
+      routesCutShortByBudget: routesCutShortByBudget.length,
+      routesSkippedByBudget: routesSkippedByBudget.length,
     },
     status: externalOutages.length
       ? "EXTERNAL_OUTAGE"
-      : cspDiagnostics.length
+      : cspDiagnostics.length || cspEvidence.length
         ? "CSP_BLOCKED"
         : localFailures.length
           ? "LOCAL_FAILURE"
-          : "PASS",
+          : timeBudget.exceeded
+            ? "TIME_BUDGET_EXCEEDED"
+            : "PASS",
   };
 
   console.log(
@@ -611,20 +858,36 @@ async function runExternalHealth() {
     `${report.summary.available} available, ` +
     `${report.summary.externalOutages} external outage(s), ` +
     `${report.summary.cspDiagnostics} CSP diagnostic(s), ` +
+    `${report.summary.timeouts} timed-out request(s), ` +
     `${report.summary.localFailures} local route failure(s).`,
   );
   externalOutages.forEach((dependency) => {
-    const failureCounts = new Map();
-    dependency.failures.forEach(({ errorText, count = 1 }) => {
-      failureCounts.set(errorText, (failureCounts.get(errorText) || 0) + count);
-    });
-    const failureReasons = [...failureCounts.entries()]
-      .map(([errorText, count]) => count > 1 ? `${errorText} (${count} occurrences)` : errorText)
+    const failureReasons = dependency.failures
+      .map(({ route, errorText, count = 1 }) => {
+        const occurrences = count > 1 ? ` (${count} occurrences)` : "";
+        // Reports written before route attribution may omit `route`; keep those
+        // legacy v1 reports readable while current reports enforce public routes.
+        return `${route || "unknown route"}: ${errorText}${occurrences}`;
+      })
       .filter(Boolean);
     const diagnostic = failureReasons.length ? `: ${failureReasons.join(", ")}` : "";
     console.log(`  EXTERNAL OUTAGE: ${dependency.url} (${dependency.state})${diagnostic}`);
   });
-  if (cspDiagnostics.length) {
+  timeouts.forEach(({ route, url }) => {
+    console.log(`  EXTERNAL TIMEOUT: ${route} ${url}`);
+  });
+  if (timeBudget.exceeded) {
+    console.log(
+      `  EXTERNAL HEALTH TIME BUDGET: ${externalHealthBudgetMs}ms overall limit reached.`,
+    );
+    routesCutShortByBudget.forEach((route) => {
+      console.log(`  ROUTE CUT SHORT BY OVERALL BUDGET: ${route}`);
+    });
+    routesSkippedByBudget.forEach((route) => {
+      console.log(`  ROUTE SKIPPED BY OVERALL BUDGET: ${route}`);
+    });
+  }
+  if (cspDiagnostics.length || cspEvidence.length) {
     console.log("  CSP diagnostics were observed during the availability check.");
   }
   if (localFailures.length) {
@@ -638,7 +901,13 @@ async function runExternalHealth() {
     console.log(`Report: ${reportPath}`);
   }
 
-  if (externalOutages.length || cspDiagnostics.length || localFailures.length) {
+  if (
+    externalOutages.length ||
+    cspDiagnostics.length ||
+    cspEvidence.length ||
+    localFailures.length ||
+    timeBudget.exceeded
+  ) {
     process.exitCode = 1;
   }
 }

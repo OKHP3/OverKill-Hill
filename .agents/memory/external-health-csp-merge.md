@@ -3,11 +3,11 @@ name: External health CSP merge
 description: How browser CSP-blocked requests must be classified when external dependency results are merged across routes.
 ---
 
-The external-health merger must ignore the browser-generated CSP request failure when classifying a CSP-only dependency, while giving any real HTTP error or non-CSP network failure outage precedence across routes.
+The external-health merger must classify CSP-only dependencies from structured `securitypolicyviolation` evidence, not browser-specific request-failure text, while giving any real HTTP error or non-CSP network failure outage precedence across routes.
 
-**Why:** Chromium reports a CSP-blocked request through the request-failure channel with an error marker of `csp`. Treating every request failure as an outage makes policy-only checks appear operationally unavailable; treating CSP as dominant hides a real 4xx/5xx response from another route using the same URL.
+**Why:** Browser updates can change request-failure markers. Treating every request failure as an outage makes policy-only checks appear operationally unavailable; treating CSP as dominant hides a real 4xx/5xx response or network failure from another route using the same URL.
 
-**How to apply:** Keep CSP diagnostics and dependency failures in the report for evidence, but classify merged state using HTTP error responses or non-CSP failures first, then CSP blocking, then successful/no-response states. Preserve both route references and response evidence in regression fixtures.
+**How to apply:** Capture the standard securitypolicyviolation event before navigation and correlate its normalized blocked URI and route to dependency failures. Keep console diagnostics and browser failure text in the report for evidence, but classify state using HTTP errors or failures without matching structured CSP evidence first, then CSP blocking, then successful/no-response states. Preserve both route references and response evidence in regression fixtures.
 
 External-health route checks should track each external request until its response or failure event, then wait for a short quiet window before closing the page, with a hard upper bound for requests that never terminate.
 
@@ -20,3 +20,9 @@ Repeated external failures should be grouped by public route and browser reason 
 **Why:** Retaining every identical event makes incident output noisy, while collapsing across routes removes the attribution needed to identify affected pages.
 
 **How to apply:** Normalize dependency URLs before grouping, keep distinct route/reason combinations as separate records, and include the count in each grouped failure record.
+
+New external-health reports require each failure record to carry a checked public route and non-empty browser error text. Readers of older v1 reports may encounter no route attribution and should display that record as an unknown route rather than reject the whole report.
+
+**Why:** Route attribution was added additively to an existing report shape; strict validation protects new reports while the display fallback keeps historical evidence usable.
+
+**How to apply:** Validate generated records before writing them, and retain an explicit unknown-route fallback wherever legacy reports are rendered.

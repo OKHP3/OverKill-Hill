@@ -252,15 +252,36 @@ test("all three theme controls survive disabled storage", async () => {
 });
 
 const DEFAULT_SITE_ROOTS = [
-  { name: "OKH", root: join(repositoryRoot, "..", "overkill-hill"), bodyClass: "", selector: ".theme-toggle" },
-  { name: "Glee", root: join(repositoryRoot, "..", "glee-fullytools"), bodyClass: "glee-main", selector: ".glee-color-toggle" },
-  { name: "AskJamie", root: join(repositoryRoot, "..", "askjamie"), bodyClass: "askjamie-main", selector: ".glee-color-toggle" },
+  { name: "OKH", expectedRoot: ".", root: join(repositoryRoot, "..", "overkill-hill"), bodyClass: "", selector: ".theme-toggle" },
+  { name: "Glee", expectedRoot: ".ci/theme-sites/glee-fullytools", root: join(repositoryRoot, "..", "glee-fullytools"), bodyClass: "glee-main", selector: ".glee-color-toggle" },
+  { name: "AskJamie", expectedRoot: ".ci/theme-sites/askjamie", root: join(repositoryRoot, "..", "askjamie"), bodyClass: "askjamie-main", selector: ".glee-color-toggle" },
 ];
 
 function configuredSiteInputs() {
   if (process.env.THEME_CONTROL_SITES) {
     const configured = JSON.parse(process.env.THEME_CONTROL_SITES);
     assert.ok(Array.isArray(configured), "THEME_CONTROL_SITES must be a JSON array");
+    const names = new Set();
+    for (const site of configured) {
+      if (names.has(site.name)) {
+        const expected = DEFAULT_SITE_ROOTS.find(({ name }) => name === site.name);
+        throw new Error(
+          `duplicate THEME_CONTROL_SITES site ${site.name}; ` +
+          `expected checkout path ${expected?.expectedRoot || site.root || "<unknown>"}`,
+        );
+      }
+      names.add(site.name);
+    }
+    assert.equal(
+      configured.length,
+      DEFAULT_SITE_ROOTS.length,
+      "THEME_CONTROL_SITES must contain exactly the three reviewed sites",
+    );
+    assert.deepEqual(
+      [...names].sort(),
+      DEFAULT_SITE_ROOTS.map(({ name }) => name).sort(),
+      "THEME_CONTROL_SITES must contain exactly OKH, Glee, and AskJamie",
+    );
     for (const site of configured) {
       assert.match(
         site.revision || "",
