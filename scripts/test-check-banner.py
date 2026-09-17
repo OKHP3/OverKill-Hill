@@ -112,6 +112,115 @@ def check_main_case(
             raise AssertionError(f"{name}: expected {part!r} in {report!r}")
 
 
+def check_update_is_atomic() -> None:
+    with tempfile.TemporaryDirectory() as temp_dir:
+        root = Path(temp_dir)
+        valid_article = "<span>Article v0.5: Council-Assisted Scoring</span>"
+        for relative_path in (
+            check_banner.FEATURED_ARTICLE_SOURCE,
+            check_banner.FEATURED_ARTICLE_GENERATED,
+        ):
+            article_path = root / relative_path
+            article_path.parent.mkdir(parents=True, exist_ok=True)
+            article_path.write_text(valid_article, encoding="utf-8")
+
+        featured = "/writings/first-diagram-is-a-liar/#council-scoring"
+        source_banner = root / check_banner.SOURCE_BANNER
+        source_banner.parent.mkdir(parents=True, exist_ok=True)
+        source_banner.write_text(
+            f'<a class="site-specials-link" href="{featured}">'
+            f"{check_banner.OLD_BANNERS[0]}</a>",
+            encoding="utf-8",
+        )
+        later_page = root / "later.html"
+        later_page.write_text(
+            f'<a class="site-specials-link" href="{featured}">'
+            "v0.5 is live: unexpected wording</a>",
+            encoding="utf-8",
+        )
+        before = {
+            path: path.read_text(encoding="utf-8")
+            for path in root.rglob("*.html")
+        }
+
+        output = StringIO()
+        with (
+            patch.object(check_banner, "__file__", str(root / "scripts/check-banner.py")),
+            patch("sys.argv", ["check-banner.py", "--update"]),
+            redirect_stdout(output),
+        ):
+            try:
+                check_banner.main()
+            except SystemExit as exc:
+                if exc.code != 1:
+                    raise AssertionError(f"atomic update: expected exit 1, got {exc.code}")
+            else:
+                raise AssertionError("atomic update: expected a mismatch")
+
+        after = {
+            path: path.read_text(encoding="utf-8")
+            for path in root.rglob("*.html")
+        }
+        if after != before:
+            changed = sorted(
+                str(path.relative_to(root))
+                for path in set(before) | set(after)
+                if before.get(path) != after.get(path)
+            )
+            raise AssertionError(
+                f"atomic update: expected no files to change, changed {changed}"
+            )
+        report = output.getvalue().replace("\\", "/")
+        if "NOT FIXED (validation failed)" not in report:
+            raise AssertionError(f"atomic update: missing deferred repair report: {report}")
+        if "later.html" not in report:
+            raise AssertionError(f"atomic update: missing later mismatch: {report}")
+
+
+def check_update_and_dry_run_preserve_repair_behavior() -> None:
+    for mode in ("--dry-run", "--update"):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            valid_article = "<span>Article v0.5: Council-Assisted Scoring</span>"
+            for relative_path in (
+                check_banner.FEATURED_ARTICLE_SOURCE,
+                check_banner.FEATURED_ARTICLE_GENERATED,
+            ):
+                article_path = root / relative_path
+                article_path.parent.mkdir(parents=True, exist_ok=True)
+                article_path.write_text(valid_article, encoding="utf-8")
+
+            featured = "/writings/first-diagram-is-a-liar/#council-scoring"
+            banner = root / check_banner.SOURCE_BANNER
+            banner.parent.mkdir(parents=True, exist_ok=True)
+            banner.write_text(
+                f'<a class="site-specials-link" href="{featured}">'
+                f"{check_banner.OLD_BANNERS[0]}</a>",
+                encoding="utf-8",
+            )
+            before = banner.read_text(encoding="utf-8")
+            output = StringIO()
+            with (
+                patch.object(check_banner, "__file__", str(root / "scripts/check-banner.py")),
+                patch("sys.argv", ["check-banner.py", mode]),
+                redirect_stdout(output),
+            ):
+                check_banner.main()
+
+            report = output.getvalue()
+            after = banner.read_text(encoding="utf-8")
+            if mode == "--dry-run":
+                if after != before:
+                    raise AssertionError("dry-run changed the banner file")
+                if "[dry-run] would fix" not in report:
+                    raise AssertionError(f"dry-run omitted repair preview: {report}")
+            else:
+                if check_banner.CANONICAL_BANNER not in after:
+                    raise AssertionError("update did not apply the canonical banner")
+                if check_banner.OLD_BANNERS[0] in after:
+                    raise AssertionError("update left the old banner in place")
+
+
 def main() -> int:
     featured = "/writings/first-diagram-is-a-liar/#council-scoring"
     stale_release = "v0.6"
@@ -262,6 +371,8 @@ def main() -> int:
         f'<a class="site-specials-link" href="{featured}">v0.5 is live: unrelated copy</a>',
         "mismatch",
     )
+    check_update_and_dry_run_preserve_repair_behavior()
+    check_update_is_atomic()
     print("check-banner localized regression checks passed")
     return 0
 

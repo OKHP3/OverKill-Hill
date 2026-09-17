@@ -138,19 +138,19 @@ def _banner_release_issue(raw_text: str, opening_tag: str, expected_release: str
     return None
 
 
-def check_file(
+def _plan_file(
     path: str,
     update: bool = False,
     dry_run: bool = False,
     expected_release: str | None = None,
 ):
-    """Return (status, message) where status is 'ok' | 'fixed' | 'mismatch' | 'skip'."""
+    """Return (status, message, planned_content) without changing ``path``."""
     with open(path, encoding="utf-8") as f:
         content = f.read()
 
     matches = list(_LINK_RE.finditer(content))
     if not matches:
-        return "skip", None
+        return "skip", None, content
 
     issues = []
     release_issues = []
@@ -198,7 +198,7 @@ def check_file(
             issues.append(("unknown", m, raw_text))
 
     if not issues and not release_issues:
-        return "ok", None
+        return "ok", None, content
 
     # --update can safely repair known wording drift, but it cannot invent the
     # new article copy when the article has moved to a new release.
@@ -209,7 +209,14 @@ def check_file(
                 f"  [{('old' if kind == 'old' else 'UNKNOWN')}] {_normalise(raw_text)!r}"
                 for kind, _, raw_text in issues
             )
-        return "mismatch", "\n".join(messages)
+        return "mismatch", "\n".join(messages), content
+
+    if any(kind != "old" for kind, _, _ in issues):
+        messages = [
+            f"  [{('old' if kind == 'old' else 'UNKNOWN')}] {_normalise(raw_text)!r}"
+            for kind, _, raw_text in issues
+        ]
+        return "mismatch", "\n".join(messages), content
 
     if update or dry_run:
         for kind, m, raw_text in issues:
@@ -223,17 +230,30 @@ def check_file(
                 replacement = indent + CANONICAL_BANNER + suffix
                 new_content = new_content.replace(m.group(2), replacement, 1)
 
-        if not dry_run:
-            with open(path, "w", encoding="utf-8") as f:
-                f.write(new_content)
-        return "fixed", f"{len(issues)} banner(s) updated"
+        return "fixed", f"{len(issues)} banner(s) updated", new_content
 
     # Report only
     msgs = []
     for kind, _, raw_text in issues:
         label = "old" if kind == "old" else "UNKNOWN"
         msgs.append(f"  [{label}] {_normalise(raw_text)!r}")
-    return "mismatch", "\n".join(msgs)
+    return "mismatch", "\n".join(msgs), content
+
+
+def check_file(
+    path: str,
+    update: bool = False,
+    dry_run: bool = False,
+    expected_release: str | None = None,
+):
+    """Return (status, message) without changing ``path``."""
+    status, message, _ = _plan_file(
+        path,
+        update=update,
+        dry_run=dry_run,
+        expected_release=expected_release,
+    )
+    return status, message
 
 
 def main():
@@ -242,6 +262,7 @@ def main():
 
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     ok = fixed = mismatch = skip = 0
+    planned_updates = []
 
     source_release, source_error = _featured_article_release(root, FEATURED_ARTICLE_SOURCE)
     generated_release, generated_error = _featured_article_release(root, FEATURED_ARTICLE_GENERATED)
@@ -263,7 +284,7 @@ def main():
     for path in find_html_files(root):
         rel = os.path.relpath(path, root)
         expected_release = source_release if rel == SOURCE_BANNER else generated_release
-        status, msg = check_file(
+        status, msg, planned_content = _plan_file(
             path,
             update=update,
             dry_run=dry_run,
@@ -273,8 +294,12 @@ def main():
             ok += 1
         elif status == "fixed":
             fixed += 1
-            verb = "[dry-run] would fix" if dry_run else "Fixed"
-            print(f"  {verb}: {rel} — {msg}")
+            if dry_run:
+                print(f"  [dry-run] would fix: {rel} — {msg}")
+            elif update:
+                planned_updates.append((path, rel, msg, planned_content))
+            else:
+                print(f"  Fixed: {rel} — {msg}")
         elif status == "mismatch":
             mismatch += 1
             print(f"  MISMATCH: {rel}\n{msg}")
@@ -285,7 +310,20 @@ def main():
     if dry_run:
         print(f"Dry run: would fix {fixed}, already ok {ok}, no banner {skip}.")
     else:
-        print(f"OK: {ok}  Fixed: {fixed}  Mismatch: {mismatch}  No banner: {skip}")
+        if update and mismatch:
+            for _, rel, msg, _ in planned_updates:
+                print(f"  NOT FIXED (validation failed): {rel} — {msg}")
+            print(
+                f"Update aborted: would fix {fixed}, but validation found "
+                f"{mismatch} mismatch(es); no files were changed."
+            )
+        elif update:
+            for path, rel, msg, planned_content in planned_updates:
+                with open(path, "w", encoding="utf-8") as f:
+                    f.write(planned_content)
+                print(f"  Fixed: {rel} — {msg}")
+        print(f"OK: {ok}  Fixed: {fixed if not (update and mismatch) else 0}  "
+              f"Mismatch: {mismatch}  No banner: {skip}")
 
     if mismatch:
         print("\nRun with --update to fix, or --dry-run to preview.")
