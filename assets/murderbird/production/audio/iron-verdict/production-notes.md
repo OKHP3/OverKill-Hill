@@ -41,11 +41,11 @@ The reference songs informed broad preferences: force, melody, dramatic arrivals
 
 ## GarageBand project
 
-`murderbird-iron-verdict.band` is the native project, saved through GarageBand on 2026-09-17. It contains six editable MIDI instrument tracks at 104 BPM, with Count In and Metronome disabled. The instruments assigned by GarageBand are two Hard Rock guitars, Picked Bass, Soft Saw Lead, Classic Analog Pad and SoCal drums. The note score is centered on D minor; the imported project's key-signature display remains C Major. Track gain/pan and instrument voicing are initial import defaults and need an audition/mix pass.
+`murderbird-iron-verdict.band` is the native project, saved through GarageBand on 2026-09-17. It contains six editable MIDI instrument tracks at 104 BPM, with Count In and Metronome disabled. The instruments assigned by GarageBand are two Hard Rock guitars, Picked Bass, Soft Saw Lead, Classic Analog Pad and SoCal drums. The note score is centered on D minor; the imported project's key-signature display remains C Major. Track gains and instrument voicing are initial import defaults and need an audition/mix pass. The MIDI pan messages set the two guitars left/right during playback.
 
 The native project is an editable instrument interpretation of the score. The WAV/MP3 demo and seven audio stems preserve the original custom-synthesis mix, including the separate mechanical-effects track that is not represented in MIDI. They were rendered outside GarageBand.
 
-All-available-sounds download was initiated, but completion was not verified. A later preview export produced a readable floating-point WAV, then GarageBand's UI connection repeatedly timed out. That pending export is ignored locally and is not part of this delivery. Native export completion and a reopened-project playback check remain unverified; the successful project save, six tracks and tempo were confirmed in GarageBand before the timeout.
+The owner approved the macOS installation password prompt locally. After that approval, the pending export finalized as `murderbird-iron-verdict-garageband-preview.wav`: 44.1 kHz, 24-bit stereo PCM, 136.635 seconds including the native effect tail, with a sample peak of 0.9885. GarageBand was responsive and its playhead advanced from bar 1 to bar 7 without another content prompt before playback was stopped. These are file and transport checks, not a human auditory audition or a reopened-project test. The native preview has a different instrument sound and tail from the custom-synthesis demo. Downloading all available sounds was resumed, but completion of the entire optional library remains unverified.
 
 For the closest match to this demo:
 

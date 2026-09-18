@@ -4,16 +4,16 @@
     "sha256": "b8274b15a5edc7ea5ba72d1bb2f2788c0a2d3ff9396640c6a66f3576f9d56556"
   },
   ".gitignore": {
-    "bytes": 221,
-    "sha256": "0d4c993db06e33af6ea358c8e70635d50ee45396499c3f769a78d647382db090"
+    "bytes": 111,
+    "sha256": "66b038fae4917dc708fb8477416857370326597b3964f45bfee33d0d51ce2daf"
   },
   "README.md": {
-    "bytes": 1468,
-    "sha256": "556b36557b13511b706f4d075cbe8fb5978c7fb150f95eab219678dc43ad9070"
+    "bytes": 1743,
+    "sha256": "42b30450e3e631194c622bdb70930755704d642ae1e5517b4f928b82b131a2d0"
   },
   "audio-validation.json": {
-    "bytes": 3210,
-    "sha256": "c8fcfa905cf647826967521e34be8c09b0a2c68b9d3a2431a426d886408e16dd"
+    "bytes": 3773,
+    "sha256": "694f13342ea47104595d2a52ea9ef4daa975e2649a080804118aea1193c82345"
   },
   "composition-and-arrangement.json": {
     "bytes": 235453,
@@ -26,6 +26,10 @@
   "iron-verdict-premaster.wav": {
     "bytes": 34353266,
     "sha256": "0e860e4eccb78b274397909e212bf1558e51b4e76a4198ea8cecf1bce6353ed9"
+  },
+  "murderbird-iron-verdict-garageband-preview.wav": {
+    "bytes": 36201366,
+    "sha256": "e783fb4122e422445737297a47d9a8f0ae23ce7c193fd3ff48e8dc8d0b3dedf4"
   },
   "murderbird-iron-verdict.band/Alternatives/000/DisplayState.plist": {
     "bytes": 2048,
@@ -64,8 +68,8 @@
     "sha256": "d7c4ee0b30dd0c777698230aa2633a1215b9dbb07fb9eed030528d9bfda5ba63"
   },
   "production-notes.md": {
-    "bytes": 8284,
-    "sha256": "a248f20566ae71f52ca28d8ddda9a5dea7a4b268fa263e82cad8b916a20e24a5"
+    "bytes": 8613,
+    "sha256": "270e37da3d8cd72428e0f108dc6cab4527c81878a8f43ed3629196cc5d3752eb"
   },
   "source/composition.py": {
     "bytes": 7519,

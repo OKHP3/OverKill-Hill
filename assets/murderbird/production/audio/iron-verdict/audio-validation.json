@@ -98,19 +98,32 @@
     "stems/guitar-right.wav",
     "stems/lead.wav",
     "stems/mechanical-fx.wav",
-    "stems/pad.wav"
+    "stems/pad.wav",
+    "murderbird-iron-verdict-garageband-preview.wav"
   ],
   "repository_verification": {
     "premaster_stems_midi_rebuild_byte_identical": true,
     "garageband_native_save_verified": true,
     "garageband_native_tracks": 6,
     "garageband_native_bpm": 104,
-    "garageband_export_completion_verified": false,
+    "garageband_export_completion_verified": true,
     "full_sound_library_download_completion_verified": false,
     "release_excludes_music_archive": true,
     "site_validation": "passed with existing warnings",
     "search_index_check": "passed",
     "build_site_check": "passed",
-    "contributing_extract_templates_check": "unavailable: scripts/extract-templates.py absent"
+    "contributing_extract_templates_check": "unavailable: scripts/extract-templates.py absent",
+    "garageband_transport_after_install_approval": "playhead advanced from bar 1 to bar 7; stopped normally without another content prompt"
+  },
+  "garageband_preview": {
+    "file": "murderbird-iron-verdict-garageband-preview.wav",
+    "sample_rate": 44100,
+    "channels": 2,
+    "subtype": "PCM_24",
+    "duration_seconds": 136.635,
+    "sample_peak": 0.9884999990463257,
+    "rms": 0.16266577527917656,
+    "owner_confirmed_local_install_password_approval": true,
+    "auditory_audition_performed": false
   }
 }
