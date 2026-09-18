@@ -1,0 +1,5 @@
+/rebuild/
+# Incomplete GarageBand export retained locally for recovery.
+/murderbird-iron-verdict-garageband-preview.wav
+# GarageBand maintains these local recovery snapshots automatically.
+*.band/Alternatives/*/Autosave/
