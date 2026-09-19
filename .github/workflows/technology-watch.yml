@@ -1,0 +1,112 @@
+name: Technology Version Watch
+
+on:
+  schedule:
+    - cron: '23 15 * * *'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - scripts/technology-inventory.py
+      - tests/test-technology-inventory.py
+      - tests/technology-watch.test.mjs
+      - .github/workflows/technology-watch.yml
+      - .github/dependabot.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: technology-watch-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version-file: '.nvmrc'
+      - run: python3 tests/test-technology-inventory.py
+      - run: node --test tests/technology-watch.test.mjs
+
+  inventory:
+    if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.11'
+      - name: Compare declarations and locked packages with stable releases
+        id: inventory
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/technology-inventory.py \
+            --json-output .local/technology/versions.json \
+            --markdown-output .local/technology/versions.md \
+            --summary-output .local/technology/summary.md
+      - name: Save complete evidence, including failed lookups
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: technology-versions-${{ github.run_id }}
+          path: .local/technology/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Show report in the run summary
+        if: always()
+        run: |
+          if [ -f .local/technology/summary.md ]; then
+            cat .local/technology/summary.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Track coordinated upgrades without duplicate daily notifications
+        if: always() && steps.inventory.outcome != 'skipped'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        with:
+          script: |
+            const fs = require('node:fs');
+            const file = '.local/technology/versions.json';
+            if (!fs.existsSync(file)) {
+              core.setFailed('Inventory did not produce evidence. Existing issues remain open.');
+              return;
+            }
+            const report = JSON.parse(fs.readFileSync(file, 'utf8'));
+            const marker = '<!-- technology-version-watch -->';
+            const {owner, repo} = context.repo;
+            const errors = report.technologies.filter(r => r.error);
+            const attention = report.technologies.filter(r =>
+              !['dependabot', 'parent dependency', 'Mermaid Version Watch'].includes(r.owner) &&
+              ['UPDATE', 'AHEAD', 'UNKNOWN'].includes(r.target_status || r.status));
+            const lines = [marker, 'Coordinated technology maintenance is required.', '',
+              'Package and action updates are handled by Dependabot. Mermaid retains its own daily watcher.',
+              `Follow [the update policy](https://github.com/${owner}/${repo}/blob/main/docs/technology-update-policy.md) for validation and rollout.`, ''];
+            for (const finding of report.findings) lines.push(`- Configuration: ${finding}`);
+            for (const r of attention) {
+              lines.push(`- ${r.name}: ${r.resolved_current || r.current}; latest stable ${r.latest || 'UNKNOWN'}${r.target ? `; policy target ${r.target}` : ''}. Status: ${r.target_status || r.status}.`);
+            }
+            for (const r of errors) lines.push(`- Lookup failed for ${r.name}. Check the workflow artifact; do not infer that it is current.`);
+            lines.push('', 'This issue updates only when findings change and closes only after a successful check clears them.',
+              'Host-managed software and standards also require the quarterly review described in the policy.');
+            const body = lines.join('\n');
+            const issues = await github.paginate(github.rest.issues.listForRepo,
+              {owner, repo, state: 'open', per_page: 100});
+            const existing = issues.find(i => !i.pull_request && i.user?.login === 'github-actions[bot]' && i.body?.startsWith(marker));
+            const needsAttention = attention.length || errors.length || report.findings.length;
+            if (needsAttention && !existing) {
+              await github.rest.issues.create({owner, repo, title: 'Technology versions need coordinated review', body});
+            } else if (needsAttention && existing.body !== body) {
+              await github.rest.issues.update({owner, repo, issue_number: existing.number, body});
+            } else if (!needsAttention && existing) {
+              await github.rest.issues.update({owner, repo, issue_number: existing.number, state: 'closed'});
+            }

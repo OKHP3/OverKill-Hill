@@ -1,0 +1,124 @@
+"""Regression tests for release selection and trustworthy version evidence."""
+import gzip
+import importlib.util
+import io
+import json
+from pathlib import Path
+import tempfile
+import unittest
+from unittest.mock import patch
+import urllib.error
+
+ROOT = Path(__file__).resolve().parents[1]
+SPEC = importlib.util.spec_from_file_location("technology_inventory", ROOT / "scripts/technology-inventory.py")
+AUDIT = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(AUDIT)
+
+
+class ReleaseTests(unittest.TestCase):
+    def test_numeric_sort_and_prerelease_exclusion(self):
+        self.assertEqual(AUDIT.stable_max(["1.9.0", "1.10.0", "2.0.0rc1", "2.0.0-beta.2", "v1.10.1"]), "1.10.1")
+        self.assertIsNone(AUDIT.version("3.15.0rc2"))
+
+    def test_selectors_do_not_claim_exact_patch_installed(self):
+        self.assertEqual(AUDIT.compare("24", "24.21.0"), "TRACKING")
+        self.assertEqual(AUDIT.compare("3.11", "3.11.16"), "TRACKING")
+        self.assertEqual(AUDIT.compare("3.11", "3.14.7"), "UPDATE")
+        self.assertEqual(AUDIT.compare("unrecorded", "9.0.2"), "UNKNOWN")
+        self.assertEqual(AUDIT.compare("1.11.0", "1.9.0"), "AHEAD")
+        self.assertEqual(AUDIT.compare("1.9.0", "1.9.0"), "CURRENT")
+
+    def test_pypi_ignores_yanked_empty_and_prerelease(self):
+        payload = {"info": {"requires_python": ">=3.11"}, "releases": {
+            "4.0.0rc1": [{"yanked": False}], "3.0.0": [{"yanked": True}],
+            "2.9.0": [], "2.1.0": [{"yanked": False}], "1.9.0": [{"yanked": False}]}}
+        with patch.object(AUDIT, "fetch", return_value=payload):
+            found = AUDIT.resolve(AUDIT.row("test", "Python QA", "1.9.0", [], "pypi"))
+        self.assertEqual(found["latest"], "2.1.0")
+
+    def test_npm_latest_prerelease_is_not_silently_accepted(self):
+        with patch.object(AUDIT, "fetch", return_value={"version": "2.0.0-beta.1"}):
+            with self.assertRaisesRegex(ValueError, "prerelease"):
+                AUDIT.resolve(AUDIT.row("test", "npm direct", "1.0.0", [], "npm"))
+
+    def test_python_does_not_truncate_release_candidate(self):
+        html = '<a>Python 3.15.0rc2</a><a>Python 3.14.7</a><a>Python 3.11.16</a>'
+        with patch.object(AUDIT, "fetch", return_value=html):
+            found = AUDIT.resolve(AUDIT.row("Python", "runtime", "3.11", [], "python"))
+        self.assertEqual(found["latest"], "3.14.7")
+        self.assertEqual(found["latest_in_current_line"], "3.11.16")
+
+    def test_node_current_and_lts_are_distinct(self):
+        releases = [{"version": "v26.9.0", "lts": False, "npm": "12.0.0"},
+                    {"version": "v24.21.0", "lts": "Krypton", "npm": "11.19.0"},
+                    {"version": "v22.23.2", "lts": "Jod", "npm": "10.9.4"}]
+        with patch.object(AUDIT, "fetch", return_value=releases):
+            found = AUDIT.resolve(AUDIT.row("Node", "runtime", "24", [], "node"))
+        self.assertEqual(found["status"], "UPDATE")
+        self.assertEqual(found["target_status"], "TRACKING")
+        self.assertEqual(found["target"], "24.21.0")
+
+    def test_action_sha_resolves_to_specific_version(self):
+        responses = [{"tag_name": "v7.0.1", "html_url": "https://github.com/actions/checkout/releases/tag/v7.0.1"},
+                     [{"name": "v7", "commit": {"sha": "a" * 40}},
+                      {"name": "v7.0.1", "commit": {"sha": "a" * 40}}]]
+        with patch.object(AUDIT, "fetch", side_effect=responses):
+            found = AUDIT.resolve(AUDIT.row("actions/checkout", "GitHub Actions", "a" * 40, [], "github-action"))
+        self.assertEqual(found["resolved_current"], "7.0.1")
+        self.assertEqual(found["status"], "CURRENT")
+
+    def test_unresolved_sha_is_unknown_not_current(self):
+        with patch.object(AUDIT, "fetch", side_effect=[{"tag_name": "v2.0.0", "html_url": "https://example.com"}, []]):
+            found = AUDIT.enrich([AUDIT.row("actions/example", "GitHub Actions", "a" * 40, [], "github-action")])[0]
+        self.assertEqual(found["status"], "UNKNOWN")
+        self.assertIn("error", found)
+
+    def test_registry_failure_preserves_other_results(self):
+        items = [AUDIT.row(n, "npm direct", "1.0.0", [], "npm") for n in ("bad", "good")]
+        def resolve(item):
+            if item["name"] == "bad":
+                raise urllib.error.URLError("registry unavailable")
+            return {"latest": "1.0.0", "status": "CURRENT"}
+        with patch.object(AUDIT, "resolve", side_effect=resolve):
+            results = AUDIT.enrich(items)
+        self.assertEqual([r["status"] for r in results], ["UNKNOWN", "CURRENT"])
+        self.assertIn("error", results[0])
+
+    def test_gzip_responses_are_decoded(self):
+        response = io.BytesIO(gzip.compress(b'{"version":"1.2.3"}'))
+        response.headers = {"Content-Encoding": "gzip"}
+        with patch.object(AUDIT.urllib.request, "urlopen", return_value=response):
+            self.assertEqual(AUDIT.fetch("https://registry.npmjs.org/test"), {"version": "1.2.3"})
+
+    def test_no_stable_release_is_error(self):
+        with self.assertRaises(ValueError):
+            AUDIT.stable_max(["3.15.0rc2", "nightly"])
+
+    def test_every_lock_location_is_represented(self):
+        rows, _ = AUDIT.inventory(ROOT)
+        lock = json.loads((ROOT / "package-lock.json").read_text())
+        found = {p.removeprefix("package-lock.json:") for r in rows
+                 if r["category"].startswith("npm ") for p in r["evidence"]}
+        self.assertEqual(found, set(lock["packages"]) - {""})
+
+    def test_media_requirements_and_lighthouse_are_included(self):
+        rows, _ = AUDIT.inventory(ROOT)
+        self.assertEqual({r["name"] for r in rows if r["category"] == "Python media"},
+                         {"numpy", "scipy", "soundfile", "mido"})
+        self.assertTrue(any(r["name"] == "lighthouse" and r["category"] == "npm direct" for r in rows))
+
+    def test_offline_run_writes_reports_without_network(self):
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "report.json"
+            with patch.object(AUDIT, "fetch", side_effect=AssertionError("Offline run accessed network")):
+                code = AUDIT.main(["--offline", "--json-output", str(target)])
+            self.assertEqual(code, 0)
+            self.assertTrue(all(r["status"] == "NOT_CHECKED" for r in json.loads(target.read_text())["technologies"]))
+
+    def test_failed_lookup_causes_nonzero_exit(self):
+        with patch.object(AUDIT, "enrich", return_value=[{"status": "UNKNOWN", "error": "offline", "category": "npm", "name": "test", "current": "1", "evidence": [], "owner": "review"}]):
+            self.assertEqual(AUDIT.main([]), 1)
+
+
+if __name__ == "__main__":
+    unittest.main()
