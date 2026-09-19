@@ -75,7 +75,7 @@ class ReleaseTests(unittest.TestCase):
 
     def test_registry_failure_preserves_other_results(self):
         items = [AUDIT.row(n, "npm direct", "1.0.0", [], "npm") for n in ("bad", "good")]
-        def resolve(item):
+        def resolve(item, deadline=None):
             if item["name"] == "bad":
                 raise urllib.error.URLError("registry unavailable")
             return {"latest": "1.0.0", "status": "CURRENT"}
@@ -89,6 +89,49 @@ class ReleaseTests(unittest.TestCase):
         response.headers = {"Content-Encoding": "gzip"}
         with patch.object(AUDIT.urllib.request, "urlopen", return_value=response):
             self.assertEqual(AUDIT.fetch("https://registry.npmjs.org/test"), {"version": "1.2.3"})
+
+    def test_expired_budget_does_not_start_a_request(self):
+        with patch.object(AUDIT.time, "monotonic", return_value=50), \
+                patch.object(AUDIT.urllib.request, "urlopen") as request:
+            with self.assertRaisesRegex(TimeoutError, "budget exhausted"):
+                AUDIT.fetch("https://registry.npmjs.org/test", deadline=50)
+        request.assert_not_called()
+
+    def test_stalled_registry_stops_retries_at_shared_deadline(self):
+        clock = [100.0]
+        def stall(request, timeout):
+            clock[0] += timeout
+            raise TimeoutError("registry stopped responding")
+        with patch.object(AUDIT.time, "monotonic", side_effect=lambda: clock[0]), \
+                patch.object(AUDIT.time, "sleep"), \
+                patch.object(AUDIT.urllib.request, "urlopen", side_effect=stall) as request:
+            with self.assertRaisesRegex(TimeoutError, "budget exhausted"):
+                AUDIT.fetch("https://registry.npmjs.org/test", deadline=107)
+        self.assertEqual(request.call_count, 1)
+        self.assertEqual(request.call_args.kwargs["timeout"], 7)
+
+    def test_registry_outage_writes_all_rows_and_upstream_failure_evidence(self):
+        items = [AUDIT.row(str(i), "npm direct", "1.0.0", [], "npm") for i in range(120)]
+        items.append(AUDIT.row("Mermaid", "browser runtime", "11.17.2", [], "npm"))
+        clock = [100.0]
+        def stall(request, timeout):
+            clock[0] += timeout
+            raise TimeoutError("registry stopped responding")
+        with tempfile.TemporaryDirectory() as directory:
+            targets = [Path(directory) / name for name in ("report.json", "report.md", "summary.md")]
+            with patch.object(AUDIT, "inventory", return_value=(items, [])), \
+                    patch.object(AUDIT.time, "monotonic", side_effect=lambda: clock[0]), \
+                    patch.object(AUDIT.time, "sleep"), \
+                    patch.object(AUDIT.urllib.request, "urlopen", side_effect=stall):
+                code = AUDIT.main(["--lookup-budget-seconds", "7", "--json-output", str(targets[0]),
+                                   "--markdown-output", str(targets[1]), "--summary-output", str(targets[2])])
+            self.assertEqual(code, 1)
+            rows = json.loads(targets[0].read_text())["technologies"]
+            self.assertEqual(len(rows), 125)
+            self.assertTrue(all(r["status"] == "UNKNOWN" and r.get("error") for r in rows))
+            self.assertTrue(any(r["name"] == "Mermaid package metadata" for r in rows))
+            self.assertIn("budget exhausted", targets[1].read_text())
+            self.assertIn("budget exhausted", targets[2].read_text())
 
     def test_no_stable_release_is_error(self):
         with self.assertRaises(ValueError):

@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs';
 import test from 'node:test';
 
 // Exercise the actual workflow script against mocked GitHub and filesystem APIs.
-const workflow = readFileSync(new URL('../.github/workflows/technology-watch.yml', import.meta.url), 'utf8');
+const workflow = readFileSync(new URL('../.github/workflows/technology-watch.yml', import.meta.url), 'utf8').replace(/\r\n/g, '\n');
 const source = workflow.split('          script: |\n')[1].split('\n').map(line => line.slice(12)).join('\n');
 const runScript = new (Object.getPrototypeOf(async function () {}).constructor)(
   'require', 'github', 'context', 'core', source);
