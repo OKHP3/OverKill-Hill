@@ -281,6 +281,7 @@ function assertExternalFailureReportContract(report) {
   assert.ok(Array.isArray(report.routes));
   assert.equal(typeof report.status, "string");
   assert.ok(report.summary && typeof report.summary === "object");
+  assert.equal(typeof report.summary.failureEvents, "number");
 
   const failures = [
     ...report.dependencies.flatMap(({ failures = [] }) => failures),
@@ -498,6 +499,7 @@ test("preserves the browser failure reason for an aborted external request", asy
     assertExternalFailureReportContract(report);
     assert.equal(report.status, "EXTERNAL_OUTAGE");
     assert.equal(report.summary.externalOutages, 1);
+    assert.equal(report.summary.failureEvents, 1);
 
     const aborted = report.dependencies.find(({ url }) => url.endsWith("/aborted.png"));
     assert.ok(aborted, JSON.stringify(report, null, 2));
@@ -565,6 +567,7 @@ test("groups repeated failures for one dependency without losing the browser rea
     const report = JSON.parse(await readFile(reportPath, "utf8"));
     assert.equal(report.status, "EXTERNAL_OUTAGE");
     assert.equal(report.summary.externalOutages, 1);
+    assert.equal(report.summary.failureEvents, 2);
 
     const aborted = report.dependencies.find(({ url }) => url.endsWith("/aborted.png"));
     assert.ok(aborted, JSON.stringify(report, null, 2));
@@ -650,6 +653,7 @@ test("reports CSP-blocked dependencies separately from external outages", async 
     assert.equal(report.status, "CSP_BLOCKED");
     assert.equal(report.summary.cspDiagnostics, 1);
     assert.equal(report.summary.externalOutages, 0);
+    assert.equal(report.summary.failureEvents, 1);
     assert.equal(report.summary.localFailures, 0);
 
     const blocked = report.dependencies.find(({ url }) => url.endsWith("/blocked.png"));

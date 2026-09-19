@@ -67,8 +67,12 @@ _LOCALIZED_BANNER_RE = re.compile(
     r"\bdata-banner-localized\s*=\s*(['\"])true\1", re.IGNORECASE
 )
 _BANNER_RELEASE_ATTR_RE = re.compile(r'\bdata-banner-release="(v\d+(?:\.\d+)+)"', re.IGNORECASE)
+# The release label is semantic content, not a dependency on the template's
+# choice of inline element.  Keep the opening-tag boundary so incidental
+# prose is not counted, while allowing the template to add attributes or
+# change the label element.
 _ARTICLE_RELEASE_RE = re.compile(
-    r"<span\b[^>]*>\s*Article\s+(v\d+(?:\.\d+)+)\s*:",
+    r"<[a-z][a-z0-9:-]*\b[^>]*>\s*Article\s+(v\d+(?:\.\d+)+)\s*:",
     re.IGNORECASE,
 )
 _BANNER_RELEASE_RE = re.compile(

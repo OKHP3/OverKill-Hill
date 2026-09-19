@@ -817,6 +817,11 @@ async function runExternalHealth() {
   const localFailures = results.flatMap(({ path, localErrors }) =>
     localErrors.map((error) => ({ path, error })),
   );
+  const failureEvents = dependencies.reduce(
+    (total, dependency) =>
+      total + dependency.failures.reduce((count, failure) => count + (failure.count || 1), 0),
+    0,
+  );
   const report = {
     version: 1,
     mode: "external-health",
@@ -834,6 +839,7 @@ async function runExternalHealth() {
       dependencies: dependencies.length,
       available: dependencies.filter(({ state }) => state === "available").length,
       externalOutages: externalOutages.length,
+      failureEvents,
       cspDiagnostics: cspDiagnostics.length,
       cspEvidence: cspEvidence.length,
       timeouts: timeouts.length,
