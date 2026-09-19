@@ -40,6 +40,35 @@ def check_case(
             raise AssertionError(f"{name}: expected {part!r} in {message!r}")
 
 
+def check_article_release_variations() -> None:
+    valid_labels = (
+        (
+            "span with attributes, whitespace, and mixed casing",
+            '<SPAN class="article-release" data-version="current">\n'
+            "  ARTICLE \n V0.5 \n : Council-Assisted Scoring\n"
+            "</SPAN>",
+        ),
+        (
+            "changed label element with attributes",
+            '<div data-role="article-release" class="eyebrow-label">'
+            "\n\tArticle\tv0.5: Council-Assisted Scoring\n"
+            "</div>",
+        ),
+    )
+    for name, label in valid_labels:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            article = root / "article.html"
+            article.write_text(label, encoding="utf-8")
+            release, error = check_banner._featured_article_release(
+                str(root), "article.html"
+            )
+        if release != "v0.5" or error is not None:
+            raise AssertionError(
+                f"{name}: expected v0.5 without an error, got {release!r}, {error!r}"
+            )
+
+
 def check_main_case(
     name: str,
     banner_path: str,
@@ -224,6 +253,7 @@ def check_update_and_dry_run_preserve_repair_behavior() -> None:
 def main() -> int:
     featured = "/writings/first-diagram-is-a-liar/#council-scoring"
     stale_release = "v0.6"
+    check_article_release_variations()
     release_failure = (
         f"banner release mismatch for {check_banner.FEATURED_ARTICLE_ROUTE}",
         f"expected {stale_release}",
@@ -271,7 +301,7 @@ def main() -> int:
             {
                 "source_article": (
                     "<span>Article v0.6: Council-Assisted Scoring</span>"
-                    "<span>Article v0.7: Council-Assisted Scoring</span>"
+                    "<strong>Article v0.7: Council-Assisted Scoring</strong>"
                 )
             },
         ),
@@ -288,7 +318,7 @@ def main() -> int:
             {
                 "generated_article": (
                     "<span>Article v0.6: Council-Assisted Scoring</span>"
-                    "<span>Article v0.7: Council-Assisted Scoring</span>"
+                    "<strong>Article v0.7: Council-Assisted Scoring</strong>"
                 )
             },
         ),
