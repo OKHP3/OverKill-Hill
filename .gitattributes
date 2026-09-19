@@ -3,3 +3,6 @@ assets/audit/universe-map/** text=auto eol=lf
 
 # Preserve historical MurderBird source bytes, including original line endings.
 assets/murderbird/v2/** -text
+
+# Keep the portable Replit executor mirror byte-identical across hosts.
+.agents/skills/okhp3-replit-task-executor/** text eol=lf
