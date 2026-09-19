@@ -133,6 +133,26 @@ class ReleaseTests(unittest.TestCase):
             self.assertIn("budget exhausted", targets[1].read_text())
             self.assertIn("budget exhausted", targets[2].read_text())
 
+    def test_slow_stream_cannot_extend_the_lookup_budget(self):
+        clock = [100.0]
+        class SlowResponse(io.BytesIO):
+            headers = {}
+            chunks = 0
+            def read(self, *args):
+                raise AssertionError("Unbounded response.read() bypasses deadline checks")
+            def read1(self, size):
+                clock[0] += 3
+                self.chunks += 1
+                return b" "  # Never EOF; data arrives before each socket timeout.
+        response = SlowResponse()
+        with patch.object(AUDIT.time, "monotonic", side_effect=lambda: clock[0]), \
+                patch.object(AUDIT.time, "sleep"), \
+                patch.object(AUDIT.urllib.request, "urlopen", return_value=response) as request:
+            with self.assertRaisesRegex(TimeoutError, "budget exhausted"):
+                AUDIT.fetch("https://registry.npmjs.org/test", deadline=107)
+        self.assertEqual(response.chunks, 3)
+        self.assertEqual(request.call_count, 1)
+
     def test_no_stable_release_is_error(self):
         with self.assertRaises(ValueError):
             AUDIT.stable_max(["3.15.0rc2", "nightly"])

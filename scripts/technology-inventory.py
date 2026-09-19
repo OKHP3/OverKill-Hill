@@ -67,7 +67,18 @@ def fetch(url, json_response=True, *, deadline=None):
             if token:
                 request.add_unredirected_header("Authorization", "Bearer " + token)
             with urllib.request.urlopen(request, timeout=timeout) as response:
-                payload = response.read()
+                # read() can keep waiting forever on a slowly streaming body.
+                # read1() performs at most one underlying read, so each chunk
+                # returns control for a deadline check (or a socket timeout).
+                chunks = []
+                while True:
+                    if deadline is not None and time.monotonic() >= deadline:
+                        raise TimeoutError("Version lookup time budget exhausted")
+                    chunk = response.read1(64 * 1024)
+                    if not chunk:
+                        break
+                    chunks.append(chunk)
+                payload = b"".join(chunks)
                 if response.headers.get("Content-Encoding") == "gzip" or payload.startswith(b"\x1f\x8b"):
                     payload = gzip.decompress(payload)
                 raw = payload.decode("utf-8")
