@@ -2,6 +2,16 @@
 
 All notable changes to the **OverKill Hill P³™** public repository should be recorded here.
 
+## 2026-09-19: Replit task executor 1.2.0
+
+- Preserve Replit planning and design while external agents own architecture,
+  implementation, testing, and Git integration.
+- Add finite task intake, revision-bound completion receipts, design acceptance,
+  and a supported, authorized administrative return with concurrency guards.
+- Record three analytical Foundry/Equilibrium review passes and visible
+  development cases. Maturity remains draftable; native completion and cost
+  savings are not established by these reviews.
+
 ## [Unreleased — 2026-09-03]
 
 ### Changed
