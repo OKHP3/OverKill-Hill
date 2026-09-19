@@ -30,6 +30,9 @@ The new watcher runs daily at 15:23 UTC and on manual dispatch from the default
 branch. It saves JSON, a complete Markdown inventory, and a shorter run summary.
 Network failures fail the job and remain UNKNOWN; they cannot close an existing
 tracking issue. Issue content stays unchanged when findings stay unchanged.
+All release lookups share a ten-minute budget, including retries and supplemental
+dependency discovery. Once it expires, pending lookups become UNKNOWN so reports
+can be saved with time left for artifact upload and issue reporting.
 The workflow has no repository-write, merge or deployment permission. PR runs
 execute only the offline regression tests, without issue-write permissions.
 

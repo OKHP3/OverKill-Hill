@@ -49,19 +49,36 @@ def stable_max(values):
     return max(candidates, key=version).removeprefix("v")
 
 
-def fetch(url, json_response=True):
+def fetch(url, json_response=True, *, deadline=None):
     headers = {"User-Agent": "OKHP3-technology-inventory/1.0"}
     token = None
     # Never send the GitHub token to package registries or redirected hosts.
     if urllib.parse.urlparse(url).hostname == "api.github.com":
         token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
     for attempt in range(3):
+        timeout = 25
+        if deadline is not None:
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                raise TimeoutError("Version lookup time budget exhausted")
+            timeout = min(timeout, remaining)
         try:
             request = urllib.request.Request(url, headers=headers)
             if token:
                 request.add_unredirected_header("Authorization", "Bearer " + token)
-            with urllib.request.urlopen(request, timeout=25) as response:
-                payload = response.read()
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                # read() can keep waiting forever on a slowly streaming body.
+                # read1() performs at most one underlying read, so each chunk
+                # returns control for a deadline check (or a socket timeout).
+                chunks = []
+                while True:
+                    if deadline is not None and time.monotonic() >= deadline:
+                        raise TimeoutError("Version lookup time budget exhausted")
+                    chunk = response.read1(64 * 1024)
+                    if not chunk:
+                        break
+                    chunks.append(chunk)
+                payload = b"".join(chunks)
                 if response.headers.get("Content-Encoding") == "gzip" or payload.startswith(b"\x1f\x8b"):
                     payload = gzip.decompress(payload)
                 raw = payload.decode("utf-8")
@@ -72,7 +89,10 @@ def fetch(url, json_response=True):
         except (urllib.error.URLError, TimeoutError):
             if attempt == 2:
                 raise
-        time.sleep(attempt + 1)
+        delay = attempt + 1
+        if deadline is not None:
+            delay = min(delay, max(0, deadline - time.monotonic()))
+        time.sleep(delay)
 
 
 def row(name, category, current, evidence, provider, key=None, owner="review"):
@@ -176,26 +196,26 @@ def inventory(root):
     return rows, findings
 
 
-def resolve(item):
+def resolve(item, deadline=None):
     provider, key = item["provider"], item["key"]
     extra = {}
     if provider == "npm":
         source = "https://registry.npmjs.org/" + urllib.parse.quote(key, safe="@/") + "/latest"
-        data = fetch(source)
+        data = fetch(source, deadline=deadline)
         latest = data["version"]
         if version(latest) is None:
             raise ValueError("npm latest tag points at a prerelease; review required")
         extra["requires"] = data.get("engines", {})
     elif provider == "pypi":
         source = "https://pypi.org/pypi/" + key + "/json"
-        data = fetch(source)
+        data = fetch(source, deadline=deadline)
         # Ignore prereleases and releases with no downloadable, non-yanked file.
         latest = stable_max(v for v, files in data["releases"].items()
                             if files and any(not f.get("yanked", False) for f in files))
         extra["requires_python"] = data["info"].get("requires_python")
     elif provider in ("node", "npm-bundled"):
         source = "https://nodejs.org/dist/index.json"
-        data = fetch(source)
+        data = fetch(source, deadline=deadline)
         releases = [d for d in data if version(d["version"]) is not None]
         latest = stable_max(d["version"] for d in releases)
         lts = stable_max(d["version"] for d in releases if d.get("lts"))
@@ -204,7 +224,7 @@ def resolve(item):
             found = next((d for d in releases if d["version"].removeprefix("v") == key), None)
             extra["resolved_current"] = found["npm"] if found else None
             npm_source = "https://registry.npmjs.org/npm/latest"
-            latest = fetch(npm_source)["version"]
+            latest = fetch(npm_source, deadline=deadline)["version"]
             extra["additional_sources"] = [npm_source]
             extra["latest_lts_bundled_npm"] = next(d["npm"] for d in releases if d["version"] == "v" + lts)
             extra["target"] = extra["latest_lts_bundled_npm"]
@@ -215,7 +235,7 @@ def resolve(item):
                                                           if d["version"].startswith("v" + train + "."))
     elif provider == "python":
         source = "https://www.python.org/downloads/"
-        page = fetch(source, False)
+        page = fetch(source, False, deadline=deadline)
         # Anchor text must end after X.Y.Z. Never truncate 3.15.0rc2 to 3.15.0.
         releases = re.findall(r">Python (\d+\.\d+\.\d+)</a>", page)
         latest = stable_max(releases)
@@ -223,13 +243,13 @@ def resolve(item):
         extra["latest_in_current_line"] = stable_max(v for v in releases if v.startswith(train + "."))
     elif provider == "github-action":
         source = f"https://api.github.com/repos/{key}/releases/latest"
-        release = fetch(source)
+        release = fetch(source, deadline=deadline)
         if release.get("prerelease") or release.get("draft") or version(release["tag_name"]) is None:
             raise ValueError("Latest action release is not a stable version")
         latest = release["tag_name"].removeprefix("v")
         extra["release_url"] = release["html_url"]
         tags_url = f"https://api.github.com/repos/{key}/tags?per_page=100"
-        tags = fetch(tags_url)
+        tags = fetch(tags_url, deadline=deadline)
         matches = [t["name"] for t in tags if t["commit"]["sha"] == item["current"] and version(t["name"])]
         if not matches and re.fullmatch(r"[0-9a-f]{40}", item["current"]):
             raise ValueError("Pinned action SHA was not found among the first 100 publisher tags")
@@ -237,17 +257,17 @@ def resolve(item):
         extra["additional_sources"] = [tags_url]
     elif provider == "blender":
         source = "https://download.blender.org/release/"
-        trains = re.findall(r'href="Blender(\d+\.\d+)/"', fetch(source, False))
+        trains = re.findall(r'href="Blender(\d+\.\d+)/"', fetch(source, False, deadline=deadline))
         train = stable_max(trains)
         source += "Blender" + train + "/"
-        latest = stable_max(re.findall(r"blender-(\d+\.\d+\.\d+)-", fetch(source, False)))
+        latest = stable_max(re.findall(r"blender-(\d+\.\d+\.\d+)-", fetch(source, False, deadline=deadline)))
     elif provider == "ffmpeg":
         source = "https://ffmpeg.org/releases/"
-        latest = stable_max(re.findall(r'href="ffmpeg-(\d+\.\d+(?:\.\d+)?).tar', fetch(source, False)))
+        latest = stable_max(re.findall(r'href="ffmpeg-(\d+\.\d+(?:\.\d+)?).tar', fetch(source, False, deadline=deadline)))
     elif provider == "garageband":
         # macOS product ID; the iOS GarageBand ID is a different application.
         source = "https://itunes.apple.com/lookup?id=682658836&country=us"
-        data = fetch(source)
+        data = fetch(source, deadline=deadline)
         latest = data["results"][0]["version"]
     else:
         raise ValueError("Unknown release provider: " + provider)
@@ -259,10 +279,10 @@ def resolve(item):
     return dict(latest=latest, source=source, status=compare(current, latest), **extra)
 
 
-def enrich(rows):
+def enrich(rows, deadline=None):
     def one(item):
         try:
-            return {**item, **resolve(item)}
+            return {**item, **resolve(item, deadline=deadline)}
         except Exception as exc:
             # Do not include HTTP response bodies, which could contain credentials.
             return {**item, "latest": None, "status": "UNKNOWN", "error": str(exc)}
@@ -270,13 +290,13 @@ def enrich(rows):
         return list(pool.map(one, rows))
 
 
-def upstream_inventory(rows):
+def upstream_inventory(rows, deadline=None):
     """Expose unresolvable bundle pins without pretending ranges are installed versions."""
     additions = []
     mermaid = next(r for r in rows if r["name"] == "Mermaid")
     source = "https://registry.npmjs.org/mermaid/" + mermaid["current"]
     try:
-        package = fetch(source)
+        package = fetch(source, deadline=deadline)
         for name, constraint in sorted(package["dependencies"].items()):
             item = row(name, "Mermaid publisher requirements", "unrecorded (" + constraint + ")",
                        [source], "npm", owner="parent dependency")
@@ -292,7 +312,7 @@ def upstream_inventory(rows):
     for name, parent in [("cffi", "soundfile"), ("pycparser", "cffi"), ("packaging", "mido")]:
         additions.append(row(name, "Python unlocked media dependencies", "unrecorded",
                              [AUDIO, f"https://pypi.org/pypi/{parent}/json"], "pypi", owner="parent dependency"))
-    enriched = enrich([r for r in additions if "error" not in r])
+    enriched = enrich([r for r in additions if "error" not in r], deadline=deadline)
     enriched.extend(r for r in additions if "error" in r)
     return enriched
 
@@ -349,14 +369,22 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--offline", action="store_true", help="Inventory declarations without network access")
+    parser.add_argument("--lookup-budget-seconds", type=float, default=600,
+                        help="Shared network lookup budget; unfinished lookups remain UNKNOWN (default: 600)")
     parser.add_argument("--json-output", type=Path)
     parser.add_argument("--markdown-output", type=Path)
     parser.add_argument("--summary-output", type=Path)
     args = parser.parse_args(argv)
+    if not 0 < args.lookup_budget_seconds <= 600:
+        parser.error("--lookup-budget-seconds must be greater than zero and no more than 600")
     rows, findings = inventory(args.root)
-    rows = [{**r, "latest": None, "status": "NOT_CHECKED"} for r in rows] if args.offline else enrich(rows)
+    # One deadline covers both phases and every worker, including queued rows.
+    # Leave five minutes of the workflow budget for evidence upload/reporting.
+    deadline = time.monotonic() + args.lookup_budget_seconds
+    rows = ([{**r, "latest": None, "status": "NOT_CHECKED"} for r in rows]
+            if args.offline else enrich(rows, deadline=deadline))
     if not args.offline and any(r.get("name") == "Mermaid" for r in rows):
-        rows += upstream_inventory(rows)
+        rows += upstream_inventory(rows, deadline=deadline)
     report = dict(schema_version=1, retrieved_at=datetime.now(timezone.utc).isoformat(),
                   source_commit=subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=args.root, text=True).strip(),
                   technologies=rows, findings=findings)
