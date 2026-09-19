@@ -10,6 +10,7 @@ follows the same convention as `askjamie/scripts/README.md`.
 
 | Script | Classification | Use |
 | --- | --- | --- |
+| `technology-inventory.py` | active | Read-only version inventory and publisher stable-release checks; JSON/Markdown reports for Technology Version Watch |
 | `build-murderbird-hero.py` | active | Hash-locked proportional delivery for six accepted still sources |
 | `build-murderbird-story-social.mjs` | active | Full-art story social raster with real fonts; local-only review HTML |
 | `build-murderbird-site-assets.py` | active | Proportional PNG/WebP delivery copies of the corrected site-lineage images |

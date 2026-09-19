@@ -152,22 +152,19 @@ Checks every HTML page for: title, meta description, canonical, single H1, JSON-
 
 For the browser-level phone layout check used in CI:
 
-Use Node.js 24 LTS for local browser QA. `.nvmrc` selects the 24 release line
-for version managers and both CI Node jobs; install the latest available 24.x
-patch. `package.json` declares the same major-version contract and `.npmrc`
-rejects unsupported Node versions during installation. Use the npm bundled
+Use the exact Node.js version in `.nvmrc` for local browser QA. The current
+pin is **22.19.0**, matching `.node-version`, `package.json`, and the root
+lockfile metadata. `.npmrc` rejects other Node versions during installation.
+Use the npm bundled
 with Node and `npm ci` to preserve the dependency lockfile.
 
-The [official Node release table](https://nodejs.org/en/about/previous-releases)
-lists Node 24 as LTS and Node 20 as end-of-life (verified September 7, 2026).
-Review this selection before Node 24 reaches its
-[scheduled end of support](https://github.com/nodejs/Release/blob/main/schedule.json)
-on April 30, 2028. When changing the supported major, update `.nvmrc` and
-the package engine range together, refresh root lockfile metadata, and rerun
-clean installation and browser QA.
+The September 18 technology audit found this pin behind the current LTS.
+See [the technology audit](assets/docs/technology-audit-2026-09-18.md) and
+[update policy](docs/technology-update-policy.md) for verified versions,
+the coordinated runtime migration, and daily dependency tracking.
 
 Replit preview uses `python3 server.py`. Its `.replit` environment selects
-`nodejs-24` for browser QA, matching the local and CI major-version contract.
+`nodejs-24` for browser QA, which currently differs from the repository pin.
 Open a fresh Shell after changing modules so it loads the selected runtime.
 Connected Replit installation, browser and preview checks are recorded in
 [the A08 runtime evidence](assets/docs/qa-runtime-a08-2026-09-07.md).
