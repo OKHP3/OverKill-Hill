@@ -5,4 +5,4 @@ assets/audit/universe-map/** text=auto eol=lf
 assets/murderbird/v2/** -text
 
 # Keep the portable Replit executor mirror byte-identical across hosts.
-.agents/skills/okhp3-replit-task-executor/** text eol=lf
+.agents/skills/okhp3-replit-task-executor/** text=auto eol=lf
