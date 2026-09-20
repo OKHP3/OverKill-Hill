@@ -32,18 +32,23 @@ The repo also serves as the public artifact archive for OverKill Hill P³ writin
 | Markup | Plain HTML 5 |
 | Styling | Hand-authored CSS in `assets/css/theme.css` (token-driven) |
 | Scripting | Vanilla JS (`assets/js/app.js`, `mermaid-init.js`) |
-| Diagrams | [Mermaid](https://mermaid.js.org/) v11.17.2, self-hosted under `assets/vendor/mermaid/` |
+| Diagrams | [Mermaid](https://mermaid.js.org/) v12.0.0, self-hosted under `assets/vendor/mermaid/` |
 | Search | Client-side index in `assets/data/search-index.json` |
 
 ### Mermaid runtime trust decision
 
-Mermaid 11.17.2 is vendored under `assets/vendor/mermaid/`, including the
+Mermaid 12.0.0 is vendored under `assets/vendor/mermaid/`, including the
 relative ESM chunks it imports. Production pages therefore do not fetch the
 diagram runtime from a third-party CDN. Update the complete vendor directory
 only when intentionally reviewing a new pinned Mermaid release; the pinned
 version is the single line in `assets/vendor/mermaid/VERSION`, and it must
 always match the version string actually inside `mermaid.esm.min.mjs`
 (`scripts/validate-site.py` checks this on every run).
+
+Mermaid 12 requires ES2024-capable browsers (including Safari 17.4 or newer).
+Flowcharts retain the earlier `dagre`/`classic` defaults where inherited;
+authored layout/look choices, brand themes, and interaction settings remain intact.
+See [the reviewed migration and verification record](assets/docs/mermaid-12-review-2026-09-20.md).
 
 The scheduled **Mermaid Version Watch** workflow
 (`.github/workflows/mermaid-version-watch.yml`) checks `mermaid@latest` on

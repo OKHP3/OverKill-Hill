@@ -16,6 +16,8 @@ function configure() {
   const styles = getComputedStyle(document.documentElement);
   const token = (key, fallback) => styles.getPropertyValue(key).trim() || fallback;
   mermaid.initialize({
+    layout: "dagre",
+    look: "classic",
     startOnLoad: false,
     securityLevel: "strict",
     theme: "base",
