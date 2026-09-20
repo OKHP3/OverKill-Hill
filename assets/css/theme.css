@@ -112,7 +112,7 @@
    hop, and no per-page CSP allowance needed for those two domains. Files:
    assets/fonts/*.woff2 (byte-identical to what Google was serving).
    Source families: Alfa Slab One 400, DM Sans 400/500/600, JetBrains Mono 400/700.
-   Source URLs, SHA256 values, weight axes, and licenses: assets/fonts/README.md. */
+   Source URLs, SHA256 values, weight axes, and licenses: assets/fonts/font-provenance.md. */
 
 @font-face {
   font-family: 'Alfa Slab One';

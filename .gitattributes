@@ -6,3 +6,6 @@ assets/murderbird/v2/** -text
 
 # Keep the portable Replit executor mirror byte-identical across hosts.
 .agents/skills/okhp3-replit-task-executor/** text=auto eol=lf
+
+# Preserve upstream font licenses exactly, including original line endings.
+assets/fonts/*-license.txt -text
