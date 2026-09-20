@@ -541,8 +541,8 @@ as-is. No TypeScript, no bundled output. Node.js tooling belongs in `scripts/`.
 Expected files:
 - `app.js` -- the primary shared script: site search, nav toggle, GA4 analytics
   bootstrap, theme toggle, reading progress bar, scroll reveal, sticky TOC.
-- `mermaid-init.js` -- Mermaid v11 ESM initializer; loaded only on pages that
-  contain diagrams (`ecosystem/`, `universe/`).
+- `mermaid-init.js` -- shared ESM initializer for page diagrams. This site's
+  vendored runtime version is pinned in `assets/vendor/mermaid/VERSION`.
 - `sparkle-loader.js` -- loads and renders the "Today's Sparkle" banner from
   `assets/data/sparkle.json` (present on sites using the Sparkle feature).
 
