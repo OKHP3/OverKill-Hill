@@ -79,7 +79,7 @@
 <link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
-<link href="/assets/css/theme.css?v=a9552094" rel="stylesheet"/>
+<link href="/assets/css/theme.css?v=8a674d19" rel="stylesheet"/>
 <script type="speculationrules">
     {
       "prefetch": [
@@ -137,7 +137,7 @@
 <ul>
 <li><a href="/#forge">The Forge</a></li>
 <li class="has-submenu">
-<a href="/projects/">Our Projects</a>
+<a data-current-family="" href="/projects/">Our Projects</a>
 <ul class="submenu">
 <li><a href="/skillz-forge/">Skillz Forge</a></li>
 <li><a href="/skillz-forge/skillz-shield/">Skillz Shield</a></li>
@@ -188,33 +188,31 @@
 
   <main id="main">
 
-<div class="container">
-<section aria-label="Project overview" class="project-hero">
+<section aria-labelledby="page-title" class="project-hero forge-masthead forge-masthead--project" data-status-presentation="disclosure"><div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div><div aria-hidden="true" class="hero-blueprint-bg"></div><div class="container hero-inner">
 <nav aria-label="Breadcrumb" class="breadcrumb">
 <a href="/">overkillhill.com</a><span>/</span>
 <a href="/projects/">projects</a><span>/</span>
 <span>kierans-lifetrkr</span>
 </nav>
-<div class="tag-row">
+<h1 id="page-title">Kieran's LifeTrkr</h1><p class="hero-sub">A personal tracker for daily rituals, habits, and small steps forward.</p><div data-project-status-disclosure="kierans-lifetrkr"><p data-project-status-brief="">Pre-production v0.1.10. Operation unverified.</p><details><summary>Status and source</summary><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status="kierans-lifetrkr"><span data-project-status-text="">Availability: Published project. Maturity: Pre-production v0.1.10. Evidence: Source description only. Delivery: unknown.</span> <a href="https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/kierans-lifetrkr/index.html">Source record</a> (reviewed 2026-09-07).</p><!-- /AUTOGEN:PROJECT-STATUS --><div class="tag-row" data-project-labels="">
 <span class="tag">Personal Tool</span>
 <span class="tag">Open Source</span>
 <span class="tag tag--accent">Client-only</span>
-</div>
-<h1>Kieran's LifeTrkr</h1><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status="kierans-lifetrkr"><span data-project-status-text="">Availability: Published project. Maturity: Pre-production v0.1.10. Evidence: Source description only. Delivery: unknown.</span> <a href="https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/kierans-lifetrkr/index.html">Source record</a> (reviewed 2026-09-07).</p><!-- /AUTOGEN:PROJECT-STATUS -->
-<p class="hero-sub">Rituals. Habits. Today. A little bit of magic.</p>
-<p>
-            A quiet, mobile-first life OS built for Kieran. LifeTrkr brings
-            routines, habits, local tasks, calendar events, and a daily oracle
-            into one low-noise interface. It keeps personal records in the
-            browser, treats Google Calendar and Google Tasks as read-only
-            sources, and leaves the day in the user's hands.
-          </p>
+</div></details></div>
 <div class="hero-ctas">
 <a class="btn btn-primary" href="https://okhp3.github.io/kierans-lifetrkr/#/" rel="noopener noreferrer" target="_blank">Open LifeTrkr</a>
 <a class="btn btn-quiet" href="https://github.com/OKHP3/kierans-lifetrkr" rel="noopener noreferrer" target="_blank">View on GitHub</a>
 <a class="btn btn-quiet" href="https://overkillhill.com/manifesto/#the-forge-before" rel="noopener noreferrer" target="_blank">Read the Kieran origin</a>
 </div>
-</section>
+</div></section>
+<section aria-labelledby="project-introduction-title" class="container content-section project-introduction"><h2 id="project-introduction-title">About the project</h2><p class="hero-sub">Rituals. Habits. Today. A little bit of magic.</p><p>
+            A quiet, mobile-first life OS built for Kieran. LifeTrkr brings
+            routines, habits, local tasks, calendar events, and a daily oracle
+            into one low-noise interface. It keeps personal records in the
+            browser, treats Google Calendar and Google Tasks as read-only
+            sources, and leaves the day in the user's hands.
+          </p></section>
+<div class="container">
 <div class="project-layout">
 <div>
 <div class="content-block card" data-search-index="" id="problem">
@@ -338,8 +336,7 @@
 </div>
 <aside aria-label="Project information" class="sidebar-rail">
 <div class="sidebar-meta">
-<div class="section-label">Project Info</div>
-<div class="meta-row">
+<details class="project-record"><summary>Project details</summary><div class="meta-row">
 <div class="meta-item"><span class="meta-key">Status</span><span class="meta-val"><span class="status-dot"></span>Pre-production / v0.1.10</span></div>
 <div class="meta-item"><span class="meta-key">Type</span><span class="meta-val">Personal life OS</span></div>
 <div class="meta-item"><span class="meta-key">Stack</span><span class="meta-val">React, Vite, TypeScript, Tailwind, HashRouter</span></div>
@@ -350,7 +347,7 @@
 <div class="meta-item"><span class="meta-key">GitHub</span><span class="meta-val"><a href="https://github.com/OKHP3/kierans-lifetrkr" rel="noopener noreferrer" target="_blank">OKHP3/kierans-lifetrkr ↗</a></span></div>
 <div class="meta-item"><span class="meta-key">Live URL</span><span class="meta-val"><a href="https://okhp3.github.io/kierans-lifetrkr/#/" rel="noopener noreferrer" target="_blank">okhp3.github.io/kierans-lifetrkr ↗</a></span></div>
 <div class="meta-item"><span class="meta-key">Origin</span><span class="meta-val"><a href="https://overkillhill.com/manifesto/#the-forge-before" rel="noopener noreferrer" target="_blank">The Manifesto ↗</a></span></div>
-</div>
+</div></details>
 <div class="sidebar-links">
 <a class="sidebar-link" href="https://okhp3.github.io/kierans-lifetrkr/#/" rel="noopener noreferrer" target="_blank">▶ Open LifeTrkr</a>
 <a class="sidebar-link" href="https://github.com/OKHP3/kierans-lifetrkr" rel="noopener noreferrer" target="_blank">◻ GitHub Repo</a>

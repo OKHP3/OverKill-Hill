@@ -79,7 +79,7 @@
 <link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
-<link href="/assets/css/theme.css?v=a9552094" rel="stylesheet"/>
+<link href="/assets/css/theme.css?v=8a674d19" rel="stylesheet"/>
 <script type="speculationrules">
     {
       "prefetch": [
@@ -137,7 +137,7 @@
 <ul>
 <li><a href="/#forge">The Forge</a></li>
 <li class="has-submenu">
-<a href="/projects/">Our Projects</a>
+<a data-current-family="" href="/projects/">Our Projects</a>
 <ul class="submenu">
 <li><a href="/skillz-forge/">Skillz Forge</a></li>
 <li><a href="/skillz-forge/skillz-shield/">Skillz Shield</a></li>
@@ -188,32 +188,30 @@
 
   <main id="main">
 
-<div class="container">
 <!-- HERO ────────────────────────────────────────────────── -->
-<section aria-label="Project overview" class="project-hero">
+<section aria-labelledby="page-title" class="project-hero forge-masthead forge-masthead--project" data-status-presentation="disclosure"><div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div><div aria-hidden="true" class="hero-blueprint-bg"></div><div class="container hero-inner">
 <nav aria-label="Breadcrumb" class="breadcrumb">
 <a href="/">overkillhill.com</a><span>/</span>
 <a href="/projects/">projects</a><span>/</span>
 <span>mermaid-theme-builder</span>
 </nav>
-<div class="tag-row">
+<h1 id="page-title">Mermaid Theme Builder</h1><p class="hero-sub">A visual workbench for designing, previewing, and exporting Mermaid diagram themes.</p><div data-project-status-disclosure="mermaid-theme-builder"><p data-project-status-brief="">Reported release v0.6.1. Operation unverified.</p><details><summary>Status and source</summary><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status="mermaid-theme-builder"><span data-project-status-text="">Availability: Published project. Maturity: Reported release v0.6.1. Evidence: Source description only. Delivery: unknown.</span> <a href="https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/mermaid-theme-builder/index.html">Source record</a> (reviewed 2026-09-07).</p><!-- /AUTOGEN:PROJECT-STATUS --><div class="tag-row" data-project-labels="">
 <span class="tag">Community Tool</span>
 <span class="tag">Open Source</span>
-</div>
-<h1>Mermaid Theme Builder</h1><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status="mermaid-theme-builder"><span data-project-status-text="">Availability: Published project. Maturity: Reported release v0.6.1. Evidence: Source description only. Delivery: unknown.</span> <a href="https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/mermaid-theme-builder/index.html">Source record</a> (reviewed 2026-09-07).</p><!-- /AUTOGEN:PROJECT-STATUS -->
+</div></details></div>
 <nav aria-label="Project evidence" class="sub-nav">
 <a href="#release">Jump to release details ↓</a>
 </nav>
-<p class="hero-sub">Visual governance for AI-generated Mermaid diagrams.</p>
-<p>
-            Paste Mermaid, detect the family, apply a reusable theme, preview live, and export renderer-aware code or prompt scaffolds. Browser-only. No login. No backend. Your diagram code, palette data, and exports stay in your browser. UI fonts load from Google Fonts.
-          </p>
 <div class="hero-ctas">
 <a class="btn btn-primary" href="https://okhp3.github.io/mermaid-theme-builder/#compose" rel="noopener noreferrer" target="_blank">⤢ Launch Theme Builder</a>
 <a class="btn btn-quiet" href="/writings/first-diagram-is-a-liar/">Read Research Report</a>
 <a class="btn btn-quiet" href="https://github.com/OKHP3/mermaid-theme-builder" rel="noopener noreferrer" target="_blank">View Source on GitHub</a>
 </div>
-</section>
+</div></section>
+<section aria-labelledby="project-introduction-title" class="container content-section project-introduction"><h2 id="project-introduction-title">About the project</h2><p class="hero-sub">Visual governance for AI-generated Mermaid diagrams.</p><p>
+            Paste Mermaid, detect the family, apply a reusable theme, preview live, and export renderer-aware code or prompt scaffolds. Browser-only. No login. No backend. Your diagram code, palette data, and exports stay in your browser. UI fonts load from Google Fonts.
+          </p></section>
+<div class="container">
 <!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
 <div class="project-layout">
 <!-- MAIN COLUMN ──────────────────────────────────────── -->
@@ -1238,8 +1236,7 @@ cp -R "$package" .github/skills/okhp3-mermaid-theme-builder</pre>
 <aside aria-label="Project information" class="sidebar-rail">
 <!-- Meta -->
 <div class="sidebar-meta">
-<div class="section-label">Project Info</div>
-<div class="meta-row">
+<details class="project-record"><summary>Project details</summary><div class="meta-row">
 <div class="meta-item">
 <span class="meta-key">Status</span>
 <span class="meta-val"><span class="status-dot"></span>v0.6.1 Shipped</span>
@@ -1272,7 +1269,7 @@ cp -R "$package" .github/skills/okhp3-mermaid-theme-builder</pre>
 <span class="meta-key">Compatibility</span>
 <span class="meta-val">v11.16.0-aligned capability model</span>
 </div>
-</div>
+</div></details>
 <div class="sidebar-links">
 <a class="sidebar-link" href="https://github.com/OKHP3/mermaid-theme-builder" rel="noopener noreferrer" target="_blank">
                   ◻ View on GitHub

@@ -1,29 +1,32 @@
 
-<div class="container">
+
 <!-- HERO ────────────────────────────────────────────────── -->
-<section aria-label="Project overview" class="project-hero">
+<section aria-labelledby="page-title" class="project-hero forge-masthead forge-masthead--project" data-status-presentation="disclosure"><div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div><div aria-hidden="true" class="hero-blueprint-bg"></div><div class="container hero-inner">
 <nav aria-label="Breadcrumb" class="breadcrumb">
 <a href="/">overkillhill.com</a><span>/</span>
 <a href="/projects/">projects</a><span>/</span>
 <span>bpmn-for-mermaid</span>
 </nav>
-<div class="tag-row">
+<div class="tag-row" data-project-labels="">
 <span class="tag">Open Source</span>
 <span class="tag">bpmn-beta DSL</span>
 <span class="tag">BP-SKILL Agent Suite</span>
-
 </div>
-<h1>BPMN for Mermaid</h1>
-<p class="hero-sub">Text-first. Standards-aware. Git-native. Agent-ready.</p>
-<p>
-            Two things live in this project. First: <code style="font-family:'JetBrains Mono',monospace;font-size:0.92rem;color:var(--okh-orange);">bpmn-beta</code>, a text-first DSL for BPMN process diagrams, designed as a Mermaid diagram-type contribution. No XML, no heavyweight tools, no bpmn-js. Second: BP-SKILL, a 15-skill Business Process Agent Skill Suite that uses bpmn-beta as its visual output layer, packaged in the Agent Skills open standard and compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor.
-          </p>
+<h1 id="page-title">BPMN for Mermaid</h1><p class="hero-sub">Text-first BPMN diagramming and a companion suite of Business Process Agent Skills.</p>
+
+
 <div class="hero-ctas">
 <a class="btn btn-primary" href="#embed-playground">Try the Playground →</a>
 <a class="btn btn-primary" href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" rel="noopener noreferrer" style="background:color-mix(in srgb, var(--color-accent) 15%, transparent);border:1px solid color-mix(in srgb, var(--color-accent) 50%, transparent);color:var(--okh-orange);" target="_blank">Explore the Agent Skills →</a>
 <a class="btn btn-quiet" href="https://github.com/OKHP3/mermaid-diagram-bpmn" rel="noopener noreferrer" target="_blank">View on GitHub</a>
 </div>
-</section>
+</div></section>
+<section class="container content-section project-introduction" aria-labelledby="project-introduction-title"><h2 id="project-introduction-title">About the project</h2><p class="hero-sub">Text-first. Standards-aware. Git-native. Agent-ready.</p><p>
+            Two things live in this project. First: <code style="font-family:'JetBrains Mono',monospace;font-size:0.92rem;color:var(--okh-orange);">bpmn-beta</code>, a text-first DSL for BPMN process diagrams, designed as a Mermaid diagram-type contribution. No XML, no heavyweight tools, no bpmn-js. Second: BP-SKILL, a 15-skill Business Process Agent Skill Suite that uses bpmn-beta as its visual output layer, packaged in the Agent Skills open standard and compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor.
+          </p></section>
+
+
+<div class="container">
 <!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
 <div class="project-layout">
 <!-- MAIN COLUMN ──────────────────────────────────────── -->
@@ -627,8 +630,7 @@
 <aside aria-label="Project information" class="sidebar-rail">
 <!-- Meta -->
 <div class="sidebar-meta">
-<div class="section-label">Project Info</div>
-<div class="meta-row">
+<details class="project-record"><summary>Project details</summary><div class="meta-row">
 <div class="meta-item">
 <span class="meta-key">Status</span>
 <span class="meta-val"><span class="status-dot"></span>Prototype shipped; v0.1 hardening and plugin path in progress</span>
@@ -665,7 +667,8 @@
 <span class="meta-key">Created</span>
 <span class="meta-val">May 2026</span>
 </div>
-</div>
+</div></details>
+
 <div class="sidebar-links">
 <a class="sidebar-link" href="https://okhp3.github.io/mermaid-diagram-bpmn/" rel="noopener noreferrer" target="_blank">
                   ▶ Live Playground

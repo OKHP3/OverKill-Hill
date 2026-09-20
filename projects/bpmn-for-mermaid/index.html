@@ -79,7 +79,7 @@
 <link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
-<link href="/assets/css/theme.css?v=a9552094" rel="stylesheet"/>
+<link href="/assets/css/theme.css?v=8a674d19" rel="stylesheet"/>
 <script type="speculationrules">
     {
       "prefetch": [
@@ -137,7 +137,7 @@
 <ul>
 <li><a href="/#forge">The Forge</a></li>
 <li class="has-submenu">
-<a href="/projects/">Our Projects</a>
+<a data-current-family="" href="/projects/">Our Projects</a>
 <ul class="submenu">
 <li><a href="/skillz-forge/">Skillz Forge</a></li>
 <li><a href="/skillz-forge/skillz-shield/">Skillz Shield</a></li>
@@ -188,30 +188,28 @@
 
   <main id="main">
 
-<div class="container">
 <!-- HERO ────────────────────────────────────────────────── -->
-<section aria-label="Project overview" class="project-hero">
+<section aria-labelledby="page-title" class="project-hero forge-masthead forge-masthead--project" data-status-presentation="disclosure"><div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div><div aria-hidden="true" class="hero-blueprint-bg"></div><div class="container hero-inner">
 <nav aria-label="Breadcrumb" class="breadcrumb">
 <a href="/">overkillhill.com</a><span>/</span>
 <a href="/projects/">projects</a><span>/</span>
 <span>bpmn-for-mermaid</span>
 </nav>
-<div class="tag-row">
+<h1 id="page-title">BPMN for Mermaid</h1><p class="hero-sub">Text-first BPMN diagramming and a companion suite of Business Process Agent Skills.</p><div data-project-status-disclosure="bpmn-for-mermaid"><p data-project-status-brief="">Prototype; not a production Mermaid plugin. Operation unverified.</p><details><summary>Status and source</summary><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status="bpmn-for-mermaid"><span data-project-status-text="">Availability: Published project. Maturity: Prototype; not a production Mermaid plugin. Evidence: Source description only. Delivery: unknown.</span> <a href="https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/bpmn-for-mermaid/index.html">Source record</a> (reviewed 2026-09-07).</p><!-- /AUTOGEN:PROJECT-STATUS --><div class="tag-row" data-project-labels="">
 <span class="tag">Open Source</span>
 <span class="tag">bpmn-beta DSL</span>
 <span class="tag">BP-SKILL Agent Suite</span>
-</div>
-<h1>BPMN for Mermaid</h1><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status="bpmn-for-mermaid"><span data-project-status-text="">Availability: Published project. Maturity: Prototype; not a production Mermaid plugin. Evidence: Source description only. Delivery: unknown.</span> <a href="https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/bpmn-for-mermaid/index.html">Source record</a> (reviewed 2026-09-07).</p><!-- /AUTOGEN:PROJECT-STATUS -->
-<p class="hero-sub">Text-first. Standards-aware. Git-native. Agent-ready.</p>
-<p>
-            Two things live in this project. First: <code style="font-family:'JetBrains Mono',monospace;font-size:0.92rem;color:var(--okh-orange);">bpmn-beta</code>, a text-first DSL for BPMN process diagrams, designed as a Mermaid diagram-type contribution. No XML, no heavyweight tools, no bpmn-js. Second: BP-SKILL, a 15-skill Business Process Agent Skill Suite that uses bpmn-beta as its visual output layer, packaged in the Agent Skills open standard and compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor.
-          </p>
+</div></details></div>
 <div class="hero-ctas">
 <a class="btn btn-primary" href="#embed-playground">Try the Playground →</a>
 <a class="btn btn-primary" href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" rel="noopener noreferrer" style="background:color-mix(in srgb, var(--color-accent) 15%, transparent);border:1px solid color-mix(in srgb, var(--color-accent) 50%, transparent);color:var(--okh-orange);" target="_blank">Explore the Agent Skills →</a>
 <a class="btn btn-quiet" href="https://github.com/OKHP3/mermaid-diagram-bpmn" rel="noopener noreferrer" target="_blank">View on GitHub</a>
 </div>
-</section>
+</div></section>
+<section aria-labelledby="project-introduction-title" class="container content-section project-introduction"><h2 id="project-introduction-title">About the project</h2><p class="hero-sub">Text-first. Standards-aware. Git-native. Agent-ready.</p><p>
+            Two things live in this project. First: <code style="font-family:'JetBrains Mono',monospace;font-size:0.92rem;color:var(--okh-orange);">bpmn-beta</code>, a text-first DSL for BPMN process diagrams, designed as a Mermaid diagram-type contribution. No XML, no heavyweight tools, no bpmn-js. Second: BP-SKILL, a 15-skill Business Process Agent Skill Suite that uses bpmn-beta as its visual output layer, packaged in the Agent Skills open standard and compatible with Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI, and Cursor.
+          </p></section>
+<div class="container">
 <!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
 <div class="project-layout">
 <!-- MAIN COLUMN ──────────────────────────────────────── -->
@@ -815,8 +813,7 @@
 <aside aria-label="Project information" class="sidebar-rail">
 <!-- Meta -->
 <div class="sidebar-meta">
-<div class="section-label">Project Info</div>
-<div class="meta-row">
+<details class="project-record"><summary>Project details</summary><div class="meta-row">
 <div class="meta-item">
 <span class="meta-key">Status</span>
 <span class="meta-val"><span class="status-dot"></span>Prototype shipped; v0.1 hardening and plugin path in progress</span>
@@ -853,7 +850,7 @@
 <span class="meta-key">Created</span>
 <span class="meta-val">May 2026</span>
 </div>
-</div>
+</div></details>
 <div class="sidebar-links">
 <a class="sidebar-link" href="https://okhp3.github.io/mermaid-diagram-bpmn/" rel="noopener noreferrer" target="_blank">
                   ▶ Live Playground

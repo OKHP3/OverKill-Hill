@@ -79,7 +79,7 @@
 <link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
-<link href="/assets/css/theme.css?v=a9552094" rel="stylesheet"/>
+<link href="/assets/css/theme.css?v=8a674d19" rel="stylesheet"/>
 <script type="speculationrules">
     {
       "prefetch": [
@@ -137,7 +137,7 @@
 <ul>
 <li><a href="/#forge">The Forge</a></li>
 <li class="has-submenu">
-<a href="/projects/">Our Projects</a>
+<a data-current-family="" href="/projects/">Our Projects</a>
 <ul class="submenu">
 <li><a href="/skillz-forge/">Skillz Forge</a></li>
 <li><a aria-current="page" href="/skillz-forge/skillz-shield/">Skillz Shield</a></li>
@@ -187,27 +187,26 @@
 </header>
 
   <main id="main">
-<div class="container">
-<section aria-label="Project overview" class="project-hero" data-status-presentation="disclosure">
+
+<section aria-labelledby="page-title" class="project-hero forge-masthead forge-masthead--project" data-status-presentation="disclosure"><div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div><div aria-hidden="true" class="hero-blueprint-bg"></div><div class="container hero-inner">
 <nav aria-label="Breadcrumb" class="breadcrumb">
 <a href="/">overkillhill.com</a><span>/</span>
 <a href="/skillz-forge/">skillz-forge</a><span>/</span>
 <span>skillz-shield</span>
 </nav>
-<div class="tag-row">
+<h1 id="page-title">Skillz Shield</h1><p class="hero-sub">Security screening for Agent Skill packages, with findings and coverage from two scanning engines.</p><div data-project-status-disclosure="skillz-shield"><p data-project-status-brief="">Active development; static security screening. Operation unverified.</p><details><summary>Status and source</summary><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status="skillz-shield"><span data-project-status-text="">Availability: Published project. Maturity: Active development; static security screening. Evidence: Documented package screening with Cisco Skill Scanner and NVIDIA SkillSpector; scan results are not safety certification. Delivery: unknown.</span> <a href="https://github.com/OKHP3/skillz-shield/blob/d49ff6afbc4f53087f4bee9156ee47870985ab3e/README.md">Source record</a> (reviewed 2026-09-20).</p><!-- /AUTOGEN:PROJECT-STATUS --><div class="tag-row" data-project-labels="">
 <span class="tag">Open Source</span>
 <span class="tag tag--accent">Agent Skill Security</span>
 <span class="tag">GitHub-Native</span>
-</div>
-<h1>Skillz Shield</h1><div data-project-status-disclosure="skillz-shield"><p data-project-status-brief="">Active development; static security screening. Operation unverified.</p><details><summary>Status and source</summary><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status="skillz-shield"><span data-project-status-text="">Availability: Published project. Maturity: Active development; static security screening. Evidence: Documented package screening with Cisco Skill Scanner and NVIDIA SkillSpector; scan results are not safety certification. Delivery: unknown.</span> <a href="https://github.com/OKHP3/skillz-shield/blob/d49ff6afbc4f53087f4bee9156ee47870985ab3e/README.md">Source record</a> (reviewed 2026-09-20).</p><!-- /AUTOGEN:PROJECT-STATUS --></details></div>
-<p class="hero-sub">Find what doesn’t hold.</p>
-<p>Security evidence for Agent Skills. Skillz Shield brings Cisco Skill Scanner and NVIDIA SkillSpector into your repository to inspect committed skill packages and give maintainers findings they can review.</p>
+</div></details></div>
 <div class="hero-ctas">
 <a class="btn btn-primary" data-gtag-category="cta" data-gtag-event="skillz_shield_live_app_open" data-gtag-label="hero" href="https://okhp3.github.io/skillz-shield/" rel="noopener noreferrer" target="_blank">⤢ Open Skillz Shield</a>
 <a class="btn btn-quiet" href="https://github.com/OKHP3/skillz-shield" rel="noopener noreferrer" target="_blank">View Source on GitHub</a>
 <a class="btn btn-quiet" href="/skillz-forge/">Explore Skillz Forge</a>
 </div>
-</section>
+</div></section>
+<section aria-labelledby="project-introduction-title" class="container content-section project-introduction"><h2 id="project-introduction-title">About the project</h2><p class="hero-sub">Find what doesn’t hold.</p><p>Security evidence for Agent Skills. Skillz Shield brings Cisco Skill Scanner and NVIDIA SkillSpector into your repository to inspect committed skill packages and give maintainers findings they can review.</p></section>
+<div class="container">
 <div class="project-layout">
 <div>
 <div class="content-block card" data-search-index="" id="purpose">
@@ -316,13 +315,12 @@
 </div>
 <aside aria-label="Project information" class="sidebar-rail">
 <div class="sidebar-meta">
-<div class="section-label">Project Info</div>
-<div class="meta-row">
+<details class="project-record"><summary>Project details</summary><div class="meta-row">
 <div class="meta-item"><span class="meta-key">Role</span><span class="meta-val">Agent Skill security screening</span></div>
 <div class="meta-item"><span class="meta-key">Engines</span><span class="meta-val">Cisco Skill Scanner<br/>NVIDIA SkillSpector</span></div>
 <div class="meta-item"><span class="meta-key">Runs in</span><span class="meta-val">GitHub Actions</span></div>
 <div class="meta-item"><span class="meta-key">License</span><span class="meta-val">MIT integration; Apache-2.0 upstream tools</span></div>
-</div>
+</div></details>
 <div class="sidebar-links">
 <a class="sidebar-link" href="https://github.com/OKHP3/skillz-shield" rel="noopener noreferrer" target="_blank">◻ View on GitHub</a>
 <a class="sidebar-link" href="https://okhp3.github.io/skillz-shield/engines/" rel="noopener noreferrer" target="_blank">◈ Meet the engines</a>

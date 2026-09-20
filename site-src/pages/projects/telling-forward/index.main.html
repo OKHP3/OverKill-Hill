@@ -1,34 +1,22 @@
 
-<div class="container">
+
 <!-- HERO ────────────────────────────────────────────────── -->
-<section aria-label="Project overview" class="project-hero">
-<div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div>
-<div class="hero-grid reveal-on-scroll">
+<section aria-labelledby="page-title" class="project-hero forge-masthead forge-masthead--project" data-status-presentation="disclosure"><div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div><div aria-hidden="true" class="hero-blueprint-bg"></div><div class="container hero-inner">
+<div class="hero-grid">
 <div>
 <nav aria-label="Breadcrumb" class="breadcrumb">
 <a href="/">overkillhill.com</a><span>/</span>
 <a href="/projects/">projects</a><span>/</span>
 <span>telling-forward</span>
 </nav>
-<div class="tag-row">
-
+<div class="tag-row" data-project-labels="">
 <span class="tag">Proprietary</span>
-
 <span class="tag">GitHub-Native</span>
 </div>
-<h1>Telling Forward</h1>
-<p class="hero-sub">"A quiet place for stories to grow."</p>
-<p>
-            Telling Forward is a voice-first, agent-assisted platform for <strong>open-canon collaborative fiction</strong>:
-            an originating author opens a storyworld, other people extend it through distinct, attributed paths, and
-            readers can follow the resulting lineage without ever mistaking a community branch for the author's canon.
-            GitHub holds the manuscript, the review history, and the provenance record. A custom app is being built so
-            that none of it feels like GitHub.
-          </p>
-<p>
-            The public prototype is a static Author App deployment. The API, database, authenticated writes,
-            and GitHub-backed service operations are separate surfaces while the invite-only pilot is being built.
-          </p>
+<h1 id="page-title">Telling Forward</h1><p class="hero-sub">A voice-first storytelling prototype where authors open storyworlds and contributors build clearly attributed branches.</p>
+
+
+
 <div class="hero-ctas">
 <a class="btn btn-primary" href="https://okhp3.github.io/telling-forward/" rel="noopener noreferrer" target="_blank">Visit the Prototype</a>
 <a class="btn btn-quiet" href="https://github.com/OKHP3/telling-forward" rel="noopener noreferrer" target="_blank">View on GitHub</a>
@@ -44,7 +32,20 @@
 </div>
 </div>
 </div>
-</section>
+</div></section>
+<section class="container content-section project-introduction" aria-labelledby="project-introduction-title"><h2 id="project-introduction-title">About the project</h2><p class="hero-sub">"A quiet place for stories to grow."</p><p>
+            Telling Forward is a voice-first, agent-assisted platform for <strong>open-canon collaborative fiction</strong>:
+            an originating author opens a storyworld, other people extend it through distinct, attributed paths, and
+            readers can follow the resulting lineage without ever mistaking a community branch for the author's canon.
+            GitHub holds the manuscript, the review history, and the provenance record. A custom app is being built so
+            that none of it feels like GitHub.
+          </p><p>
+            The public prototype is a static Author App deployment. The API, database, authenticated writes,
+            and GitHub-backed service operations are separate surfaces while the invite-only pilot is being built.
+          </p></section>
+
+
+<div class="container">
 <!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
 <div class="project-layout">
 <!-- MAIN COLUMN ──────────────────────────────────────── -->
@@ -326,8 +327,7 @@
 <aside aria-label="Project information" class="sidebar-rail">
 <!-- Project Info -->
 <div class="sidebar-meta">
-<div class="section-label">Project Info</div>
-<div class="meta-row">
+<details class="project-record"><summary>Project details</summary><div class="meta-row">
 <div class="meta-item">
 <span class="meta-key">Status</span>
 <span class="meta-val"><span class="status-dot"></span>Early concept &amp; prototype, actively building</span>
@@ -364,7 +364,8 @@
 <span class="meta-key">Maintained by</span>
 <span class="meta-val"><a href="https://overkillhill.com">OverKill Hill P³</a></span>
 </div>
-</div>
+</div></details>
+
 <div class="sidebar-links">
 <a class="sidebar-link" href="https://okhp3.github.io/telling-forward/" rel="noopener noreferrer" target="_blank">
                   ▶ Visit the Prototype

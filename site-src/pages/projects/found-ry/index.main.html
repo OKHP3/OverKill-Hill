@@ -1,30 +1,22 @@
 
-<div class="container">
+
 <!-- HERO ────────────────────────────────────────────────── -->
-<section aria-label="Project overview" class="project-hero">
-<div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div>
-<div class="hero-grid reveal-on-scroll">
+<section aria-labelledby="page-title" class="project-hero forge-masthead forge-masthead--project" data-status-presentation="disclosure"><div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div><div aria-hidden="true" class="hero-blueprint-bg"></div><div class="container hero-inner">
+<div class="hero-grid">
 <div>
 <nav aria-label="Breadcrumb" class="breadcrumb">
 <a href="/">overkillhill.com</a><span>/</span>
 <a href="/projects/">projects</a><span>/</span>
 <span>found-ry</span>
 </nav>
-<div class="tag-row">
+<div class="tag-row" data-project-labels="">
 <span class="tag">Foundry Project</span>
 <span class="tag">Open Source</span>
-
 <span class="tag tag--accent">Browser-Only</span>
 </div>
-<h1>Found‑Rᵧ</h1>
-<p class="hero-sub">Tools for making tools.</p>
-<p>
-                A browser-only build workbench for production-grade Custom GPTs. Nine stations carry a build
-                from raw intent to a governed, shippable artifact: brief, contract, instruction stack, knowledge
-                routing, capabilities, actions, starters, test matrix, ship gate. Then audit it against a rubric,
-                compare it across platforms, and export the whole specification as one document.
-                No backend. No database. No login. Everything stays in your browser.
-              </p>
+<h1 id="page-title">Found‑Rᵧ</h1><p class="hero-sub">A browser workbench for carrying a Custom GPT from its first brief to a reviewed, exportable specification.</p>
+
+
 <div class="hero-ctas">
 <a class="btn btn-primary" href="https://okhp3.github.io/OverKill-Hill-FoundRy/" onclick="gtag('event','foundry_live_app_open',{event_category:'cta',event_label:'hero'});" rel="noopener noreferrer" target="_blank">⤢ Enter the Found‑Rᵧ</a>
 <a class="btn btn-quiet" href="https://github.com/OKHP3/OverKill-Hill-FoundRy" onclick="gtag('event','foundry_github_open',{event_category:'cta',event_label:'hero'});" rel="noopener noreferrer" target="_blank">View Source on GitHub</a>
@@ -37,7 +29,17 @@
 </div>
 </div>
 </div>
-</section>
+</div></section>
+<section class="container content-section project-introduction" aria-labelledby="project-introduction-title"><h2 id="project-introduction-title">About the project</h2><p class="hero-sub">Tools for making tools.</p><p>
+                A browser-only build workbench for production-grade Custom GPTs. Nine stations carry a build
+                from raw intent to a governed, shippable artifact: brief, contract, instruction stack, knowledge
+                routing, capabilities, actions, starters, test matrix, ship gate. Then audit it against a rubric,
+                compare it across platforms, and export the whole specification as one document.
+                No backend. No database. No login. Everything stays in your browser.
+              </p></section>
+
+
+<div class="container">
 <!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
 <div class="project-layout">
 <!-- MAIN COLUMN ──────────────────────────────────────── -->
@@ -665,8 +667,7 @@ flowchart LR
 </div>
 <!-- Project Info -->
 <div class="sidebar-meta">
-<div class="section-label">Project Info</div>
-<div class="meta-row">
+<details class="project-record"><summary>Project details</summary><div class="meta-row">
 <div class="meta-item">
 <span class="meta-key">Status</span>
 <span class="meta-val"><span class="status-dot status-dot--live"></span>Active / Live</span>
@@ -711,7 +712,8 @@ flowchart LR
 <span class="meta-key">Forge Path</span>
 <span class="meta-val">Stage 02 of 04</span>
 </div>
-</div>
+</div></details>
+
 <div class="sidebar-links">
 <a class="sidebar-link" href="https://okhp3.github.io/OverKill-Hill-FoundRy/" rel="noopener noreferrer" target="_blank">
                   ▶ Launch the Workbench
