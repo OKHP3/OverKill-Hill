@@ -70,6 +70,7 @@ jobs:
           python3 scripts/test-check-banner.py
           python3 tests/test-project-status.py
           python3 tests/test-project-status-disclosure.py
+          python3 tests/test-page-families.py
           python3 tests/test_project_status.py
           python3 tests/test-skillz-forge.py
           python3 tests/test_csp_page_discovery.py
