@@ -35,29 +35,70 @@ jobs:
         run: |
           python3 -m pip install --disable-pip-version-check -r requirements-qa.txt
           python3 -m pip check
-      - name: Verify runtime, parsing, serving, and release-boundary regressions
-        # Run maintained suites explicitly; historical one-off proofs in tests/
-        # are not a standing acceptance contract. Hyphenated names need paths.
+      - name: Verify matrix coverage of every active Python validation suite
+        run: python3 tests/test-runtime-coverage.py
+      - name: Run active Python validation suites on both interpreters
+        # Keep every Python test entry point from validate.yml here. The coverage
+        # guard rejects drift; unrelated one-off scripts are not auto-discovered.
         run: |
           python3 tests/test-runtime-alignment.py
           python3 tests/test-technology-inventory.py
-          python3 tests/test-release-package.py
+          python3 tests/test-universe-integration.py
+          python3 .agents/skills/okhp3-universe-map/tests/test-universe-map.py
+          python3 scripts/test-seo-fixtures.py
+          python3 tests/test-social-card-duplicates.py
+          python3 tests/test-release-entrypoints.py
+          python3 tests/test-audit-site-portability.py
           python3 tests/test-public-page-boundary.py
+          python3 tests/test-release-package.py
+          python3 tests/test-replit-static-publication.py
           python3 tests/test-preview-server.py
-          python3 tests/test-search-sections.py
-          python3 tests/test-project-status.py
+          python3 tests/test-murderbird-review-boundary.py
+          python3 tests/test-actions-summary.py
+          python3 tests/test-ci-concurrency.py
+          python3 tests/test_verify_live_edge.py
+          python3 tests/test-sync-foundation-files.py
           python3 tests/test-i18n-release.py
+          python3 tests/test-locale-drafts.py
+          python3 tests/test-cloudflare-header-proposal.py
           python3 tests/test-i18n-workflow.py
+          python3 tests/test-homepage-hero-parity.py
+          python3 tests/test-murderbird-still-release.py
+          python3 tests/test-murderbird-png-fallback.py
+          python3 tests/test-murderbird-site-lineage.py
+          python3 tests/test-review-closeout.py
+          python3 scripts/test-check-banner.py
+          python3 tests/test-project-status.py
+          python3 tests/test-project-status-disclosure.py
+          python3 tests/test_project_status.py
+          python3 tests/test-skillz-forge.py
           python3 tests/test_csp_page_discovery.py
+          python3 tests/test-cache-bust-boundary.py
+          python3 tests/test-template-conflict-markers.py
           python3 tests/test-performance-budget.py
+          python3 tests/test-search-sections.py
       - name: Verify generators and the structural release gates
         run: |
           python3 scripts/build-site.py --check
           python3 scripts/build-search-index.py --check
           python3 scripts/sync-universe-map.py --check
           python3 scripts/validate-site.py
-          python3 scripts/test-seo-fixtures.py
+          python3 scripts/generate-csp.py --check
           python3 scripts/check-csp.py
           python3 scripts/check-locale-links.py
           python3 scripts/cache-bust.py --check
           python3 scripts/check-links.py
+          python3 scripts/check-i18n-release.py --mode check --format json
+          python3 scripts/check-regional-drafts.py
+          python3 scripts/check-project-status.py
+          python3 scripts/check-performance-budget.py
+          python3 scripts/audit-site.py --quiet
+          python3 assets/scripts/check-contrast.py assets/css/theme.css
+      - name: Verify the generated release and MurderBird asset provenance
+        run: |
+          python3 scripts/build-site.py
+          python3 scripts/build-search-index.py
+          python3 scripts/sync-universe-map.py --check
+          python3 scripts/build-murderbird-release-register.py --check --output tests/fixtures/murderbird-still-release-register.json
+          python3 scripts/build-release.py --output .local/runtime-compatibility-release --commit "${{ github.sha }}"
+          python3 scripts/build-murderbird-release-register.py --check --output tests/fixtures/murderbird-still-release-register.json --package .local/runtime-compatibility-release

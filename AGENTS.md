@@ -640,6 +640,15 @@ Do not place application source code, HTML templates (those go in
 
 #### 2.2.1 Per-site directory inventory (OverKill Hill P3)
 
+**Mermaid runtime override (verified 2026-09-20):** This repository uses
+Mermaid **12.0.0**, with the authoritative pin in
+`assets/vendor/mermaid/VERSION` and the self-hosted bundle under
+`assets/vendor/mermaid/`. This per-site override supersedes the legacy v11
+description and CDN guidance in Section 2.2 for Mermaid. The shared
+`assets/js/mermaid-init.js` initializes page diagrams;
+`assets/js/universe-map.js` initializes the universe diagrams. Follow the
+README's Mermaid runtime trust decision when updating the pin and bundle.
+
 Current state of shared directories as surveyed 2026-07-13. Use this as the
 baseline -- update it here when the inventory changes materially.
 

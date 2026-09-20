@@ -42,6 +42,7 @@ a trusted local checkout, not concurrent malicious filesystem replacement.
 - Root `/` — home page, site-wide assets
 - `/assets/css/theme.css` — single global stylesheet (dark theme + OKH design tokens). **Organized in 4 sections in this order: GLOBAL → OKH → GLEE → ASKJAMIE.** See "CSS file structure" below.
 - `/assets/js/app.js` — vanilla JS, sectioned `1. progress bar · 2. nav/year/theme/scroll-reveal/anchors · 3. GLEE construction overlay · 4. sticky TOC`
+- `/assets/vendor/mermaid/` — self-hosted diagram runtime; its authoritative version is `assets/vendor/mermaid/VERSION`. See the README's Mermaid runtime trust decision for compatibility and update requirements. Mermaid Theme Builder's compatibility badge describes that separate project.
 - `/assets/img/` — favicons, logos, OG images
 - `/writings/` — article pages
 - `/projects/` — project pages (`mermaid-theme-builder/`, `bpmn-for-mermaid/`)
