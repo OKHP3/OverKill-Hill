@@ -2,6 +2,19 @@
 
 All notable changes to the **OverKill Hill P³™** public repository should be recorded here.
 
+## 2026-09-20: Skillz Forge address and Skillz Shield companion
+
+- Move the existing Skillz Forge page to `/skillz-forge/`, preserving its
+  content, catalog embed, and installation guide.
+- Redirect `/projects/skillz/` to the new address, retaining bookmarked
+  sections and query parameters when JavaScript is available.
+- Add `/skillz-forge/skillz-shield/` with a shorter project overview, application
+  embed, scanner scope, evidence limits, and integration links.
+- Feature Forge and Shield as equal entries in the Our Projects menu and
+  project shelf. Refresh search, sitemap, breadcrumbs, and universe navigation.
+- Keep project-status and search checks working for projects outside
+  `/projects/`, with regressions for navigation parity and legacy links.
+
 ## 2026-09-19: Replit task executor 1.2.0
 
 - Preserve Replit planning and design while external agents own architecture,

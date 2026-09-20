@@ -51,7 +51,15 @@ def validate(data, root=ROOT):
         source = (root / evidence['source']).resolve()
         if not source.is_relative_to(root.resolve()) or not source.is_file():
             raise ValueError('Evidence source must exist inside the repository')
-    details = {'/projects/' + p.parent.name + '/' for p in (root / 'site-src/pages/projects').glob('*/index.main.html')}
+    pages_root = root / 'site-src/pages'
+    manifest = json.loads((root / 'site-src/pages.json').read_text(encoding='utf-8'))
+    redirects = {p['route'] for p in manifest['pages'] if p.get('redirect_to')}
+    details = {
+        '/' + p.parent.relative_to(pages_root).as_posix() + '/'
+        for section in ('projects', 'skillz-forge')
+        for p in (pages_root / section).rglob('index.main.html')
+        if p.parent != pages_root / 'projects'
+    } - redirects
     if details != {r['route'] for r in data['projects'] if r['kind'] == 'detail'}:
         raise ValueError('Project detail coverage differs from the source inventory')
     shelf = BeautifulSoup((root / 'site-src/pages/projects/index.main.html').read_text(encoding='utf-8'), 'html.parser')

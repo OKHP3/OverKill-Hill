@@ -19,9 +19,9 @@ The tagged [configuration schema](https://github.com/mermaid-js/mermaid/blob/mer
 
 ## Validation
 
-Local structural validation, generated HTML/search freshness, cache fingerprints, CSP policy checks, audit, internal links, performance budgets, and dark/light contrast checks pass. The inventory contains 56 shipped routes and 31 sitemap routes, with 23 intentional noindex exclusions.
+Local structural validation (Python 3.14.0rc1), generated HTML/search freshness, cache fingerprints, CSP policy checks, audit, internal links, performance budgets, and dark/light contrast checks pass. The inventory contains 56 shipped routes and 31 sitemap routes, with 23 intentional noindex exclusions.
 
-Final local browser checks passed on Node 24.11.1, Playwright 1.63.0 and Chromium 153.0.8010.12:
+Before integrating PR #112, local browser checks passed on Node 24.11.1, Playwright 1.63.0 and Chromium 153.0.8010.12:
 
 - `node scripts/csp-qa.mjs --base-url=http://127.0.0.1:5017`: 56 routes, 21 inline diagrams, zero failures; includes all 15 heat-page diagrams.
 - `node tests/test-universe-browser.mjs`: five additional diagrams, SVG links, 390/1440 widths, theme switching and no-JavaScript outline fallback.
@@ -35,3 +35,11 @@ An independent source review verified that every preexisting explicit layout/loo
 Representative screenshots were compared with the deployed earlier runtime. Diagrams explicitly requesting ELK change geometry because Mermaid 12 now bundles that engine; their authored layout remains selected. Existing small/low-contrast labels on the large heat examples are also present in the deployed baseline and are not resolved by this migration.
 
 Cross-origin resources are deliberately blocked in deterministic browser tests; external uptime is not claimed. The local lockfile install used a command-only `--engine-strict=false` override because this machine runs Node 24.11.1 while the repository declares 22.19.0; no engine declaration or npm policy changed. Exact declared-runtime CI and post-deployment verification remain separate release gates. Older Safari versions were not tested and are outside Mermaid 12's declared support floor.
+
+Publisher minified files retain 10 upstream trailing-whitespace lines. Authored changes pass the whitespace gate; the vendor files remain unmodified to preserve publisher bytes.
+
+## Integration with Skillz Forge routes
+
+Merged `main` at `30d9f777` (PR #112) after the runtime review. Source changes merged cleanly; generated HTML, CSP policies and headers were rebuilt from the merged authoring files. The final inventory has 58 shipped routes, 38 generated English pages, 32 sitemap entries, 24 intentional noindex exclusions and 167 search entries. Structural, generated-output, CSP, cache and internal-link checks pass; broken links remain zero.
+
+The merged-tree CSP browser run passes all 58 routes and all 21 inline diagrams. The updated universe test passes six generated diagrams, including links to the moved Skillz Forge pages, both widths, theme switching and the no-JavaScript fallback. All 106 committed vendor files were compared byte-for-byte with a fresh integrity-verified publisher download and match exactly.
