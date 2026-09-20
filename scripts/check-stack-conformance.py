@@ -18,7 +18,7 @@ Exit codes:
     2  the checker itself could not run
 
 --fix repairs only mechanical, reversible items: writing .node-version,
-rewriting an existing engines.node value, appending .gitignore entries,
+appending .gitignore entries,
 bumping the deploy-pages action major, and untracking forbidden paths with
 `git rm -r --cached` (which leaves the working tree untouched). It never
 edits dependency versions, never creates a missing script, and never deletes
@@ -44,11 +44,13 @@ from pathlib import Path
 
 # --- Canonical values (ADR 0007) --------------------------------------------
 
-NODE_VERSION = "22.19.0"
+NODE_VERSION = "24.21.0"
+NODE_ENGINE = ">=24.13.0 <25"
+NPM_ENGINE = ">=11.6.2 <12"
 
 # Exact pins, matching docs/dependency-policy.md in the reference repo.
 NPM_REQUIRED = {
-    "playwright": "1.60.0",
+    "playwright": "1.63.0",
     "lighthouse": "13.4.1",
 }
 
@@ -192,33 +194,33 @@ def check_node(root: Path, rep: Report):
     if pkg is None:
         rep.fail("NODE_ENGINES", "package.json missing or unparseable")
         return
-    engines = (pkg.get("engines") or {}).get("node")
-    if engines == NODE_VERSION:
-        rep.ok("NODE_ENGINES", "engines.node pins %s" % NODE_VERSION)
-        return
+    for name, expected in (("node", NODE_ENGINE), ("npm", NPM_ENGINE)):
+        actual = (pkg.get("engines") or {}).get(name)
+        if actual != expected:
+            rep.fail("NODE_ENGINES", f"package.json engines.{name} is {actual!r}, expected {expected!r}")
+        else:
+            rep.ok("NODE_ENGINES", f"engines.{name} supports {actual}")
 
-    fix = None
-    if engines is not None:
-        # Surgical replace so the file's own formatting survives.
-        def rewrite_engines():
-            raw = read_text(pkg_path)
-            pattern = re.compile(
-                r'("engines"\s*:\s*\{[^}]*?"node"\s*:\s*")([^"]*)(")', re.DOTALL
-            )
-            new, count = pattern.subn(r"\g<1>%s\g<3>" % NODE_VERSION, raw, count=1)
-            if count != 1:
-                raise RuntimeError("could not locate engines.node textually")
-            pkg_path.write_text(new, encoding="utf-8")
-            return "set engines.node = %s" % NODE_VERSION
 
-        fix = rewrite_engines
-
-    rep.fail(
-        "NODE_ENGINES",
-        "package.json engines.node is %r, expected %r%s"
-        % (engines, NODE_VERSION, "" if fix else " (no engines block; add one by hand)"),
-        fix,
-    )
+def check_runtime_alignment(root: Path, rep: Report):
+    """Catch the pin drift that makes clean installs fail on another host."""
+    nvm = read_text(root / ".nvmrc")
+    lock = read_json(root / "package-lock.json") or {}
+    locked = lock.get("packages", {}).get("", {}).get("engines", {})
+    declarations = ((".nvmrc", nvm.strip() if nvm else None, NODE_VERSION),
+                    ("package-lock.json engines.node", locked.get("node"), NODE_ENGINE),
+                    ("package-lock.json engines.npm", locked.get("npm"), NPM_ENGINE))
+    for source, actual, expected in declarations:
+        if actual != expected:
+            rep.fail("NODE_ALIGNMENT", f"{source} is {actual!r}, expected {expected!r}")
+        else:
+            rep.ok("NODE_ALIGNMENT", f"{source} declares {actual}")
+    replit = read_text(root / ".replit") or ""
+    selector = re.search(r'"nodejs-(\d+)"', replit)
+    if not selector or selector[1] != NODE_VERSION.split(".")[0]:
+        rep.fail("REPLIT_NODE", "Replit Node module must match the repository Node major")
+    else:
+        rep.ok("REPLIT_NODE", f"Replit selects Node {selector[1]}; verify its installed patch separately")
 
 
 def check_npm_deps(root: Path, rep: Report):
@@ -428,6 +430,7 @@ def check_gitignore(root: Path, rep: Report):
 
 
 CHECKS = (
+    check_runtime_alignment,
     check_node,
     check_npm_deps,
     check_pip_deps,

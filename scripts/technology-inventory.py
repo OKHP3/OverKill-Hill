@@ -49,6 +49,17 @@ def stable_max(values):
     return max(candidates, key=version).removeprefix("v")
 
 
+def runtime_constraint_allows(pin, constraint):
+    """Accept exact pins or the explicit bounded-major syntax used by this repo."""
+    parsed = version(pin)
+    if not parsed:
+        return False
+    if constraint == pin:
+        return True
+    match = re.fullmatch(r">=(\d+\.\d+\.\d+) <(\d+)", constraint or "")
+    return bool(match and version(match[1]) <= parsed < (int(match[2]), 0, 0))
+
+
 def fetch(url, json_response=True, *, deadline=None):
     headers = {"User-Agent": "OKHP3-technology-inventory/1.0"}
     token = None
@@ -184,8 +195,15 @@ def inventory(root):
     node_values = {".nvmrc": node, ".node-version": (root / ".node-version").read_text().strip(),
                    "package.json": package.get("engines", {}).get("node"),
                    "package-lock.json": lock["packages"][""].get("engines", {}).get("node")}
-    if len(set(node_values.values())) != 1:
+    engine = node_values["package.json"]
+    if (node_values[".node-version"] != node or
+            node_values["package-lock.json"] != engine or
+            not runtime_constraint_allows(node, engine)):
         findings.append("Node selectors disagree: " + json.dumps(node_values, sort_keys=True))
+    npm_engine = package.get("engines", {}).get("npm")
+    npm_locked_engine = lock["packages"][""].get("engines", {}).get("npm")
+    if npm_engine != npm_locked_engine:
+        findings.append(f"npm engine declarations disagree: manifest {npm_engine}; lock {npm_locked_engine}.")
     replit_node = re.search(r'"nodejs-(\d+)"', replit)
     if replit_node and node.split(".")[0] != replit_node[1]:
         findings.append(f"Repository Node {node} disagrees with Replit nodejs-{replit_node[1]}.")
