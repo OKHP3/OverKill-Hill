@@ -361,12 +361,15 @@ def build_en_gb(source: str, route: str, dictionary: dict) -> str:
 
 def sync_hub_masthead(page: str) -> str:
     """Apply the shared shell while preserving every reviewed translated word."""
+    marker = '<!-- AUTOGEN:LOCALE-MASTHEAD -->'
+    if marker in page:
+        return page
     start = page.index('<section', page.index('<main'))
     end = page.index('</section>', start) + len('</section>')
     soup = BeautifulSoup(page[start:end], 'html.parser')
     hero = soup.section
     if 'forge-masthead' in hero.get('class', []):
-        return page
+        return page[:start] + marker + '\n' + page[start:end] + '\n<!-- /AUTOGEN:LOCALE-MASTHEAD -->' + page[end:]
     before = ' '.join(hero.stripped_strings)
     hero['class'] = [c for c in hero.get('class', []) if c != 'a14-editorial-hero'] + ['forge-masthead', 'forge-masthead--hub']
     hero.h1['id'] = hero.h1.get('id', 'page-title')
@@ -385,7 +388,7 @@ def sync_hub_masthead(page: str) -> str:
         node['class'] = [c for c in node['class'] if c != 'reveal-on-scroll']
     if before != ' '.join(hero.stripped_strings):
         raise SystemExit('Locale masthead adaptation changed reviewed text')
-    return page[:start] + str(hero) + page[end:]
+    return page[:start] + marker + '\n' + str(hero) + '\n<!-- /AUTOGEN:LOCALE-MASTHEAD -->' + page[end:]
 
 
 def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> str:
