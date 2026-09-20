@@ -5626,7 +5626,7 @@ html body .forge-masthead a:not(.btn):not(.gpt-hero__badge-cta) {
   text-decoration-color: currentColor;
   text-underline-offset: .2em;
 }
-html body .forge-masthead a:not(.btn):hover { color: #ffcf91; }
+html body .forge-masthead a:not(.btn):not(.gpt-hero__badge-cta):hover { color: #ffcf91; }
 html body .forge-masthead :is(.hero-actions, .hero-ctas, .pf-cta-group, .gpt-hero__actions) {
   display: flex;
   flex-wrap: wrap;
@@ -5634,13 +5634,15 @@ html body .forge-masthead :is(.hero-actions, .hero-ctas, .pf-cta-group, .gpt-her
   margin-top: 1.5rem;
 }
 html body .forge-masthead .btn-quiet,
-html body .forge-masthead .btn-secondary {
+html body .forge-masthead .btn-secondary,
+html body .forge-masthead.gpt-hero--bfs .gpt-hero__actions .btn-secondary {
   background: #fff4e2;
   border-color: #fff4e2;
   color: #292722;
 }
 html body .forge-masthead .btn-quiet:hover,
-html body .forge-masthead .btn-secondary:hover { background: #ffdfae; color: #292722; }
+html body .forge-masthead .btn-secondary:hover,
+html body .forge-masthead.gpt-hero--bfs .gpt-hero__actions .btn-secondary:is(:hover, :focus-visible) { background: #ffdfae; color: #292722; }
 html body .forge-masthead .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

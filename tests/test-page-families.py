@@ -63,6 +63,8 @@ class PageFamilyTests(unittest.TestCase):
                         reviewed_name = f'{sub}-index.html' if sub else 'index.html'
                         reviewed = (ROOT / 'i18n/pilot/es-mx/reviewed' / reviewed_name).read_text(encoding='utf-8')
                         adapted = builder['sync_hub_masthead'](reviewed)
+                        self.assertEqual(adapted.count('<!-- AUTOGEN:LOCALE-MASTHEAD -->'), 1)
+                        self.assertEqual(adapted.count('<!-- /AUTOGEN:LOCALE-MASTHEAD -->'), 1)
                         result = BeautifulSoup(adapted, 'html.parser')
                         self.assertIsNotNone(result.select_one('.forge-masthead'))
                         self.assertEqual(list(BeautifulSoup(reviewed, 'html.parser').stripped_strings), list(result.stripped_strings))
