@@ -122,11 +122,11 @@ def build_policies() -> dict[str, str]:
         "script-src 'self' https://www.googletagmanager.com "
         + " ".join(sorted(hashes["standard"]))
         + "; script-src-attr 'none'; "
-        "style-src 'self' https://fonts.googleapis.com "
+        "style-src 'self' "
         + " ".join(sorted(style_hashes["standard"]))
         + "; style-src-attr 'unsafe-hashes' "
         + " ".join(sorted(style_hashes["standard"]))
-        + "; font-src 'self' data: https://fonts.gstatic.com; "
+        + "; font-src 'self' data:; "
         "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com https://www.googletagmanager.com; "
         "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://okhp3.github.io; "
         "object-src 'none'; base-uri 'self'; form-action 'self'; "
@@ -155,12 +155,12 @@ def build_policies() -> dict[str, str]:
     for kind, frame, diagram_style in class_config:
         if diagram_style:
             style_directives = (
-                "style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; "
+                "style-src 'self' 'unsafe-inline'; "
                 "style-src-attr 'unsafe-inline'; "
             )
         else:
             style_directives = (
-                "style-src 'self' https://fonts.googleapis.com "
+                "style-src 'self' "
                 + " ".join(sorted(style_hashes[kind]))
                 + "; style-src-attr 'unsafe-hashes' "
                 + " ".join(sorted(style_hashes[kind]))
@@ -172,7 +172,7 @@ def build_policies() -> dict[str, str]:
             + " ".join(sorted(hashes[kind]))
             + "; script-src-attr 'none'; "
             + style_directives
-            + "font-src 'self' data: https://fonts.gstatic.com; "
+            + "font-src 'self' data:; "
             "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com https://www.googletagmanager.com; "
             "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://okhp3.github.io; "
             + (f"frame-src 'self' {frame}; " if frame else "")
@@ -207,9 +207,9 @@ def build_edge_policy() -> str:
     return (
         "default-src 'self'; script-src 'self' https://www.googletagmanager.com "
         + " ".join(sorted(scripts))
-        + "; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; "
+        + "; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; "
         "style-src-attr 'unsafe-inline'; "
-        "font-src 'self' data: https://fonts.gstatic.com; "
+        "font-src 'self' data:; "
         "img-src 'self' data: https://overkillhill.com https://*.github.io https://avatars.githubusercontent.com https://www.googletagmanager.com; "
         "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com "
         "https://www.googletagmanager.com https://okhp3.github.io; "

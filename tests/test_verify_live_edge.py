@@ -207,6 +207,17 @@ class VerifyLiveEdgeTests(unittest.TestCase):
                 ),
             }
 
+        # The fixture serves the real canonical theme CSS for fingerprint tests.
+        # Include its self-hosted font dependencies in the synthetic response set.
+        # Explicit fixture responses still control negative MIME/status cases.
+        for font in (ROOT / "assets/fonts").glob("*.woff2"):
+            responses.setdefault("/" + font.relative_to(ROOT).as_posix(), {
+                "ok": True,
+                "status": 200,
+                "headers": {"content-type": "font/woff2", "cache-control": "max-age=600"},
+                "body": font.read_bytes(),
+            })
+
         def fixture_fetch(_base: str, path: str, _timeout: float) -> dict[str, object]:
             try:
                 return responses[path]

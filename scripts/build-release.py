@@ -38,6 +38,7 @@ RUNTIME_ASSET_RULES = (
     ("assets/css", {".css"}),
     ("assets/data", {".json"}),
     ("assets/downloads", None),
+    ("assets/fonts", {".woff2", ".txt"}),
     ("assets/img", STATIC_EXTENSIONS),
     ("assets/js", {".js"}),
     ("assets/video", {".mp4"}),

@@ -23,6 +23,7 @@ follows the same convention as `askjamie/scripts/README.md`.
 | `build-site.py` | active | Regenerate HTML from `site-src/` sources |
 | `generate-theme-controls.py` | active | Generate browser theme constants from the reviewed brand contract |
 | `cache-bust.py` | active | Cache-busting query params |
+| `strip-google-fonts-links.py` | active | Remove legacy font links from tracked pages and authoring inputs; excludes recovery copies |
 | `check-banner.py` | active | Construction-banner consistency check (invoked by `validate-site.py`) |
 | `check-csp.py` | active | CI guard against CSP drift |
 | `csp-qa.mjs` | active | Route-wide browser CSP and runtime QA (`npm run test:csp`) |

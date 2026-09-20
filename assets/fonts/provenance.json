@@ -1,0 +1,68 @@
+{
+  "css_url": "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap",
+  "files": [
+    {
+      "file": "alfa-slab-one-400-latin-ext.woff2",
+      "sha256": "7b891f87cdd8387776924bc9c30cdc8e7cfe5e97161f54e89a6a710961ca6110",
+      "source": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dxhe-Wv.woff2"
+    },
+    {
+      "file": "alfa-slab-one-400-latin.woff2",
+      "sha256": "48a110c7fda81f9921a6437e1a813dcea56df5a9f52f778c7b2f2151e36e4f2c",
+      "source": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2dJhew.woff2"
+    },
+    {
+      "file": "alfa-slab-one-400-vietnamese.woff2",
+      "sha256": "ca82c6db9cf1fd3d493c641d1613025828896e25eb4c4896a1438f0c0d344cf5",
+      "source": "https://fonts.gstatic.com/s/alfaslabone/v21/6NUQ8FmMKwSEKjnm5-4v-4Jh2d1he-Wv.woff2"
+    },
+    {
+      "file": "dm-sans-400-latin-ext.woff2",
+      "sha256": "a5d38fe99f930275684999b462c7123faa063d9e44e73b4b241723d884aa0f49",
+      "source": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2"
+    },
+    {
+      "file": "dm-sans-400-latin.woff2",
+      "sha256": "9fea608a947e67020c33cad9a6fe3d60c54119dfb8cff87768a8117a15ed7543",
+      "source": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2"
+    },
+    {
+      "file": "jetbrains-mono-400-cyrillic-ext.woff2",
+      "sha256": "62213be8a78b42f1e29d1452d91e2f8b3e745572a9dd98d3941e39fa00b37d76",
+      "source": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPx3cwhsk.woff2"
+    },
+    {
+      "file": "jetbrains-mono-400-cyrillic.woff2",
+      "sha256": "e17cfd15fb96909d64095015f958207063a0c07191da3512df7d560a781aebdf",
+      "source": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxTcwhsk.woff2"
+    },
+    {
+      "file": "jetbrains-mono-400-greek.woff2",
+      "sha256": "0a557721b1f8b36d3f3f84442689a71ca4a744300abcb46a1953f51bfc663b66",
+      "source": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxPcwhsk.woff2"
+    },
+    {
+      "file": "jetbrains-mono-400-latin-ext.woff2",
+      "sha256": "db5ff4db83e580426280e9337a58dc57d3a83784a1b03ad80914651594441d52",
+      "source": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPx7cwhsk.woff2"
+    },
+    {
+      "file": "jetbrains-mono-400-latin.woff2",
+      "sha256": "83c005d49d8a6a50474c73a5a36ac0468076e9c4a29da7bdb14995d80560a5be",
+      "source": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2"
+    },
+    {
+      "file": "jetbrains-mono-400-vietnamese.woff2",
+      "sha256": "c89b9cc0bc6262bd4f8d8494b6961601f3aefa829d08c2e3635f4d501d3a47c2",
+      "source": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPx_cwhsk.woff2"
+    }
+  ],
+  "unique_sources": 11,
+  "verified": "2026-09-20",
+  "license": "SIL Open Font License 1.1",
+  "licenses": {
+    "alfa-slab-one": "https://raw.githubusercontent.com/google/fonts/c19f2d37a7466e9da7b64aca5413f0ad5d584c3b/ofl/alfaslabone/OFL.txt",
+    "dm-sans": "https://raw.githubusercontent.com/google/fonts/c26e50af610a8300ad53a2b4955828e329a52d39/ofl/dmsans/OFL.txt",
+    "jetbrains-mono": "https://raw.githubusercontent.com/google/fonts/2e05c1cf00a6e4f40a4b931600a90881c26e15cd/ofl/jetbrainsmono/OFL.txt"
+  }
+}
