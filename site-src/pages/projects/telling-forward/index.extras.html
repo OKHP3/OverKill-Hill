@@ -8,6 +8,8 @@
       const muted = styles.getPropertyValue("--color-muted").trim() || "#6b7280";
       const fontBody = styles.getPropertyValue("--font-body").trim() || '"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif';
       mermaid.initialize({
+        layout: "dagre",
+        look: "classic",
         startOnLoad: true,
         securityLevel: "strict",
         theme: "base",
