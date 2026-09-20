@@ -11,7 +11,7 @@ Reviewed September 20, 2026 for issue #96, starting from `2a54b8b8eec3e71ef7f7be
 
 ## Compatibility and security decisions
 
-The release changes default layout to ELK and the appearance of several diagram types to redux-color/neo. This migration adds dagre/classic only where flowcharts previously inherited those defaults, while retaining explicitly authored neo/elk choices, brand themes, spacing, and click policy. Per-diagram configuration carries compatibility settings on pages using the shared initializer. Other page-owned initializers and the universe renderer set the same layout/look. No foundation file differs from the sibling sites as a result of this migration.
+The release changes default layout to ELK and the appearance of several diagram types to redux-color/neo. This migration adds dagre/classic only where flowcharts previously inherited those defaults, while retaining explicitly authored neo/elk choices, brand themes, spacing, and click policy. Per-diagram configuration carries compatibility settings on pages using the shared initializer. Page-owned initializers used by diagrams and the universe renderer set the same layout/look. No foundation file differs from the sibling sites as a result of this migration.
 
 The removed defaultRenderer option occurs once as a redundant elk setting beside an existing top-level layout: elk; that diagram retains its effective request. Internal layout exports are not used here. Mindmap retains its existing cose-bilkent default and architecture retains its original configuration. Existing initialize/run/render APIs remain available. The browser floor rises to ES2024, including Safari 17.4+. Node's upstream floor is 22.12, which the repository's declared 22.19 satisfies; this change does not alter package or runtime declarations.
 
@@ -43,3 +43,7 @@ Publisher minified files retain 10 upstream trailing-whitespace lines. Authored 
 Merged `main` at `30d9f777` (PR #112) after the runtime review. Source changes merged cleanly; generated HTML, CSP policies and headers were rebuilt from the merged authoring files. The final inventory has 58 shipped routes, 38 generated English pages, 32 sitemap entries, 24 intentional noindex exclusions and 167 search entries. Structural, generated-output, CSP, cache and internal-link checks pass; broken links remain zero.
 
 The merged-tree CSP browser run passes all 58 routes and all 21 inline diagrams. The updated universe test passes six generated diagrams, including links to the moved Skillz Forge pages, both widths, theme switching and the no-JavaScript fallback. All 106 committed vendor files were compared byte-for-byte with a fresh integrity-verified publisher download and match exactly.
+
+## Regional draft freshness correction
+
+PR #115's first required validation run (`35492645854`) correctly rejected changed canonical source receipts for `/about/` and `/projects/`. These routes contain no live Mermaid diagrams, so their compatibility defaults were unnecessary. Removed only those additions and their en-GB counterparts, then regenerated CSP and HTML. The regional freshness checker and source receipts remain unchanged. The regional boundary, generated HTML/search, cache and CSP checks pass after this correction.
