@@ -428,6 +428,17 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
         chosen = next((a for a in candidates if a.get("href", "").split("#")[0] == target), None)
     if chosen is not None:
         chosen["aria-current"] = "page"
+    route = page["route"]
+    family = (
+        "/projects/" if route.startswith(("/projects/", "/skillz-forge/"))
+        else "/writings/" if route.startswith("/writings/") or route in {"/manifesto/", "/prompt-forge/", "/vault/"}
+        else "/about/" if route in {"/about/", "/contact/", "/legal/", "/universe/"}
+        else None
+    )
+    if family:
+        family_link = header_soup.select_one(f'.primary-nav > ul > li > a[href="{family}"]')
+        if family_link:
+            family_link["data-current-family"] = ""
     lang_targets = PILOT_LANG_SWITCH.get(page["route"])
     if lang_targets:
         nav_toggle_el = header_soup.select_one(".nav-toggle")

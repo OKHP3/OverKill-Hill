@@ -15,6 +15,8 @@ import json
 import re
 from pathlib import Path
 
+from bs4 import BeautifulSoup
+
 ROOT = Path(__file__).resolve().parents[1]
 ROUTES = {"/": "index.html", "/about/": "about/index.html", "/projects/": "projects/index.html", "/contact/": "contact/index.html"}
 REVIEWED_ES_MX = {"index.html": "index.html", "about/index.html": "about-index.html", "projects/index.html": "projects-index.html", "contact/index.html": "contact-index.html"}
@@ -357,13 +359,42 @@ def build_en_gb(source: str, route: str, dictionary: dict) -> str:
     return replace_homepage_hero(page, 'en-gb', source) if route == '/' else page
 
 
+def sync_hub_masthead(page: str) -> str:
+    """Apply the shared shell while preserving every reviewed translated word."""
+    start = page.index('<section', page.index('<main'))
+    end = page.index('</section>', start) + len('</section>')
+    soup = BeautifulSoup(page[start:end], 'html.parser')
+    hero = soup.section
+    if 'forge-masthead' in hero.get('class', []):
+        return page
+    before = ' '.join(hero.stripped_strings)
+    hero['class'] = [c for c in hero.get('class', []) if c != 'a14-editorial-hero'] + ['forge-masthead', 'forge-masthead--hub']
+    hero.h1['id'] = hero.h1.get('id', 'page-title')
+    hero['aria-labelledby'] = hero.h1['id']
+    for decoration in hero.select('.brand-stripes, .hero-blueprint-bg'):
+        decoration.decompose()
+    for wrapper in list(hero.select('.container')):
+        wrapper.unwrap()
+    inner = soup.new_tag('div', attrs={'class': 'container hero-inner'})
+    for child in list(hero.contents):
+        inner.append(child.extract())
+    hero.append(inner)
+    for classes in ['hero-blueprint-bg', 'brand-stripes brand-stripes--okh']:
+        hero.insert(0, soup.new_tag('div', attrs={'class': classes, 'aria-hidden': 'true'}))
+    for node in hero.select('.reveal-on-scroll'):
+        node['class'] = [c for c in node['class'] if c != 'reveal-on-scroll']
+    if before != ' '.join(hero.stripped_strings):
+        raise SystemExit('Locale masthead adaptation changed reviewed text')
+    return page[:start] + str(hero) + page[end:]
+
+
 def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> str:
     # The reviewed artifact is the translation authority. Loading the pair
     # dictionary here keeps the generator contract explicit without applying
     # generic Spanish substitutions over reviewed prose.
     if not dictionary.get('entries'):
         raise SystemExit('es-MX dictionary has no reviewed vocabulary entries')
-    page = route_links(source, "es", "es-mx")
+    page = sync_hub_masthead(route_links(source, "es", "es-mx"))
     page = sync_asset_fingerprints(page, canonical)
     page = page.replace('<html lang="es">', '<html lang="es-MX">', 1)
     page = page.replace('https://overkillhill.com/es' + route, BASE + '/es-mx' + route)

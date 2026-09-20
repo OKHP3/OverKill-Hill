@@ -63,6 +63,14 @@ class DisclosureTests(unittest.TestCase):
         self.assertIn('<details>', output)
         self.assertEqual(output, API['render'](output, RECORDS[0]['route'], RECORDS))
 
+    def test_moved_project_labels_are_idempotent(self):
+        source = '<section data-status-presentation="disclosure">\n<nav>Projects</nav>\n<div data-project-labels="">Open source</div>\n<h1>Project</h1><p>Purpose.</p></section>'
+        output = API['render'](source, RECORDS[0]['route'], RECORDS)
+        self.assertEqual(output, API['render'](output, RECORDS[0]['route'], RECORDS))
+        soup = BeautifulSoup(output, 'html.parser')
+        self.assertIn('Open source', soup.details.get_text())
+        self.assertLess(output.index('Purpose.'), output.index('data-project-status-disclosure'))
+
 
 if __name__ == '__main__':
     unittest.main()

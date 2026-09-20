@@ -234,7 +234,9 @@ jobs:
           python3 scripts/build-murderbird-release-register.py --check --output tests/fixtures/murderbird-still-release-register.json --package .local/murderbird-ci-release
 
       - name: Keep reviewed page scaffolds and navigation current
-        run: python3 tests/test-review-closeout.py
+        run: |
+          python3 tests/test-review-closeout.py
+          python3 tests/test-page-families.py
 
       - name: Check regional draft publication boundaries
         run: python3 scripts/check-regional-drafts.py

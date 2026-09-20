@@ -79,7 +79,7 @@
 <link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
-<link href="/assets/css/theme.css?v=a9552094" rel="stylesheet"/>
+<link href="/assets/css/theme.css?v=8a674d19" rel="stylesheet"/>
 <script type="speculationrules">
     {
       "prefetch": [
@@ -137,7 +137,7 @@
 <ul>
 <li><a href="/#forge">The Forge</a></li>
 <li class="has-submenu">
-<a href="/projects/">Our Projects</a>
+<a data-current-family="" href="/projects/">Our Projects</a>
 <ul class="submenu">
 <li><a aria-current="page" href="/skillz-forge/">Skillz Forge</a></li>
 <li><a href="/skillz-forge/skillz-shield/">Skillz Shield</a></li>
@@ -188,30 +188,28 @@
 
   <main id="main">
 
-<div class="container">
 <!-- HERO ────────────────────────────────────────────────── -->
-<section aria-label="Project overview" class="project-hero" data-status-presentation="disclosure">
+<section aria-labelledby="page-title" class="project-hero forge-masthead forge-masthead--project" data-status-presentation="disclosure"><div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div><div aria-hidden="true" class="hero-blueprint-bg"></div><div class="container hero-inner">
 <nav aria-label="Breadcrumb" class="breadcrumb">
 <a href="/">overkillhill.com</a><span>/</span>
 <span>skillz-forge</span>
 </nav>
-<div class="tag-row">
+<h1 id="page-title">Skillz Forge</h1><p class="hero-sub">A catalog of reusable, versioned Agent Skill contracts to discover, inspect, and install.</p><div data-project-status-disclosure="skillz"><p data-project-status-brief="">Active build; package maturity varies. Operation unverified.</p><details><summary>Status and source</summary><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status="skillz"><span data-project-status-text="">Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.</span> <a href="https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html">Source record</a> (reviewed 2026-09-07).</p><!-- /AUTOGEN:PROJECT-STATUS --><div class="tag-row" data-project-labels="">
 <span class="tag">Flagship Project</span>
 <span class="tag">Open Source</span>
 <span class="tag tag--accent">Agent Skills Catalog</span>
 <span class="tag">GitHub-Native</span>
-</div>
-<h1>Skillz Forge</h1><div data-project-status-disclosure="skillz"><p data-project-status-brief="">Active build; package maturity varies. Operation unverified.</p><details><summary>Status and source</summary><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status="skillz"><span data-project-status-text="">Availability: Published catalog project. Maturity: Active build; package maturity varies. Evidence: Source description only. Delivery: unknown.</span> <a href="https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html">Source record</a> (reviewed 2026-09-07).</p><!-- /AUTOGEN:PROJECT-STATUS --></details></div>
-<p class="hero-sub">Reusable capabilities from the OverKill Hill P³™ forge.</p>
-<p>
-            Skillz turns recurring AI methods into portable, inspectable, versioned <code>SKILL.md</code> contracts that agents can load, compose, and improve. Discover, inspect, install, and contribute, entirely through the browser and GitHub.
-          </p>
+</div></details></div>
 <div class="hero-ctas">
 <a class="btn btn-primary" data-gtag-category="cta" data-gtag-event="skillz_live_app_open" data-gtag-label="hero" href="https://okhp3.github.io/skillz/" rel="noopener noreferrer" target="_blank">⤢ Enter Skillz Forge</a>
 <a class="btn btn-quiet" data-gtag-category="cta" data-gtag-event="skillz_github_open" data-gtag-label="hero" href="https://github.com/OKHP3/skillz" rel="noopener noreferrer" target="_blank">View Source on GitHub</a>
 <a class="btn btn-quiet" data-gtag-category="cta" data-gtag-event="skillz_prompt_forge_open" data-gtag-label="hero" href="/prompt-forge/">Return to Prompt Forge</a>
 </div>
-</section>
+</div></section>
+<section aria-labelledby="project-introduction-title" class="container content-section project-introduction"><h2 id="project-introduction-title">About the project</h2><p class="hero-sub">Reusable capabilities from the OverKill Hill P³™ forge.</p><p>
+            Skillz turns recurring AI methods into portable, inspectable, versioned <code>SKILL.md</code> contracts that agents can load, compose, and improve. Discover, inspect, install, and contribute, entirely through the browser and GitHub.
+          </p></section>
+<div class="container">
 <!-- TWO-COLUMN LAYOUT ───────────────────────────────────── -->
 <div class="project-layout">
 <!-- MAIN COLUMN ──────────────────────────────────────── -->
@@ -970,8 +968,7 @@ print("Installed complete package at", destination)</pre>
 </div>
 <!-- Meta -->
 <div class="sidebar-meta">
-<div class="section-label">Project Info</div>
-<div class="meta-row">
+<details class="project-record"><summary>Project details</summary><div class="meta-row">
 <div class="meta-item">
 <span class="meta-key">Status</span>
 <span class="meta-val"><span class="status-dot"></span>Live: Active Build</span>
@@ -1004,7 +1001,7 @@ print("Installed complete package at", destination)</pre>
 <span class="meta-key">Source</span>
 <span class="meta-val"><a href="https://github.com/OKHP3/skillz" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">github.com/OKHP3/skillz ↗</a></span>
 </div>
-</div>
+</div></details>
 <div class="sidebar-links">
 <a class="sidebar-link" data-gtag-category="sidebar" data-gtag-event="skillz_github_open" data-gtag-label="view" href="https://github.com/OKHP3/skillz" rel="noopener noreferrer" target="_blank">
                   ◻ View on GitHub

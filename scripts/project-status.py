@@ -115,6 +115,15 @@ def render(main, route, records, *, disclosure=False):
         return main
     soup = BeautifulSoup(main, 'html.parser')
     disclosure = disclosure or soup.select_one('[data-status-presentation="disclosure"]') is not None
+    labels = soup.select_one('[data-project-labels]')
+    if labels:
+        # Leave one separator where the moved block used to be. Repeated
+        # rendering must not progressively collapse adjacent blank lines.
+        previous = labels.previous_sibling
+        following = labels.next_sibling
+        if isinstance(previous, str) and not previous.strip() and isinstance(following, str) and not following.strip():
+            following.extract()
+        labels.extract()
     for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
         if str(comment).strip() in ('AUTOGEN:PROJECT-STATUS', '/AUTOGEN:PROJECT-STATUS'):
             comment.extract()
@@ -126,7 +135,18 @@ def render(main, route, records, *, disclosure=False):
     by_route = {r['route']: r for r in records}
     record = by_route.get(route)
     if record and record['kind'] == 'detail':
-        soup.h1.insert_after(BeautifulSoup(formatter(record), 'html.parser'))
+        status = BeautifulSoup(formatter(record), 'html.parser')
+        anchor = soup.h1
+        if disclosure:
+            purpose = soup.h1.find_next_sibling('p')
+            if purpose:
+                anchor = purpose
+            # Source labels are useful on request, after the reader knows the project.
+            if labels:
+                status.details.append(labels)
+        elif labels:
+            soup.h1.insert_before(labels)
+        anchor.insert_after(status)
     if route in ('/', '/projects/', '/universe/'):
         for card in soup.find_all('article'):
             matches = {a.get('href') for a in card.find_all('a')} & by_route.keys()

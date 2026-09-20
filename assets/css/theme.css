@@ -2280,93 +2280,8 @@ body.construction-dismissed .construction-overlay,
   font-size: 0.8rem; color: var(--color-muted, #6b7280);
   margin-top: 0.5rem; font-style: italic; padding-left: 0.5rem;
 }
-/* Story-only framing: the full creature leads, not the decorative backdrop. */
-#murderbird {
-  min-height: 0;
-  isolation: isolate;
-  background: var(--color-bg);
-  color: var(--color-fg);
-}
-
-#murderbird .hero-inner {
-  width: 100%;
-  padding: clamp(2rem, 4vw, 3.5rem) 1.5rem;
-}
-
-#murderbird .hero-grid {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(2rem, 3vw, 3rem);
-  align-items: center;
-}
-
-#murderbird .hero-visual {
-  width: 100%;
-  max-width: 520px;
-  margin: 0 0 0 auto;
-}
-
-#murderbird .hero-visual img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 0.75rem;
-}
-
-#murderbird .hero-blueprint-bg {
-  z-index: 0;
-  opacity: 0.2;
-}
-
-#murderbird .brand-stripes {
-  z-index: 0;
-  opacity: 0.08;
-  animation: none;
-}
-
-#murderbird .hero-blueprint-bg::before,
-#murderbird .hero-blueprint-bg::after {
-  animation: none;
-}
-
-#murderbird h1,
-#murderbird .hero-tagline {
-  color: var(--color-fg);
-}
-
-#murderbird h1 {
-  font-size: clamp(2.05rem, 3.6vw, 3rem);
-}
-
-#murderbird .story-brand-name {
-  white-space: nowrap;
-}
-
-#murderbird .hero-eyebrow,
-#murderbird .hero-eyebrow a {
-  color: var(--color-muted);
-}
-
-#murderbird .btn-quiet {
-  color: var(--color-fg);
-  background: var(--color-surface);
-  border-color: var(--color-muted);
-}
-
-#murderbird a:focus-visible {
-  outline: 3px solid var(--color-accent);
-  outline-offset: 4px;
-}
-
-@media (max-width: 1024px) {
-  #murderbird .hero-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  #murderbird .hero-visual {
-    max-width: none;
-    margin: 0;
-  }
-}
+/* Story body composition remains independent of the shared masthead. */
+#murderbird .story-brand-name { white-space: nowrap; }
 
 #the-maker .murderbird-scene,
 #the-mechanic .murderbird-scene,
@@ -5613,6 +5528,176 @@ html[data-theme="light"] body:not(.glee-main):not(.askjamie-main) .footer-bottom
     grid-template-columns: 1fr;
     padding: 1.75rem 1.75rem 2rem;
   }
+}
+
+/* Related-page navigation keeps the current family visible with menus closed. */
+html body .primary-nav .has-submenu > a[data-current-family] {
+  color: #ffbd70;
+  text-decoration: underline;
+  text-underline-offset: .45em;
+}
+.pf-body-with-sidebar { max-width: 1120px; margin-inline: auto; }
+.project-record > summary { cursor: pointer; min-height: 44px; padding: .75rem 0; font-weight: 600; }
+.project-record > summary:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 4px; }
+.project-record .meta-row { margin-top: 1rem; }
+.project-introduction { padding-top: 2rem; padding-bottom: 2rem; }
+.project-introduction > p { max-width: 75ch; }
+.forge-masthead .heat-guide-hero { padding: 0; }
+.forge-masthead.gpt-hero--bfs {
+  --gpt-hero-badge-bg: #003b66;
+  --gpt-hero-cta-bg: #f7a236;
+  --gpt-hero-cta-bg-hover: #ffb955;
+}
+
+/* Shared Forge mastheads. Page families opt in; sibling brand styles do not. */
+html body:not(.glee-main):not(.askjamie-main) .forge-masthead {
+  --color-fg: #fff8ed;
+  --color-muted: #e5ddd1;
+  --color-accent: #ffbd70;
+  --color-border-subtle: #766a59;
+  position: relative;
+  isolation: isolate;
+  display: block;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  color: var(--color-fg);
+  background: #292722;
+  border-bottom: 1px solid #766a59;
+}
+.forge-masthead::before { content: none; }
+html body .forge-masthead > .brand-stripes {
+  inset: 0;
+  z-index: -2;
+  opacity: .48;
+}
+html body .forge-masthead > .hero-blueprint-bg {
+  z-index: -1;
+  opacity: .42;
+}
+html body .forge-masthead > .hero-inner {
+  width: min(100% - 3rem, 1072px);
+  padding: 2.75rem 0;
+  margin-inline: auto;
+}
+html body:not(.glee-main):not(.askjamie-main) .forge-masthead h1 {
+  max-width: 24ch;
+  margin: .5rem 0 1rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 1.13;
+  letter-spacing: .025em;
+  color: var(--color-fg);
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+html body .forge-masthead p {
+  max-width: 68ch;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+html body .forge-masthead :is(.hero-tagline, .hero-sub, .article-subtitle, .gpt-hero__subtitle) {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-fg);
+  max-width: 62ch;
+}
+html body .forge-masthead :is(.hero-eyebrow, .article-eyebrow, .gpt-hero__eyebrow) {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  line-height: 1.6;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 0 0 .75rem;
+}
+html body .forge-masthead :is(.breadcrumb, .article-breadcrumb) {
+  color: var(--color-muted);
+  font-size: .8rem;
+  margin: 0 0 1.25rem;
+  flex-wrap: wrap;
+}
+html body .forge-masthead a:not(.btn):not(.gpt-hero__badge-cta) {
+  color: inherit;
+  text-decoration-color: currentColor;
+  text-underline-offset: .2em;
+}
+html body .forge-masthead a:not(.btn):hover { color: #ffcf91; }
+html body .forge-masthead :is(.hero-actions, .hero-ctas, .pf-cta-group, .gpt-hero__actions) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.5rem;
+}
+html body .forge-masthead .btn-quiet,
+html body .forge-masthead .btn-secondary {
+  background: #fff4e2;
+  border-color: #fff4e2;
+  color: #292722;
+}
+html body .forge-masthead .btn-quiet:hover,
+html body .forge-masthead .btn-secondary:hover { background: #ffdfae; color: #292722; }
+html body .forge-masthead .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 2rem;
+}
+html body .forge-masthead .hero-grid:has(.hero-visual, .gpt-hero__side) {
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+}
+html body .forge-masthead .hero-grid > * { min-width: 0; }
+html body .forge-masthead .hero-visual {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 0 0 auto;
+}
+html body .forge-masthead .hero-visual img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  max-height: 360px;
+  object-fit: contain;
+  border-radius: .75rem;
+}
+html body .forge-masthead .article-meta {
+  color: var(--color-muted);
+  border-top-color: #766a59;
+  margin-top: 1.5rem;
+}
+html body .forge-masthead .article-meta-author { color: var(--color-fg); }
+html body .forge-masthead [data-project-status-disclosure] {
+  max-width: 68ch;
+  margin: 1rem 0 1.25rem;
+  padding-left: 1rem;
+  border-left: 2px solid #e6a03c;
+}
+html body .forge-masthead [data-project-status-brief] {
+  font-size: .875rem;
+  margin-bottom: 0;
+}
+html body .forge-masthead summary { color: var(--color-fg); }
+html body .forge-masthead details[open] {
+  padding: 0 .75rem .5rem;
+  background: #25231f;
+  border-radius: .25rem;
+}
+html body .forge-masthead [data-project-status] { font-size: .875rem; }
+html body .forge-masthead :is(.tag, .tag--accent) { color: var(--color-muted); border-color: #766a59; }
+html body .forge-masthead :focus-visible { outline: 3px solid #ffcf91; outline-offset: 4px; }
+/* The story retains still artwork and a quiet backdrop for sustained reading. */
+#murderbird.forge-masthead > .hero-blueprint-bg::before,
+#murderbird.forge-masthead > .hero-blueprint-bg::after { animation: none; }
+@media (max-width: 700px) {
+  html body .forge-masthead > .hero-inner { width: calc(100% - 2rem); padding: 2rem 0; }
+  html body .forge-masthead .hero-grid:has(.hero-visual, .gpt-hero__side) { grid-template-columns: minmax(0, 1fr); }
+  html body .forge-masthead .hero-visual { max-width: 320px; margin: 0; }
+  html body .forge-masthead .hero-visual img { max-height: 280px; object-position: left center; }
 }
 
 /* ╔════════════════════════════════════════════════════════════════════════════╗

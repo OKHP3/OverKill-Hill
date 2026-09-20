@@ -79,7 +79,7 @@
 <link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=DM+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <script>!function(){var s=localStorage.getItem("okh-theme");document.documentElement.setAttribute("data-theme",s==="dark"||(s!=="light"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light")}();</script>
-<link href="/assets/css/theme.css?v=a9552094" rel="stylesheet"/>
+<link href="/assets/css/theme.css?v=8a674d19" rel="stylesheet"/>
 <script type="speculationrules">
     {
       "prefetch": [
@@ -137,7 +137,7 @@
 <ul>
 <li><a href="/#forge">The Forge</a></li>
 <li class="has-submenu">
-<a href="/projects/">Our Projects</a>
+<a data-current-family="" href="/projects/">Our Projects</a>
 <ul class="submenu">
 <li><a href="/skillz-forge/">Skillz Forge</a></li>
 <li><a href="/skillz-forge/skillz-shield/">Skillz Shield</a></li>
@@ -195,9 +195,7 @@
 
       ════════════════════════════════════════════════════════ 
 -->
-<section aria-label="Project overview" class="project-hero">
-<div aria-hidden="true" class="brand-stripes okh"></div>
-<div class="container">
+<section aria-labelledby="page-title" class="project-hero forge-masthead forge-masthead--project" data-status-presentation="disclosure"><div aria-hidden="true" class="brand-stripes brand-stripes--okh"></div><div aria-hidden="true" class="hero-blueprint-bg"></div><div class="container hero-inner">
 <nav aria-label="Breadcrumb" class="breadcrumb">
 <a href="/">OverKill Hill P³™</a>
 <span aria-hidden="true">›</span>
@@ -207,11 +205,12 @@
 </nav>
 <div class="project-hero-inner">
 <div>
-<div class="status-badge status-badge--complete">May 2026 build journal · Evidence reviewed 2026-09-07</div>
-<p><strong>Reading this journal:</strong> Hardware, service counts and timeline entries below describe the May 2026 build, not a fresh audit of today’s workstation. The <a href="https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/docs/05-benchmark-results.md">May 30 benchmark record</a> reports six Ollama models tested with five strict output-only prompts: zero outright failures, with formatting issues still recorded. The <a href="https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/reports/openclaw-related-runtime-readiness-audit-2026-08-02.md">August 2 readiness report</a> found local services responding but left document ingestion, retrieval and citation through RAG unverified. Earlier pending work is retained below as history.</p>
-<h1>Mac Studio Local AI Workbench</h1><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status="mac-studio-local-ai-workbench"><span data-project-status-text="">Availability: Published build journal. Maturity: Dated build record; current readiness unverified. Evidence: May 30 benchmark recorded; August 2 report leaves end-to-end RAG unverified. Delivery: unknown.</span> <a href="https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/reports/openclaw-related-runtime-readiness-audit-2026-08-02.md">Source record</a> (reviewed 2026-09-07).</p><!-- /AUTOGEN:PROJECT-STATUS -->
-<p class="hero-sub">Production-grade personal AI workstation: local-first, governed, documented, and restorable. Built in 10 days on Apple Silicon.</p>
-<div aria-label="Hardware specification" class="hw-spec-row">
+<div class="hero-eyebrow">May 2026 build journal</div><h1 id="page-title">Mac Studio Local AI Workbench</h1>
+<p class="hero-sub">A documented local AI build on Apple Silicon, from first boot to a restorable baseline.</p><div data-project-status-disclosure="mac-studio-local-ai-workbench"><p data-project-status-brief="">Dated build record; current readiness unverified. May 30 benchmark recorded; August 2 report leaves end-to-end RAG unverified.</p><details><summary>Status and source</summary><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status="mac-studio-local-ai-workbench"><span data-project-status-text="">Availability: Published build journal. Maturity: Dated build record; current readiness unverified. Evidence: May 30 benchmark recorded; August 2 report leaves end-to-end RAG unverified. Delivery: unknown.</span> <a href="https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/reports/openclaw-related-runtime-readiness-audit-2026-08-02.md">Source record</a> (reviewed 2026-09-07).</p><!-- /AUTOGEN:PROJECT-STATUS --></details></div>
+</div>
+</div>
+</div></section>
+<section aria-labelledby="journal-context-title" class="container content-section" id="journal-context"><h2 id="journal-context-title">About this build journal</h2><p><strong>Reading this journal:</strong> Hardware, service counts and timeline entries below describe the May 2026 build, not a fresh audit of today’s workstation. The <a href="https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/docs/05-benchmark-results.md">May 30 benchmark record</a> reports six Ollama models tested with five strict output-only prompts: zero outright failures, with formatting issues still recorded. The <a href="https://github.com/OKHP3/mac-studio-local-ai-workbench/blob/863d48a80958d91452e5ccac0bb0d181f7192688/reports/openclaw-related-runtime-readiness-audit-2026-08-02.md">August 2 readiness report</a> found local services responding but left document ingestion, retrieval and citation through RAG unverified. Earlier pending work is retained below as history.</p><div aria-label="Hardware specification" class="hw-spec-row">
 <span class="hw-chip"><strong>M4 Max</strong></span>
 <span class="hw-chip"><strong>36GB</strong> unified memory</span>
 <span class="hw-chip"><strong>512GB</strong> internal SSD</span>
@@ -220,11 +219,7 @@
 <span class="hw-chip"><strong>29</strong> models</span>
 <span class="hw-chip"><strong>11</strong> MCP servers</span>
 <span class="hw-chip"><strong>1</strong> autonomous agent</span>
-</div>
-</div>
-</div>
-</div>
-</section>
+</div></section>
 <!--
  ═══════════════════════════════════════════════════
 
@@ -1234,7 +1229,7 @@ mindmap
 </div>
 </div>
 <aside aria-label="Quick facts" class="quick-facts" data-search-index="" id="quick-facts">
-<h3>Quick Facts</h3>
+<details class="project-record"><summary>Build details · May 2026</summary>
 <div class="fact-row">
 <span class="fact-label">Machine</span>
 <span class="fact-value accent">Mac Studio M4 Max (2025)</span>
@@ -1279,7 +1274,7 @@ mindmap
 <span class="fact-label">North star</span>
 <span class="fact-value">Production-grade personal AI workstation: functional, governed, documented, restorable</span>
 </div>
-</aside>
+</details></aside>
 <!-- ENVIRONMENT BLUEPRINT -->
 <div class="content-block" data-search-index="" id="stack" style="margin-top:2rem;">
 <div class="section-label">Environment Blueprint</div>

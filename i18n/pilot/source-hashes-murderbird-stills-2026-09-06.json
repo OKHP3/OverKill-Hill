@@ -2,10 +2,10 @@
   "source_revision": "git:eea06d01af978d37cb59113a2aac43ad82aa6a09",
   "review_scope": "Option B presentation and compact hero adaptation; unchanged full source facts, archived copy and draft publication restrictions retained. No human/native approval.",
   "normalized_routes": {
-    "/": "9ed40fca7ebb0cee8904059635f974b4cb94cbaf1b8204c933b7e6d50e8e2357",
-    "/about/": "ce1bffb2cb9b7fddb7e32050a4b0fdea513d53097a44f3f8fe9cd3961f5576b0",
-    "/projects/": "2106b0f2e003d7439a80a59ded7a862eed0dc463ff39b414395e92e9ec3cea0f",
-    "/contact/": "8d91f6bf215942d2bcceb0fdbf8cb01dd4d44ab350ec31d9b40e9b0d1a18735c"
+    "/": "0d7ac6d92ec55b9c3b959e7c6886deab6456138fc787135b7879a39a83d2fdbf",
+    "/about/": "4683b0ed96b9535c571f164567ab9a26776bdbec4ad2b0258c3169d90b469c72",
+    "/projects/": "d567b4c6b93dc91cabe8df3b62e4158de25376182c6a502cfeaf5a9f52169479",
+    "/contact/": "da84f0fe6a796123a198718e96350c6a1593e7a74405a25a90b0f6da62f2d3e7"
   },
   "fallback_metadata_update": "PNG fallback only; unchanged editorial text verified against d112ca4e by tests/test-murderbird-fallback-editorial.py; prior review limitations retained.",
   "content_wave_update": {
@@ -147,6 +147,89 @@
       "i18n/pilot/es-mx/skillz-forge-route-review-2026-09-20.json"
     ],
     "native_or_human": false,
+    "release_accepted": false
+  },
+  "shared_masthead_review": {
+    "reviewed_on": "2026-09-20",
+    "source_baseline": "716ccca703020bafaadc94c20880c4a9eed96449",
+    "scope": "Shared masthead layout and current navigation-family indicator. Regional translated text is unchanged. Canonical projects eyebrow adds the existing brand label The Forge. No human/native review or publication promotion.",
+    "prior_normalized_routes": {
+      "/": "9ed40fca7ebb0cee8904059635f974b4cb94cbaf1b8204c933b7e6d50e8e2357",
+      "/about/": "ce1bffb2cb9b7fddb7e32050a4b0fdea513d53097a44f3f8fe9cd3961f5576b0",
+      "/projects/": "2106b0f2e003d7439a80a59ded7a862eed0dc463ff39b414395e92e9ec3cea0f",
+      "/contact/": "8d91f6bf215942d2bcceb0fdbf8cb01dd4d44ab350ec31d9b40e9b0d1a18735c"
+    },
+    "canonical_text_deltas": {
+      "/": {
+        "unchanged": true
+      },
+      "/about/": {
+        "unchanged": true
+      },
+      "/projects/": {
+        "unchanged": false,
+        "changed_units": [
+          {
+            "before": "",
+            "after": "The Forge"
+          }
+        ]
+      },
+      "/contact/": {
+        "unchanged": true
+      }
+    },
+    "target_records": [
+      {
+        "locale": "en-gb",
+        "route": "/",
+        "sha256": "47dbdaee93463ffe7ff327e5cea609bdfe80e7049acde21d79c33d716c1cdfb8",
+        "translated_text_unchanged": true
+      },
+      {
+        "locale": "en-gb",
+        "route": "/about/",
+        "sha256": "ff3b06a83d1da506d919755715a79651164d1f73fd8b1be4a432446ca13ba370",
+        "translated_text_unchanged": true
+      },
+      {
+        "locale": "en-gb",
+        "route": "/projects/",
+        "sha256": "3ec6e9b2b34d6c21637745f034dea8624163ee479f62bdc26a00130000681d87",
+        "translated_text_unchanged": true
+      },
+      {
+        "locale": "en-gb",
+        "route": "/contact/",
+        "sha256": "89291edea80516c35e2e541a433ef3b0313496ad01a0058626829b87aca39920",
+        "translated_text_unchanged": true
+      },
+      {
+        "locale": "es-mx",
+        "route": "/",
+        "sha256": "7ddee3ecd14e38c5a0163b5c127c79e4c5ee89fb3097aab50324c3f4c1055923",
+        "translated_text_unchanged": true
+      },
+      {
+        "locale": "es-mx",
+        "route": "/about/",
+        "sha256": "4e0e13fd651a24f3a49acdd613a9d0b0b827bcb3ab73e13a4dc200e23f6fa83d",
+        "translated_text_unchanged": true
+      },
+      {
+        "locale": "es-mx",
+        "route": "/projects/",
+        "sha256": "2120906a3d42414096007d9411d1d8936e46b758cba5cd0e4f33e141384fa784",
+        "translated_text_unchanged": true
+      },
+      {
+        "locale": "es-mx",
+        "route": "/contact/",
+        "sha256": "1ea6e710e9c92106b8e28ff5f5365f6fdd3b3e1058dc06429b18160794b07bf8",
+        "translated_text_unchanged": true
+      }
+    ],
+    "human_native_approved": false,
     "release_accepted": false
   }
 }
