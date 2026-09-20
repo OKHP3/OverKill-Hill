@@ -26,7 +26,7 @@ ARCHIVE = None
 class InstallGuideTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        source = (ROOT / "site-src/pages/projects/skillz/index.main.html").read_text(encoding="utf-8")
+        source = (ROOT / "site-src/pages/skillz-forge/index.main.html").read_text(encoding="utf-8")
         cls.recipe = html.unescape(re.search(
             r'<pre id="skillz-install-python"[^>]*>(.*?)</pre>', source, re.S
         ).group(1))
