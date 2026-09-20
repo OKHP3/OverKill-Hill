@@ -452,11 +452,10 @@
 </table>
 </div>
 <h3 style="font-size:1rem;margin:0 0 0.5rem;font-family:var(--font-body);">Install the suite</h3>
-<pre class="dsl-inline">curl -L https://okhp3.github.io/mermaid-diagram-bpmn/downloads/bp-skill-suite-v0.3.zip \
-  -o bp-skill-suite-v0.3.zip &amp;&amp; unzip bp-skill-suite-v0.3.zip -d skills/</pre>
-<!-- Note: download URL active after React app deployment to GitHub Pages completes. -->
+<pre class="dsl-inline">git clone https://github.com/OKHP3/mermaid-diagram-bpmn \
+  && cp -r mermaid-diagram-bpmn/skills ./skills</pre>
 <p style="font-size:0.875rem;color:var(--color-muted);margin-top:0.75rem;">
-                Or browse individual skills:
+                A packaged <code>bp-skill-suite-v0.3.zip</code> is planned for the skills browser; until it ships, clone the repo above or grab individual skills:
                 <a href="https://okhp3.github.io/mermaid-diagram-bpmn/skills" rel="noopener noreferrer" style="color:var(--okh-orange);" target="_blank">okhp3.github.io/mermaid-diagram-bpmn/skills →</a>
 </p>
 </div>
@@ -473,7 +472,7 @@
 <li><span class="s-road">○</span> Langium grammar, Mermaid External Diagram API packaging, parser validation, and <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">getStyles</code> integration are roadmap items, not yet implemented.</li>
 <li><span class="s-ok">✓</span> BP-SKILL v0.3 agent skill suite -- 15 SKILL.md files, 9 variable layer templates, Process Narrative Specification schema, eval suite. Compatible with all Agent Skills-conformant platforms.</li>
 <li><span class="s-ok">✓</span> Agent Skills browser -- browsable and downloadable from the playground app at /skills.</li>
-<li><span class="s-ok">✓</span> Full suite download -- bp-skill-suite-v0.3.zip packages all 15 skills and context templates.</li>
+<li><span class="s-road">○</span> Packaged full-suite zip download -- planned; install today via <code style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--okh-orange);">git clone</code> or individual skill downloads.</li>
 </ul>
 </div>
 </div>
