@@ -58,7 +58,8 @@ class PageFamilyTests(unittest.TestCase):
                 with self.subTest(path=str(path)):
                     self.assertIsNotNone(soup.select_one('.forge-masthead'))
                     fonts = ' '.join(link.get('href', '') for link in soup.select('link[rel="stylesheet"]'))
-                    self.assertIn('family=Alfa+Slab+One', fonts)
+                    self.assertIn('/assets/css/theme.css', fonts)
+                    self.assertNotIn('fonts.googleapis.com', fonts)
                     if locale == 'es-mx':
                         reviewed_name = f'{sub}-index.html' if sub else 'index.html'
                         reviewed = (ROOT / 'i18n/pilot/es-mx/reviewed' / reviewed_name).read_text(encoding='utf-8')

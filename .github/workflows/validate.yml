@@ -237,6 +237,7 @@ jobs:
         run: |
           python3 tests/test-review-closeout.py
           python3 tests/test-page-families.py
+          python3 tests/test-font-migration.py
 
       - name: Check regional draft publication boundaries
         run: python3 scripts/check-regional-drafts.py
@@ -348,6 +349,7 @@ jobs:
           done
           curl --silent --fail http://127.0.0.1:5000/ >/dev/null
           npm run test:csp -- --base-url=http://127.0.0.1:5000
+          node tests/test-self-hosted-fonts.mjs --base-url=http://127.0.0.1:5000
 
       - name: Run CSP fixture regressions
         id: csp-fixtures

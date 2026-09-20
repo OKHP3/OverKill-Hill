@@ -119,6 +119,8 @@ class ReleasePackageTests(unittest.TestCase):
                 "assets/js/app.js": b"void 0;",
                 "assets/data/search-index-fr.json": b"{}",
                 "assets/vendor/runtime.mjs": b"export default 1;",
+                "assets/fonts/fixture.woff2": b"wOF2-font-fixture",
+                "assets/fonts/fixture-license.txt": b"Fixture font license",
             }
             for relative, data in extra.items():
                 target = source / relative

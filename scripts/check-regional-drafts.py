@@ -88,7 +88,7 @@ def main() -> int:
                 fail(f"{path.relative_to(ROOT)}: Mexico flag lacks its coat of arms")
             if locale == "es-mx" and 'Español (México) · Borrador</span>' not in text:
                 fail(f"{path.relative_to(ROOT)}: missing visible Mexico draft label")
-            if locale == "es-mx" and 'href="https://fonts.googleapis.com' not in text:
+            if locale == "es-mx" and '/assets/css/theme.css' not in text:
                 fail(f"{path.relative_to(ROOT)}: missing canonical heading-font resource")
             if locale == "es-mx" and 'class="site-specials site-specials--okh"' not in text:
                 fail(f"{path.relative_to(ROOT)}: missing localized current forge notice")
