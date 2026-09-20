@@ -51,6 +51,7 @@ CATEGORY_RULES = [
     ("/writings/first-diagram-is-a-liar/", "Article"),
     ("/writings/", "Writing"),
     ("/projects/", "Project"),
+    ("/skillz-forge/", "Project"),
     ("/manifesto/", "Brand"),
     ("/universe/", "Brand"),
     ("/about/", "Brand"),
@@ -477,7 +478,7 @@ def process_file(path: Path, locale: str = "") -> list[dict]:
     canonical = read_meta(html, "canonical")
     url_path = canonical.replace(SITE, "") if canonical.startswith(SITE) else url_for(path)
     body = parser.collected_text()
-    if url_path.startswith("/projects/") and not locale:
+    if categorise(url_path) == "Project" and not locale:
         record = next((r for r in PROJECT_STATUS["load_registry"](ROOT) if r["route"] == url_path), None)
         if record:
             body = PROJECT_STATUS["summary"](record) + " " + body

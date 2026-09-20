@@ -151,7 +151,7 @@ def active_route(route: str) -> str:
     for section in ("/projects/", "/writings/", "/about/"):
         if route.startswith(section):
             return route if route in {
-                "/projects/", "/projects/skillz/", "/projects/found-ry/",
+                "/projects/", "/projects/found-ry/",
                 "/projects/mermaid-theme-builder/", "/projects/bpmn-for-mermaid/",
                 "/projects/mac-studio-local-ai-workbench/",
                 "/projects/abrahamic-reference-engine/",
@@ -350,6 +350,15 @@ def render_page(page: dict[str, str], csp_policies: dict[str, str], classify) ->
     # manifest values are intentionally absent instead of shipping literal
     # template placeholders into the generated document.
     rendered_head = BeautifulSoup(head, "html.parser")
+    if page.get("redirect_to"):
+        refresh = rendered_head.new_tag("meta")
+        refresh["http-equiv"] = "refresh"
+        refresh["content"] = "0; url=" + page["redirect_to"]
+        # Keep the no-script route usable while preserving query/fragment links
+        # through the page's fixed-destination script when JavaScript is enabled.
+        fallback = rendered_head.new_tag("noscript")
+        fallback.append(refresh)
+        rendered_head.head.append(fallback)
     for tag in list(rendered_head.find_all("meta")):
         if str(tag.get("content", "")).startswith("{{META:"):
             tag.decompose()

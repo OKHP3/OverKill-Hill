@@ -215,7 +215,7 @@
     {
       "id": "skillz",
       "title": "Skillz Forge",
-      "route": "/projects/skillz/",
+      "route": "/skillz-forge/",
       "kind": "detail",
       "availability": "Published catalog project",
       "maturity": "Active build; package maturity varies",
@@ -225,7 +225,7 @@
       "evidence": {
         "tier": "source-described",
         "summary": "Source description only.",
-        "source": "site-src/pages/projects/skillz/index.main.html",
+        "source": "site-src/pages/skillz-forge/index.main.html",
         "delivery": "unknown",
         "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
         "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/skillz/index.html"
@@ -343,6 +343,25 @@
         "delivery": "unknown",
         "revision": "98922aebf71d90b2b18ecc34c8b00a041fff51c7",
         "url": "https://github.com/OKHP3/OverKill-Hill/blob/98922aebf71d90b2b18ecc34c8b00a041fff51c7/projects/index.html"
+      }
+    },
+    {
+      "id": "skillz-shield",
+      "title": "Skillz Shield",
+      "route": "/skillz-forge/skillz-shield/",
+      "kind": "detail",
+      "availability": "Published project",
+      "maturity": "Active development; static security screening",
+      "reviewed": "2026-09-20",
+      "shelf": true,
+      "shelf_exception": null,
+      "evidence": {
+        "tier": "source-described",
+        "summary": "Documented package screening with Cisco Skill Scanner and NVIDIA SkillSpector; scan results are not safety certification.",
+        "source": "site-src/pages/skillz-forge/skillz-shield/index.main.html",
+        "delivery": "unknown",
+        "revision": "d49ff6afbc4f53087f4bee9156ee47870985ab3e",
+        "url": "https://github.com/OKHP3/skillz-shield/blob/d49ff6afbc4f53087f4bee9156ee47870985ab3e/README.md"
       }
     }
   ]

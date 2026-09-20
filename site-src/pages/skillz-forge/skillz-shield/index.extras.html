@@ -1,0 +1,80 @@
+<script>
+      (function () {
+        const btn = document.getElementById('reload-btn');
+        const iframe = document.getElementById('tool-iframe');
+        const overlay = document.getElementById('iframe-overlay');
+        const fallback = document.getElementById('iframe-fallback');
+
+        if (!iframe) return;
+
+        var slowTimer = null;
+
+        function showLoading() {
+          if (overlay) overlay.classList.remove('loaded');
+          if (fallback) fallback.classList.remove('visible');
+          clearTimeout(slowTimer);
+          slowTimer = setTimeout(function () {
+            if (fallback) fallback.classList.add('visible');
+          }, 8000);
+        }
+
+        function hideLoading() {
+          clearTimeout(slowTimer);
+          if (overlay) overlay.classList.add('loaded');
+          if (fallback) fallback.classList.remove('visible');
+        }
+
+        iframe.addEventListener('load', hideLoading);
+
+        if (btn) {
+          btn.addEventListener('click', function () {
+            showLoading();
+            iframe.src = iframe.src;
+          });
+        }
+
+        showLoading();
+      })();
+    </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "OverKill Hill P³™",
+      "item": "https://overkillhill.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Skillz Forge",
+      "item": "https://overkillhill.com/skillz-forge/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Skillz Shield",
+      "item": "https://overkillhill.com/skillz-forge/skillz-shield/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Skillz Shield",
+  "description": "Security evidence for committed Agent Skill packages, using Cisco Skill Scanner and NVIDIA SkillSpector.",
+  "url": "https://okhp3.github.io/skillz-shield/",
+  "author": {
+    "@id": "https://overkillhill.com/#organization"
+  },
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "codeRepository": "https://github.com/OKHP3/skillz-shield",
+  "license": "https://opensource.org/licenses/MIT"
+}
+</script>

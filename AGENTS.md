@@ -44,6 +44,10 @@ validation workflow changes.
 ### Architecture and entry points
 
 - `index.html` is the homepage and root of the published static tree.
+- `skillz-forge/index.html` is the existing Skillz Forge project page, moved
+  from `/projects/skillz/`, which remains a noindex redirect. Its companion
+  page is `skillz-forge/skillz-shield/index.html`. Both are peer entries in the
+  Our Projects menu, even though Shield has a nested URL.
 - `server.py` provides the local no-cache preview server on port 5000.
 - `assets/css/theme.css` is the canonical shared stylesheet for the OKH,
   GLEE, and ASKJAMIE brand scopes.

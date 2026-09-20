@@ -25,8 +25,11 @@ try {
   await page.locator('.universe-generated details').evaluateAll((items) => items.forEach((item) => { item.open = true; }));
   const total = await page.locator('.universe-diagram').count();
   await page.waitForFunction((count) => document.querySelectorAll('.universe-diagram[data-rendered="true"]').length === count, total);
-  assert.ok(await page.locator('.universe-diagram svg a[href="/projects/skillz/"]').count());
-  assert.equal(await page.locator('.universe-generated li a[href="/projects/skillz/"]').count(), 1);
+  assert.ok(await page.locator('.universe-diagram svg a[href="/skillz-forge/"]').count());
+  // Forge appears in the root outline and again as the parent of Shield.
+  assert.equal(await page.locator('.universe-generated li a[href="/skillz-forge/"]').count(), 2);
+  assert.equal(await page.locator('.universe-generated li a[href="/skillz-forge/skillz-shield/"]').count(), 1);
+  assert.ok(await page.locator('.universe-diagram svg a[href="/skillz-forge/skillz-shield/"]').count());
   for (const width of [390, 1440]) {
     await page.setViewportSize({width, height: 900});
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false, `overflow at ${width}`);
@@ -43,7 +46,7 @@ try {
   assert.ok(await plain.locator('.universe-generated li a[href]').count() >= 31);
   assert.equal(await plain.locator(".universe-diagram:visible").count(), 0);
   await offline.close();
-  console.log(`PASS: ${total} diagrams, SVG links, 31-page outline, two widths, theme switch, and no-JavaScript fallback`);
+  console.log(`PASS: ${total} diagrams, SVG links, complete page outline, two widths, theme switch, and no-JavaScript fallback`);
 } finally {
   await browser.close();
   server.close();
