@@ -113,7 +113,13 @@ does not report the managed Replit patch as verified latest.
 
 The **Runtime compatibility** workflow trials Python 3.14.7 alongside the
 current 3.11 line using the unchanged QA requirements, maintained Python
-regression suites, and static release gates. This is a compatibility trial:
+regression suites, and static release gates. Every active Python test entry
+point in `validate.yml`, including the universe-map skill suite, runs under
+both interpreters. `tests/test-runtime-coverage.py` fails if a newly added
+validation suite is missing from the matrix. The matrix also checks generated
+release packaging and MurderBird provenance. Browser checks, pinned cross-site
+checkout verification, and live external/hosting probes retain their full
+Site Validation workflow contract. This is a compatibility trial:
 the primary release jobs and Replit remain on 3.11 until the candidate passes
 hosted checks and Replit module availability is confirmed. The September 20
 Replit module inventory has no Python 3.14 selector. The daily inventory
