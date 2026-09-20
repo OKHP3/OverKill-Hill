@@ -373,6 +373,17 @@ Add new site-specific styles inside one of those scopes — never as a parallel 
 
 The shared `app.js` sets `data-theme` on the `<html>` element (`document.documentElement`), **not on `<body>`**. The matching CSS uses `html[data-theme="…"] body { … }`. If you ever see `body[data-theme="…"]` rules creeping in, those are dead code — the selector will never match.
 
+## Skillz project routes
+
+The Skillz Forge project page lives at `/skillz-forge/`; its shorter Skillz
+Shield companion lives at `/skillz-forge/skillz-shield/`. Both appear as peer
+entries in the Our Projects menu. `/projects/skillz/` is a noindex compatibility
+redirect, preserving query parameters and fragments with JavaScript and using
+a no-script refresh fallback. Author these pages under the matching
+`site-src/pages/` paths and maintain their metadata in `site-src/pages.json`.
+Project-status coverage includes both `projects/` and `skillz-forge/` sources;
+manifest-declared redirects are excluded from detail inventory.
+
 ## Template Library
 
 Path: `assets/templates/`

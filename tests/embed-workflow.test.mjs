@@ -51,8 +51,31 @@ const embeds = [
   ["/projects/bpmn-for-mermaid/", "bpmn-tool-iframe", "bpmn-reload-btn", "https://okhp3.github.io/mermaid-diagram-bpmn/"],
   ["/projects/found-ry/", "foundry-tool-iframe", "foundry-reload-btn", "https://okhp3.github.io/OverKill-Hill-FoundRy/"],
   ["/projects/mermaid-theme-builder/", "tool-iframe", "reload-btn", "https://okhp3.github.io/mermaid-theme-builder/?embed=1"],
-  ["/projects/skillz/", "tool-iframe", "reload-btn", "https://okhp3.github.io/skillz/"],
+  ["/skillz-forge/", "tool-iframe", "reload-btn", "https://okhp3.github.io/skillz/"],
+  ["/skillz-forge/skillz-shield/", "tool-iframe", "reload-btn", "https://okhp3.github.io/skillz-shield/"],
 ];
+
+test("legacy Skillz links preserve the destination section and query", async () => {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage();
+    await page.route("https://**", (route) => route.abort());
+    for (const legacy of ["/projects/skillz/", "/projects/skillz/index.html"]) {
+      await page.goto(`${baseUrl}${legacy}?ref=bookmark#install-guide`);
+      await page.waitForURL(`${baseUrl}/skillz-forge/?ref=bookmark#install-guide`);
+      assert.equal(await page.locator("h1").innerText(), "Skillz Forge");
+      assert.equal(await page.locator("#install-guide").count(), 1);
+    }
+    const offline = await browser.newContext({ javaScriptEnabled: false });
+    const plain = await offline.newPage();
+    await plain.goto(`${baseUrl}/projects/skillz/`);
+    await plain.waitForURL(`${baseUrl}/skillz-forge/`);
+    assert.equal(await plain.locator("h1").innerText(), "Skillz Forge");
+    await offline.close();
+  } finally {
+    await browser.close();
+  }
+});
 
 test("embedded parent pages preserve the security contract and reload fallback", async () => {
   const browser = await chromium.launch({ headless: true });

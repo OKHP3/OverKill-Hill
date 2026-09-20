@@ -47,7 +47,7 @@ class RegistryTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             shutil.copytree(ROOT / 'site-src', root / 'site-src')
-            for rel in ['index.html', 'projects', 'universe', 'assets/data/search-index.json']:
+            for rel in ['index.html', 'projects', 'skillz-forge', 'universe', 'assets/data/search-index.json']:
                 source, target = ROOT / rel, root / rel
                 target.parent.mkdir(parents=True, exist_ok=True)
                 if source.is_dir():

@@ -2,10 +2,10 @@
   "source_revision": "git:eea06d01af978d37cb59113a2aac43ad82aa6a09",
   "review_scope": "Option B presentation and compact hero adaptation; unchanged full source facts, archived copy and draft publication restrictions retained. No human/native approval.",
   "normalized_routes": {
-    "/": "f039751a54869fad434c951f0c9770a8858bc0f291e923a196a0c9babc8039bd",
-    "/about/": "4c83dc52777562bba635de25e32a072bb4c402a7aa99a60c68a2bc9ae0d9d404",
-    "/projects/": "b40228f94b073e4f2dafb6be697b0b1f229307efeef84be14ac2aa34ab0fcc17",
-    "/contact/": "d0682c3cb7795af31d7f3de32f18def82d173008fa22b167597f0c74c3b23d34"
+    "/": "9ed40fca7ebb0cee8904059635f974b4cb94cbaf1b8204c933b7e6d50e8e2357",
+    "/about/": "ce1bffb2cb9b7fddb7e32050a4b0fdea513d53097a44f3f8fe9cd3961f5576b0",
+    "/projects/": "2106b0f2e003d7439a80a59ded7a862eed0dc463ff39b414395e92e9ec3cea0f",
+    "/contact/": "8d91f6bf215942d2bcceb0fdbf8cb01dd4d44ab350ec31d9b40e9b0d1a18735c"
   },
   "fallback_metadata_update": "PNG fallback only; unchanged editorial text verified against d112ca4e by tests/test-murderbird-fallback-editorial.py; prior review limitations retained.",
   "content_wave_update": {
@@ -132,5 +132,21 @@
         "target_sha256": "4cbce288e6f309c913a6e7c24250a6901119806dfa2374cf168f126995e8f592"
       }
     ]
+  },
+  "skillz_forge_route_review": {
+    "reviewed_on": "2026-09-20",
+    "scope": "Bounded route/menu changes on four canonical pages and one Shield project-shelf card in regional drafts; all other prose retained. Drafts stay noindex with no public alternates or search entries.",
+    "prior_normalized_routes": {
+      "/": "f039751a54869fad434c951f0c9770a8858bc0f291e923a196a0c9babc8039bd",
+      "/about/": "4c83dc52777562bba635de25e32a072bb4c402a7aa99a60c68a2bc9ae0d9d404",
+      "/projects/": "b40228f94b073e4f2dafb6be697b0b1f229307efeef84be14ac2aa34ab0fcc17",
+      "/contact/": "d0682c3cb7795af31d7f3de32f18def82d173008fa22b167597f0c74c3b23d34"
+    },
+    "records": [
+      "i18n/pilot/en-gb/skillz-forge-route-review-2026-09-20.json",
+      "i18n/pilot/es-mx/skillz-forge-route-review-2026-09-20.json"
+    ],
+    "native_or_human": false,
+    "release_accepted": false
   }
 }

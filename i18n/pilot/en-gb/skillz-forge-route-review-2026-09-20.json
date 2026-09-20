@@ -1,0 +1,32 @@
+{
+  "source_locale": "en-US",
+  "target_locale": "en-GB",
+  "direction": "one-way",
+  "source_register": "plainspoken",
+  "artifact_type": "html",
+  "source_base_revision": "2a54b8b8eec3e71ef7f7be2f106a706250dd7aca",
+  "source_path": "projects/index.html",
+  "source_sha256": "29c705ad85b047628b76a23ab667f548700c48ffd26e2c5c5b9df6cfa1291329",
+  "target_path": "en-gb/projects/index.html",
+  "target_sha256": "17746fe1fee7ccdd5dd7f34ae455e98bdd44004b9f584f995e334b5904efd640",
+  "voice_profile": "i18n/pilot/en-gb/content-wave-2026-09-08/voice-profile.en-us.json",
+  "dictionary": "i18n/pilot/en-gb/dictionary.en-us-en-uk.json",
+  "dictionary_version": "0.1.0",
+  "status": "machine-drafted",
+  "reviewed_on": "2026-09-20",
+  "review": {
+    "method": "Bounded AI semantic review and exact-pair structural/protected-token validator",
+    "complete": true,
+    "native_or_human": false,
+    "release_accepted": false
+  },
+  "scope": "One Skillz Shield shelf card, equal menu entries where a project submenu exists, and updated current Skillz route links. Preserve pinned historical evidence URLs and all other prose.",
+  "source_unit": "<article class=\"card project-card\">\n<h3>Skillz Shield</h3>\n<p>Security screening for committed Agent Skill packages, with findings and coverage from Cisco Skill Scanner and NVIDIA SkillSpector.</p><div data-project-status-disclosure=\"skillz-shield\"><p data-project-status-brief=\"\">Active development; static security screening. Operation unverified.</p><details><summary>Status and source</summary><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status=\"skillz-shield\"><span data-project-status-text=\"\">Availability: Published project. Maturity: Active development; static security screening. Evidence: Documented package screening with Cisco Skill Scanner and NVIDIA SkillSpector; scan results are not safety certification. Delivery: unknown.</span> <a href=\"https://github.com/OKHP3/skillz-shield/blob/d49ff6afbc4f53087f4bee9156ee47870985ab3e/README.md\">Source record</a> (reviewed 2026-09-20).</p><!-- /AUTOGEN:PROJECT-STATUS --></details></div>\n<p><a class=\"btn btn-primary\" href=\"/skillz-forge/skillz-shield/\">Explore Skillz Shield →</a></p>\n</article>",
+  "target_unit": "<article class=\"card project-card\">\n<h3>Skillz Shield</h3>\n<p>Security screening for committed Agent Skill packages, with findings and coverage from Cisco Skill Scanner and NVIDIA SkillSpector.</p><div data-project-status-disclosure=\"skillz-shield\"><p data-project-status-brief=\"\">Active development; static security screening. Operation unverified.</p><details><summary>Status and source</summary><!-- AUTOGEN:PROJECT-STATUS --><p data-project-status=\"skillz-shield\"><span data-project-status-text=\"\">Availability: Published project. Maturity: Active development; static security screening. Evidence: Documented package screening with Cisco Skill Scanner and NVIDIA SkillSpector; scan results are not safety certification. Delivery: unknown.</span> <a href=\"https://github.com/OKHP3/skillz-shield/blob/d49ff6afbc4f53087f4bee9156ee47870985ab3e/README.md\">Source record</a> (reviewed 2026-09-20).</p><!-- /AUTOGEN:PROJECT-STATUS --></details></div>\n<p><a class=\"btn btn-primary\" href=\"/skillz-forge/skillz-shield/\">Explore Skillz Shield →</a></p>\n</article>",
+  "assumptions": [
+    "Retain existing provisional source voice for the bounded draft update; no owner-approved profile or native approval is invented.",
+    "Preserve product and engine names. UK copy needs no spelling adaptation. Mexican Spanish retains the existing informal call-to-action style."
+  ],
+  "unresolved_terms": [],
+  "needs_native_review": true
+}

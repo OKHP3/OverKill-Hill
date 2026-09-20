@@ -248,6 +248,7 @@ jobs:
           python3 tests/test-project-status.py
           python3 tests/test-project-status-disclosure.py
           python3 tests/test_project_status.py
+          python3 tests/test-skillz-forge.py
 
       - name: Check generated HTML is current
         run: python3 scripts/build-site.py --check
