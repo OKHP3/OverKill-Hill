@@ -13,7 +13,7 @@ Linked applications retain their own repositories and release processes.
 | Python QA dependencies | Daily Dependabot | Update `requirements-qa.txt` in a PR; clean environment and Site Validation |
 | Audio-production requirements | Daily Dependabot in the nested source directory | Review a PR; preserve original requirements/delivery evidence; validate a separate reproduction environment and audition before accepting a new toolchain |
 | GitHub Actions | Daily Dependabot | Review action release notes and SHA changes; validate workflows and release-artifact behavior |
-| Node.js and bundled npm | Daily Technology Version Watch | Coordinate `.nvmrc`, `.node-version`, package engine, lock metadata, Replit module, stack checker, and README in one migration PR |
+| Node.js and bundled npm | Daily Technology Version Watch | Coordinate preferred `.nvmrc`/`.node-version` pins, supported package engine bounds, lock metadata, Replit module, stack checker, and README in one migration PR |
 | Python runtime | Daily Technology Version Watch | Test a new stable release alongside the current CI version, then update all workflow selectors and supported Replit modules |
 | Vendored Mermaid | Existing daily Mermaid Version Watch, also inventoried here | Review and replace the complete upstream bundle, VERSION and relevant docs; run diagram, CSP, link, accessibility and browser checks |
 | Blender, FFmpeg, GarageBand | Daily publisher lookup; local version gaps remain visible | Upgrade the authoring workstation, preserve originals, and verify new render/export provenance separately |
@@ -99,6 +99,30 @@ maintenance, not a guarantee of zero lag. See [GitHub schedule behavior](https:/
    do not run its broad `--fix` mode as part of this update pipeline.
 
 ## Validation and rollback
+
+### September 20 runtime maintenance
+
+The preferred repository and CI pins now use Node 24.21.0 and bundled npm
+11.19.0. Replit currently supplies Node 24.13.0 and npm 11.6.2 through its
+`nodejs-24` module. Supported engine bounds are `>=24.13.0 <25` for Node and
+`>=11.6.2 <12` for npm; engine enforcement remains enabled. The checker
+verifies preferred pins separately from compatible manifest/lockfile bounds
+and the Replit major. Verify each host's actual runtime separately. The
+inventory still compares the preferred pin with the current LTS target and
+does not report the managed Replit patch as verified latest.
+
+The **Runtime compatibility** workflow trials Python 3.14.7 alongside the
+current 3.11 line using the unchanged QA requirements, maintained Python
+regression suites, and static release gates. This is a compatibility trial:
+the primary release jobs and Replit remain on 3.11 until the candidate passes
+hosted checks and Replit module availability is confirmed. The September 20
+Replit module inventory has no Python 3.14 selector. The daily inventory
+continues reporting the older Python selectors while that work remains.
+
+Blender, FFmpeg, and GarageBand observations remain authoring-host work.
+Repository CI cannot establish their installed versions or certify historical
+media with a newer toolchain. Preserve UNKNOWN findings and original media
+provenance until actual host inspection supplies the required evidence.
 
 Every upgrade uses a clean install: `npm ci` and a fresh Python virtual
 environment with `python -m pip install -r requirements-qa.txt`, followed by

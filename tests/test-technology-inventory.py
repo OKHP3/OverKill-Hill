@@ -16,6 +16,14 @@ SPEC.loader.exec_module(AUDIT)
 
 
 class ReleaseTests(unittest.TestCase):
+    def test_supported_runtime_range_accepts_replit_and_preferred_pins(self):
+        self.assertTrue(AUDIT.runtime_constraint_allows("24.13.0", ">=24.13.0 <25"))
+        self.assertTrue(AUDIT.runtime_constraint_allows("24.21.0", ">=24.13.0 <25"))
+        self.assertTrue(AUDIT.runtime_constraint_allows("24.21.0", "24.21.0"))
+        for unsupported in ("22.19.0", "24.12.0", "25.0.0", "24.21.0rc1"):
+            self.assertFalse(AUDIT.runtime_constraint_allows(unsupported, ">=24.13.0 <25"))
+        self.assertFalse(AUDIT.runtime_constraint_allows("24.21.0", "*"))
+
     def test_numeric_sort_and_prerelease_exclusion(self):
         self.assertEqual(AUDIT.stable_max(["1.9.0", "1.10.0", "2.0.0rc1", "2.0.0-beta.2", "v1.10.1"]), "1.10.1")
         self.assertIsNone(AUDIT.version("3.15.0rc2"))

@@ -4,7 +4,8 @@
   "description": "**Precision · Protocol · Promptcraft**",
   "private": true,
   "engines": {
-    "node": "22.19.0"
+    "node": ">=24.13.0 <25",
+    "npm": ">=11.6.2 <12"
   },
   "scripts": {
     "test:accessibility": "node scripts/accessibility-qa.mjs",
