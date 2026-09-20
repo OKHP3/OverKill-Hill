@@ -2,10 +2,10 @@
   "source_revision": "git:eea06d01af978d37cb59113a2aac43ad82aa6a09",
   "review_scope": "Option B presentation and compact hero adaptation; unchanged full source facts, archived copy and draft publication restrictions retained. No human/native approval.",
   "normalized_routes": {
-    "/": "0d7ac6d92ec55b9c3b959e7c6886deab6456138fc787135b7879a39a83d2fdbf",
-    "/about/": "4683b0ed96b9535c571f164567ab9a26776bdbec4ad2b0258c3169d90b469c72",
-    "/projects/": "d567b4c6b93dc91cabe8df3b62e4158de25376182c6a502cfeaf5a9f52169479",
-    "/contact/": "da84f0fe6a796123a198718e96350c6a1593e7a74405a25a90b0f6da62f2d3e7"
+    "/": "f0e941a2e45b45a5ffde4ccf92901abd3d58140421db3e112f8f18f00d82117d",
+    "/about/": "49159fc4ebe472638c6d92bc4562b2f1e2856dfa1534b9ce3f17077271f43548",
+    "/projects/": "14932f867e0a8a8308ab9f224059a6b0864d76d6beda879537651c9edcb8ad32",
+    "/contact/": "f86989ad9d4bbbc1e3e16a57d829fdc60c39667846d81b93d4cb698422b98826"
   },
   "fallback_metadata_update": "PNG fallback only; unchanged editorial text verified against d112ca4e by tests/test-murderbird-fallback-editorial.py; prior review limitations retained.",
   "content_wave_update": {
@@ -227,6 +227,36 @@
         "route": "/contact/",
         "sha256": "1ea6e710e9c92106b8e28ff5f5365f6fdd3b3e1058dc06429b18160794b07bf8",
         "translated_text_unchanged": true
+      }
+    ],
+    "human_native_approved": false,
+    "release_accepted": false
+  },
+  "self_hosted_fonts_update": {
+    "reviewed_on": "2026-09-20",
+    "baseline_revision": "b8530cf3acae9b0f2dcc2cc2e70265ee113949ac",
+    "editor_revision": "f8772e09f07fbdf0fbc74575f060b2ac59f43a06",
+    "scope": "Head font-resource migration only. All four canonical body trees are unchanged after existing generated-metadata normalization. Original reviewed translations remain untouched. Draft status, noindex and prior review limitations retained.",
+    "evidence": [
+      {
+        "route": "/",
+        "body_sha256": "3cd65a86478f3b94c6c7363bf1c40c2adc556fbb1b9a41b6533a6b52ed8a4036",
+        "body_unchanged": true
+      },
+      {
+        "route": "/about/",
+        "body_sha256": "309782ec57680500286e612275e96a23918e1487dc50705aa01df7c1a1317009",
+        "body_unchanged": true
+      },
+      {
+        "route": "/projects/",
+        "body_sha256": "4fec81fa483d4ca2d085be70578db297485eae8e0db311b32f5c95f04ac65bac",
+        "body_unchanged": true
+      },
+      {
+        "route": "/contact/",
+        "body_sha256": "3022cd2f747aa3cb377964523790ebcfef221bbf1533a7ae2332971672809d3b",
+        "body_unchanged": true
       }
     ],
     "human_native_approved": false,

@@ -418,11 +418,11 @@ def build_es_mx(source: str, canonical: str, route: str, dictionary: dict) -> st
     # Draft artifacts retain their reviewed prose, but inherit the canonical
     # font resources and current forge notice so the locale shell renders with
     # the same brand typography and site-wide status context as English.
-    if 'href="https://fonts.googleapis.com' not in page:
-        font_links = '\n'.join(re.findall(r'<link[^>]+https://fonts\.(?:googleapis|gstatic)\.com[^>]*>', canonical, re.I))
-        if not font_links:
-            raise SystemExit('Canonical source is missing required font resources')
-        page = page.replace('</head>', font_links + '\n</head>')
+    # Font faces live in the canonical shared stylesheet. Remove legacy links
+    # from reviewed input without editing that preserved translation artifact.
+    page = re.sub(r'<link\b[^>]*https://fonts\.(?:googleapis|gstatic)\.com[^>]*>', '', page, flags=re.I)
+    if '/assets/css/theme.css' not in page:
+        raise SystemExit('Locale page is missing the canonical font stylesheet')
     if 'class="site-specials site-specials--okh"' not in page:
         notice = (
             '<section aria-label="Actualización de la fragua" class="site-specials site-specials--okh">'
