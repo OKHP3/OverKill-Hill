@@ -157,19 +157,20 @@ Checks every HTML page for: title, meta description, canonical, single H1, JSON-
 
 For the browser-level phone layout check used in CI:
 
-Use the exact Node.js version in `.nvmrc` for local browser QA. The current
-pin is **22.19.0**, matching `.node-version`, `package.json`, and the root
-lockfile metadata. `.npmrc` rejects other Node versions during installation.
-Use the npm bundled
-with Node and `npm ci` to preserve the dependency lockfile.
+Use the preferred Node.js version in `.nvmrc` and `.node-version` for local
+browser QA and CI: **24.21.0**, with bundled npm **11.19.0**. Run `npm ci`
+to preserve the dependency lockfile.
 
-The September 18 technology audit found this pin behind the current LTS.
-See [the technology audit](assets/docs/technology-audit-2026-09-18.md) and
-[update policy](docs/technology-update-policy.md) for verified versions,
-the coordinated runtime migration, and daily dependency tracking.
+Managed Replit runtimes can lag behind the latest LTS patch. The manifest and
+lockfile therefore support **Node >=24.13.0 <25** with **npm >=11.6.2 <12**.
+`.npmrc` keeps engine enforcement enabled; unsupported Node/npm majors and
+older patches are rejected. The September 20 Replit inspection found Node
+24.13.0 and npm 11.6.2. This is supported compatibility, not a claim that the
+managed runtime runs the latest patch. See [the update policy](docs/technology-update-policy.md).
 
 Replit preview uses `python3 server.py`. Its `.replit` environment selects
-`nodejs-24` for browser QA, which currently differs from the repository pin.
+`nodejs-24` for browser QA. Verify actual `node --version` and `npm --version`
+against the supported bounds before running `npm ci`.
 Open a fresh Shell after changing modules so it loads the selected runtime.
 Connected Replit installation, browser and preview checks are recorded in
 [the A08 runtime evidence](assets/docs/qa-runtime-a08-2026-09-07.md).

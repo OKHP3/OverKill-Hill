@@ -1,0 +1,63 @@
+name: Runtime compatibility
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: runtime-compatibility-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python:
+    name: Python ${{ matrix.python }} compatibility
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.14.7']
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install the existing QA requirements without changing pins
+        run: |
+          python3 -m pip install --disable-pip-version-check -r requirements-qa.txt
+          python3 -m pip check
+      - name: Verify runtime, parsing, serving, and release-boundary regressions
+        # Run maintained suites explicitly; historical one-off proofs in tests/
+        # are not a standing acceptance contract. Hyphenated names need paths.
+        run: |
+          python3 tests/test-runtime-alignment.py
+          python3 tests/test-technology-inventory.py
+          python3 tests/test-release-package.py
+          python3 tests/test-public-page-boundary.py
+          python3 tests/test-preview-server.py
+          python3 tests/test-search-sections.py
+          python3 tests/test-project-status.py
+          python3 tests/test-i18n-release.py
+          python3 tests/test-i18n-workflow.py
+          python3 tests/test_csp_page_discovery.py
+          python3 tests/test-performance-budget.py
+      - name: Verify generators and the structural release gates
+        run: |
+          python3 scripts/build-site.py --check
+          python3 scripts/build-search-index.py --check
+          python3 scripts/sync-universe-map.py --check
+          python3 scripts/validate-site.py
+          python3 scripts/test-seo-fixtures.py
+          python3 scripts/check-csp.py
+          python3 scripts/check-locale-links.py
+          python3 scripts/cache-bust.py --check
+          python3 scripts/check-links.py
